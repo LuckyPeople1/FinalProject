@@ -119,3 +119,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,windows,eclipse
+
+Servers/*/web.xml
+Servers/*/tomcat-users.xml
+Servers/*/server.xml
+Servers/*/context.xml
+Servers/*/catalina.properties
+Servers/*/catalina.policy
+FinalProject/target*
