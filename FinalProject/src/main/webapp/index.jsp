@@ -31,12 +31,6 @@
 	</div>
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 	
-	<section class="orderInfoPage">
-		asdflksadmfksdaf
-	</section>
-	
-	<style>
-	</style>
 	
 </div>
 </body>
