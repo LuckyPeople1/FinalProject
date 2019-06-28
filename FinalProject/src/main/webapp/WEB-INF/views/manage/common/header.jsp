@@ -14,7 +14,7 @@
 			<i class="ico set"></i>
 			<div class="menu_text">부동산관리</div>
 		</a>
-		<a href="/admin/html/move/moveList.html" class="menu_btn">
+		<a href="/manage/move/moveAllList" class="menu_btn ${headerNum == 3 ? "on" : ""}">
 			<i class="ico set"></i>
 			<div class="menu_text">이사관리</div>
 		</a>
