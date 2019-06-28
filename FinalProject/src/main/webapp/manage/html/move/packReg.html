@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>JM 관리자</title>
+	<link rel="stylesheet" type="text/css" href="/admin/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/admin/css/ui.css">
+	<link rel="stylesheet" type="text/css" href="/admin/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/admin/css/jquery-ui.min.css">
+	<script src="/admin/js/jquery-3.1.1.min.js"></script>
+	<script src="/admin/js/jquery-ui-1.12.1.js"></script>
+	<script src="/admin/js/ui.js"></script>
+	<script src="/admin/js/search.js"></script>
+	<script src="/admin/js/include.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<!-- gnb -->
+	<header role="header" data-include="/admin/html/common/header.html"></header>
+
+
+	<div class="wrapper">
+		<!-- lnb -->
+		<header role="nav" data-include="/admin/html/move/moveNav.html"></header>
+
+		<section class="contents package">
+			<form id="regFrm" name="regFrm">
+				<div class="set_field">
+					<div class="field_title"><span class="title_mark">■ 짐 정보 입력</span></div>
+					<table class="set_table">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<tr>
+							<th>카테고리</th>
+							<td>
+								<label class="chk">
+									<input type="radio" name="packType">
+									<span>가전</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="packType">
+									<span>가구</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="packType">
+									<span>기타</span>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th>짐 이름</th>
+							<td>
+								<input class="tbox full" id="packageName" name="packageName">
+							</td>
+						</tr>
+						<tr>
+							<th>짐 아이콘 등록</th>
+							<td>
+								<div class="img_up_list">
+									<div class="img_box">
+										<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg"
+											   onchange="goodsReg.imgSel(this, event)">
+										<a href="#none" class="upload_btn">
+										</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="set_field">
+					<div class="field_title">
+						<span class="title_mark">■ 옵션1 정보</span>
+					</div>
+					<table class="set_table packageOption">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>옵션 사용유무</th>
+							<td>
+								<div class="opUse">
+									<label class="chk">
+										<input type="radio" name="opUse1">
+										<span>사용</span>
+									</label>
+									<label class="chk ml10">
+										<input type="radio" name="opUse1" checked>
+										<span>미사용</span>
+									</label>
+								</div>
+
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th>옵션명</th>
+							<td><input type="text" class="tbox normal" name="option1"></td>
+						</tr>
+						<tr>
+							<th>옵션값</th>
+							<td>
+								<div class="color_list">
+									<div class="color_set">
+										<input class="tbox" name="goodsTag">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<a href="javascript:goodsReg.tagAdd()" class="addBtn col_main f_w">추가</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>기타옵션 사용</th>
+							<td>
+								<label class="chk">
+									<input type="radio" name="etcUse2">
+									<span>사용</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="etcUse2" checked>
+									<span>미사용</span>
+								</label>
+							</td>
+
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="set_field">
+					<div class="field_title">
+						<span class="title_mark">■ 옵션2 정보</span>
+					</div>
+					<table class="set_table packageOption">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>옵션 사용유무</th>
+							<td>
+								<div class="opUse">
+									<label class="chk">
+										<input type="radio" name="opUse2">
+										<span>사용</span>
+									</label>
+									<label class="chk ml10">
+										<input type="radio" name="opUse2" checked>
+										<span>미사용</span>
+									</label>
+								</div>
+
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th>옵션명</th>
+							<td><input type="text" class="tbox normal" name="option1"></td>
+						</tr>
+						<tr>
+							<th>옵션값</th>
+							<td>
+								<div class="color_list">
+									<div class="color_set">
+										<input class="tbox" name="goodsTag">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<a href="javascript:goodsReg.tagAdd()" class="addBtn col_main f_w">추가</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>기타옵션 사용</th>
+							<td>
+								<label class="chk">
+									<input type="radio" name="etcUse2">
+									<span>사용</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="etcUse2" checked>
+									<span>미사용</span>
+								</label>
+							</td>
+
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="set_field">
+					<div class="field_title">
+						<span class="title_mark">■ 옵션3 정보</span>
+					</div>
+					<table class="set_table packageOption">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>옵션 사용유무</th>
+							<td>
+								<div class="opUse">
+									<label class="chk">
+										<input type="radio" name="opUse3">
+										<span>사용</span>
+									</label>
+									<label class="chk ml10">
+										<input type="radio" name="opUse3" checked>
+										<span>미사용</span>
+									</label>
+								</div>
+
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th>옵션명</th>
+							<td><input type="text" class="tbox normal" name="option1"></td>
+						</tr>
+						<tr>
+							<th>옵션값</th>
+							<td>
+								<div class="color_list">
+									<div class="color_set">
+										<input class="tbox" name="goodsTag">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<a href="javascript:goodsReg.tagAdd()" class="addBtn col_main f_w">추가</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>기타옵션 사용</th>
+							<td>
+								<label class="chk">
+									<input type="radio" name="etcUse2">
+									<span>사용</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="etcUse2" checked>
+									<span>미사용</span>
+								</label>
+							</td>
+
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="set_field">
+					<div class="field_title">
+						<span class="title_mark">■ 옵션4 정보</span>
+					</div>
+					<table class="set_table packageOption">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>옵션 사용유무</th>
+							<td>
+								<div class="opUse">
+									<label class="chk">
+										<input type="radio" name="opUse4">
+										<span>사용</span>
+									</label>
+									<label class="chk ml10">
+										<input type="radio" name="opUse4" checked>
+										<span>미사용</span>
+									</label>
+								</div>
+
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th>옵션명</th>
+							<td><input type="text" class="tbox normal" name="option1"></td>
+						</tr>
+						<tr>
+							<th>옵션값</th>
+							<td>
+								<div class="color_list">
+									<div class="color_set">
+										<input class="tbox" name="goodsTag">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<a href="javascript:goodsReg.tagAdd()" class="addBtn col_main f_w">추가</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>기타옵션 사용</th>
+							<td>
+								<label class="chk">
+									<input type="radio" name="etcUse4">
+									<span>사용</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="etcUse4" checked>
+									<span>미사용</span>
+								</label>
+							</td>
+
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="set_field">
+					<div class="field_title">
+						<span class="title_mark">■ 옵션5 정보</span>
+					</div>
+					<table class="set_table packageOption">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>옵션 사용유무</th>
+							<td>
+								<div class="opUse">
+									<label class="chk">
+										<input type="radio" name="opUse5">
+										<span>사용</span>
+									</label>
+									<label class="chk ml10">
+										<input type="radio" name="opUse5" checked>
+										<span>미사용</span>
+									</label>
+								</div>
+
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th>옵션명</th>
+							<td><input type="text" class="tbox normal" name="option5"></td>
+						</tr>
+						<tr>
+							<th>옵션값</th>
+							<td>
+								<div class="color_list">
+									<div class="color_set">
+										<input class="tbox" name="goodsTag">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<a href="javascript:goodsReg.tagAdd()" class="addBtn col_main f_w">추가</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>기타옵션 사용</th>
+							<td>
+								<label class="chk">
+									<input type="radio" name="etcUse5">
+									<span>사용</span>
+								</label>
+								<label class="chk ml10">
+									<input type="radio" name="etcUse5" checked>
+									<span>미사용</span>
+								</label>
+							</td>
+
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+
+				<div class="btn_group">
+					<a href="javascript:history.back()" class="btn col_darkGrey">목록</a>
+					<a href="javascript:goodsReg.reg()" class="btn col_main">등록</a>
+				</div>
+			</form>
+
+		</section>
+
+
+		<!-- 푸터 -->
+		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
+	</div>
+</div>
+
+<script>
+	$('.packageOption .opUse input').on('change', function () {
+
+		if ($(this).parents('.opUse').find('label').eq(0).find('input').prop("checked")) {
+			$(this).parents('.packageOption').find('tbody').show();
+		} else {
+			$(this).parents('.packageOption').find('tbody').hide();
+		}
+
+
+	})
+</script>
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport"
 		  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title>KFC</title>
+	<title>다싸</title>
 	<link rel="stylesheet" type="text/css" href="guest/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="guest/css/ui.css">
 	<link rel="stylesheet" type="text/css" href="guest/css/style.css">

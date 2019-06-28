@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>JM 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/search.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<!-- gnb -->
+	<header role="header" data-include="header.html"></header>
+
+
+	<div class="wrapper">
+		<!-- lnb -->
+		<header role="nav" data-include="stock_nav.html"></header>
+
+		<div class="contents">
+			<!--<div class="set_field">-->
+				<!--<div class="field_title"><span class="title_mark">■</span>재고 등록</div>-->
+				<!--<table class="set_table">-->
+					<!--<colgroup>-->
+						<!--<col width="200">-->
+						<!--<col width="*">-->
+					<!--</colgroup>-->
+					<!--<tr>-->
+						<!--<th>발주일</th>-->
+						<!--<td><input class="tbox normal" id="bDateS" name="bDateS"></td>-->
+					<!--</tr>-->
+					<!--<tr>-->
+						<!--<th>발주처</th>-->
+						<!--<td><input class="tbox normal"></td>-->
+					<!--</tr>-->
+					<!--<tr>-->
+						<!--<th>납품예정일</th>-->
+						<!--<td><input class="tbox normal" id="bDateE" name="bDateE"></td>-->
+					<!--</tr>-->
+					<!--<tr>-->
+						<!--<th>메모</th>-->
+						<!--<td>-->
+							<!--<textarea class="textbox full higher"></textarea>-->
+						<!--</td>-->
+					<!--</tr>-->
+				<!--</table>-->
+
+			<!--</div>-->
+			<div class="list_field">
+				<div class="field_title"><span class="title_mark">■ 재고 등록</span></div>
+				<div class="set_field">
+					<table class="set_table">
+						<colgroup>
+							<col width="200">
+							<col width="*">
+						</colgroup>
+						<tr>
+							<th>상품 유형</th>
+							<td>
+								<label>
+									<input type="radio" name="goods_type" checked>
+									<span>기존 상품</span>
+								</label>
+								<label class="ml10">
+									<input type="radio" name="goods_type">
+									<span>신규 상품</span>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th>펌프모델</th>
+							<td>
+								<input type="hidden" id="goods" name="goods">
+								<div class="type_1">
+                                    <span class="sbox">
+                                        <select>
+                                            <option>상품 선택</option>
+                                            <option>JVL-250</option>
+                                            <option>JVL-350</option>
+                                        </select>
+                                    </span>
+								</div>
+								<div class="type_2 hide">
+									<input class="tbox">
+								</div>
+							</td>
+						</tr>
+						<tr class="hide">
+							<th>동력(Kw)</th>
+							<td>
+								<input class="tbox" id="kw" name="kw">
+							</td>
+						</tr>
+
+						<tr class="hide">
+							<th>유량</th>
+							<td>
+								<input class="tbox" id="flow" name="flow">
+							</td>
+						</tr>
+						<tr class="hide">
+							<th>양정</th>
+							<td>
+								<input class="tbox" id="lift" name="lift">
+							</td>
+						</tr>
+						<tr>
+							<th>재고위치등록</th>
+							<td>
+								<label>
+									<input type="radio" name="stock_type" checked>
+									<span>기존위치</span>
+								</label>
+								<label class="ml10">
+									<input type="radio" name="stock_type">
+									<span>신규위치</span>
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th>재고위치</th>
+							<td>
+								<input type="hidden" id="location" name="location">
+								<div class="s_type_1">
+                                    <span class="sbox">
+                                        <select>
+                                            <option>위치 선택</option>
+                                            <option>G-A 1구역</option>
+                                            <option>G-B 2구역</option>
+                                        </select>
+                                    </span>
+								</div>
+								<div class="s_type_2 hide">
+									<input class="tbox">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>수량</th>
+							<td>
+								<div class="volume_box">
+									<a href="#none" class="volume_btn plus" onclick="option.volume('P')"></a>
+									<input class="tbox" value="1" id="amount" name="amount">
+									<a href="#none" class="volume_btn minus" onclick="option.volume('M')"></a>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div class="btn_group">
+						<a href="javascript:reg_goods()" class="btn col_main">상품 추가</a>
+					</div>
+				</div>
+				<table class="list_table" data-name="goods_list">
+					<colgroup>
+						<col width="70">
+						<col width="120">
+						<col width="70">
+						<col width="120">
+						<col width="70">
+						<col width="70">
+						<col width="70">
+						<col width="70">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>No</th>
+						<th>모델명</th>
+						<th>수량</th>
+						<th>위치</th>
+						<th>동력</th>
+						<th>유량</th>
+						<th>양정</th>
+						<th>관리</th>
+					</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div class="btn_group">
+				<a href="javascript:void(0)" class="btn col_main">등록</a>
+				<a href="javascript:void(0)" class="btn col_ash">취소</a>
+			</div>
+
+		</div>
+
+		<!-- 푸터 -->
+		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
+	</div>
+</div>
+<script>
+    $('input[name="goods_type"]').on('change',function () {
+
+        if($('input[name="goods_type"]').eq(0).prop('checked')){	// 기존등록
+            $('.type_2').hide();
+			$('.type_1').show();
+
+
+			// 재고위치등록 효과
+            $('input[name="stock_type"]').eq(0).closest('label').show();
+            $('input[name="stock_type"]').eq(0).prop('checked',true);
+            $('input[name="stock_type"]').eq(1).closest('label').addClass('ml10');
+            $('.s_type_2').hide();
+            $('.s_type_1').show();
+
+            // 상품 정보 입력
+            $('tr.hide').hide();
+
+        }else{	// 신규등록
+            $('.type_1').hide();
+			$('.type_2').show();
+
+            // 재고위치등록 효과
+            $('input[name="stock_type"]').eq(0).closest('label').hide();
+            $('input[name="stock_type"]').eq(1).prop('checked',true);
+            $('input[name="stock_type"]').eq(1).closest('label').removeClass('ml10');
+            $('.s_type_1').hide();
+            $('.s_type_2').show();
+
+            // 상품 정보 입력
+			$('tr.hide').show();
+        }
+
+    });
+
+    $('input[name="stock_type"]').on('change',function () {
+
+        if($('input[name="stock_type"]').eq(0).prop('checked')){
+            $('.s_type_2').hide();
+            $('.s_type_1').show();
+        }else{
+            $('.s_type_1').hide();
+            $('.s_type_2').show();
+        }
+
+    });
+
+
+    function del_goods(e) {
+
+        $(e).closest('tr').remove();
+
+        var num		=	1;
+        $('table[data-name="goods_list"] tbody tr td:first-child').each(function () {
+
+            $(this).text(num);
+
+            num ++;
+
+        })
+
+
+
+
+
+    }
+
+    function reg_goods() {
+
+        var model		=	'';
+        var kw          =   $('input[name="kw"]').val();
+        var amount      =   $('input[name="amount"]').val();
+        var flow        =   $('input[name="flow"]').val();
+        var lift        =   $('input[name="lift"]').val();
+        var table		=	$('table[data-name="goods_list"]');
+        var count		=	$('table[data-name="goods_list"] tbody tr').length + 1;
+
+
+
+        // 유형별 모델명 담기
+        if($('.type_1').is(':visible')){
+            model	=	$('.type_1 select').val();
+        }else{
+            model	=	$('.type_2 .tbox').val();
+        }
+
+        if(model == "상품 선택"){
+            alert('상품을 선택해주세요.');
+            return;
+        }
+
+        if(kw	==	''){
+            alert('동력을 입력해주세요');
+            return;
+        }
+        if(amount	==	''){
+            alert('수량을 입력해주세요');
+            return;
+        }
+        if(flow	==	''){
+            alert('유량을 입력해주세요');
+            return;
+        }
+        if(lift	==	''){
+            alert('양정을 입력해주세요');
+            return;
+        }
+
+        var str				=	'';
+        str					+=	'<tr>';
+        str					+=	'    <td>' + count +'</td>';
+        str					+=	'    <td>';
+        str					+=	'    <input class="tbox full" readonly value="'+ model +'">';
+        str					+=	'    </td>';
+        str					+=	'    <td>';
+        str					+=	'    <input class="tbox full" readonly value="' + kw +'">';
+        str					+=	'    </td>';
+        str					+=	'    <td>';
+        str					+=	'    <input class="tbox full" readonly value="' + amount +'">';
+        str					+=	'    </td>';
+        str					+=	'    <td>';
+        str					+=	'    <input class="tbox full" readonly value="' + location +'">';
+        str					+=	'    </td>';
+        str					+=	'    <td>';
+        str					+=	'    <input class="tbox full" readonly value="' + flow +'">';
+        str					+=	'    </td>';
+        str					+=	'    <td>';
+        str					+=	'    <input class="tbox full" readonly value="'+ lift +'">';
+        str					+=	'    </td>';
+        str					+=	'    <td>';
+        str					+=	'    <a href="#none" class="btn small col_grey" onclick="del_goods(this)">삭제</a>';
+        str					+=	'    </td>';
+        str					+=	'    </tr>';
+
+        table.find('tbody').append(str);
+
+
+    }
+</script>
+</body>
+</html>

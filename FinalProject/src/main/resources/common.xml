@@ -22,8 +22,12 @@
 		<constructor-arg index="0" ref="sqlSession"/>
 	</bean>
 
+
+
+
+
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="dassa"/>
+		<property name="basePackage" value="com.dassa"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSession"/>
 	</bean>
 

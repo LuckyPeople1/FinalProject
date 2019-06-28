@@ -3,7 +3,7 @@
 		"-//mybatis.org//DTD Config 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
-
+	
 	<typeAliases>
 <!--		<typeAlias type="kh.student.vo.StudentVO" alias="student"/>-->
 		<typeAlias type="java.util.Map" alias="map"/>

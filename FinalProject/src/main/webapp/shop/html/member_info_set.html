@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_member.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">회원 상세정보</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<ul class="tabs_group clearfix">
+			<li>
+				<a href="#none" class="on">기본정보</a>
+			</li>
+			<!--<li>-->
+			<!--<a href="javascript:void(0)">예약 조회</a>-->
+			<!--</li>-->
+			<!--<li>-->
+			<!--<a href="javascript:void(0)">포인트 조회</a>-->
+			<!--</li>-->
+		</ul>
+		<div class="section">
+			<div class="section_title">필수 정보</div>
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>아이디</th>
+						<td>ssooya90</td>
+						<th>비밀번호</th>
+						<td class="pw">
+							<a href="javascript:pw_show()" class="btn col_grey line" name="pw">비밀번호 변경</a>
+
+						</td>
+					</tr>
+					<tr>
+						<th>이름</th>
+						<td><input class="tbox full" value="최희수"></td>
+						<th>휴대폰번호</th>
+						<td>01084649696</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_title">선택 정보</div>
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>추천인</th>
+						<td>010-2352-2410</td>
+						<th>이메일</th>
+						<td><input class="tbox full" value="ssooya90@naver.com"></td>
+					</tr>
+					<tr>
+						<th>생년월일</th>
+						<td><input class="tbox full" value="19901015"></td>
+						<th>성별</th>
+						<td>
+							<label><input type="radio" name="sex"><span>남자</span></label>
+							<label class="ml15"><input type="radio" name="sex"><span>여자</span></label>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_title">기본 정보</div>
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>가입일시</th>
+						<td>18-05-02 15:22:21</td>
+						<th>최근접속일시</th>
+						<td>18-09-12 11:12:21</td>
+					</tr>
+					<tr>
+						<th>가입유형</th>
+						<td>카카오톡</td>
+						<th>추천받은 수</th>
+						<td>11</td>
+					</tr>
+					<tr>
+						<th>예약횟수</th>
+						<td>211</td>
+						<th>노쇼횟수</th>
+						<td>3</td>
+					</tr>
+					<tr>
+						<th>결제금액</th>
+						<td>170,000원</td>
+						<th>현재포인트</th>
+						<td>17,000P</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_title">메모</div>
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>메모</th>
+						<td colspan="3">
+							<textarea class="text_editor smaller"></textarea>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn_box">
+			<a href="javascript:history.back();" class="btn col_darkGrey">취소</a>
+			<a href="javascript:void(0)" class="btn col_red">저장</a>
+		</div>
+		<div class="list_form">
+
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script>
+
+	//비밀번호 변경 보이기
+	function pw_show() {
+
+		var pw_btn = $('a[name="pw"]');
+
+		var pw_temp = '';
+
+		pw_temp += '<div class="tbox_box">';
+		pw_temp += '	<div>';
+		pw_temp += '		<input class="tbox" type="password" placeholder="비밀번호">';
+		pw_temp += '	</div>';
+		pw_temp += '	<div class="mt5">';
+		pw_temp += '		<input class="tbox" type="password" placeholder="비밀번호 재입력">';
+		pw_temp += '	</div>';
+		pw_temp += '	<div class="mt5">';
+		pw_temp += '		<a href="#none" class="btn col_red f_w" onclick="pw_set(this, \'change\')">변경</a>';
+		pw_temp += '		<a href="#none" class="btn col_darkGrey f_w" onclick="pw_set(this, \'n\')">취소</a>';
+		pw_temp += '	</div>';
+		pw_temp += '</div>';
+
+
+		pw_btn.parent().append(pw_temp);
+		pw_btn.hide();
+
+	}
+
+
+	// 비밀번호 변경/취소 클릭시
+	function pw_set(e , state) {
+
+
+		if(state == "change"){
+			alert('변경되었습니다.');
+			location.reload();
+		}
+
+		$(e).closest('.tbox_box').hide();
+		$('a[name="pw"]').show();
+
+
+	}
+
+</script>
+</body>
+</html>

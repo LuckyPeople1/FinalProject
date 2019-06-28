@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_member.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">포인트 랭킹</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<ul class="tabs_group clearfix">
+			<li>
+				<a href="javascript:void(0)" class="on" data-idx="week">주간누적랭킹</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" data-idx="month">월간누적랭킹</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" data-idx="total">누적전체랭킹</a>
+			</li>
+		</ul>
+		<div class="section">
+			<div class="section_title">
+				<div class="tip_box">
+					<div class="tip">최대 50명까지 표시됩니다.</div>
+				</div>
+			</div>
+			<div class="list_form">
+				<table class="table_list tabs_rank" data-idx="week">
+					<colgroup>
+						<col width="70">
+						<col width="140">
+						<col width="140">
+						<col width="160">
+						<col width="160">
+						<col width="160">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>순위</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>연락처</th>
+						<th>주간누적 포인트</th>
+						<th>총누적 포인트</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>ssooya90</td>
+						<td>최희수</td>
+						<td>010-8464-9696</td>
+						<td>1,500</td>
+						<td>120,500</td>
+					</tr>
+					</tbody>
+				</table>
+				<table class="table_list tabs_rank hide" data-idx="month">
+					<colgroup>
+						<col width="70">
+						<col width="140">
+						<col width="140">
+						<col width="160">
+						<col width="160">
+						<col width="160">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>순위</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>연락처</th>
+						<th>월간누적 포인트</th>
+						<th>총누적 포인트</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>ssooya90</td>
+						<td>최희수</td>
+						<td>010-8464-9696</td>
+						<td>1,500</td>
+						<td>120,500</td>
+					</tr>
+					</tbody>
+				</table>
+				<table class="table_list tabs_rank hide" data-idx="total">
+					<colgroup>
+						<col width="70">
+						<col width="140">
+						<col width="140">
+						<col width="160">
+						<col width="320">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>순위</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>연락처</th>
+						<th>총누적 포인트</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>ssooya90</td>
+						<td>최희수</td>
+						<td>010-8464-9696</td>
+						<td>120,500</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script>
+	// 텝메뉴
+	$(document).on('click', '.tabs_group a', function() {
+		$parent = $(this).closest('.tabs_group');
+		var idx = $(this).data('idx');
+		// 탭변경
+		$parent.find('a').removeClass('on');
+		$parent.find('a[data-idx='+ idx +']').addClass('on');
+		// 입력항목변경
+
+		$('.tabs_rank').hide();
+		$('.tabs_rank[data-idx='+ idx +']').show();
+
+
+		// // 부모창이 display:none; 일때 높이 오류 수정
+		// var trigger_cont_editor = $(this).data('trigger')=='Y' ? true : false;
+		// if(trigger_cont_editor){
+		// 	$('.tab_conts[data-idx='+ idx +'] .SEditor').each(function(){
+		// 		var id = $(this).attr('id');
+		// 		if(oEditors.length > 0){
+		// 			oEditors.getById[id].exec('RESIZE_EDITING_AREA_BY',[true]);
+		// 		}
+		// 	});
+		// 	$(this).data('trigger','N');
+		// }
+	});
+</script>
+</body>
+</html>
