@@ -1,12 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-수정완료123123
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/WEB-INF/views/guest/common/head.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<div class="container">
+	<%@include file="/WEB-INF/views/guest/common/header.jsp"%>
+	<div class="contents">
+		<section class="mainSearch inner">
+			<div class="mainSearchBox">
+				<div class="mainTxt">
+					<span class="accent">어떤 동네, 어떤방</span>에서<br/>
+					살고싶으신가요?
+				</div>
+				<div class="searchBox">
+					<input type="text" class="searchInput">
+					<span class="ico search"></span>
+					<a href="#none" class="searchBtn">검색</a>
+				</div>
+			</div>
+		</section>
+		<section class="easyFind inner">
+			<div class="easyFindBox">
+				쉬운방찾기@@@
+				쉬운방찾기@@@
+				쉬운방찾기@@@
+				쉬운방찾기@@@
+				쉬운방찾기@@@
+				쉬운방찾기@@@
+			</div>
+		</section>
+	</div>
+	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+</div>
 </body>
 </html>

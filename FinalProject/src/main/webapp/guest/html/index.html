@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>다싸</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1 class="logo">
+				<a href="#none" class="logoBtn"></a>
+			</h1>
+			<div class="rolePageBox">
+				<a href="#none">프로중개사 사이트</a>
+				<a href="#none">방주인 사이트</a>
+				<a href="#none">운송기사 사이트</a>
+			</div>
+			<div class="rightMenu">
+				<nav class="mainNav">
+					<a href="#none">방찾기</a>
+					<a href="#none" class="new">분양</a>
+					<a href="#none">관심목록</a>
+					<a href="#none">방내놓기</a>
+					<a href="#none">알림</a>
+				</nav>
+				<div class="loginMenu">
+					<a href="#none">로그인</a>
+					<a href="#none">회원가입</a>
+				</div>
+			</div>
+
+		</header>
+		<div class="contents">
+			<section class="mainSearch inner">
+				<div class="mainSearchBox">
+					<div class="mainTxt">
+						<span class="accent">어떤 동네, 어떤방</span>에서<br/>
+						살고싶으신가요?
+					</div>
+					<div class="searchBox">
+						<input type="text" class="searchInput">
+						<span class="ico search"></span>
+						<a href="#none" class="searchBtn">검색</a>
+					</div>
+				</div>
+			</section>
+			<section class="easyFind inner">
+				<div class="easyFindBox">
+					쉬운방찾기
+				</div>
+			</section>
+		</div>
+		<footer>
+
+		</footer>
+	</div>
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+	<script>
+
+		$('.searchInput').on('focus',function () {
+
+			$('.searchBox').addClass('on');
+
+		});
+
+		$('.searchInput').on('blur',function () {
+
+			$('.searchBox').removeClass('on');
+
+		});
+
+	</script>
+
+</body>
+
+</html>

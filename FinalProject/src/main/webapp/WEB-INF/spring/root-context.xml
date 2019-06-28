@@ -7,6 +7,9 @@
 	
 	<mvc:annotation-driven/>
 
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	<mvc:resources mapping="/guest/**" location="/guest/" />
+
 	<context:component-scan base-package="dassa">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>

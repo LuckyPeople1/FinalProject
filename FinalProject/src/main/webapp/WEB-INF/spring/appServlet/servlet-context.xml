@@ -11,8 +11,9 @@
 
 
 	<mvc:annotation-driven/>
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
 
-	<resources mapping="/resources/**" location="classpath:/resource" />
+<!--	<resources mapping="/resources/**" location="classpath:/resource" />-->
 
 
 	<context:component-scan base-package="dassa">
