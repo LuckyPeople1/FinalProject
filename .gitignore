@@ -1,4 +1,5 @@
 ### Eclipse ###
+.test
 .idea
 .metadata
 bin/
