@@ -1,16 +1,26 @@
 package com.dassa.controller.manage;
 
+import com.dassa.common.FileCommon;
+import com.dassa.vo.PackageRegVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
 @RequestMapping("/manage/move")
 public class ManageMoveController {
+
+
+	@Resource
+	private FileCommon fileCommon;
 
 
 	/**
@@ -54,12 +64,28 @@ public class ManageMoveController {
 
 	}
 
-
 	@RequestMapping(value = "/packageRegProc", method = RequestMethod.POST)
 	@ResponseBody
-	public String packageRegProc(){
+	public String packageRegProc(PackageRegVO packageRegVO, @RequestParam String packageName, MultipartFile multipartFile){
 
-		return null;
+
+		System.out.println("수정쓰!?");
+
+		System.out.println(packageRegVO.getPackageName());
+		System.out.println(packageRegVO.getPackageType());
+
+		System.out.println(packageName + "강제로 받아오기");
+
+//		System.out.println(fileImg + " 넘어오니?");
+//
+//		if(fileImg != null){
+//			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest);
+//		}
+
+
+
+
+		return "Y";
 	}
 
 }

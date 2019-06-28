@@ -24,15 +24,15 @@
 							<th>짐 유형</th>
 							<td>
 								<label class="chk">
-									<input type="radio" name="packType" value="0">
+									<input type="radio" name="packageType" value="0">
 									<span>가전</span>
 								</label>
 								<label class="chk ml10">
-									<input type="radio" name="packType" value="1">
+									<input type="radio" name="packageType" value="1">
 									<span>가구</span>
 								</label>
 								<label class="chk ml10">
-									<input type="radio" name="packType" value="2">
+									<input type="radio" name="packageType" value="2">
 									<span>기타</span>
 								</label>
 							</td>
@@ -50,8 +50,7 @@
 									<div class="img_box">
 										<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg"
 											   onchange="goodsReg.imgSel(this, event)">
-										<a href="#none" class="upload_btn">
-										</a>
+										<a href="#none" class="upload_btn"></a>
 									</div>
 								</div>
 							</td>
