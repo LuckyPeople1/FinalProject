@@ -1,4 +1,4 @@
-package com.dassa.controller.manage;
+package com.dassa.controller.driver;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,24 +25,6 @@ public class DriverPassController {
 	public String DriverAuction() {
 		return "driver/driverAuction";
 	}
-	
-	//이사 관리 페이지
-	@RequestMapping("/move")
-	public String DriverMove() {
-		return "driver/driverMove";
-	}
-	
-	@RequestMapping("/review")
-	public String DriverReview() {
-		return "driver/driverReview";
-	}
-	
-	//통계관리 페이지
-	@RequestMapping("/saleList")
-	public String DriverSaleList() {
-		return "driver/driverSaleList";
-	}
-	
 	//입찰관리 상세보기
 	@RequestMapping("/auctionDetail")
 	public String DriverAuctionDetail() {
@@ -56,5 +38,24 @@ public class DriverPassController {
 		
 		return "driver/driverAuctionEstimate";
 	}
+	
+	//이사 관리 페이지
+	@RequestMapping("/move")
+	public String DriverMove() {
+		return "driver/driverMove";
+	}
+	
+	//@사용자 리뷰 페이지
+	@RequestMapping("/review")
+	public String DriverReview() {
+		return "driver/driverReview";
+	}
+	
+	//통계관리 페이지
+	@RequestMapping("/saleList")
+	public String DriverSaleList() {
+		return "driver/driverSaleList";
+	}
+	
 
 }
