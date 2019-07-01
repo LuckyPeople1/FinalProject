@@ -11,10 +11,8 @@
 	</div>
 	<div class="rightMenu">
 		<nav class="mainNav">
-			<a href="#none">방찾기</a>
-			<a href="/saleInLots/" class="new">분양</a>
 			<a href="/mapView">방찾기</a>
-			<a href="#none" class="new">분양</a>
+			<a href="/saleInLots/" class="new">분양</a>
 			<a href="#none">관심목록</a>
 			<a href="#none">방내놓기</a>
 			<a href="#none">알림</a>
