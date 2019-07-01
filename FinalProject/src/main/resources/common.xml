@@ -8,7 +8,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@49.164.127.217:32777:xe"/>
-		<property name="username" value="final"/>
+		<property name="username" value="ssooya"/>
 		<property name="password" value="1234"/>
 	</bean>
 
@@ -18,13 +18,10 @@
 		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
 	</bean>
 
+
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSession"/>
 	</bean>
-
-
-
-
 
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.dassa"/>

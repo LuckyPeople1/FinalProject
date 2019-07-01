@@ -803,6 +803,7 @@ tr.del_place {
     position: relative;
     height: 120px;
     width: 120px;
+	background:url("../img/icon_imgUp.png") no-repeat center;
 }
 
 .img_up_list .img_box:first-child {
@@ -939,6 +940,23 @@ section.package .packageSetBox{
 	transform: translateY(-50%);
 }
 
-section.package .packageOption tbody{
-	display:none;
+section.package .packageOption{
+	margin-top: 50px;
+}
+
+section.package .addOptionBtn a{
+	display:block;
+	width: 100%;
+	background-color: #4683bd;
+	color: #fff;
+	line-height: 50px;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 30px;
+}
+section.package .packageOption .opDelBtn{
+	float:right;
+	line-height: 28px;
+	height: 30px;
+
 }

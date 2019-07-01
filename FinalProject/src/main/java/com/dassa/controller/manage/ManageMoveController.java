@@ -1,17 +1,22 @@
 package com.dassa.controller.manage;
 
 import com.dassa.common.FileCommon;
+import com.dassa.service.MovePackageService;
+import com.dassa.vo.PackageRegOptionVO;
 import com.dassa.vo.PackageRegVO;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
@@ -21,6 +26,9 @@ public class ManageMoveController {
 
 	@Resource
 	private FileCommon fileCommon;
+
+	@Resource
+	private MovePackageService movePackageService;
 
 
 	/**
@@ -66,26 +74,22 @@ public class ManageMoveController {
 
 	@RequestMapping(value = "/packageRegProc", method = RequestMethod.POST)
 	@ResponseBody
-	public String packageRegProc(PackageRegVO packageRegVO, HttpServletRequest httpServletRequest, MultipartFile fileImg){
+	public int packageRegProc(PackageRegVO packageRegVO, HttpServletRequest httpServletRequest, MultipartFile fileImg) throws Exception {
 
+		String jsonString	=	httpServletRequest.getParameter("data");
+		Gson gson = new Gson();
 
-		System.out.println(		httpServletRequest.getParameter("data"));
-		System.out.println("넘어오니");
+		packageRegVO.setPackageOptionList((List<PackageRegOptionVO>)gson.fromJson(jsonString, new TypeToken<List<PackageRegOptionVO>>(){}.getType()));
 
 
 		// 이미지가 빈값이 아니라면,
 		if(!fileImg.getOriginalFilename().equals("")){
-			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest);
+			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest, "package");
 		}
 
+		int rs	=	movePackageService.regPackage(packageRegVO);
 
-
-
-
-
-
-
-		return "Y";
+		return rs;
 	}
 
 }
