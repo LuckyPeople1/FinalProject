@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_set.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">약관관리</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<ul class="tabs_group clearfix">
+			<li>
+				<a href="#none" class="on" data-idx="policy">서비스 이용약관 동의(필수)</a>
+			</li>
+			<li>
+				<a href="#none" data-idx="privacy">개인정보 수집 이용 동의 (필수)</a>
+			</li>
+			<li>
+				<a href="#none" data-idx="location">위치 기반 서비스 약관 동의(선택)</a>
+			</li>
+		</ul>
+		<div class="section">
+			<!--<div class="section_title">기본 설정</div>-->
+			<div class="set_form">
+				<!-- 서비스 이용약관 동의(필수) 시작 -->
+				<table class="table_set tabs_terms " data-idx="policy">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>서비스 이용약관 동의(필수)</th>
+						<td>
+							<textarea class="text_editor"></textarea>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<!--개인정보 수집 이용 동의 (필수)-->
+				<table class="table_set tabs_terms hide" data-idx="privacy">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>개인정보 수집 이용 동의 (필수)</th>
+						<td>
+							<textarea class="text_editor"></textarea>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<!--위치 기반 서비스 약관 동의(선택) -->
+				<table class="table_set tabs_terms hide" data-idx="location">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>위치 기반 서비스 약관 동의(선택)</th>
+						<td>
+							<textarea class="text_editor"></textarea>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn_box">
+			<a href="javascript:void(0)" class="btn col_red">확인</a>
+		</div>
+		<div class="list_form">
+
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script>
+	// 텝메뉴
+	$(document).on('click', '.tabs_group a', function() {
+		$parent = $(this).closest('.tabs_group');
+		var idx = $(this).data('idx');
+		// 탭변경
+		$parent.find('a').removeClass('on');
+		$parent.find('a[data-idx='+ idx +']').addClass('on');
+		// 입력항목변경
+
+		$('.tabs_terms').hide();
+		$('.tabs_terms[data-idx='+ idx +']').show();
+
+
+		// // 부모창이 display:none; 일때 높이 오류 수정
+		// var trigger_cont_editor = $(this).data('trigger')=='Y' ? true : false;
+		// if(trigger_cont_editor){
+		// 	$('.tab_conts[data-idx='+ idx +'] .SEditor').each(function(){
+		// 		var id = $(this).attr('id');
+		// 		if(oEditors.length > 0){
+		// 			oEditors.getById[id].exec('RESIZE_EDITING_AREA_BY',[true]);
+		// 		}
+		// 	});
+		// 	$(this).data('trigger','N');
+		// }
+	});
+
+</script>
+</body>
+</html>
