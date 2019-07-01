@@ -1,6 +1,7 @@
 package com.dassa.vo;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class PackageRegVO {
 
@@ -9,25 +10,26 @@ public class PackageRegVO {
 	private String packageName;
 	private String packageImgName;
 	private String packageImgPath;
-	private HashMap<String, PackageRegOptionVO> packageOptionList;
 	private int packageStatus;
 	private String packageRegDate;
 	private String packageDeleteDate;
+	private List<PackageRegOptionVO> packageOptionList;
+
 
 	public PackageRegVO() {
 		super();
 	}
 
-	public PackageRegVO(int packageIdx, int packageType, String packageName, String packageImgName, String packageImgPath, HashMap<String, PackageRegOptionVO> packageOptionList, int packageStatus, String packageRegDate, String packageDeleteDate) {
+	public PackageRegVO(int packageIdx, int packageType, String packageName, String packageImgName, String packageImgPath, int packageStatus, String packageRegDate, String packageDeleteDate, List<PackageRegOptionVO> packageOptionList) {
 		this.packageIdx = packageIdx;
 		this.packageType = packageType;
 		this.packageName = packageName;
 		this.packageImgName = packageImgName;
 		this.packageImgPath = packageImgPath;
-		this.packageOptionList = packageOptionList;
 		this.packageStatus = packageStatus;
 		this.packageRegDate = packageRegDate;
 		this.packageDeleteDate = packageDeleteDate;
+		this.packageOptionList = packageOptionList;
 	}
 
 	public int getPackageIdx() {
@@ -70,14 +72,6 @@ public class PackageRegVO {
 		this.packageImgPath = packageImgPath;
 	}
 
-	public HashMap<String, PackageRegOptionVO> getPackageOptionList() {
-		return packageOptionList;
-	}
-
-	public void setPackageOptionList(HashMap<String, PackageRegOptionVO> packageOptionList) {
-		this.packageOptionList = packageOptionList;
-	}
-
 	public int getPackageStatus() {
 		return packageStatus;
 	}
@@ -101,4 +95,15 @@ public class PackageRegVO {
 	public void setPackageDeleteDate(String packageDeleteDate) {
 		this.packageDeleteDate = packageDeleteDate;
 	}
+
+	public List<PackageRegOptionVO> getPackageOptionList() {
+		return packageOptionList;
+	}
+
+	public void setPackageOptionList(List<PackageRegOptionVO> packageOptionList) {
+		this.packageOptionList = packageOptionList;
+	}
 }
+
+
+

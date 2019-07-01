@@ -12,11 +12,9 @@ import java.io.IOException;
 @Service("fileCommon")
 public class FileCommon {
 
-	public static String[] fileUp(MultipartFile fileSet, HttpServletRequest httpServletRequest){
+	public static String[] fileUp(MultipartFile fileSet, HttpServletRequest httpServletRequest, String folderName){
 
-
-
-		String savePath		= httpServletRequest.getServletContext().getRealPath("/upload/");
+		String savePath		= httpServletRequest.getServletContext().getRealPath("/upload/"+folderName+"/");
 		System.out.println(savePath);
 		String originName	=	fileSet.getOriginalFilename();
 		System.out.println(originName);
@@ -30,19 +28,14 @@ public class FileCommon {
 		StringBuilder fileName	=	new StringBuilder();
 		int num = 0;
 		while(true){
-
 			fileName.setLength(0);	//	append 횟수를 초기화
-
 			fileName.append(onlyFileName);	// 기존파일명 불러오기
 			if(num != 0){
 				fileName.append("_"+num);	// 중복이 있을 경우 num을 붙임
 			}
 			fileName.append(extension);		// 확장자 붙임
-
-
 			file	=	new File(savePath+fileName.toString());
 			// 해당경로에 파일명을 넣어서 만듦
-
 
 			// 해당경로에 파일명이 존재하는지 확인
 			if(!file.exists()){
