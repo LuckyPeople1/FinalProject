@@ -10,7 +10,7 @@
 			<i class="ico set"></i>
 			<div class="menu_text">승인관리</div>
 		</a>
-		<a href="/admin/html/shop/shopList.html" class="menu_btn">
+		<a href="/manage/shop/shopAllList" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">부동산관리</div>
 		</a>
@@ -18,13 +18,13 @@
 			<i class="ico set"></i>
 			<div class="menu_text">이사관리</div>
 		</a>
-		<a href="/manage/notice/noticeManageList" class="menu_btn">
+		<a href="/admin/html/board/boardList.html" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">게시판관리</div>
 		</a>
-		<a href="/manage/sale/saleAllList" class="menu_btn">
+		<a href="/admin/html/sale/saleList.html" class="menu_btn">
 			<i class="ico set"></i>
-			<div class="menu_text">매출 관리</div>
+			<div class="menu_text">매출&상품 관리</div>
 		</a>
 		<a href="/logout" class="menu_btn logout">
 			<i class="ico set"></i>
