@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>다싸 - 부동산페이지</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container full">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<!--<div role="main_nav" data-include="nav_home.html"></div>-->
+	</nav>
+	<div class="contents">
+		<div class="section_box">
+			<div class="page_header">
+				<div class="page_title">예약현황</div>
+				<div class="page_sub_title"></div>
+			</div>
+			<div class="section">
+				<div class="section_title"></div>
+				<div class="list_form">
+					<div class="table_list_btn">
+					<span class="right_btn">
+						<a href="javascript:void(0)" class="btn col_red f_w">더보기</a>
+					</span>
+					</div>
+					<table class="table_list">
+						<colgroup>
+							<col width="65">
+							<col width="115">
+							<col width="80">
+							<col width="80">
+							<col width="115">
+							<col width="90">
+							<col width="200">
+							<col width="90">
+							<col width="80">
+							<col width="85">
+							<col width="200">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>NO</th>
+							<th>예약번호</th>
+							<th>매장명</th>
+							<th>아이디<br/>고객명</th>
+							<th>연락처</th>
+							<th>예약일시</th>
+							<th>상품명</th>
+							<th>총 상품금액</th>
+							<th>담당직원</th>
+							<th>예약상태</th>
+							<th>관리</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>2</td>
+							<td>
+								<div class="mb5">1808021-1234</div>
+								<a href="#none" class="btn col_grey line" onclick="memo_pop(this)">메모</a>
+							</td>
+							<td>
+								<div>가인네일</div>
+							</td>
+							<td>ssooya90<br/>최희수</td>
+							<td>01084649696</td>
+							<td>18-09-30<br/>11:30</td>
+							<td>
+								<div class="item_name">블링블링 웨이브펌</div>
+								<div class="option_name">기장추가 - 가슴아래(+50,000)</div>
+								<div class="option_name">클리닉 - 클리닉A(+50,000)</div>
+							</td>
+							<td>150,000</td>
+							<td>이나영</td>
+							<td>
+								<span class="tag col_darkGrey f_w">체크아웃</span>
+							</td>
+							<td>
+								<div class="set_menu">
+									<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
+								</div>
+
+							</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>
+								<div class="mb5">1808021-1234</div>
+								<a href="#none" class="btn col_grey line" onclick="memo_pop(this)">메모</a>
+							</td>
+							<td>
+								<div>가인네일</div>
+							</td>
+							<td>ssooya90<br/>최희수</td>
+							<td>01084649696</td>
+							<td>18-09-30<br/>11:30</td>
+							<td>
+								<div class="item_name">블링블링 웨이브펌</div>
+								<div class="option_name">기장추가 - 가슴아래(+50,000)</div>
+								<div class="option_name">클리닉 - 클리닉A(+50,000)</div>
+							</td>
+							<td>150,000</td>
+							<td>이나영</td>
+							<td>
+								<span class="tag col_green f_w">예약중</span>
+							</td>
+							<td>
+								<div class="set_menu">
+									<a href="reserve_checkout.html" class="btn col_red f_w">체크아웃</a>
+									<a href="reserve_noshow.html" class="btn col_darkGrey f_w">노쇼</a>
+									<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
+									<a href="reserve_cancel_info.html" class="btn col_grey line">취소</a>
+								</div>
+
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="section_box">
+			<div class="page_header">
+				<div class="page_title">1:1문의</div>
+				<div class="page_sub_title"></div>
+			</div>
+			<div class="section">
+				<div class="section_title"></div>
+				<div class="list_form">
+					<div class="table_list_btn">
+					<span class="right_btn">
+						<a href="board_notice_write.html" class="btn col_red f_w">더보기</a>
+					</span>
+					</div>
+					<table class="table_list">
+						<colgroup>
+							<col width="70">
+							<col width="120">
+							<col width="80">
+							<col width="*">
+							<col width="100">
+							<col width="100">
+							<col width="100">
+							<col width="140">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>NO</th>
+							<th>아이디</th>
+							<th>이름</th>
+							<th>제목</th>
+							<th>작성일시</th>
+							<th>답변일시</th>
+							<th>답변유무</th>
+							<th>관리</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>2</td>
+							<td>ssooya90</td>
+							<td>박희재</td>
+							<td class="text-left">아이주가 오픈하였습니다.</td>
+							<td>18-05-04<br/>16:22:12</td>
+							<td>18-05-04<br/>16:22:12</td>
+							<td>
+								<span class="tag col_blue f_w">답변완료</span>
+							</td>
+							<td>
+								<a href="board_inquiry_view.html" class="btn col_navy f_w">보기</a>
+								<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+</body>
+</html>

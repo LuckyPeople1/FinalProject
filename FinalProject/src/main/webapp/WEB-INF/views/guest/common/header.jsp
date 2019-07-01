@@ -19,8 +19,8 @@
 			<a href="#none">이사하기</a>
 		</nav>
 		<div class="loginMenu">
-			<a href="#none">로그인</a>
-			<a href="#none">회원가입</a>
+			<a href="/login/">로그인</a>
+			<a href="/insert/">회원가입</a>
 		</div>
 	</div>
 
