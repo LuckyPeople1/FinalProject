@@ -77,15 +77,30 @@ public class ManageMoveController {
 	public int packageRegProc(PackageRegVO packageRegVO, HttpServletRequest httpServletRequest, MultipartFile fileImg) throws Exception {
 
 		String jsonString	=	httpServletRequest.getParameter("data");
+		System.out.println(jsonString);
 		Gson gson = new Gson();
 
 		packageRegVO.setPackageOptionList((List<PackageRegOptionVO>)gson.fromJson(jsonString, new TypeToken<List<PackageRegOptionVO>>(){}.getType()));
 
 
+		System.out.println(packageRegVO.getPackageOptionList().size());
+
+		for(PackageRegOptionVO packageRegOptionVO : packageRegVO.getPackageOptionList()){
+			System.out.println(packageRegOptionVO.getPackageOptionValue());
+		}
+
+
+
 		// 이미지가 빈값이 아니라면,
 		if(!fileImg.getOriginalFilename().equals("")){
 			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest, "package");
+			packageRegVO.setPackageImgName(fileInfo[0]);
+			packageRegVO.setPackageImgPath(fileInfo[1]);
 		}
+
+
+
+
 
 		int rs	=	movePackageService.regPackage(packageRegVO);
 

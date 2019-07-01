@@ -126,7 +126,7 @@ var package = {
 		var optionList	=	new Array();
 
 
-		for(var i = 0 ; i < count ; i ++){
+		for(var i = 0 ; i < 5 ; i ++){
 
 			// 옵션명 담기
 			var optionValue	=	"";
