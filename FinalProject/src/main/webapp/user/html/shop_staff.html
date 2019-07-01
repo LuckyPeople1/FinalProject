@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_shop.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">직원 관리</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<div class="section">
+			<div class="section_title"></div>
+			<div class="set_form search">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<tr>
+						<th>검색어</th>
+						<td>
+							<span class="sbox small">
+								<select>
+									<option>매장명</option>
+									<option>이름</option>
+									<option>연락처</option>
+								</select>
+							</span>
+							<input class="tbox w_6p">
+						</td>
+						<th>판매금액</th>
+						<td>
+							<input class="tbox smaller">
+							<span class="hyphen">~</span>
+							<input class="tbox smaller">
+						</td>
+					</tr>
+					<tr>
+						<th>작업상태</th>
+						<td>
+							<label><input type="checkbox" name="selling"><span>작업가능</span></label>
+							<label class="ml10"><input type="checkbox" name="selling"><span>작업불가</span></label>
+						</td>
+						<th>근무상태</th>
+						<td>
+							<label><input type="checkbox" name="selling"><span>정상</span></label>
+							<label class="ml10"><input type="checkbox" name="selling"><span>휴무</span></label>
+							<label class="ml10"><input type="checkbox" name="selling"><span>휴가</span></label>
+						</td>
+					</tr>
+				</table>
+				<div class="set_form_search">
+					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
+					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+				</div>
+			</div>
+			<div class="list_form">
+				<div class="table_list_btn">
+					<span class="right_btn">
+						<a href="shop_staff_add.html" class="btn col_red f_w">직원 추가</a>
+						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택 삭제</a>
+					</span>
+				</div>
+				<table class="table_list">
+					<colgroup>
+						<col width="40">
+						<col width="70">
+						<col width="120">
+						<col width="80">
+						<col width="100">
+						<col width="80">
+						<col width="110">
+						<col width="80">
+						<col width="80">
+						<col width="80">
+						<col width="80">
+						<col width="150">
+					</colgroup>
+					<thead>
+					<tr>
+						<th><label><input type="checkbox"></label></th>
+						<th>NO</th>
+						<th>소속매장</th>
+						<th>사진</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>연락처</th>
+						<th>판매금액</th>
+						<th>작업상태</th>
+						<th>근무상태</th>
+						<th>최근접속일</th>
+						<th>관리</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><label><input type="checkbox"></label></td>
+						<td>2</td>
+						<td>가인네일, 가인헤어</td>
+						<td><img src="../img/itemImg.png" alt="이미지" class="mini_img"></td>
+						<td>ssooya90</td>
+						<td>최희수</td>
+						<td>010-8464-9696</td>
+						<td>180,000</td>
+						<td><span class="tag col_blue f_w">작업가능</span></td>
+						<td><span class="tag col_blue f_w">정상</span></td>
+						<td>18-08-06<br/>11:11:50</td>
+						<td>
+							<a href="shop_staff_info_set.html" class="btn col_navy f_w">상세보기</a>
+							<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+						</td>
+					</tr>
+					<tr>
+						<td><label><input type="checkbox"></label></td>
+						<td>2</td>
+						<td>가인네일</td>
+						<td><img src="../img/itemImg.png" alt="이미지" class="mini_img"></td>
+						<td>ssooya90</td>
+						<td>최희수</td>
+						<td>010-8464-9696</td>
+						<td>180,000</td>
+						<td><span class="tag col_darkGrey f_w">작업불가</span></td>
+						<td><span class="tag col_darkGrey f_w">휴가</span></td>
+						<td>18-08-06<br/>11:11:50</td>
+						<td>
+							<a href="shop_staff_info_set.html" class="btn col_navy f_w">상세보기</a>
+							<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<ul class="page_wrap">
+				<li><a href="#none">First</a></li>
+				<li><a href="#none">Prev</a></li>
+				<li><a href="#none" class="num active">1</a></li>
+				<li><a href="#none" class="num">2</a></li>
+				<li><a href="#none" class="num">3</a></li>
+				<li><a href="#none">Next</a></li>
+				<li><a href="#none">Last</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script>
+
+</script>
+</body>
+</html>

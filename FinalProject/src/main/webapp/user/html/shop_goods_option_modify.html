@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_shop.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">옵션 수정</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<div class="section">
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>카테고리</th>
+						<td>
+							<span class="sbox little">
+								<select>
+									<option>메이크업</option>
+									<option>펌</option>
+								</select>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<th>옵션명</th>
+						<td>
+							<input class="tbox long">
+						</td>
+					</tr>
+					<tr>
+						<th>옵션</th>
+						<td>
+							<a href="javascript:option_app()" class="btn col_red f_w">옵션 추가</a>
+							<div class="op_group">
+								<div class="op_box">
+									<span class="op_name">
+										<input class="tbox small" value="어깨위" placeholder="옵션값 입력">
+									</span>
+									<span class="op_price" >
+										<input class="tbox small" value="50000" placeholder="금액 입력">
+									</span>
+									<span class="op_menu">
+										<a href="javascript:void(0)" class="btn col_darkGrey f_w" onclick="option_del(this)">삭제</a>
+									</span>
+								</div>
+							</div>
+
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn_box">
+			<a href="javascript:history.back();" class="btn col_darkGrey">취소</a>
+			<a href="shop_goods_option.html" class="btn col_red">저장</a>
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script src="../js/shop_setting.js"></script>
+<script>
+
+
+	// 옵션 추가
+	function option_app() {
+
+		var str = '';
+		str += '<div class="op_box">';
+		str += '	<span class="op_name">';
+		str += '		<input class="tbox small" value="어깨위" placeholder="옵션값 입력">';
+		str += '	</span>';
+		str += '	<span class="op_price" >';
+		str += '		<input class="tbox small" value="50000" placeholder="금액 입력">';
+		str += '	</span>';
+		str += '	<span class="op_menu">';
+		str += '		<a href="javascript:void(0)" class="btn col_darkGrey f_w" onclick="option_del(this)">삭제</a>';
+		str += '	</span>';
+		str += '</div>';
+
+		$('.op_group').after(str);
+
+
+	}
+
+	// 옵션 삭제
+	function option_del(e){
+		$(e).parents('.op_box').remove();
+	}
+
+
+</script>
+</body>
+
+</html>

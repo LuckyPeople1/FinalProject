@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_reserve.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">진행중인 예약</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<div class="section">
+			<div class="section_title"></div>
+			<div class="set_form search">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<tr>
+						<th>검색어</th>
+						<td>
+							<span class="sbox small">
+								<select>
+									<option>고객명</option>
+									<option>아이디</option>
+									<option>예약번호</option>
+									<option>상품명</option>
+									<option>담당직원</option>
+								</select>
+							</span>
+							<input class="tbox w_6p">
+						</td>
+						<th>메모 유무</th>
+						<td>
+							<label><input type="checkbox"><span>있음</span></label>
+							<label class="ml10"><input type="checkbox"><span>없음</span></label>
+						</td>
+					</tr>
+					<tr>
+						<th>예약일</th>
+						<td colspan="3">
+							<input class="tbox" id="dateS">
+							<span class="hyphen">~</span>
+							<input class="tbox" id="dateE">
+							<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
+							<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
+							<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
+							<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
+							<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>
+							<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
+						</td>
+					</tr>
+				</table>
+				<div class="set_form_search">
+					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
+					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+				</div>
+			</div>
+			<div class="list_form">
+				<table class="table_list">
+					<colgroup>
+						<col width="70">
+						<col width="90">
+						<col width="90">
+						<col width="90">
+						<col width="110">
+						<col width="90">
+						<col width="200">
+						<col width="90">
+						<col width="80">
+						<col width="80">
+						<col width="150">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>NO</th>
+						<th>예약번호</th>
+						<th>매장명</th>
+						<th>아이디<br/>고객명</th>
+						<th>연락처</th>
+						<th>예약일시</th>
+						<th>상품명</th>
+						<th>총 상품금액</th>
+						<th>담당직원</th>
+						<th>메모</th>
+						<th>관리</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>1808021-1234</td>
+						<td>가인네일</td>
+						<td>ssooya90<br/>최희수</td>
+						<td>01084649696</td>
+						<td>18-09-30<br/>11:30</td>
+						<td>
+							<div class="item_name">블링블링 웨이브펌</div>
+							<div class="option_name">기장추가 - 가슴아래(+50,000)</div>
+							<div class="option_name">클리닉 - 클리닉A(+50,000)</div>
+						</td>
+						<td>150,000</td>
+						<td>이나영</td>
+						<td>
+							<a href="#none" class="btn col_grey line" onclick="memo_pop(this)">메모</a>
+						</td>
+						<td>
+							<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
+							<a href="reserve_cancel_info.html" class="btn col_grey line">취소</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<ul class="page_wrap">
+				<li><a href="#none">First</a></li>
+				<li><a href="#none">Prev</a></li>
+				<li><a href="#none" class="num active">1</a></li>
+				<li><a href="#none" class="num">2</a></li>
+				<li><a href="#none" class="num">3</a></li>
+				<li><a href="#none">Next</a></li>
+				<li><a href="#none">Last</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+	<div class="popup memo">
+		<div class="popupCon">
+			<div class="head">
+				<span>메모</span>
+			</div>
+			<div class="body scroll">
+				<textarea class="text_editor smaller"></textarea>
+			</div>
+			<div class="footer">
+				<a href="javascript:closePop()" class="btn pop col_darkGrey f_w">닫기</a>
+				<a href="javascript:void(0)" class="btn pop col_red f_w">저장</a>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script>
+
+
+	// 메모 팝업창
+	function memo_pop(e){
+		$('.contents').addClass('overlay');
+		$('.popup').show();
+	}
+</script>
+</body>
+</html>
