@@ -5,44 +5,38 @@
 
 	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
 		insert
-		into MOVE_PACKAGE_TBL(
-			PACKAGE_IDX,
-			PACKAGE_TYPE,
-			PACKAGE_NAME,
-			PACKAGE_IMG_NAME,
-			PACKAGE_IMG_PATH,
-			PACKAGE_STATUS,
-			PACKAGE_REG_DATE,
-			PACKAGE_DELETE_DATE,
-			PACKAGE_OPTION1_NAME,
-			PACKAGE_OPTION1_VALUE,
-			PACKAGE_OPTION1_ETC,
-			PACKAGE_OPTION2_NAME,
-			PACKAGE_OPTION2_VALUE,
-			PACKAGE_OPTION2_ETC,
-			PACKAGE_OPTION3_NAME,
-			PACKAGE_OPTION3_VALUE,
-			PACKAGE_OPTION3_ETC,
-			PACKAGE_OPTION4_NAME,
-			PACKAGE_OPTION4_VALUE,
-			PACKAGE_OPTION4_ETC,
-			PACKAGE_OPTION5_NAME,
-			PACKAGE_OPTION5_VALUE,
-			PACKAGE_OPTION5_ETC
-			)values (
-		   MOVE_PACKAGE_SEQ.nextval,
-		   #{packageType},
-		   #{packageName},
-		   #{packageImgName},
-		   #{packageImgPath},
-		   #{packageStatus},
-		   #{packageRegDate},
-		   #{packageDeleteDate},
-			<foreach collection="packageOptionList" item="element" index="index">
-				#{element.packageOptionName},
-				#{element.packageOptionValue},
-				#{element.packageOptionEtc},
-			</foreach>
-		   )
+		into MOVE_PACKAGE_TBL values (
+		MOVE_PACKAGE_SEQ.nextval,
+		#{packageType},
+		#{packageName},
+		<choose>
+			<when test="#{packageImgName != null}">
+				#{packageImgName},
+				#{packageImgPath},
+			</when>
+			<otherwise>
+				null,
+				null,
+			</otherwise>
+		</choose>
+
+		<foreach collection="packageOptionList" item="element">
+			<choose>
+				<when test="element.packageOptionValue == ''">
+					null,
+					null,
+					null,
+				</when>
+				<otherwise>
+					#{element.packageOptionName},
+					#{element.packageOptionValue},
+					#{element.packageOptionEtc},
+				</otherwise>
+			</choose>
+		</foreach>
+		default,
+		sysdate,
+		null
+		)
 	</insert>
 </mapper>
