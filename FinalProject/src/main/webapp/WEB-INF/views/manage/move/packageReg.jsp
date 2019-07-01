@@ -72,29 +72,40 @@
 							<td>
 								<div class="opUse">
 									<label class="chk">
-										<input type="radio" name="opUse1" onchange="package.optionToggle(this)">
+										<input type="radio" name="opUse1" value="1" onchange="package.optionToggle(this)">
 										<span>사용</span>
 									</label>
 									<label class="chk ml10">
-										<input type="radio" name="opUse1" onchange="package.optionToggle(this)" checked>
+										<input type="radio" name="opUse1" value="0" onchange="package.optionToggle(this)" checked>
 										<span>미사용</span>
 									</label>
 								</div>
-							
 							</td>
 						</tr>
 						</thead>
 						<tbody>
 						<tr>
 							<th>옵션명</th>
-							<td><input type="text" class="tbox normal" name="option1"></td>
+							<td>
+								<input type="text" class="tbox normal" name="packageOptionName">
+							</td>
 						</tr>
 						<tr>
 							<th>옵션값</th>
 							<td>
-								<div class="color_list">
+								<div class="color_list optionValueList">
 									<div class="color_set">
-										<input class="tbox" name="goodsTag">
+										<input class="tbox" name="packageOptionValue">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<div class="color_set">
+										<input class="tbox" name="packageOptionValue">
+										<span class="color_preview"></span>
+										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
+									</div>
+									<div class="color_set">
+										<input class="tbox" name="packageOptionValue">
 										<span class="color_preview"></span>
 										<a href="#none" class="removeBtn" onclick="goodsReg.tagRemove(this)">X</a>
 									</div>
@@ -106,15 +117,14 @@
 							<th>기타옵션 사용</th>
 							<td>
 								<label class="chk">
-									<input type="radio" name="etcUse2">
+									<input type="radio" name="etcUse1" value="1">
 									<span>사용</span>
 								</label>
 								<label class="chk ml10">
-									<input type="radio" name="etcUse2" checked>
+									<input type="radio" name="etcUse1" value="0" checked>
 									<span>미사용</span>
 								</label>
 							</td>
-						
 						</tr>
 						</tbody>
 					

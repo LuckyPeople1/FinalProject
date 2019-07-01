@@ -66,21 +66,21 @@ public class ManageMoveController {
 
 	@RequestMapping(value = "/packageRegProc", method = RequestMethod.POST)
 	@ResponseBody
-	public String packageRegProc(PackageRegVO packageRegVO, @RequestParam String packageName, MultipartFile multipartFile){
+	public String packageRegProc(PackageRegVO packageRegVO, HttpServletRequest httpServletRequest, MultipartFile fileImg){
 
 
-		System.out.println("수정쓰!?");
+		System.out.println(		httpServletRequest.getParameter("data"));
+		System.out.println("넘어오니");
 
-		System.out.println(packageRegVO.getPackageName());
-		System.out.println(packageRegVO.getPackageType());
 
-		System.out.println(packageName + "강제로 받아오기");
+		// 이미지가 빈값이 아니라면,
+		if(!fileImg.getOriginalFilename().equals("")){
+			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest);
+		}
 
-//		System.out.println(fileImg + " 넘어오니?");
-//
-//		if(fileImg != null){
-//			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest);
-//		}
+
+
+
 
 
 

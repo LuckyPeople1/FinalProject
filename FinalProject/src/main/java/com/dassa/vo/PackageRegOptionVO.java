@@ -2,23 +2,23 @@ package com.dassa.vo;
 
 public class PackageRegOptionVO {
 
-	private String[] packageOptionValue;
+	private String packageOptionValue;
 	private String packageOptionEtc;
 
 	public PackageRegOptionVO() {
 		super();
 	}
 
-	public PackageRegOptionVO(String[] packageOptionValue, String packageOptionEtc) {
+	public PackageRegOptionVO(String packageOptionValue, String packageOptionEtc) {
 		this.packageOptionValue = packageOptionValue;
 		this.packageOptionEtc = packageOptionEtc;
 	}
 
-	public String[] getPackageOptionValue() {
+	public String getPackageOptionValue() {
 		return packageOptionValue;
 	}
 
-	public void setPackageOptionValue(String[] packageOptionValue) {
+	public void setPackageOptionValue(String packageOptionValue) {
 		this.packageOptionValue = packageOptionValue;
 	}
 

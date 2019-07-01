@@ -15,10 +15,16 @@ public class FileCommon {
 	public static String[] fileUp(MultipartFile fileSet, HttpServletRequest httpServletRequest){
 
 
+
 		String savePath		= httpServletRequest.getServletContext().getRealPath("/upload/");
+		System.out.println(savePath);
 		String originName	=	fileSet.getOriginalFilename();
+		System.out.println(originName);
+
 		String onlyFileName	=	originName.substring(0, originName.lastIndexOf('.'));
+		System.out.println(onlyFileName);
 		String extension	=	originName.substring(originName.lastIndexOf('.'));
+		System.out.println(extension);
 
 		File file	=	null;
 		StringBuilder fileName	=	new StringBuilder();

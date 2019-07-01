@@ -20,11 +20,44 @@ var package = {
 	packageReg: function () {
 
 
-
 		var formData = new FormData($('#regFrm')[0]);
 
+		var optionList	=	new Array();
 
-		alert(formData);
+
+		for(var i = 0 ; i < 5 ; i ++){
+
+			// 옵션명 담기
+			var optionValue	=	"";
+
+			$('.optionValueList').eq(i).find('input[name=packageOptionValue]').each(function (index) {
+
+				if(index >= 1){
+					optionValue += ",";
+				}
+
+				optionValue += $(this).val()
+
+			});
+
+			var option	=	{
+				optionName	: $('input[name=packageOptionName]').eq(i).val(),
+				optionValue : optionValue,
+				optionEtcUse : $('input[name=etcUse'+(i+1)+']').val()
+			};
+
+			optionList.push(option);
+		}
+
+
+
+		var json	=	new Object();
+		json.option	=	optionList;
+
+		formData.append('data', JSON.stringify(json));
+
+		// var jsonString = new Object(JSON.stringify())
+
 
 		$.ajax({
 			type : "post",
