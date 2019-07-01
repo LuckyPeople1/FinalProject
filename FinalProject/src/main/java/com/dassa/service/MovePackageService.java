@@ -22,8 +22,6 @@ public class MovePackageService {
 	 */
 	public int regPackage(PackageRegVO packageRegVO) throws Exception {
 
-		System.out.println(packageRegVO.getPackageName());
-
 		return movePackageMapper.regPackage(packageRegVO);
 	}
 

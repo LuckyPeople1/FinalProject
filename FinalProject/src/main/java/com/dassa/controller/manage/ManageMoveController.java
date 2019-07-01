@@ -85,22 +85,18 @@ public class ManageMoveController {
 
 		System.out.println(packageRegVO.getPackageOptionList().size());
 
-		for(PackageRegOptionVO packageRegOptionVO : packageRegVO.getPackageOptionList()){
-			System.out.println(packageRegOptionVO.getPackageOptionValue());
-		}
-
-
 
 		// 이미지가 빈값이 아니라면,
+
+
+		/**
+		 * 단일 파일업로드, fileName , request, folderName
+		 */
 		if(!fileImg.getOriginalFilename().equals("")){
 			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest, "package");
 			packageRegVO.setPackageImgName(fileInfo[0]);
 			packageRegVO.setPackageImgPath(fileInfo[1]);
 		}
-
-
-
-
 
 		int rs	=	movePackageService.regPackage(packageRegVO);
 

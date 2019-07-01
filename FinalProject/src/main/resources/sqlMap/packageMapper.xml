@@ -10,20 +10,29 @@
 		#{packageType},
 		#{packageName},
 		<choose>
-			<when test="#{packageImgName == null}">
-				null,
-				null,
-			</when>
-			<otherwise>
+			<when test="#{packageImgName != null}">
 				#{packageImgName},
 				#{packageImgPath},
+			</when>
+			<otherwise>
+				null,
+				null,
 			</otherwise>
 		</choose>
 
 		<foreach collection="packageOptionList" item="element">
-			null,
-			null,
-			null,
+			<choose>
+				<when test="element.packageOptionValue == ''">
+					null,
+					null,
+					null,
+				</when>
+				<otherwise>
+					#{element.packageOptionName},
+					#{element.packageOptionValue},
+					#{element.packageOptionEtc},
+				</otherwise>
+			</choose>
 		</foreach>
 		default,
 		sysdate,
