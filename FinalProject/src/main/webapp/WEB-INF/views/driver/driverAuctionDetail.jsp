@@ -23,7 +23,7 @@
 			</li>
 		</ul>
 		<div class="section">
-			<div class="section_title">기본정보</div>
+			<div class="section_title">사용자정보</div>
 			<div class="set_form">
 				<table class="table_set">
 					<colgroup>
@@ -35,57 +35,46 @@
 					<thead></thead>
 					<tbody>
 					<tr>
-						<th>업종</th>
+						<th>이름</th>
 						<td colspan="3">
-							<label><input type="checkbox"><span>헤어</span></label>
-							<label class="ml10"><input type="checkbox"><span>네일</span></label>
-							<label class="ml10"><input type="checkbox"><span>속눈썹</span></label>
+							<label><input type="text" value="최희수" readonly="readonly"></label>
 						</td>
 					</tr>
 					<tr>
-						<th>매장명</th>
-						<td><input class="tbox full" value="가인헤어"></td>
-						<th>매장번호</th>
-						<td><input class="tbox full" value="02-1234-5678"></td>
+						<th>이사날짜</th>
+						<td><input class="tbox full" type="text" value="2019.6.30" readonly="readonly"></td>
+						<th>휴대폰번호</th>
+						<td><input class="tbox full" type="text" value="01012345678" readonly="readonly"></td>
 					</tr>
 					<tr>
-						<th>매장주소</th>
-						<td><input class="tbox full" value="서울시 마포구 매봉산로 31 SPLEXCENTER"></td>
-						<th>매장 즐겨찾기 수</th>
-						<td>21</td>
+						<th>출발지정보</th>
+						<td><input class="tbox full" value="서울시 마포구 매봉산로 31 SPLEXCENTER" readonly="readonly"></td>
+						<th>도착지정보</th>
+						<td><input class="tbox full" value="서울시 영등포구 당산동 이레빌딩" readonly="readonly"></td>
 					</tr>
-
 					<tr>
-						<th>담당자 아이디</th>
+						<th>이사 시작 시간</th>
 						<td>
-							<span class="sbox">
-								<select>
-									<option>ssooya90</option>
-									<option>quyfsdaf</option>
-								</select>
-							</span>
+							<input type="text" value="13:30" readonly="readonly">
 						</td>
-						<th>담당자 이름</th>
-						<td>최희수</td>
+						<th>이사종류</th>
+						<td><input type="text" value="차량만/일반/반보팡/포장" readonly="readonly"></td>
 					</tr>
 					<tr>
-						<th>담당자 연락처</th>
-						<td>010-8464-9696</td>
-						<th>매장 생성일시</th>
-						<td>18-05-22 15:22:21</td>
+						<th>도움여부(짐을 함께 옮길사람여부)</th>
+						<td colspan="3"><input type="text" value="있음" readonly="readonly"></td>
+					
 					</tr>
 					<tr>
-						<th>총 직원수</th>
-						<td>3</td>
-						<th>판매중인 상품수</th>
-						<td>15개</td>
+						<th>메모</th>
+						<td><textarea readonly="readonly">깨지지 않게 조심해주세요!!! </textarea></td>
 					</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 		<div class="section">
-			<div class="section_title">상세정보</div>
+			<div class="section_title">출발지 상세정보</div>
 			<div class="set_form">
 				<table class="table_set">
 					<colgroup>
@@ -97,14 +86,14 @@
 					<thead></thead>
 					<tbody>
 					<tr>
-						<th>매장사진</th>
+						<th>이사 사진</th>
 						<td colspan="3" class="">
 							<script>
 								/* 이미지 업로드 5개 만들기 (추후 php for문 쓸 것..) 퍼스트 차일드가 안먹음 ㅠㅠ */
 
 								var strBox = new Array()
 
-								for(var i = 0; i <= 4 ; i++){
+								for(var i = 0; i <= 11 ; i++){
 
 									strBox +='<div class="img_upload">';
 									strBox +='	<input type="file" name="img_'+i+'" id="img_'+i+'" class="hide" onchange="img_change(this)">';
@@ -117,7 +106,7 @@
 						</td>
 					</tr>
 					<tr>
-						<th>매장소개</th>
+						<th>짐유형</th>
 						<td colspan="3">
 							<textarea class="text_editor smaller"></textarea>
 						</td>
