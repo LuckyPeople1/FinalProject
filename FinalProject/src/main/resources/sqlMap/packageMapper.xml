@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.MovePackageMapper">
+
+
+	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
+		insert
+		into MOVE_PACKAGE_TBL values (
+		MOVE_PACKAGE_SEQ.nextval,
+		#{packageType},
+		#{packageName},
+		<choose>
+			<when test="#{packageImgName != null}">
+				#{packageImgName},
+				#{packageImgPath},
+			</when>
+			<otherwise>
+				null,
+				null,
+			</otherwise>
+		</choose>
+
+		<foreach collection="packageOptionList" item="element">
+			<choose>
+				<when test="element.packageOptionValue == ''">
+					null,
+					null,
+					null,
+				</when>
+				<otherwise>
+					#{element.packageOptionName},
+					#{element.packageOptionValue},
+					#{element.packageOptionEtc},
+				</otherwise>
+			</choose>
+		</foreach>
+		default,
+		sysdate,
+		null
+		)
+	</insert>
+</mapper>

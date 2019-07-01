@@ -22,9 +22,9 @@
 			<i class="ico set"></i>
 			<div class="menu_text">게시판관리</div>
 		</a>
-		<a href="/admin/html/sale/saleList.html" class="menu_btn">
+		<a href="/manage/sale/saleAllList" class="menu_btn">
 			<i class="ico set"></i>
-			<div class="menu_text">매출&상품 관리</div>
+			<div class="menu_text">매출 관리</div>
 		</a>
 		<a href="/logout" class="menu_btn logout">
 			<i class="ico set"></i>
