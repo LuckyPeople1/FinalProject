@@ -9,7 +9,18 @@
 		#{packageType},
 		#{packageName}, -->
 		<select id="selectOneUser" parameterType="userVO" resultType="userVO">
-		 select * from user_tbl where user_id=#{userId} and user_pw=#{userPw}
+		 select user_no as userNo,
+		 		user_id as userId,
+		 		user_pw as userPw,
+		 		user_phone as userPhone,
+		 		user_email as userEmail,
+		 		registration_number as userRegistration,
+		 		introduce as userIntroduce,
+		 		carrier_car as userCar,
+		 		image_name as userImagePass,
+		 		image_pass as userImageName,
+		 		user_type as userType 
+		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
 	
