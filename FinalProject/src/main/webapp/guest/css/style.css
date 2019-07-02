@@ -249,6 +249,8 @@ section.easyFind .easyFindBox{
 
 }
 
+/* 이사하기 */
+
 section.moveStep .sectionTitle{
 	margin-top: 70px;
 	text-align: center;
@@ -257,7 +259,7 @@ section.moveStep .sectionTitle{
 	color:rgba(34,34,34,1);
 }
 section.moveStep .moveGroup{
-	margin-top: 45px;
+	margin:45px 0 45px;
 }
 
 section.moveStep .moveGroup .moveInfoTitle {
@@ -270,6 +272,97 @@ section.moveStep .moveGroup .moveInfoTitle {
 section.moveStep .moveGroup .moveInfoTitle strong{
 	color: #078095;
 }
+
+section.moveStep .packageTypeBox .packageTypeTitle{
+	background-color: #f1f1f1;
+	line-height: 35px;
+	padding:0 10px;
+	font-size: 20px;
+	margin:15px 0;
+
+}
+section.moveStep .packageTypeBox .packageTypeList{
+	background-color: #EEEEEE;
+	font-size: 0;
+	padding:5px;
+}
+section.moveStep .packageTypeBox .packageBox{
+	display:inline-block;
+	width: 20%;
+	vertical-align: top;
+	position:relative;
+	padding:2px;
+
+
+}
+section.moveStep .packageTypeBox .packageBox .packageBtn{
+	cursor: pointer;
+	background-color: #fff;
+
+}
+section.moveStep .packageTypeBox .packageBox .packageName{
+	position:absolute;
+	left:0;
+	right:0;
+	text-align: center;
+	bottom:12px;
+	font-size: 16px;
+}
+
+section.moveStep .packageTypeBox .packageBtn.on .packageImg{
+	opacity: 0.5;
+}
+
+
+section.moveStep .packageTypeBox .packageImg{
+	width: 100%;
+	padding:15%;
+}
+
+
+section.moveStep .packageTypeBox .packageBox .packageBtn.on .packageSelect{
+	display:block;
+}
+
+section.moveStep .packageTypeBox .packageBox .packageSelect{
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	top:0;
+	display:none;
+
+}
+section.moveStep .packageTypeBox .packageBox .minusBtn{
+	left:0;
+	top:0;
+	background:url("../img/icon_package_minus.png") no-repeat center/ cover;
+	width: 60px;
+	height: 60px;
+	background-size:48px;
+	display:inline-block;
+	z-index: 50;
+}
+section.moveStep .packageTypeBox .packageBox .qty{
+	position:absolute;
+	left:0;
+	right:0;
+	text-align: center;
+	top:50%;
+	transform: translateY(-50%);
+	font-size: 72px;
+	font-weight: 700;
+
+}
+
+section.moveStep .packageBtnBox {
+	text-align: center;
+	margin-top: 30px;
+}
+section.moveStep .packageBtnBox a + a{
+	margin-left: 25px;
+}
+
 
 /* SaleInLots(분양) */
 section.saleInLotsHome .jgkpPZ{
