@@ -815,25 +815,25 @@ nav{
 	width: 450px;
 }
 .img_upload .imgUp{
-	background:url("../img/icon_imgUp2.png") no-repeat center;
+	background:url("/driver/img/no-images.png") no-repeat center;
 	position:relative;
 	width:100%;
 	height:100%;
 }
 
 .img_upload:first-child{
-	border-color: #cd2024;
+	border-color:#3A5889;
 	margin-left:0;
 }
 .img_upload:first-child .imgUp{
-	background:url("../img/icon_imgUp.png") no-repeat center;
+	background:url("/driver/img/icon_imgUp.png") no-repeat center;
 
 }
 .img_upload .imgDel{
 	position:absolute;
 	right:5px;
 	top:5px;
-	background:url("../img/icon_delBtn.png") no-repeat center;
+	background:url("/driver/img/icon_delBtn.png") no-repeat center;
 	display:inline-block;
 	width:20px;
 	height:20px;
