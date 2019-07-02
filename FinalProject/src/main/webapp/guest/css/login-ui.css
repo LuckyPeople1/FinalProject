@@ -29,7 +29,7 @@
 
 #guest_loginHome .login_wrap .login_group{
 	height: 400px;
-	font-size: 0;
+	font-size: 20;
 	margin:0 auto;
 	border:1px solid #3b3b3b;
 	display:inline-block;
@@ -70,27 +70,28 @@
 	padding-bottom: 29px;
 
 }
-#guest_loginHome .login_wrap .login_group .login_box .input_box{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box{
 	height: 50px;
 	border:1px solid #ccc;
 	text-align: left;
-	font-size: 0;
+	font-size: 5;
 }
-#guest_loginHome .login_wrap .login_group .login_box .input_box + .input_box{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box + .login_input_box{
 	margin-top: 10px;
 }
-#guest_loginHome .login_wrap .login_group .login_box .input_box input{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box input{
+	z-Index: 99;
 	border:none;
-	height: 100%;
-	width:calc(100% - 70px);
-	padding:0 23px;
+	height:100%;
+	width:500px;
 	vertical-align: top;
 	display:inline-block;
 	outline: none;
-
+	
 }
 
-#guest_loginHome .login_wrap .login_group .login_box .input_box .mark{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark{
+	z-Index: 1000;
 	background-color: #f3f3f3;
 	position:relative;
 	border-right:1px solid #ccc;
@@ -100,22 +101,29 @@
 	width: 70px;
 
 }
-#guest_loginHome .login_wrap .login_group .login_box .input_box .mark .ico{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico{
+	z-Index: 1001;
 	position:absolute;
 	left:50%;
 	top:50%;
 	transform: translate(-50% , -50%);
 }
-#guest_loginHome .login_wrap .login_group .login_box .input_box .mark .ico_id{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico_id{
 	background:url("../img/icon_id_mark.png") no-repeat center / cover;
 	width:21px;
 	height: 22px;
 }
-#guest_loginHome.login_wrap .login_group .login_box .input_box .mark .ico_pw{
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico_pw{
 	background:url("../img/icon_pw_mark.png") no-repeat center / cover;
 	width:17px;
 	height: 26px;
 }
+
+
+
+
+
+
 #guest_loginHome .login_wrap .login_group .login_btn{
 	line-height: 65px;
 	background-color: #d03838;
