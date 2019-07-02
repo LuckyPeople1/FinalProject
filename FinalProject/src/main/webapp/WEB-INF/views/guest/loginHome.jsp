@@ -9,26 +9,29 @@
 			<div class="logo_box">
 				<span class="logo"></span>
 			</div>
-			<div class="login_group">
-				<div class="login_box">
-					<div class="tit_txt">로그인</div>
-					<div class="input_box">
-						<span class="mark">
-							<i class="ico ico_id"></i>
-						</span>
-						<input>
+			<form method="post" id="login">
+				<div class="login_group">
+					<div class="login_box">
+						<div class="tit_txt">로그인</div>
+						<div class="input_box">
+							<span class="mark">
+								<i class="ico ico_id"></i>
+							</span>
+							<input type="text" name="userId">
+						</div>
+						<div class="input_box">
+							<span class="mark">
+								<i class="ico ico_pw"></i>
+							</span>
+							<input type="password" name="userPw">
+						</div>
+						<a href="javascript:$('#login').submit()" class="login_btn">LOGIN</a><br>
+						<a href="#none" class="">LOGIN</a>
+						<a href="#none" class="">LOGIN</a>
+						<a id="kakao-login-btn"></a>
+						</div>
 					</div>
-					<div class="input_box">
-						<span class="mark">
-							<i class="ico ico_pw"></i>
-						</span>
-						<input>
-					</div>
-					<a href="#none" class="login_btn">LOGIN</a><br>
-					<a href="#none" class="">LOGIN</a><a href="#none" class="">LOGIN</a>
-					<a id="kakao-login-btn"></a>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
