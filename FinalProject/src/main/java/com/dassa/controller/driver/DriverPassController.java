@@ -17,6 +17,7 @@ public class DriverPassController {
 	//기사설정 페이지(myapge)
 	@RequestMapping("/mypage")
 	public String DriverSetting() {
+		
 		return "driver/driverMypage";
 	}
 	
@@ -32,17 +33,15 @@ public class DriverPassController {
 		return "driver/driverAuctionDetail";
 	}
 	
-	//입찰 상세보기 안에 입찰하기!!
-	@RequestMapping("/auctionEstimate")
-	public String DriverAuctionEstimate() {
-		
-		return "driver/driverAuctionEstimate";
-	}
-	
 	//이사 관리 페이지
 	@RequestMapping("/move")
 	public String DriverMove() {
 		return "driver/driverMove";
+	}
+	
+	@RequestMapping("/driverMoveDetail")
+	public String DriverMoveDetail() {
+		return "driver/driverMoveDetail";
 	}
 	
 	//@사용자 리뷰 페이지
