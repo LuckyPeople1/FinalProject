@@ -67,7 +67,7 @@
 					</tr>
 					<tr>
 						<th>메모</th>
-						<td><textarea readonly="readonly">깨지지 않게 조심해주세요!!! </textarea></td>
+						<td colspan="3"><textarea class="text_editor smaller" readonly="readonly">깨지지 않게 조심해주세요!!! </textarea></td>
 					</tr>
 					</tbody>
 				</table>
@@ -78,16 +78,17 @@
 			<div class="set_form">
 				<table class="table_set">
 					<colgroup>
-						<col width="180">
+						<col width="200">
+						<col width="100">
+						<col width="250">
 						<col width="*">
-						<col width="180">
 						<col width="*">
 					</colgroup>
 					<thead></thead>
 					<tbody>
 					<tr>
 						<th>이사 사진</th>
-						<td colspan="3" class="">
+						<td colspan="5" class="">
 							<script>
 								/* 이미지 업로드 5개 만들기 (추후 php for문 쓸 것..) 퍼스트 차일드가 안먹음 ㅠㅠ */
 
@@ -105,29 +106,58 @@
 							</script>
 						</td>
 					</tr>
+					<%-- <c:forEach items="${dfddf }" var="sadf" varStatus="status">
+						sadf.arr[status.index]
+					</c:forEach> --%>
 					<tr>
-						<th>짐유형</th>
+						<th colspan="2">짐이름</th>
+						<td colspan="">
+							냉장고(package_name)
+						</td>
+						<th colspan="">총수량</th>
 						<td colspan="3">
-							<textarea class="text_editor smaller"></textarea>
+							3
 						</td>
 					</tr>
-					<tr>
-						<th>매장키워드</th>
-						<td colspan="3">
-							<span class="keyword_box">
-								<span class="keyword text">드라이</span>
-								<a href="#none" class="keyword_del"></a>
-							</span>
-							<span class="keyword_box">
-								<span class="keyword text">드라이</span>
-								<a href="#none" class="keyword_del"></a>
-							</span>
-							<a href="#none" class="tag col_red f_w keyword_add">추가</a>
-						</td>
+					
+					 <tr>
+						<th>냉장고(1)</th>
+						<th>냉장고 종류</th>
+						<td>양문형</td><br>
+						<th>용량</td>
+						<td colspan="3">120~250리터</td>
 					</tr>
+					
+					
+					<tr>
+						<th>냉장고(2)</th>
+						<th>냉장고 종류</th>
+						<td>일반형</td>
+						<th>용량</th>
+						<td colspan="3">251~460리터</td>
+					</tr>
+					
+					
+					
+					<tr>
+						<th colspan="2">짐이름</th>
+						<td>침대</td>
+						<th>총수량</th>
+						<td colspan="3">2</td>
+					</tr>
+					<tr>
+						<th>침대(1)</th>
+						<th>침대크기</th>
+						<td>더블</td><br>
+						<th>프레임 여부 및 종류</td>
+						<td>일반 프레임</td>
+						<th>특이사항</th>
+						<td>일반 침대</td>
+					</tr>
+					
 					<tr>
 						<th>상품고시정보</th>
-						<td colspan="3">
+						<td colspan="5">
 							<textarea class="text_editor smaller"></textarea>
 						</td>
 					</tr>
@@ -149,12 +179,6 @@
 						<th>은행명</th>
 						<td><input class="tbox full"></td>
 					</tr>
-					<tr>
-						<th>계좌번호</th>
-						<td><input class="tbox full"></td>
-						<th>계좌명</th>
-						<td><input class="tbox full"></td>
-					</tr>
 					</tbody>
 				</table>
 			</div>
@@ -169,9 +193,8 @@
 
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
-
 </div>
 <script src="/driver/js/shop_setting.js"></script>
-</body>
 
+</body>
 </html>
