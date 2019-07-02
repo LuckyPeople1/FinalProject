@@ -11,17 +11,14 @@
 <body> 
 <div class="container">
 	<!-- gnb -->
-	<%@include file="/WEB-INF/views/manage/notice/common/header.jsp"%>
+	<%@include file="/WEB-INF/views/manage/common/header.jsp"%>
 	<div class="wrapper">
 		<!-- lnb -->
-		<%@include file="/WEB-INF/views/manage/notice/page/leftSideNotice.jsp"%>
-
+		<%@include file="/WEB-INF/views/manage/board/page/leftSideNotice.jsp"%>
+		
 		<div class="contents">
 			<div class="set_field">
-				<div class="field_title">
-					<span class="title_mark">■ FAQ 관리</span>
-				</div>
-
+				<div class="field_title"><span class="title_mark">■ 1:1 문의관리</span></div>
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -29,20 +26,31 @@
 						<col width="180">
 						<col width="*">
 					</colgroup>
+					<tbody>
 					<tr>
 						<th>제목</th>
-						<td colspan="3">
-							<input class="tbox w_6p">
+						<td colspan="">
+							<span class="sbox small">
+								<select name="searchType">
+									<option value="1">제목</option>
+									<option value="2">작성자명</option>
+								</select>
+							</span>
+							<input class="tbox" name="searchWord" value="">
 						</td>
-					</tr>
-					<tr>
-						<th>분류</th>
+						<th>답변상태</th>
 						<td>
-							<label><input type="checkbox" name="kind"><span>회원문의</span></label>
-							<label class="ml10"><input type="checkbox" name="kind"><span>부동산문의</span></label>
-							<label class="ml10"><input type="checkbox" name="kind"><span>이사문의</span></label>
+							<label>
+								<input type="checkbox">
+								<span>답변</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox">
+								<span>미답변</span>
+							</label>
 						</td>
 					</tr>
+					
 					<tr>
 						<th>작성일</th>
 						<td colspan="3">
@@ -55,58 +63,80 @@
 							<a href="javascript:setSearchDate('6m')" class="btn smaller higher col_grey ml5">6달</a>
 						</td>
 					</tr>
+					</tbody>
 				</table>
 				<div class="set_menu">
-					<a href="#" class="btn normal col_main f_w">검색</a>
-					<a href="#" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<a href="javascript:void(0)" class="btn normal col_main f_w">검색</a>
+					<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
 			</div>
 			<div class="list_field">
-			<div class="list_menu">
+				<div class="list_menu">
 					<span class="left_menu">
 						<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-						<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>					
+						<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
+
 					</span>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">FAQ작성</a>
+						<a href="javascript:void(0)" class="btn col_darkGrey f_w">FAQ 작성</a>
 					</span>
 				</div>
 				<table class="list_table">
 					<colgroup>
+						<col width="80">
+						<col width="80">
 						<col width="100">
 						<col width="100">
-						<col width="120">
 						<col width="*">
-						<col width="155">
 						<col width="130">
+						<col width="130">
+						<col width="100">
+						<col width="100">
 					</colgroup>
 					<thead>
 					<tr>
-						<th><label><input type="checkbox"></label></th>
-						<th>NO</th>
-						<th>분류</th>
+						<th>
+							<label>
+								<input type="checkbox" name="all_chk">
+							</label>
+						</th>
+						<th>No</th>
+						<th>아이디</th>
+						<th>이름</th>
 						<th>제목</th>
 						<th>작성일시</th>
+						<th>답변일시</th>
+						<th>답변유무</th>
 						<th>관리</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
-						<td><label><input type="checkbox"></label></td>
-						<td>2</td>
-						<td>회원문의</td>
-						<td class="text-left">회원탈퇴는 어떻게 하는 건가요?</td>
-						<td>2019-07-01</td>
+						<td>
+							<label>
+								<input type="checkbox" name="">
+							</label>
+						</td>
+						<td>1</td>
+						<td>ssooya90</td>
+						<td>최희수</td>
+						<td class="text-left">이거 어떻게 해요 이거어떻게해요</td>
+						<td class="">2019-07-01</td>
+						<td class="">2019-07-02</td>
+						<td>
+							<span class="tag col_blue f_w">답변완료</span>
+						</td>
 						<td>
 							<div>
-								<a href="work_info.html" class="btn small col_main f_w">수정</a>
+								<a href="work_info.html" class="btn small col_main f_w">보기</a>
 							</div>
 							<div>
 								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
 							</div>
 						</td>
 					</tr>
+					
 					</tbody>
 				</table>
 			</div>
@@ -133,7 +163,9 @@
 				</ul>
 			</div>
 		</div>
-
+		
+		
+		
 		<!-- 푸터 -->
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
 	</div>

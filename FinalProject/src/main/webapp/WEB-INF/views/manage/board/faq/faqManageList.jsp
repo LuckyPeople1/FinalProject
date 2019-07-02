@@ -6,21 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 관리</title>
+<title>FAQ 관리</title>
 </head>
 <body> 
 <div class="container">
 	<!-- gnb -->
-	<%@include file="/WEB-INF/views/manage/notice/common/header.jsp"%>
+	<%@include file="/WEB-INF/views/manage/common/header.jsp"%>
 	<div class="wrapper">
 		<!-- lnb -->
-		<%@include file="/WEB-INF/views/manage/notice/page/leftSideNotice.jsp"%>
+		<%@include file="/WEB-INF/views/manage/board/page/leftSideNotice.jsp"%>
 
 		<div class="contents">
 			<div class="set_field">
 				<div class="field_title">
-					<span class="title_mark">■ 공지사항 관리</span>
+					<span class="title_mark">■ FAQ 관리</span>
 				</div>
+
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -32,6 +33,14 @@
 						<th>제목</th>
 						<td colspan="3">
 							<input class="tbox w_6p">
+						</td>
+					</tr>
+					<tr>
+						<th>분류</th>
+						<td>
+							<label><input type="checkbox" name="kind"><span>회원문의</span></label>
+							<label class="ml10"><input type="checkbox" name="kind"><span>부동산문의</span></label>
+							<label class="ml10"><input type="checkbox" name="kind"><span>이사문의</span></label>
 						</td>
 					</tr>
 					<tr>
@@ -52,48 +61,42 @@
 					<a href="#" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
 			</div>
-				<div class="list_field">
-					<div class="list_menu">
-					<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-					<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
+			<div class="list_field">
+			<div class="list_menu">
+					<span class="left_menu">
+						<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
+						<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>					
+					</span>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-						<a href="#" class="btn col_darkGrey f_w">글쓰기</a>
+						<a href="javascript:void(0)" class="btn col_darkGrey f_w">FAQ작성</a>
 					</span>
 				</div>
 				<table class="list_table">
 					<colgroup>
 						<col width="100">
 						<col width="100">
-						<col width="*">
 						<col width="120">
+						<col width="*">
 						<col width="155">
 						<col width="130">
 					</colgroup>
 					<thead>
 					<tr>
-						<th>
-							<label>
-								<input type="checkbox" name="all_chk">
-							</label>
-						</th>
-						<th>No</th>
+						<th><label><input type="checkbox"></label></th>
+						<th>NO</th>
+						<th>분류</th>
 						<th>제목</th>
-						<th>조회수</th>
-						<th>등록일</th>
+						<th>작성일시</th>
 						<th>관리</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
-						<td>
-							<label>
-								<input type="checkbox" name="">
-							</label>
-						</td>
-						<td>1</td>
-						<td class="text-left">다싸공지사항입니다</td>
-						<td>0</td>
+						<td><label><input type="checkbox"></label></td>
+						<td>2</td>
+						<td>회원문의</td>
+						<td class="text-left">회원탈퇴는 어떻게 하는 건가요?</td>
 						<td>2019-07-01</td>
 						<td>
 							<div>
@@ -106,8 +109,8 @@
 					</tr>
 					</tbody>
 				</table>
-				</div>
-				<div class="page_group clearFix">
+			</div>
+			<div class="page_group clearFix">
 				<ul class="page_box">
 					<li class="first arrow">
 						<a href="#none"></a>
@@ -130,6 +133,7 @@
 				</ul>
 			</div>
 		</div>
+
 		<!-- 푸터 -->
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
 	</div>
