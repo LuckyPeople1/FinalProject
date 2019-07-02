@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/include.js"></script>
+	<script src="../js/search.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_shop.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">직원 상세정보</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<ul class="tabs_group clearfix">
+			<li>
+				<a href="shop_staff_info_set.html" class="">기본정보</a>
+			</li>
+			<li>
+				<a href="shop_staff_info_work.html" class="">근무정보</a>
+			</li>
+			<li>
+				<a href="shop_staff_info_item.html" class="">상품설정</a>
+			</li>
+			<li>
+				<a href="shop_staff_info_reserve.html" class="">예약내역</a>
+			</li>
+			<li>
+				<a href="shop_staff_info_right.html" class="on">권한설정</a>
+			</li>
+			<!--<li>-->
+			<!--<a href="javascript:void(0)">예약 조회</a>-->
+			<!--</li>-->
+			<!--<li>-->
+			<!--<a href="javascript:void(0)">포인트 조회</a>-->
+			<!--</li>-->
+		</ul>
+		<div class="section">
+			<div class="section_title">권한 설정</div>
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>권한유무</th>
+						<td colspan="3">
+							<label><input type="radio" name="right"><span>권한부여</span></label>
+							<label class="ml15"><input type="radio" name="right"><span>권한없음</span></label>
+						</td>
+					</tr>
+					<tr class="right_menu hide">
+						<th>메뉴 사용유무</th>
+						<td colspan="3">
+							<label>
+								<input type="checkbox"><span>기본설정</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox"><span>회원관리</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox"><span>매장관리</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox"><span>예약관리</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox"><span>게시판관리</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox"><span>마케팅관리</span>
+							</label>
+							<label class="ml10">
+								<input type="checkbox"><span>통계관리</span>
+							</label>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="btn_box">
+			<a href="javascript:history.back();" class="btn col_darkGrey">취소</a>
+			<a href="javascript:void(0)" class="btn col_red">저장</a>
+		</div>
+		<div class="list_form">
+
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script>
+
+	$('input[name="right"]').on('change',function () {
+
+		if($('input[name="right"]').eq(0).prop('checked')){
+
+			$('tr.right_menu').show();
+		}else{
+			$('tr.right_menu').hide();
+
+		}
+
+	});
+
+
+</script>
+</body>
+</html>

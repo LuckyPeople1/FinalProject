@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>아이주 관리자</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/ui.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script src="../js/ui.js"></script>
+	<script src="../js/jquery-ui-1.12.1.js"></script>
+	<script src="../js/include.js"></script>
+</head>
+<body>
+<div class="container">
+	<nav>
+		<div role="main_nav" data-include="nav_main.html"></div>
+		<div role="sub_nav" data-include="nav_set.html"></div>
+	</nav>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">업종관리</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<div class="section">
+			<div class="section_title">업종추가</div>
+			<div class="set_form">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="100">
+					</colgroup>
+					<thead></thead>
+					<tbody>
+					<tr>
+						<th>업종명</th>
+						<td class="">
+							<input class="tbox long" name="codeName">
+							<a href="javascript:code_add()" class="btn col_red f_w btn_t ml5">추가</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_title">업종목록</div>
+			<div class="list_form">
+				<table class="table_list">
+					<colgroup>
+						<col width="150">
+						<col width="*">
+						<col width="200">
+						<col width="150">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>NO</th>
+						<th>업종명</th>
+						<th>매장수</th>
+						<th>관리</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>2</td>
+						<td class="">
+							<span class="biz_code">네일</span>
+							<div class="biz_modify_box hide">
+								<input class="tbox" name="code" value="">
+								<a href="#none" class="btn col_red f_w" onclick="code_change(this,'y')">변경</a>
+								<a href="#none" class="btn col_darkGrey f_w" onclick="code_change(this,'n')">취소</a>
+							</div>
+						</td>
+						<td>
+							<span class="shop_count">2</span>
+						</td>
+						<td>
+							<a href="#none" class="btn col_grey" onclick="code_set(this, 'modify')">수정</a>
+							<a href="#none" class="btn col_grey" onclick="code_set(this, 'del')">삭제</a>
+						</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td class="">
+							<span class="biz_code">헤어</span>
+							<div class="biz_modify_box hide">
+								<input class="tbox " name="code" value="">
+								<a href="#none" class="btn col_red f_w" onclick="code_change(this)">변경</a>
+								<a href="javascript:void(0)" class="btn col_darkGrey f_w">취소</a>
+							</div>
+						</td>
+						<td>
+							<span class="shop_count">0</span>
+						</td>
+						<td>
+							<a href="#none" class="btn col_grey" onclick="code_set(this, 'modify')">수정</a>
+							<a href="#none" class="btn col_grey" onclick="code_set(this, 'del')">삭제</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tip_box">
+				<div class="tip">매장에서 선택된 업종인 경우 삭제할 수 없습니다.</div>
+				<div class="tip">매장에서 선택되지 않은 업종은 앱에서 표시되지 않습니다.</div>
+			</div>
+		</div>
+
+	</div>
+	<footer role="footer" data-include="footer.html"></footer>
+
+</div>
+<script>
+
+
+
+
+	// 업종목록 추가
+
+	function code_add() {
+
+		var code_text = $('input[name="codeName"]').val();
+		var code_table = $('.table_list tbody');
+
+		var code ='';
+		code += '<tr>';
+		code += '	<td>1</td>';
+		code += '	<td class="">';
+		code += '		<span class="biz_code">'+ code_text +'</span>';
+		code += '		<div class="biz_modify_box hide">';
+		code += '			<input class="tbox " name="code" value="">';
+		code += '			<a href="#none" class="btn col_red f_w" onclick="code_change(this)">변경</a>';
+		code += '			<a href="javascript:void(0)" class="btn col_darkGrey f_w">취소</a>';
+		code += '		</div>';
+		code += '	</td>';
+		code += '	<td>';
+		code += '		<span class="shop_count">0</span>';
+		code += '	</td>';
+		code += '	<td>';
+		code += '		<a href="#none" class="btn col_grey" onclick="code_set(this, \'modify\')">수정</a>';
+		code += '		<a href="#none" class="btn col_grey" onclick="code_set(this, \'del\')">삭제</a>';
+		code += '	</td>';
+		code += '	</tr>';
+
+
+		// 코드명을 입력하지 않은 경우
+		if(code_text.length == 0){
+			alert('업종명을 입력해주세요');
+			return false;
+		}
+
+		code_table.append(code); // 테이블에 코드 삽입
+
+	}
+
+
+	// 업종목록 수정,삭제
+	function code_set(e,state) {
+
+		var biz_code = $(e).closest('tr').find('.biz_code');
+		var biz_code_text = biz_code.text();
+
+
+		// 임시 인풋창 생성
+		var temp = '';
+		temp += '<div class="biz_modify_box">';
+		temp +=	'	<input class="tbox" name="code" value="'+ biz_code_text +'">';
+		temp +=	'	<a href="#none" class="btn col_red f_w" onclick="code_change(this,\'y\')">변경</a>';
+		temp +=	'	<a href="#none" class="btn col_darkGrey f_w" onclick="code_change(this,\'n\')">취소</a>';
+		temp +=	'</div>';
+
+
+		var s_count = $(e).closest('tr').find('.shop_count').text(); // 매장숫자 받아오기
+		var s_count_num = Number(s_count); // 매장숫자 숫자형식으로 변환
+
+
+		// 수정버튼 클릭 시
+		if(state == 'modify'){
+
+			biz_code.parent().append(temp);
+			biz_code.hide();
+		}
+
+		// 취소버튼 클릭 시
+		else {
+
+			if(s_count_num > 1){
+				alert("매장이 선택되어 있는 경우 삭제할 수 없습니다.")
+				return false;
+			}
+
+			$(e).closest('tr').remove();
+		}
+
+	}
+
+	// 업종수정창
+	function code_change(e,state) {
+
+		var c_code = $(e).siblings('input').val();
+		var box = $(e).closest('.biz_modify_box');
+		var s_code = $(e).parent().siblings('.biz_code');
+
+		// 변경버튼 클릭 시
+		if(state == 'y'){
+			s_code.text(c_code); // 코드변환
+
+		}
+
+		box.hide(); // 수정창 숨김
+		s_code.show(); // 기존텍스트 표시
+
+
+	}
+
+
+</script>
+</body>
+</html>

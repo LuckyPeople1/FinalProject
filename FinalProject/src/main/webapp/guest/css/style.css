@@ -249,10 +249,6 @@ section.easyFind .easyFindBox{
 
 }
 
-
-
-
-
 section.moveStep .sectionTitle{
 	margin-top: 70px;
 	text-align: center;
@@ -273,4 +269,27 @@ section.moveStep .moveGroup .moveInfoTitle {
 }
 section.moveStep .moveGroup .moveInfoTitle strong{
 	color: #078095;
+}
+
+/* SaleInLots(분양) */
+section.saleInLotsHome .jgkpPZ{
+	height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px;
+    text-align: center;
+    line-height: 59px;
+    background: rgb(255, 255, 255);
+}
+section.saleInLotsHome .jgkpPZ a{
+    height: 59px;
+    font-size: 14px;
+    color: rgb(34, 34, 34);
+
+    padding: 0px 25px;
+}
+section.saleInLotsHome .gSDUZR {
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    vertical-align: middle;
+    background-color: rgb(221, 221, 221);
 }
