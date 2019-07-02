@@ -26,7 +26,7 @@ public class DriverPassController {
 	}
 	
 	//기사설정 페이지(myapge)
-	@RequestMapping("/mypage")
+	@RequestMapping(value="/mypage")
 	public String DriverSetting(HttpSession session,Model model) throws Exception {
 		UserVO userVO=(UserVO)session.getAttribute("user");
 		UserVO user=driverService.selectOne(userVO);
