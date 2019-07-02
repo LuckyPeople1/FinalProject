@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<!-- gnb -->
-		<%@include file="/WEB-INF/views/manage/board/common/header.jsp"%>
+		<%@include file="/WEB-INF/views/manage/common/header.jsp"%>
 		<div class="wrapper">
 			<!-- lnb -->
 			<%@include file="/WEB-INF/views/manage/board/page/leftSideNotice.jsp"%>
