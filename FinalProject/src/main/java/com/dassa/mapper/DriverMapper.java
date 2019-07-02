@@ -4,10 +4,10 @@ import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.UserVO;
 
-@MapperScan("driverMapper")
+/*@MapperScan("driverMapper")*/
 public interface DriverMapper {
-
-	UserVO driverMyPage(UserVO userVO);
-
+/*
+ public UserVO driverMyPage(UserVO userVO) throws Exception;
+*/
 	
 }

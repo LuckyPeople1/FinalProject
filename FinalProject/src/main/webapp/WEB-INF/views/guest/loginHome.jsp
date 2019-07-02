@@ -12,13 +12,13 @@
 				<div class="login_group">
 					<div class="login_box">
 						<div class="tit_txt">로그인</div>
-						<div class="input_box">
+						<div class="login_input_box">
 							<span class="mark">
 								<i class="ico ico_id"></i>
 							</span>
 							<input type="text" name="userId">
 						</div>
-						<div class="input_box">
+						<div class="login_input_box">
 							<span class="mark">
 								<i class="ico ico_pw"></i>
 							</span>
