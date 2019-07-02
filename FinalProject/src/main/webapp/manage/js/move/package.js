@@ -162,7 +162,9 @@ var package = {
 			// dataType : "json",
 			success : function (data) {
 
-				if(data.trim() === 1){
+				alert(data);
+
+				if(data.trim() == 1){
 					alert("등록 완료");
 					location.href='/manage/move/packageList';
 				}else{

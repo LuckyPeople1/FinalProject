@@ -1,11 +1,22 @@
 package com.dassa.controller.driver;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dassa.service.DriverService;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/driver")
 public class DriverPassController {
+	
+	@Resource
+	private DriverService driverService;
+	
 	
 	//기사 홈 페이지 (main page)
 	@RequestMapping("/")
@@ -16,7 +27,10 @@ public class DriverPassController {
 	
 	//기사설정 페이지(myapge)
 	@RequestMapping("/mypage")
-	public String DriverSetting() {
+	public String DriverSetting(HttpSession session,Model model) throws Exception {
+		UserVO userVO=(UserVO)session.getAttribute("user");
+		UserVO user=driverService.selectOne(userVO);
+		model.addAttribute("user", user);  //user값 보내기 requestParam과 같은기능
 		return "driver/driverMypage";
 	}
 	
@@ -32,17 +46,15 @@ public class DriverPassController {
 		return "driver/driverAuctionDetail";
 	}
 	
-	//입찰 상세보기 안에 입찰하기!!
-	@RequestMapping("/auctionEstimate")
-	public String DriverAuctionEstimate() {
-		
-		return "driver/driverAuctionEstimate";
-	}
-	
 	//이사 관리 페이지
 	@RequestMapping("/move")
 	public String DriverMove() {
 		return "driver/driverMove";
+	}
+	
+	@RequestMapping("/driverMoveDetail")
+	public String DriverMoveDetail() {
+		return "driver/driverMoveDetail";
 	}
 	
 	//@사용자 리뷰 페이지

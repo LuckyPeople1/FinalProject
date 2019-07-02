@@ -18,18 +18,67 @@
 					<div class="packageTypeBox">
 						<div class="packageTypeTitle">가전</div>
 						<div class="packageTypeList">
-							<c:forEach items="${packageList}" var="package">
-								<c:if test="${package.packageType == 0}">
-									<div class="packageItem">
-										<img src="${package.packageImgPath}" class="packageItemImg">
-										<div class="packageTitle">${package.packageName}</div>
+							<c:forEach items="${packageList}" var="item">
+								
+								<c:if test="${item.packageType == 0}">
+									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
+										<div class="packageBtn" onclick="package.packageSelect(event,this)">
+											<img src="${item.packageImgPath}" class="packageImg">
+											<div class="packageName">${item.packageName}</div>
+											<div class="packageSelect">
+												<a href="#none" class="minusBtn" onclick="package.packageMinus(event,this)"></a>
+												<div class="qty">0</div>
+											</div>
+										</div>
+										
 									</div>
+									
 								</c:if>
+								
 							</c:forEach>
 						</div>
 						
 					</div>
-
+					<div class="packageTypeBox">
+						<div class="packageTypeTitle">가구</div>
+						<div class="packageTypeList">
+							<c:forEach items="${packageList}" var="item">
+								
+								<c:if test="${item.packageType == 1}">
+									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
+										<div class="packageBtn" onclick="package.packageSelect(event,this)">
+											<img src="${item.packageImgPath}" class="packageImg">
+											<div class="packageName">${item.packageName}</div>
+											<div class="packageSelect">
+												<a href="#none" class="minusBtn" onclick="package.packageMinus(event,this)"></a>
+												<div class="qty">0</div>
+											</div>
+										</div>
+									
+									</div>
+								
+								</c:if>
+							
+							</c:forEach>
+						</div>
+					
+					</div>
+					<div class="packageTypeBox">
+						<div class="packageTypeTitle">기타</div>
+						<div class="packageTypeList">
+							<c:forEach items="${packageList}" var="item">
+								
+								<c:if test="${item.packageType == 2}">
+									${item.packageName}
+								</c:if>
+							
+							</c:forEach>
+						</div>
+					</div>
+				</div>
+				<div class="packageBtnBox">
+					<a href="#none" class="btn col_darkGrey f_w big">취소</a>
+					<a href="#none" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>
 		</section>
@@ -38,5 +87,6 @@
 
 
 </div>
+<script src="/guest/js/move/package.js"></script>
 </body>
 </html>

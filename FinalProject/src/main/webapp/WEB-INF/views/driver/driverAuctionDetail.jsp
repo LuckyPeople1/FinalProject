@@ -18,9 +18,6 @@
 			<li>
 				<a href="/driver/auctionDetail" class="on">기본정보</a>
 			</li>
-			<li>
-				<a href="/driver/auctionEstimate" class="">견적내기</a>
-			</li>
 		</ul>
 		<div class="section">
 			<div class="section_title">사용자정보</div>
