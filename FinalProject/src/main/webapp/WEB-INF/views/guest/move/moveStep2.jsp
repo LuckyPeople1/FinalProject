@@ -10,8 +10,8 @@
 			<div class="sectionTitle">짐 정보</div>
 			<div class="moveGroup">
 				<div class="moveInfoTitle">
-					<strong>·짐 수량에 맞춰 아이콘을 터치해주세요.</strong><br/>
-					·수량을 뺄 때에는 - 버튼을 터치해주세요.
+					<strong>·선택한 짐의 상세정보를 완성해주세요.</strong><br/>
+					·각각의 짐 항목을 눌러 물건의 상세 정보를 완성해주세요.
 				</div>
 				
 				<div class="packageList">
@@ -30,14 +30,14 @@
 												<div class="qty">0</div>
 											</div>
 										</div>
-										
-									</div>
 									
-								</c:if>
+									</div>
 								
+								</c:if>
+							
 							</c:forEach>
 						</div>
-						
+					
 					</div>
 					<div class="packageTypeBox">
 						<div class="packageTypeTitle">가구</div>

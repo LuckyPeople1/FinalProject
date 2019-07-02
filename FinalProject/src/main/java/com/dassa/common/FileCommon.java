@@ -15,6 +15,9 @@ public class FileCommon {
 	public static String[] fileUp(MultipartFile fileSet, HttpServletRequest httpServletRequest, String folderName){
 
 		String savePath		= httpServletRequest.getServletContext().getRealPath("/upload/"+folderName+"/");
+
+		System.out.println(savePath);
+
 		String originName	=	fileSet.getOriginalFilename();
 		String onlyFileName	=	originName.substring(0, originName.lastIndexOf('.'));
 		String extension	=	originName.substring(originName.lastIndexOf('.'));
@@ -61,7 +64,7 @@ public class FileCommon {
 			num++;
 		}
 
-		String fileInfo[]	=	{fileName.toString(), "/upload/"+fileName.toString()};
+		String fileInfo[]	=	{fileName.toString(), "/upload/"+folderName+"/"+fileName.toString()};
 
 
 		return fileInfo;
