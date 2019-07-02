@@ -18,7 +18,7 @@
 			<i class="ico set"></i>
 			<div class="menu_text">이사관리</div>
 		</a>
-		<a href="/manage/notice/noticeManageList" class="menu_btn on">
+		<a href="/manage/board/notice/noticeManageList" class="menu_btn on">
 			<i class="ico set"></i>
 			<div class="menu_text">게시판관리</div>
 		</a>
