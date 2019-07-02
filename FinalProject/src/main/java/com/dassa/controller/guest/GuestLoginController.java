@@ -1,13 +1,13 @@
-package com.dassa.controller.user;
+package com.dassa.controller.guest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/login")
-public class LoginUserController {
+public class GuestLoginController {
 	@RequestMapping("/")
 	public String LoginHome() {
-		return "user/loginHome";
+		return "guest/loginHome";
 	}
 }
