@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 	<meta charset="UTF-8">
-	<title>회원가입</title>
+	<title>유저</title>
 	<link rel="stylesheet" type="text/css" href="/user/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/user/css/ui.css">
 	<link rel="stylesheet" type="text/css" href="/user/css/style.css">
