@@ -978,13 +978,13 @@ section .board_Mobtn{
 	width: 120px;
 	height: 46px;
 	padding: 15px;
-	background: red;
+	background: #4683BD;
 	color: white;
 }
 section .board_Rebtn{
 	width: 120px;
 	height: 46px;
 	padding: 15px;
-	background: gray;
+	background: #353C43;
 	color: white;	
 }
