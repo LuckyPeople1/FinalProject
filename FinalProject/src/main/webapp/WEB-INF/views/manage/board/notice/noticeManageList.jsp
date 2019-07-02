@@ -58,7 +58,7 @@
 					<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-						<a href="#" class="btn col_darkGrey f_w">글쓰기</a>
+						<a href="/manage/board/notice/noticeManageWriter" class="btn col_darkGrey f_w">글쓰기</a>
 					</span>
 				</div>
 				<table class="list_table">

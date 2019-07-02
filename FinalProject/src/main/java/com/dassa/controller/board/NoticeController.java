@@ -33,4 +33,10 @@ public class NoticeController {
 	public String noticeManageModify() {
 		return "manage/board/notice/noticeManageModify";
 	}
+	
+	//관리자 공지사항 작성페이지
+	@RequestMapping("/noticeManageWriter")
+	public String noticeManageWriter() {
+		return "manage/board/notice/noticeManageWriter";
+	}
 }

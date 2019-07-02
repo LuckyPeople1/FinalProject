@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 수정</title>
+<title>공지사항 작성</title>
 </head>
 <body>
 	<div class="container">
@@ -18,7 +18,7 @@
 			<div class="contents">
 				<div class="set_field">
 					<div class="field_title">
-						<span class="title_mark">■ 공지사항 수정</span>
+						<span class="title_mark">■ 공지사항 작성</span>
 					</div>
 			<section class="section_notice">
 					
@@ -29,16 +29,16 @@
 								</colgroup>
 								<tr>
 									<th>제목</th>
-									<td><input class="board_input" value="다싸공지사항입니다"></td>
+									<td><input class="board_input"></td>
 								</tr>
 								<tr>
 									<th>내용</th>
-									<td><textarea class="board_textarea">수정해야합니다</textarea></td>
+									<td><textarea class="board_textarea"></textarea></td>
 								</tr>
 								<tr>
 									<td colspan="2">
 										<div class="board_button">
-											<a href="javascript:javascript:void(0)" class="board_Mobtn">수정</a>
+											<a href="javascript:javascript:void(0)" class="board_Mobtn">등록</a>
 											<a href="javascript:history.back()" class="board_Rebtn">취소</a>
 										</div>									
 									</td>
