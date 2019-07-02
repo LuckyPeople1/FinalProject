@@ -95,7 +95,7 @@
 						</td>
 						<td>
 							<div class="set_menu">
-								<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
+								<a href="/driver/driverMoveDetail" class="btn col_navy f_w">상세보기</a>
 							</div>
 						</td>
 					</tr>

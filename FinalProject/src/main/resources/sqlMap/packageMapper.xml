@@ -2,6 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.MovePackageMapper">
 
+	<resultMap type="com.dassa.vo.PackageTempVO" id="packageMap">
+		<result column="PACKAGE_IDX" property="packageIdx"/>
+		<result column="PACKAGE_TYPE" property="packageType"/>
+		<result column="PACKAGE_NAME" property="packageName"/>
+		<result column="PACKAGE_IMG_NAME" property="packageImgName"/>
+		<result column="PACKAGE_IMG_PATH" property="packageImgPath"/>
+		<result column="PACKAGE_STATUS" property="packageStatus"/>
+		<result column="PACKAGE_REG_DATE" property="packageRegDate"/>
+		<result column="PACKAGE_DELETE_DATE" property="packageDeleteDate"/>
+		<result column="PACKAGE_OPTION1_NAME" property="packageOption1Name"/>
+		<result column="PACKAGE_OPTION1_VALUE" property="packageOption1Value"/>
+		<result column="PACKAGE_OPTION1_ETC" property="packageOption1Etc"/>
+		<result column="PACKAGE_OPTION2_NAME" property="packageOption2Name"/>
+		<result column="PACKAGE_OPTION2_VALUE" property="packageOption2Value"/>
+		<result column="PACKAGE_OPTION2_ETC" property="packageOption2Etc"/>
+		<result column="PACKAGE_OPTION3_NAME" property="packageOption3Name"/>
+		<result column="PACKAGE_OPTION3_VALUE" property="packageOption3Value"/>
+		<result column="PACKAGE_OPTION3_ETC" property="packageOption3Etc"/>
+		<result column="PACKAGE_OPTION4_NAME" property="packageOption4Name"/>
+		<result column="PACKAGE_OPTION4_VALUE" property="packageOption4Value"/>
+		<result column="PACKAGE_OPTION4_ETC" property="packageOption4Etc"/>
+		<result column="PACKAGE_OPTION5_NAME" property="packageOption5Name"/>
+		<result column="PACKAGE_OPTION5_VALUE" property="packageOption5Value"/>
+		<result column="PACKAGE_OPTION5_ETC" property="packageOption5Etc"/>
+	</resultMap>
+
 
 	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
 		insert
@@ -39,4 +65,13 @@
 		null
 		)
 	</insert>
+
+
+
+	<select id="getPackageList" resultType="com.dassa.vo.PackageTempVO" resultMap="packageMap">
+		select *
+		from MOVE_PACKAGE_TBL
+		where PACKAGE_STATUS = 0
+	</select>
+
 </mapper>

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
 	<h1 class="logo">
-		<a href="#none" class="logoBtn"></a>
+		<a href="/" class="logoBtn"></a>
 	</h1>
 	<div class="rolePageBox">
 		<a href="/shop/">프로중개사 사이트</a>
@@ -16,7 +16,7 @@
 			<a href="#none">관심목록</a>
 			<a href="#none">방내놓기</a>
 			<a href="#none">알림</a>
-			<a href="#none">이사하기</a>
+			<a href="/move/step1">이사하기</a>
 		</nav>
 		<div class="loginMenu">
 			<a href="/login/">로그인</a>

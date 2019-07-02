@@ -45,18 +45,7 @@ public class ManageMoveController {
 		return "/manage/move/moveAllList";
 	}
 
-	/**
-	 * 짐 등록 페이지
-	 *
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping("/packageReg")
-	public String packageReg(Model model){
 
-		model.addAttribute("headerNum",3);
-		return "/manage/move/packageReg";
-	}
 
 	/**
 	 * 짐 관리 페이지
@@ -72,18 +61,42 @@ public class ManageMoveController {
 
 	}
 
+
+	/**
+	 * 짐 등록 페이지
+	 *
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/packageReg")
+	public String packageReg(Model model){
+
+		System.out.println("HERE##");
+
+		model.addAttribute("headerNum",3);
+		return "/manage/move/packageReg";
+	}
+
+
+	/**
+	 * 짐 등록
+	 * @param packageRegVO
+	 * @param httpServletRequest
+	 * @param fileImg
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/packageRegProc", method = RequestMethod.POST)
 	@ResponseBody
 	public int packageRegProc(PackageRegVO packageRegVO, HttpServletRequest httpServletRequest, MultipartFile fileImg) throws Exception {
 
+
 		String jsonString	=	httpServletRequest.getParameter("data");
-		System.out.println(jsonString);
 		Gson gson = new Gson();
 
 		packageRegVO.setPackageOptionList((List<PackageRegOptionVO>)gson.fromJson(jsonString, new TypeToken<List<PackageRegOptionVO>>(){}.getType()));
 
 
-		System.out.println(packageRegVO.getPackageOptionList().size());
 
 
 		// 이미지가 빈값이 아니라면,
@@ -97,6 +110,7 @@ public class ManageMoveController {
 			packageRegVO.setPackageImgName(fileInfo[0]);
 			packageRegVO.setPackageImgPath(fileInfo[1]);
 		}
+
 
 		int rs	=	movePackageService.regPackage(packageRegVO);
 

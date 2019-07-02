@@ -1,0 +1,143 @@
+/* container_start */
+#guest_loginHome .container{
+	min-width:1600px;
+	min-height: 100%;
+	padding-bottom: 50px;
+	position:relative;
+	width:100%;
+	overflow: hidden;
+	margin: 0 auto;
+
+}
+/* container_end */
+
+/* login_start */
+
+#guest_loginHome .login_wrap{
+	text-align: center;
+	padding-top: 50px;
+}
+#guest_loginHome .login_wrap .logo_box{
+	margin-bottom: 53px;
+}
+#guest_loginHome .login_wrap .logo{
+	display:inline-block;
+	background:url("../img/icon_logo.png") no-repeat center / cover;
+	width:120px;
+	height: 90px;
+}
+
+#guest_loginHome .login_wrap .login_group{
+	height: 400px;
+	font-size: 20;
+	margin:0 auto;
+	border:1px solid #3b3b3b;
+	display:inline-block;
+	overflow: hidden;
+
+}
+#guest_loginHome .login_wrap .login_group .login_box{
+	width: 700px;
+	padding:0 50px;
+	display:inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding:58px 60px 90px;
+
+}
+#guest_loginHome .login_wrap .login_group .login_tit{
+	padding-top: 191px;
+	background:url("../img/img_login.png") no-repeat center top 74px ;
+	color: #fff;
+	font-size: 36px;
+	font-weight: 700;
+
+}
+#guest_loginHome .login_wrap .login_group .login_txt{
+	padding-top: 23px;
+	border-top:1px solid #fff;
+	margin-top: 23px;
+	color: #fff;
+	font-size: 14px;
+	padding-bottom: 112px;
+
+}
+
+#guest_loginHome .login_wrap .login_group .login_box .tit_txt{
+	font-size: 26px;
+	font-weight: 700;
+	color: #000;
+	padding-bottom: 29px;
+
+}
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box{
+	height: 50px;
+	border:1px solid #ccc;
+	text-align: left;
+	font-size: 5;
+}
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box + .login_input_box{
+	margin-top: 10px;
+}
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box input{
+	z-Index: 99;
+	border:none;
+	height:100%;
+	width:500px;
+	vertical-align: top;
+	display:inline-block;
+	outline: none;
+	
+}
+
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark{
+	z-Index: 1000;
+	background-color: #f3f3f3;
+	position:relative;
+	border-right:1px solid #ccc;
+	display:inline-block;
+	vertical-align: top;
+	height: 100%;
+	width: 70px;
+
+}
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico{
+	z-Index: 1001;
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50% , -50%);
+}
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico_id{
+	background:url("../img/icon_id_mark.png") no-repeat center / cover;
+	width:21px;
+	height: 22px;
+}
+#guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico_pw{
+	background:url("../img/icon_pw_mark.png") no-repeat center / cover;
+	width:17px;
+	height: 26px;
+}
+
+
+
+
+
+
+#guest_loginHome .login_wrap .login_group .login_btn{
+	line-height: 65px;
+	background-color: #d03838;
+	color: #fff;
+	font-weight: 700;
+	margin-top: 20px;
+	font-size: 26px;
+	width:100%;
+}
+
+#guest_loginHome .login_wrap .login_group .login_menu{
+	text-align: left;
+	padding-top: 10px;
+}
+
+
+/* login_end */
