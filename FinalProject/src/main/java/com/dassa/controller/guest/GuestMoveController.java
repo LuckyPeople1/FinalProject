@@ -44,6 +44,8 @@ public class GuestMoveController {
 	@RequestMapping("/step2")
 	public String moveStep2(Model model) throws Exception{
 
+
+
 		// 세션저장
 
 

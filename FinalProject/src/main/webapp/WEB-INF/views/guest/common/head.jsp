@@ -19,9 +19,5 @@
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
 	<script src="/guest/js/ui.js"></script>
-	<!-- loginHome js_start -->
-	<!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
-	<script src="/guest/js/kakaoLogin.js"></script>
-	<!-- loginHome js_end -->
 </head>
 <body>

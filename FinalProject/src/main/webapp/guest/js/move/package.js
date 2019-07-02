@@ -1,7 +1,12 @@
 
 var package = {
 
-	packageSelect	: function (event,e) {
+	/**
+	 * 짐 수량 증가
+	 * @param event
+	 * @param e
+	 */
+	packagePlus	: function (event,e) {
 
 		var count	=	$(e).find('.packageSelect .qty');
 		var countNumber	=	parseInt(count.text());
@@ -11,11 +16,13 @@ var package = {
 		if(countNumber >= 1){
 			$(e).addClass('on');
 		}
-
-
-
 	},
 
+	/**
+	 * 짐 수량 감소
+	 * @param event
+	 * @param e
+	 */
 	packageMinus : function (event,e) {
 
 		// 버블링 방지
@@ -31,4 +38,8 @@ var package = {
 
 		}
 	}
+
+
+
+
 };

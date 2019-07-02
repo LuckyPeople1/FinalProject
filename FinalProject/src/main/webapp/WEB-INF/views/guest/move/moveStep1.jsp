@@ -22,7 +22,7 @@
 								
 								<c:if test="${item.packageType == 0}">
 									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
-										<div class="packageBtn" onclick="package.packageSelect(event,this)">
+										<div class="packageBtn" onclick="package.packagePlus(event,this)">
 											<img src="${item.packageImgPath}" class="packageImg">
 											<div class="packageName">${item.packageName}</div>
 											<div class="packageSelect">
@@ -46,7 +46,7 @@
 								
 								<c:if test="${item.packageType == 1}">
 									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
-										<div class="packageBtn" onclick="package.packageSelect(event,this)">
+										<div class="packageBtn" onclick="package.packagePlus(event,this)">
 											<img src="${item.packageImgPath}" class="packageImg">
 											<div class="packageName">${item.packageName}</div>
 											<div class="packageSelect">
