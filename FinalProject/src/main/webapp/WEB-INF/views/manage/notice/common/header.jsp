@@ -18,13 +18,13 @@
 			<i class="ico set"></i>
 			<div class="menu_text">이사관리</div>
 		</a>
-		<a href="/noticeManageList" class="menu_btn on">
+		<a href="/manage/notice/noticeManageList" class="menu_btn on">
 			<i class="ico set"></i>
 			<div class="menu_text">게시판관리</div>
 		</a>
 		<a href="/admin/html/sale/saleList.html" class="menu_btn">
 			<i class="ico set"></i>
-			<div class="menu_text">매출&상품 관리</div>
+			<div class="menu_text">매출 관리</div>
 		</a>
 		<a href="/logout" class="menu_btn logout">
 			<i class="ico set"></i>

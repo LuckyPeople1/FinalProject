@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.MovePackageMapper">
 
+<!--	<resultMap type="com.dassa.vo.PackageRegOptionVO" id="packageOptionMap">-->
+<!--		<result column="PACKAGE_OPTION1_NAME" property="customerKey"/>-->
+<!--		<result column="PACKAGE_OPTION1_VALUE" property="gpCode"/>-->
+<!--		<result column="PACKAGE_OPTION1_ETC" property="companyName"/>-->
+<!--		<result column="PACKAGE_OPTION2_NAME" property="cpCode"/>-->
+<!--		<result column="PACKAGE_OPTION2_VALUE" property="serviceName"/>-->
+<!--		<result column="PACKAGE_OPTION2_ETC" property="diCode"/>-->
+<!--		<result column="PACKAGE_OPTION3_NAME" property="hpCo"/>-->
+<!--		<result column="PACKAGE_OPTION3_VALUE" property="hpNo"/>-->
+<!--		<result column="PACKAGE_OPTION3_ETC" property="birth"/>-->
+<!--		<result column="PACKAGE_OPTION4_NAME" property="blockYN"/>-->
+<!--		<result column="PACKAGE_OPTION4_VALUE" property="createDate"/>-->
+<!--		<result column="PACKAGE_OPTION4_ETC" property="cpBlockCustCnt"/>-->
+<!--		<result column="PACKAGE_OPTION5_NAME" property="blockYN"/>-->
+<!--		<result column="PACKAGE_OPTION5_VALUE" property="createDate"/>-->
+<!--		<result column="PACKAGE_OPTION5_ETC" property="cpBlockCustCnt"/>-->
+<!--	</resultMap>-->
+
 
 	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
 		insert
@@ -39,4 +57,36 @@
 		null
 		)
 	</insert>
+
+
+		<select id="getPackageList" resultType="com.dassa.vo.PackageRegVO">
+			select
+			       PACKAGE_IDX as packageIdx,
+				   PACKAGE_TYPE as packageType,
+				   PACKAGE_NAME as packageName,
+				   PACKAGE_IMG_NAME as packageImgName,
+				   PACKAGE_IMG_PATH as packageImgPath,
+				   PACKAGE_STATUS as packageStatus,
+				   PACKAGE_REG_DATE as packageRegDate,
+				   PACKAGE_DELETE_DATE as packageDeleteDate
+			from MOVE_PACKAGE_TBL
+			where PACKAGE_STATUS = 0
+		</select>
+
+	<select id="getPackageOptionList" resultType="com.dassa.vo.PackageRegOptionVO">
+		select
+		<foreach collection="packageOptionList" item="element" index="index">
+			PACKAGE_OPTION(#{index}+1)_NAME
+		       </foreach>
+		PACKAGE_IDX as packageIdx,
+			PACKAGE_TYPE as packageType,
+			PACKAGE_NAME as packageName,
+			PACKAGE_IMG_NAME as packageImgName,
+			PACKAGE_IMG_PATH as packageImgPath,
+			PACKAGE_STATUS as packageStatus,
+			PACKAGE_REG_DATE as packageRegDate,
+			PACKAGE_DELETE_DATE as packageDeleteDate
+		from MOVE_PACKAGE_TBL
+		where PACKAGE_STATUS = 0
+	</select>
 </mapper>

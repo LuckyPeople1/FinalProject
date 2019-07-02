@@ -11,4 +11,6 @@ import java.util.List;
 public interface MovePackageMapper {
 
 	public int regPackage(PackageRegVO packageRegVO) throws Exception;
+
+	public List<PackageRegVO> getPackageList() throws Exception;
 }

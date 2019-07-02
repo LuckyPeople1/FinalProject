@@ -22,8 +22,8 @@ public class NoticeController {
 //		}
 //		return mav;
 //	}
-	
-	@RequestMapping("/noticeManageList")
+	//관리자 공지사항 페이지
+	@RequestMapping("/noticeManageList")//noticeManageList를 맵핑
 	public String noticeMangeList() {
 		return "manage/notice/noticeManageList";
 	}
