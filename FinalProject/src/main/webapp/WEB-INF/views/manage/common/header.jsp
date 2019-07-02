@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
 	<h1 class="logo">
-		<a href="/manager/index.php" class="logo_btn">
+		<a href="/manage/" class="logo_btn">
 			<img src="/manage/img/icon_logo.png" alt="로고">
 		</a>
 	</h1>
@@ -26,7 +26,7 @@
 			<i class="ico set"></i>
 			<div class="menu_text">매출 관리</div>
 		</a>
-		<a href="/logout" class="menu_btn logout">
+		<a href="/" class="menu_btn logout">
 			<i class="ico set"></i>
 			<div class="menu_text">로그아웃</div>
 		</a>

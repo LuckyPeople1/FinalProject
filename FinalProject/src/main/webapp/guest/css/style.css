@@ -248,3 +248,29 @@ section.easyFind .easyFindBox{
 	padding:36px 0;
 
 }
+
+
+
+
+
+section.moveStep .sectionTitle{
+	margin-top: 70px;
+	text-align: center;
+	font-size: 33px;
+	line-height: 54px;
+	color:rgba(34,34,34,1);
+}
+section.moveStep .moveGroup{
+	margin-top: 45px;
+}
+
+section.moveStep .moveGroup .moveInfoTitle {
+	font-size: 20px;
+	letter-spacing: 0.15px;
+	line-height: 30px;
+
+
+}
+section.moveStep .moveGroup .moveInfoTitle strong{
+	color: #078095;
+}

@@ -16,7 +16,7 @@
 			<a href="#none">관심목록</a>
 			<a href="#none">방내놓기</a>
 			<a href="#none">알림</a>
-			<a href="#none">이사하기</a>
+			<a href="/move/step1">이사하기</a>
 		</nav>
 		<div class="loginMenu">
 			<a href="#none">로그인</a>
