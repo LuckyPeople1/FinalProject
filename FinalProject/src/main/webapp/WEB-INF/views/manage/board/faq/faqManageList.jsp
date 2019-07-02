@@ -38,7 +38,7 @@
 					<tr>
 						<th>분류</th>
 						<td>
-							<label><input type="checkbox" name="kind"><span>회원문의</span></label>
+							<label><input type="checkbox" name="kind"><span>이용문의</span></label>
 							<label class="ml10"><input type="checkbox" name="kind"><span>부동산문의</span></label>
 							<label class="ml10"><input type="checkbox" name="kind"><span>이사문의</span></label>
 						</td>
@@ -69,7 +69,7 @@
 					</span>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">FAQ작성</a>
+						<a href="/manage/board/faq/faqManageWriter" class="btn col_darkGrey f_w">FAQ작성</a>
 					</span>
 				</div>
 				<table class="list_table">
@@ -95,12 +95,12 @@
 					<tr>
 						<td><label><input type="checkbox"></label></td>
 						<td>2</td>
-						<td>회원문의</td>
+						<td>이용문의</td>
 						<td class="text-left">회원탈퇴는 어떻게 하는 건가요?</td>
 						<td>2019-07-01</td>
 						<td>
 							<div>
-								<a href="work_info.html" class="btn small col_main f_w">수정</a>
+								<a href="/manage/board/faq/faqManageModify" class="btn small col_main f_w">수정</a>
 							</div>
 							<div>
 								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
