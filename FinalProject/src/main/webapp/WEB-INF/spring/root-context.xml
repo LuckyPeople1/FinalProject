@@ -12,6 +12,7 @@
 	<mvc:resources mapping="/manage/**" location="/manage/" />
 	<mvc:resources mapping="/shop/**" location="/shop/" />
 	<mvc:resources mapping="/driver/**" location="/driver/" />
+	<mvc:resources mapping="/upload/**" location="/upload/" />
 
 
 	<context:component-scan base-package="com.dassa">

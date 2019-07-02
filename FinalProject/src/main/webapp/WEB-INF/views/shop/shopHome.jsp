@@ -8,88 +8,108 @@
 		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
 	</nav>
 	<div class="contents">
-		<div class="section_box">
-			<div class="page_header">
-				<div class="page_title">예약현황</div>
-				<div class="page_sub_title"></div>
-			</div>
-			<div class="section">
-				<div class="section_title"></div>
-				<div class="list_form">
-					<table class="table_list">
-						<colgroup>
-							<col width="40">
-							<col width="65">
-							<col width="115">
-							<col width="80">
-							<col width="80">
-							<col width="115">
-							<col width="90">
-							<col width="150">
-							<col width="90">
-							<col width="80">
-							<col width="85">
-							<col width="170">
-						</colgroup>
-						<thead>
-							<tr>
-								<th><label><input type="checkbox" name="allChk"></label></th>
-								<th>NO</th>
-								<th>이사날짜</th>
-								<th>고객명</th>
-								<th>연락처</th>
-								<th>출발지</th>
-								<th>도착지</th>
-								<th>이사타입</th>
-								<th>예약상태</th>
-								<th>관리</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><label><input type="checkbox"></label></td>
-								<td>2</td>
-								<td>2019.6.30</td>
-								<td>유성연</td>
-								<td>01023399207</td>
-								<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
-								<td>서울시 영등포구 당산동 이레빌딩</td>
-								<td><span class="tag col_blue f_w">차량만/일반/반포장/포장</span></td>
-								<td>
-									<span class="tag col_green f_w">예약중</span>
-								</td>
-								<td>
-									<div class="set_menu">
-										<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td><label><input type="checkbox"></label></td>
-								<td>2</td>
-								<td>2019.6.30</td>
-								<td>유성연</td>
-								<td>01023399207</td>
-								<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
-								<td>서울시 영등포구 당산동 이레빌딩</td>
-								<td><span class="tag col_blue f_w">차량만/일반/반포장/포장</span></td>
-								<td>
-									<span class="tag col_green f_w">예약완료</span>
-								</td>
-								<td>
-									<div class="set_menu">
-										<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+		<div class="page_header">
+			<div class="page_title">전체매물 관리</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<div class="section">
+			<div class="list_form">
+				<table class="table_list">
+					<colgroup>
+						<col width="70">
+						<col width="70">
+						<col width="140">
+						<col width="100">
+						<col width="140">
+						<col width="100">
+						<col width="120">
+						<col width="120">
+						<col width="100">
+						<col width="100">
+						<col width="100">
+						<col width="170">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>NO</a></th>
+						<th>직급</a></th>
+						<th>이름</a></th>
+						<th>거래 완료 횟수</a></th>
+						<th>휴대폰번호</th>
+						<th>가입일</a></th>
+						<th>관리</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>대표중개인</td>
+						<td>최희수</td>
+						<td>12회</td>
+						<td>010-8464-9696</td>
+						<td>2019-07-02</td>
+						<td>
+							<a href="/shop/roomInfo" class="btn col_navy f_w">상세보기</a>
+							<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
-
 	</div>
-	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
+	<div class="contents">
+		<div class="page_header">
+			<div class="page_title">전체방문 관리</div>
+			<div class="page_sub_title"></div>
+		</div>
+		<div class="section">
+			<div class="list_form">
+				<table class="table_list">
+					<colgroup>
+						<col width="70">
+						<col width="70">
+						<col width="140">
+						<col width="100">
+						<col width="140">
+						<col width="100">
+						<col width="120">
+						<col width="120">
+						<col width="100">
+						<col width="100">
+						<col width="100">
+						<col width="170">
+					</colgroup>
+					<thead>
+					<tr>
+						<th>NO</a></th>
+						<th>직급</a></th>
+						<th>이름</a></th>
+						<th>거래 완료 횟수</a></th>
+						<th>휴대폰번호</th>
+						<th>가입일</a></th>
+						<th>관리</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>대표중개인</td>
+						<td>최희수</td>
+						<td>12회</td>
+						<td>010-8464-9696</td>
+						<td>2019-07-02</td>
+						<td>
+							<a href="/shop/memberInfo" class="btn col_navy f_w">상세보기</a>
+							<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<footer role="footer" data-include="footer.jsp"></footer>
 
 </div>
 </body>

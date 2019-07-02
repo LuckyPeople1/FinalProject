@@ -150,15 +150,7 @@ var package = {
 			optionList.push(option);
 		}
 
-
-
-		// var json	=	new Object();
-		// json.option	=	optionList;
-
 		formData.append('data', JSON.stringify(optionList));
-
-		// var jsonString = new Object(JSON.stringify())
-
 
 		$.ajax({
 			type : "post",
@@ -171,6 +163,13 @@ var package = {
 			success : function (data) {
 
 				alert(data);
+
+				if(data.trim() == 1){
+					alert("등록 완료");
+					location.href='/manage/move/packageList';
+				}else{
+					alert("등록 실패");
+				}
 
 			}, error : function () {
 

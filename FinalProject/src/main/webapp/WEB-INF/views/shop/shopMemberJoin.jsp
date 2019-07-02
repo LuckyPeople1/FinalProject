@@ -29,11 +29,13 @@
 						<td><input class="tbox full"></td>
 						<th>직급<span class="ess">*</span></th>
 						<td>
-							<span class="sbox small">
+							<span class="sbox full">
 								<select>
-									<option>아이디</option>
-									<option>성명</option>
-									<option>핸드폰번호</option>
+									<option value="0" selected="selected">직급선택</option>
+									<option value="1">대표공인중개사</option>
+									<option value="2">소속공인중개사</option>
+									<option value="3">중개보조원</option>
+									<option value="4">중개인</option>
 								</select>
 							</span>
 						</td>
@@ -46,23 +48,7 @@
 					</tr>
 					<tr>
 						<th>주소<span class="ess">*</span></th>
-						<td>
-							<span class="sbox small">
-								<select>
-									<option>아이디</option>
-									<option>성명</option>
-									<option>핸드폰번호</option>
-								</select>
-							</span>
-							<span class="sbox small">
-								<select>
-									<option>아이디</option>
-									<option>성명</option>
-									<option>핸드폰번호</option>
-								</select>
-							</span>
-						</td>
-						<td>
+						<td colspan="3">
 							<input class="tbox full">
 						</td>
 					</tr>
@@ -72,15 +58,25 @@
 					</tr>
 					<tr>
 						<th>중개등록증 첨부<span class="ess">*</span></th>
+						<td colspan="3">
+							<div class="img_upload">
+								<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)">
+								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>사업자등록번호<span class="ess">*</span></th>
 						<td colspan="3"><input class="tbox full"></td>
 					</tr>
 					<tr>
 						<th>사업자등록증 첨부<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>첨부파일<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
+						<td colspan="3">
+							<div class="img_upload">
+								<input type="file" name="img_1" id="img_1" class="hide" onchange="img_change(this)">
+								<a href="#none" class="imgUp" id="imgUp_1" onclick="img_up(this)"></a>
+							</div>
+						</td>
 					</tr>
 					</tbody>
 				</table>
@@ -100,6 +96,7 @@
 
 	</div>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
+	<script src="/shop/js/shop_setting.js"></script>
 	</div>
 </body>
 </html>

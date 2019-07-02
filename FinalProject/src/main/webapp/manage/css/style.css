@@ -960,3 +960,31 @@ section.package .packageOption .opDelBtn{
 	height: 30px;
 
 }
+/* 공지사항 */
+section .board_textarea{
+	width:100%;
+	height: 400px;
+	resize: none;
+	border: 1px solid gray;
+}
+section .board_input{
+	border: 1px solid gray;
+	width: 100%;
+}
+section .board_button{
+	text-align: center;
+}
+section .board_Mobtn{
+	width: 120px;
+	height: 46px;
+	padding: 15px;
+	background: #4683BD;
+	color: white;
+}
+section .board_Rebtn{
+	width: 120px;
+	height: 46px;
+	padding: 15px;
+	background: #353C43;
+	color: white;	
+}

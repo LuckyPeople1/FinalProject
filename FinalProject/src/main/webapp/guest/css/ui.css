@@ -145,6 +145,14 @@ label {
     font-size: 12px;
 }
 
+.btn.big{
+	width: 220px;
+	line-height: 50px;
+	font-size: 24px;
+}
+
+
+
 .btn.normal {
     width: 100px;
     height: 30px;
