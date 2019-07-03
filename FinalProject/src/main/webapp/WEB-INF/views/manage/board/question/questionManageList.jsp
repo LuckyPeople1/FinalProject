@@ -79,7 +79,6 @@
 					</span>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">FAQ 작성</a>
 					</span>
 				</div>
 				<table class="list_table">
@@ -122,14 +121,14 @@
 						<td>ssooya90</td>
 						<td>최희수</td>
 						<td class="text-left">이거 어떻게 해요 이거어떻게해요</td>
-						<td class="">2019-07-01</td>
-						<td class="">2019-07-02</td>
+						<td>2019-07-01</td>
+						<td>2019-07-02</td>
 						<td>
 							<span class="tag col_blue f_w">답변완료</span>
 						</td>
 						<td>
 							<div>
-								<a href="work_info.html" class="btn small col_main f_w">보기</a>
+								<a href="/manage/board/question/questionManageView" class="btn small col_main f_w">보기</a>
 							</div>
 							<div>
 								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
