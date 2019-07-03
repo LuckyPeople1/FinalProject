@@ -3,8 +3,7 @@
 <mapper namespace="com.dassa.mapper.DriverMapper">
 
 		<select id="driverMyPage" parameterType="userVO" resultType="userVO">
-		 select 
-		 		user_no as userNo,
+		  select user_no as userNo,
 		 		user_id as userId,
 		 		user_pw as userPw,
 		 		user_phone as userPhone,
@@ -12,10 +11,10 @@
 		 		registration_number as userRegistration,
 		 		introduce as userIntroduce,
 		 		carrier_car as userCar,
-		 		image_name as userImagePass,
-		 		image_pass as userImageName,
+		 		image_name as userImageName,
+		 		image_path as userImagePath,
 		 		user_type as userType 
-		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
+		  from user_tbl where user_id=#{userId}
 		</select>
 	
 	
