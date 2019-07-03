@@ -66,8 +66,8 @@
 						<col width="100">
 						<col width="100">
 						<col width="*">
-						<col width="120">
 						<col width="155">
+						<col width="120">
 						<col width="130">
 					</colgroup>
 					<thead>
@@ -79,8 +79,8 @@
 						</th>
 						<th>No</th>
 						<th>제목</th>
-						<th>조회수</th>
-						<th>등록일</th>
+						<th>작성일시</th>
+						<th>상태</th>
 						<th>관리</th>
 					</tr>
 					</thead>
@@ -93,8 +93,10 @@
 						</td>
 						<td>1</td>
 						<td class="text-left">다싸공지사항입니다</td>
-						<td>0</td>
 						<td>2019-07-01</td>
+						<td>
+							<span class="tag col_blue f_w">정상</span>
+						</td>
 						<td>
 							<div>
 								<a href="/manage/board/notice/noticeManageModify" class="btn small col_main f_w">수정</a>

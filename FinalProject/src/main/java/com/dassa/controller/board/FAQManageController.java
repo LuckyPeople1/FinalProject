@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/manage/board/faq")
-public class FAQBoardController {
+public class FAQManageController {
 
 	//faq관리페이지
 	@RequestMapping("/faqManageList")
