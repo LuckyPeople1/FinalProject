@@ -2,7 +2,7 @@ package com.dassa.vo;
 
 public class UserVO {
 	private int 	userNo;
-	private int		driverIdx;
+	private int		driverIdx;				//이사아저씨 고유 번호
 	private String 	userId;
 	private String 	userPw;
 	private String 	userName;
