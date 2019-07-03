@@ -17,8 +17,8 @@
 		 		registration_number as userRegistration,
 		 		introduce as userIntroduce,
 		 		carrier_car as userCar,
-		 		image_name as userImagePass,
-		 		image_pass as userImageName,
+		 		image_name as userImageName,
+		 		image_path as userImagePath,
 		 		user_type as userType 
 		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>

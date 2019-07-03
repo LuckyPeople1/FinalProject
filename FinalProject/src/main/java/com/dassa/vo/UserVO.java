@@ -9,15 +9,11 @@ public class UserVO {
 	private String userRegistration; //사업자 등록번호
 	private String userIntroduce;	//이사 소개
 	private String userCar;			//운행차량
-	private String userImagePass;
+	private String userImagepath;
 	private String userImageName;
 	private String userType;		//회원 타입
-	
-	public UserVO() {
-		super();
-	}
 	public UserVO(int userNo, String userId, String userPw, String userPhone, String userEmail, String userRegistration,
-			String userIntroduce, String userCar, String userImagePass, String userImageName, String userType) {
+			String userIntroduce, String userCar, String userImagepath, String userImageName, String userType) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
@@ -27,9 +23,12 @@ public class UserVO {
 		this.userRegistration = userRegistration;
 		this.userIntroduce = userIntroduce;
 		this.userCar = userCar;
-		this.userImagePass = userImagePass;
+		this.userImagepath = userImagepath;
 		this.userImageName = userImageName;
 		this.userType = userType;
+	}
+	public UserVO() {
+		super();
 	}
 	public int getUserNo() {
 		return userNo;
@@ -79,11 +78,11 @@ public class UserVO {
 	public void setUserCar(String userCar) {
 		this.userCar = userCar;
 	}
-	public String getUserImagePass() {
-		return userImagePass;
+	public String getUserImagepath() {
+		return userImagepath;
 	}
-	public void setUserImagePass(String userImagePass) {
-		this.userImagePass = userImagePass;
+	public void setUserImagepath(String userImagepath) {
+		this.userImagepath = userImagepath;
 	}
 	public String getUserImageName() {
 		return userImageName;
@@ -97,6 +96,7 @@ public class UserVO {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	
 	
 
 }

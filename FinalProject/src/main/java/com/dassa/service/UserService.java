@@ -1,5 +1,7 @@
 package com.dassa.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ public class UserService {
 
 	public UserVO selectOneUser(UserVO userVO) throws Exception {
 		
-		return userMapper.selectOneUser(userVO);
+		return (UserVO)userMapper.selectOneUser(userVO);
 	}
 		
 
