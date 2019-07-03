@@ -24,7 +24,7 @@ public class GuestLoginController {
 	public String GuestInsert() {
 		return "guest/loginHome";
 	}
-	
+
 	@RequestMapping(value="/insert")
 	public String LoginHome(HttpServletRequest request, @RequestParam String socialId) throws Exception{
 		System.out.println(socialId);
@@ -55,5 +55,10 @@ public class GuestLoginController {
 			
 		}
 		return "driver/driverHome";
+	}
+	
+	@RequestMapping(value="/callBack")
+	public String CallBack() {
+		return "guest/callBack";
 	}
 }
