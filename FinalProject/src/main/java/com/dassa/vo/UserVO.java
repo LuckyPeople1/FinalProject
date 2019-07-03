@@ -2,7 +2,7 @@ package com.dassa.vo;
 
 public class UserVO {
 	private int 	userNo;
-	private int		driverIdx;
+	private int		driverIdx;				//이사아저씨 고유 번호
 	private String 	userId;
 	private String 	userPw;
 	private String 	userName;
@@ -12,7 +12,7 @@ public class UserVO {
 	private String 	registrationNumber; 	//사업자 등록번호
 	private String 	userCar;				//운행차량
 	private String 	userImageName;
-	private String 	userImagePass;
+	private String 	userImagePath;
 	private String 	userType;				//회원 타입
 	private String  socialId;				//소셜 로그인 할 때 필요
 	
@@ -22,7 +22,7 @@ public class UserVO {
 	}
 	public UserVO(int userNo, int driverIdx, String userId, String userPw, String userName, String userPhone,
 			String userEmail, String userIntroduce, String registrationNumber, String userCar, String userImageName,
-			String userImagePass, String userType, String socialId) {
+			String userImagePath, String userType, String socialId) {
 		super();
 		this.userNo = userNo;
 		this.driverIdx = driverIdx;
@@ -35,7 +35,7 @@ public class UserVO {
 		this.registrationNumber = registrationNumber;
 		this.userCar = userCar;
 		this.userImageName = userImageName;
-		this.userImagePass = userImagePass;
+		this.userImagePath = userImagePath;
 		this.userType = userType;
 		this.socialId = socialId;
 	}
@@ -106,10 +106,10 @@ public class UserVO {
 		this.userImageName = userImageName;
 	}
 	public String getUserImagePass() {
-		return userImagePass;
+		return userImagePath;
 	}
 	public void setUserImagePass(String userImagePass) {
-		this.userImagePass = userImagePass;
+		this.userImagePath = userImagePass;
 	}
 	public String getUserType() {
 		return userType;
