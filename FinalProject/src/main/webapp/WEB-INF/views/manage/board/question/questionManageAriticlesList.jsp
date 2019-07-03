@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>1:1 문의관리</title>
+<title>1:1 기사문의관리</title>
 </head>
 <body> 
 <div class="container">
@@ -18,7 +18,7 @@
 		
 		<div class="contents">
 			<div class="set_field">
-				<div class="field_title"><span class="title_mark">■ 1:1 문의관리</span></div>
+				<div class="field_title"><span class="title_mark">■ 1:1 기사문의관리</span></div>
 				<table class="set_table">
 					<colgroup>
 						<col width="180">

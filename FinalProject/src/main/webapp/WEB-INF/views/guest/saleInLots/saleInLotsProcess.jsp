@@ -21,7 +21,23 @@
 			</article>
 		</section>
 		<section class="saleInLotsProcess">
-		
+			<div class="DKZrq">
+				<h1>분양 가이드</h1>
+				<div class="kjzLYv">
+					<a href="/saleInLots/saleInLotsProcess" class="active">
+						<div class="imXavy">주택청약철차</div>
+					</a>
+					<a href="/saleInLots/saleInLotsTerms" >
+						<div class="imXavy">분양용어</div>
+					</a>
+					<a href="/saleInLots/saleInLotsFaq" >
+						<div class="imXavy"></div>
+					</a>
+					<a href="/saleInLots/saleInLotscalculator">
+						<div class="imXavy">주택청약철차</div>
+					</a>
+				</div>
+			</div>
 		</section>
 	</div>
 </div>
