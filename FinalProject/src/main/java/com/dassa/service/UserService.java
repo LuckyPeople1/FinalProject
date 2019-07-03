@@ -18,5 +18,7 @@ public class UserService {
 		return userMapper.selectOneUser(userVO);
 	}
 		
-
+	public UserVO guestLogin(String socialId) throws Exception {
+		return userMapper.socialLogin(socialId);
+	}
 }

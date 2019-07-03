@@ -9,7 +9,7 @@ Kakao.Auth.createLoginButton({
 		Kakao.API.request({
 			url:'/v1/user/me',
 			success: function(res){
-				location.href="/kakaoLogin.do?userId="+res.id; 
+				location.href="/login/insert?socialId="+res.id;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));
