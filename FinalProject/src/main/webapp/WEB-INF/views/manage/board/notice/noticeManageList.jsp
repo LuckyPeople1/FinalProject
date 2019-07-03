@@ -85,27 +85,29 @@
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list }" var="n">
 					<tr>
 						<td>
 							<label>
 								<input type="checkbox" name="">
 							</label>
 						</td>
-						<td>1</td>
-						<td class="text-left">다싸공지사항입니다</td>
-						<td>2019-07-01</td>
+						<td>${n.noticeIndex }</td>
+						<td class="text-left">${n.noticeTitle }</td>
+						<td>${n.noticeRegDate }</td>
 						<td>
-							<span class="tag col_blue f_w">정상</span>
+							<span class="tag col_blue f_w">${n.noticeState }</span>
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/notice/noticeManageModify" class="btn small col_main f_w">수정</a>
+								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
 							</div>
 							<div>
 								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
 							</div>
 						</td>
 					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 				</div>
