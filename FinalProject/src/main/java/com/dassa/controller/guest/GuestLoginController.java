@@ -19,9 +19,14 @@ public class GuestLoginController {
 	@Resource
 	private UserService userService;
 	
-	@RequestMapping("/")
+	
+	@RequestMapping(value="/")
 	public String LoginHome() {
 		return "guest/loginHome";
+	}
+	@RequestMapping(value="/insert")
+	public String GuestInsert() {
+		return "guest/insertHome";
 	}
 	
 	@RequestMapping(value="/driver")

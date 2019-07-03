@@ -20,7 +20,7 @@
 		</nav>
 		<div class="loginMenu">
 			<a href="/login/">로그인</a>
-			<a href="/insert/">회원가입</a>
+			<a href="/login/insert">회원가입</a>
 		</div>
 	</div>
 
