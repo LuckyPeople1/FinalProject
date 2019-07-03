@@ -24,10 +24,10 @@ public class GuestLoginController {
 	public String GuestInsert() {
 		return "guest/loginHome";
 	}
-
-	@RequestMapping(value="/insert")
+	
+	//socialLogin
+	@RequestMapping(value="/socialLogin")
 	public String LoginHome(HttpServletRequest request, @RequestParam String socialId) throws Exception{
-		System.out.println(socialId);
 		UserVO userVO = userService.guestLogin(socialId);
 		HttpSession session = request.getSession();
 		String view = "";
@@ -39,10 +39,10 @@ public class GuestLoginController {
 			System.out.println(socialId);
 			view="guest/insertHome";
 		}
-		System.out.println(view);
 		return view;
 	}
-	@RequestMapping(value="/driver")
+	//
+	@RequestMapping(value="/commonLogin")
 	public String Login(HttpServletRequest request,String userId,String userPw) throws Exception {
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
