@@ -20,8 +20,9 @@ public class GuestLoginController {
 	@Resource
 	private UserService userService;
 	
+	//로그인 홈페이지로 이동
 	@RequestMapping(value="/")
-	public String GuestInsert() {
+	public String GuestLogin() {
 		return "guest/loginHome";
 	}
 	
@@ -41,7 +42,7 @@ public class GuestLoginController {
 		}
 		return view;
 	}
-	//
+	
 	@RequestMapping(value="/commonLogin")
 	public String Login(HttpServletRequest request,String userId,String userPw) throws Exception {
 		UserVO userVO =new UserVO();
@@ -57,8 +58,21 @@ public class GuestLoginController {
 		return "driver/driverHome";
 	}
 	
+	//네이버 로그인 콜백 페이지로 이동
 	@RequestMapping(value="/callBack")
 	public String CallBack() {
 		return "guest/callBack";
+	}
+	
+	//약관 동의 페이지로 이동
+	@RequestMapping(value="/accept")
+	public String GuestAccept() {
+		return "guest/accept";
+	}
+	
+	//회원가입 페이지로 이동
+	@RequestMapping(value="/insert")
+	public String GuestInsertHome() {
+		return "guest/insertHome";
 	}
 }

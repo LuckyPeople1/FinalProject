@@ -13,11 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="/guest/css/slick.min.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/slick-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/jquery-ui.min.css">
-	<!-- loginHome css_start -->
 	<link rel="stylesheet" type="text/css" href="/guest/css/login-ui.css">
-	<!-- loginHome css_end -->
+	<link rel="stylesheet" type="text/css" href="/guest/css/accept-ui.css">
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
 	<script src="/guest/js/ui.js"></script>
+	<script src="/guest/js/accept.js"></script>
 </head>
 <body>
