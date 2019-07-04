@@ -286,15 +286,15 @@ section.moveStep .packageTypeBox .packageTypeList{
 	font-size: 0;
 	padding:5px;
 }
+
 section.moveStep .packageTypeBox .packageBox{
 	display:inline-block;
 	width: 20%;
 	vertical-align: top;
 	position:relative;
 	padding:2px;
-
-
 }
+
 section.moveStep .packageTypeBox .packageBox .packageBtn{
 	cursor: pointer;
 	background-color: #fff;
@@ -363,6 +363,145 @@ section.moveStep .packageBtnBox a + a{
 	margin-left: 25px;
 }
 
+/* 짐박스 */
+section.moveStep .packageTypeBox .packageTypeList.zimBox{
+	/*padding:10px;*/
+	font-size: 0;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect{
+	top:50%;
+	transform: translateY(-50%);
+	bottom:auto;
+	right:-150%;
+	left:auto;
+	display:block;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .minusBtn,
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn{
+	vertical-align: middle;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn{
+	background: url(../img/icon_package_plus.png) no-repeat center/ cover;
+	width: 60px;
+	height: 60px;
+	background-size: 48px;
+	display: inline-block;
+	z-index: 50;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .qty{
+	position:static;
+	vertical-align: middle;
+	display:inline-block;
+	top:auto;
+	transform: none;
+	margin:0 10px;
+	width: 170px;
+	text-align: center;
+	font-size: 50px;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageBox{
+	height: 300px;
+	background-color: #fff;
+	width: calc(100% - 300px);
+	position:relative;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageBtn{
+	width: 290px;
+	position:relative;
+	cursor: pointer;
+}
+section.moveStep .packageTypeBox .boxImg{
+	display:inline-block;
+	height: 300px;
+	background-color: #fff;
+	padding:10px;
+	width: 300px;
+}
+section.moveStep .packageTypeBox .boxImg img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/** move Step 2 **/
+section.moveStep .packageSelectList{
+	position:relative;
+	font-size: 0;
+	margin:-15px 0 -1px;
+	border-top:1px solid rgba(0,0,0,0.12);
+}
+section.moveStep .packageSelectList:after{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:-1px;
+	height: 3px;
+	/*background-color: rgba(0,0,0,0.12);*/
+	background-color: #fff;
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+
+	z-index: 5;
+}
+
+section.moveStep .packageSelectList .listBox{
+	width: 50%;
+	display:inline-block;
+	vertical-align: top;
+	height: 104px;
+	padding: 16px;
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+	background-color: #FFFFFF;
+	position:relative;
+	z-index: 1;
+}
+
+section.moveStep .packageSelectList .listBox.on{
+	background-color: #ECF5FC;
+}
+section.moveStep .packageSelectList .listBox .delBtn{
+	width: 24px;
+	height: 24px;
+	background-image: url(../img/icon_package_del.png);
+	background-size: 18px 18px;
+	background-position: center;
+	background-repeat: no-repeat;
+	display:inline-block;
+	vertical-align: middle;
+
+}
+section.moveStep .packageSelectList .listBox .selectImg{
+	width: 80px;
+	min-width: 80px;
+	max-width: 80px;
+	text-align: center;
+}
+section.moveStep .packageSelectList .listBox .selectImg img{
+	vertical-align: middle;
+	max-width: 64px;
+	padding: 13%;
+}
+section.moveStep .packageSelectList .packageInfo{
+	background-image: url(../img/icon_package_rightArrow.png);
+	background-size: 24px 24px;
+	background-position: right center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+section.moveStep .packageSelectList .packageInfo > div{
+	display:table-cell;
+	vertical-align: middle;
+}
+section.moveStep .packageSelectList .packageInfo .title{
+	font-size: 16px;
+}
+section.moveStep .packageSelectList .packageInfo .title .caption{
+	line-height: 23px;
+	color: rgba(0,0,0,0.6);
+	font-size: 13px;
+	padding-top: 3px;
+}
 
 /* SaleInLots 공통부분 CSS (분양) */
 section.saleInLots{
@@ -455,6 +594,12 @@ section.saleInLotsHome .fCHdqd {
     position: relative;
     text-align: left;
     border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+	font-weight: 500;
+}
+
+section.saleInLotsHome .fCHdqd.on{
+	border-bottom: 1px solid rgb(68, 68, 68);
+	font-weight: 700;
 }
 section.saleInLotsHome .fCHdqd > span {
     display: block;
@@ -565,7 +710,7 @@ section.saleInLotsHome .ePcKnV {
 section.saleInLotsHome .jGwobP {
     width: 100%;
     height: 175px;
-    background-image: url(http://newsimg.sedaily.com/2019/06/28/1VKLDPQ8P4_8.jpg);
+    background-image: url(http://newsimg.sedaily.com/2019/06/28/1VKLDPQ8P4_8.jpg), url(/static/media/error_saleshome_news.5964995d.svg);
     background-color: rgb(0, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;
@@ -1112,7 +1257,7 @@ section.saleInLotsHome .fEtMGt {
     float: right;
     width: 144px;
     height: 90px;
-    background: url(https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3d565e6e-6dd9-4e32-a0c4-7ecff28f7057) 0% 0% / cover;
+    background: url(https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3d565e6e-6dd9-4e32-a0c4-7ecff28f7057) 0% 0% / cover, url(/static/media/error_saleshome_list.0aa57789.svg) center center no-repeat;
     border-radius: 3px;
 }
 section.saleInLotsHome .kNDRvM::after {
@@ -1191,7 +1336,7 @@ section.saleInLotsHome .cgRRbZ::before {
     left: 0px;
     content: "";
     position: absolute;
-    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/4ca1fe2c-d5d2-46fe-af97-0199de2f851e) center center / cover;
+    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/4ca1fe2c-d5d2-46fe-af97-0199de2f851e) center center / cover, url(/static/media/error_saleshome_brand.c215ffc9.svg) no-repeat;
     background-position: center center;
 }
 section.saleInLotsHome .cgRRbZ::after {
@@ -1228,7 +1373,7 @@ section.saleInLotsHome .gTnXDR::before {
     left: 0px;
     content: "";
     position: absolute;
-    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/cb47975f-4da9-4710-8873-1eadad063d43) center center / cover;
+    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/cb47975f-4da9-4710-8873-1eadad063d43) center center / cover, url(/static/media/error_saleshome_brand.c215ffc9.svg) no-repeat;
     background-position: center center;
 }
 section.saleInLotsHome .gTnXDR::after {
@@ -1255,7 +1400,7 @@ section.saleInLotsHome .kZJcgE::before {
     left: 0px;
     content: "";
     position: absolute;
-    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/2b9812fe-ef56-4a83-b834-c7f200d04fb6) center center / cover;
+    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/2b9812fe-ef56-4a83-b834-c7f200d04fb6) center center / cover, url(/static/media/error_saleshome_brand.c215ffc9.svg) no-repeat;
     background-position: center center;
 }
 section.saleInLotsHome .kZJcgE::after {
@@ -1282,7 +1427,7 @@ section.saleInLotsHome .hiyOAi::before {
     left: 0px;
     content: "";
     position: absolute;
-    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/515486d1-ad7b-4b85-9dca-357fb4fbe162) center center / cover;
+    background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/515486d1-ad7b-4b85-9dca-357fb4fbe162) center center / cover, url(/static/media/error_saleshome_brand.c215ffc9.svg) no-repeat;
     background-position: center center;
 }
 section.saleInLotsHome .hiyOAi::after {
@@ -1404,6 +1549,7 @@ section.saleInLotsInformation .bFqGwy {
     position: relative;
     outline : none;
 }
+
 section.saleInLotsInformation .jWSbuk {
     max-width: 300px;
 }
