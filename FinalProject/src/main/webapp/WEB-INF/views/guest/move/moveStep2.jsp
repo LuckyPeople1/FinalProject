@@ -23,9 +23,9 @@
 								
 								<c:if test="${item.packageType == 0}">
 									
-									<c:forEach var="i" begin="1" end="${item.packageAmount}">
+									<c:forEach begin="1" end="${item.packageAmount}" varStatus="status">
 										<li class="listBox">
-											<div class="packageInfo">
+											<div class="packageInfo" data-idx="${item.packageIdx}" data-order="${status.count}" onclick="package.packagePop(${item.packageIdx},${status.count})">
 												<div class="delBox">
 													<a href="#none" class="delBtn"></a>
 												</div>

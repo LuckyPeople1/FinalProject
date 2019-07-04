@@ -237,20 +237,28 @@ var package = {
 
 	},
 
-	pacakgePop : function () {
+	packagePop : function (idx , order) {
 
 
+		console.log(idx)
+		console.log(order)
 
 		$.ajax({
-			url : "/packageOptionPop"
+			type: "POST",
+			url: "/move/packageOptionPop",
+			data: {
+				idx : idx
+			},
+			success:function (data) {
+
+			},
+			error:function () {
+				alert("에러 발생");
+			}
 		})
 
 
-		$('body').append()
-
-
-
-	},
+	}
 
 
 };

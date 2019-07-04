@@ -4,15 +4,12 @@ package com.dassa.controller.guest;
 import com.dassa.service.MovePackageService;
 import com.dassa.vo.PackageRegVO;
 import com.dassa.vo.PackageSelectVO;
-import com.dassa.vo.PackageTempVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -44,6 +41,12 @@ public class GuestMoveController {
 	}
 
 
+	/**
+	 * 짐 선택 (이사하기 Step1)
+	 * @param httpSession
+	 * @param packageList
+	 * @return
+	 */
 	@RequestMapping(value = "/packageSelect", method = RequestMethod.POST)
 	@ResponseBody
 	public String packageSelect(
@@ -63,24 +66,31 @@ public class GuestMoveController {
 		return "Y";
 	}
 
+	/**
+	 * 짐 상세입력 페이지 이동 (이사하기 Step2)
+	 * @param httpSession
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/step2")
 	public String moveStep2(
 			HttpSession httpSession,
 			Model model) throws Exception {
 
+		// 세션에서 리스트를 가져와서 뷰로 넘겨줌
 		model.addAttribute("selectList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
-
-
-		// 세션저장
-
 
 		return "guest/move/moveStep2";
 	}
 
 
 	@RequestMapping("/packageOptionPop")
-	public String packageOptionPop(){
+	@ResponseBody
+	public String packageOptionPop(@RequestBody String idx){
 
-		return null;
+		System.out.println(idx + " 아이디IDX");
+
+		return "Y";
 	}
 }

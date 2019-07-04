@@ -293,9 +293,8 @@ section.moveStep .packageTypeBox .packageBox{
 	vertical-align: top;
 	position:relative;
 	padding:2px;
-
-
 }
+
 section.moveStep .packageTypeBox .packageBox .packageBtn{
 	cursor: pointer;
 	background-color: #fff;
@@ -595,6 +594,12 @@ section.saleInLotsHome .fCHdqd {
     position: relative;
     text-align: left;
     border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+	font-weight: 500;
+}
+
+section.saleInLotsHome .fCHdqd.on{
+	border-bottom: 1px solid rgb(68, 68, 68);
+	font-weight: 700;
 }
 section.saleInLotsHome .fCHdqd > span {
     display: block;
@@ -1544,7 +1549,7 @@ section.saleInLotsInformation .bFqGwy {
     position: relative;
     outline : none;
 }
-@media only screen and (min-width: 1600px)
+
 section.saleInLotsInformation .jWSbuk {
     max-width: 300px;
 }

@@ -628,5 +628,7 @@
 		</section>
 	</div>
 </div>
+<script src="/guest/js/saleInLots/saleInLots.js"></script>
+
 </body>
 </html>
