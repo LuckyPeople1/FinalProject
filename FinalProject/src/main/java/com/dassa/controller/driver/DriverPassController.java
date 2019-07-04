@@ -35,7 +35,7 @@ public class DriverPassController {
 		UserVO userVO=(UserVO)session.getAttribute("user");
 		UserVO user=driverService.selectOne(userVO);
 		model.addAttribute("user", user);  //user값 보내기 requestParam과 같은기능
-		return "driver/driverMypage";
+		return "driver/mypage/driverMypage";
 	}
 	
 	@RequestMapping(value="/mypageUpdate")
@@ -65,36 +65,36 @@ public class DriverPassController {
 	//입찰 관리 페이지 
 	@RequestMapping("/auction")
 	public String DriverAuction() {
-		return "driver/driverAuction";
+		return "driver/auction/driverAuction";
 	}
 	//입찰관리 상세보기
 	@RequestMapping("/auctionDetail")
 	public String DriverAuctionDetail() {
 		
-		return "driver/driverAuctionDetail";
+		return "driver/auction/driverAuctionDetail";
 	}
 	
 	//이사 관리 페이지
 	@RequestMapping("/move")
 	public String DriverMove() {
-		return "driver/driverMove";
+		return "driver/manager/driverMove";
 	}
 	
 	@RequestMapping("/driverMoveDetail")
 	public String DriverMoveDetail() {
-		return "driver/driverMoveDetail";
+		return "driver/manager/driverMoveDetail";
 	}
 	
 	//@사용자 리뷰 페이지
 	@RequestMapping("/review")
 	public String DriverReview() {
-		return "driver/driverReview";
+		return "driver/review/driverReview";
 	}
 	
 	//통계관리 페이지
 	@RequestMapping("/saleList")
 	public String DriverSaleList() {
-		return "driver/driverSaleList";
+		return "driver/sale/driverSaleList";
 	}
 	
 
