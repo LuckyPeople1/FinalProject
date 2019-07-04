@@ -51,7 +51,7 @@
 									</label>
 								</td>
 							</tr>
-							<tr>
+							<tr class="building_type">
 								<th>건물 유형</th>
 								<td class="styled__Td-loqpne-0 fNOtpc">
 									<div class="building_type1">
@@ -87,7 +87,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="styled__Box-sc-1etgh1k-1 etFHhl" name="location">
+				<div class="styled__Box-sc-1etgh1k-1 etFHhl" name="location2" id="location2" style="display: none;">
 					<h1>
 						위치 정보<span>*등기부등본 상의 주소를 입력해 주세요.</span>
 					</h1>
@@ -177,7 +177,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="styled__Box-sc-1etgh1k-1 etFHhl" name="location" style="display: none;">
+				<div class="styled__Box-sc-1etgh1k-1 etFHhl" name="location" id="location1">
 					<h1>
 						위치 정보<span>*등기부등본 상의 주소를 입력해 주세요.</span>
 					</h1>
@@ -201,7 +201,7 @@
 											<span>도로명, 건물명, 지번에 대해 통합검색이 가능합니다.</span>
 										</p>
 										<form class="styled__Form-mnzuks-5 fQrInE">
-											<input autocomplete="off" class="styled__Keyword-mnzuks-6 fbxLHj Input-sfsekm-0 kTQnUD"	name="keyword" placeholder="단지명 입력 예) 래미안, 리치빌" value="">
+											<input autocomplete="off" class="styled__Keyword-mnzuks-6 fbxLHj Input-sfsekm-0 kTQnUD"	name="keyword" placeholder="예)번동 10-1, 강북구 번동" value="">
 											<button type="button" class="styled__SearchBtn-mnzuks-7 kTyFCo">주소검색</button>
 										</form>
 										<div class="styled__Address-sc-1wmqs5y-6 fUXvpI"></div>
@@ -258,6 +258,22 @@
 							<tr>
 								<th>거래 종류</th>
 								<td class="styled__Td-sc-1toww6o-0 iFmBhb">
+									<div class="styled__Info-sc-1toww6o-5 bMtYCv">
+										<p class="styled__Tag-sc-1toww6o-6 tmpFp">월세</p>
+										<input autocomplete="off"
+											class="styled__Deposit-sc-1toww6o-7 fqDzuM Input-sfsekm-0 kTQnUD"
+											name="deposit" type="0" placeholder="보증금" value="">
+										<p class="styled__Space-sc-1toww6o-8 ktwJnl">/</p>
+										<input autocomplete="off"
+											class="styled__Price-sc-1toww6o-9 ghUXBC Input-sfsekm-0 kTQnUD"
+											name="price" type="text" placeholder="월세" value="">
+										<p class="styled__Won-sc-1toww6o-10 fIWZWk">
+											만원<span>(예 월세 1000만원/50만원)</span>
+										</p>
+										<button class="styled__DelBtn-sc-1toww6o-11 iFqJVZ"></button>
+									</div>
+								</td>
+								<td class="styled__Td-sc-1toww6o-0 iFmBhb">
 									<button class="styled__AddBtn-sc-1toww6o-12 gvJkZp">월세</button>
 									<button class="styled__AddBtn-sc-1toww6o-12 gvJkZp">전세</button>
 									<div class="styled__CheckWrap-sc-1toww6o-2 fZAwwn">
@@ -281,7 +297,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="styled__Box-sc-1etgh1k-1 etFHhl" name="baseInfo">
+				<div class="styled__Box-sc-1etgh1k-1 etFHhl" name="baseInfo" id="baseInfo">
 					<h1>기본 정보</h1>
 					<table>
 						<colgroup>
@@ -805,15 +821,40 @@
        	$(".modal").css("display","none");
        });
 	//매물종류 선택 시 입력 폼 변경
+	$(".room").click(function(){
+		if($(".room").is(":checked")){
+			alert("매물 종류를 변경하면 기존 입력한 항목들이 변경되거나 삭제될 수 있습니다.");
+			$(".building_type1").css("display","block");
+			$(".building_type2").css("display","none");
+			$(".building_type").show();
+			$("#location1").find('input').val("");
+			$("#location1").find('select').val("");
+			$("#baseInfo").find('input').val("");
+			$("#baseInfo").find('select').val("");
+			$("#location1").show();
+			$("#location2").hide();
+		}
+		
+	});
 	$("#officetels").click(function(){
 		alert("매물 종류를 변경하면 기존 입력한 항목들이 변경되거나 삭제될 수 있습니다.");
 		$(".building_type1").css("display","none");
 		$(".building_type2").css("display","block");
+		$("#location2").find('input').val("");
+		$("#location2").find('select').val("");
+		$("#location2").show();
+		$("#location1").hide();
+		$(".building_type").show();
 	});
 	$("#kapt").click(function(){
 		alert("매물 종류를 변경하면 기존 입력한 항목들이 변경되거나 삭제될 수 있습니다.");
 		$(".building_type1").css("display","none");
 		$(".building_type2").css("display","none");
+		$("#location2").find('input').val("");
+		$("#location2").find('select').val("");
+		$("#location2").show();
+		$("#location1").hide();
+		$(".building_type").hide();
 	});
 	</script>
 </div>
