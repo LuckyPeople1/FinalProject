@@ -9,7 +9,7 @@
 <body>
 <script type="text/javascript">
 	alert('글이 수정되었습니다.');
-	location.href="/manage/board/notice/noticeManageList";
+	location.href="/manage/board/notice/realestate/noticeManageRealestateList";
 </script>
 </body>
 </html>

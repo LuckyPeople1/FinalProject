@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 수정</title>
+<title>부동산 공지사항 작성</title>
 </head>
 <body>
 	<div class="container">
@@ -18,10 +18,11 @@
 			<div class="contents">
 				<div class="set_field">
 					<div class="field_title">
-						<span class="title_mark">■ 공지사항 수정</span>
+						<span class="title_mark">■ 부동산 공지사항 작성</span>
 					</div>
 					<section class="section_notice">
-					<form action="/manage/board/notice/noticeUpdate" method="get" id="update">
+					
+					<form action="/manage/board/notice/noticeInsert" method="get" id="insert">
 					<table class="set_table">
 						<colgroup>
 							<col width="250">
@@ -29,30 +30,41 @@
 						</colgroup>
 						<tr>
 							<th>제목</th>
-							<td><input class="board_input" name="noticeTitle" value="${noticeVO.noticeTitle }"></td>
+							<td><input class="board_input" name="noticeTitle">
+							<input type="hidden" name="noticeState" value="정상"></td>
+						</tr>
+						<tr>
+							<th>작성자</th>
+							<td><input class="board_input" name="noticeWriter"></td>
 						</tr>
 						<tr>
 							<th>분류</th>
 							<td>
-								${noticeVO.noticeType}<input type="hidden" name="noticeType" value="${noticeVO.noticeType}">
+							<!-- <span class="sbox small">
+								<select name="noticeType">
+									<option value="사용자">사용자</option>
+									<option value="부동산">부동산</option>
+									<option value="기사">기사</option>
+								</select>
+							</span> -->
+							부동산<input type="hidden" name="noticeType" value="부동산">
 							</td>
 						</tr>
 						<tr>
 							<th>파일</th>
 							<td>
-								<input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
-								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }">
+								<input type="file" name="noticeFilename" value="${noticeVO.noticeFilename}"><br>
+								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath}">
 							</td>
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td><textarea class="board_textarea" name="noticeContent">${noticeVO.noticeContent }</textarea>
-							<input type="hidden" value="${noticeVO.noticeIndex}" name="noticeIndex"></td>
+							<td><textarea class="board_textarea" name="noticeContent"></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2">
 								<div class="board_button">
-									<a href="#" onclick="document.getElementById('update').submit();" class="board_Mobtn">수정</a>
+									<a href="#" onclick="document.getElementById('insert').submit();" class="board_Mobtn">등록</a>
 									<a href="javascript:history.back()" class="board_Rebtn">취소</a>
 								</div>
 							</td>
@@ -62,9 +74,9 @@
 				</div>
 			</div>
 			</section>
-		<!-- 푸터 -->
-		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
-	</div>
+			<!-- 푸터 -->
+			<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
+		</div>
 	</div>
 </body>
 </html>

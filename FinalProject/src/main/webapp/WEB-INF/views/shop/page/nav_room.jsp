@@ -4,8 +4,8 @@
 	<div class="sub_nav">
 		<div class="nav_title">매물 관리</div>
 		<div class="nav_group">
-			<a href="/shop/room" class="on">매물 관리</a>
-			<a href="/shop/roomJoin" class="">매물 등록</a>
+			<a href="/shop/item" class="on">매물 관리</a>
+			<a href="/shop/itemAdd" class="">매물 등록</a>
 		</div>
 	</div>
 </div>
