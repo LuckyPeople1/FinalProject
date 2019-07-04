@@ -1,22 +1,29 @@
 package com.dassa.service;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
-//import com.dassa.dao.NoticeDao;
+import com.dassa.mapper.NoticeMapper;
 import com.dassa.vo.NoticeVO;
 
 @Service("noticeService")
 public class NoticeService {
-//	@Autowired
-//	@Qualifier("noticeDao")
-//	public NoticeDao noticeDao;
-//	
-//	public ArrayList<NoticeVO> noticeList(){
-//		return (ArrayList<NoticeVO>) (noticeDao.noticeList());
-//	}
+
+	@Resource(name = "noticeMapper")
+	private NoticeMapper noticeMapper;
+	
+	public ArrayList<NoticeVO> selectAllList() throws Exception {
+		return (ArrayList<NoticeVO>)(noticeMapper.selectAllList());
+	}
+	
+	public int noticeUpdate(NoticeVO n) throws Exception {
+		return noticeMapper.noticeUpdate(n);
+	}
+	
+	public NoticeVO noticeView(int noticeIndex) throws Exception {
+		return noticeMapper.noticeView(noticeIndex);
+	}
 }

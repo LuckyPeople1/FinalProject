@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/manage/board/faq")
-public class FAQBoardController {
+public class FAQManageController {
 
 	//faq관리페이지
 	@RequestMapping("/faqManageList")
@@ -23,5 +23,17 @@ public class FAQBoardController {
 	@RequestMapping("/faqManageModify")
 	public String faqManageModify() {
 		return "manage/board/faq/faqManageModify";
+	}
+	
+	//faq부동산페이지
+	@RequestMapping("/faqManageRealestateList")
+	public String faqManageRealestateList() {
+		return "manage/board/faq/faqManageRealestateList";
+	}
+	
+	//faq기사페이지
+	@RequestMapping("/faqManageAriclesList")
+	public String faqManageAriclesList() {
+		return "manage/board/faq/faqManageAriclesList";		
 	}
 }

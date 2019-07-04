@@ -120,13 +120,9 @@
 }
 
 
-
-
-
-
 #guest_loginHome .login_wrap .login_group .login_btn{
 	line-height: 65px;
-	background-color: #d03838;
+	background-color: rgb(26, 90, 232);
 	color: #fff;
 	font-weight: 700;
 	margin-top: 20px;

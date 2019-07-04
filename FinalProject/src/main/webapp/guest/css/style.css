@@ -293,8 +293,9 @@ section.moveStep .packageTypeBox .packageBox{
 	vertical-align: top;
 	position:relative;
 	padding:2px;
-}
 
+
+}
 section.moveStep .packageTypeBox .packageBox .packageBtn{
 	cursor: pointer;
 	background-color: #fff;
@@ -530,6 +531,9 @@ section.saleInLots .gSDUZR {
 }
 section.saleInLots .jgkpPZ a.active {
     color: rgb(50, 108, 249);
+}
+section.saleInLotsHome div{
+	outline: none;
 }
 /* SaleInLots 공통부분 CSS (분양) 끝 !! */
 
@@ -1431,6 +1435,74 @@ section.saleInLotsHome .hiyOAi::after {
     z-index: 1;
     background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/515486d1-ad7b-4b85-9dca-357fb4fbe162) center center no-repeat;
 }
+section.saleInLotsHome .hnpyID {
+    width: 160px;
+    height: 30px;
+    padding-bottom: 7px;
+    font-size: 15px;
+    color: rgb(34, 34, 34);
+    line-height: 22px;
+    user-select: none;
+    position: relative;
+    text-align: left;
+    border-bottom: 1px solid rgb(68, 68, 68);
+}
+section.saleInLotsHome .hnpyID > span {
+    display: block;
+    width: 90%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    overflow: hidden;
+}
+section.saleInLotsHome .hnpyID > svg {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    stroke: rgb(34, 34, 34);
+    transform: translateY(-50%) rotate(180deg);
+}
+section.saleInLotsHome .cZPjFH {
+    width: 200px;
+    height: 340px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 20px 0px 5px 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.saleInLotsHome .GqmLz {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+section.saleInLotsHome .GqmLz > li {
+    height: 22px;
+    white-space: nowrap;
+    text-align: left;
+}
+section.saleInLotsHome .ddtHAU {
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    cursor: pointer;
+}
+section.saleInLotsHome .FYNZR {
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+}
 /* SaleInLots(분양메인)  끝 !! */
 
 /* SaleInLotsInformation(분양정보)  끝 !! */
@@ -1472,7 +1544,7 @@ section.saleInLotsInformation .bFqGwy {
     position: relative;
     outline : none;
 }
-
+@media only screen and (min-width: 1600px)
 section.saleInLotsInformation .jWSbuk {
     max-width: 300px;
 }

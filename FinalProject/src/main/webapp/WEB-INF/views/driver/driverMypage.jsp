@@ -29,31 +29,31 @@
 					<tbody>
 					<tr>
 						<th>이름<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userName"></td>  <!--여기 이름 추가해야함!!!  -->
 						<th>아이디<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userId" value="${user.userId }"></td>
 					</tr>
 					<tr>
 						<th>이메일<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userEmail" value="${user.userEmail }"></td>
 						<th>사업자등록번호<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userRegistration" value="${user.userRegistration }"></td>
 					</tr>
 					<tr>
 						<th>자기소개<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
+						<td colspan="3"><input class="tbox full" name="userIntroduce" value="${user.userIntroduce }"></td>
 					</tr>
 					<tr>
 						<th>운반차량<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userCar" value="${user.userCar }"></td>
 						<th>휴대폰번호<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userPhone" value="${user.userPhone }"></td>
 					</tr>
 					<tr>
 						<th>프로필 사진<span class="ess">*</span></th>
 						<td colspan="">
 							<div class="img_upload">
-								<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)">
+								<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)" value="${user.userImagepath }">
 								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a>
 							</div>
 						</td>

@@ -8,7 +8,7 @@
 			<div class="logo_box">
 				<span class="logo"></span>
 			</div>
-			<form method="post" id="login">
+			<form action="/login/commonLogin" method="post" id="login">
 				<div class="login_group">
 					<div class="login_box">
 						<div class="tit_txt">로그인</div>
