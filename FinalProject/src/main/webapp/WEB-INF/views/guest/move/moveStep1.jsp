@@ -21,8 +21,7 @@
 							<c:forEach items="${packageList}" var="item">
 								
 								<c:if test="${item.packageType == 0}">
-									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
-										<div class="packageBtn" onclick="package.packagePlus(event,this)">
+									<div class="packageBox" data-idx="${item.packageIdx}" data-type="${item.packageType}" data-name="${item.packageName}">										<div class="packageBtn" onclick="package.packagePlus(event,this)">
 											<img src="${item.packageImgPath}" class="packageImg">
 											<div class="packageName">${item.packageName}</div>
 											<div class="packageSelect">
@@ -43,9 +42,8 @@
 						<div class="packageTypeTitle">가구</div>
 						<div class="packageTypeList">
 							<c:forEach items="${packageList}" var="item">
-								
 								<c:if test="${item.packageType == 1}">
-									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
+									<div class="packageBox" data-idx="${item.packageIdx}" data-type="${item.packageType}" data-name="${item.packageName}">
 										<div class="packageBtn" onclick="package.packagePlus(event,this)">
 											<img src="${item.packageImgPath}" class="packageImg">
 											<div class="packageName">${item.packageName}</div>
@@ -61,7 +59,6 @@
 							
 							</c:forEach>
 						</div>
-					
 					</div>
 					<div class="packageTypeBox">
 						<div class="packageTypeTitle">기타</div>
@@ -69,16 +66,49 @@
 							<c:forEach items="${packageList}" var="item">
 								
 								<c:if test="${item.packageType == 2}">
-									${item.packageName}
+									<div class="packageBox" data-idx="${item.packageIdx}" data-type="${item.packageType}" data-name="${item.packageName}">
+										<div class="packageBtn" onclick="package.packagePlus(event,this)">
+											<img src="${item.packageImgPath}" class="packageImg">
+											<div class="packageName">${item.packageName}</div>
+											<div class="packageSelect">
+												<a href="#none" class="minusBtn" onclick="package.packageMinus(event,this)"></a>
+												<div class="qty">0</div>
+											</div>
+										</div>
+									
+									</div>
+								
 								</c:if>
 							
 							</c:forEach>
 						</div>
 					</div>
+					<div class="packageTypeBox">
+						<div class="packageTypeTitle">짐박스</div>
+						<div class="packageTypeList zimBox">
+							<div class="boxImg">
+								<img src="/guest/img/img_zimssabox_sample.png">
+							</div>
+							<div class="packageBox full" data-type="3">
+								
+								<div class="packageBtn">
+									<img src="/guest/img/icon_package_box.png" class="packageImg">
+									<div class="packageName">짐박스</div>
+									<div class="packageSelect">
+										<a href="#none" class="minusBtn" onclick="package.packageMinus(event,this,'box')"></a>
+										<div class="qty">0</div>
+										<a href="#none" class="plusBtn" onclick="package.packagePlus(event,this,'box')"></a>
+									
+									</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="packageBtnBox">
 					<a href="#none" class="btn col_darkGrey f_w big">취소</a>
-					<a href="#none" class="btn col_main f_w big">다음</a>
+					<a href="javascript:package.packageSelect()" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>
 		</section>

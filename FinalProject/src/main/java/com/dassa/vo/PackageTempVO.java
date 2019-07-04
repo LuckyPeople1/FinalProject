@@ -26,7 +26,6 @@ public class PackageTempVO {
 	private String packageOption5Value;
 	private String packageOption5Etc;
 
-
 	public PackageTempVO() {
 		super();
 	}

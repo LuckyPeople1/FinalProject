@@ -16,7 +16,7 @@ public class FileCommon {
 
 		String savePath		= httpServletRequest.getServletContext().getRealPath("/upload/"+folderName+"/");
 
-		System.out.println(savePath);
+		/*System.out.println(savePath);*/
 
 		String originName	=	fileSet.getOriginalFilename();
 		String onlyFileName	=	originName.substring(0, originName.lastIndexOf('.'));

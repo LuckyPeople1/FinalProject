@@ -29,6 +29,7 @@
 	</resultMap>
 
 
+
 	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
 		insert
 		into MOVE_PACKAGE_TBL values (
@@ -71,7 +72,7 @@
 	<select id="getPackageList" resultType="com.dassa.vo.PackageTempVO" resultMap="packageMap">
 		select *
 		from MOVE_PACKAGE_TBL
-		where PACKAGE_STATUS = 0
+		where PACKAGE_STATUS = 0 order by PACKAGE_IDX
 	</select>
 
 </mapper>

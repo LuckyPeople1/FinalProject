@@ -39,7 +39,7 @@
 										</svg>
 									</div>
 									<div class="styled__FilterBox-sc-1l7255b-2 cZPjFH" width="200"
-										height="340" style="left: 0px; display: none">
+										height="340" style="left: 0px; right: 0px; display: none">
 										<ul class="styled__Ul-pz8bdk-0 GqmLz">
 											<li><span class="styled__Text-pz8bdk-1 ddtHAU">전국</span></li>
 											<li><span class="styled__Text-pz8bdk-1 FYNZR">서울특별시</span></li>
@@ -70,6 +70,42 @@
 												d="M1 1l6.533 6L14 1"></path>
 										</svg>
 									</div>
+									<div class="styled__FilterBox-sc-1l7255b-2 kToCdL" width="250"
+										height="280" style="left: 0px; display: none;">
+										<h1 class="styled__Title-sc-1l7255b-3 dyDaHt">건물유형
+											<p class="styled__Desc-sc-1l7255b-5 kcePPE">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="styled__Ul-sc-16papdg-0 biFjyo">
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">전체</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">아파트</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">오피스텔</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">도시형생활주택</span></label></li>
+										</ul>
+									</div>
 								</div>
 								<div class="eCZDhi" tabindex="0">
 									<div class="fCHdqd">
@@ -78,6 +114,42 @@
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
 										</svg>
+									</div>
+									<div class="styled__FilterBox-sc-1l7255b-2 kToCdL" width="250"
+										height="280" style="left: 0px; display: none;">
+										<h1 class="styled__Title-sc-1l7255b-3 dyDaHt">분양단계
+											<p class="styled__Desc-sc-1l7255b-5 kcePPE">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="styled__Ul-sc-16papdg-0 biFjyo">
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">전체</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">분양예정</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">분양중</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-16papdg-1 dnXYXl">입주모집</span></label></li>
+										</ul>
 									</div>
 								</div>
 								<div class="eCZDhi" tabindex="0">
@@ -88,6 +160,81 @@
 												d="M1 1l6.533 6L14 1"></path>
 										</svg>
 									</div>
+									<div class="styled__FilterBox-sc-1l7255b-2 vaXXR" width="340"
+										height="360" style="left: 0px; display: none;">
+										<h1 class="styled__Title-sc-1l7255b-3 dyDaHt">분양일정
+											<p class="styled__Desc-sc-1l7255b-5 kcePPE">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="styled__Ul-ds0rtq-0 jYvzBL">
+											<li style="width: 100%;"><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">전체</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">모집공고</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">특별공급</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">1순위청약</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">2순위청약</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">청약접수</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">당첨자발표</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">계약기간</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">입주예정일</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">준공시기</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="styled__Text-ds0rtq-1 hGjvB">분양시기</span></label></li>
+										</ul>
+									</div>
 								</div>
 								<div class="eCZDhi" tabindex="0">
 									<div class="fCHdqd">
@@ -96,6 +243,51 @@
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
 										</svg>
+									</div>
+									<div class="styled__FilterBox-sc-1l7255b-2 gGTyxd" width="250"
+										height="346" style="left: 0px; display: none;">
+										<h1 class="styled__Title-sc-1l7255b-3 dyDaHt">공급유형
+											<p class="styled__Desc-sc-1l7255b-5 kcePPE">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="styled__Ul-sc-1yz9fi0-0 bnfrS">
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="styled__Text-sc-1yz9fi0-1 dhiFiD">전체</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="styled__Text-sc-1yz9fi0-1 dhiFiD">공공분양</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="styled__Text-sc-1yz9fi0-1 dhiFiD">민간분양</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="styled__Text-sc-1yz9fi0-1 dhiFiD">재건축</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="styled__Text-sc-1yz9fi0-1 dhiFiD">재개발</span></label></li>
+											<li><label
+												class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22"><input
+													type="checkbox"
+													class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="styled__Text-sc-1yz9fi0-1 dhiFiD">공공임대</span></label></li>
+										</ul>
 									</div>
 								</div>
 								<a href="#none">
@@ -628,5 +820,7 @@
 		</section>
 	</div>
 </div>
+<script src="/guest/js/saleInLots/saleInLots.js"></script>
+
 </body>
 </html>
