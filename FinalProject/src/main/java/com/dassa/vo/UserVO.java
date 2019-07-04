@@ -124,5 +124,20 @@ public class UserVO {
 		this.socialId = socialId;
 	}
 	
+	public String getType() {
+		String type = getUserType();
+		if(type.equals("1")) {
+			return "일반";
+		}else if(type.equals("2")){
+			return "운송기사";
+		}else {
+			return "부동산";
+		}
+	}
 	
+	public String getSoId() {
+		String socialId = getSocialId();
+		String result = socialId+"@social.com";
+		return result;
+	}
 }

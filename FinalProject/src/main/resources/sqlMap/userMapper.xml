@@ -43,4 +43,7 @@
 				   social_id as socialId
 			from user_tbl where social_id=#{socialId}
 		</select>
+		<insert id="socialInsert" parameterType="userVO">
+			insert into user_tbl values (user_no_seq.nextval, #{soId})
+		</insert>
 </mapper>

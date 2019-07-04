@@ -87,6 +87,7 @@
 	vertical-align: top;
 	display:inline-block;
 	outline: none;
+	font-size: 15px;
 	
 }
 
@@ -128,12 +129,22 @@
 	margin-top: 20px;
 	font-size: 26px;
 	width:100%;
+	padding: 0;
+	border: 0;
 }
 
 #guest_loginHome .login_wrap .login_group .login_menu{
 	text-align: left;
 	padding-top: 10px;
 }
-
+img #kakao-login-btn{
+	height: 60px;
+}
+a #kakao-login-btn{
+	margin-top: 10px;
+	width: 280px;
+	height: 60px;
+	margin-right: 20px;
+}
 
 /* login_end */

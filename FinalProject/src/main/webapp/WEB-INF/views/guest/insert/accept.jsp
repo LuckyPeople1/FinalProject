@@ -1,9 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/guest/common/header.jsp" %>
-<link rel="stylesheet" type="text/css" href="/guest/css/accept-ui.css">
-<script src="/guest/js/accept.js"></script>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>다싸</title>
+	<link rel="stylesheet" type="text/css" href="/guest/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/guest/css/ui.css">
+	<link rel="stylesheet" type="text/css" href="/guest/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/guest/css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="/guest/css/accept-ui.css">
+	<script src="/guest/js/jquery-3.1.1.min.js"></script>
+	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
+	<script src="/guest/js/ui.js"></script>
+	<script src="/guest/js/accept.js"></script>
+</head>
+
 <section id="accept_section">
 	<div class="accept_header">
 		<h3>약관 동의</h3>
@@ -92,9 +107,9 @@
 			</label>
 		</div>
 	</div><!-- acceptContent -->
-	<button class="accept_button">
+	<!-- <button class="accept_button">
 		확인
-	</button>
+	</button> -->
 	<div class="insert_wrap">
 		<button class="common_insert">일반 회원가입</button>
 		<button class="driver_insert">운송기사 회원가입</button>
@@ -102,49 +117,7 @@
 	</div>
 </section>
 <style>
-	.insert_wrap{
-		width:740px;
-		margin-top: 20px;
-		margin-left: 30px;
-	}
-	.insert_wrap .common_insert{
-		width: 240px;
-		height: 50px;
-		color: rgb(255, 255, 255);
-		font-size: 17px;
-		font-weight: 500;
-		background-color: rgb(100, 120, 232);
-		border-width: 0px;
-		border-style: initial;
-		border-color: initial;
-		border-image: initial;
-	}
-	.insert_wrap .driver_insert{
-		margin-left:6px;
-		width: 240px;
-		height: 50px;
-		color: rgb(255, 255, 255);
-		font-size: 17px;
-		font-weight: 500;
-		background-color: rgb(100, 120, 232);
-		border-width: 0px;
-		border-style: initial;
-		border-color: initial;
-		border-image: initial;
-	}
-	.insert_wrap .shop_insert{
-		margin-left:6px;
-		width: 240px;
-		height: 50px;
-		color: rgb(255, 255, 255);
-		font-size: 17px;
-		font-weight: 500;
-		background-color: rgb(100, 120, 232);
-		border-width: 0px;
-		border-style: initial;
-		border-color: initial;
-		border-image: initial;
-	}
+	
 </style>
 </body>
 </html>
