@@ -49,11 +49,12 @@ public class GuestLoginController {
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
 		userVO.setUserPw(userPw);
-		
 		UserVO user =userService.selectOneUser(userVO);
+		
 		if(user!=null) {
 			HttpSession session =request.getSession();
 			session.setAttribute("user", user);
+			System.out.println(user.getUserIdx());
 			return "driver/driverHome";
 		}else {
 			request.setAttribute("alert", "아이디 또는 비밀번호를 확인해주세요.");

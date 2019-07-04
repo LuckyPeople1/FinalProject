@@ -9,7 +9,7 @@
 		#{packageType},
 		#{packageName}, -->
 		<select id="selectOneUser" parameterType="userVO" resultType="userVO">
-		 select user_no as userNo,
+		 select user_idx as userIdx,
 				user_id as userId,
 				user_pw as userPw,
 				user_name as userName,
@@ -26,7 +26,7 @@
 		</select>
 	
 		<select id="socialLogin" parameterType="userVO" resultType="userVO">
-			select user_no as userNo,
+			select user_idx as userIdx,
 				   user_id as userId,
 				   user_pw as userPw,
 				   user_name as userName,

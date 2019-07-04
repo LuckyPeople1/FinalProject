@@ -3,7 +3,7 @@
 <mapper namespace="com.dassa.mapper.DriverMapper">
 
 		<select id="driverMyPage" parameterType="userVO" resultType="userVO">
-		   select user_no as userNo,
+		   select user_idx as userIdx,
 				user_id as userId,
 				user_pw as userPw,
 				user_name as userName,
