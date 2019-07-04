@@ -18,4 +18,14 @@ public class DriverService {
 		return driverMapper.driverMyPage(userVO);
 	}
 
+	public int driverMypageUpdate(UserVO userVO) throws Exception {
+		
+		return driverMapper.driverMypageUpdate(userVO);
+	}
+
+	public int driverMypageUpdateText(UserVO userVO) throws Exception {
+		
+		return driverMapper.driverMypageUpdateText(userVO);
+	}
+
 }

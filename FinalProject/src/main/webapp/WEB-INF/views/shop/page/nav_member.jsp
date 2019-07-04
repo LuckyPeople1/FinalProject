@@ -5,7 +5,7 @@
 		<div class="nav_title">회원 관리</div>
 		<div class="nav_group">
 			<a href="/shop/member" class="on">회원 관리</a>
-			<a href="/shop/memberJoin" class="">회원 등록</a>
+			<a href="/shop/memberAdd" class="">회원 등록</a>
 		</div>
 	</div>
 </div>

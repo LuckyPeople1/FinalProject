@@ -7,23 +7,19 @@ public class PackageSelectVO {
 	private int packageIdx;
 	private int packageType;
 	private String packageName;
-	private String packageImgName;
 	private String packageImgPath;
-	private List<PackageRegOptionVO> packageOptionList;
-
+	private String packageAmount;
 
 	public PackageSelectVO() {
 		super();
 	}
 
-
-	public PackageSelectVO(int packageIdx, int packageType, String packageName, String packageImgName, String packageImgPath, List<PackageRegOptionVO> packageOptionList) {
+	public PackageSelectVO(int packageIdx, int packageType, String packageName, String packageImgPath, String packageAmount) {
 		this.packageIdx = packageIdx;
 		this.packageType = packageType;
 		this.packageName = packageName;
-		this.packageImgName = packageImgName;
 		this.packageImgPath = packageImgPath;
-		this.packageOptionList = packageOptionList;
+		this.packageAmount = packageAmount;
 	}
 
 	public int getPackageIdx() {
@@ -50,14 +46,6 @@ public class PackageSelectVO {
 		this.packageName = packageName;
 	}
 
-	public String getPackageImgName() {
-		return packageImgName;
-	}
-
-	public void setPackageImgName(String packageImgName) {
-		this.packageImgName = packageImgName;
-	}
-
 	public String getPackageImgPath() {
 		return packageImgPath;
 	}
@@ -66,11 +54,11 @@ public class PackageSelectVO {
 		this.packageImgPath = packageImgPath;
 	}
 
-	public List<PackageRegOptionVO> getPackageOptionList() {
-		return packageOptionList;
+	public String getPackageAmount() {
+		return packageAmount;
 	}
 
-	public void setPackageOptionList(List<PackageRegOptionVO> packageOptionList) {
-		this.packageOptionList = packageOptionList;
+	public void setPackageAmount(String packageAmount) {
+		this.packageAmount = packageAmount;
 	}
 }

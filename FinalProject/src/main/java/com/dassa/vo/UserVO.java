@@ -1,41 +1,45 @@
 package com.dassa.vo;
 
 public class UserVO {
-	private int userNo;
-	private String userId;
-	private String userPw;
-	private String userPhone;
-	private String userEmail;
-	private String userRegistration; //사업자 등록번호
-	private String userIntroduce;	//이사 소개
-	private String userCar;			//운행차량
-	private String userImagePass;
-	private String userImageName;
-	private String userType;		//회원 타입
-	
+	private int 	userIdx;					//고유번호로 쓸것.
+	private String 	userId;
+	private String 	userPw;
+	private String 	userName;
+	private String 	userPhone;
+	private String 	userEmail;
+	private String 	userIntroduce;			//이사 소개
+	private String 	registrationNumber; 	//사업자 등록번호
+	private String 	userCar;				//운행차량
+	private String 	userImageName;
+	private String 	userImagePath;
+	private String 	userType;				//회원 타입
+	private String  socialId;				//소셜 로그인 할 때 필요
+	public UserVO(int userIdx, String userId, String userPw, String userName, String userPhone, String userEmail,
+			String userIntroduce, String registrationNumber, String userCar, String userImageName, String userImagePath,
+			String userType, String socialId) {
+		super();
+		this.userIdx = userIdx;
+		this.userId = userId;
+		this.userPw = userPw;
+		this.userName = userName;
+		this.userPhone = userPhone;
+		this.userEmail = userEmail;
+		this.userIntroduce = userIntroduce;
+		this.registrationNumber = registrationNumber;
+		this.userCar = userCar;
+		this.userImageName = userImageName;
+		this.userImagePath = userImagePath;
+		this.userType = userType;
+		this.socialId = socialId;
+	}
 	public UserVO() {
 		super();
 	}
-	public UserVO(int userNo, String userId, String userPw, String userPhone, String userEmail, String userRegistration,
-			String userIntroduce, String userCar, String userImagePass, String userImageName, String userType) {
-		super();
-		this.userNo = userNo;
-		this.userId = userId;
-		this.userPw = userPw;
-		this.userPhone = userPhone;
-		this.userEmail = userEmail;
-		this.userRegistration = userRegistration;
-		this.userIntroduce = userIntroduce;
-		this.userCar = userCar;
-		this.userImagePass = userImagePass;
-		this.userImageName = userImageName;
-		this.userType = userType;
+	public int getUserIdx() {
+		return userIdx;
 	}
-	public int getUserNo() {
-		return userNo;
-	}
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
 	}
 	public String getUserId() {
 		return userId;
@@ -49,6 +53,12 @@ public class UserVO {
 	public void setUserPw(String userPw) {
 		this.userPw = userPw;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public String getUserPhone() {
 		return userPhone;
 	}
@@ -61,17 +71,17 @@ public class UserVO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	public String getUserRegistration() {
-		return userRegistration;
-	}
-	public void setUserRegistration(String userRegistration) {
-		this.userRegistration = userRegistration;
-	}
 	public String getUserIntroduce() {
 		return userIntroduce;
 	}
 	public void setUserIntroduce(String userIntroduce) {
 		this.userIntroduce = userIntroduce;
+	}
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
 	}
 	public String getUserCar() {
 		return userCar;
@@ -79,17 +89,17 @@ public class UserVO {
 	public void setUserCar(String userCar) {
 		this.userCar = userCar;
 	}
-	public String getUserImagePass() {
-		return userImagePass;
-	}
-	public void setUserImagePass(String userImagePass) {
-		this.userImagePass = userImagePass;
-	}
 	public String getUserImageName() {
 		return userImageName;
 	}
 	public void setUserImageName(String userImageName) {
 		this.userImageName = userImageName;
+	}
+	public String getUserImagePath() {
+		return userImagePath;
+	}
+	public void setUserImagePath(String userImagePath) {
+		this.userImagePath = userImagePath;
 	}
 	public String getUserType() {
 		return userType;
@@ -97,6 +107,11 @@ public class UserVO {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	public String getSocialId() {
+		return socialId;
+	}
+	public void setSocialId(String socialId) {
+		this.socialId = socialId;
+	}
 	
-
 }
