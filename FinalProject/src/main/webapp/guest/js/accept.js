@@ -22,7 +22,7 @@ $(document).ready(function(){
     
     $(".common_insert").click(function(){
     	if($('.accept_checkBox').eq(0).is("input:checked") && $('.accept_checkBox').eq(1).is("input:checked")){
-    		location.href="/insert/insert";
+    		location.href="/insert/insert?userType="+1;
     	}else{
     		alert("필수 약관을 체크해주세요");
     	}
@@ -31,7 +31,6 @@ $(document).ready(function(){
     $(".driver_insert").click(function(){
     	if($('.accept_checkBox').eq(0).is("input:checked") && $('.accept_checkBox').eq(1).is("input:checked")){
     		console.log("운송기사");
-    		
     	}else{
     		alert("필수 약관을 체크해주세요");
     	}
@@ -40,7 +39,6 @@ $(document).ready(function(){
     $(".shop_insert").click(function(){
     	if($('.accept_checkBox').eq(0).is("input:checked") && $('.accept_checkBox').eq(1).is("input:checked")){
     		console.log("부동산");
-    		
     	}else{
     		alert("필수 약관을 체크해주세요");
     	}

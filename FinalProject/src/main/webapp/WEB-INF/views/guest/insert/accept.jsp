@@ -116,8 +116,5 @@
 		<button class="shop_insert">부동산 회원가입</button>
 	</div>
 </section>
-<style>
-	
-</style>
 </body>
 </html>

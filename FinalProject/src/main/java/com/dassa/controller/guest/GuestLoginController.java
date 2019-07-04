@@ -38,7 +38,7 @@ public class GuestLoginController {
 		} else {
 			request.setAttribute("socialId", socialId);
 			System.out.println(socialId);
-			view="guest/insert/insertHome";
+			view="guest/insert/commonInsert";
 		}
 		return view;
 	}
@@ -57,7 +57,6 @@ public class GuestLoginController {
 			System.out.println(user.getUserIdx());
 			return "driver/driverHome";
 		}else {
-			request.setAttribute("alert", "아이디 또는 비밀번호를 확인해주세요.");
 			return "redirect:/login/";
 		}
 		

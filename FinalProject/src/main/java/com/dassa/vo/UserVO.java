@@ -113,7 +113,6 @@ public class UserVO {
 	public void setSocialId(String socialId) {
 		this.socialId = socialId;
 	}
-
 	public String getType() {
 		String type = getUserType();
 		if(type.equals("1")) {
