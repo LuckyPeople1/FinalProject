@@ -22,7 +22,7 @@ $(document).ready(function(){
     $(".accept_button").click(function(){
     	if($('.accept_checkBox').eq(0).is("input:checked") && $('.accept_checkBox').eq(1).is("input:checked")){
     		console.log("하위");
-    		location.href="/login/insert";
+    		location.href="/insert/insert";
     	}else{
     		alert("필수 약관을 체크해주세요");
     	}

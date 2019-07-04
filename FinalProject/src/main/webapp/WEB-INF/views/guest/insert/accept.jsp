@@ -2,6 +2,8 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/guest/common/header.jsp" %>
+<link rel="stylesheet" type="text/css" href="/guest/css/accept-ui.css">
+<script src="/guest/js/accept.js"></script>
 <section id="accept_section">
 	<div class="accept_header">
 		<h3>약관 동의</h3>

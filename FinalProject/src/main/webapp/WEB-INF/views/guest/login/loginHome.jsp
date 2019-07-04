@@ -2,6 +2,7 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/guest/common/header.jsp" %>
+<link rel="stylesheet" type="text/css" href="/guest/css/login-ui.css">
 <section id="guest_loginHome">
 	<div class="container">
 		<div class="login_wrap">
