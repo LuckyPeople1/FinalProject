@@ -507,28 +507,28 @@ section.moveStep .packageSelectList .packageInfo .title .caption{
 section.saleInLots{
 	clear : both;
 }
-section.saleInLots .jgkpPZ{
+section.saleInLots .saleInLotsHeader{
     height: 60px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px;
     text-align: center;
     line-height: 59px;
     background: rgb(255, 255, 255);
 }
-section.saleInLots .jgkpPZ a{
+section.saleInLots .saleInLotsHeader a{
     height: 59px;
     font-size: 14px;
     color: rgb(34, 34, 34);
 
     padding: 0px 25px;
 }
-section.saleInLots .gSDUZR {
+section.saleInLots .header {
     display: inline-block;
     width: 1px;
     height: 14px;
     vertical-align: middle;
     background-color: rgb(221, 221, 221);
 }
-section.saleInLots .jgkpPZ a.active {
+section.saleInLots .saleInLotsHeader a.active {
     color: rgb(50, 108, 249);
 }
 section.saleInLotsHome div{
@@ -537,13 +537,13 @@ section.saleInLotsHome div{
 /* SaleInLots 공통부분 CSS (분양) 끝 !! */
 
 /* SaleInLotsHome (분양메인) */
-section.saleInLotsHome .jIVSFF {
+section.saleInLotsHome .screen {
     width: 100%;
     height: 100%;
     min-width: 1366px;
     margin: 0px auto;
 }
-section.saleInLotsHome .lgQGar {
+section.saleInLotsHome .web {
     width: 100%;
     min-width: 1366px;
     position: relative;
@@ -556,34 +556,34 @@ section.saleInLotsHome .bjaGeA {
     padding-top: 40px;
     background-color: rgb(241, 242, 244);
 }
-section.saleInLotsHome .bGjwVo {
+section.saleInLotsHome .searchBox {
     width: 100%;
     min-width: 1366px;
     border-bottom: 1px solid rgb(221, 221, 221);
 }
-section.saleInLotsHome .eeKYZY {
+section.saleInLotsHome .searchBox_content {
     width: 1180px;
     text-align: center;
     margin: 0px auto;
     padding: 119px 0px 45px;
     border-bottom: 1px solid rgb(238, 238, 238);
 }
-section.saleInLotsHome .eeKYZY h1 {
+section.saleInLotsHome .searchBox_content h1 {
     font-size: 26px;
     font-weight: 400;
 }
-section.saleInLotsHome .gurosg {
+section.saleInLotsHome .searchBox_filter {
     display: inline-block;
     margin: 35px auto 0px;
 }
-section.saleInLotsHome .eCZDhi {
+section.saleInLotsHome .searchBox_filter_type {
     display: inline-block;
     height: 30px;
     position: relative;
     vertical-align: middle;
 }
 
-section.saleInLotsHome .fCHdqd {
+section.saleInLotsHome .searchBox_btn {
     width: 160px;
     height: 30px;
     padding-bottom: 7px;
@@ -597,25 +597,25 @@ section.saleInLotsHome .fCHdqd {
 	font-weight: 500;
 }
 
-section.saleInLotsHome .fCHdqd.on{
+section.saleInLotsHome .searchBox_btn.on{
 	border-bottom: 1px solid rgb(68, 68, 68);
 	font-weight: 700;
 }
-section.saleInLotsHome .fCHdqd > span {
+section.saleInLotsHome .searchBox_btn > span {
     display: block;
     width: 90%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-section.saleInLotsHome .fCHdqd > svg {
+section.saleInLotsHome .searchBox_btn > svg {
     position: absolute;
     top: 50%;
     right: 0px;
     stroke: rgb(34, 34, 34);
     transform: translateY(-50%) rotate(0deg);
 }
-section.saleInLotsHome .hxfWSO {
+section.saleInLotsHome .searchBtn {
     width: 80px;
     height: 42px;
     margin-left: 30px;
@@ -1440,7 +1440,7 @@ section.saleInLotsHome .hiyOAi::after {
     z-index: 1;
     background: url(https://s3-ap-northeast-1.amazonaws.com/dabang-prod-complex-image/sale-in-lots/brand/512/515486d1-ad7b-4b85-9dca-357fb4fbe162) center center no-repeat;
 }
-section.saleInLotsHome .cZPjFH {
+section.saleInLotsHome .searchBox_filterBox_1 {
     height: 340px;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
@@ -1455,32 +1455,32 @@ section.saleInLotsHome .cZPjFH {
     border-image: initial;
     border-radius: 3px;
 }
-section.saleInLotsHome .GqmLz {
+section.saleInLotsHome .filterBox_area {
     height: 100%;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
-section.saleInLotsHome .GqmLz > li {
+section.saleInLotsHome .filterBox_area > li {
     height: 22px;
     white-space: nowrap;
     text-align: left;
 }
-section.saleInLotsHome .ddtHAU {
+section.saleInLotsHome .allArea {
     color: rgb(68, 68, 68);
     font-size: 15px;
     line-height: 22px;
     font-weight: 500;
     cursor: pointer;
 }
-section.saleInLotsHome .FYNZR {
+section.saleInLotsHome .area {
     color: rgb(68, 68, 68);
     font-size: 15px;
     line-height: 22px;
     font-weight: 400;
     cursor: pointer;
 }
-section.saleInLotsHome .kToCdL {
+section.saleInLotsHome .searchBox_filterBox_2 {
     width: 250px;
     height: 280px;
     background-color: rgb(255, 255, 255);
@@ -1496,7 +1496,7 @@ section.saleInLotsHome .kToCdL {
     border-image: initial;
     border-radius: 3px;
 }
-section.saleInLotsHome .dyDaHt {
+section.saleInLotsHome .filterBox_title {
     text-align: left;
     margin-bottom: 27px;
     color: rgb(34, 34, 34);
@@ -1504,33 +1504,33 @@ section.saleInLotsHome .dyDaHt {
     font-weight: 400;
     line-height: 33px;
 }
-section.saleInLotsHome .kcePPE {
+section.saleInLotsHome .filterBox_title_msg {
     margin-top: 3px;
     color: rgb(170, 170, 170);
     font-size: 13px;
     font-weight: 400;
     line-height: 19px;
 }
-section.saleInLotsHome .dyDaHt::after {
+section.saleInLotsHome .filterBox_title::after {
     display: block;
     content: "";
     clear: both;
 }
-section.saleInLotsHome .biFjyo {
+section.saleInLotsHome .filterBox_ul {
     width: 190px;
 }
-section.saleInLotsHome .biFjyo > li {
+section.saleInLotsHome .filterBox_ul > li {
     height: 22px;
     white-space: nowrap;
 }
-section.saleInLotsHome .kAqGVi {
+section.saleInLotsHome .Checkbox_Label {
     display: block;
     height: 22px;
     padding-left: 23px;
     position: relative;
     cursor: pointer;
 }
-section.saleInLotsHome .PcMeW {
+section.saleInLotsHome .inputCheckbox {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -1538,14 +1538,14 @@ section.saleInLotsHome .PcMeW {
     top: 0px;
     left: 0px;
 }
-section.saleInLotsHome .PcMeW:checked + .CheckBox {
+section.saleInLotsHome .inputCheckbox:checked + .CheckBox {
     background-color: rgb(0, 108, 255);
     border-width: 1px;
     border-style: solid;
     border-color: rgb(0, 108, 255);
     border-image: initial;
 }
-section.saleInLotsHome .kAqGVi > .CheckBox {
+section.saleInLotsHome .Checkbox_Label > .CheckBox {
     float: left;
     width: 22px;
     height: 22px;
@@ -1559,7 +1559,7 @@ section.saleInLotsHome .kAqGVi > .CheckBox {
     border-image: initial;
     border-radius: 3px;
 }
-section.saleInLotsHome .PcMeW:checked + .CheckBox::after {
+section.saleInLotsHome .inputCheckbox:checked + .CheckBox::after {
     content: "";
     display: block;
     width: 47%;
@@ -1572,7 +1572,7 @@ section.saleInLotsHome .PcMeW:checked + .CheckBox::after {
     border-left: 2px solid rgb(255, 255, 255);
     border-bottom: 2px solid rgb(255, 255, 255);
 }
-section.saleInLotsHome .dnXYXl {
+section.saleInLotsHome .checkBoxText {
     margin-left: 10px;
     color: rgb(68, 68, 68);
     font-size: 15px;
@@ -1580,10 +1580,10 @@ section.saleInLotsHome .dnXYXl {
     position: relative;
     float: left;
 }
-section.saleInLotsHome .biFjyo > li + li {
+section.saleInLotsHome .filterBox_ul > li + li {
     margin-top: 12px;
 }
-section.saleInLotsHome .vaXXR {
+section.saleInLotsHome .searchBox_filterBox_3 {
     width: 340px;
     height: 360px;
     background-color: rgb(255, 255, 255);
@@ -1599,24 +1599,24 @@ section.saleInLotsHome .vaXXR {
     border-image: initial;
     border-radius: 3px;
 }
-section.saleInLotsHome .jYvzBL {
+section.saleInLotsHome .filterBox_ul_2 {
     width: 300px;
 }
-section.saleInLotsHome .jYvzBL > li {
+section.saleInLotsHome .filterBox_ul_2 > li {
     width: 50%;
     float: left;
     height: 22px;
     white-space: nowrap;
 }
-section.saleInLotsHome .jYvzBL > li + li {
+section.saleInLotsHome .filterBox_ul_2 > li + li {
     margin-top: 12px;
 }
-section.saleInLotsHome .jYvzBL::after {
+section.saleInLotsHome .filterBox_ul_2::after {
     display: block;
     content: "";
     clear: both;
 }
-section.saleInLotsHome .hGjvB {
+section.saleInLotsHome .checkBoxText_2 {
     margin-left: 10px;
     color: rgb(68, 68, 68);
     font-size: 15px;
@@ -1624,7 +1624,7 @@ section.saleInLotsHome .hGjvB {
     position: relative;
     float: left;
 }
-section.saleInLotsHome .gGTyxd {
+section.saleInLotsHome .filterBox_ul_3 {
     width: 250px;
     height: 346px;
     background-color: rgb(255, 255, 255);
@@ -1640,17 +1640,17 @@ section.saleInLotsHome .gGTyxd {
     border-image: initial;
     border-radius: 3px;
 }
-section.saleInLotsHome .bnfrS {
+section.saleInLotsHome .searchBox_filterBox_4 {
     width: 190px;
 }
-section.saleInLotsHome .bnfrS > li {
+section.saleInLotsHome .searchBox_filterBox_4 > li {
     height: 22px;
     white-space: nowrap;
 }
-section.saleInLotsHome .bnfrS > li + li {
+section.saleInLotsHome .searchBox_filterBox_4 > li + li {
     margin-top: 12px;
 }
-section.saleInLotsHome .dhiFiD {
+section.saleInLotsHome .checkBoxText_3 {
     margin-left: 10px;
     color: rgb(68, 68, 68);
     font-size: 15px;
