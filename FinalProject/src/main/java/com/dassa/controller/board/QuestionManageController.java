@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/manage/board/question")
-public class questionManageController {
+public class QuestionManageController {
 	//1:1문의관리
 	@RequestMapping("/questionManageList")
 	public String questionManageList() {
@@ -17,14 +17,14 @@ public class questionManageController {
 	}
 	
 	//1:1부동산관리페이지
-	@RequestMapping("questionManageRealestateList")
+	@RequestMapping("/realestate/questionManageRealestateList")
 	public String questionManageRealestateList() {
-		return "manage/board/question/questionManageRealestateList";
+		return "manage/board/question/realestate/questionManageRealestateList";
 	}
 	
 	//1:1기사관리페이지
-	@RequestMapping("questionManageAriticlesList")
+	@RequestMapping("/articles/questionManageAriticlesList")
 	public String questionManageAriticlesList() {
-		return "manage/board/question/questionManageAriticlesList";
+		return "manage/board/question/articles/questionManageAriticlesList";
 	}
 }

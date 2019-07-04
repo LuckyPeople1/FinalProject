@@ -65,6 +65,7 @@
 					<colgroup>
 						<col width="100">
 						<col width="100">
+						<col width="100">						
 						<col width="*">
 						<col width="155">
 						<col width="120">
@@ -78,6 +79,7 @@
 							</label>
 						</th>
 						<th>No</th>
+						<th>분류</th>
 						<th>제목</th>
 						<th>작성일시</th>
 						<th>상태</th>
@@ -85,7 +87,9 @@
 					</tr>
 					</thead>
 					<tbody>
+					
 					<c:forEach items="${list }" var="n">
+					<c:if test="${n.noticeType eq '사용자'}">
 					<tr>
 						<td>
 							<label>
@@ -93,6 +97,7 @@
 							</label>
 						</td>
 						<td>${n.noticeIndex }</td>
+						<td>${n.noticeType }</td>
 						<td class="text-left">${n.noticeTitle }</td>
 						<td>${n.noticeRegDate }</td>
 						<td>
@@ -107,7 +112,9 @@
 							</div>
 						</td>
 					</tr>
+					</c:if>
 					</c:forEach>
+					
 					</tbody>
 				</table>
 				</div>

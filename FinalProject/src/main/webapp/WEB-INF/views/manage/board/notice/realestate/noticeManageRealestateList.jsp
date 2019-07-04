@@ -58,13 +58,14 @@
 					<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-						<a href="/manage/board/notice/noticeManageWriter" class="btn col_darkGrey f_w">글쓰기</a>
+						<a href="/manage/board/notice/realestate/noticeManageRealestateWriter" class="btn col_darkGrey f_w">글쓰기</a>
 					</span>
 				</div>
 				<table class="list_table">
 					<colgroup>
 						<col width="100">
 						<col width="100">
+						<col width="100">						
 						<col width="*">
 						<col width="155">
 						<col width="120">
@@ -78,6 +79,7 @@
 							</label>
 						</th>
 						<th>No</th>
+						<th>분류</th>
 						<th>제목</th>
 						<th>작성일시</th>
 						<th>상태</th>
@@ -85,27 +87,34 @@
 					</tr>
 					</thead>
 					<tbody>
+					
+					<c:forEach items="${list }" var="n">
+					<c:if test="${n.noticeType eq '부동산'}">
 					<tr>
 						<td>
 							<label>
 								<input type="checkbox" name="">
 							</label>
 						</td>
-						<td>1</td>
-						<td class="text-left">다싸부동산공지사항입니다</td>
-						<td>2019-07-01</td>
+						<td>${n.noticeIndex }</td>
+						<td>${n.noticeType }</td>
+						<td class="text-left">${n.noticeTitle }</td>
+						<td>${n.noticeRegDate }</td>
 						<td>
-							<span class="tag col_blue f_w">정상</span>
+							<span class="tag col_blue f_w">${n.noticeState }</span>
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/notice/noticeManageModify" class="btn small col_main f_w">수정</a>
+								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
 							</div>
 							<div>
 								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
 							</div>
 						</td>
 					</tr>
+					</c:if>
+					</c:forEach>
+					
 					</tbody>
 				</table>
 				</div>
