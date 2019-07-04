@@ -54,8 +54,10 @@
 							<th>프로필 사진<span class="ess">*</span></th>
 							<td colspan="">
 								<div class="img_upload">
-									<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)">
-									<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"><img id="mypage"  src="${user.userImagePath }"></a>
+									<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.userImagePath }">
+									<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
+										<img id="mypage"  src="${user.userImagePath }"> 
+									</a>
 								</div>
 							</td>
 						</tr>
@@ -70,7 +72,7 @@
 			</div>
 		</form>
 		<div class="btn_box">
-			<a href="javascript:void(0)" class="btn col_blue">목록으로</a>
+			<a href="/driver/" class="btn col_blue">목록으로</a>
 			<a href="javascript:void(0)" class="btn col_blue" onclick="DriverupdateClick();">정보수정</a>
 		</div>
 		<div class="list_form">

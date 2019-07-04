@@ -21,12 +21,14 @@ function DriverupdateClick(){
 		alert("핸드폰은 필수 항목입니다. 반드시 입력해 주세요");
 		return false;
 	}
-	/*
-	if($('#mypage').val()==null){
-		alert("사진은 필수 항목입니다. 반드시 입력해 주세요");
-		return false;
+	
+
 		
-	}*/
+		if($('#mypage').attr('src')==""){
+			alert("사진은 필수 항목입니다. 반드시 입력해 주세요");
+			return false;
+		
+	}
 	
 	var formData= new FormData($('#driverMypageUpdate')[0]);
   	$.ajax({

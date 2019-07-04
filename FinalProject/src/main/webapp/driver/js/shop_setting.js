@@ -4,7 +4,9 @@
 function img_up(e) {
 	console.log("이미지삽입");
 	var id = $(e).attr('id');
+	console.log(id);
 	var order = id.split("_")[1];
+	console.log(order);
 	$('input[id="img_'+order+'"]').trigger('click');
 
 
@@ -14,16 +16,16 @@ function img_up(e) {
 // 이미지 보이기
 function img_change(e) {
 
-	var id = $(e).attr('id');
+	/*var id = $(e).attr('id');
 	var order = id.split("_")[1];
 	var str = '';
 
-	str += '<img src="../img/no-images.png" alt="이미지" class="imgShow_'+ order +'">';
+	str += '<img src="../img/no-images.png" alt="이미지" class="imgShow_'+ order +'" id="myapge">';
 	str += '<a href="#none" class="imgDel" id="imgDel_'+ order +'" onclick="img_del(this)"></a>';
 	console.log("이미지보이기");
 	$(e).parent().append(str); // 이미지 및 삭제버튼 추가
 	$(e).siblings('.imgUp').remove(); // 이미지 업로드버튼 삭제
-
+*/
 	readURL(e);
 }
 
@@ -36,9 +38,11 @@ function readURL(input) {
 		var reader = new FileReader();
 
 		reader.onload = function (e) {
-			$('.imgShow_'+ order +'').attr('src', e.target.result);
+			/*$('.imgShow_'+ order +'').attr('src', e.target.result);*/
+			
+			$('#mypage').attr('src', e.target.result);
+			
 		};
-
 		reader.readAsDataURL(input.files[0]);
 	}
 }

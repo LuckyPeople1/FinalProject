@@ -51,12 +51,14 @@ public class DriverPassController {
 			userVO.setUserImagePath(fileInfo[1]);
 			result=driverService.driverMypageUpdate(userVO);
 		}
+		
 		if(result>0) {
 			System.out.println("수정성공");
 			
-		}
+		}else {			
 			System.out.println("수정실패");
-		
+		}
+		System.out.println(result);
 		return "rediect:";
 	}
 	
