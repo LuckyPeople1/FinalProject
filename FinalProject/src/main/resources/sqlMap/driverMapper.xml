@@ -15,7 +15,6 @@
 				image_name as userImageName,
 				image_path as userImagePath,
 				user_type as userType,
-				driver_idx as driverIdx,
 				social_id as socialId 
 		  from user_tbl where user_id=#{userId} 
 		</select>
