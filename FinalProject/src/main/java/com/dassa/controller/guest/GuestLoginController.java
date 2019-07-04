@@ -53,6 +53,7 @@ public class GuestLoginController {
 		if(user!=null) {
 			HttpSession session =request.getSession();
 			session.setAttribute("user", user);
+		
 			
 		}
 		return "driver/driverHome";

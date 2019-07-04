@@ -2,10 +2,10 @@
 
 // 이미지 삽입
 function img_up(e) {
-
+	console.log("이미지삽입");
 	var id = $(e).attr('id');
 	var order = id.split("_")[1];
-	$('input[name="img_'+order+'"]').trigger('click');
+	$('input[id="img_'+order+'"]').trigger('click');
 
 
 }
@@ -20,7 +20,7 @@ function img_change(e) {
 
 	str += '<img src="../img/no-images.png" alt="이미지" class="imgShow_'+ order +'">';
 	str += '<a href="#none" class="imgDel" id="imgDel_'+ order +'" onclick="img_del(this)"></a>';
-
+	console.log("이미지보이기");
 	$(e).parent().append(str); // 이미지 및 삭제버튼 추가
 	$(e).siblings('.imgUp').remove(); // 이미지 업로드버튼 삭제
 
@@ -28,7 +28,7 @@ function img_change(e) {
 }
 
 function readURL(input) {
-
+	console.log("readURL");
 	var id = $(input).attr('id');
 	var order = id.split("_")[1];
 
@@ -47,13 +47,13 @@ function readURL(input) {
 // 이미지 삭제
 function img_del(e) {
 
-
+	console.log("이미지삭제");
 	var id = $(e).attr('id');
 	var order = id.split("_")[1];
 
 	var str = '<a href="#none" class="imgUp" id="imgUp_'+ order +'" onclick="img_up(this)"></a>';
 
-	$('input[name="img_'+order+'"]').val(''); // 이미지값 초기화
+	$('input[id="img_'+order+'"]').val(''); // 이미지값 초기화
 
 	$(e).parent().append(str); // 이미지 업로드버튼 생성
 

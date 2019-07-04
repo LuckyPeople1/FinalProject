@@ -105,11 +105,11 @@ public class UserVO {
 	public void setUserImageName(String userImageName) {
 		this.userImageName = userImageName;
 	}
-	public String getUserImagePass() {
+	public String getUserImagePath() {
 		return userImagePath;
 	}
-	public void setUserImagePass(String userImagePass) {
-		this.userImagePath = userImagePass;
+	public void setUserImagePath(String userImagePath) {
+		this.userImagePath = userImagePath;
 	}
 	public String getUserType() {
 		return userType;
