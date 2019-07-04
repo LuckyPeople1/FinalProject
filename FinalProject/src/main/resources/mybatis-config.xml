@@ -7,6 +7,10 @@
 <!--		<typeAlias type="kh.student.vo.StudentVO" alias="student"/>-->
 		<typeAlias type="java.util.Map" alias="map"/>
 		<typeAlias type="com.dassa.vo.UserVO" alias="userVO"/>
+		
+		<typeAlias type="com.dassa.vo.JusoCityVO" alias="jusoCityVO"/>
+		<typeAlias type="com.dassa.vo.JusoGuVO" alias="jusoGuVO"/>
+		<typeAlias type="com.dassa.vo.JusoDongVO" alias="jusoDongVO"/>
 	</typeAliases>
 
 </configuration>

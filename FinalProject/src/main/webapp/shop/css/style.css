@@ -1438,7 +1438,7 @@ table.table_list .menu_set a{
 }
 
 /** 부동산 매물 등록 시작 **/
-.etFHhl {
+section.shopItemAdd .etFHhl {
     width: 100%;
     margin-bottom: 50px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
@@ -1451,12 +1451,12 @@ table.table_list .menu_set a{
     overflow: hidden;
 }
 
-.fSFsCh {
+section.shopItemAdd .fSFsCh {
     float: left;
     user-select: none;
     position: relative;
 }
-.fSFsCh > input[type="radio"] {
+section.shopItemAdd .fSFsCh > input[type="radio"] {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -1464,46 +1464,44 @@ table.table_list .menu_set a{
     top: 0px;
     left: 0px;
 }
-input, button {
+section.shopItemAdd input, button {
     outline: none;
 }
-.fSFsCh > input[type="radio"]:checked + p {
+section.shopItemAdd .fSFsCh > input[type="radio"]:checked + p {
     color: rgb(255, 255, 255);
     background-color: rgb(26, 90, 232);
     border-color: rgb(26, 90, 232);
 }
-.etFHhl > table {
+section.shopItemAdd .etFHhl > table {
     width: 100%;
 }
-colgroup {
-    display: table-column-group;
-}
-col[Attributes Style] {
-    width: 150px;
-}
-tbody {
+section.shopItemAdd tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
-.etFHhl > table tr {
+section.shopItemAdd .etFHhl > table tr {
     height: 70px;
 }
-.etFHhl > table th {
+section.shopItemAdd .etFHhl > table th {
     color: rgb(34, 34, 34);
     font-size: 15px;
     font-weight: 500;
     background-color: rgb(249, 249, 249);
     vertical-align: middle;
 }
-.etFHhl > table td {
+section.shopItemAdd .etFHhl > table td {
     vertical-align: middle;
 }
-.fNOtpc {
+section.shopItemAdd .fNOtpc {
     padding: 12px 20px;
 }
-
-.fSFsCh > p {
+section.shopItemAdd .fNOtpc::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .fSFsCh > p {
     min-width: 82px;
     height: 46px;
     color: rgb(102, 102, 102);
@@ -1518,25 +1516,18 @@ tbody {
     border-color: rgb(224, 224, 224);
     border-image: initial;
 }
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.bVNPCb + label {
+section.shopItemAdd .bVNPCb + label {
     margin-left: 10px;
 }
-.fSFsCh {
+section.shopItemAdd .fSFsCh {
     float: left;
     user-select: none;
     position: relative;
 }
-label {
+section.shopItemAdd label {
     cursor: default;
 }
-.etFHhl > h1 {
+section.shopItemAdd .etFHhl > h1 {
     height: 60px;
     color: rgb(34, 34, 34);
     font-size: 18px;
@@ -1545,7 +1536,7 @@ label {
     position: relative;
     border-bottom: 1px solid rgb(204, 204, 204);
 }
-.etFHhl {
+section.shopItemAdd .etFHhl {
     width: 100%;
     margin-bottom: 50px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
@@ -1557,7 +1548,7 @@ label {
     border-image: initial;
     overflow: hidden;
 }
-.etFHhl > h1 > span {
+section.shopItemAdd .etFHhl > h1 > span {
     margin-right: 18px;
     color: rgb(136, 136, 136);
     font-size: 14px;
@@ -1567,56 +1558,46 @@ label {
     right: 18px;
     transform: translateY(-50%);
 }
-.dZxpBV {
+section.shopItemAdd .dZxpBV {
     padding: 20px;
 }
-.xMNKR {
+section.shopItemAdd .xMNKR {
     float: left;
     width: 530px;
     height: 330px;
     padding: 6px 0px 9px;
 }
-.dvECgk {
+section.shopItemAdd .dvECgk {
     height: 20px;
     line-height: 20px;
     user-select: none;
 }
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.dvECgk > svg {
+section.shopItemAdd .dvECgk > svg {
     position: relative;
     top: 1px;
 }
-svg[Attributes Style] {
-    width: 18;
-    height: 18;
-}
-g[Attributes Style] {
-    fill: none;
-    fill-rule: evenodd;
-}
-.dvECgk > span {
+section.shopItemAdd .dvECgk > span {
     color: rgb(136, 136, 136);
     bottom: 2px;
 }
-.dvECgk > a, .dvECgk > span {
+section.shopItemAdd .dvECgk > a, .dvECgk > span {
     margin-left: 7px;
     font-size: 14px;
     position: relative;
 }
-.dhdAXv {
+section.shopItemAdd .dhdAXv {
     margin: 15px 0px 10px;
 }
-.iqNWWF {
+section.shopItemAdd .dhdAXv::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .iqNWWF {
     float: left;
     width: 430px;
 }
-.kTQnUD {
+section.shopItemAdd .kTQnUD {
     height: 46px;
     color: rgb(68, 68, 68);
     font-size: 15px;
@@ -1631,7 +1612,7 @@ g[Attributes Style] {
     border-radius: 0px;
     outline: none;
 }
-.hdoEbx {
+section.shopItemAdd .hdoEbx {
     width: 90px;
     height: 46px;
     margin-left: 10px;
@@ -1646,7 +1627,7 @@ g[Attributes Style] {
     border-image: initial;
     border-radius: 3px;
 }
-.fUXvpI {
+section.shopItemAdd .fUXvpI {
     display: table-cell;
     width: 530px;
     height: 100px;
@@ -1658,66 +1639,65 @@ g[Attributes Style] {
     border-color: rgb(208, 210, 214);
     border-image: initial;
 }
-.kXKUhT {
+section.shopItemAdd .kXKUhT {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.gnEBbX {
+section.shopItemAdd .gnEBbX {
     float: left;
     width: 260px;
     padding-right: 48px;
     position: relative;
 }
-.kTQnUD {
+section.shopItemAdd .gnEBbX::after {
+    width: 48px;
     height: 46px;
-    color: rgb(68, 68, 68);
-    font-size: 15px;
-    background-color: rgb(255, 255, 255);
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    text-align: center;
+    line-height: 44px;
     box-sizing: border-box;
-    -webkit-appearance: none;
-    padding: 0px 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(208, 210, 214);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-width: 1px 1px 1px 0px;
+    border-style: solid solid solid;
+    border-color: rgb(208, 210, 214) rgb(208, 210, 214) rgb(208, 210, 214);
     border-image: initial;
-    border-radius: 0px;
-    outline: none;
+    border-left: 0px;
 }
-.bVCGUR {
+section.shopItemAdd .xUWNs::after {
+    content: "호";
+}
+
+section.shopItemAdd .bVCGUR {
     width: 100%;
 }
-.gnEBbX + div {
+section.shopItemAdd .gnEBbX + div {
     margin-left: 10px;
 }
-.gnEBbX {
+section.shopItemAdd .gnEBbX {
     float: left;
     width: 260px;
     padding-right: 48px;
     position: relative;
 }
-.gVtYYG {
+section.shopItemAdd .gVtYYG {
     width: 100%;
 }
-.gZWbGn {
+section.shopItemAdd .gZWbGn {
     margin-bottom: 18px;
     user-select: none;
 }
-.gZWbGn::after {
+section.shopItemAdd .gZWbGn::after {
     display: block;
     content: "";
     clear: both;
 }
-.gZWbGn > label {
+section.shopItemAdd .gZWbGn > label {
     float: left;
 }
-.kAqGVi {
-    display: block;
-    height: 22px;
-    padding-left: 23px;
-    position: relative;
-    cursor: pointer;
-}
-.PcMeW {
+section.shopItemAdd .PcMeW {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -1725,74 +1705,22 @@ g[Attributes Style] {
     top: 0px;
     left: 0px;
 }
-input, button {
+section.shopItemAdd .kXKUhT::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd input, button {
     outline: none;
 }
-.kAqGVi > .CheckBox {
-    float: left;
-    width: 22px;
-    height: 22px;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(221, 221, 221);
-    border-image: initial;
-    border-radius: 3px;
-}
-.kmXRUf {
+section.shopItemAdd .kmXRUf {
     margin-left: 8px;
     color: rgb(34, 34, 34);
     font-size: 15px;
     position: relative;
     bottom: 2px;
 }
-.dvECgk {
-    height: 20px;
-    line-height: 20px;
-    user-select: none;
-}
-.dvECgk > svg {
-    position: relative;
-    top: 1px;
-}
-svg[Attributes Style] {
-    width: 18;
-    height: 18;
-}
-svg:not(:root) {
-    overflow: hidden;
-}
-g[Attributes Style] {
-    fill: none;
-    fill-rule: evenodd;
-}
-:not(svg) {
-    transform-origin: 0px 0px;
-}
-circle[Attributes Style] {
-    cx: 9;
-    cy: 9;
-    r: 9;
-    fill: rgb(230, 231, 234);
-}
-path[Attributes Style] {
-    fill: rgb(156, 158, 163);
-    d: path("M 8.997 13.5 a 0.75 0.75 0 1 1 0 -1.5 a 0.75 0.75 0 0 1 0 1.5 Z m 0.01 -2.499 c -0.634 0 -0.75 -5.449 -0.75 -6.001 c 0 -0.552 0.336 -1 0.75 -1 s 0.75 0.448 0.75 1 s -0.116 6.001 -0.75 6.001 Z");
-}
-.dvECgk > a {
-    color: rgb(49, 133, 248);
-    bottom: 3px;
-    text-decoration: underline;
-}
-.dvECgk > a, .dvECgk > span {
-    margin-left: 7px;
-    font-size: 14px;
-    position: relative;
-}
-.kADOdT {
+section.shopItemAdd .kADOdT {
     float: right;
     width: 440px;
     height: 330px;
@@ -1802,39 +1730,19 @@ path[Attributes Style] {
     border-color: rgb(221, 221, 221);
     border-image: initial;
 }
-.dioXoB {
+section.shopItemAdd .dioXoB {
     width: 52px;
     height: 52px;
     margin: 110px auto 15px;
     border-radius: 50%;
 }
-svg[Attributes Style] {
-    width: 52;
-    height: 52;
-}
-svg:not(:root) {
-    overflow: hidden;
-}
-g[Attributes Style] {
-    fill: none;
-    fill-rule: evenodd;
-    transform: translate(1, 1);
-}
-circle[Attributes Style] {
-    cx: 25.2;
-    cy: 25.2;
-    r: 25.2;
-    fill: rgb(255, 255, 255);
-    stroke: rgb(238, 238, 238);
-    stroke-width: 1.2;
-}
-.cOSEj {
+section.shopItemAdd .cOSEj {
     color: rgb(136, 136, 136);
     font-size: 15px;
     line-height: 22px;
     text-align: center;
 }
-.gvJkZp {
+section.shopItemAdd .gvJkZp {
     float: left;
     width: 100px;
     height: 40px;
@@ -1847,32 +1755,24 @@ circle[Attributes Style] {
     border-image: initial;
     border-radius: 3px;
 }
-.fZAwwn > label {
+section.shopItemAdd .gvJkZp + button {
+    margin-left: 10px;
+}
+section.shopItemAdd .fZAwwn > label {
     float: left;
 }
-.iFmBhb {
+section.shopItemAdd .iFmBhb {
     position: relative;
     padding: 12px 20px;
 }
-.kAqGVi {
+section.shopItemAdd .kAqGVi {
     display: block;
     height: 22px;
     padding-left: 23px;
     position: relative;
     cursor: pointer;
 }
-.PcMeW {
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-input, button {
-    outline: none;
-}
-.kAqGVi > .CheckBox {
+section.shopItemAdd .kAqGVi > .CheckBox {
     float: left;
     width: 22px;
     height: 22px;
@@ -1886,46 +1786,42 @@ input, button {
     border-image: initial;
     border-radius: 3px;
 }
-.kjAlFQ {
+section.shopItemAdd .kjAlFQ {
     margin-left: 7px;
     position: relative;
     bottom: 2px;
 }
-.fZAwwn::after {
+section.shopItemAdd .fZAwwn::after {
     display: block;
     content: "";
     clear: both;
 }
-.fZAwwn {
+section.shopItemAdd .fZAwwn {
     position: absolute;
     top: 50%;
     left: 245px;
     transform: translateY(-50%);
     user-select: none;
 }
-.ZbkTp {
+section.shopItemAdd .ZbkTp {
     float: right;
     height: 20px;
     margin-right: 5px;
     line-height: 46px;
     user-select: none;
 }
-.ZbkTp > svg {
+section.shopItemAdd .ZbkTp > svg {
     position: relative;
     top: 1px;
 }
-g[Attributes Style] {
-    fill: none;
-    fill-rule: evenodd;
-}
-.ZbkTp > span {
+section.shopItemAdd .ZbkTp > span {
     margin-left: 7px;
     color: rgb(136, 136, 136);
     font-size: 14px;
     position: relative;
     bottom: 2px;
 }
-.hNdXGi {
+section.shopItemAdd .hNdXGi {
     float: left;
     height: 46px;
     margin-right: 9px;
@@ -1933,26 +1829,11 @@ g[Attributes Style] {
     font-size: 15px;
     line-height: 46px;
 }
-.gsCYXz {
+section.shopItemAdd .gsCYXz {
     float: left;
     width: 110px;
 }
-.kTQnUD {
-    height: 46px;
-    color: rgb(68, 68, 68);
-    font-size: 15px;
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    padding: 0px 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(208, 210, 214);
-    border-image: initial;
-    border-radius: 0px;
-    outline: none;
-}
-.cmXpqK {
+section.shopItemAdd .cmXpqK {
     float: left;
     width: 30px;
     color: rgb(34, 34, 34);
@@ -1960,11 +1841,11 @@ g[Attributes Style] {
     line-height: 46px;
     text-align: center;
 }
-.gsCYXz {
+section.shopItemAdd .gsCYXz {
     float: left;
     width: 110px;
 }
-.hNdXGi {
+section.shopItemAdd .hNdXGi {
     float: left;
     height: 46px;
     margin-right: 9px;
@@ -1972,11 +1853,11 @@ g[Attributes Style] {
     font-size: 15px;
     line-height: 46px;
 }
-.freEbZ {
+section.shopItemAdd .freEbZ {
     float: left;
     width: 168px;
 }
-.hRFrgm {
+section.shopItemAdd .hRFrgm {
     height: 46px;
     color: rgb(68, 68, 68);
     font-size: 15px;
@@ -1988,21 +1869,26 @@ g[Attributes Style] {
     border-color: rgb(208, 210, 214);
     border-image: initial;
     border-radius: 0px;
-    background: url(/static/media/arrow.f3c02f94.svg) right 15px center / 10px no-repeat rgb(255, 255, 255);
+    background: url(../img/icon_align_des.png) right 15px center / 10px no-repeat rgb(255, 255, 255);
     outline: none;
 }
-option {
+section.shopItemAdd option {
     font-weight: normal;
     display: block;
     white-space: pre;
     min-height: 1.2em;
     padding: 0px 2px 1px;
 }
-.ggZjqG {
+section.shopItemAdd .ggZjqG {
     position: relative;
     padding: 12px 20px;
 }
-.hNdXGi {
+section.shopItemAdd .ggZjqG::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .hNdXGi {
     float: left;
     height: 46px;
     margin-right: 9px;
@@ -2010,7 +1896,7 @@ option {
     font-size: 15px;
     line-height: 46px;
 }
-.cmXpqK {
+section.shopItemAdd .cmXpqK {
     float: left;
     width: 30px;
     color: rgb(34, 34, 34);
@@ -2018,7 +1904,7 @@ option {
     line-height: 46px;
     text-align: center;
 }
-select {
+section.shopItemAdd select {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     color: black;
@@ -2044,14 +1930,14 @@ select {
     border-color: rgb(169, 169, 169);
     border-image: initial;
 }
-.etFHhl > table tr + tr {
+section.shopItemAdd .etFHhl > table tr + tr {
     border-top: 1px solid rgb(238, 238, 238);
 }
-.iDUqOA {
+section.shopItemAdd .iDUqOA {
     float: left;
     width: 180px;
 }
-.zxfCA {
+section.shopItemAdd .zxfCA {
     float: left;
     width: 90px;
     height: 46px;
@@ -2067,20 +1953,23 @@ select {
     border-color: rgb(224, 224, 224);
     border-image: initial;
 }
-.kcEpVk:hover {
+section.shopItemAdd .zxfCA + button {
+    margin-left: 10px;
+}
+section.shopItemAdd .kcEpVk:hover {
     background-color: rgb(26, 90, 232);
     border-color: rgb(26, 90, 232);
 }
-.cCUCai {
+section.shopItemAdd .cCUCai {
     position: relative;
     padding: 12px 20px;
 }
-.fSFsCh {
+section.shopItemAdd .fSFsCh {
     float: left;
     user-select: none;
     position: relative;
 }
-.fSFsCh > input[type="radio"] {
+section.shopItemAdd .fSFsCh > input[type="radio"] {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -2088,7 +1977,7 @@ select {
     top: 0px;
     left: 0px;
 }
-.fSFsCh > p {
+section.shopItemAdd .fSFsCh > p {
     min-width: 82px;
     height: 46px;
     color: rgb(102, 102, 102);
@@ -2103,68 +1992,53 @@ select {
     border-color: rgb(224, 224, 224);
     border-image: initial;
 }
-.gBFyOc + label {
+section.shopItemAdd .gBFyOc + label {
     margin-left: 10px;
 }
-.esuiyZ {
+section.shopItemAdd .esuiyZ {
     float: left;
     width: 110px;
     margin-left: 15px;
 }
-.kTQnUD {
-    height: 46px;
-    color: rgb(68, 68, 68);
-    font-size: 15px;
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    padding: 0px 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(208, 210, 214);
-    border-image: initial;
-    border-radius: 0px;
-    outline: none;
-}
-.iOAqhO {
+section.shopItemAdd .iOAqhO {
     float: left;
     margin-left: 7px;
     color: rgb(34, 34, 34);
     font-size: 15px;
     line-height: 46px;
 }
-.cCUCai::after {
+section.shopItemAdd .cCUCai::after {
     display: block;
     content: "";
     clear: both;
 }
-tr {
+section.shopItemAdd tr {
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
 }
-.cdRbFB {
+section.shopItemAdd .cdRbFB {
     float: left;
     margin-right: 20px;
 }
-.cdRbFB > p {
+section.shopItemAdd .cdRbFB > p {
     color: rgb(34, 34, 34);
     font-size: 15px;
     text-align: center;
     line-height: 22px;
 }
-.cdRbFB > p + p {
+section.shopItemAdd .cdRbFB > p + p {
     font-size: 14px;
 }
-.hrokF {
+section.shopItemAdd .hrokF {
     margin: 5px 10px 5px 0px;
 }
-.cdcjQK {
+section.shopItemAdd .cdcjQK {
     float: left;
     user-select: none;
     position: relative;
 }
-.cdcjQK > input[type="checkbox"] {
+section.shopItemAdd .cdcjQK > input[type="checkbox"] {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -2172,45 +2046,42 @@ tr {
     top: 0px;
     left: 0px;
 }
-input, button {
-    outline: none;
-}
-.hrokF > input[type="checkbox"]:checked + p {
+section.shopItemAdd .hrokF > input[type="checkbox"]:checked + p {
     color: rgb(255, 255, 255);
     background-color: rgb(82, 177, 205);
     border-color: rgb(82, 177, 205);
 }
-.hrokF > p {
+section.shopItemAdd .hrokF > p {
     min-width: 70px;
     height: 36px;
     line-height: 34px;
     padding: 0px 15px;
 }
-.etFHhl > table tr + tr {
+section.shopItemAdd .etFHhl > table tr + tr {
     border-top: 1px solid rgb(238, 238, 238);
 }
-.kTQnUD:disabled, .kTQnUD:read-only {
+section.shopItemAdd .kTQnUD:disabled, .kTQnUD:read-only {
     color: rgb(136, 136, 136);
     background-color: rgb(250, 250, 250);
 }
-.iOAqhO {
+section.shopItemAdd .iOAqhO {
     float: left;
     margin-left: 7px;
     color: rgb(34, 34, 34);
     font-size: 15px;
     line-height: 46px;
 }
-.cdcjQK > p:hover {
+section.shopItemAdd .cdcjQK > p:hover {
     background-color: rgb(245, 245, 245);
     border-color: rgb(245, 245, 245);
 }
-.hrokF > p {
+section.shopItemAdd .hrokF > p {
     min-width: 70px;
     height: 36px;
     line-height: 34px;
     padding: 0px 15px;
 }
-.cdcjQK > p {
+section.shopItemAdd .cdcjQK > p {
     color: rgb(102, 102, 102);
     font-size: 14px;
     text-align: center;
@@ -2222,14 +2093,14 @@ input, button {
     border-color: rgb(224, 224, 224);
     border-image: initial;
 }  
-.dROiWG {
+section.shopItemAdd .dROiWG {
     display: inline-block;
     height: 18px;
     margin-left: 2px;
     position: relative;
     top: 3px;
 }
-.imVndG {
+section.shopItemAdd .imVndG {
     display: none;
     width: 230px;
     text-align: left;
@@ -2245,7 +2116,7 @@ input, button {
     border-color: rgb(226, 226, 226);
     border-image: initial;
 }
-.cdcjQK > input[type="checkbox"] {
+section.shopItemAdd .cdcjQK > input[type="checkbox"] {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -2253,20 +2124,23 @@ input, button {
     top: 0px;
     left: 0px;
 }
-.fyqlMy > p {
+section.shopItemAdd .fyqlMy > p {
     min-width: 82px;
     height: 46px;
     line-height: 44px;
     padding: 0px 18px;
 }
-.iXeisV {
+section.shopItemAdd .fyqlMy + label {
+    margin-left: 10px;
+}
+section.shopItemAdd .iXeisV {
     position: relative;
     padding: 12px 20px;
 }
-.cNKZeV {
+section.shopItemAdd .cNKZeV {
     width: 100%;
 }
-.hunnDM {
+section.shopItemAdd .hunnDM {
     color: rgb(68, 68, 68);
     font-size: 15px;
     background-color: rgb(255, 255, 255);
@@ -2281,15 +2155,15 @@ input, button {
     border-radius: 0px;
     outline: none;
 }
-.iePFTd {
+section.shopItemAdd .iePFTd {
     width: 100%;
     height: 230px;
 }
-.Xyvt {
+section.shopItemAdd .Xyvt {
     width: 100%;
     padding: 20px;
 }
-.dRgla {
+section.shopItemAdd .dRgla {
     width: 260px;
     height: 46px;
     border-width: 1px;
@@ -2298,18 +2172,7 @@ input, button {
     border-image: initial;
     border-radius: 3px;
 }
-.bMhVuC {
-    width: 50%;
-    height: 100%;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    background-color: rgb(26, 90, 232);
-    border-width: 0px;
-    border-style: initial;
-    border-color: initial;
-    border-image: initial;
-}
-.hhdFgg {
+section.shopItemAdd .hhdFgg {
     width: 100%;
     padding: 20px 30px;
     margin: 15px 0px;
@@ -2318,43 +2181,46 @@ input, button {
     border-color: rgb(224, 224, 224);
     border-image: initial;
 }
-.hhdFgg > p {
+section.shopItemAdd .hhdFgg > p {
     height: 26px;
     color: rgb(102, 102, 102);
     font-size: 15px;
     line-height: 26px;
 }
-.heKOml {
+section.shopItemAdd .heKOml {
     width: 100%;
     min-height: 350px;
     background-color: rgb(244, 244, 244);
     padding: 9px;
 }
-.jAfNtH {
+section.shopItemAdd .jAfNtH {
     width: 100%;
     height: 100%;
 }
-.gpqhxG {
+section.shopItemAdd .gpqhxG {
     padding-top: 75px;
     text-align: center;
 }
-.gpqhxG > svg {
+section.shopItemAdd .jlsyRm::after {
+    content: "동";
+}
+section.shopItemAdd .gpqhxG > svg {
     margin-bottom: 13px;
 }
-.gpqhxG > p {
+section.shopItemAdd .gpqhxG > p {
     font-size: 15px;
     line-height: 22px;
 }
-.hUkkO {
+section.shopItemAdd .hUkkO {
     margin-top: 3px;
     margin-bottom: 30px;
     color: rgb(239, 67, 81);
 }
-.cNXJpD {
+section.shopItemAdd .cNXJpD {
     width: 100%;
     text-align: center;
 }
-.kkaIZb {
+section.shopItemAdd .kkaIZb {
     height: 40px;
     color: rgb(255, 255, 255);
     font-size: 14px;
@@ -2367,7 +2233,7 @@ input, button {
     border-image: initial;
     border-radius: 3px;
 }
-.bhZAGT > a {
+section.shopItemAdd .bhZAGT > a {
     float: left;
     margin-left: 5px;
     color: rgb(0, 108, 255);
@@ -2375,7 +2241,7 @@ input, button {
     font-weight: 500;
     text-decoration: underline;
 }
-.bhZAGT {
+section.shopItemAdd .bhZAGT {
     margin-top: 23px;
     margin-bottom: 4px;
     padding-left: 25px;
@@ -2383,34 +2249,29 @@ input, button {
     user-select: none;
     position: relative;
 }
-.bhZAGT > svg {
+section.shopItemAdd .bhZAGT::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .bhZAGT > svg {
     position: absolute;
     top: 1px;
     left: 0px;
 }
-.bhZAGT > span {
+section.shopItemAdd .bhZAGT > span {
     float: left;
     color: rgb(136, 136, 136);
     font-size: 14px;
     line-height: 20px;
     position: relative;
 }
-circle[Attributes Style] {
-    cx: 9;
-    cy: 9;
-    r: 9;
-    fill: rgb(230, 231, 234);
-}
-svg[Attributes Style] {
-    width: 18;
-    height: 18;
-}
-.gfvOAV > label > .CheckBox {
+section.shopItemAdd .gfvOAV > label > .CheckBox {
     float: none;
     display: inline-block;
     position: relative;
 }
-.PcMeW {
+section.shopItemAdd .PcMeW {
     width: 1px;
     height: 1px;
     opacity: 0;
@@ -2418,15 +2279,7 @@ svg[Attributes Style] {
     top: 0px;
     left: 0px;
 }
-
-.kAqGVi {
-    display: block;
-    height: 22px;
-    padding-left: 23px;
-    position: relative;
-    cursor: pointer;
-}
-.eUWDCR {
+section.shopItemAdd .eUWDCR {
     display: inline-block;
     height: 20px;
     margin-left: 7px;
@@ -2435,15 +2288,16 @@ svg[Attributes Style] {
     line-height: 20px;
     position: relative;
     bottom: 5px;
+    vertical-align: -webkit-baseline-middle;
 }
-.PcMeW:checked + .CheckBox {
+section.shopItemAdd .PcMeW:checked + .CheckBox {
     background-color: rgb(0, 108, 255);
     border-width: 1px;
     border-style: solid;
     border-color: rgb(0, 108, 255);
     border-image: initial;
 }
-.PcMeW:checked + .CheckBox::after {
+section.shopItemAdd .PcMeW:checked + .CheckBox::after {
     content: "";
     display: block;
     width: 47%;
@@ -2456,13 +2310,14 @@ svg[Attributes Style] {
     border-left: 2px solid rgb(255, 255, 255);
     border-bottom: 2px solid rgb(255, 255, 255);
 }
-.gfvOAV {
+
+section.shopItemAdd .gfvOAV {
     width: 100%;
     margin-top: 30px;
     margin-bottom: 150px;
     text-align: center;
 }
-.kcMULl {
+section.shopItemAdd .kcMULl {
     width: 160px;
     height: 50px;
     margin-top: 30px;
@@ -2474,7 +2329,7 @@ svg[Attributes Style] {
     border-color: rgb(204, 204, 204);
     border-image: initial;
 }
-.iEZQG {
+section.shopItemAdd .iEZQG {
     width: 160px;
     height: 50px;
     margin-top: 30px;
@@ -2486,4 +2341,312 @@ svg[Attributes Style] {
     border-style: initial;
     border-color: initial;
     border-image: initial;
+}
+section.shopItemAdd .cjeVnz {
+    padding: 20px;
+}
+section.shopItemAdd .jrPoTn {
+    float: left;
+    width: 530px;
+    height: 330px;
+}
+section.shopItemAdd .iqpoyl {
+    float: left;
+    width: 170px;
+}
+section.shopItemAdd .iqpoyl + select {
+    margin-left: 10px;
+}
+section.shopItemAdd .buhbPP::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .fQrInE {
+    margin: 10px 0px;
+}
+section.shopItemAdd .fbxLHj {
+    float: left;
+    width: 430px;
+}
+section.shopItemAdd .kTyFCo {
+    width: 90px;
+    height: 46px;
+    margin-left: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    background-color: rgb(35, 45, 74);
+    user-select: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 3px;
+}
+section.shopItemAdd .fQrInE::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .cuOBSd {
+    display: table-cell;
+    width: 530px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    vertical-align: middle;
+    padding: 0px 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(208, 210, 214);
+    border-image: initial;
+}
+section.shopItemAdd .jjeyfJ {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+section.shopItemAdd .cmjtGP {
+    float: left;
+    width: 260px;
+    padding-right: 48px;
+    position: relative;
+}
+section.shopItemAdd .mtaUF {
+    width: 100%;
+}
+section.shopItemAdd .gryuVg::after {
+    content: "동";
+}
+section.shopItemAdd .cmjtGP::after {
+    width: 48px;
+    height: 46px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    text-align: center;
+    line-height: 44px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-width: 1px 1px 1px 0px;
+    border-style: solid solid solid;
+    border-color: rgb(208, 210, 214) rgb(208, 210, 214) rgb(208, 210, 214);
+    border-image: initial;
+    border-left: 0px;
+}
+section.shopItemAdd .cmjtGP + div {
+    margin-left: 10px;
+}
+section.shopItemAdd .cmjtGP {
+    float: left;
+    width: 260px;
+    padding-right: 48px;
+    position: relative;
+}
+section.shopItemAdd .hTUuaO {
+    width: 100%;
+}
+section.shopItemAdd .igeEIT::after {
+    content: "호";
+}
+section.shopItemAdd .jjeyfJ::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .ifWEqm {
+    margin-bottom: 10px;
+    user-select: none;
+}
+section.shopItemAdd .ifWEqm > label {
+    float: left;
+}
+section.shopItemAdd .ifWEqm::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .hsrjeP {
+    margin-left: 8px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    position: relative;
+    bottom: 2px;
+}
+section.shopItemAdd .dLNiOJ {
+    height: 20px;
+    line-height: 20px;
+    user-select: none;
+}
+section.shopItemAdd .dLNiOJ > svg {
+    position: relative;
+    top: 1px;
+}
+section.shopItemAdd .dLNiOJ > span {
+    margin-left: 7px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    position: relative;
+    bottom: 2px;
+}
+section.shopItemAdd .hkuNdh {
+    float: right;
+    width: 440px;
+    height: 330px;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+section.shopItemAdd .cjeVnz::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .kCBxYt {
+    width: 52px;
+    height: 52px;
+    margin: 110px auto 15px;
+    border-radius: 50%;
+}
+section.shopItemAdd .ilxtFq {
+    color: rgb(136, 136, 136);
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+}
+section.shopItemAdd .hCCxcd {
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1000;
+    padding: 7% 0px;
+    animation: 250ms ease-in-out 0s 1 normal none running cbCEHa;
+}
+section.shopItemAdd .dmQPSa {
+    width: 550px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 1001;
+    margin: 0px auto;
+}
+section.shopItemAdd .GoREo {
+    position: relative;
+    user-select: none;
+    padding: 28px 30px 24px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemAdd .GoREo > h1 {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+section.shopItemAdd .kXLdvu {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+section.shopItemAdd .kXLdvu > svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+section.shopItemAdd .kXLdvu > svg .Circle {
+    fill: rgb(255, 255, 255);
+    stroke: rgb(151, 151, 151);
+    opacity: 0.3;
+}
+section.shopItemAdd .kXLdvu > svg .Close {
+    stroke: rgb(35, 45, 74);
+}
+section.shopItemAdd .lpldun {
+    padding: 30px 30px 10px;
+}
+section.shopItemAdd .kIQVvC {
+    width: 100%;
+    height: 46px;
+}
+section.shopItemAdd .kIQVvC::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .lfasRf {
+    float: left;
+    width: 145px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+section.shopItemAdd .ixarYj {
+    float: left;
+    width: 180px;
+    font-size: 14px;
+}
+section.shopItemAdd .bfHMFZ {
+    position: relative;
+    margin: 15px 0px 0px;
+}
+section.shopItemAdd .bfHMFZ::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemAdd .kHPisP {
+    width: 100%;
+    padding-right: 55px;
+}
+section.shopItemAdd .laHiXv {
+    width: 50px;
+    height: 46px;
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+section.shopItemAdd .laHiXv > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section.shopItemAdd .eAsCFY {
+    width: 100%;
+    padding: 40px 30px 240px;
+}
+section.shopItemAdd .eAsCFY > h1 {
+    color: rgb(21, 100, 249);
+    font-size: 20px;
+}
+section.shopItemAdd .eAsCFY > ul {
+    margin-top: 10px;
+}
+section.shopItemAdd .eAsCFY > ul > li {
+    color: rgb(102, 102, 102);
+    font-size: 15px;
+    line-height: 22px;
+}
+section.shopItemAdd .modal{
+	display: none;
+}
+section.shopItemAdd .building_type2{
+	display: none;
 }
