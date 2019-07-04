@@ -9,19 +9,36 @@
 		#{packageType},
 		#{packageName}, -->
 		<select id="selectOneUser" parameterType="userVO" resultType="userVO">
-		 select user_no as userNo,
-		 		user_id as userId,
-		 		user_pw as userPw,
-		 		user_phone as userPhone,
-		 		user_email as userEmail,
-		 		registration_number as userRegistration,
-		 		introduce as userIntroduce,
-		 		carrier_car as userCar,
-		 		image_name as userImagePass,
-		 		image_pass as userImageName,
-		 		user_type as userType 
+		 select user_idx as userIdx,
+				user_id as userId,
+				user_pw as userPw,
+				user_name as userName,
+				user_phone as userPhone,
+				user_email as userEmail,
+				user_introduce as userIntroduce,
+				registration_number as registrationNumber,
+				user_car as userCar,
+				image_name as userImageName,
+				image_path as userImagePath,
+				user_type as userType,
+				social_id as socialId 
 		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
-	
+		<select id="socialLogin" parameterType="userVO" resultType="userVO">
+			select user_idx as userIdx,
+				   user_id as userId,
+				   user_pw as userPw,
+				   user_name as userName,
+				   user_phone as userPhone,
+				   user_email as userEmail,
+				   user_introduce as userIntroduce,
+				   registration_number as registrationNumber,
+				   user_car as userCar,
+				   image_name as userImageName,
+				   image_path as userImagePath,
+				   user_type as userType,
+				   social_id as socialId
+			from user_tbl where social_id=#{socialId}
+		</select>
 </mapper>

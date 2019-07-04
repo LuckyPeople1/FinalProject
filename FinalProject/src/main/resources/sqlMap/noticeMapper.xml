@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.NoticeMapper">
+<!-- 리스트조회 -->
+  <select id="selectAllList" resultType="noticeVO">
+  	select notice_index as noticeIndex,
+  			notice_type as noticeType,
+  			notice_title as noticeTitle,
+  			notice_writer as noticeWriter,
+  			notice_hit as noticeHit,
+  			notice_reg_date as noticeRegDate,
+  			notice_state as noticeState
+  		from notice_tbl
+  </select>
+  <!-- 공지사항업데이트 -->
+  <update id="noticeUpdate" parameterType="noticeVO">
+  <if test="noticeFilename !=null">
+  	update notice_tbl set notice_title=#{noticeTitle},
+  						notice_filename=#{noticeFilename},
+  						notice_filepath=#{noticeFilepath},
+  						notice_content=#{noticeContent} 
+  						where notice_index=#{noticeIndex}
+  	</if>
+  	<if test="noticeFilename ==null">
+  		update notice_tbl set notice_title=#{noticeTitle},
+  						notice_filename=null,
+  						notice_filepath=null,
+  						notice_content=#{noticeContent} 
+  						where notice_index=#{noticeIndex}
+  	</if>
+  </update>
+  
+  <!-- 공지사항뷰페이지 -->
+  <select id="noticeView" parameterType="noticeVO" resultType="noticeVO">
+  	select notice_index as noticeIndex,
+  			notice_type as noticeType,
+  			notice_title as noticeTitle,
+  			notice_filename as noticeFilename,
+  			notice_filepath as noticeFilepath,
+  			notice_content as noticeContent
+  		from notice_tbl where notice_index=#{noticeIndex} 
+  </select>
+  
+  <!-- 공지사항 작성 인서트 -->
+  <insert id="noticeInsert" parameterType="noticeVO">
+  	insert into notice_tbl values
+  			(notice_index.nextval,
+  			#{noticeType},
+  			#{noticeTitle},
+  			#{noticeContent},
+  			#{noticeWriter},
+  			#{noticeFilename},
+  			#{noticeFilepath},
+  			default, sysdate,
+  			#{noticeState})
+  </insert>
+</mapper>

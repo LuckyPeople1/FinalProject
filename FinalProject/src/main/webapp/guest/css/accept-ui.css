@@ -1,0 +1,161 @@
+@charset "UTF-8";
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+input, button {
+	outline: none;
+}
+#accept_section{
+	width: 1300px;
+	margin-left: 550px;
+	
+}
+/* 약관동의 div */
+#accept_section .accept_header{
+	width: 740px;
+	margin-left: 30px;
+	height: 80px;
+	padding-left: 30px;
+	line-height: 80px;
+	border-bottom: 1px solid rgb(235, 235, 235);
+}
+/* 타이틀 약관동의 div아래 h2 */
+#accept_section .accept_content h3{
+	color: rgb(34, 34, 34);
+	font-size: 30px;
+}
+/* Content div */
+#accept_section .accept_content{
+	padding: 25px 30px;
+}
+/* 약관 조항 div */
+#accept_section .accept_content .accept_agreeWrap{
+	margin-bottom: 30px;
+}
+/* 약관 조항 타이틀*/
+.accept_agreeTop{
+	height: 30px;
+	margin-bottom: 6px;
+}
+/* 약관 조항 라벨 */
+.accept_agreeLabel{
+	display: block;
+	width: 740px;
+	height: 30px;
+	margin-bottom: 6px;
+	position: relative;
+}
+/* 약관 조항 타이틀 글씨 */
+.accept_agreeTop .accept_agreeLabel h1{
+	float: left;
+	color: rgb(34, 34, 34);
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 30px;
+}
+/* (필수) */
+.accept_agreeLabel h1 span{
+	color: rgb(57, 107, 243);
+	font-size: 15px;
+	font-weight: 400;
+}
+/* checkBox */
+.accept_checkBox{
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+.accept_svg{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 30px;
+	height: 30px;
+	
+}
+.accept_agreeLabel::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.accept_svg .accept_g{
+	fill: none;
+	fill-rule: evenodd;
+}
+.circle_fill{
+	fill: rgb(255,255,255);
+	cx: 15.5;
+	cy: 15.5;
+	r: 15.5;
+}
+.circle_border{
+	stroke: rgb(221, 221, 221);
+	cx: 15.5;
+	cy: 15.5;
+	r: 14.9;
+	stroke-width: 1.2;
+}
+.circle_check{
+	stroke: rgb(204, 204, 204);
+	stroke-width: 2.4;
+}
+
+.accept_agreeWrap .accept_agreeBox{
+	width: 740px;
+	height: 115px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	overflow:auto;
+	white-space: pre-wrap;
+	background-color: rgb(244, 244, 244);
+	padding: 15px 0px 15px 15px;
+	text-align: left;
+}
+
+/* 모두 동의 */
+.accept_content .accept_agreeAllWrap{
+	width: 740px;
+	height: 45px;
+	padding-bottom: 15px;
+	position: relative;
+}
+.accept_content .accept_agreeAllWrap .accept_agreeAllLabel{
+	display: block;
+	width: 160px;
+	height: 30px;
+	margin-bottom: 6px;
+	position: absolute;
+	left: 50%;
+	transform: translate3d(-50%, 0px, 0px);
+}
+.accept_content .accept_agreeAllWrap .accept_agreeAllLabel .accept_agreeAll{
+	font-size: 18px;
+	float: left;
+	margin-right: 5px;
+	line-height: 30px;
+}
+.accept_agreeAllLabel::after{
+	display: block;
+	content: "";
+	clear: both;
+}
+.accept_agreeAllLabel .accept_svg{
+	float: left;
+}
+.accept_button{
+	width: 740px;
+	height: 70px;
+	margin-left: 30px;
+	color: rgb(255, 255, 255);
+	font-size: 17px;
+	font-weight: 500;
+	background-color: rgb(26, 90, 232);
+	border-width: 0px;
+	border-style: initial;
+	border-color: initial;
+	border-image: initial;
+}

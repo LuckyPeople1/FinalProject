@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>FAQ 관리</title>
+<title>FAQ 이용관리</title>
 </head>
 <body> 
 <div class="container">
@@ -19,7 +19,7 @@
 		<div class="contents">
 			<div class="set_field">
 				<div class="field_title">
-					<span class="title_mark">■ FAQ 관리</span>
+					<span class="title_mark">■ FAQ 이용관리</span>
 				</div>
 
 				<table class="set_table">
@@ -35,14 +35,14 @@
 							<input class="tbox w_6p">
 						</td>
 					</tr>
-					<tr>
+<!-- 					<tr>
 						<th>분류</th>
 						<td>
 							<label><input type="checkbox" name="kind"><span>이용문의</span></label>
 							<label class="ml10"><input type="checkbox" name="kind"><span>부동산문의</span></label>
 							<label class="ml10"><input type="checkbox" name="kind"><span>이사문의</span></label>
 						</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<th>작성일</th>
 						<td colspan="3">
@@ -79,6 +79,7 @@
 						<col width="120">
 						<col width="*">
 						<col width="155">
+						<col width="120">
 						<col width="130">
 					</colgroup>
 					<thead>
@@ -88,6 +89,7 @@
 						<th>분류</th>
 						<th>제목</th>
 						<th>작성일시</th>
+						<th>상태</th>
 						<th>관리</th>
 					</tr>
 					</thead>
@@ -98,6 +100,9 @@
 						<td>이용문의</td>
 						<td class="text-left">회원탈퇴는 어떻게 하는 건가요?</td>
 						<td>2019-07-01</td>
+						<td>
+							<span class="tag col_blue f_w">정상</span>
+						</td>
 						<td>
 							<div>
 								<a href="/manage/board/faq/faqManageModify" class="btn small col_main f_w">수정</a>

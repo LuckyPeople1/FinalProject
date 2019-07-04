@@ -19,63 +19,7 @@ function doubleSubmitCheck() {
 	}
 }
 
-// 전체 카테고리
-$(document).ready(function () {
 
-	$('header .menu_box li:first-child a').on('click',function () {
-
-		var all_menu = $('.all_menu_group');
-
-		if(all_menu.hasClass('on')){
-
-			all_menu.removeClass('on');
-			all_menu.stop().slideUp();
-		}else{
-			all_menu.addClass('on');
-			all_menu.stop().slideDown();
-
-		}
-
-	});
-
-});
-
-
-$(document).on('click','.lnb_menu .menu_name',function () {
-
-	if($(this).hasClass('off')){
-		$(this).removeClass('off')
-
-	}else{
-		$(this).addClass('off')
-	}
-
-});
-
-
-// lnb 작동 스크립트
-
-// $('.menu > a').on('click',function () {
-//     $(this).parent().removeClass('active');
-//     $(this).parent().toggleClass('on');
-//     $(this).siblings('.submenu').slideToggle();
-// });
-// $('.menu ul li a').on('click',function () {
-//     $('.menu ul li a').removeClass('active');
-//     $(this).addClass('active');
-// });
-
-
-$(document).on('click', '.menu > a', function () {
-	$(this).parent().removeClass('active');
-	$(this).parent().toggleClass('on');
-	$(this).siblings('.submenu').slideToggle();
-});
-
-$(document).on('click', '.menu ul li a', function () {
-	$('.menu ul li a').removeClass('active');
-	$(this).addClass('active');
-});
 
 
 // input 숫자만 입력
@@ -135,72 +79,6 @@ $('.reset').on('click', function () {
 
 
 /* 인풋박스 아이콘호버 및 삭제버튼 표시 */
-
-$(document).ready(function () {
-
-
-	var input_box = $('.input_box');
-	var tbox = $('.input_box .tbox');
-
-
-	input_box.on('focusin', function () {
-
-		$(this).addClass('focus');
-		input_remove_show($(this).find('.tbox'));
-
-	});
-
-
-	input_box.on('focusout', function () {
-
-		$(this).removeClass('focus');
-		// $(this).find('.input_remove').hide();
-
-	});
-
-	tbox.on('change keyup', function () {
-
-
-		input_remove_show(this);
-
-	});
-
-
-// 내용삭제 표시
-	function input_remove_show(e) {
-
-
-		if ($(e).val().length >= 1) {
-			$(e).siblings('.input_remove').show();
-		} else {
-			$(e).siblings('.input_remove').hide();
-
-		}
-	}
-
-	$('.input_remove').on('click', function () {
-		$(this).siblings('.tbox').val("");
-
-		$(this).hide();
-
-	});
-
-
-	$('.input_box.top , .input_box.bottom').focusin(function () {
-
-		$(this).css({
-			zIndex: '5',
-		})
-	});
-
-	$('.input_box').focusout(function () {
-
-		$(this).css({
-			zIndex: '1',
-		})
-	});
-
-});
 
 
 /** 테이블 **/

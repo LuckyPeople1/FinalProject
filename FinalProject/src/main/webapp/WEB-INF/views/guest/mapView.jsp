@@ -124,19 +124,19 @@ html, body {
 	</div>
 	<div id="coordXY"></div>
 	<p>
-		<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a>
+		<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로
+			이동</a>
 	</p>
 	<p>
-    <button onclick="hideMarkers()">마커 감추기</button>
-    <button onclick="showMarkers()">마커 보이기</button>
-</p> 
+		<button onclick="hideMarkers()">마커 감추기</button>
+		<button onclick="showMarkers()">마커 보이기</button>
+	</p>
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 
 </body>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services,clusterer,drawing"></script>
 <script>
-
 	//주소 입력 후 x,y 좌표로 받는 코드
 	var address = document.getElementById("address");
 	var coordXY = document.getElementById("coordXY");
@@ -149,20 +149,19 @@ html, body {
 	};
 
 	var map = new kakao.maps.Map(container, options);
-	
 
 	// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
 	function zoomIn() {
 		map.setLevel(map.getLevel() - 1);
 		console.log(map.getLevel());
-		
+
 	}
 
 	// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
 	function zoomOut() {
 		map.setLevel(map.getLevel() + 1);
 		console.log(map.getLevel());
-			
+
 	}
 	function addressChk() {
 		var gap = address.value; // 주소검색어
@@ -191,81 +190,156 @@ html, body {
 		});
 	}
 	// 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
-	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-	    // 클릭한 위치에 마커를 표시합니다 
-	    addMarker(mouseEvent.latLng);             
+	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+		// 클릭한 위치에 마커를 표시합니다 
+		addMarker(mouseEvent.latLng);
 	});
 
 	// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
 	var markers = [];
-	// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-	var seaoulMarkers = [];
+
 
 	// "마커 보이기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에 표시하는 함수입니다
 	function showMarkers() {
-	    setMarkers(map)    
+		setMarkers(map)
 	}
-	
+
 	// "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다
 	function hideMarkers() {
-	    setMarkers(null);    
+		setMarkers(null);
 	}
 	
-	var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-    
-	$(document).ready(function(){
-		$.get("/guest/js/bigcity.json", function(data) {
-			// 데이터에서 좌표 값을 가지고 마커를 표시합니다
-			// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
-			var bigCityMarkers = $(data.positions).map(function(i, position) {				
-				return new kakao.maps.Marker({
-					position : new kakao.maps.LatLng(position.lat, position.lng)
-				});							
-			})
-			console.log(bigCityMarkers);
-		$(document).on("mousewheel",function(e){
-            if(map.getLevel()>9){
-				console.log(map.getLevel());
-				setMarkers(null);
-				for(var i=0;i<bigCityMarkers.length;i++){
-					bigCityMarkers[i].setMap(map);					  
-					
-				};			
-            }else{
-            	setMarkers(map);
-            	for(var i=0;i<bigCityMarkers.length;i++){
-        			bigCityMarkers[i].setMap(null);
-        			
-        		};            	
-            }           
-        });
-	});
 	
-		
+	var clusterer = new kakao.maps.MarkerClusterer({
+        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+        averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+        minLevel: 10, // 클러스터 할 최소 지도 레벨
+        disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+    });
+	
+		console.log(map.getLevel());
+		if(map.getLevel()>10){
+			clusterer.clear();
+			
+		}else{
+			$.get("/guest/js/chicken.json", function(data) {
+				// 데이터에서 좌표 값을 가지고 마커를 표시합니다
+				// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
+				
+				
+				var chickenmarker = $(data.positions).map(function(i, position) {
+					return new kakao.maps.Marker({
+						position : new kakao.maps.LatLng(position.lat, position.lng)
+					
+					});
+				})
+				
+				
+				clusterer.addMarkers(chickenmarker);	
+				
+				
+			});
+			
+		}
+	
+	
+	
+	$.get("/guest/js/bigcity.json", function(data) {
+		// 데이터에서 좌표 값을 가지고 마커를 표시합니다
+		// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
+				
+		var bigCityMarkers = $(data.positions).map(function(i, position) {
+			return new kakao.maps.Marker({
+				position : new kakao.maps.LatLng(position.lat, position.lng)
+			
+			});
+		});		
+		 kakao.maps.event.addListener(bigCityMarkers[0], 'click', function(marker) {
+		        // 현재 지도 레벨에서 1레벨 확대한 레벨
+		        var level = map.getLevel()-1;
+		        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+		        map.setLevel(level);
+		    });
+		 kakao.maps.event.addListener(bigCityMarkers[1], 'click', function(marker) {
+		        // 현재 지도 레벨에서 1레벨 확대한 레벨
+		        var level = map.getLevel()-1;
+		        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+		        map.setLevel(level);
+		    });
+		 kakao.maps.event.addListener(bigCityMarkers[2], 'click', function(marker) {
+		        // 현재 지도 레벨에서 1레벨 확대한 레벨
+		        var level = map.getLevel()-1;
+		        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+		        map.setLevel(level);
+		    });
+		 
+		if(map.getLevel()>8){
+			for(var i=0;i<bigCityMarkers.length;i++){
+				bigCityMarkers[i].setMap(map);
+				kakao.maps.event.addListener(bigCityMarkers[i], 'click', function(marker) {
+			        // 현재 지도 레벨에서 1레벨 확대한 레벨
+			        var level = map.getLevel()-1;
+			        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+			        map.setLevel(level);
+			    });
+			}
+		}else if(map.getLevel()<9){
+			for(var i=0;i<bigCityMarkers.length;i++){
+				bigCityMarkers[i].setMap(null);
+			}			
+		}
 	});
+	console.log(map.getLevel());
 	// 마커를 생성하고 지도위에 표시하는 함수입니다
 	function addMarker(position) {
-	    
-	    // 마커를 생성합니다
-	    var marker = new kakao.maps.Marker({
-	        position: position
-	    });
 
-	    // 마커가 지도 위에 표시되도록 설정합니다
-	    marker.setMap(map);
-	    
-	    // 생성된 마커를 배열에 추가합니다
-	    markers.push(marker);
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+			position : position
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+		console.log(marker);
+		// 생성된 마커를 배열에 추가합니다
+		markers.push(marker);
+		clusterer.addMarkers(marker);
+		console.log(clusterer.length);
 	}
 
 	// 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
 	function setMarkers(map) {
-	    for (var i = 0; i < markers.length; i++) {
-	        markers[i].setMap(map);
-	    }            
+		console.log(markers.length);
+		for (var i = 0; i < markers.length; i++) {
+		
+			markers[i].setMap(map);
+			
+		}
 	}
+	 kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+
+	        // 현재 지도 레벨에서 1레벨 확대한 레벨
+	        var level = map.getLevel()-1;
+
+	        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+	        map.setLevel(level, {anchor: cluster.getCenter()});
+	    });
+	 
+	 
 	
-	
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 </script>
 </html>
