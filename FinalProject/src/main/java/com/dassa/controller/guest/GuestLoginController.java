@@ -45,6 +45,7 @@ public class GuestLoginController {
 	
 	@RequestMapping(value="/commonLogin")
 	public String Login(HttpServletRequest request,String userId,String userPw) throws Exception {
+		System.out.println("userId"+userId);
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
 		userVO.setUserPw(userPw);
@@ -53,9 +54,11 @@ public class GuestLoginController {
 		if(user!=null) {
 			HttpSession session =request.getSession();
 			session.setAttribute("user", user);
-			
+			return "driver/driverHome";
+		}else {
+			return "redirect:/login/";
 		}
-		return "driver/driverHome";
+		
 	}
 	
 	//네이버 로그인 콜백 페이지로 이동
