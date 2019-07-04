@@ -12,72 +12,52 @@
 				<div class="moveInfoTitle">
 					<strong>·선택한 짐의 상세정보를 완성해주세요.</strong><br/>
 					·각각의 짐 항목을 눌러 물건의 상세 정보를 완성해주세요.
+					${selectList.size()}
 				</div>
 				
 				<div class="packageList">
 					<div class="packageTypeBox">
 						<div class="packageTypeTitle">가전</div>
-						<div class="packageTypeList">
-							<c:forEach items="${packageList}" var="item">
+						<ul class="packageSelectList">
+							<c:forEach items="${selectList}" var="item">
 								
 								<c:if test="${item.packageType == 0}">
-									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
-										<div class="packageBtn" onclick="package.packageSelect(event,this)">
-											<img src="${item.packageImgPath}" class="packageImg">
-											<div class="packageName">${item.packageName}</div>
-											<div class="packageSelect">
-												<a href="#none" class="minusBtn" onclick="package.packageMinus(event,this)"></a>
-												<div class="qty">0</div>
-											</div>
-										</div>
 									
-									</div>
-								
-								</c:if>
-							
-							</c:forEach>
-						</div>
-					
-					</div>
-					<div class="packageTypeBox">
-						<div class="packageTypeTitle">가구</div>
-						<div class="packageTypeList">
-							<c:forEach items="${packageList}" var="item">
-								
-								<c:if test="${item.packageType == 1}">
-									<div class="packageBox" data-idx="${item.packageIdx}" data-qty="1">
-										<div class="packageBtn" onclick="package.packageSelect(event,this)">
-											<img src="${item.packageImgPath}" class="packageImg">
-											<div class="packageName">${item.packageName}</div>
-											<div class="packageSelect">
-												<a href="#none" class="minusBtn" onclick="package.packageMinus(event,this)"></a>
-												<div class="qty">0</div>
+									<c:forEach var="i" begin="1" end="${item.packageAmount}">
+										<li class="listBox">
+											<div class="packageInfo">
+												<div class="delBox">
+													<a href="#none" class="delBtn"></a>
+												</div>
+												<div class="selectImg">
+													<img src="${item.packageImgPath}" alt="이미지">
+												</div>
+												<div class="title">
+													<div class="">
+														<span class="name">${item.packageName}</span>
+														<span class="order"></span>
+													</div>
+													<div class="caption">상세 정보를 입력하여 주세요.</div>
+												</div>
 											</div>
-										</div>
+										</li>
+									</c:forEach>
 									
-									</div>
-								
+									
+									
 								</c:if>
 							
+								
+								
 							</c:forEach>
-						</div>
+							
+							
+						</ul>
 					
-					</div>
-					<div class="packageTypeBox">
-						<div class="packageTypeTitle">기타</div>
-						<div class="packageTypeList">
-							<c:forEach items="${packageList}" var="item">
-								
-								<c:if test="${item.packageType == 2}">
-									${item.packageName}
-								</c:if>
-							
-							</c:forEach>
-						</div>
 					</div>
 				</div>
 				<div class="packageBtnBox">
-					<a href="#none" class="btn col_darkGrey f_w big">취소</a>
+					<a href="/move/step1" class="btn col_darkGrey f_w big">취소</a>
 					<a href="#none" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>
@@ -88,5 +68,8 @@
 
 </div>
 <script src="/guest/js/move/package.js"></script>
+<script>
+	package.packageNumberSet();
+</script>
 </body>
 </html>

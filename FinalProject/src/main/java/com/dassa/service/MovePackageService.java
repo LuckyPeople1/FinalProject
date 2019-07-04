@@ -66,6 +66,7 @@ public class MovePackageService {
 			// 옵션담기
 			List<PackageRegOptionVO> optionVOList	=	new ArrayList<PackageRegOptionVO>();
 
+
 			PackageRegOptionVO optionVO = new PackageRegOptionVO();
 			optionVO.setPackageOptionName(tempVO.getPackageOption1Name());
 			optionVO.setPackageOptionValue(tempVO.getPackageOption1Value());
