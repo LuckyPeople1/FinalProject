@@ -26,6 +26,15 @@ public class GuestLoginController {
 		return "guest/login/loginHome";
 	}
 	
+	@RequestMapping(value="/logout")
+	public String GuestLogout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		request.setAttribute("msg", "로그아웃 되었습니다.");
+		request.setAttribute("loc", "/login/index");
+		return "guest/common/msg";
+	}
+	
 	//메인페이지로 이동
 	@RequestMapping(value="/index")
 	public String IndexHome() {
