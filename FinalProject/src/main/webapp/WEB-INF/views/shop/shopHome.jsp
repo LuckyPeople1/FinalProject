@@ -110,7 +110,7 @@
 		</div>
 	</div>
 	<footer role="footer" data-include="footer.jsp"></footer>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><response><header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header><body><items><item><kaptCode>A13481001</kaptCode><kaptName>길동우성1차</kaptName></item><item><kaptCode>A13401002</kaptCode><kaptName>길동신동아3차</kaptName></item><item><kaptCode>A13470102</kaptCode><kaptName>강동QV2차</kaptName></item><item><kaptCode>A13470103</kaptCode><kaptName>길동라인</kaptName></item><item><kaptCode>A13480906</kaptCode><kaptName>길동신동아</kaptName></item><item><kaptCode>A13481305</kaptCode><kaptName>길동우성2차</kaptName></item><item><kaptCode>A13470104</kaptCode><kaptName>청광플러스원큐브3차</kaptName></item><item><kaptCode>A13480803</kaptCode><kaptName>길동현대아파트</kaptName></item><item><kaptCode>A13470101</kaptCode><kaptName>길동삼익파크</kaptName></item><item><kaptCode>A13488104</kaptCode><kaptName>길동GS강동자이</kaptName></item></items><numOfRows>10</numOfRows><pageNo>1</pageNo><totalCount>10</totalCount></body></response>
 </div>
 </body>
 </html>

@@ -692,6 +692,24 @@
 								<li>- 위치 선택 후 단지명을 검색하시면 더욱 정확한 결과가 검색됩니다.</li>
 							</ul>
 						</div>
+						<ul class="hoUOvr" id="kaptList">
+							<c:forEach var="item" items="${kaptList}" begin="0" step="1">
+							<li class="jXTJDh">
+								<div class="gvCWFZ">
+									<p class="jyixr">단지명</p>
+										<span class="kQJKWm">${kaptList.kaptName }</span>
+								</div>
+								<div class="gvCWFZ">
+									<p class="jyixr">도로명</p>
+										<span class="kQJKWm">${kaptList.doroJuso }</span>
+								</div>
+								<div class="gvCWFZ">
+									<p class="jyixr">지번</p>
+										<span class="kQJKWm">${kaptList.kaptAddr }</span>
+								</div>
+							</li>
+							</c:forEach>
+						</ul>	
 					</div>
 				</div>
 			</div>
@@ -702,97 +720,67 @@
 	<script>
 		$("input[name=maintenance_items]").attr("disabled",true);
 		//시 선택 시  구/군 리스트 뽑아오는 스크립트 
-		$("select[name='selCity']")
-				.change(
-						function() {
-							var jusoCityCode = $(this).find("option:selected")
-									.val();
-							$("select[name='selCity']").find("option:selected")
-									.text(
-											$(this).find("option:selected")
-													.text());
-							$("select[name='selGu']").find("option").remove();
-							$("select[name='selDong']").find("option").remove();
-							$("select[name='selGu']").append(
-									"<option>구/군 선택</option>");
-							$("select[name='selDong']").append(
-									"<option>동 선택</option>");
-							$
-									.ajax({
-										type : "GET",
-										url : "/shop/jusoGuList",
-										data : {
-											jusoCityCode : jusoCityCode
-										},
-										success : function(data) {
-											if (data.length > 0) {
-												for (var i = 0; i < data.length; i++) {
-													$("select[name='selGu']")
-															.append(
-																	"<option value='" + data[i].jusoGuCode + "'>"
-																			+ data[i].jusoGuName
-																			+ "</option>")
-												}
-											}
-
-										}
-									});
-						});
-		//구/군 선택 시  동 리스트 뽑아오는 스크립트 
-		$("select[name='selGu']")
-				.change(
-						function() {
-							var jusoGuCode = $(this).find("option:selected")
-									.val();
-							$("select[name='selGu']").find("option:selected")
-									.text(
-											$(this).find("option:selected")
-													.text());
-							$("select[name='selDong']").find("option").remove();
-							$("select[name='selDong']").append(
-									"<option>동 선택</option>");
-							$
-									.ajax({
-										type : "GET",
-										url : "/shop/jusoDongList",
-										data : {
-											jusoGuCode : jusoGuCode
-										},
-										success : function(data) {
-											if (data.length > 0) {
-												for (var i = 0; i < data.length; i++) {
-													$("select[name='selDong']")
-															.append(
-																	"<option value='" + data[i].jusoDongCode + "'>"
-																			+ data[i].jusoDongName
-																			+ "</option>")
-												}
-											}
-
-										}
-									});
-						});
-		//동 선택 시 아파트리스트 뽑아오는 스크립트
-		$("select[name='selDong']").change(
-				function() {
-					var jusoDongCode = $(this).find("option:selected").val();
-					$("select[name='selDong']").find("option:selected").text(
-							$(this).find("option:selected").text());
-					$.ajax({
-						type : "GET",
-						url : "/shop/kaptList",
-						data : {
-							jusoDongCode : jusoDongCode
-						},
-						success : function(data) {
-							if (data.length > 0) {
-								for (var i = 0; i < data.length; i++) {
-									$('#jusoList').html(data[i]);
-								}
-							}
+		$("select[name='selCity']").change(function() {
+			var jusoCityCode = $(this).find("option:selected").val();
+			$("select[name='selCity']").find("option:selected").text($(this).find("option:selected").text());
+			$("select[name='selGu']").find("option").remove();
+			$("select[name='selDong']").find("option").remove();
+			$("select[name='selGu']").append(	"<option>구/군 선택</option>");
+			$("select[name='selDong']").append("<option>동 선택</option>");
+			$.ajax({
+				type : "GET",
+				url : "/shop/jusoGuList",
+				data : {jusoCityCode : jusoCityCode},
+				success : function(data) {
+					if (data.length > 0) {
+						for (var i = 0; i < data.length; i++) {
+							$("select[name='selGu']").append("<option value='" + data[i].jusoGuCode + "'>"+ data[i].jusoGuName+ "</option>")
 						}
-					});
-				});
+					}
+				}
+			});
+		});
+		//구/군 선택 시  동 리스트 뽑아오는 스크립트 
+		$("select[name='selGu']").change(	function() {
+			var jusoGuCode = $(this).find("option:selected")	.val();
+			$("select[name='selGu']").find("option:selected")	.text(	$(this).find("option:selected").text());
+			$("select[name='selDong']").find("option").remove();
+			$("select[name='selDong']").append("<option>동 선택</option>");
+			$.ajax({
+				type : "GET",
+				url : "/shop/jusoDongList",
+				data : {jusoGuCode : jusoGuCode},
+				success : function(data) {
+					if (data.length > 0) {
+						for (var i = 0; i < data.length; i++) {
+							$("select[name='selDong']").append("<option value='" + data[i].jusoDongCode + "'>"+data[i].jusoDongName+ "</option>")
+						}
+					}
+				}
+			});
+		});
+		//동 선택 시 아파트리스트 뽑아오는 스크립트
+		$("select[name='selDong']").change(function() {
+			var jusoDongCode = $(this).find("option:selected").val();
+			$("select[name='selDong']").find("option:selected").text($(this).find("option:selected").text());
+			$.ajax({
+				type : "GET",
+				url : "/shop/kaptList",
+				dataType: "json",
+				data : {jusoDongCode : jusoDongCode},
+				success : function(kaptList) {
+					$('#kaptList').find("li").remove();
+					if (kaptList.length > 0) {
+						for (var i = 0; i < kaptList.length; i++) {
+							var newarr = kaptList[i].split(',');
+							$('#kaptList').append("<li class='jXTJDh'><div class='gvCWFZ'><p class='jyixr'>단지명</p><span class='kQJKWm'>"+newarr[0]+"</span></div>"
+									+"<div class='gvCWFZ'><p class='jyixr'>도로명</p><span class='kQJKWm'>"+newarr[1]+"</span></div>"
+									+"<div class='gvCWFZ'><p class='jyixr'>지번</p><span class='kQJKWm'>"+newarr[2]+"</span></div></li>");
+						}
+					}
+				}
+			});
+		});
 		//주소 팝업 창 열기
 		$('#jusoBtn').click(function() {
 			$(".modal").css("display", "block");

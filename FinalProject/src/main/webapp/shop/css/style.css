@@ -1604,6 +1604,45 @@ section.shopItemAdd .fUXvpI {
     border-color: rgb(208, 210, 214);
     border-image: initial;
 }
+section.shopItemAdd .hoUOvr{
+	max-height: 360px;
+    padding: 0px 30px;
+    overflow: auto;
+}
+section.shopItemAdd .jXTJDh {
+    cursor: pointer;
+    padding: 20px 0px;
+}
+section.shopItemAdd .jyixr {
+    float: left;
+    width: 52px;
+    height: 22px;
+    color: rgb(21, 100, 249);
+    font-size: 11px;
+    line-height: 20px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(21, 100, 249);
+    border-image: initial;
+    border-radius: 11px;
+}
+section.shopItemAdd .kQJKWm {
+    float: left;
+    height: 22px;
+    padding-left: 13px;
+    color: rgb(102, 102, 102);
+    font-size: 15px;
+    line-height: 22px;
+}
+section.shopItemAdd .gvCWFZ + div {
+    margin-top: 6px;
+}
+section.shopItemAdd .gvCWFZ::after {
+    display: block;
+    content: "";
+    clear: both;
+}
 section.shopItemAdd .fUXvpI > p {
     color: rgb(136, 136, 136);
     font-size: 15px;
