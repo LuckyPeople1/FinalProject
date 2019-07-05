@@ -1,3 +1,11 @@
+/* header 로그인 */
+
+.loginMenu #login_sessionUser_userName{
+	width:150px;
+	font-size: 15px;
+}
+/* header 로그인 끝 */
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -350,3 +358,4 @@ label.chk input:checked ~ span{
 	background-color: #4683bd;
 	color: #fff;
 }
+

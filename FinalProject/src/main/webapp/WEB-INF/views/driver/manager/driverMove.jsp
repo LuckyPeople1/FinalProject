@@ -54,23 +54,24 @@
 				<table class="table_list">
 					<colgroup>
 						<col width="40">
-						<col width="65">
-						<col width="115">
+						<col width="60">
+						<col width="50">
 						<col width="80">
 						<col width="80">
-						<col width="115">
-						<col width="90">
-						<col width="150">
-						<col width="90">
+						<col width="100">
+						<col width="130">
+						<col width="130">
+						<col width="100">
 						<col width="80">
 						<col width="85">
-						<col width="170">
+						<col width="100">
 					</colgroup>
 					<thead>
 					<tr>
 						<th><label><input type="checkbox" name="allChk"></label></th>
 						<th>NO</th>
 						<th>이사날짜</th>
+						<th>이사시간</th>
 						<th>고객명</th>
 						<th>연락처</th>
 						<th>출발지</th>
@@ -85,6 +86,7 @@
 						<td><label><input type="checkbox"></label></td>
 						<td>2</td>
 						<td>2019.6.30</td>
+						<td>12:30</td>
 						<td>유성연</td>
 						<td>01023399207</td>
 						<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
@@ -103,6 +105,7 @@
 						<td><label><input type="checkbox"></label></td>
 						<td>2</td>
 						<td>2019.6.30</td>
+						<td>12:30</td>
 						<td>유성연</td>
 						<td>01023399207</td>
 						<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
