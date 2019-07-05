@@ -380,6 +380,11 @@ var package = {
 
 	},
 
+	/**
+	 * 짐 삭제
+	 * @param e
+	 * @param event
+	 */
 	packageRemove : function (e,event) {
 
 		event.stopPropagation();
@@ -389,7 +394,10 @@ var package = {
 	},
 
 
-
+	/**
+	 * 짐정보 입력
+	 * @returns {boolean}
+	 */
 	packageFinish : function () {
 
 
@@ -404,12 +412,12 @@ var package = {
 		});
 
 
-		// 상세정보 입력 확인인
-	// if(count != $('.listBox').length){
-		//
-		// 	alert("짐 정보를 전부 선택해주세요");
-		// 	return false;
-		// }
+		//상세정보 입력 확인인
+		if(count != $('.listBox').length){
+
+			alert("짐 정보를 전부 선택해주세요");
+			return false;
+		}
 
 
 
@@ -432,7 +440,100 @@ var package = {
 
 
 
-	}
+	},
+
+
+	/**
+	 * 주소 입력
+	 * @param type
+	 */
+	moveDetailAddr	:	function (type) {
+
+		var formData	=	$('#addrFrm').serialize();
+		formData	=	formData + "&addrType=" + type;
+
+		console.log(formData);
+
+		$.ajax({
+			url : "/move/addrProc",
+			data : formData,
+			success:function () {
+
+				location.href='/move/step3';
+			},
+			error:function () {
+				alert("에러 발생")
+			}
+		});
+
+	},
+
+
+	/**
+	 * 시간/날짜 정보 입력
+	 */
+	scheduleSelect : function () {
+
+
+		var formData	=	$("#scheduleFrm").serialize();
+
+		$.ajax({
+			url : "/move/scheduleProc",
+			data : formData,
+			success:function (data) {
+				location.href='/move/step3'
+			}, error:function () {
+				alert("에러 발생")
+			}
+		})
+
+
+
+
+
+	},
+
+
+	/**
+	 * 스케쥴 입력 페이지에서 시/분 선택시 합침
+	 */
+	scheduleTime : function () {
+
+
+		var hour	=	$('select[name=hour]').val();
+		var min		=	$('select[name=min]').val();
+
+		if(min == "0"){
+			min	=	"00"
+		}
+
+		$('input[name=time]').val(hour +":"+min)
+
+	},
+
+	/**
+	 * 짐 및 이사정보 입력 체크
+	 * @returns {boolean}
+	 */
+	infoFinish : function () {
+
+		var count = 0;
+		$('.infoGroup').each(function () {
+
+			if($(this).hasClass('on')){
+				count ++;
+			}
+		});
+
+		if(count != $('.infoGroup ').length){
+
+			alert("모든 정보를 입력해주세요");
+			return false;
+		}
+
+		location.href='/move/apply';
+
+	},
 
 
 };
