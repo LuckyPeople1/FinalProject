@@ -27,4 +27,5 @@ public class QuestionManageController {
 	public String questionManageAriticlesList() {
 		return "manage/board/question/articles/questionManageAriticlesList";
 	}
+	
 }

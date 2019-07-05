@@ -451,7 +451,7 @@ section.moveStep .packageSelectList:after{
 	left:0;
 	right:0;
 	bottom:-1px;
-	height: 3px;
+	height: 1px;
 	/*background-color: rgba(0,0,0,0.12);*/
 	background-color: #fff;
 	border-bottom: 1px solid rgba(0,0,0,0.12);

@@ -1872,6 +1872,20 @@ section.shopItemAdd .hRFrgm {
     background: url(../img/icon_align_des.png) right 15px center / 10px no-repeat rgb(255, 255, 255);
     outline: none;
 }
+section.shopItemAdd .bMtYCv {
+    height: 46px;
+    padding-left: 60px;
+    position: relative;
+}
+section.shopItemAdd .bMtYCv + div {
+    margin-top: 10px;
+}
+
+section.shopItemAdd .bMtYCv::after {
+    display: block;
+    content: "";
+    clear: both;
+}
 section.shopItemAdd option {
     font-weight: normal;
     display: block;
@@ -2465,6 +2479,81 @@ section.shopItemAdd .ifWEqm::after {
     display: block;
     content: "";
     clear: both;
+}
+section.shopItemAdd .iFqJVZ {
+    width: 22px;
+    height: 22px;
+    background-color: rgb(102, 102, 102);
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 0px;
+}
+section.shopItemAdd .iFqJVZ::before {
+    width: 11.3137px;
+    height: 1px;
+}
+section.shopItemAdd .iFqJVZ::before, .iFqJVZ::after {
+    content: "";
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+section.shopItemAdd .iFqJVZ::after {
+    width: 1px;
+    height: 11.3137px;
+}
+section.shopItemAdd .fIWZWk {
+    float: left;
+    height: 46px;
+    margin-left: 8px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    line-height: 46px;
+}
+section.shopItemAdd .fIWZWk > span {
+    margin-left: 10px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+}
+section.shopItemAdd .ghUXBC {
+    float: left;
+    width: 140px;
+}
+section.shopItemAdd .tmpFp {
+    float: left;
+    width: 50px;
+    height: 26px;
+    line-height: 26px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    background-color: rgb(97, 182, 229);
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    border-radius: 3px;
+}
+section.shopItemAdd .fqDzuM {
+    float: left;
+    width: 140px;
+}
+section.shopItemAdd .ktwJnl {
+    float: left;
+    width: 20px;
+    height: 46px;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    text-align: center;
+    line-height: 46px;
 }
 section.shopItemAdd .hsrjeP {
     margin-left: 8px;
