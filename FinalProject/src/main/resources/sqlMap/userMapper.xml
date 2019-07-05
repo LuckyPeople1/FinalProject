@@ -48,8 +48,16 @@
 		<insert id="commonInsert" parameterType="userVO">
 			insert into user_tbl values (
 			user_no_seq.nextval,
-			 #{userId},
-			  #{userPw},
+			<choose>
+				<when test="socialId != null">
+					#{userId},
+					#{userPw},
+				</when>
+				<otherwise>
+					null,
+					null,
+				</otherwise>
+			</choose>
 			   #{userName},
 			    #{userAddr},
 			     #{userPhone},
@@ -60,7 +68,14 @@
 			          null,
 			           null,
 			            #{userType},
-			             null,
+			             <choose>
+							<when test="#{socialId != null}">
+								null,
+							</when>
+							<otherwise>
+								#{socialId},
+							</otherwise>
+						</choose>
 			              default)
 		</insert>
 </mapper>

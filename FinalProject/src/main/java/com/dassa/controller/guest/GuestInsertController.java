@@ -39,17 +39,29 @@ public class GuestInsertController {
 	
 	//일반회원가입 로직
 	@RequestMapping(value="/commonInsert")
-	public String CommonInsert(HttpServletRequest request, @RequestParam String userId, String userPw, String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType) throws Exception {
+	public String CommonInsert(HttpServletRequest request, @RequestParam String userId, String userPw, String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType, String socialId) throws Exception {
 		UserVO userVO = new UserVO();
-		userVO.setUserId(userId);
-		userVO.setUserPw(userPw);
-		userVO.setUserName(userName);
-		userVO.setUserPhone(userPhone);
-		userVO.setUserAddr(userAddr);
 		String addr = userAddr+userdetailAddr+userExtraAddr;
-		userVO.setUserAddr(addr);
-		userVO.setUserEmail(userEmail);
-		userVO.setUserType(userType);
+		if(socialId == null) {
+			userVO.setUserId(userId);
+			userVO.setUserPw(userPw);
+			userVO.setUserName(userName);
+			userVO.setUserPhone(userPhone);
+			userVO.setUserAddr(userAddr);
+			userVO.setUserAddr(addr);
+			userVO.setUserEmail(userEmail);
+			userVO.setUserType(userType);
+		}else {
+			userVO.setUserName(userName);
+			userVO.setUserPhone(userPhone);
+			userVO.setUserAddr(userAddr);
+			userVO.setUserAddr(addr);
+			userVO.setUserEmail(userEmail);
+			userVO.setUserType(userType);
+			userVO.setSocialId(socialId);
+		}
+		
+		
 		System.out.println("여기는 commonInsert 컨트롤러임");
 		System.out.println(userId);
 		System.out.println(userPw);
@@ -58,7 +70,7 @@ public class GuestInsertController {
 		System.out.println(addr);
 		System.out.println(userEmail);
 		System.out.println(userType);
-		
+
 		int result = userService.commonInsert(userVO);
 		if(result > 0) {
 			request.setAttribute("msg", "회원가입이 완료 되었습니다.");
@@ -68,4 +80,33 @@ public class GuestInsertController {
 			return "redirect:/insert";
 		}
 	}
+	
+	//일반회원가입 로직
+		@RequestMapping(value="/socialInsert")
+		public String SocialInsert(HttpServletRequest request, @RequestParam String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType, String socialId) throws Exception {
+			UserVO userVO = new UserVO();
+			userVO.setUserName(userName);
+			userVO.setUserPhone(userPhone);
+			userVO.setUserAddr(userAddr);
+			String addr = userAddr+userdetailAddr+userExtraAddr;
+			userVO.setUserAddr(addr);
+			userVO.setUserEmail(userEmail);
+			userVO.setUserType(userType);
+			userVO.setSocialId(socialId);
+			System.out.println("여기는 commonInsert 컨트롤러임");
+			System.out.println(userName);
+			System.out.println(userPhone);
+			System.out.println(addr);
+			System.out.println(userEmail);
+			System.out.println(userType);
+			System.out.println(socialId);
+			int result = userService.commonInsert(userVO);
+			if(result > 0) {
+				request.setAttribute("msg", "회원가입이 완료 되었습니다.");
+				request.setAttribute("loc", "/login/index");
+				return "guest/common/msg";
+			}else {
+				return "redirect:/insert";
+			}
+		}
 }
