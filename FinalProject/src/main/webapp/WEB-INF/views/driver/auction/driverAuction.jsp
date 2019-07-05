@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="/WEB-INF/views/driver/common/head.jsp" %>   <!--스타일-->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 <div class="container">
 	<nav>
@@ -56,8 +57,9 @@
 						<col width="70">
 						<col width="140">
 						<col width="80">
+						<col width="100">
 						<col width="190">
-						<col width="190">
+						<col width="100">
 						<col width="100">
 						<col width="150">
 						<col width="100">
@@ -67,6 +69,7 @@
 						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>이사날짜</th>
+						<th>이사시간</th>
 						<th>고객명</th>
 						<th>출발지</th>
 						<th>도착지</th>
@@ -75,14 +78,16 @@
 						<th>결정</th>
 					</tr>
 					</thead>
+					<c:forEach items="${list }" var="moveApply" varStatus="i">
 					<tbody>
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>2</td>
-						<td>2019.6.30</td>
-						<td>유성연</td>
-						<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
-						<td>서울시 영등포구 당산동 이레빌딩</td>
+						<td>${moveApply.guestIdx }</td>
+						<td>${moveApply.applyDate }</td>
+						<td>${moveApply.applyTime }</td>
+						<td>${moveApply.guestName }</td>
+						<td>${moveApply.startAddr1 }</td>
+						<td>${moveApply.endAddr1 }</td>
 						<td><span class="tag col_blue f_w">견적대기</span></td>
 						<td>
 							<a href="/driver/auctionDetail" class="btn col_navy f_w">상세보기</a>
@@ -93,24 +98,8 @@
 							
 						</td>
 					</tr>
-					<tr>
-						<td><label><input type="checkbox"></label></td>
-						<td>2</td>
-						<td>2019.6.30</td>
-						<td>유성연</td>
-						<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
-						<td>서울시 영등포구 당산동 이레빌딩</td>
-						<td><span class="tag col_blue f_w">견적대기</span></td>
-						<td>
-							<a href="shop_info_set.html" class="btn col_navy f_w">상세보기</a>
-							<a href="javascript:void(0)" class="btn col_red f_w">삭제</a>
-						</td>
-						<td>
-							<a href="shop_info_set.html" class="tag col_blue f_w">최종결정</a>
-							
-						</td>
-					</tr>
 					</tbody>
+					</c:forEach>
 				</table>
 			</div>
 			<ul class="page_wrap">

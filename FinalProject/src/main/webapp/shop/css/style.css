@@ -1451,27 +1451,10 @@ section.shopItemAdd .etFHhl {
     overflow: hidden;
 }
 
-section.shopItemAdd .fSFsCh {
-    float: left;
-    user-select: none;
-    position: relative;
-}
-section.shopItemAdd .fSFsCh > input[type="radio"] {
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
 section.shopItemAdd input, button {
     outline: none;
 }
-section.shopItemAdd .fSFsCh > input[type="radio"]:checked + p {
-    color: rgb(255, 255, 255);
-    background-color: rgb(26, 90, 232);
-    border-color: rgb(26, 90, 232);
-}
+
 section.shopItemAdd .etFHhl > table {
     width: 100%;
 }
@@ -1501,29 +1484,11 @@ section.shopItemAdd .fNOtpc::after {
     content: "";
     clear: both;
 }
-section.shopItemAdd .fSFsCh > p {
-    min-width: 82px;
-    height: 46px;
-    color: rgb(102, 102, 102);
-    font-size: 14px;
-    line-height: 44px;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    padding: 0px 15px;
-    border-radius: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(224, 224, 224);
-    border-image: initial;
-}
+
 section.shopItemAdd .bVNPCb + label {
     margin-left: 10px;
 }
-section.shopItemAdd .fSFsCh {
-    float: left;
-    user-select: none;
-    position: relative;
-}
+
 section.shopItemAdd label {
     cursor: default;
 }
@@ -1638,6 +1603,16 @@ section.shopItemAdd .fUXvpI {
     border-style: solid;
     border-color: rgb(208, 210, 214);
     border-image: initial;
+}
+section.shopItemAdd .fUXvpI > p {
+    color: rgb(136, 136, 136);
+    font-size: 15px;
+    line-height: 25px;
+}
+section.shopItemAdd .fUXvpI > p > span {
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
 }
 section.shopItemAdd .kXKUhT {
     margin-top: 10px;
@@ -1796,6 +1771,15 @@ section.shopItemAdd .fZAwwn::after {
     content: "";
     clear: both;
 }
+section.shopItemAdd input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+section.shopItemAdd .gvJkZp:disabled {
+    color: rgb(170, 170, 170);
+    background-color: rgb(235, 235, 235);
+    border-color: rgb(204, 204, 204);
+}
 section.shopItemAdd .fZAwwn {
     position: absolute;
     top: 50%;
@@ -1871,6 +1855,20 @@ section.shopItemAdd .hRFrgm {
     border-radius: 0px;
     background: url(../img/icon_align_des.png) right 15px center / 10px no-repeat rgb(255, 255, 255);
     outline: none;
+}
+section.shopItemAdd .bMtYCv {
+    height: 46px;
+    padding-left: 60px;
+    position: relative;
+}
+section.shopItemAdd .bMtYCv + div {
+    margin-top: 10px;
+}
+
+section.shopItemAdd .bMtYCv::after {
+    display: block;
+    content: "";
+    clear: both;
 }
 section.shopItemAdd option {
     font-weight: normal;
@@ -1969,6 +1967,12 @@ section.shopItemAdd .fSFsCh {
     user-select: none;
     position: relative;
 }
+section.shopItemAdd .img_upload{
+	width:18%;
+	height: 150px;
+	margin: 10px;
+	padding: 10px;
+}
 section.shopItemAdd .fSFsCh > input[type="radio"] {
     width: 1px;
     height: 1px;
@@ -1976,6 +1980,11 @@ section.shopItemAdd .fSFsCh > input[type="radio"] {
     position: absolute;
     top: 0px;
     left: 0px;
+}
+section.shopItemAdd .fSFsCh > input[type="radio"]:checked + p {
+    color: rgb(255, 255, 255);
+    background-color: rgb(26, 90, 232);
+    border-color: rgb(26, 90, 232);
 }
 section.shopItemAdd .fSFsCh > p {
     min-width: 82px;
@@ -2465,6 +2474,81 @@ section.shopItemAdd .ifWEqm::after {
     display: block;
     content: "";
     clear: both;
+}
+section.shopItemAdd .iFqJVZ {
+    width: 22px;
+    height: 22px;
+    background-color: rgb(102, 102, 102);
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 0px;
+}
+section.shopItemAdd .iFqJVZ::before {
+    width: 11.3137px;
+    height: 1px;
+}
+section.shopItemAdd .iFqJVZ::before, .iFqJVZ::after {
+    content: "";
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+section.shopItemAdd .iFqJVZ::after {
+    width: 1px;
+    height: 11.3137px;
+}
+section.shopItemAdd .fIWZWk {
+    float: left;
+    height: 46px;
+    margin-left: 8px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    line-height: 46px;
+}
+section.shopItemAdd .fIWZWk > span {
+    margin-left: 10px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+}
+section.shopItemAdd .ghUXBC {
+    float: left;
+    width: 140px;
+}
+section.shopItemAdd .tmpFp {
+    float: left;
+    width: 50px;
+    height: 26px;
+    line-height: 26px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    background-color: rgb(97, 182, 229);
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    border-radius: 3px;
+}
+section.shopItemAdd .fqDzuM {
+    float: left;
+    width: 140px;
+}
+section.shopItemAdd .ktwJnl {
+    float: left;
+    width: 20px;
+    height: 46px;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    text-align: center;
+    line-height: 46px;
 }
 section.shopItemAdd .hsrjeP {
     margin-left: 8px;
