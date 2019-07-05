@@ -133,6 +133,11 @@
 	border: 0;
 }
 
+ #guest_loginHome #guest_login_btn{
+	cursor: pointer;
+} 
+
+
 #guest_loginHome .login_wrap .login_group .login_menu{
 	text-align: left;
 	padding-top: 10px;

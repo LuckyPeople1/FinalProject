@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/WEB-INF/views/guest/common/head.jsp"%>
+<%@include file="/WEB-INF/views/guest/common/head.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
-	<%@include file="/WEB-INF/views/guest/common/header.jsp"%>
+	<%@include file="/WEB-INF/views/guest/common/header.jsp" %>
 	<div class="contents">
 		<section class="moveStep inner">
 			
@@ -12,7 +12,14 @@
 				<div class="moveInfoGroup">
 					<ul class="moveInputList required">
 						<li>
-							<div class="infoGroup">
+							<c:choose>
+							<c:when test="${startInfo != null}">
+							<div class="infoGroup on" onclick="location.href='/move/detail?addrType=start'">
+								</c:when>
+								<c:otherwise>
+								<div class="infoGroup" onclick="location.href='/move/addr?addrType=start'">
+									</c:otherwise>
+									</c:choose>
 								<div class="default">
 									<div class="iconMark"></div>
 									<div class="title">
@@ -22,8 +29,8 @@
 											</div>
 											<div class="tableCell">
 												<div class="status">
-													<span class="icon-elevator"></span>
-													<span class="icon-parking"></span>
+													<span class="icon-elevator ${startInfo.elevator == "Y" ? 'on' : ''}"></span>
+													<span class="icon-parking ${startInfo.parking == "Y" ? 'on' : ''}"></span>
 												</div>
 											</div>
 										</div>
@@ -32,83 +39,80 @@
 									<div class="caption">상세 정보 입력</div>
 								</div>
 								<div class="information">
-									<div class="address"></div>
+									<div class="address">${startInfo.addr1} ${startInfo.addr3}</div>
 									<ul class="typeList">
-										<li class="house"></li>
+										<li class="type">${startInfo.type}</li>
 										<li class="separate"></li>
-										<li class="floor"></li>
+										<li class="structure">${startInfo.structure}</li>
 										<li class="separate"></li>
-										<li class="space"></li>
+										<li class="size">${startInfo.size}</li>
 										<li class="separate"></li>
-										<li class="floor"></li>
+										<li class="floor">${startInfo.floor}</li>
 									</ul>
 								</div>
 							</div>
 						</li>
 						<li>
-							<div class="infoGroup">
-								<div class="default">
+							<c:choose>
+							<c:when test="${endInfo != null}">
+							<div class="infoGroup on" onclick="location.href='/move/detail?addrType=end'">
+								</c:when>
+								<c:otherwise>
+								<div class="infoGroup" onclick="location.href='/move/addr?addrType=end'">
+									</c:otherwise>
+									</c:choose>
+									<div class="default">
+										<div class="iconMark"></div>
+										<div class="title">
+											<div class="table">
+												<div class="tableCell">
+													<div class="name">도착지 정보</div>
+												</div>
+												<div class="tableCell">
+													<div class="status">
+														<span class="icon-elevator ${endInfo.elevator == "Y" ? 'on' : ''}" ></span>
+														<span class="icon-parking ${endInfo.parking == "Y" ? 'on' : ''}"></span>
+													</div>
+												</div>
+											</div>
+										
+										</div>
+										<div class="caption">상세 정보 입력</div>
+									</div>
+									<div class="information">
+										<div class="address">${endInfo.addr1} ${endInfo.addr3}</div>
+										<ul class="typeList">
+											<li class="type">${endInfo.type}</li>
+											<li class="separate"></li>
+											<li class="floor">${endInfo.floor}</li>
+										</ul>
+									</div>
+								</div>
+						</li>
+						<li>
+							<div class="infoGroup ${scheduleInfo != null ? 'on' : ''}">
+								<div class="default schedule" onclick="location.href='/move/schedule'">
 									<div class="iconMark"></div>
-									<div class="title">
-										<div class="table">
-											<div class="tableCell">
-												<div class="name">도착지 정보</div>
-											</div>
-											<div class="tableCell">
-												<div class="status">
-													<span class="icon-elevator"></span>
-													<span class="icon-parking"></span>
-												</div>
-											</div>
-										</div>
-									
-									</div>
-									<div class="caption">상세 정보 입력</div>
-								</div>
-								<div class="information">
-									<div class="address"></div>
-									<ul class="typeList">
-										<li class="house"></li>
-										<li class="separate"></li>
-										<li class="floor"></li>
-										<li class="separate"></li>
-										<li class="space"></li>
-										<li class="separate"></li>
-										<li class="floor"></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="infoGroup">
-								<div class="default schedule">
-									<div class="iconMark "></div>
 									<div class="title">
 										<div class="table">
 											<div class="tableCell">
 												<div class="name">날짜 및 이사 종류</div>
 											</div>
-											<div class="tableCell">
-												<div class="status">
-													<span class="icon-elevator"></span>
-													<span class="icon-parking"></span>
-												</div>
-											</div>
 										</div>
 									
 									</div>
 									<div class="caption">상세 정보 입력</div>
 								</div>
-								<div class="information">
+								<div class="information ${scheduleInfo != null ? 'on' : ''}">
 									<div class="address"></div>
 									<ul class="typeList">
-										<li class="house"></li>
+										<li class="date">${scheduleInfo.date}</li>
 										<li class="separate"></li>
-										<li class="floor"></li>
+										<li class="time">${scheduleInfo.time}</li>
 										<li class="separate"></li>
-										<li class="space"></li>
+										<li class="hope">${scheduleInfo.moveHope}</li>
 										<li class="separate"></li>
-										<li class="floor"></li>
+										<li class="help">${scheduleInfo.moveHelp == "Y" ? '도움 있음' : '도움 없음'}</li>
 									</ul>
 								</div>
 							</div>
@@ -130,13 +134,13 @@
 				</div>
 				
 				<div class="packageBtnBox">
-					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">취소</a>
-					<a href="#none" class="btn col_main f_w big">다음</a>
+					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
+					<a href="javascript:package.infoFinish()" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>
 		</section>
 	</div>
-	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
 
 
 </div>

@@ -26,6 +26,21 @@ public class GuestLoginController {
 		return "guest/login/loginHome";
 	}
 	
+	@RequestMapping(value="/logout")
+	public String GuestLogout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		request.setAttribute("msg", "로그아웃 되었습니다.");
+		request.setAttribute("loc", "/login/index");
+		return "guest/common/msg";
+	}
+	
+	//메인페이지로 이동
+	@RequestMapping(value="/index")
+	public String IndexHome() {
+		return "redirect:/index.jsp";
+	}
+	
 	//socialLogin
 	@RequestMapping(value="/socialLogin")
 	public String LoginHome(HttpServletRequest request, @RequestParam String socialId) throws Exception{
@@ -45,19 +60,32 @@ public class GuestLoginController {
 	
 	@RequestMapping(value="/commonLogin")
 	public String Login(HttpServletRequest request,String userId,String userPw) throws Exception {
-		System.out.println("userId"+userId);
+		System.out.println("userId : "+userId);
+		System.out.println("userPw : "+userPw);
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
 		userVO.setUserPw(userPw);
 		UserVO user =userService.selectOneUser(userVO);
-		
 		if(user!=null) {
 			HttpSession session =request.getSession();
 			session.setAttribute("user", user);
-			System.out.println(user.getUserIdx());
-			return "driver/driverHome";
+			if(user.getUserType().equals("1")) {
+				request.setAttribute("msg", "로그인 되었습니다.");
+				request.setAttribute("loc", "/driver/");
+				return "guest/common/msg";
+			}else if(user.getUserType().equals("2")) {
+				request.setAttribute("msg", "로그인 되었습니다.");
+				request.setAttribute("loc", "/shop/");
+				return "guest/common/msg";
+			}else {
+				request.setAttribute("msg", "로그인 되었습니다.");
+				request.setAttribute("loc", "/login/index");
+				return "guest/common/msg";
+			}	
 		}else {
-			return "redirect:/login/";
+			request.setAttribute("msg", "아이디 또는 비밀번호를 확인해주세요.");
+			request.setAttribute("loc", "/login/");
+			return "guest/common/msg";
 		}
 		
 	}

@@ -53,7 +53,7 @@
 					</div>
 				</div>
 				<div class="packageBtnBox">
-					<a href="/move/step1" class="btn col_darkGrey f_w big">취소</a>
+					<a href="/move/step1" class="btn col_darkGrey f_w big">뒤로가기</a>
 					<a href="javascript:package.packageFinish()" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>

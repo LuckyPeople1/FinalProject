@@ -32,4 +32,22 @@
 	user_car=#{userCar}
 		where user_id=#{userId}
 	</update>
+	<select id="driverAuctionList" resultType="moveApplyVO">
+		select guest_idx as guestIdx,
+				guest_name as guestName,
+				start_addr1 as startAddr1,
+				start_addr2 as startAddr2,
+				start_addr3 as startAddr3,
+				start_latitude as startLatitude,
+				start_longitude as startLongitude,
+				end_addr1 as endAddr1,
+				end_addr2 as endAddr2,
+				end_addr3 as endAddr3,
+				end_latitude as endLatitude,
+				start_longitude as endLongitude,
+				apply_date as applyDate,
+				apply_time as applyTime
+				from move_apply_tbl
+				where apply_status = 0
+	</select>
 </mapper>

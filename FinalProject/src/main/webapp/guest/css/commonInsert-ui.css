@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+*{
+	box-sizing: border-box;
+}
+#commonInsert_container .commonInsert_btn_group{
+	font-size: 0;
+	padding: 40px 0;
+	text-align: center
+}
+#commonInsert_container .commonInsert_btn_group a{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	fontsize: 16px;
+}
+
+#commonInsert_container .btn{
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	border: 1px solid transparent;
+	font-size: 12px;
+	color:#fff;
+	width: 200px;
+	height: 50px;
+	margin-left: 15px;
+}
+
+#commonInsert_container .insert_user{
+	background-color: #4683bd;
+}
+
+#commonInsert_container .insert_reset{
+	background-color: #777;
+}
+
+#commonInsert_container .commonInsert_btn_group a + a{
+	margin-left: 30px;
+}
+
+#commonInsert_container .tbox.normal, textbox.normal{
+	width: 100%;
+}
+
+#commonInsert_container .tbox.post{
+	margin-bottom: 3px;
+}
+
+#commonInsert_container .tbox.second_post{
+	margin-top: 3px;
+}
+
+
+#commonInsert_container .tbox{
+	border: 1px solid #cccccc;
+	height: 30px;
+	background-color: #fff;
+	font-size: 12px;
+	color: #3b3b3b;
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+/* commonInsert_container */
+#commonInsert_container{
+	height:100%;
+}
+
+/* commonInsert_wrapper */
+#commonInsert_container .commonInsert_wrapper{
+	min-height: 100%;
+	padding-bottom: 50px;
+	position: realtice;
+	width: 100%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+/* commonInsert_contents */
+#commonInsert_container .commonInsert_wrapper .commonInsert_contents{
+	margin-left: 450px;
+	position: relative;
+	padding: 70px;
+	margin-right: 450px;
+}
+/* field */
+#commonInsert_container .commonInsert_wrapper .commonInsert_contents .commonInsert_field{
+	width: 900px;
+}
+/* commonInsert_title */
+#commonInsert_container .commonInsert_wrapper .commonInsert_contents .commonInsert_field .commonInsert_title{
+	width: 100%;
+	font-size: 20px;
+	font-weight: 500;
+	position: relative;
+	padding-bottom: 20px;
+	font-weight: 500;
+	text-align: center;
+}
+
+/* commonInsert_table */
+#commonInsert_container .commonInsert_table{
+	border-top: 3px solid #4683bd;
+	table-layout: fixed;
+	width: 95%;
+	height: 400px;
+}
+
+#commonInsert_container tbody{
+	display: table-wor-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+#commonInsert_container .commonInsert_table th, .commonInsert_table td{
+	font-size: 15px;
+	line-height: 18px;
+	color: #3b3b3b;
+	font-weight: 500;
+}
+
+#commonInsert_container .commonInsert_table tr{
+	border-bottom: 1px solid #ccc;
+}
+
+#commonInsert_container .commonInsert_table th{
+	text-align: center;
+	padding: 14px 0;
+	color: black;
+} 
+
+
+
+#commonInsert_container .commonInsert_table td{
+	padding: 10px 20px;
+}
+

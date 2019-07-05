@@ -2,9 +2,7 @@ package com.dassa.controller.guest;
 
 
 import com.dassa.service.MovePackageService;
-import com.dassa.vo.PackageRegOptionVO;
-import com.dassa.vo.PackageRegVO;
-import com.dassa.vo.PackageSelectVO;
+import com.dassa.vo.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +30,8 @@ public class GuestMoveController {
 	@RequestMapping("/step1")
 	public String moveStep1(Model model) throws Exception {
 
-
 		List<PackageRegVO> packageTempVOList = movePackageService.getPackageList();
-
 		model.addAttribute("packageList", packageTempVOList);
-
 
 		return "guest/move/moveStep1";
 	}
@@ -81,7 +76,6 @@ public class GuestMoveController {
 
 		// 세션에서 리스트를 가져와서 뷰로 넘겨줌
 
-
 		model.addAttribute("selectList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
 
 		return "guest/move/moveStep2";
@@ -103,7 +97,6 @@ public class GuestMoveController {
 		System.out.println(name + "네임");
 
 		List<PackageRegOptionVO> optionList	=	movePackageService.getPackageOptionList(idx);
-		System.out.println(optionList.size() + " 몇개 가져오니");
 
 		model.addAttribute("optionList", optionList);
 		model.addAttribute("name",name);
@@ -120,10 +113,178 @@ public class GuestMoveController {
 	}
 
 
+	/**
+	 * 이사 상세정보 입력페이지 이동
+	 * @return
+	 */
 	@RequestMapping("/step3")
-	public String moveStep2(){
+	public String moveStep3(HttpSession httpSession, Model model){
+
+
+		MoveAddrInfoVO startInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("startAddr");
+		MoveAddrInfoVO endInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("endAddr");
+		MoveAddrScheduleVO scheduleInfo	=	 (MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo");
+
+		if(startInfo != null){
+			model.addAttribute("startInfo", startInfo);
+		}
+
+		if(endInfo != null){
+			model.addAttribute("endInfo", endInfo);
+		}
+
+		if(scheduleInfo != null){
+			model.addAttribute("scheduleInfo", scheduleInfo);
+		}
 
 		return "guest/move/moveStep3";
 
 	}
+
+
+	/**
+	 * 주소입력 페이지로 이동
+	 * @return
+	 */
+	@RequestMapping("/addr")
+	public String addr(String addrType, Model model){
+
+		model.addAttribute("addrType", addrType);
+		return "guest/move/moveStepAddr";
+
+	}
+
+
+
+	/**
+	 * 주소 선택
+	 * @param moveAddrSelectVO
+	 * @param httpSession
+	 * @param addrType
+	 * @return
+	 */
+	@RequestMapping("/addrSelect")
+	@ResponseBody
+	public String addrSelect(MoveAddrSelectVO moveAddrSelectVO,
+							 HttpSession httpSession,
+							 @RequestParam("addrType") String addrType)
+	{
+		httpSession.setAttribute("addrInput", moveAddrSelectVO);
+
+
+		MoveAddrInfoVO moveAddrInfoVO	=	new MoveAddrInfoVO();
+		moveAddrInfoVO.setAddr1(moveAddrSelectVO.getAddr1());
+		moveAddrInfoVO.setAddr2(moveAddrSelectVO.getAddr2());
+		moveAddrInfoVO.setLatitude(moveAddrSelectVO.getLatitude());
+		moveAddrInfoVO.setLongitude(moveAddrSelectVO.getLongitude());
+
+		if(addrType.equals("start")){
+			httpSession.setAttribute("startAddr", moveAddrInfoVO);
+
+		}else if(addrType.equals("end")){
+			httpSession.setAttribute("endAddr", moveAddrInfoVO);
+		}
+
+		return addrType;
+
+	}
+
+
+	/**
+	 * 주소 상세입력 페이지 이동
+	 * @param httpSession
+	 * @param model
+	 * @param addrType
+	 * @return
+	 */
+	@RequestMapping("/detail")
+	public String start(HttpSession httpSession, Model model, String addrType){
+
+		MoveAddrInfoVO startInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("startAddr");
+		MoveAddrInfoVO endInfo		=	 (MoveAddrInfoVO)httpSession.getAttribute("endAddr");
+
+		model.addAttribute("addrType", addrType);
+
+		if(addrType.equals("start")){
+			model.addAttribute("addrInfo", startInfo);
+		}
+
+		if(addrType.equals("end")){
+
+			model.addAttribute("addrInfo", endInfo);
+		}
+
+		return "guest/move/moveStepDetail";
+	}
+
+
+	/**
+	 * 주소지 입력 후 주소지 유형(출발,도착지)에 구별하여 세션에 등록
+	 * @param httpSession
+	 * @param moveAddrInfoVO
+	 * @param addrType
+	 * @return
+	 */
+	@RequestMapping("/addrProc")
+	@ResponseBody
+	public String addrProc(HttpSession httpSession, MoveAddrInfoVO moveAddrInfoVO, @RequestParam("addrType") String addrType){
+
+
+		if(addrType.equals("start")){
+			httpSession.setAttribute("startAddr", moveAddrInfoVO);
+
+		}else if(addrType.equals("end")){
+			httpSession.setAttribute("endAddr", moveAddrInfoVO);
+		}
+
+		return "Y";
+	}
+
+
+	/**
+	 * 날짜 이사 페이지 이동
+	 * @param httpSession
+	 * @return
+	 */
+	@RequestMapping("/schedule")
+	public String schedule(HttpSession httpSession){
+
+		httpSession.getAttribute("scheduleInfo");
+
+		return "guest/move/moveStepSchedule";
+	}
+
+
+	/**
+	 * 날짜 이사 종류 선택
+	 * @param httpSession
+	 * @param moveAddrScheduleVO
+	 * @return
+	 */
+	@RequestMapping("/scheduleProc")
+	@ResponseBody
+	public String scheduleProc(HttpSession httpSession, MoveAddrScheduleVO moveAddrScheduleVO){
+
+		httpSession.setAttribute("scheduleInfo", moveAddrScheduleVO);
+
+		return "Y";
+	}
+
+	@RequestMapping("/apply")
+	public String apply(HttpSession httpSession, Model model){
+
+		MoveAddrInfoVO startInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("startAddr");
+		MoveAddrInfoVO endInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("endAddr");
+		MoveAddrScheduleVO scheduleInfo	=	 (MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo");
+
+		model.addAttribute("startInfo", startInfo);
+		model.addAttribute("endInfo", endInfo);
+		model.addAttribute("scheduleInfo", scheduleInfo);
+
+
+		return "guest/move/moveStepApply";
+	}
+
+
+
 }
