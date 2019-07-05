@@ -1,15 +1,15 @@
 	
-	$(".fCHdqd").click(function(){ // 분양 Home 검색 정보
+	$(".searchBox_btn").click(function(){ // 분양 Home 검색 정보
 		// 같은거를 클릭했을 때
 		if($(this).hasClass('on')){
 			// 기존값 사라지게
-			$('.fCHdqd').removeClass('on');
-			$('.fCHdqd').siblings().hide();	
+			$('.searchBox_btn').removeClass('on');
+			$('.searchBox_btn').siblings().hide();	
 			return false;
 		}
 		// 기존값 사라지게
-		$('.fCHdqd').removeClass('on');
-		$('.fCHdqd').siblings().hide();
+		$('.searchBox_btn').removeClass('on');
+		$('.searchBox_btn').siblings().hide();
 		// on 클래스 추가
 		$(this).addClass('on');
 		$(this).siblings().show();
@@ -17,13 +17,13 @@
 		
 	});
 	// 클릭 시 상세효과(분양 전국)
-	$(".GqmLz > li > span").click(function(){
+	$(".filterBox_area > li > span").click(function(){
 		var str = $(this).html();
-		$(this).parents('.eCZDhi').children().eq(0).children('span').html(str);
+		$(this).parents('.searchBox_filter_type').children().eq(0).children('span').html(str);
 	});
 	
 	// 클릭 시 체크 된 체크박스의 내용 모두 표시하기(건물 유형 / 분양단계 / 분양일정/ 공급유형)
-	$(".PcMeW").click(function(){
+	$(".inputCheckbox").click(function(){
 		
 		
 		var count = $(this).parent().parent().parent().find('input').length; // 체크박스의 수

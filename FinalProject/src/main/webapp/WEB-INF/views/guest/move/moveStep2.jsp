@@ -12,7 +12,6 @@
 				<div class="moveInfoTitle">
 					<strong>·선택한 짐의 상세정보를 완성해주세요.</strong><br/>
 					·각각의 짐 항목을 눌러 물건의 상세 정보를 완성해주세요.
-					${selectList.size()}
 				</div>
 				
 				<div class="packageList">
@@ -25,15 +24,15 @@
 									
 									<c:forEach begin="1" end="${item.packageAmount}" varStatus="status">
 										<li class="listBox">
-											<div class="packageInfo" data-idx="${item.packageIdx}" data-order="${status.count}" onclick="package.packagePop(${item.packageIdx},${status.count})">
+											<div class="packageInfo" data-idx="${item.packageIdx}" data-order="${status.count}" onclick="package.packagePop(${item.packageIdx},this)">
 												<div class="delBox">
-													<a href="#none" class="delBtn"></a>
+													<a href="#none" class="delBtn" onclick="package.packageRemove(this, event)"></a>
 												</div>
 												<div class="selectImg">
 													<img src="${item.packageImgPath}" alt="이미지">
 												</div>
 												<div class="title">
-													<div class="">
+													<div class="nameGroup">
 														<span class="name">${item.packageName}</span>
 														<span class="order"></span>
 													</div>
@@ -46,9 +45,6 @@
 									
 									
 								</c:if>
-							
-								
-								
 							</c:forEach>
 							
 							
@@ -58,15 +54,16 @@
 				</div>
 				<div class="packageBtnBox">
 					<a href="/move/step1" class="btn col_darkGrey f_w big">취소</a>
-					<a href="#none" class="btn col_main f_w big">다음</a>
+					<a href="javascript:package.packageFinish()" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>
 		</section>
 	</div>
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
-
-
 </div>
+<section class="layerPopup packageOption">
+
+</section>
 <script src="/guest/js/move/package.js"></script>
 <script>
 	package.packageNumberSet();

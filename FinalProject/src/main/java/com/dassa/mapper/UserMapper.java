@@ -14,4 +14,6 @@ public interface UserMapper {
 	
 	public UserVO socialLogin(String socialId);
 
+	public int commonInsert(UserVO userVO);
+
 }

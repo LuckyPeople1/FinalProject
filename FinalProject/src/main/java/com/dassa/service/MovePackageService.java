@@ -66,7 +66,6 @@ public class MovePackageService {
 			// 옵션담기
 			List<PackageRegOptionVO> optionVOList	=	new ArrayList<PackageRegOptionVO>();
 
-
 			PackageRegOptionVO optionVO = new PackageRegOptionVO();
 			optionVO.setPackageOptionName(tempVO.getPackageOption1Name());
 			optionVO.setPackageOptionValue(tempVO.getPackageOption1Value());
@@ -116,5 +115,77 @@ public class MovePackageService {
 
 	}
 
+	/**
+	 * idx 기준으로 짐 DB 가져옴
+	 * @param idx
+	 * @return
+	 * @throws Exception
+	 */
+	public List<PackageRegOptionVO> getPackageOptionList(int idx) throws Exception {
 
+
+		// idx를 기준으로 짐 DB를 가져옴
+		PackageTempVO packageTempVO = movePackageMapper.getPackage(idx);
+
+		// 해당 짐의 옵션만 담는 리스트 생성
+		List<PackageRegOptionVO>packageOptionList	=	setOptionList(packageTempVO);
+
+		return packageOptionList;
+
+	}
+
+
+	/**
+	 * 해당 idx 옵션만 받아오기
+	 * @param tempVO
+	 * @return
+	 */
+	private List<PackageRegOptionVO> setOptionList(PackageTempVO tempVO) {
+
+		List<PackageRegOptionVO>optionVOList	=	new ArrayList<PackageRegOptionVO>();
+
+		PackageRegOptionVO optionVO = new PackageRegOptionVO();
+
+		if(tempVO.getPackageOption1Name() != null){
+			optionVO.setPackageOptionName(tempVO.getPackageOption1Name());
+			optionVO.setPackageOptionValue(tempVO.getPackageOption1Value());
+			optionVO.setPackageOptionEtc(tempVO.getPackageOption1Etc());
+			optionVOList.add(optionVO);
+		}
+
+		if(tempVO.getPackageOption2Name() != null){
+			optionVO = new PackageRegOptionVO();
+			optionVO.setPackageOptionName(tempVO.getPackageOption2Name());
+			optionVO.setPackageOptionValue(tempVO.getPackageOption2Value());
+			optionVO.setPackageOptionEtc(tempVO.getPackageOption2Etc());
+			optionVOList.add(optionVO);
+		}
+
+		if(tempVO.getPackageOption3Name() != null){
+			optionVO = new PackageRegOptionVO();
+			optionVO.setPackageOptionName(tempVO.getPackageOption3Name());
+			optionVO.setPackageOptionValue(tempVO.getPackageOption3Value());
+			optionVO.setPackageOptionEtc(tempVO.getPackageOption3Etc());
+			optionVOList.add(optionVO);
+		}
+
+		if(tempVO.getPackageOption4Name() != null){
+			optionVO = new PackageRegOptionVO();
+			optionVO.setPackageOptionName(tempVO.getPackageOption4Name());
+			optionVO.setPackageOptionValue(tempVO.getPackageOption4Value());
+			optionVO.setPackageOptionEtc(tempVO.getPackageOption4Etc());
+			optionVOList.add(optionVO);
+		}
+
+		if(tempVO.getPackageOption5Name() != null){
+			optionVO = new PackageRegOptionVO();
+			optionVO.setPackageOptionName(tempVO.getPackageOption5Name());
+			optionVO.setPackageOptionValue(tempVO.getPackageOption5Value());
+			optionVO.setPackageOptionEtc(tempVO.getPackageOption5Etc());
+			optionVOList.add(optionVO);
+		}
+
+		return optionVOList;
+
+	}
 }

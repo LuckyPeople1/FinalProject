@@ -237,25 +237,199 @@ var package = {
 
 	},
 
-	packagePop : function (idx , order) {
+
+	/**
+	 * 짐 옵션 팝업 열기
+	 * @param idx
+	 * @param order
+	 */
+	packagePop: function (idx, e) {
+
+		var popup	=	$('.layerPopup');
+		var name	=	$(e).find('.name').text().trim() + $(e).find('.order').text().trim();
+
+		popup.load('/move/packagePop',
+			{
+				idx: idx,
+				name : name
+			}
+		);
+
+		popup.show();
+		$('body').addClass('popup');
 
 
-		console.log(idx)
-		console.log(order)
+
+
+		// console.log(idx)
+		// console.log(order)
+		//
+		// $.ajax({
+		// 	type: "POST",
+		// 	url: "/move/packageOptionPop",
+		// 	data: {
+		// 		idx : idx
+		// 	},
+		// 	success:function (data) {
+		//
+		// 		console.log(data)
+		//
+		// 	},
+		// 	error:function () {
+		// 		alert("에러 발생");
+		// 	}
+		// })
+
+
+	},
+
+	/**
+	 * 짐 옵션팝업 닫기
+	 */
+	packagePopClose:function () {
+
+		var popup	=	$('.layerPopup');
+
+		popup.hide();
+		$('body').removeClass('popup');
+	},
+
+
+	/**
+	 * 짐 옵션팝업에서 기타 선택 시 input창 표시
+	 * @param e
+	 */
+	packageEtcOption:function (e) {
+
+
+		if($(e).parents('.optionBox').find('.etc').prop('checked')){
+
+			$(e).parents('.optionBox').siblings('.optionEtc').show();
+
+		}else{
+			$(e).parents('.optionBox').siblings('.optionEtc').hide();
+
+		}
+	},
+
+	optionSelect:function () {
+
+		var selName 	=	$('.popupTitle').text();
+		var length	=	$('.optionList').length;
+		var selectArray	=	new Array();
+
+
+		// 옵션 배열에 저장
+		for(var i = 0 ; i < length ; i++){
+
+			var valueChk	=	$('input[name=option' + (i+1) + ']:checked').val();
+
+			if(valueChk == null){
+				alert("옵션을 전부 선택해주세요");
+				return false;
+			}
+
+
+			if($('input[name=option' + (i+1) + ']:checked').hasClass('etc')){
+
+
+				var selectOption	=	{
+					optionName	:	$('.optionList').eq(i).find('.optionTitle').text(),
+					optionValue :	"기타(" + $('input[name=optionEtc' + (i+1) + ']').val() + ")"
+				};
+			}else{
+				var selectOption	=	{
+					optionName	:	$('.optionList').eq(i).find('.optionTitle').text(),
+					optionValue :	$('input[name=option' + (i+1) + ']:checked').val()
+				};
+			}
+
+			selectArray.push(selectOption);
+		}
+
+
+		// 옵션값 적용
+		$('.listBox').each(function () {
+
+
+			var optionName	=	$(this).find('.nameGroup .name').text().trim() + $(this).find('.nameGroup .order').text().trim();
+
+
+			if(selName	==	optionName){
+
+				var str	= "";
+
+				selectArray.forEach(function (value, index) {
+
+					if(index > 0){
+						str += ",　";
+					}
+
+					str += "<span>[" + value.optionName + "]";
+					str += value.optionValue + "</span>";
+				});
+
+				$(this).addClass('on');
+				$(this).find('.caption').text('');
+				$(this).find('.caption').append(str);
+
+				package.packagePopClose();
+
+			}
+		});
+
+	},
+
+	packageRemove : function (e,event) {
+
+		event.stopPropagation();
+
+		$(e).parents('.listBox').remove();
+		package.packageNumberSet();
+	},
+
+
+
+	packageFinish : function () {
+
+
+		var count = 0;
+
+		$('.listBox').each(function (index) {
+
+			if(!$(this).hasClass('on')){
+				return false;
+			}
+			count ++;
+		});
+
+
+		// 상세정보 입력 확인인
+	// if(count != $('.listBox').length){
+		//
+		// 	alert("짐 정보를 전부 선택해주세요");
+		// 	return false;
+		// }
+
+
+
 
 		$.ajax({
-			type: "POST",
-			url: "/move/packageOptionPop",
-			data: {
-				idx : idx
-			},
-			success:function (data) {
+			url		:	"/move/packageFinish",
+			data	:	null,
+			success	:	function (data) {
 
+				if (data.trim() == "Y") {
+					location.href = '/move/step3'
+				} else {
+					alert("등록실패")
+				}
 			},
-			error:function () {
-				alert("에러 발생");
+			error	:	function () {
+				alert("에러 발생")
 			}
 		})
+
 
 
 	}
