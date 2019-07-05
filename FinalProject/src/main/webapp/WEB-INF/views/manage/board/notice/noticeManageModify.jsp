@@ -21,7 +21,7 @@
 						<span class="title_mark">■ 공지사항 수정</span>
 					</div>
 					<section class="section_notice">
-					<form action="/manage/board/notice/noticeUpdate" method="get">
+					<form action="/manage/board/notice/noticeUpdate" method="get" id="update">
 					<table class="set_table">
 						<colgroup>
 							<col width="250">
@@ -30,6 +30,12 @@
 						<tr>
 							<th>제목</th>
 							<td><input class="board_input" name="noticeTitle" value="${noticeVO.noticeTitle }"></td>
+						</tr>
+						<tr>
+							<th>분류</th>
+							<td>
+								${noticeVO.noticeType}<input type="hidden" name="noticeType" value="${noticeVO.noticeType}">
+							</td>
 						</tr>
 						<tr>
 							<th>파일</th>
@@ -46,7 +52,7 @@
 						<tr>
 							<td colspan="2">
 								<div class="board_button">
-									<input type="submit" class="board_Mobtn" value="수정">
+									<a href="#" onclick="document.getElementById('update').submit();" class="board_Mobtn">수정</a>
 									<a href="javascript:history.back()" class="board_Rebtn">취소</a>
 								</div>
 							</td>

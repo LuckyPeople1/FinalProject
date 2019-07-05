@@ -23,7 +23,7 @@ public class GuestLoginController {
 	//로그인 홈페이지로 이동
 	@RequestMapping(value="/")
 	public String GuestLogin() {
-		return "guest/loginHome";
+		return "guest/login/loginHome";
 	}
 	
 	//socialLogin
@@ -38,41 +38,33 @@ public class GuestLoginController {
 		} else {
 			request.setAttribute("socialId", socialId);
 			System.out.println(socialId);
-			view="guest/insertHome";
+			view="guest/insert/commonInsert";
 		}
 		return view;
 	}
 	
 	@RequestMapping(value="/commonLogin")
 	public String Login(HttpServletRequest request,String userId,String userPw) throws Exception {
+		System.out.println("userId"+userId);
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
 		userVO.setUserPw(userPw);
-		
 		UserVO user =userService.selectOneUser(userVO);
+		
 		if(user!=null) {
 			HttpSession session =request.getSession();
 			session.setAttribute("user", user);
-			
+			System.out.println(user.getUserIdx());
+			return "driver/driverHome";
+		}else {
+			return "redirect:/login/";
 		}
-		return "driver/driverHome";
+		
 	}
 	
 	//네이버 로그인 콜백 페이지로 이동
 	@RequestMapping(value="/callBack")
 	public String CallBack() {
-		return "guest/callBack";
-	}
-	
-	//약관 동의 페이지로 이동
-	@RequestMapping(value="/accept")
-	public String GuestAccept() {
-		return "guest/accept";
-	}
-	
-	//회원가입 페이지로 이동
-	@RequestMapping(value="/insert")
-	public String GuestInsertHome() {
-		return "guest/insertHome";
+		return "guest/login/callBack";
 	}
 }

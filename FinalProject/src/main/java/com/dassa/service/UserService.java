@@ -23,4 +23,8 @@ public class UserService {
 	public UserVO guestLogin(String socialId) throws Exception {
 		return userMapper.socialLogin(socialId);
 	}
+
+	public int commonInsert(UserVO userVO) throws Exception {
+		return userMapper.commonInsert(userVO);
+	}
 }

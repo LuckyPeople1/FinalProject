@@ -7,15 +7,18 @@
 input, button {
 	outline: none;
 }
+button{
+	cursor: pointer;
+}
 #accept_section{
-	width: 1300px;
+	width: 800px;
 	margin-left: 550px;
+	border: 1px solid black;
 	
 }
 /* 약관동의 div */
 #accept_section .accept_header{
-	width: 740px;
-	margin-left: 30px;
+	width: 798px;
 	height: 80px;
 	padding-left: 30px;
 	line-height: 80px;
@@ -158,4 +161,30 @@ input, button {
 	border-style: initial;
 	border-color: initial;
 	border-image: initial;
+}
+
+/* 회원가입 버튼 */
+.insert_wrap{
+		width:740px;
+		margin-left: 30px;
+		margin-bottom: 30px;
+}
+.insert_wrap *{
+	width: 240px;
+	height: 60px;
+	color: rgb(255, 255, 255);
+	font-size: 17px;
+	font-weight: 500;
+	background-color: rgb(100, 120, 232);
+	border-width: 0px;
+	border-style: initial;
+	border-color: initial;
+	border-image: initial;
+}
+
+.insert_wrap .driver_insert{
+	margin-left:6px;
+}
+.insert_wrap .shop_insert{
+	margin-left:6px;
 }

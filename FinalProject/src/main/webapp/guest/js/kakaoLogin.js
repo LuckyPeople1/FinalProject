@@ -4,7 +4,7 @@ Kakao.init("a44556c982b2f8c93ffc9c39eef6c4bb");  //여기서 아까 발급받은
 // 카카오 로그인 버튼을 생성합니다.
 Kakao.Auth.createLoginButton({
 	container: '#kakao-login-btn',
-	size: 'small',
+	size: 'medium',
 	success: function(authObj) {
 		Kakao.API.request({
 			url:'/v1/user/me',

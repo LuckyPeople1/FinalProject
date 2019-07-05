@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	alert('수정성공');
+	alert('글이 수정되었습니다.');
 	location.href="/manage/board/notice/noticeManageList";
 </script>
 </body>

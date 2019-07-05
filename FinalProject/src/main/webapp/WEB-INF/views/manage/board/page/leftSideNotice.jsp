@@ -14,17 +14,17 @@
 			<li>
 				<a href="#none" class="menu_name">부동산 게시판 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/manage/board/notice/noticeManageRealestateList" class="">부동산 공지사항 관리</a></li>
-					<li><a href="/manage/board/faq/faqManageRealestateList" class="">부동산 FAQ 관리</a></li>
-					<li><a href="/manage/board/question/questionManageRealestateList" class="">부동산 1:1 문의 관리</a></li>
+					<li><a href="/manage/board/notice/realestate/noticeManageRealestateList" class="">부동산 공지사항 관리</a></li>
+					<li><a href="/manage/board/faq/realestate/faqManageRealestateList" class="">부동산 FAQ 관리</a></li>
+					<li><a href="/manage/board/question/realestate/questionManageRealestateList" class="">부동산 1:1 문의 관리</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="#none" class="menu_name">기사 게시판 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/manage/board/notice/noticeManageArticlesList" class="">기사 공지사항 관리</a></li>
-					<li><a href="/manage/board/faq/faqManageAriclesList" class="">기사 FAQ 관리</a></li>
-					<li><a href="/manage/board/question/questionManageAriticlesList" class="">기사 1:1 문의 관리</a></li>
+					<li><a href="/manage/board/notice/articles/noticeManageArticlesList" class="">기사 공지사항 관리</a></li>
+					<li><a href="/manage/board/faq/articles/faqManageArticlesList" class="">기사 FAQ 관리</a></li>
+					<li><a href="/manage/board/question/articles/questionManageAriticlesList" class="">기사 1:1 문의 관리</a></li>
 				</ul>
 			</li>			
 		</ul>

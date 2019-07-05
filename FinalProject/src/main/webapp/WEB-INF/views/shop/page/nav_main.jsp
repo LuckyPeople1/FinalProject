@@ -14,7 +14,7 @@
 			<i class="ico member">직원관리</i>
 			<span class="nav_txt">직원관리</span>
 		</a>
-		<a href="/shop/room">
+		<a href="/shop/item">
 			<i class="ico shop">매물관리</i>
 			<span class="nav_txt">매물관리</span>
 		</a>
@@ -26,7 +26,7 @@
 			<i class="ico board">게시판관리</i>
 			<span class="nav_txt">게시판관리</span>
 		</a>
-		<a href="/shop/item">
+		<a href="/shop/premiumItem">
 			<i class="ico marketing">상품관리</i>
 			<span class="nav_txt">상품관리</span>
 		</a>

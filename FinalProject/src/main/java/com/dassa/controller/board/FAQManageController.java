@@ -26,14 +26,14 @@ public class FAQManageController {
 	}
 	
 	//faq부동산페이지
-	@RequestMapping("/faqManageRealestateList")
+	@RequestMapping("/realestate/faqManageRealestateList")
 	public String faqManageRealestateList() {
-		return "manage/board/faq/faqManageRealestateList";
+		return "manage/board/faq/realestate/faqManageRealestateList";
 	}
 	
 	//faq기사페이지
-	@RequestMapping("/faqManageAriclesList")
+	@RequestMapping("/articles/faqManageArticlesList")
 	public String faqManageAriclesList() {
-		return "manage/board/faq/faqManageAriclesList";		
+		return "manage/board/faq/articles/faqManageArticlesList";		
 	}
 }

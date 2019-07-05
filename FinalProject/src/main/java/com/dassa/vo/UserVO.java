@@ -1,8 +1,7 @@
 package com.dassa.vo;
 
 public class UserVO {
-	private int 	userNo;
-	private int		driverIdx;				//이사아저씨 고유 번호
+	private int 	userIdx;					//고유번호로 쓸것.
 	private String 	userId;
 	private String 	userPw;
 	private String 	userName;
@@ -15,17 +14,11 @@ public class UserVO {
 	private String 	userImagePath;
 	private String 	userType;				//회원 타입
 	private String  socialId;				//소셜 로그인 할 때 필요
-	
-	public UserVO() {
+	public UserVO(int userIdx, String userId, String userPw, String userName, String userPhone, String userEmail,
+			String userIntroduce, String registrationNumber, String userCar, String userImageName, String userImagePath,
+			String userType, String socialId) {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	public UserVO(int userNo, int driverIdx, String userId, String userPw, String userName, String userPhone,
-			String userEmail, String userIntroduce, String registrationNumber, String userCar, String userImageName,
-			String userImagePath, String userType, String socialId) {
-		super();
-		this.userNo = userNo;
-		this.driverIdx = driverIdx;
+		this.userIdx = userIdx;
 		this.userId = userId;
 		this.userPw = userPw;
 		this.userName = userName;
@@ -39,17 +32,14 @@ public class UserVO {
 		this.userType = userType;
 		this.socialId = socialId;
 	}
-	public int getUserNo() {
-		return userNo;
+	public UserVO() {
+		super();
 	}
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public int getUserIdx() {
+		return userIdx;
 	}
-	public int getdriverIdxxx() {
-		return driverIdx;
-	}
-	public void setdriverIdxxx(int driverIdx) {
-		this.driverIdx = driverIdx;
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
 	}
 	public String getUserId() {
 		return userId;
@@ -105,11 +95,11 @@ public class UserVO {
 	public void setUserImageName(String userImageName) {
 		this.userImageName = userImageName;
 	}
-	public String getUserImagePass() {
+	public String getUserImagePath() {
 		return userImagePath;
 	}
-	public void setUserImagePass(String userImagePass) {
-		this.userImagePath = userImagePass;
+	public void setUserImagePath(String userImagePath) {
+		this.userImagePath = userImagePath;
 	}
 	public String getUserType() {
 		return userType;
@@ -123,6 +113,14 @@ public class UserVO {
 	public void setSocialId(String socialId) {
 		this.socialId = socialId;
 	}
-	
-	
+	public String getType() {
+		String type = getUserType();
+		if(type.equals("1")) {
+			return "일반";
+		}else if(type.equals("2")){
+			return "운송기사";
+		}else {
+			return "부동산";
+		}
+	}
 }

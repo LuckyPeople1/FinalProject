@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class NoticeVO {
 	private int noticeIndex;
+	private String noticeType;
 	private String noticeTitle;
 	private String noticeContent;
 	private String noticeWriter;
@@ -16,10 +17,11 @@ public class NoticeVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public NoticeVO(int noticeIndex, String noticeTitle, String noticeContent, String noticeWriter,
+	public NoticeVO(int noticeIndex, String noticeType, String noticeTitle, String noticeContent, String noticeWriter,
 			String noticeFilename, String noticeFilepath, int noticeHit, Date noticeRegDate, String noticeState) {
 		super();
 		this.noticeIndex = noticeIndex;
+		this.noticeType = noticeType;
 		this.noticeTitle = noticeTitle;
 		this.noticeContent = noticeContent;
 		this.noticeWriter = noticeWriter;
@@ -34,6 +36,12 @@ public class NoticeVO {
 	}
 	public void setNoticeIndex(int noticeIndex) {
 		this.noticeIndex = noticeIndex;
+	}
+	public String getNoticeType() {
+		return noticeType;
+	}
+	public void setNoticeType(String noticeType) {
+		this.noticeType = noticeType;
 	}
 	public String getNoticeTitle() {
 		return noticeTitle;
@@ -83,4 +91,5 @@ public class NoticeVO {
 	public void setNoticeState(String noticeState) {
 		this.noticeState = noticeState;
 	}
+	
 }
