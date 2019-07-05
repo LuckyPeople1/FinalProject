@@ -14,4 +14,6 @@ public interface MovePackageMapper {
 	public int regPackage(PackageRegVO packageRegVO) throws Exception;
 
 	public List<PackageTempVO> getPackageList() throws Exception;
+
+	public PackageTempVO getPackage(int idx) throws Exception;
 }

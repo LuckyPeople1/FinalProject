@@ -67,12 +67,16 @@
 		)
 	</insert>
 
-
-
-	<select id="getPackageList" resultType="com.dassa.vo.PackageTempVO" resultMap="packageMap">
+	<select id="getPackageList" resultMap="packageMap">
 		select *
 		from MOVE_PACKAGE_TBL
 		where PACKAGE_STATUS = 0 order by PACKAGE_IDX
+	</select>
+
+	<select id="getPackage" resultMap="packageMap" parameterType="int">
+		select *
+		from MOVE_PACKAGE_TBL
+		where PACKAGE_STATUS = 0 and PACKAGE_IDX = #{idx}
 	</select>
 
 </mapper>

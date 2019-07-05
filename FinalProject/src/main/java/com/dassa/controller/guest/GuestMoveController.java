@@ -2,6 +2,7 @@ package com.dassa.controller.guest;
 
 
 import com.dassa.service.MovePackageService;
+import com.dassa.vo.PackageRegOptionVO;
 import com.dassa.vo.PackageRegVO;
 import com.dassa.vo.PackageSelectVO;
 import org.springframework.stereotype.Controller;
@@ -79,18 +80,50 @@ public class GuestMoveController {
 			Model model) throws Exception {
 
 		// 세션에서 리스트를 가져와서 뷰로 넘겨줌
+
+
 		model.addAttribute("selectList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
 
 		return "guest/move/moveStep2";
 	}
 
 
-	@RequestMapping("/packageOptionPop")
-	@ResponseBody
-	public String packageOptionPop(@RequestBody String idx){
+	/**
+	 * 짐 상세정보 팝업
+	 * @param idx
+	 * @param name
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/packagePop")
+	public String packagePop(int idx, String name, Model model) throws Exception {
 
-		System.out.println(idx + " 아이디IDX");
+
+		System.out.println(name + "네임");
+
+		List<PackageRegOptionVO> optionList	=	movePackageService.getPackageOptionList(idx);
+		System.out.println(optionList.size() + " 몇개 가져오니");
+
+		model.addAttribute("optionList", optionList);
+		model.addAttribute("name",name);
+
+		return "guest/move/page/packagePop";
+	}
+
+
+	@RequestMapping("/packageFinish")
+	@ResponseBody
+	public String packageFinish(){
 
 		return "Y";
+	}
+
+
+	@RequestMapping("/step3")
+	public String moveStep2(){
+
+		return "guest/move/moveStep3";
+
 	}
 }

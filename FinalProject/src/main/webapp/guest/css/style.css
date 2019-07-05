@@ -12,6 +12,21 @@
 
 }
 
+body.popup{
+	overflow: hidden;
+
+}
+body.popup:before{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	top:0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 50;
+
+}
 /* header */
 header{
 
@@ -357,7 +372,7 @@ section.moveStep .packageTypeBox .packageBox .qty{
 
 section.moveStep .packageBtnBox {
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 50px;
 }
 section.moveStep .packageBtnBox a + a{
 	margin-left: 25px;
@@ -502,6 +517,243 @@ section.moveStep .packageSelectList .packageInfo .title .caption{
 	font-size: 13px;
 	padding-top: 3px;
 }
+
+section.layerPopup{
+	display:none;
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+section.layerPopup .popupTitle,
+section.layerPopup .popupCon{
+	background-color: #fff;
+
+
+}
+section.layerPopup .popupTitle{
+	line-height: 56px;
+	text-align: center;
+	font-size: 26px;
+	font-weight: 400;
+
+
+
+}
+section.layerPopup .optionList{
+	border-top:1px solid #eee;
+	padding:16px;
+}
+section.layerPopup .optionList .optionTitle{
+	margin-bottom: 12px;
+	font-size: 18px;
+	font-weight: 700;
+
+}
+section.layerPopup .optionList .optionBox {
+	margin : -5px;
+}
+section.layerPopup .optionList .optionBox label{
+	margin:5px;
+}
+
+section.layerPopup .optionList .optionBox label input{
+	display:none;
+}
+section.layerPopup .optionList .optionBox label input + span{
+	width: 107px;
+	line-height: 35px;
+	/*background-color: #f1f1f1;*/
+	border:1px solid #ccc;
+	font-size: 16px;
+	padding:0;
+	text-align: center;
+	border-radius: 5px;
+	transition: 0.3s;
+	letter-spacing: -0.5px;
+
+}
+section.layerPopup .optionList .optionBox label input:checked + span{
+	background-color: #4683bd;
+	color: #fff;
+	border-color:#fff;
+	transition: 0.3s;
+}
+section.layerPopup .optionList .optionEtc{
+	display:none;
+	margin-top: 10px;
+}
+section.layerPopup .optionList .optionEtc input{
+	background-color: #eee;
+	padding:0 10px;
+	height: 35px;
+	width: 100%;
+	outline: none;
+}
+
+section.layerPopup .popupFooter{
+	font-size: 0;
+}
+section.layerPopup .popupFooter a{
+	width: 40%;
+	line-height: 50px;
+	font-size: 22px;
+	border:none;
+}
+section.layerPopup .popupFooter a + a{
+	width: 60%;
+}
+
+
+
+
+/** move step 3 **/
+
+section.moveStep .moveInfoGroup{
+	background-color: #EEEEEE;
+	padding:8px;
+}
+
+section.moveStep .moveInfoGroup .moveInputList li{
+	background-color: #fff;
+	margin-bottom: 8px;
+	background-image: url(../img/icon_package_rightArrow.png);
+	background-size: 24px 24px;
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+}
+section.moveStep .moveInfoGroup .moveInputList li .infoGroup{
+	padding:16px;
+	cursor: pointer;
+}
+section.moveStep .moveInfoGroup .infoGroup .default{
+	height: auto;
+	/*margin-bottom: 16px;*/
+	display:table;
+	width: 100%;
+}
+section.moveStep .moveInfoGroup .infoGroup .default > div,
+section.moveStep .moveInfoGroup .infoGroup .table .tableCell{
+	display:table-cell;
+	vertical-align: middle;
+}
+
+section.moveStep .moveInfoGroup .infoGroup .iconMark{
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image:url("../img/icon_mappin_black.png");
+}
+section.moveStep .moveInfoGroup .infoGroup .table{
+	width: 100%;
+	display:table;
+}
+
+section.moveStep .moveInfoGroup .infoGroup .name{
+	line-height: 24px;
+	color: rgba(0,0,0,0.87);
+	font-size: 16px;
+	font-weight: bold;
+	padding-left:10px;
+}
+
+section.moveStep .moveInfoGroup .infoGroup .table .tableCell:nth-child{
+	vertical-align: middle;
+}
+/*section.moveStep .moveInfoGroup .infoGroup .table .tableCell:nth-child(1){*/
+/*	width: 90px;*/
+/*}*/
+section.moveStep .moveInfoGroup .infoGroup .table .tableCell .status{
+	display:none;
+}
+
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .status{
+	display:block;
+}
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-elevator{
+	width: 24px;
+	height: 24px;
+	background-image: url(../img/icon_elevator_off.png);
+	background-size: 24px 24px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-elevator,
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-parking{
+	width: 24px;
+	height: 24px;
+	background-image: url(../img/icon_elevator_off.png);
+	background-size: 24px 24px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-parking{
+	background-image: url(../img/icon_parking_off.png);
+}
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-elevator.on{
+	background-image: url(../img/icon_elevator_on.png);
+}
+section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-parking.on{
+	background-image: url(../img/icon_parking_on.png);
+}
+
+section.moveStep .moveInfoGroup .infoGroup .caption{
+	min-width: 90px;
+	padding-right: 26px;
+	line-height: 24px;
+	text-align: right;
+	color: rgba(0,0,0,0.38);
+	font-size: 14px;
+}
+
+
+section.moveStep .moveInfoGroup .infoGroup .information {
+	display: none;
+}
+section.moveStep .moveInfoGroup .infoGroup .schedule .iconMark{
+	background-image:url("../img/icon_time_black.png");
+	background-size:24px 26px;
+
+}
+section.moveStep .moveInfoGroup .imgUploadBox{
+	background-color: #fff;
+	min-height:56px;
+	padding:16px;
+}
+section.moveStep .moveInfoGroup .imgUploadBox .imgUploadTitle{
+	margin-bottom: 7px;
+	color: rgba(0,0,0,0.8);
+	font-size: 20px;
+	font-weight: bold;
+}
+section.moveStep .moveInfoGroup .imgUploadBox .imgUploadInfo{
+	color: rgba(0,0,0,0.64);
+	font-size: 16px;
+}
+section.moveStep .moveInfoGroup .imgUploadBox .imgList{
+	margin-top: 20px;
+}
+section.moveStep .moveInfoGroup .imgUploadBox .imgBox{
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	width: 87px;
+	height: 90px;
+	margin: 2px;
+	background-image: url(../img/img_input_img.png);
+	background-size: 87px 90px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
 
 /* SaleInLots 공통부분 CSS (분양) */
 section.saleInLots{
