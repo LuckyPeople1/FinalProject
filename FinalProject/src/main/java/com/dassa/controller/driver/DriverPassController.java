@@ -1,9 +1,12 @@
 package com.dassa.controller.driver;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.tribes.MembershipService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.dassa.common.FileCommon;
 import com.dassa.service.DriverService;
+import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.UserVO;
 
 @Controller
@@ -38,13 +42,13 @@ public class DriverPassController {
 		return "driver/mypage/driverMypage";
 	}
 	
+	//정보수정 업데이트
 	@RequestMapping(value="/mypageUpdate")
 	@ResponseBody
 	public String DriverMypageUpdate(UserVO userVO,HttpServletRequest request,MultipartFile fileImg) throws Exception {
 		
 		int result=0;
 		result=driverService.driverMypageUpdateText(userVO);
-		System.out.println(userVO.getUserImagePath());
 		if(!fileImg.getOriginalFilename().equals("")){
 			String[] fileInfo	=	FileCommon.fileUp(fileImg,request, "driver");
 			userVO.setUserImageName(fileInfo[0]);
@@ -58,13 +62,27 @@ public class DriverPassController {
 		}else {			
 			System.out.println("수정실패");
 		}
-		System.out.println(result);
+		
 		return "rediect:";
 	}
 	
 	//입찰 관리 페이지 
 	@RequestMapping("/auction")
-	public String DriverAuction() {
+	public String DriverAuction(Model model) throws Exception {
+		List<MoveApplyVO> list =driverService.drvierAuctionList();
+		
+		/*for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getApplyIdx());
+			System.out.println(list.get(i).getStartAddr1());
+			System.out.println(list.get(i).getGuestName());
+		}*/
+		
+		if(list!=null) {
+			model.addAttribute("list", list);
+			
+		}
+		
+		
 		return "driver/auction/driverAuction";
 	}
 	//입찰관리 상세보기
