@@ -40,8 +40,16 @@
 						<tr>
 							<th>파일</th>
 							<td>
-								<input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
-								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }">
+								<%-- <input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
+								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }"> --%>
+								<div class="img_up_list">
+									<div class="img_box">
+										<input type="file" class="hide" accept="image/*" name="noticeFilename" id="fileImg"
+											   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
+										<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
+										<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }">
+									</div>
+								</div>
 							</td>
 						</tr>
 						<tr>

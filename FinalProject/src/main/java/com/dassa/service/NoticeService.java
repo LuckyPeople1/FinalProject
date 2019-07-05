@@ -31,5 +31,9 @@ public class NoticeService {
 	public int noticeInsert(NoticeVO n) throws Exception{
 		return noticeMapper.noticeInsert(n);
 	}
+	//게시물삭제
+	public int noticeDelete(int noticeIndex) throws Exception{
+		return noticeMapper.noticeDelete(noticeIndex);
+	}
 
 }
