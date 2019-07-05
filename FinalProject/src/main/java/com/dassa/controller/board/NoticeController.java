@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.common.FileCommon;
@@ -45,6 +45,7 @@ public class NoticeController {
 		}
 		return ma;
 	}
+	
 	//기사 공지사항 페이지
 	@RequestMapping("/articles/noticeManageArticlesList")
 	public ModelAndView noticeManageArticlesList() {
@@ -133,27 +134,24 @@ public class NoticeController {
 	public String noticeManageWriter() {
 		return "manage/board/notice/noticeManageWriter";
 	}
+	
+	
 	//공지사항 인서트
 	@RequestMapping("/noticeInsert")
-	public String noticeInsert(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticeFilename) {
-		System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
-		System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
-		int result;
-		String view = "";
+	public String noticeInsert(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
+		
+		
+		
 		String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
-		System.out.println(savePath);
-		//img1.jpg 이것을 .기준으로 쪼개는법
-		String originName = noticeFilename.getOriginalFilename();
-		//img1
+		String originName = noticefilename.getOriginalFilename();
 		String onlyFileName = originName.substring(0, originName.indexOf(".")); //처음부터 .만날때까지 읽어오는것
-		//jpg
 		String extension = originName.substring(originName.indexOf(".")); //.(포함)부터 끝까지 읽어옴
-		//img1_(현재시간을 초단위).jpg
 		String filePath = onlyFileName+"_"+"1"+extension;	//시간을 초까지 붙으면 파일이름이 겹칠일이 없다고봄
 		String fullPath = savePath+"/"+filePath; //경로 합쳐 놓은것
-		if(!noticeFilename.isEmpty()) {
+		n.setNoticeFilename(filePath);
+		if(!noticefilename.isEmpty()) {
 			try {
-				byte[] bytes = noticeFilename.getBytes();
+				byte[] bytes = noticefilename.getBytes();
 				File f = new File(fullPath);	//io File 임포트
 				FileOutputStream fos = new FileOutputStream(f);
 				BufferedOutputStream bos = new BufferedOutputStream(fos);
@@ -165,6 +163,10 @@ public class NoticeController {
 				e.printStackTrace();
 			}
 		}
+		int result;
+		String view = "";
+		System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
+		System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
 		try {
 			result = noticeService.noticeInsert(n);
 			if(result>0) {

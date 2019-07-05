@@ -50,7 +50,7 @@
   			#{noticeContent},
   			#{noticeWriter},
   			#{noticeFilename},
-  			#{noticeFilepath},
+  			null,
   			default, sysdate,
   			#{noticeState})
   </insert>

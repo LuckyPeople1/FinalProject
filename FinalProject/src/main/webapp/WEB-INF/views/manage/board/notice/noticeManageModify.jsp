@@ -44,10 +44,10 @@
 								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }"> --%>
 								<div class="img_up_list">
 									<div class="img_box">
-										<input type="file" class="hide" accept="image/*" name="noticeFilename" id="fileImg"
+										<input type="file" class="hide" accept="image/*" name="noticefilename" id="fileImg"
 											   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
 										<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
-										<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }">
+										<input type="hidden" name="noticefilepath" value="${noticeVO.noticeFilename }">
 									</div>
 								</div>
 							</td>
