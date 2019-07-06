@@ -26,22 +26,14 @@
 							<col width="200">
 							<col width="*">
 						</colgroup>
-						<c:choose>
-							<c:when test="${empty socialId }">
-								<tr>
-									<th>아이디</th>
-									<td><input type="text" class="tbox normal" name="userId"></td>
-								</tr>
-								<tr>
-									<th>비밀번호</th>
-									<td><input type="password" class="tbox normal" name="userPw"></td>
-								</tr>
-							</c:when>
-							<c:when test="${not empty socialId }">
-									<input type="hidden" class="tbox normal" name="userId">
-									<input type="hidden" class="tbox normal" name="userPw">
-							</c:when>
-						</c:choose>
+						<tr>
+							<th>아이디</th>
+							<td><input type="text" class="tbox normal" name="userId"></td>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input type="password" class="tbox normal" name="userPw"></td>
+						</tr>
 						<tr>
 							<th>이름</th>
 							<td><input type="text" class="tbox normal" name="userName"></td>

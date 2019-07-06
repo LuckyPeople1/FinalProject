@@ -10,8 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="/guest/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/ui.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/guest/css/slick.min.css">
-	<link rel="stylesheet" type="text/css" href="/guest/css/slick-theme.min.css">
+<%--	<link rel="stylesheet" type="text/css" href="/guest/css/slick.min.css">--%>
+<%--	<link rel="stylesheet" type="text/css" href="/guest/css/slick-theme.min.css">--%>
 	<link rel="stylesheet" type="text/css" href="/guest/css/jquery-ui.min.css">
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>

@@ -17,5 +17,8 @@ public interface NoticeMapper {
 
 	//작성 인서트하기
 	public int noticeInsert(NoticeVO n) throws Exception;
+	
+	//삭제
+	public int noticeDelete(int noticeIndex) throws Exception;
 
 }

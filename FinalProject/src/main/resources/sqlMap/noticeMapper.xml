@@ -10,7 +10,7 @@
   			notice_hit as noticeHit,
   			notice_reg_date as noticeRegDate,
   			notice_state as noticeState
-  		from notice_tbl
+  		from notice_tbl where notice_state='정상'
   </select>
   <!-- 공지사항업데이트 -->
   <update id="noticeUpdate" parameterType="noticeVO">
@@ -50,8 +50,13 @@
   			#{noticeContent},
   			#{noticeWriter},
   			#{noticeFilename},
-  			#{noticeFilepath},
+  			null,
   			default, sysdate,
   			#{noticeState})
   </insert>
+  
+  <!-- 공지사항 삭제 update notice_tbl set notice_state='삭제' where notice_index=#{notice_index},   	delete from notice_tbl where notice_index=#{notice_index}-->
+  <update id="noticeDelete" parameterType="noticeVO">
+  	update notice_tbl set notice_state='삭제' where notice_index=#{notice_index}
+  </update>
 </mapper>

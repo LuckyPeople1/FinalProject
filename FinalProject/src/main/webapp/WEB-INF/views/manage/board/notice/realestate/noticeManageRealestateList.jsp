@@ -108,7 +108,7 @@
 								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
 							</div>
 							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
+								<a href="/manage/board/notice/noticeDelete?noticeIndex=${n.noticeIndex }" class="btn small col_darkGrey f_w">삭제</a>
 							</div>
 						</td>
 					</tr>

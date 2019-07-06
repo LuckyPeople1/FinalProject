@@ -618,7 +618,7 @@ section.moveStep .moveInfoGroup{
 	padding:8px;
 }
 
-section.moveStep .moveInfoGroup .moveInputList li{
+section.moveStep .moveInfoGroup .moveInputList > li{
 	background-color: #fff;
 	margin-bottom: 8px;
 	background-image: url(../img/icon_package_rightArrow.png);
@@ -655,6 +655,13 @@ section.moveStep .moveInfoGroup .infoGroup .table{
 	display:table;
 }
 
+section.moveStep .moveInfoGroup .infoGroup .title .tableCell:first-child{
+	width: 100px;
+}
+section.moveStep .moveInfoGroup .infoGroup .default.schedule .tableCell:first-child{
+	width: auto;
+}
+
 section.moveStep .moveInfoGroup .infoGroup .name{
 	line-height: 24px;
 	color: rgba(0,0,0,0.87);
@@ -666,9 +673,6 @@ section.moveStep .moveInfoGroup .infoGroup .name{
 section.moveStep .moveInfoGroup .infoGroup .table .tableCell:nth-child{
 	vertical-align: middle;
 }
-/*section.moveStep .moveInfoGroup .infoGroup .table .tableCell:nth-child(1){*/
-/*	width: 90px;*/
-/*}*/
 section.moveStep .moveInfoGroup .infoGroup .table .tableCell .status{
 	display:none;
 }
@@ -676,15 +680,6 @@ section.moveStep .moveInfoGroup .infoGroup .table .tableCell .status{
 section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .status{
 	display:block;
 }
-section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-elevator{
-	width: 24px;
-	height: 24px;
-	background-image: url(../img/icon_elevator_off.png);
-	background-size: 24px 24px;
-	background-position: center center;
-	background-repeat: no-repeat;
-}
-
 
 section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-elevator,
 section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-parking{
@@ -694,7 +689,10 @@ section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-parking{
 	background-size: 24px 24px;
 	background-position: center center;
 	background-repeat: no-repeat;
+	display:inline-block;
 }
+
+
 section.moveStep .moveInfoGroup .infoGroup.on .table .tableCell .icon-parking{
 	background-image: url(../img/icon_parking_off.png);
 }
@@ -714,10 +712,22 @@ section.moveStep .moveInfoGroup .infoGroup .caption{
 	font-size: 14px;
 }
 
+section.moveStep .moveInfoGroup .infoGroup.on .caption{
+	display: none;
+}
+
 
 section.moveStep .moveInfoGroup .infoGroup .information {
 	display: none;
+	padding-left:5px;
 }
+
+section.moveStep .moveInfoGroup .infoGroup.on .information {
+	display:block;
+
+}
+
+
 section.moveStep .moveInfoGroup .infoGroup .schedule .iconMark{
 	background-image:url("../img/icon_time_black.png");
 	background-size:24px 26px;
@@ -752,6 +762,523 @@ section.moveStep .moveInfoGroup .imgUploadBox .imgBox{
 	background-size: 87px 90px;
 	background-position: center center;
 	background-repeat: no-repeat;
+}
+
+
+section.moveStep .information .address{
+	margin:10px 0;
+	line-height: 23px;
+	color: #4683bd;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+section.moveStep .typeList{
+	display:table;
+
+}
+section.moveStep .typeList li{
+	display:table-cell;
+	color: #666;
+	font-size: 16px;
+
+
+
+}
+section.moveStep .typeList li.separate:before{
+	content:'';
+	display:inline-block;
+	height: 12px;
+	margin:0 8px;
+	width: 1px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.3);
+}
+
+
+
+/** move addr & detail **/
+section.moveStep #post{
+	min-height:500px;
+}
+
+section.moveStep .moveDetailBox{
+	background-color: #eeeeee;
+	padding:8px;
+
+}
+
+section.moveStep .moveDetailBox .addrInfo{
+	background-color: #fff;
+	padding:16px;
+}
+
+section.moveStep .moveDetailBox .addrTitle,
+section.moveStep .moveDetailBox .detailOptionTitle{
+
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+section.moveStep .moveDetailBox  .addrBtn{
+	width: 100%;
+	height: 48px;
+	margin-bottom: 8px;
+	line-height: 48px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: #354055;
+	border-radius: 4px;
+}
+section.moveStep .moveDetailBox  .addrText{
+	min-height: 76px;
+	margin-bottom: 16px;
+	padding: 16px;
+	line-height: 22px;
+	color: #424242;
+	font-size: 15px;
+	background-color: #F4F4F4;
+	border-radius: 4px;
+}
+section.moveStep .moveDetailBox  .addrDetailInput{
+	width: 100%;
+	height: 48px;
+	padding: 16px;
+	color: rgba(0,0,0,0.64);
+	border: 1px solid rgba(0,0,0,0.12);
+	border-radius: 4px;
+
+}
+section.moveStep .moveDetailBox  .detailOption li{
+	background-color: #fff;
+	padding:16px;
+	margin-top:8px;
+}
+
+
+section.moveStep .moveDetailBox  .detailOption .detailOptionList{
+	margin:-5px;
+	font-size: 0;
+}
+section.moveStep .moveDetailBox  .detailOption label,
+section.moveStep .scheduleBox  .moveListInput label{
+	display:inline-block;
+	width: calc(25% - 10px);
+	margin:5px;
+}
+
+section.moveStep .moveDetailBox  .detailOption label.half,
+section.moveStep .scheduleBox  .moveListInput label.half{
+
+	width: calc(50% - 10px);
+}
+
+section.moveStep .moveDetailBox  .detailOption label input,
+section.moveStep .scheduleBox  .moveListInput label input{
+
+	display:none;
+}
+section.moveStep .moveDetailBox  .detailOption label input + span,
+section.moveStep .scheduleBox  .moveListInput label input + span{
+	width: 100%;
+	height: 38px;
+	text-align: center;
+	color: rgba(0,0,0,0.87);
+	font-size: 14px;
+	border: 1px solid rgba(0,0,0,0.38);
+	border-radius: 4px;
+	line-height: 36px;
+}
+section.moveStep .moveDetailBox  .detailOption label input:checked + span,
+section.moveStep .scheduleBox  .moveListInput label input:checked + span{
+
+	color: #FFFFFF;
+	background-color: #4683bd;
+	border: 1px solid #4683bd;
+	transition: 0.3s;
+
+}
+
+
+
+/** move schedule **/
+section.moveStep .moveScheduleGroup{
+	background-color: #EEEEEE;
+	padding:8px;
+}
+section.moveStep .moveScheduleGroup .scheduleBox:first-child{
+	margin-top: 0;
+}
+section.moveStep .moveScheduleGroup .scheduleBox{
+	padding:16px;
+	background-color: #fff;
+	margin-top:8px;
+}
+section.moveStep .moveScheduleGroup .scheduleTitle{
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+section.moveStep .moveScheduleGroup .scheduleBox{
+	font-size: 0;
+}
+section.moveStep .moveScheduleGroup .timeSelect .hyphen{
+	display:inline-block;
+	vertical-align: middle;
+	margin:0 10px;
+	font-size: 16px;
+}
+section.moveStep .moveScheduleGroup .timeSelect .sbox{
+	border: 1px solid rgba(0,0,0,0.38);
+	border-radius: 4px;
+	line-height: 36px;
+	height: 36px;
+	width: 130px;
+	text-align: center;
+}
+section.moveStep .moveScheduleGroup .timeSelect .sbox + .sbox{
+	margin-left: 10px;
+}
+
+
+section.moveStep .moveScheduleGroup .moveAgree{
+	padding:10px 0;
+}
+section.moveStep .moveScheduleGroup .moveAgree label input,
+section.moveStep .applyGroup .agreeBox label input{
+	display:none;
+}
+section.moveStep .moveScheduleGroup .moveAgree label input + span,
+section.moveStep .applyGroup .agreeBox label input + span{
+	position:relative;
+	padding-left:40px;
+	font-size: 18px;
+}
+section.moveStep .moveScheduleGroup .moveAgree label input + span:before,
+section.moveStep .applyGroup .agreeBox label input + span:before{
+	content:'';
+	position:absolute;
+	left:0;
+	top:50%;
+	transform: translateY(-50%);
+	display:inline-block;
+	width: 30px;
+	height: 30px;
+	background:url("../img/icon_btn_checkbox_off.png") no-repeat center / cover;
+}
+
+section.moveStep .moveScheduleGroup .moveAgree label input:checked + span:before,
+section.moveStep .applyGroup .agreeBox label input:checked + span:before{
+	background:url("../img/icon_btn_checkbox_on.png") no-repeat center / cover;
+
+}
+
+
+/* 달력 */
+section.moveStep #calendar{
+	width: 100%;
+	padding:5px;
+}
+section.moveStep #calendar .ui-datepicker{
+	width: 100%;
+}
+section.moveStep #calendar .ui-datepicker-header{
+	background-color: #fff;
+	border:0;
+	margin-bottom: 10px;
+
+}
+section.moveStep #calendar .ui-datepicker .ui-datepicker-title{
+}
+
+section.moveStep #calendar .ui-icon{
+	width:26px;
+	height:15px;
+}
+
+section.moveStep #calendar .ui-datepicker-next span,
+section.moveStep #calendar .ui-datepicker-prev span{
+	transform: translate(-50% , -50%);
+	margin:0;
+	right:38%;
+}
+section.moveStep #calendar .ui-datepicker-next,
+section.moveStep #calendar .ui-datepicker-prev{
+	top:50%;
+	right:38%;
+	transform: translateY(-50%);
+}
+section.moveStep #calendar .ui-datepicker-prev{
+	right:auto;
+	left:38%;
+}
+section.moveStep #calendar .ui-datepicker-prev span{
+	right:auto;
+	left:38%;
+}
+
+section.moveStep #calendar .ui-datepicker-next span{
+	background:url("../img/icon_package_rightArrow.png") no-repeat center / cover;
+}
+section.moveStep #calendar .ui-datepicker-prev span{
+	background:url("../img/icon_package_leftArrow.png") no-repeat center / cover;
+}
+section.moveStep #calendar .ui-datepicker-month,
+section.moveStep#calendar .ui-datepicker-year{
+	background-color: #fff;
+	border:0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	/*width:17%;*/
+	outline: none;
+	font-size:16px;
+	font-weight: 700;
+	padding:0;
+	display:inline-block;
+	text-align: center;
+	text-align-last: center;
+	margin:0 4px;
+}
+section.moveStep #calendar table{
+	margin:0;
+	border-collapse: collapse;
+	overflow: hidden;
+
+}
+section.moveStep #calendar table:after{
+	content:'';
+	display:block;
+
+}
+
+section.moveStep #calendar table tr{
+	border:0 none;
+
+}
+section.moveStep #calendar table thead th{
+	padding:20px 0 14px;
+	height:auto;
+	font-weight: 400;
+	background-color: #fff;
+	border-top:0 none;
+	border-bottom:1px solid #ccc;
+}
+section.moveStep #calendar table thead th:last-child span{
+	color: blue;
+}
+
+section.moveStep #calendar table thead th:first-child span{
+	color: red;
+}
+section.moveStep #calendar table thead span{
+	font-size: 16px;
+	color: #666;
+}
+section.moveStep #calendar table tbody{
+	background:#fff;
+}
+section.moveStep#calendar table tbody td{
+	height: auto;
+	background:#fff;
+	border:0 none;
+}
+
+section.moveStep #calendar table tbody td a{
+	text-align: center;
+	font-size: 16px;
+	border:0;
+	padding:20px 0;
+
+}
+
+section.moveStep #calendar table tbody .ui-state-default.ui-state-active{
+	color: #fff;
+	position:relative;
+	z-index: 1;
+	font-weight: 700;
+
+}
+section.moveStep #calendar table tbody .ui-state-default.ui-state-active:before{
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50% , -50%);
+	border-radius: 50%;
+	background-color: #4683bd;
+	z-index: -1;
+
+
+
+}
+section.moveStep#calendar table tbody .ui-state-default.ui-state-highlight{
+	color: #512da8;
+	font-weight: 700;
+}
+section.moveStep #calendar table tbody .ui-state-default{
+	background-color: #fff;
+	color: #000;
+}
+
+
+section.moveStep #calendar > .ui-widget.ui-widget-content{
+	padding:0 0 5px 0;
+	border:none;
+}
+
+section.moveStep #calendar table tbody .ui-state-disabled span {
+	text-align: center;
+	border: none;
+	color: #999;
+	padding:20px 0;
+}
+
+
+/** move apply **/
+section.moveStep .applyGroup{
+	padding:8px;
+	background-color: #EEEEEE;
+}
+section.moveStep .applyGroup .infoBox{
+	margin-top:8px;
+	padding:16px;
+	background-color: #fff;
+}
+
+section.moveStep .applyGroup .infoTitle{
+	font-size: 18px;
+	padding-bottom:15px;
+	border-bottom:1px solid rgba(0,0,0,0.87);
+}
+section.moveStep .applyGroup .infoListBox li{
+	padding:16px 8px;
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+
+}
+section.moveStep .applyGroup .infoListBox li.bg{
+	background-color: #EEEEEE;
+
+}
+section.moveStep .applyGroup .infoBox .row{
+	position:relative;
+	padding-left:150px;
+}
+section.moveStep .applyGroup .infoBox .row.static {
+	padding-left:0;
+}
+section.moveStep .applyGroup .infoBox .row.static .subject{
+	display:inline-block;
+	position:static;
+	transform: none;
+
+}
+section.moveStep .applyGroup .infoBox .row .subject{
+	position:absolute;
+	left:0;
+	top:50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+}
+
+section.moveStep .applyGroup .infoBox .row .addr{
+	margin-bottom: 8px;
+	font-size: 20px;
+}
+section.moveStep .applyGroup .infoBox .row .addrInfo{
+	color: #666;
+	font-size: 16px;
+	line-height: 22px;
+}
+section.moveStep .applyGroup .infoBox .hopeInfo{
+	margin: 16px 0;
+	border: 1px solid rgba(0,0,0,0.12);
+	border-radius: 4px;
+	padding: 16px;
+	background-color: #fff;
+}
+
+section.moveStep .applyGroup .infoBox .hopeInfo .hopeTitle{
+	height: 22px;
+	color: rgba(0,0,0,0.87);
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 22px;
+}
+section.moveStep .applyGroup .infoBox .hopeInfo .hopeTitle .accent{
+	color: #F65F50;;
+}
+section.moveStep .applyGroup .infoBox .hopeInfo .hopeText{
+	margin-top: 8px;
+	color: rgba(0,0,0,0.6);
+	font-size: 14px;
+	letter-spacing: 0.1px;
+	line-height: 28px;
+}
+section.moveStep .applyGroup .infoBox .packageName{
+	font-size: 16px;
+	margin-bottom: 7px;
+}
+section.moveStep .applyGroup .infoBox .packageOption{
+	font-size: 14px;
+	color: #666;
+}
+
+section.moveStep .applyGroup .infoListBox {
+	font-size: 0;
+}
+section.moveStep .applyGroup .infoListBox + .infoListBox{
+	border-top:1px solid rgba(0,0,0,0.87);
+	margin-top: 20px;
+}
+section.moveStep .applyGroup .infoListBox li.package{
+	width: 50%;
+	display:inline-block;
+}
+section.moveStep .applyGroup .guideBox{
+	/*padding:16px;*/
+	padding:22px 0 16px;
+	margin-top:8px;
+}
+
+section.moveStep .applyGroup .guideBox .guide + .guide{
+	padding-top: 8px;
+	border-top:1px solid #eee;
+	margin-top: 8px;
+
+}
+section.moveStep .applyGroup .guideBox .guideInfo{
+	background-color: #fff;
+	padding:16px;
+	border:1px solid #ccc;
+}
+
+section.moveStep .applyGroup .guideBox .guideTitle{
+	margin-bottom: 5px;
+}
+section.moveStep .applyGroup .guideBox .guideText{
+	color: #666;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+section.moveStep .applyGroup .agreeBox{
+	padding:10px 0 20px;
+}
+section.moveStep .applyGroup .agreeBox .agree + .agree{
+	margin-top: 20px;
+
+}
+section.moveStep .applyGroup .memo{
+	padding:15px;
+	border:1px solid #eee;
+	font-size: 16px;
+	line-height: 22px;
+	min-height: 120px;
+	width: 100%;
 }
 
 

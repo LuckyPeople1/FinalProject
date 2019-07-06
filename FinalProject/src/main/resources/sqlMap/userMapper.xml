@@ -21,7 +21,8 @@
 				image_name as userImageName,
 				image_path as userImagePath,
 				user_type as userType,
-				social_id as socialId 
+				social_id as socialId,
+				enroll_date as enrollDate 
 		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
@@ -30,6 +31,7 @@
 				   user_id as userId,
 				   user_pw as userPw,
 				   user_name as userName,
+				   addr as userAddr,
 				   user_phone as userPhone,
 				   user_email as userEmail,
 				   user_introduce as userIntroduce,
@@ -38,10 +40,42 @@
 				   image_name as userImageName,
 				   image_path as userImagePath,
 				   user_type as userType,
-				   social_id as socialId
+				   social_id as socialId,
+				   enroll_date as enrollDate
 			from user_tbl where social_id=#{socialId}
 		</select>
-		<insert id="commonInsert" parameterType="_int">
-			insert into user_tbl values (user_no_seq.nextval, #{userId}, #{userPw}, #{userName}, #{userPhone}, #{userEmail}, #{userType})
+		
+		<insert id="commonInsert" parameterType="userVO">
+			insert into user_tbl values (
+			user_no_seq.nextval,
+			<choose>
+				<when test="socialId != null">
+					#{userId},
+					#{userPw},
+				</when>
+				<otherwise>
+					null,
+					null,
+				</otherwise>
+			</choose>
+			   #{userName},
+			    #{userAddr},
+			     #{userPhone},
+			      #{userEmail},
+			       null,
+			        null,
+			         null,
+			          null,
+			           null,
+			            #{userType},
+			             <choose>
+							<when test="#{socialId != null}">
+								null,
+							</when>
+							<otherwise>
+								#{socialId},
+							</otherwise>
+						</choose>
+			              default)
 		</insert>
 </mapper>
