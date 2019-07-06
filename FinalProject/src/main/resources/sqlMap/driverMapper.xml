@@ -50,4 +50,17 @@
 				from move_apply_tbl
 				where apply_status = 0
 	</select>
+	<select id="driverMoveList" resultType="moveApplyVO">
+		select guest_idx as guestIdx,
+				apply_date as applyDate,
+				apply_time as applyTime,
+				guest_name as guestName,
+				guest_phone as guestPhone,
+				start_addr1 as startAddr1,
+				end_addr1 as endAddr1,
+				apply_hope as applyHope,
+				apply_status as applyStatus
+				from move_apply_tbl
+				where apply_status = 1 or apply_status = 2 
+	</select>
 </mapper>

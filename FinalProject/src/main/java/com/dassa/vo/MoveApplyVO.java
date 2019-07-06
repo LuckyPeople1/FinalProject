@@ -35,7 +35,7 @@ public class MoveApplyVO {
 	private String applyHope;		//이사종류(이사타입) 차량만/일반/반포장/포장
 	private String applyHelp;		//고객도움 여부 사용자가 짐을 옮길 수 있는지 
 	private String applyMemo;		//사용자가 쓰는 메모 
-	private String applyStatus;		//상태->/견적대기(예약중)/ 견적완료(사용자는 견적확인중..)/최종완료  /0/1/2 
+	private String applyStatus;		//상태->/견적대기(사용자가 신청만 한상태(예약중)/ 견적완료(사용자는 견적확인중..)/최종완료  /0/1/2 
 	private Date applyRegDate;		//사용자가 이사 하는 날짜
 	private Date applyEndDate;		//예약 완료된 날짜 
 	private Date applyCancelDate;	//예약 취소된 날짜 

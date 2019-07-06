@@ -31,7 +31,7 @@
 						</td>
 					</tr>
 					<tr>
-						<th>예약일</th>
+						<th>이사날짜</th>
 						<td colspan="3">
 							<input class="tbox" id="dateS">
 							<span class="hyphen">~</span>
@@ -82,44 +82,35 @@
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list }" var="moveApply" varStatus="i" >
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>2</td>
-						<td>2019.6.30</td>
-						<td>12:30</td>
-						<td>유성연</td>
-						<td>01023399207</td>
-						<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
-						<td>서울시 영등포구 당산동 이레빌딩</td>
-						<td><span class="tag col_blue f_w">차량만/일반/반포장/포장</span></td>
+						<td>${moveApply.guestIdx }</td>
+						<td>${moveApply.applyDate }</td>
+						<td>${moveApply.applyTime }</td>
+						<td>${moveApply.guestName }</td>
+						<td>${moveApply.guestPhone }</td>
+						<td>${moveApply.startAddr1 }</td>
+						<td>${moveApply.endAddr1 }</td>
+						<td><span class="tag col_blue f_w">${moveApply.applyHope }</span></td>
+						<c:if test="${moveApply.applyStatus eq 1 }">
 						<td>
-							<span class="tag col_green f_w">예약중</span>
+							<span class="tag col_green f_w">견적 완료</span>
 						</td>
+						</c:if>
+						<c:if test="${moveApply.applyStatus eq 2 }">
+						<td>
+							<span class="tag col_orange f_w">최종완료</span>
+						</td>
+						</c:if>
+						
 						<td>
 							<div class="set_menu">
 								<a href="/driver/driverMoveDetail" class="btn col_navy f_w">상세보기</a>
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td><label><input type="checkbox"></label></td>
-						<td>2</td>
-						<td>2019.6.30</td>
-						<td>12:30</td>
-						<td>유성연</td>
-						<td>01023399207</td>
-						<td>서울시 마포구 매봉산로 31 SPLEX-CENTER 11층</td>
-						<td>서울시 영등포구 당산동 이레빌딩</td>
-						<td><span class="tag col_blue f_w">차량만/일반/반포장/포장</span></td>
-						<td>
-							<span class="tag col_green f_w">예약완료</span>
-						</td>
-						<td>
-							<div class="set_menu">
-								<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
-							</div>
-						</td>
-					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>

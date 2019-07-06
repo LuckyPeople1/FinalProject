@@ -16,5 +16,8 @@ public interface DriverMapper {
 
 public int driverMypageUpdateText(UserVO userVO) throws Exception;
 
-public List<MoveApplyVO> driverAuctionList() throws Exception;	
+public List<MoveApplyVO> driverAuctionList() throws Exception;
+
+public List<MoveApplyVO> driverMoveList() throws Exception;	
+
 }

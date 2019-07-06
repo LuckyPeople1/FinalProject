@@ -17,6 +17,7 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
+			<form action="driver/search/driverAuction" id="driverAuctionSearch" method="get">
 				<table class="table_set">
 					<colgroup>
 						<col width="180">
@@ -27,23 +28,29 @@
 					<tr>
 						<th>고객명</th>
 						<td colspan="4">
-							<input class="tbox w_1p">
+							<input type="hidden" name="guestIdx">
+							<input class="tbox w_1p" name="guestName">
 						</td>
 					</tr>
 					<tr>
-						<th>진행상황</th>
-						<td colspan="4">
-							<span class="sbox small">
-								<select>
-									<option>견적대기</option>
-									<option>견적완료</option>
-								</select>
-							</span>
+						<th>작성일</th>
+						<td colspan="3">
+							<input class="tbox" id="dateS">
+							<span class="hyphen">~</span>
+							<input class="tbox" id="dateE">
+							<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
+							<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
+							<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
+							<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
+							<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>
+							<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
 						</td>
 					</tr>
 				</table>
+				</form>
 				<div class="set_form_search">
-					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
+					<!-- <a href="javascript:$('#frm').submit()">전송</a> -->
+					<a href="javascript:$('#driverAuctionSearch').submit()" class="btn col_red f_w">검색</a>
 					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>
@@ -78,8 +85,8 @@
 						<th>결정</th>
 					</tr>
 					</thead>
-					<c:forEach items="${list }" var="moveApply" varStatus="i">
 					<tbody>
+					<c:forEach items="${list }" var="moveApply" varStatus="i">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
 						<td>${moveApply.guestIdx }</td>
@@ -98,8 +105,8 @@
 							
 						</td>
 					</tr>
-					</tbody>
 					</c:forEach>
+					</tbody>
 				</table>
 			</div>
 			<ul class="page_wrap">

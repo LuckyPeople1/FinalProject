@@ -36,4 +36,10 @@ public class DriverService {
 		return driverMapper.driverAuctionList();
 	}
 
+	public List<MoveApplyVO> driverMoveList() throws Exception {
+		
+		return driverMapper.driverMoveList();
+	}
+
+	
 }
