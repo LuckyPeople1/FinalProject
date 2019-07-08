@@ -17,7 +17,7 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
-			<form action="driver/search/driverAuction" id="driverAuctionSearch" method="get">
+			<form action="/driver/auction" id="driverAuctionSearch" method="get">
 				<table class="table_set">
 					<colgroup>
 						<col width="180">
@@ -28,16 +28,15 @@
 					<tr>
 						<th>고객명</th>
 						<td colspan="4">
-							<input type="hidden" name="guestIdx">
-							<input class="tbox w_1p" name="guestName">
+							<input class="tbox w_1p" name="userName">
 						</td>
 					</tr>
 					<tr>
 						<th>작성일</th>
 						<td colspan="3">
-							<input class="tbox" id="dateS">
+							<input class="tbox" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
 							<span class="hyphen">~</span>
-							<input class="tbox" id="dateE">
+							<input class="tbox" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
 							<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
 							<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
 							<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
@@ -110,13 +109,30 @@
 				</table>
 			</div>
 			<ul class="page_wrap">
-				<li><a href="#none">First</a></li>
-				<li><a href="#none">Prev</a></li>
+		<!-- pagination{s} -->
+			<c:if test="${pagination.prev}">
+				<li>
+					<a class="" href="#" onclick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a>
+				</li>
+			</c:if>
+			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
+				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+					<a class="num" href="#" onclick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a>
+				</li>
+			</c:forEach>
+			
+			<c:if test="${pagination.next}">
+				<li>
+					<a href="#" onclick="fn_next('${pagination.range}','${pagination.range}', '${pagination.rangeSize}')" >Next</a>
+				</li>
+			</c:if>
+	<!-- pagination{e} -->
+				<!-- <li><a href="#none">Prev</a></li>
 				<li><a href="#none" class="num active">1</a></li>
 				<li><a href="#none" class="num">2</a></li>
 				<li><a href="#none" class="num">3</a></li>
 				<li><a href="#none">Next</a></li>
-				<li><a href="#none">Last</a></li>
+				<li><a href="#none">Last</a></li> -->
 			</ul>
 		</div>
 
@@ -125,7 +141,40 @@
 
 </div>
 <script>
+//이전 버튼 이벤트
 
+function fn_prev(page, range, rangeSize) {
+
+		var page = ((range - 2) * rangeSize) + 1;
+		var range = range - 1;
+		var url = "${pageContext.request.contextPath}/driver/auction";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;
+
+	}
+
+  //페이지 번호 클릭
+
+	function fn_pagination(page, range, rangeSize, searchType, keyword) {
+		var url = "${pageContext.request.contextPath}/driver/auction";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;	
+	}
+
+	//다음 버튼 이벤트
+
+	function fn_next(page, range, rangeSize) {
+
+		var page = parseInt((range * rangeSize)) + 1;
+		var range = parseInt(range) + 1;
+		var url = "${pageContext.request.contextPath}/driver/auction";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;
+
+	}
 </script>
 </body>
 </html>
