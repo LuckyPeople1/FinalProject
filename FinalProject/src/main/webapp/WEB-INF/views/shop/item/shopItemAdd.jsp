@@ -135,27 +135,24 @@
 										<div class="cuOBSd" id="jusoList"></div>
 										<div class="jjeyfJ">
 											<div class="gryuVg cmjtGP">
-												<input autocomplete="off" class="mtaUF kTQnUD" name="dong"
-													placeholder="예)101동" value="">
+												<input autocomplete="off" class="mtaUF kTQnUD" name="dong" placeholder="예)101동" value="">
 											</div>
 											<div class="igeEIT cmjtGP">
-												<input autocomplete="off" class="hTUuaO kTQnUD" name="ho"
-													placeholder="예)201호" value="">
+												<input autocomplete="off" class="hTUuaO kTQnUD" name="ho" placeholder="예)201호" value="">
 											</div>
 										</div>
 										<div class="ifWEqm">
-											<label class="kAqGVi" size="22"> <input
-												type="checkbox" class="PcMeW" name="is_noinfo_dong" value="">
-												<span class="CheckBox"></span> <span class="hsrjeP">등본에
-													동정보가 없는 경우 선택해 주세요.</span>
+											<label class="kAqGVi" size="22"> 
+												<input type="checkbox" class="PcMeW" name="is_noinfo_dong" value="">
+												<span class="CheckBox"></span> 
+												<span class="hsrjeP">등본에 동정보가 없는 경우 선택해 주세요.</span>
 											</label>
 										</div>
 										<p class="dLNiOJ">
 											<svg width="18" height="18" viewBox="0 0 18 18">
 												<g fill="none" fill-rule="evenodd">
-												<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
-												<path fill="#9C9EA3"
-													d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
+													<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
+													<path fill="#9C9EA3" d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
 												</g>
 											</svg>
 											<span>단지명이 검색되지 않는다면 고객센터1899-6840으로 문의주세요.</span>
@@ -164,12 +161,9 @@
 									<div class="hkuNdh">
 										<div class="kCBxYt">
 											<svg width="52" height="52" viewBox="0 0 52 52">
-												<g fill="none" fill-rule="evenodd"
-													transform="translate(1 1)">
-												<circle cx="25.2" cy="25.2" r="25.2" fill="#FFF"
-													stroke="#EEE" stroke-width="1.2"></circle>
-												<path fill="#000"
-													d="M28.286 21.257a3.435 3.435 0 0 0-3.429-3.428 3.435 3.435 0 0 0-3.428 3.428 3.435 3.435 0 0 0 3.428 3.429 3.435 3.435 0 0 0 3.429-3.429zm3.428 0c0 .817-.093 1.66-.442 2.397l-4.875 10.367c-.28.589-.897.95-1.54.95s-1.259-.361-1.527-.95l-4.888-10.367c-.348-.736-.442-1.58-.442-2.397a6.853 6.853 0 0 1 6.857-6.857 6.853 6.853 0 0 1 6.857 6.857z"></path>
+												<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+													<circle cx="25.2" cy="25.2" r="25.2" fill="#FFF" stroke="#EEE" stroke-width="1.2"></circle>
+													<path fill="#000" d="M28.286 21.257a3.435 3.435 0 0 0-3.429-3.428 3.435 3.435 0 0 0-3.428 3.428 3.435 3.435 0 0 0 3.428 3.429 3.435 3.435 0 0 0 3.429-3.429zm3.428 0c0 .817-.093 1.66-.442 2.397l-4.875 10.367c-.28.589-.897.95-1.54.95s-1.259-.361-1.527-.95l-4.888-10.367c-.348-.736-.442-1.58-.442-2.397a6.853 6.853 0 0 1 6.857-6.857 6.853 6.853 0 0 1 6.857 6.857z"></path>
 												</g>
 											</svg>
 										</div>
@@ -197,11 +191,10 @@
 									<div class="xMNKR">
 										<p class="dvECgk">
 											<svg width="18" height="18" viewBox="0 0 18 18">
-											<g fill="none" fill-rule="evenodd">
-											<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
-											<path fill="#9C9EA3"
-													d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
-											</g>
+												<g fill="none" fill-rule="evenodd">
+													<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
+													<path fill="#9C9EA3" d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
+												</g>
 											</svg>
 											<span>도로명, 건물명, 지번에 대해 통합검색이 가능합니다.</span>
 										</p>
@@ -212,28 +205,25 @@
 										<div class="fUXvpI" id="addr"></div>
 										<div class="kXKUhT">
 											<div class="jlsyRm gnEBbX">
-												<input autocomplete="off" class="bVCGUR kTQnUD" name="dong"
-													placeholder="예)101동" value="">
+												<input autocomplete="off" class="bVCGUR kTQnUD" name="dong"	placeholder="예)101동" value="">
 											</div>
 											<div class="xUWNs gnEBbX">
-												<input autocomplete="off" class="gVtYYG kTQnUD" name="ho"
-													placeholder="예)201호" value="">
+												<input autocomplete="off" class="gVtYYG kTQnUD" name="ho" placeholder="예)201호" value="">
 											</div>
 										</div>
 										<div class="gZWbGn">
-											<label class="kAqGVi" size="22"> <input
-												type="checkbox" class="PcMeW" name="is_noinfo_dong" value="">
-												<span class="CheckBox"></span> <span class="kmXRUf">등본에
-													동정보가 없는 경우 선택해 주세요.</span>
+											<label class="kAqGVi" size="22"> 
+												<input type="checkbox" class="PcMeW" name="is_noinfo_dong" value="">
+												<span class="CheckBox"></span>
+												<span class="kmXRUf">등본에 동정보가 없는 경우 선택해 주세요.</span>
 											</label>
 										</div>
 										<p class="dvECgk">
 											<svg width="18" height="18" viewBox="0 0 18 18">
-											<g fill="none" fill-rule="evenodd">
-											<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
-											<path fill="#9C9EA3"
-													d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
-											</g>
+												<g fill="none" fill-rule="evenodd">
+													<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
+													<path fill="#9C9EA3" d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
+												</g>
 											</svg>
 											<a>지번이 출력되지 않는 경우 지번을 클릭하여주세요</a>
 										</p>
@@ -241,18 +231,16 @@
 									<div class="kADOdT" id="map1">
 										<div class="dioXoB">
 											<svg width="52" height="52" viewBox="0 0 52 52">
-											<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
-											<circle cx="25.2" cy="25.2" r="25.2" fill="#FFF"
-													stroke="#EEE" stroke-width="1.2"></circle>
-											<path fill="#000"
-													d="M28.286 21.257a3.435 3.435 0 0 0-3.429-3.428 3.435 3.435 0 0 0-3.428 3.428 3.435 3.435 0 0 0 3.428 3.429 3.435 3.435 0 0 0 3.429-3.429zm3.428 0c0 .817-.093 1.66-.442 2.397l-4.875 10.367c-.28.589-.897.95-1.54.95s-1.259-.361-1.527-.95l-4.888-10.367c-.348-.736-.442-1.58-.442-2.397a6.853 6.853 0 0 1 6.857-6.857 6.853 6.853 0 0 1 6.857 6.857z"></path>
-											</g>
+												<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+													<circle cx="25.2" cy="25.2" r="25.2" fill="#FFF" stroke="#EEE" stroke-width="1.2"></circle>
+													<path fill="#000" d="M28.286 21.257a3.435 3.435 0 0 0-3.429-3.428 3.435 3.435 0 0 0-3.428 3.428 3.435 3.435 0 0 0 3.428 3.429 3.435 3.435 0 0 0 3.429-3.429zm3.428 0c0 .817-.093 1.66-.442 2.397l-4.875 10.367c-.28.589-.897.95-1.54.95s-1.259-.361-1.527-.95l-4.888-10.367c-.348-.736-.442-1.58-.442-2.397a6.853 6.853 0 0 1 6.857-6.857 6.853 6.853 0 0 1 6.857 6.857z"></path>
+												</g>
 											</svg>
 										</div>
 										<p class="cOSEj">주소 검색을 하시면</p>
 										<p class="cOSEj">해당 위치가 지도에 표시됩니다.</p>
 									</div>
-									<div class="kADOdT"  id="map"></div>
+									<div class="kADOdT" id="map"></div>
 								</td>
 							</tr>
 						</tbody>
@@ -275,8 +263,8 @@
 									<p class="ZbkTp">
 										<svg width="18" height="18" viewBox="0 0 18 18">
 											<g fill="none" fill-rule="evenodd">
-											<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
-											<path fill="#9C9EA3" d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
+												<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
+												<path fill="#9C9EA3" d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
 											</g>
 										</svg>
 										<span>처음에 선택한 거래 종류가 우선노출됩니다. 예치금이 있는 경우 보증금 입력란에 필히 입력하세요.</span>
@@ -308,12 +296,12 @@
 								<th rowspan="2">건물 층수</th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">건물 층수</p> 
-									<select class="freEbZ hRFrgm"	name="shopItemFloorAll">
+									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
 										<option value="">건물 층수 선택</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
-								</select>
+									</select>
 								</td>
 							</tr>
 							<tr>
@@ -325,15 +313,15 @@
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
-									<p class="hNdXGi">해당 층수</p> <select class="freEbZ hRFrgm"
-									name="shopItemFloor">
+									<p class="hNdXGi">해당 층수</p> 
+									<select class="freEbZ hRFrgm" name="shopItemFloor">
 										<option value="">해당 층수 선택</option>
 										<option value="-1">반지층</option>
 										<option value="0">옥탑</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
-								</select>
+									</select>
 								</td>
 							</tr>
 							<tr>
@@ -391,7 +379,8 @@
 										<p>있음</p>
 									</label>
 										<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemManagePrice" disabled="" value="" id="managePrice">
-									<p class="iOAqhO">만원</p></td>
+									<p class="iOAqhO">만원</p>
+								</td>
 							</tr>
 							<tr>
 								<td class="cCUCai" colspan="3">
@@ -426,7 +415,7 @@
 									<label class="hrokF cdcjQK"> 
 										<input type="checkbox" name="shopItemManagePriceOption" value="기타">
 										<p>기타</p>
-								</label>
+									</label>
 								</td>
 							</tr>
 							<tr>
@@ -441,7 +430,7 @@
 											<p>가능</p>
 									</label> 
 									<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemParkingPrice" disabled="" value="" id="parkingPrice">
-										<p class="iOAqhO">만원</p>
+									<p class="iOAqhO">만원</p>
 								</td>
 								<th>반려동물</th>
 								<td class="cCUCai">
@@ -483,12 +472,14 @@
 								<th>빌트인
 									<div class="dROiWG">
 										<svg width="18" height="18" viewBox="0 0 18 18">
-										<g fill="none" fill-rule="evenodd">
-										<circle cx="9" cy="9" r="9" fill="#CCC"></circle>
-										<g fill="#FFF" transform="translate(6 3.5)">
-										<path fill-rule="nonzero"
-												d="M3.11 6.728c.11-.47.352-.738 1.049-1.256l.054-.04c1.079-.804 1.502-1.359 1.502-2.468 0-1.505-1.159-2.726-2.678-2.726C1.701.238.57 1.04.224 2.132a.574.574 0 1 0 1.096.347c.192-.608.875-1.092 1.717-1.092.87 0 1.53.694 1.53 1.577 0 .644-.226.94-1.04 1.546l-.054.04c-.901.671-1.292 1.104-1.481 1.917a.574.574 0 0 0 1.119.26z"></path>
-										<circle cx="2.75" cy="9.75" r="1"></circle></g></g></svg>
+											<g fill="none" fill-rule="evenodd">
+												<circle cx="9" cy="9" r="9" fill="#CCC"></circle>
+												<g fill="#FFF" transform="translate(6 3.5)">
+													<path fill-rule="nonzero" d="M3.11 6.728c.11-.47.352-.738 1.049-1.256l.054-.04c1.079-.804 1.502-1.359 1.502-2.468 0-1.505-1.159-2.726-2.678-2.726C1.701.238.57 1.04.224 2.132a.574.574 0 1 0 1.096.347c.192-.608.875-1.092 1.717-1.092.87 0 1.53.694 1.53 1.577 0 .644-.226.94-1.04 1.546l-.054.04c-.901.671-1.292 1.104-1.481 1.917a.574.574 0 0 0 1.119.26z"></path>
+													<circle cx="2.75" cy="9.75" r="1"></circle>
+												</g>
+											</g>
+										</svg>
 										<div class="imVndG">
 											<h1>빌트인이란?</h1>
 											<p>냉장고나 싱크대 등을 돌출시키지 않은 일체형 인테리어</p>
@@ -645,13 +636,11 @@
 						<svg width="18" height="18" viewBox="0 0 18 18">
 							<g fill="none" fill-rule="evenodd">
 								<circle cx="9" cy="9" r="9" fill="#E6E7EA"></circle>
-								<path fill="#9C9EA3"
-								d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
+								<path fill="#9C9EA3" d="M8.997 13.5a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm.01-2.499c-.634 0-.75-5.449-.75-6.001 0-.552.336-1 .75-1s.75.448.75 1-.116 6.001-.75 6.001z"></path>
 							</g>
 						</svg>
-						<span>허위 매물을 등록할 경우 다방에서 임의로 계정 및 매물 전체 삭제 처리됩니다.</span> <a
-							href="https://blog.naver.com/dabangapp/220122235428"
-							target="_blank" rel="noopener noreferrer">허위매물 제재 정책 확인하기</a>
+						<span>허위 매물을 등록할 경우 다방에서 임의로 계정 및 매물 전체 삭제 처리됩니다.</span> 
+						<a href="https://blog.naver.com/dabangapp/220122235428"	target="_blank" rel="noopener noreferrer">허위매물 제재 정책 확인하기</a>
 					</p>
 				</div>
 			</div>
@@ -675,11 +664,10 @@
 							<button class="kXLdvu" id="jusoPopupCloseBtn">
 								<svg width="30" height="30" viewBox="0 0 32 32">
 									<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
-									<circle class="Circle" cx="15" cy="15" r="15"></circle>
-									<g class="Close" stroke-linecap="round" stroke-width="2">
-									<path
-										d="M19.243 19.243l-8.486-8.486M19.243 10.757l-8.486 8.486"></path>
-									</g>
+										<circle class="Circle" cx="15" cy="15" r="15"></circle>
+										<g class="Close" stroke-linecap="round" stroke-width="2">
+											<path d="M19.243 19.243l-8.486-8.486M19.243 10.757l-8.486 8.486"></path>
+										</g>
 									</g>
 								</svg>
 							</button>
@@ -705,47 +693,58 @@
 									<option value="47">경상북도</option>
 									<option value="48">경상남도</option>
 									<option value="50">제주특별자치도</option>
-								</select> <select class="lfasRf hRFrgm" name="selGu">
+								</select> 
+								<select class="lfasRf hRFrgm" name="selGu">
 									<option value="">구/군 선택</option>
-								</select> <select class="ixarYj hRFrgm" name="selDong">
+								</select> 
+								<select class="ixarYj hRFrgm" name="selDong">
 									<option value="">동 선택</option>
 								</select>
 							</div>
 							<form class="bfHMFZ">
-								<input autocomplete="off" class="kHPisP kTQnUD" name="keyword"
-									placeholder="단지명 입력 예) 래미안, 리치빌" value="">
+								<input autocomplete="off" class="kHPisP kTQnUD" name="keyword" placeholder="단지명 입력 예) 래미안, 리치빌" value="">
 								<button class="laHiXv">
 									<svg width="18" height="17" viewBox="0 0 18 17">
-										<g fill="none" fill-rule="evenodd" stroke="#222"
-											transform="translate(1 1)">
-										<circle cx="6.5" cy="6.5" r="6.5"></circle>
-										<path d="M11 11l5 5"></path>
+										<g fill="none" fill-rule="evenodd" stroke="#222" transform="translate(1 1)">
+											<circle cx="6.5" cy="6.5" r="6.5"></circle>
+											<path d="M11 11l5 5"></path>
 										</g>
 									</svg>
 								</button>
 							</form>
 						</div>
-						<div class="eAsCFY" id="jusoInfo">
+						<div class="eAsCFY" id="jusoInfo1">
 							<h1>알아두세요!</h1>
 							<ul>
 								<li>- 단지명을 검색 후 검색된 주소를 선택해주세요.</li>
 								<li>- 위치 선택 후 단지명을 검색하시면 더욱 정확한 결과가 검색됩니다.</li>
 							</ul>
 						</div>
+						<div class="ivRIHy" id="jusoInfo2" style="display: none">
+							<svg width="25" height="25" viewBox="0 0 25 25">
+								<g fill="none" fill-rule="evenodd">
+									<circle cx="12.6" cy="12.6" r="12.6" fill="#E6E7EA"></circle>
+									<path fill="#9C9EA3" d="M12.596 18.9a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1zm.014-3.498c-.888 0-1.05-7.629-1.05-8.402 0-.773.47-1.4 1.05-1.4.58 0 1.05.627 1.05 1.4 0 .773-.162 8.402-1.05 8.402z"></path>
+								</g>
+							</svg>
+							<h1>검색결과가 없습니다.</h1>
+							<p>검색되지 않는 단지명은</p>
+							<p><span>고객센터 1899-6840</span>으로 문의주세요.</p>
+						</div>
 						<ul class="hoUOvr" id="kaptList">
 							<c:forEach var="item" items="${kaptList}" begin="0" step="1">
 							<li class="jXTJDh">
 								<div class="gvCWFZ">
 									<p class="jyixr">단지명</p>
-										<span class="kQJKWm">${kaptList.kaptName }</span>
+									<span class="kQJKWm">${kaptList.kaptName }</span>
 								</div>
 								<div class="gvCWFZ">
 									<p class="jyixr">도로명</p>
-										<span class="kQJKWm">${kaptList.doroJuso }</span>
+									<span class="kQJKWm">${kaptList.doroJuso }</span>
 								</div>
 								<div class="gvCWFZ">
 									<p class="jyixr">지번</p>
-										<span class="kQJKWm">${kaptList.kaptAddr }</span>
+									<span class="kQJKWm">${kaptList.kaptAddr }</span>
 								</div>
 							</li>
 							</c:forEach>
@@ -785,8 +784,8 @@
 		});
 		//구/군 선택 시  동 리스트 뽑아오는 스크립트 
 		$("select[name='selGu']").change(	function() {
-			var jusoGuCode = $(this).find("option:selected")	.val();
-			$("select[name='selGu']").find("option:selected")	.text(	$(this).find("option:selected").text());
+			var jusoGuCode = $(this).find("option:selected").val();
+			$("select[name='selGu']").find("option:selected").text($(this).find("option:selected").text());
 			$("select[name='selDong']").find("option").remove();
 			$("select[name='selDong']").append("<option>동 선택</option>");
 			$.ajax({
@@ -814,9 +813,10 @@
 				data : {jusoDongCode : jusoDongCode},
 				success : function(kaptList) {
 					test = kaptList;
-					$("#jusoInfo").hide();
 					$('#kaptList').find("li").remove();
 					if (kaptList.length > 0) {
+						$('#jusoInfo1').hide();
+						$('#jusoInfo2').hide();
 						for (var i = 0; i < kaptList.length; i++) {
 							newarr = kaptList[i].split(',');
 							$('#kaptList').append("<li class='jXTJDh' name='kaptListBtn' value="+i+"><div class='gvCWFZ'><p class='jyixr'>단지명</p><span class='kQJKWm'>"+newarr[0]+"</span></div>"
@@ -824,6 +824,9 @@
 									+"<div class='gvCWFZ'><p class='jyixr'>지번</p><span class='kQJKWm'>"+newarr[2]+"</span></div></li>");
 						}
 						
+					}else{
+						$('#kaptList').find("li").remove();
+						$('#jusoInfo2').show();
 					}
 				}
 			});
@@ -835,6 +838,7 @@
 			$(".modal").hide();
 			$("#jusoList").html("");
             $("#jusoList").append( "<p><span>도로명 : "+newarr1[1]+"</span></p><p><span>지번 : "+newarr1[2]+"</span></p>");
+            $("input[name='shopItemBulidDate']").val(newarr1[3]);
             
 		});
 		//주소 팝업 창 열기
