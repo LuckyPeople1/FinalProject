@@ -5,18 +5,19 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dassa.common.FileCommon;
 import com.dassa.service.NoticeService;
 import com.dassa.vo.NoticeVO;
 
@@ -38,6 +39,25 @@ public class NoticeController {
 			if(!list.isEmpty()) {
 				ma.addObject("list", list);
 				ma.setViewName("manage/board/notice/noticeManageList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
+	    
+	//상세보기
+	@RequestMapping("/noticeManageView")
+	public ModelAndView noticeManageView(@RequestParam int noticeIndex) {
+		NoticeVO n;
+		ModelAndView ma = null;
+		try {
+			n = noticeService.noticeView(noticeIndex);
+			ma = new ModelAndView();
+			if(n!=null) {
+				ma.addObject("noticeVO",n);
+				ma.setViewName("manage/board/notice/noticeManageView");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -103,50 +123,14 @@ public class NoticeController {
 	}
 	//업데이트를 실행하는 컨트롤러
 	@RequestMapping("/noticeUpdate")
-	public String noticeUpdate(NoticeVO n) {
+	public String noticeUpdate(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
 		System.out.println("ti:"+n.getNoticeTitle());
 		System.out.println("co:"+n.getNoticeContent());
-		String view = "";
-		try {
-			int result = noticeService.noticeUpdate(n);
-			System.out.println("result:"+result);
-			System.out.println("타입-"+n.getNoticeType());
-			if(result>0) {
-				if(n.getNoticeType().equals("사용자")) {
-					view = "manage/board/notice/updateSuccess";
-				}else if(n.getNoticeType().equals("부동산")) {
-					view = "manage/board/notice/realestate/RupdateSuccess";
-				}else if(n.getNoticeType().equals("기사")) {
-					view = "manage/board/notice/articles/AupdateSuccess";
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return view;
-	}
-	
-	@Resource
-	private FileCommon fileCommon;
-	//관리자 공지사항 작성페이지
-	@RequestMapping("/noticeManageWriter")
-	public String noticeManageWriter() {
-		return "manage/board/notice/noticeManageWriter";
-	}
-	
-	
-	//공지사항 인서트
-	@RequestMapping("/noticeInsert")
-	public String noticeInsert(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
-		
-		
-		
 		String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
 		String originName = noticefilename.getOriginalFilename();
 		String onlyFileName = originName.substring(0, originName.indexOf(".")); //처음부터 .만날때까지 읽어오는것
 		String extension = originName.substring(originName.indexOf(".")); //.(포함)부터 끝까지 읽어옴
-		String filePath = onlyFileName+"_"+"1"+extension;	//시간을 초까지 붙으면 파일이름이 겹칠일이 없다고봄
+		String filePath = onlyFileName+"_"+"1"+extension;
 		String fullPath = savePath+"/"+filePath; //경로 합쳐 놓은것
 		n.setNoticeFilename(filePath);
 		if(!noticefilename.isEmpty()) {
@@ -163,26 +147,101 @@ public class NoticeController {
 				e.printStackTrace();
 			}
 		}
-		int result;
 		String view = "";
-		System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
-		System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
-		try {
-			result = noticeService.noticeInsert(n);
-			if(result>0) {
+			try {
+				int result = noticeService.noticeUpdate(n);
+				System.out.println("result:"+result);
+				System.out.println("타입-"+n.getNoticeType());
+				if(result>0) {
 					if(n.getNoticeType().equals("사용자")) {
-						view = "manage/board/notice/insertSuccess";
+						view = "manage/board/notice/updateSuccess";
 					}else if(n.getNoticeType().equals("부동산")) {
-						view = "manage/board/notice/realestate/RinsertSuccess";
+						view = "manage/board/notice/realestate/RupdateSuccess";
 					}else if(n.getNoticeType().equals("기사")) {
-						view = "manage/board/notice/articles/AinsertSuccess";					
+						view = "manage/board/notice/articles/AupdateSuccess";
 					}
 				}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return view;
+	}
+	
+	//관리자 공지사항 작성페이지
+	@RequestMapping("/noticeManageWriter")
+	public String noticeManageWriter() {
+		return "manage/board/notice/noticeManageWriter";
+	}
+	
+	
+	//공지사항 인서트
+	@RequestMapping("/noticeInsert")
+	public String noticeInsert(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
+		if(!noticefilename.isEmpty()) {
+			String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
+			String originName = noticefilename.getOriginalFilename();
+			String onlyFileName = originName.substring(0, originName.indexOf(".")); //처음부터 .만날때까지 읽어오는것
+			String extension = originName.substring(originName.indexOf(".")); //.(포함)부터 끝까지 읽어옴
+			String filePath = onlyFileName+"_"+"1"+extension;
+			String fullPath = savePath+"/"+filePath; //경로 합쳐 놓은것
+			n.setNoticeFilename(filePath);
+			if(!noticefilename.isEmpty()) {
+				try {
+					byte[] bytes = noticefilename.getBytes();
+					File f = new File(fullPath);	//io File 임포트
+					FileOutputStream fos = new FileOutputStream(f);
+					BufferedOutputStream bos = new BufferedOutputStream(fos);
+					bos.write(bytes);
+					bos.close();
+					System.out.println("파일업로드성공!");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			int result;
+			String view = "";
+			System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
+			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
+			try {
+				result = noticeService.noticeInsert(n);
+				if(result>0) {
+						if(n.getNoticeType().equals("사용자")) {
+							view = "manage/board/notice/insertSuccess";
+						}else if(n.getNoticeType().equals("부동산")) {
+							view = "manage/board/notice/realestate/RinsertSuccess";
+						}else if(n.getNoticeType().equals("기사")) {
+							view = "manage/board/notice/articles/AinsertSuccess";					
+						}
+					}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return view;
+		}else {
+			int result;
+			String view = "";
+			System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
+			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
+			try {
+				result = noticeService.noticeInsert(n);
+				if(result>0) {
+						if(n.getNoticeType().equals("사용자")) {
+							view = "manage/board/notice/insertSuccess";
+						}else if(n.getNoticeType().equals("부동산")) {
+							view = "manage/board/notice/realestate/RinsertSuccess";
+						}else if(n.getNoticeType().equals("기사")) {
+							view = "manage/board/notice/articles/AinsertSuccess";					
+						}
+					}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return view;
 		}
-		return view;
 	}
 	
 	//관리자 부동산 공지사항 작성페이지

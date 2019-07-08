@@ -31,7 +31,7 @@
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input class="tbox w_6p">
+							<input class="tbox w_6p" style="width:39%;">
 						</td>
 					</tr>
 					<tr>
@@ -105,7 +105,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">상세보기</a>
+								<a href="/manage/board/notice/noticeManageView?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">상세보기</a>
 							</div>
 							<div>
 								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
