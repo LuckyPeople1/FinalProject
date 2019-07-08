@@ -169,10 +169,12 @@ public class ShopPassController {
                      String str5 = getTagValue("kaptMparea_85", eElement2);
                      String str6 = getTagValue("kaptMparea_135", eElement2);
                      String str7 = getTagValue("kaptMparea_136", eElement2);
+                     
                      totalString = str+","+str1+","+str2+","+str3+","+str4+","+str5+","+str6+","+str7;
 //                         aptNameList.add(str);
 //                         aptDoroJusoList.add(str1);
 //                         aptAddrList.add(str2);
+                     System.out.println(totalString);
                       }
                }
               kaptList.add(totalString);
@@ -182,10 +184,14 @@ public class ShopPassController {
          return kaptList;
 	}
 	private static String getTagValue(String tag, Element eElement) {
-	       NodeList nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
-	       Node nValue = (Node) nlList.item(0);
+		NodeList nlList = null;
+		Node nValue = null;
+			if(eElement.getElementsByTagName(tag).item(0) != null) {
+			nlList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
+	        nValue= (Node) nlList.item(0);
+			}
 	       if(nValue == null) 
-	           return null;
+	           return "없음";
 	       return nValue.getNodeValue();
 	   }
 	

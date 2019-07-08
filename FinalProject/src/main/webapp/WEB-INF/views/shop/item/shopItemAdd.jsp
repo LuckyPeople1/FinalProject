@@ -132,8 +132,7 @@
 											<input autocomplete="off" class="fbxLHj kTQnUD" name="keyword" placeholder="단지명 입력 예) 래미안, 리치빌" value=""  style="margin-bottom: 10px;">
 											<button type="button" class="kTyFCo" id="jusoBtn"  style="margin-bottom: 10px;">주소검색</button>
 										</form>
-										<div id="jusoList"></div>
-										<div class="cuOBSd"></div>
+										<div class="cuOBSd" id="jusoList"></div>
 										<div class="jjeyfJ">
 											<div class="gryuVg cmjtGP">
 												<input autocomplete="off" class="mtaUF kTQnUD" name="dong"
@@ -760,6 +759,7 @@
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
 	<script src="/shop/js/shop_setting.js"></script>
 	<script>
+		var newarr = new Array();
 		$("#jusoInfo").show();
 		$("input[name=shopItemManagePriceOption]").attr("disabled",true);
 		//시 선택 시  구/군 리스트 뽑아오는 스크립트 
@@ -813,12 +813,13 @@
 				async: false,
 				data : {jusoDongCode : jusoDongCode},
 				success : function(kaptList) {
+					test = kaptList;
 					$("#jusoInfo").hide();
 					$('#kaptList').find("li").remove();
 					if (kaptList.length > 0) {
 						for (var i = 0; i < kaptList.length; i++) {
-							var newarr = kaptList[i].split(',');
-							$('#kaptList').append("<li class='jXTJDh' name='kaptListBtn'><div class='gvCWFZ'><p class='jyixr'>단지명</p><span class='kQJKWm'>"+newarr[0]+"</span></div>"
+							newarr = kaptList[i].split(',');
+							$('#kaptList').append("<li class='jXTJDh' name='kaptListBtn' value="+i+"><div class='gvCWFZ'><p class='jyixr'>단지명</p><span class='kQJKWm'>"+newarr[0]+"</span></div>"
 									+"<div class='gvCWFZ'><p class='jyixr'>도로명</p><span class='kQJKWm'>"+newarr[1]+"</span></div>"
 									+"<div class='gvCWFZ'><p class='jyixr'>지번</p><span class='kQJKWm'>"+newarr[2]+"</span></div></li>");
 						}
@@ -829,19 +830,22 @@
 		});
 		//아파트 목록 클릭 시
 		$(document).on('click', 'li[name="kaptListBtn"]' , function(){
-			console.log(kaptList);
+			console.log("아파트목록 클릭"+newarr);
+			var newarr1 = test[$(this).val()].split(",");
 			$(".modal").hide();
 			$("#jusoList").html("");
-            $("#jusoList").append( "<p><span>도로명 : "+newarr[1]+"</span></p><p><span>지번 : "+newarr[2]+"</span></p>");
+            $("#jusoList").append( "<p><span>도로명 : "+newarr1[1]+"</span></p><p><span>지번 : "+newarr1[2]+"</span></p>");
             
 		});
 		//주소 팝업 창 열기
 		$('#jusoBtn').click(function() {
 			$(".modal").css("display", "block");
+			return false;
 		});
 		//주소 팝업 창 닫기
 		$("#jusoPopupCloseBtn").click(function() {
 			$(".modal").css("display", "none");
+			return false;
 		});
 		//매물종류 선택 시 입력 폼 변경
 		$(".room").click(function() {
@@ -995,6 +999,11 @@
 				 $("input[name=shopItemType2]").focus();
 				 return false;
 			}
+			if($("input[name=shopItemAddr1]").val()=="" && $("input[name=shopItemAddr1]").val()){
+				 alert("주소를 입력해주세요");
+				 $("input[name=shopItemAddr1]").focus();
+				 return false;
+			}
 			if($("input[name=shopItemDealPrice]").val()==""){
 				 alert("거래 종류를 선택 후 금액을 입력해주세요");
 				 $("input[name=shopItemType2]").focus();
@@ -1095,7 +1104,10 @@
                 console.log(data.roadAddress);
                 console.log(data.jibunAddress);
                $("#addr").html("");
-               $("#addr").append( "<p><span>도로명 : "+data.roadAddress+"</span></p><p><span>지번 : "+data.jibunAddress+"</span></p>");
+               $("#addr").append( "<p><span>도로명 : "+data.roadAddress+"</span></p><p><span>지번 : "+data.jibunAddress+"</span></p>"
+            								+"<input type='hidden' name='shopItemAddr1' value='"+data.roadAddress+"'>"
+            								+"<input type='hidden' name='shopItemAddr2' value='"+data.jibunAddress+"'>"            								
+               );
                 // 주소로 상세 정보를 검색
                 geocoder.addressSearch(data.address, function(results, status) {
                     // 정상적으로 검색이 완료됐으면
