@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.DriverMapper">
-
+		<!--mypage뿌리기  -->
 		<select id="driverMyPage" parameterType="userVO" resultType="userVO">
 		   select user_idx as userIdx,
 				user_id as userId,
@@ -18,11 +18,16 @@
 				social_id as socialId 
 		  from user_tbl where user_id=#{userId} 
 		</select>
+		
+	<!--mypage 이미지만 업로드  -->	
 	<update id="driverMypageUpdate" parameterType="userVO">
 	update user_tbl set
 	image_name=#{userImageName}, image_path=#{userImagePath}
 		where user_id=#{userId}
 	</update>
+	
+	
+	<!--mypage 텍스트 업로드  -->
 	<update id="driverMypageUpdateText" parameterType="userVO">
 	update user_tbl set 
 	user_name=#{userName},
@@ -32,8 +37,11 @@
 	user_car=#{userCar}
 		where user_id=#{userId}
 	</update>
-	<select id="driverAuctionList" resultType="moveApplyVO">
-		select guest_idx as guestIdx,
+	
+	<!--입찰 검색 //입찰목록 뿌리기-->
+	<select id="driverAuctionList" resultType="moveApplyVO" parameterType="com.dassa.vo.DriverPageData">
+		select a.* from (
+			select guest_idx as guestIdx,
 				guest_name as guestName,
 				start_addr1 as startAddr1,
 				start_addr2 as startAddr2,
@@ -46,10 +54,46 @@
 				end_latitude as endLatitude,
 				start_longitude as endLongitude,
 				apply_date as applyDate,
-				apply_time as applyTime
+				apply_time as applyTime,
+				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
 				from move_apply_tbl
-				where apply_status = 0
+				where apply_status =0  
+				
+				<if test="userName!=null and userName!=''" >
+				and guest_name like '%'||#{userName}||'%'			
+				</if>
+				<if test="minDate!='' and maxDate!=''">
+					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+				</if>
+				) a
+			where rNUM between (#{page}-1)*#{listSize}+1 and #{page}*#{listSize}
 	</select>
+	
+	<!--총 게시물 수 구하기(입찰 페이징)  -->
+	<select id="driverTotalCount" resultType="_int" parameterType="com.dassa.vo.DriverPageData">
+		select count(*) cnt from
+		(
+			select 
+				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
+				from move_apply_tbl
+				where apply_status =0  
+				
+				<if test="userName!=null and userName!=''" >
+				and guest_name like '%'||#{userName}||'%'			
+				</if>
+				<if test="minDate!='' and maxDate!=''">
+					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+				</if>
+		)
+	</select>
+	
+	
+	
+	
+	
+	<!--이사목록 뿌리기  -->
 	<select id="driverMoveList" resultType="moveApplyVO">
 		select guest_idx as guestIdx,
 				apply_date as applyDate,
@@ -63,4 +107,6 @@
 				from move_apply_tbl
 				where apply_status = 1 or apply_status = 2 
 	</select>
+	
+	
 </mapper>

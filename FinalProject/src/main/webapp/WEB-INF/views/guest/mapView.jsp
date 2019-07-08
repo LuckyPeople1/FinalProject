@@ -4,58 +4,64 @@
 <html>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
-.customoverlay{
+
+.customoverlay {
 	top: -17px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
-    background-color: rgb(35, 128, 255);
-  	cursor: pointer;
-    position: relative;
-    left: -40%;
-    padding: 5px 16px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(35, 128, 255);
-    border-image: initial;
-    border-radius: 34px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+	background-color: rgb(35, 128, 255);
+	cursor: pointer;
+	position: relative;
+	left: -40%;
+	padding: 5px 16px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: rgb(35, 128, 255);
+	border-image: initial;
+	border-radius: 34px;
 }
-.customoverlay:hover{
-	background-color:white;
-	color:rgb(35, 128, 255);
+
+.customoverlay:hover {
+	background-color: white;
+	color: rgb(35, 128, 255);
 }
-.customoverlay2:hover{
-	background-color:white;
-	color:rgb(35, 128, 255);
+
+.customoverlay2:hover {
+	background-color: white;
+	color: rgb(35, 128, 255);
 }
+
 .customoverlay2 {
-    display: inline-block;
-    min-width: 10px;
-    height: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 17px;
-    line-height: 24px;
-    text-align: center;
-    white-space: nowrap;
-    background-color: rgb(35, 128, 255);
-    position: relative;
-    left: 3px;
-    z-index: 1;
-    padding: 6px 13px 8px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(25, 119, 247);
-    border-image: initial;
-    border-radius: 40px;
-}
-.customoverlay .title{
+	display: inline-block;
+	min-width: 10px;
+	height: 10px;
 	color: rgb(255, 255, 255);
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 20px;
-    white-space: nowrap;
-    pointer-events: none;
-    margin: 0px;
-    padding: 0px;
+	font-size: 17px;
+	line-height: 24px;
+	text-align: center;
+	white-space: nowrap;
+	background-color: rgb(35, 128, 255);
+	position: relative;
+	left: 3px;
+	z-index: 1;
+	padding: 6px 13px 8px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(25, 119, 247);
+	border-image: initial;
+	border-radius: 40px;
 }
+
+.customoverlay .title {
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	white-space: nowrap;
+	pointer-events: none;
+	margin: 0px;
+	padding: 0px;
+}
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -156,9 +162,11 @@ html, body {
 </style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body>
+
 	<p style="text-align: center;">[주소로 위도, 경도 좌표값 얻기]</p>
 	<input type="text" id="address" value="" size="70">
 	<input type="button" value="좌표값 검색" onclick="addressChk()">
@@ -242,26 +250,7 @@ html, body {
 			}
 		});
 	}
-	// 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
-	/* kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-		// 클릭한 위치에 마커를 표시합니다 
-		addMarker(mouseEvent.latLng);
-	});
-	 */
-	// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-	var markers = [];
-
-	// "마커 보이기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에 표시하는 함수입니다
-	function showMarkers() {
-		setMarkers(map)
-	}
-
-	// "마커 감추기" 버튼을 클릭하면 호출되어 배열에 추가된 마커를 지도에서 삭제하는 함수입니다
-	function hideMarkers() {
-		setMarkers(null);
-	}
-
-	
+	var markers = [];	
 	var positions = [ {
 		latlng : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),
 		name : "서울특별시"
@@ -404,8 +393,45 @@ html, body {
 	var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-        minLevel: 10, // 클러스터 할 최소 지도 레벨
-        disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+        minLevel: 8, // 클러스터 할 최소 지도 레벨
+        disableClickZoom: true, // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+        styles: [{ // calculator 각 사이 값 마다 적용될 스타일을 지정한다
+            width : '30px', height : '30px',
+            background: 'rgb(35, 128, 255)',
+            borderRadius: '40px',
+            color: 'white',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            lineHeight: '31px'
+        },
+        {
+            width : '40px', height : '40px',
+            background: 'rgba(255, 153, 0, .8)',
+            borderRadius: '20px',
+            color: '#000',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            lineHeight: '41px'
+        },
+        {
+            width : '50px', height : '50px',
+            background: 'rgba(255, 51, 204, .8)',
+            borderRadius: '25px',
+            color: '#000',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            lineHeight: '51px'
+        },
+        {
+            width : '60px', height : '60px',
+            background: 'rgba(255, 80, 80, .8)',
+            borderRadius: '30px',
+            color: '#000',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            lineHeight: '61px'
+        }
+    ]
     });
 	
 	
@@ -418,9 +444,7 @@ html, body {
 	        content: content	       
 	    });
 	    
-	}
-	 
-	
+	}	
 	
 	
 	 $(document).ready(function(){
@@ -430,17 +454,22 @@ html, body {
 				 var customOverlay2= new kakao.maps.CustomOverlay({
 				    	map: map,
 				    	position: positions2[i].latlng,
-				    	content : content2
+				    	content : content2,
+				    	image:null
 				    })
 				 var marker = new kakao.maps.Marker({
-					    position: positions2[i].latlng
+					    position: positions2[i].latlng,
+					    
 					});
 				
+				
 				 clusterer.addMarker(marker);
-		 };		
-		 marker.setMap(null);
-		map.setLevel(20);
-		$(".customoverlay").css("display","none");
+				 
+		 };
+		 if(map.getLevel()>8){
+			$(".customoverlay").css("display","none");
+			$(".customoverlay2").css("display","none");
+		 }
 		$(".customoverlay").click(function(){
 			var strArray=$(this).children().val().split(',');
 			var string = strArray[0];
@@ -448,9 +477,7 @@ html, body {
 			var strArray2 = string.split('(');
 			var strArray3 = string2.split(')');
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
-			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
-			$(".customoverlay").css("display","none");		
-			
+			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));							
 			map.setLevel(10);
 		});
 		$(".customoverlay2").click(function(){
@@ -460,100 +487,48 @@ html, body {
 			var strArray2 = string.split('(');
 			var strArray3 = string2.split(')');
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
-			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
-				
+			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));				
 			map.setLevel(map.getLevel()-1);
 		});
 		kakao.maps.event.addListener(map, 'zoom_changed', function() {		
-			
 			console.log(map.getLevel());
 			if (map.getLevel() >10) {
 				clusterer.clear();
 				$(".customoverlay").css("display","block");
 				$(".customoverlay2").css("display","none");
-			}else if(map.getLevel()==10){
+			}else {
 				$(".customoverlay2").css("display","none");
+				$(".customoverlay").css("display","none");
 				for(var i =0;i<positions2.length;i++){				 
 					 var marker = new kakao.maps.Marker({
 						    position: positions2[i].latlng
-						});
-					
+						});					
 					 clusterer.addMarker(marker);
 			 };
 			}
-			else if(10>map.getLevel()){			
-				$(".customoverlay").css("display","none");
-				$(".customoverlay2").css("display","block");
-				clusterer.clear();				
-				for(var i =0;i<positions2.length;i++){				 
-					 var marker = new kakao.maps.Marker({
-						    position: positions2[i].latlng
-						});
 					
-					 clusterer.addMarker(marker);
-			 };
-			
-			}			
-		});
-		map.setLevel(9);
-		marker.setMap(null);
-		
+		});	
 	});	
 	kakao.maps.event.addListener(map,'center_changed',function(){
-		console.log($(".customoverlay2").length);
-		$('.tt').each(function(index) { console.log(index + ': ' + $(this).val()); }); 
+		
+		/* $('.tt').each(function(index) { console.log(index + ': ' + $(this).val()); }); */ 
 		if (map.getLevel() >10) {
 			clusterer.clear();
-			$(".customoverlay").css("display","block");
-			$(".customoverlay2").css("display","none");
-		}else if(map.getLevel()==10){
-			$(".customoverlay2").css("display","none");
-		}
-		else if(10>map.getLevel()){			
-			$(".customoverlay").css("display","none");
-			$(".customoverlay2").css("display","block");
+				$(".customoverlay").css("display","block");
+				$(".customoverlay2").css("display","none");
+			}else {
+				$(".customoverlay2").css("display","none");
+				$(".customoverlay").css("display","none");			
 			clusterer.clear();				
 			for(var i =0;i<positions2.length;i++){				 
 				 var marker = new kakao.maps.Marker({
 					    position: positions2[i].latlng
-					});
-				
+					});				
 				 clusterer.addMarker(marker);
 		 };
 		 marker.setMap(null);
-		}
-		
-		
+		}		
 	});
-	/* kakao.maps.event.addListener(map, 'zoom_changed', function() {
-
-		
-		$.get("/guest/js/chicken.json", function(data) {
-						
-			// 데이터에서 좌표 값을 가지고 마커를 표시합니다
-			// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
-			var chickenmarker = $(data.positions).map(
-					function(i, position) {
-						// 커스텀 오버레이를 생성합니다
-						for(var i=0;i<$(data.positions).length;i++){
-							var content = '<input type="hidden" class="ww" value="'+i+'"><span>'+i+'</span>'; 
-							
-					    var customOverlay = new kakao.maps.CustomOverlay({
-					        map: map,
-					        position : new kakao.maps.LatLng(position.lat,
-									position.lng),
-					        content: content
-					       
-					    });
-						}
-			
-		});
-			
-		});   
-    	console.log("테스트중");
-   
-	}); */
-
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
 		// 현재 지도 레벨에서 1레벨 확대한 레벨

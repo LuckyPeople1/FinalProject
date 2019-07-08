@@ -164,12 +164,16 @@ public class ShopPassController {
                      String str  = getTagValue("kaptName", eElement2);
                      String str1  = getTagValue("doroJuso", eElement2);
                      String str2  = getTagValue("kaptAddr", eElement2);
-                     System.out.println(str);
-                     totalString = str+","+str1+","+str2;
-//                     aptNameList.add(str);
-//                     aptDoroJusoList.add(str1);
-//                     aptAddrList.add(str2);
-                  }
+                     String str3 = getTagValue("kaptUsedate", eElement2);
+                     String str4 = getTagValue("kaptMparea_60", eElement2);
+                     String str5 = getTagValue("kaptMparea_85", eElement2);
+                     String str6 = getTagValue("kaptMparea_135", eElement2);
+                     String str7 = getTagValue("kaptMparea_136", eElement2);
+                     totalString = str+","+str1+","+str2+","+str3+","+str4+","+str5+","+str6+","+str7;
+//                         aptNameList.add(str);
+//                         aptDoroJusoList.add(str1);
+//                         aptAddrList.add(str2);
+                      }
                }
               kaptList.add(totalString);
          }
