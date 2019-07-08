@@ -44,12 +44,14 @@ public class GuestLoginController {
 	//socialLogin
 	@RequestMapping(value="/socialLogin")
 	public String LoginHome(HttpServletRequest request, @RequestParam String socialId) throws Exception{
-		UserVO userVO = userService.guestLogin(socialId);
+		UserVO user = userService.guestLogin(socialId);
 		HttpSession session = request.getSession();
 		String view = "";
-		if(userVO != null) {
-			session.setAttribute("userVO", userVO);
-			view="redirect:/index.jsp";
+		if(user != null) {
+			session.setAttribute("user", user);
+			request.setAttribute("msg", "로그인 되었습니다.");
+			request.setAttribute("loc", "/login/index");
+			view= "guest/common/msg";
 		} else {
 			request.setAttribute("socialId", socialId);
 			System.out.println(socialId);

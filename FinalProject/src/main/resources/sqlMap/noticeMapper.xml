@@ -10,7 +10,7 @@
   			notice_hit as noticeHit,
   			notice_reg_date as noticeRegDate,
   			notice_state as noticeState
-  		from notice_tbl where notice_state='정상'
+  		from notice_tbl where notice_state='정상' order by noticeIndex
   </select>
   <!-- 공지사항업데이트 -->
   <update id="noticeUpdate" parameterType="noticeVO">
@@ -43,7 +43,20 @@
   
   <!-- 공지사항 작성 인서트 -->
   <insert id="noticeInsert" parameterType="noticeVO">
-  	insert into notice_tbl values
+  	<if test="noticeFilename==null">
+  	  	insert into notice_tbl values
+  			(notice_index.nextval,
+  			#{noticeType},
+  			#{noticeTitle},
+  			#{noticeContent},
+  			#{noticeWriter},
+  			null,
+  			null,
+  			default, sysdate,
+  			#{noticeState})
+  	</if>
+	<if test="noticeFilename !=null">
+	 	  	insert into notice_tbl values
   			(notice_index.nextval,
   			#{noticeType},
   			#{noticeTitle},
@@ -53,6 +66,7 @@
   			null,
   			default, sysdate,
   			#{noticeState})
+	</if>
   </insert>
   
   <!-- 공지사항 삭제 update notice_tbl set notice_state='삭제' where notice_index=#{notice_index},   	delete from notice_tbl where notice_index=#{notice_index}-->

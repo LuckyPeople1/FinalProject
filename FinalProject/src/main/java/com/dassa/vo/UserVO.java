@@ -12,6 +12,7 @@ public class UserVO {
 	private String 	userEmail;
 	private String 	userIntroduce;			//이사 소개
 	private String 	registrationNumber; 	//사업자 등록번호
+	private String	businessNumber;			//사업자 등록번호
 	private String 	userCar;				//운행차량
 	private String 	userImageName;
 	private String 	userImagePath;
@@ -25,8 +26,8 @@ public class UserVO {
 	}
 
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
-			String userEmail, String userIntroduce, String registrationNumber, String userCar, String userImageName,
-			String userImagePath, String userType, String socialId, Date enrollDate) {
+			String userEmail, String userIntroduce, String registrationNumber, String businessNumber, String userCar,
+			String userImageName, String userImagePath, String userType, String socialId, Date enrollDate) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -37,6 +38,7 @@ public class UserVO {
 		this.userEmail = userEmail;
 		this.userIntroduce = userIntroduce;
 		this.registrationNumber = registrationNumber;
+		this.businessNumber = businessNumber;
 		this.userCar = userCar;
 		this.userImageName = userImageName;
 		this.userImagePath = userImagePath;
@@ -49,181 +51,129 @@ public class UserVO {
 		return userIdx;
 	}
 
-
-
 	public void setUserIdx(int userIdx) {
 		this.userIdx = userIdx;
 	}
-
-
 
 	public String getUserId() {
 		return userId;
 	}
 
-
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
-
 
 	public String getUserPw() {
 		return userPw;
 	}
 
-
-
 	public void setUserPw(String userPw) {
 		this.userPw = userPw;
 	}
-
-
 
 	public String getUserName() {
 		return userName;
 	}
 
-
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-
 
 	public String getUserAddr() {
 		return userAddr;
 	}
 
-
-
 	public void setUserAddr(String userAddr) {
 		this.userAddr = userAddr;
 	}
-
-
 
 	public String getUserPhone() {
 		return userPhone;
 	}
 
-
-
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
-
-
 
 	public String getUserEmail() {
 		return userEmail;
 	}
 
-
-
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-
-
 
 	public String getUserIntroduce() {
 		return userIntroduce;
 	}
 
-
-
 	public void setUserIntroduce(String userIntroduce) {
 		this.userIntroduce = userIntroduce;
 	}
-
-
 
 	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
 
-
-
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
 
+	public String getBusinessNumber() {
+		return businessNumber;
+	}
 
+	public void setBusinessNumber(String businessNumber) {
+		this.businessNumber = businessNumber;
+	}
 
 	public String getUserCar() {
 		return userCar;
 	}
 
-
-
 	public void setUserCar(String userCar) {
 		this.userCar = userCar;
 	}
-
-
 
 	public String getUserImageName() {
 		return userImageName;
 	}
 
-
-
 	public void setUserImageName(String userImageName) {
 		this.userImageName = userImageName;
 	}
-
-
 
 	public String getUserImagePath() {
 		return userImagePath;
 	}
 
-
-
 	public void setUserImagePath(String userImagePath) {
 		this.userImagePath = userImagePath;
 	}
-
-
 
 	public String getUserType() {
 		return userType;
 	}
 
-
-
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-
-
 
 	public String getSocialId() {
 		return socialId;
 	}
 
-
-
 	public void setSocialId(String socialId) {
 		this.socialId = socialId;
 	}
 
-
-
-	public Date getEnroll_date() {
+	public Date getEnrollDate() {
 		return enrollDate;
 	}
 
-
-
-	public void setEnroll_date(Date enrollDate) {
+	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-
-
 
 	public String getType() {
 		String type = getUserType();
