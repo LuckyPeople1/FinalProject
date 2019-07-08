@@ -78,4 +78,8 @@
 						</choose>
 			              default)
 		</insert>
+		
+		<select id="idCheck" parameterType="userVO" resultType="userVO">
+			select user_id as userId from user_tbl where user_id=#{userId}
+		</select>
 </mapper>

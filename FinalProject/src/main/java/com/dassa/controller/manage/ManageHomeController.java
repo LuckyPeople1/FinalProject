@@ -13,5 +13,17 @@ public class ManageHomeController {
 		return "manage/manageHome";
 
 	}
+	
+	//승인관리 페이지
+	@RequestMapping("/user/userList")
+	public String ManageUserList() {
+		return "manage/user/userList";
+	}
+	
+	//회원 전체 조회
+	@RequestMapping("/user/userAllList")
+	public String UserAllList() {
+		return "manage/user/userAllList";
+	}
 
 }

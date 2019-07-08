@@ -16,4 +16,7 @@ public interface UserMapper {
 
 	public int commonInsert(UserVO userVO);
 
+	public UserVO idCheck(String userId);
+
+
 }

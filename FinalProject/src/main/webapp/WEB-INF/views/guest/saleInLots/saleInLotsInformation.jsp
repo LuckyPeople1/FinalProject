@@ -7,7 +7,7 @@
 	<div class="contents">
 		<section class="saleInLots">
 			<article class="saleInLotsHeader">
-				<a href="/saleInLots/saleInLotsInformation" class="active">분양정보</a>
+				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계" class="active">분양정보</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsThema">테마분양</a>
 				<div class="header"></div>
@@ -21,45 +21,45 @@
 			</article>
 		</section>
 		<section class="saleInLotsInformation">
-			<div class="fppZhw">
-				<div class="bkDIiM">
-					<div class="kBjcek">
-						<p class="juHLCg">분양정보</p>
-						<div class="dVmoLS">
-							<div class="styled__Wrap-j3aqzi-0 bFqGwy" tabindex="0">
-								<div class="styled__Btn-j3aqzi-1 jWSbuk">
+			<div class="screen">
+				<div class="web">
+					<div class="web_content">
+						<p class="saleInLotsInformation_main">분양정보</p>
+						<div class="saleInLotsInformation_content">
+							<div class="saleInLotsSelectBox" tabindex="0">
+								<div class="SelectBox_content">
 									<span>전국</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
 							</div>
-							<div class="styled__Wrap-j3aqzi-0 bFqGwy" tabindex="0">
-								<div class="styled__Btn-j3aqzi-1 jWSbuk">
+							<div class="saleInLotsSelectBox" tabindex="0">
+								<div class="SelectBox_content">
 									<span>건물유형</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
 							</div>
-							<div class="styled__Wrap-j3aqzi-0 bFqGwy" tabindex="0">
-								<div class="styled__Btn-j3aqzi-1 jWSbuk">
+							<div class="saleInLotsSelectBox" tabindex="0">
+								<div class="SelectBox_content">
 									<span>분양단계</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
 							</div>
-							<div class="styled__Wrap-j3aqzi-0 bFqGwy" tabindex="0">
-								<div class="styled__Btn-j3aqzi-1 jWSbuk">
+							<div class="saleInLotsSelectBox" tabindex="0">
+								<div class="SelectBox_content">
 									<span>분양일정</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
 							</div>
-							<div class="styled__Wrap-j3aqzi-0 bFqGwy" tabindex="0">
-								<div class="styled__Btn-j3aqzi-1 jWSbuk">
+							<div class="saleInLotsSelectBox" tabindex="0">
+								<div class="SelectBox_content">
 									<span>공급유형</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
@@ -67,12 +67,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="jVcCQd">
-							<p class="eChwwH">
+						<div class="saleInLotsBox">
+							<p class="saleInLotsList">
 								분양목록
 								<span>총<b>123</b>건</span>
 							</p>
-							<table class="faDGTo">
+							<table class="saleInLotsTable">
 								<colgroup>
 									<col style="width: 115px;">
 									<col style="width: 120px;">
@@ -94,40 +94,46 @@
 									</tr>
 								</thead>
 								<tbody>
+									<c:forEach var="list" items="${sp.list}" >
 									<tr>
 										<td>
-											<p class="styled__Tag-junnno-9 zZipP">분양예정</p>
+											<p class="saleInLotsState">${list.saleInLotsState}</p>
 										</td>
 										<td>
-											<p class="styled__Text-junnno-3 hISOyr">오피스텔</p>
+											<p class="saleInLotsType">${list.saleInLotsBuildType}</p>
 										</td>
 										<td>
-											<p class="styled__Text-junnno-3 hISOyr">민간분양</p>
+											<p class="saleInLotsType">${list.saleInLotsSupplyType}</p>
 										</td>
 										<td>
-											<div class="styled__SaleInfoWrap-junnno-4 iovIKz">
-												<div class="styled__SaleInfo-junnno-6 jLUpZe">
-													<p class="styled__SalesName-junnno-7 CUsXA">뚱발 패션하우스</p>
-													<p class="styled__SalesText-junnno-8 hLVydO">경기도 파주시 문산읍</p>
-													<p class="styled__SalesText-junnno-8 hLVydO" style="margin-top: 17px;">19년 상반기 모집공고</p>
+											<div class="saleInLotsInfoBox">
+												<div class="saleInLotsInfoBox_content">
+													<p class="saleInLotsName">${list.saleInLotsName} </p>
+													<p class="saleInLotsDetailArea">${list.saleInLotsDetailArea} </p>
 												</div>
-												<div class="styled__SaleImg-junnno-5 bvCXMa"></div>
 											</div>
 										</td>
 										<td>
-											<p class="styled__Text-junnno-3 hISOyr">준비중</p>
+											<p class="saleInLotsType">${list.saleInLotsPriceAll} </p>
 										</td>
 										<td>
-											<p class="styled__Text-junnno-3 hISOyr">1094세대</p>
+											<p class="saleInLotsType">${list.saleInLotsSaleHousehold} </p>
 										</td>
 										<td>
-											<p class="styled__Text-junnno-3 hISOyr" style="padding: 0px 13px;">19 ㎡ / 34㎡</p>
+											<p class="saleInLotsType" style="padding: 0px 13px;">${list.saleInLotsMinSupplyArea }/${list.saleInLotsMaxSupplyAred}</p>
 										</td>
 									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>
-						
+						<div class="pageWrap">
+							<div class="wrap">
+								<div class="pagination">
+									${sp.pageNavi} 
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

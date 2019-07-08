@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MapViewController {
 	@RequestMapping("/mapView")
 	public String MapView() {
-		return "guest/mapView";
+		return "guest/mapView3";
 	}
 }
