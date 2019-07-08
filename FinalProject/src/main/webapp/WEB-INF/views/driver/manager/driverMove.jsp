@@ -17,37 +17,42 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<tr>
-						<th>고객명</th>
-						<td colspan="4">
-							<input class="tbox w_1p">
-						</td>
-					</tr>
-					<tr>
-						<th>이사날짜</th>
-						<td colspan="3">
-							<input class="tbox" id="dateS">
-							<span class="hyphen">~</span>
-							<input class="tbox" id="dateE">
-							<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
-							<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
-							<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
-							<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
-							<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>
-							<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
-						</td>
-					</tr>
-				</table>
+				<form action="/driver/move" id="driverMoveForm" method="post">
+					<input type="hidden" id="page" name="page" value="${pagination.page }">
+					<input type="hidden" id="range" name="range" value="${pagination.range }">
+					<input type="hidden" id="rangeSize" name="rangeSize" value="${pagination.rangeSize }">
+					<table class="table_set">
+						<colgroup>
+							<col width="180">
+							<col width="*">
+							<col width="180">
+							<col width="*">
+						</colgroup>
+						<tr>
+							<th>고객명</th>
+							<td colspan="4">
+								<input class="tbox w_1p" name="userName" value="${pagination.userName }">
+							</td>
+						</tr>
+						<tr>
+							<th>이사날짜</th>
+							<td colspan="3">
+								<input class="tbox" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
+								<span class="hyphen">~</span>
+								<input class="tbox" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
+								<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
+								<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
+								<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
+								<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
+								<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>
+								<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
+							</td>
+						</tr>
+					</table>
+				</form>
 				<div class="set_form_search">
-					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
-					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+					<a href="javascript:$('#driverMoveForm').submit()" class="btn col_red f_w">검색</a>
+					<a href="/driver/move" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>
 			<div class="list_form">
@@ -115,19 +120,27 @@
 				</table>
 			</div>
 			<ul class="page_wrap">
-				<li><a href="#none">First</a></li>
-				<li><a href="#none">Prev</a></li>
-				<li><a href="#none" class="num active">1</a></li>
-				<li><a href="#none" class="num">2</a></li>
-				<li><a href="#none" class="num">3</a></li>
-				<li><a href="#none">Next</a></li>
-				<li><a href="#none">Last</a></li>
+				<c:if test="${pagination.prev}">
+				<li>
+					<a class="" href="#" onclick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a>
+				</li>
+			</c:if>
+			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
+				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+					<a class="num" href="#" onclick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a>
+				</li>
+			</c:forEach>
+			<c:if test="${pagination.next}">
+				<li>
+					<a href="#" onclick="fn_next('${pagination.range}','${pagination.range}', '${pagination.rangeSize}')" >Next</a>
+				</li>
+			</c:if>
 			</ul>
 		</div>
 
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
-	<div class="popup memo">
+	<!-- <div class="popup memo">
 		<div class="popupCon">
 			<div class="head">
 				<span>메모</span>
@@ -140,17 +153,49 @@
 				<a href="javascript:void(0)" class="btn pop col_red f_w">저장</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </div>
 <script>
+/* //이전 버튼 이벤트
+function fn_prev(page, range, rangeSize) {
 
+		var page = ((range - 2) * rangeSize) + 1;
+		var range = range - 1;
+		var url = "${pageContext.request.contextPath}/driver/move";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;
+	} */
 
-	// 메모 팝업창
-	function memo_pop(e){
-		$('.contents').addClass('overlay');
-		$('.popup').show();
+	
+	
+  //페이지 번호 클릭
+	function fn_pagination(page, range, rangeSize,) {
+	  
+		var elem = document.getElementById('driverMoveForm');
+		elem.action = "${pageContext.request.contextPath}/driver/move";
+		elem.page.value = page;
+		elem.range.value = range;
+		elem.rangeSize.value = rangeSize;
+		elem.method = "post";
+		elem.submit();
 	}
+
+	
+	
+	
+	
+	/* //다음 버튼 이벤트
+	function fn_next(page, range, rangeSize) {
+
+		var page = parseInt((range * rangeSize)) + 1;
+		var range = parseInt(range) + 1;
+		var url = "${pageContext.request.contextPath}/driver/move";
+		url = url + "?page=" + page;
+		url = url + "&range=" + range;
+		location.href = url;
+	} */
 </script>
 </body>
 </html>

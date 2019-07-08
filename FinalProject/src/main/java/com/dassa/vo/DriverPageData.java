@@ -5,10 +5,10 @@ package com.dassa.vo;
 public class DriverPageData {
 	
 	//조회검색
-	private String userName;
-	private String minDate;
-	private String maxDate;
-	private String reviewTitle;
+	private String userName;	//사용자이름
+	private String minDate;		//최소날짜
+	private String maxDate;		//최대날짜 
+	private String reviewTitle;	//review 제목 
 	
 	 public String getUserName() {
 		return userName;

@@ -1436,3 +1436,163 @@ table.table_list .menu_set a{
 .txt_editor{
 	height: 500px;
 }
+
+/* 입찰 상세보기   */
+.driverPont p3{
+	font-size: 17px;
+	color: #666;
+	font-weight: 500;
+   	margin-bottom: 15px;
+   	letter-spacing: -1px;
+}
+
+.section {
+	padding:8px;
+	background-color: #EEEEEE;
+}
+.section .infoBox{
+	margin-top:8px;
+	padding:16px;
+	background-color: #fff;
+}
+
+.section .infoTitle{
+	font-size: 18px;
+	padding-bottom:15px;
+	border-bottom:1px solid rgba(0,0,0,0.87);
+}
+.section .infoListBox li{
+	padding:16px 8px;
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+
+}
+.section .infoListBox li.bg{
+	background-color: #EEEEEE;
+
+}
+.section .infoBox .row{
+	position:relative;
+	padding-left:150px;
+}
+.section .infoBox .row.static {
+	padding-left:0;
+}
+.section .infoBox .row.static .subject{
+	display:inline-block;
+	position:static;
+	transform: none;
+
+}
+.section .infoBox .row .subject{
+	position:absolute;
+	left:0;
+	top:50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+}
+
+.section .infoBox .row .addr{
+	margin-bottom: 8px;
+	font-size: 20px;
+}
+.section .infoBox .row .addrInfo{
+	color: #666;
+	font-size: 16px;
+	line-height: 22px;
+}
+.section .infoBox .hopeInfo{
+	margin: 16px 0;
+	border: 1px solid rgba(0,0,0,0.12);
+	border-radius: 4px;
+	padding: 16px;
+	background-color: #fff;
+}
+
+.section .infoBox .hopeInfo .hopeTitle{
+	height: 22px;
+	color: rgba(0,0,0,0.87);
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 22px;
+}
+.section .infoBox .hopeInfo .hopeTitle .accent{
+	color: #F65F50;;
+}
+.section .infoBox .hopeInfo .hopeText{
+	margin-top: 8px;
+	color: rgba(0,0,0,0.6);
+	font-size: 14px;
+	letter-spacing: 0.1px;
+	line-height: 28px;
+}
+.section .infoBox .packageName{
+	font-size: 16px;
+	margin-bottom: 7px;
+}
+.section .infoBox .packageOption{
+	font-size: 14px;
+	color: #666;
+}
+
+.section .infoListBox {
+	font-size: 0;
+}
+.section .infoListBox + .infoListBox{
+	border-top:1px solid rgba(0,0,0,0.87);
+	margin-top: 20px;
+}
+.section .infoListBox li.package{
+	width: 50%;
+	display:inline-block;
+}
+.section .guideBox{
+	/*padding:16px;*/
+	padding:22px 0 16px;
+	margin-top:8px;
+}
+
+.section .guideBox .guide + .guide{
+	padding-top: 8px;
+	border-top:1px solid #eee;
+	margin-top: 8px;
+
+}
+.section .guideBox .guideInfo{
+	background-color: #fff;
+	padding:16px;
+	border:1px solid #ccc;
+}
+
+.section .guideBox .guideTitle{
+	margin-bottom: 5px;
+}
+.section .guideBox .guideText{
+	color: #666;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+.section .agreeBox{
+	padding:10px 0 20px;
+}
+.section .agreeBox .agree + .agree{
+	margin-top: 20px;
+
+}
+.section .memo{
+	padding:15px;
+	border:1px solid #eee;
+	font-size: 16px;
+	line-height: 22px;
+	min-height: 120px;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+

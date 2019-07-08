@@ -59,15 +59,15 @@
 				from move_apply_tbl
 				where apply_status =0  
 				
-				<if test="userName!=null and userName!=''" >
+				<if test="userName!=''" >
 				and guest_name like '%'||#{userName}||'%'			
 				</if>
 				<if test="minDate!='' and maxDate!=''">
-					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
-              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+					and apply_date between to_date(replace('${minDate}','-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace('${maxDate}','-','')||'235959','YYYYMMDDhh24miss')
 				</if>
 				) a
-			where rNUM between (#{page}-1)*#{listSize}+1 and #{page}*#{listSize}
+			where rNUM between (${page}-1)*${listSize}+1 and ${page}*${listSize}
 	</select>
 	
 	<!--총 게시물 수 구하기(입찰 페이징)  -->
@@ -79,7 +79,7 @@
 				from move_apply_tbl
 				where apply_status =0  
 				
-				<if test="userName!=null and userName!=''" >
+				<if test="userName!=''" >
 				and guest_name like '%'||#{userName}||'%'			
 				</if>
 				<if test="minDate!='' and maxDate!=''">
@@ -94,8 +94,9 @@
 	
 	
 	<!--이사목록 뿌리기  -->
-	<select id="driverMoveList" resultType="moveApplyVO">
-		select guest_idx as guestIdx,
+	<select id="driverMoveList" resultType="moveApplyVO" parameterType="com.dassa.vo.DriverPageData">
+			 select a.* from (
+			select guest_idx as guestIdx,
 				apply_date as applyDate,
 				apply_time as applyTime,
 				guest_name as guestName,
@@ -103,10 +104,38 @@
 				start_addr1 as startAddr1,
 				end_addr1 as endAddr1,
 				apply_hope as applyHope,
-				apply_status as applyStatus
+				apply_status as applyStatus,
+				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
 				from move_apply_tbl
-				where apply_status = 1 or apply_status = 2 
+				where (apply_status =1 or apply_status =2)
+				
+				<if test="userName!=''" >
+				and guest_name like '%'||#{userName}||'%'			
+				</if>
+				<if test="minDate!='' and maxDate!=''">
+					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+				</if>
+				) a
+			where rNUM between (#{page}-1)*#{listSize}+1 and #{page}*#{listSize}
 	</select>
 	
+	<select id="driverMoveTotalCount" resultType="_int" parameterType="com.dassa.vo.DriverPageData">
+			select count(*) cnt from
+			(
+			select 
+				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
+				from move_apply_tbl
+				where (apply_status =1 or apply_status = 2) 
+				
+				<if test="userName!=''" >
+				and guest_name like '%'||#{userName}||'%'			
+				</if>
+				<if test="minDate!='' and maxDate!=''">
+					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+				</if>
+		)
+	</select>
 	
 </mapper>

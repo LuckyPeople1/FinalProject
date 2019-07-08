@@ -21,6 +21,7 @@
 		</ul>
 		<div class="section">
 			<div class="section_title">사용자정보</div>
+			
 			<div class="set_form">
 				<table class="table_set">
 					<colgroup>
@@ -34,7 +35,7 @@
 					<tr>
 						<th>이름</th>
 						<td colspan="3">
-							<label><input type="text" value="최희수" readonly="readonly"></label>
+							<label><input class="tbox" type="text" value="최희수" readonly="readonly"></label>
 						</td>
 					</tr>
 					<tr>
@@ -45,10 +46,43 @@
 					</tr>
 					<tr>
 						<th>출발지정보</th>
-						<td><input class="tbox full" value="서울시 마포구 매봉산로 31 SPLEXCENTER" readonly="readonly"></td>
+						<td><input class="tbox full" value="서울시 마포구 매봉산로 31 SPLEXCENTER" readonly="readonly"></td>	
 						<th>도착지정보</th>
 						<td><input class="tbox full" value="서울시 영등포구 당산동 이레빌딩" readonly="readonly"></td>
 					</tr>
+					<tr>
+						<th>출발지 엘레베이터유무</th>
+						<td><input class="tbox full" value="삼항연삭식 희수형이 씀 찾아봐.! Y/X" readonly="readonly"></td>
+						<th>도착지  엘레베이터 유무</th>
+						<td><input class="tbox full" value="Y/X" readonly="readonly"></td>	
+					</tr>
+					<tr>
+						<th>출발지 주차 유무</th>
+						<td><input class="tbox full" value="삼항연삭식 희수형이 씀 찾아봐.! Y/X" readonly="readonly"></td>
+						<th>도착지  주차 유무</th>
+						<td><input class="tbox full" value="Y/X" readonly="readonly"></td>	
+					</tr>
+					<tr>
+						<th>출발지 집형태</th>
+						<td><input class="tbox full" value="오피스텔" readonly="readonly"></td>
+						<th rowspan="1">도착지  집형태</th>
+						<td><input class="tbox full" value="오피스텔" readonly="readonly"></td>	
+					</tr>
+					<tr>
+						<th>출발지 방구조</th>
+						<td><input class="tbox full" value="1.5룸" readonly="readonly"></td>	
+					</tr>
+					<tr>
+						<th>출발지 집평수</th>
+						<td><input class="tbox full" value="10~15평" readonly="readonly"></td>	
+					</tr>
+					<tr>
+						<th>출발지 층수</th>
+						<td><input class="tbox full" value="1층(계단X)" readonly="readonly"></td>
+						<th>도착지 층수</th>
+						<td><input class="tbox full" value="1층(계단0)" readonly="readonly"></td>	
+					</tr>
+					
 					<tr>
 						<th>이사 시작 시간</th>
 						<td>
@@ -71,21 +105,17 @@
 			</div>
 		</div>
 		<div class="section">
-			<div class="section_title">출발지 상세정보</div>
+			<div class="section_title">상세정보</div><hr>
+			<br>
+			<div class="driverPont"><p3>이사사진</p3></div><br>
 			<div class="set_form">
+				<colgroup>
+					<col width="*">
+				</colgroup>
 				<table class="table_set">
-					<colgroup>
-						<col width="200">
-						<col width="100">
-						<col width="250">
-						<col width="*">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
 					<tr>
-						<th>이사 사진</th>
-						<td colspan="5" class="">
+						<th colspan="1">이사 사진</th>
+						<td colspan="3" class="">
 							<script>
 								/* 이미지 업로드 5개 만들기 (추후 php for문 쓸 것..) 퍼스트 차일드가 안먹음 ㅠㅠ */
 
@@ -102,96 +132,150 @@
 								document.write(strBox);
 							</script>
 						</td>
-					</tr>
-					<%-- <c:forEach items="${dfddf }" var="sadf" varStatus="status">
-						sadf.arr[status.index]
-					</c:forEach> --%>
-					<tr>
-						<th colspan="2">짐이름</th>
-						<td colspan="">
-							냉장고(package_name)
-						</td>
-						<th colspan="">총수량</th>
-						<td colspan="3">
-							3
-						</td>
-					</tr>
-					
-					 <tr>
-						<th>냉장고(1)</th>
-						<th>냉장고 종류</th>
-						<td>양문형</td><br>
-						<th>용량</td>
-						<td colspan="3">120~250리터</td>
-					</tr>
-					
-					
-					<tr>
-						<th>냉장고(2)</th>
-						<th>냉장고 종류</th>
-						<td>일반형</td>
-						<th>용량</th>
-						<td colspan="3">251~460리터</td>
-					</tr>
-					
-					
-					
-					<tr>
-						<th colspan="2">짐이름</th>
-						<td>침대</td>
-						<th>총수량</th>
-						<td colspan="3">2</td>
-					</tr>
-					<tr>
-						<th>침대(1)</th>
-						<th>침대크기</th>
-						<td>더블</td><br>
-						<th>프레임 여부 및 종류</td>
-						<td>일반 프레임</td>
-						<th>특이사항</th>
-						<td>일반 침대</td>
-					</tr>
-					
-					<tr>
-						<th>상품고시정보</th>
-						<td colspan="5">
-							<textarea class="text_editor smaller"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<th>거래정보</th>
-						<td colspan="3">
-							<textarea class="text_editor smaller"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<th>예약취소 및 환불규정</th>
-						<td colspan="3">
-							<textarea class="text_editor smaller"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<th>사업자번호</th>
-						<td><input class="tbox full" placeholder="'-'을 제외한 숫자만 입력"></td>
-						<th>은행명</th>
-						<td><input class="tbox full"></td>
-					</tr>
-					</tbody>
+					</tr>		
 				</table>
+				<br>
+				<div class="driverPont"><p3>짐정보</p3></div><br>
+				<div class="infoBox">
+							<div class="infoTitle">짐 정보</div>
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">가전</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명</div>
+											<div class="packageOption">옵션..</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">가구</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명</div>
+											<div class="packageOption">옵션..</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">기타</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명</div>
+											<div class="packageOption">옵션..</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">짐박스</div>
+									</div>
+								</li>
+								<li class="">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명</div>
+											<div class="packageOption">옵션..</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">사진정보</div>
+									</div>
+								</li>
+								<li class="">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명</div>
+											<div class="packageOption">옵션..</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">메모</div>
+									</div>
+								</li>
+								<li class="">
+									<textarea class="memo" placeholder="이사 시 요청사항 및 특이사항을 입력해주세요."></textarea>
+								</li>
+							</ul>
+						</div>
+				<table class="table_set">
+					<colgroup>
+						<col width="*">
+						<col width="*">
+						<col width="*">
+						<col width="*">
+					</colgroup>
+					<thead></thead>
+					<!--tr(table row) th(table head) td(table data)  -->
+					<tbody>
+						<<tr>
+							<th>상품고시정보</th>
+							<td colspan="5">
+								<textarea class="text_editor smaller"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>거래정보</th>
+							<td colspan="3">
+								<textarea class="text_editor smaller"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>예약취소 및 환불규정</th>
+							<td colspan="3">
+								<textarea class="text_editor smaller"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>사업자번호</th>
+							<td><input class="tbox full" placeholder="'-'을 제외한 숫자만 입력"></td>
+							<th>은행명</th>
+							<td><input class="tbox full"></td>
+						</tr> 
+					</tbody>
+				</table> --%>
 			</div>
 		</div>
 		<div class="btn_box">
 			<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
 			<a href="javascript:void(0)" class="btn col_red">저장</a>
 		</div>
-		<div class="list_form">
-
-		</div>
+		
 
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 </div>
-<script src="/driver/js/shop_setting.js"></script>
-
+<script src="/driver/js/shop_setting2.js"></script>
 </body>
 </html>
