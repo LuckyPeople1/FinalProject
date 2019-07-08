@@ -499,7 +499,7 @@
 								<th id="structure1">구조</th>
 								<td class="cCUCai" id="structure2">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name=shopItemStructure value="복층">
+										<input type="radio" name="shopItemStructure" value="복층">
 										<p>복층</p>
 									</label> 
 									<label class="gBFyOc fSFsCh">
@@ -1067,7 +1067,11 @@
 				$("input[name=shopItemContent]").focus();
 				return false;
 			}
-			if($)
+			if($("#structure1").is(':visible') && $("input[name=shopItemStructure]").is(":checked")==false){
+				alert("구조를 선택하세요");
+				$("input[name=shopItemStructure]").focus();
+				return false;
+			}
 			if($("#size1").val()>$("#size3").val()){
 				alert("공급면적이 전용면적보다 클 수 없습니다");
 				$("#size1").focus();
