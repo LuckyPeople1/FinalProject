@@ -7,7 +7,7 @@
 	<div class="contents">
 		<section class="saleInLots">
 			<article class="saleInLotsHeader">
-				<a href="/saleInLots/saleInLotsInformation">분양정보</a>
+				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsThema">테마분양</a>
 				<div class="header"></div>
@@ -32,7 +32,7 @@
 							<div class="searchBox_filter">
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>전국</span>
+										<span id="area">전국</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -64,7 +64,7 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>건물유형</span>
+										<span id="buildType">건물유형</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -109,7 +109,7 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>분양단계</span>
+										<span id="saleState">분양단계</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -238,7 +238,7 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>공급유형</span>
+										<span id="supplyType">공급유형</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>

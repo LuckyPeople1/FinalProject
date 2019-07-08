@@ -53,4 +53,12 @@
 			$(this).parents('div').eq(0).prev().find('span').html(tmp); // 체크된 체크박스 내용 보여주기
 		}
 	});
-
+	$(".searchBtn").click(function(){
+		var area = $("#area").html();
+		var supplyType = $("#supplyType").html();
+		var buildType = $("#buildType").html();
+		var saleState = $("#saleState").html();
+		var supplyType = $("#supplyType").html();
+		
+		$(".searchBtn").parent().attr("href","/saleInLots/saleInLotsInformation?saleInLotsArea="+area+"&saleInLotsSupplyType="+supplyType+"&saleInLotsBuildType="+buildType+"&saleInLotsState="+saleState);
+	})

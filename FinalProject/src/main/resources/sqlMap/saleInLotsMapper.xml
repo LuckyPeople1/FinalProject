@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.SaleInLotsMapper">
+	<select id="saleInLotsInformation" parameterType="saleInLotsVO" resultType="saleInLotsVO">
+		select saleinlots_idx as saleInLotsIDX,
+			   saleinlots_state as saleInLotsState,
+			   saleinlots_build_type as saleInLotsBuildType,
+			   saleinlots_supply_type as saleInLotsSupplyType,
+			   saleinlots_name as saleInLotsName,
+			   saleinlots_detail_area as saleInLotsDetailArea,
+			   saleinlots_price_all as saleInLotsPriceAll,
+			   saleinlots_sale_household as saleInLotsSaleHousehold,
+			   saleinlots_min_floor as saleInLotsMinFloor,
+			   saleinlots_max_floor as saleInLotsMaxFloor
+			   from saleinlots_tbl
+			   <trim prefix="where" prefixOverrides="AND|OR">
+			   <if test="saleInLotsArea != '전국'">
+			   		saleinlots_area = #{saleInLotsArea}
+			   </if>
+			   <if test="saleInLotsBuildType != '건물유형'">
+			   		AND saleinlots_build_type = #{saleInLotsBuildType}
+			   </if>
+			   <if test="saleInLotsState != '분양단계'">
+			   		AND saleinlots_state = #{saleInLotsState}
+			   </if>
+			   <if test="saleInLotsSupplyType != '공급유형'">
+			   		AND saleinlots_supply_type = #{saleInLotsSupplyType}
+			   </if> 
+			   AND saleinlots_idx between #{start} and #{end}
+			   </trim>
+			   
+	</select>
+	<select id="saleInLotstotalCount" resultType="int">
+		select count(*) as cnt from saleinlots_tbl
+	</select>
+</mapper>
