@@ -12,10 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="/guest/css/ui.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="/guest/css/login-ui.css">
+	<link rel="stylesheet" type="text/css" href="/guest/css/login/login-ui.css">
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
 	<script src="/guest/js/ui.js"></script>
+	<script src="/guest/js/login/loginHome.js"></script>
 </head>
 <section id="guest_loginHome">
 	<div class="container">
@@ -49,25 +50,8 @@
 	</div>
 </section>
 </body>
-<script>
-	$(document).ready(function(){
-		$("#guest_login_btn").click(function(){
-			var id = $("#id_input").val();
-			var pw = $("#pw_input").val();
-			console.log($("#id_input").val());
-			if(id == ""){
-				alert("아이디를 입력해주세요");
-				return false;
-			}
-			if(pw == ""){
-				alert("비밀번호를 입력해주세요");
-				return false;
-			}
-		});
-	});
-</script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script src="/guest/js/kakaoLogin.js"></script>
+<script src="/guest/js/login/kakaoLogin.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
-<script src="/guest/js/naverLogin.js"></script>
+<script src="/guest/js/login/naverLogin.js"></script>
 </html>

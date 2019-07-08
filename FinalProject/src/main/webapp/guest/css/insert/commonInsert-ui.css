@@ -40,8 +40,12 @@
 	margin-left: 30px;
 }
 
-#commonInsert_container .tbox.normal, textbox.normal{
+#commonInsert_container textbox.normal{
 	width: 100%;
+}
+
+#commonInsert_container .normal{
+	width: 50%;
 }
 
 #commonInsert_container .tbox.post{
@@ -62,9 +66,17 @@
 	padding: 0 10px;
 }
 
+#commonInsert_container .regCheck{
+	font-size: 15px;
+	width: 100px;
+	height: 30px;
+	color: #3b3b3b;
+	margin-left: 20px;
+}
 
-
-
+#commonInsert_container .regCheckBtn{
+	margin-left: 10px;
+}
 
 
 

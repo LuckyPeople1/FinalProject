@@ -27,4 +27,8 @@ public class UserService {
 	public int commonInsert(UserVO userVO) throws Exception {
 		return userMapper.commonInsert(userVO);
 	}
+
+	public UserVO idCheck(String userId) {
+		return userMapper.idCheck(userId);
+	}
 }

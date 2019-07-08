@@ -30,7 +30,7 @@ $(document).ready(function(){
     
     $(".driver_insert").click(function(){
     	if($('.accept_checkBox').eq(0).is("input:checked") && $('.accept_checkBox').eq(1).is("input:checked")){
-    		console.log("운송기사");
+    		location.href="/insert/insert?userType="+2;
     	}else{
     		alert("필수 약관을 체크해주세요");
     	}
@@ -38,7 +38,7 @@ $(document).ready(function(){
     
     $(".shop_insert").click(function(){
     	if($('.accept_checkBox').eq(0).is("input:checked") && $('.accept_checkBox').eq(1).is("input:checked")){
-    		console.log("부동산");
+    		location.href="/insert/insert?userType="+3;
     	}else{
     		alert("필수 약관을 체크해주세요");
     	}
