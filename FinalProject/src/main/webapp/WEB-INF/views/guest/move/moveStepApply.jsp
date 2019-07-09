@@ -270,12 +270,12 @@
 									</div>
 								</li>
 								<li class="">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명</div>
-											<div class="packageOption">옵션..</div>
-										</div>
+									<div class="imgList">
+										<c:forEach items="${sessionScope.imgList}" var="img">
+											<div class="imgBox">
+												<img src="${img.imgPath}" alt="이미지">
+											</div>
+										</c:forEach>
 									</div>
 								</li>
 							</ul>

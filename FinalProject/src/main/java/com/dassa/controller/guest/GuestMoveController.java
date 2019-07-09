@@ -1,14 +1,17 @@
 package com.dassa.controller.guest;
 
 
+import com.dassa.common.FileCommon;
 import com.dassa.service.MovePackageService;
 import com.dassa.vo.*;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +22,9 @@ import java.util.Map;
 @RequestMapping("/move")
 public class GuestMoveController {
 
+
+	@Resource
+	private FileCommon fileCommon;
 
 	@Resource
 	private MovePackageService movePackageService;
@@ -275,8 +281,48 @@ public class GuestMoveController {
 	}
 
 
+
+
+	/** 이사 이미지 등록 **/
+	@RequestMapping(value = "/finishProc" , method = RequestMethod.POST)
+	@ResponseBody
+	public String finishProc(HttpServletRequest httpServletRequest,
+							 List<MultipartFile> fileImg,
+							 HttpSession httpSession
+							 ){
+
+		List<MoveApplyImgVO>imgList	=	new ArrayList<MoveApplyImgVO>();
+
+		System.out.println(fileImg);
+		System.out.println("@@");
+		System.out.println(fileImg.size() + " 몇개");
+
+		for(MultipartFile img : fileImg){
+
+			if(!img.getOriginalFilename().equals("")){
+				String[] fileInfo	=	fileCommon.fileUp(img, httpServletRequest, "moveApply");
+				MoveApplyImgVO moveApplyImgVO	=	new MoveApplyImgVO();
+				moveApplyImgVO.setImgName(fileInfo[0]);
+				moveApplyImgVO.setImgPath(fileInfo[1]);
+				imgList.add(moveApplyImgVO);
+			}
+		}
+
+		httpSession.setAttribute("imgList",imgList);
+
+		return "Y";
+	}
+
+
+
+
+
+
+
+
+
 	/**
-	 * 최종정보 확인
+	 * 최종정보 확인 페이지로 이동
 	 * @param httpSession
 	 * @param model
 	 * @return
@@ -299,6 +345,12 @@ public class GuestMoveController {
 	}
 
 
+	/**
+	 * 최종 이사정보 확인(이사 요청 처리)
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/applyProc")
 	@ResponseBody
 	public String applyProc(HttpSession httpSession) throws Exception {
@@ -312,6 +364,7 @@ public class GuestMoveController {
 
 		// 세션에서 객체를 가져옴
 		List<PackageOptionSelectVO> packageOptionList	=	(List<PackageOptionSelectVO>)httpSession.getAttribute("packageOptionList");
+		List<MoveApplyImgVO> imgList	=	(List<MoveApplyImgVO>)httpSession.getAttribute("imgList");
 
 
 
@@ -322,19 +375,9 @@ public class GuestMoveController {
 				userVO);
 
 
-		System.out.println(((MoveAddrScheduleVO) httpSession.getAttribute("scheduleInfo")).getMoveHelp());
-		System.out.println(((MoveAddrScheduleVO) httpSession.getAttribute("scheduleInfo")).getMoveHope());
 
-		// 이미지 추가해야함
-
-		Map<String, Object> map	=	new HashMap<String, Object>();
-		map.put("applyInfo",moveApplyVO);
-		map.put("optionList",packageOptionList);
-
-
-		List<PackageOptionSelectVO> list = (List<PackageOptionSelectVO>)map.get("optionList");
-
-		System.out.println(list.get(0).getPackageIdx());
+		System.out.println(imgList.get(0).getImgName());
+		System.out.println(imgList.get(0).getImgPath());
 
 
 		int rs	=	movePackageService.regApply(moveApplyVO);
@@ -342,8 +385,11 @@ public class GuestMoveController {
 		if(rs > 0){
 
 			rs	=	 movePackageService.regApplyPackage(packageOptionList);
+			movePackageService.regApplyImg(imgList);
+
 
 			if(rs >0){
+
 				return "Y";
 			}
 		}

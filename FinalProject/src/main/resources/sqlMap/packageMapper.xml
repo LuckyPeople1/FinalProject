@@ -147,7 +147,7 @@
 	</insert>
 
 
-	<!-- insert이지만 다중 insert를 하기 위해서는 update로 설정 -->
+	<!-- 재고 등록 -->
 	<insert id="regApplyPackage" parameterType="java.util.List">
 		insert into
 		MOVE_APPLY_OPTION_TBL (
@@ -175,33 +175,26 @@
 		) T
 	</insert>
 
-
-	<!--	&lt;!&ndash; insert이지만 다중 insert를 하기 위해서는 update로 설정 &ndash;&gt;-->
-	<!--	<insert id="regApplyPackage" parameterType="java.util.List">-->
-
-	<!--		<foreach collection="list" item="item" index="index" separator=" " open="insert all" close="SELECT * FROM DUAL">-->
-	<!--			into-->
-	<!--			MOVE_APPLY_OPTION_TBL (-->
-	<!--			OPTION_IDX,-->
-	<!--			APPLY_IDX,-->
-	<!--			PACKAGE_IDX,-->
-	<!--			PACKAGE_TYPE,-->
-	<!--			PACKAGE_NAME,-->
-	<!--			PACKAGE_OPTION,-->
-	<!--			PACKAGE_IMG_PATH-->
-	<!--			)-->
-	<!--			values (-->
-	<!--			MOVE_APPLY_OPTION_SEQ.nextval,-->
-	<!--			MOVE_APPLY_SEQ.currval,-->
-	<!--			#{item.packageIdx},-->
-	<!--			#{item.packageType},-->
-	<!--			#{item.packageName},-->
-	<!--			#{item.packageOption},-->
-	<!--			#{item.packageImgPath}-->
-	<!--			)-->
-	<!--		</foreach>-->
-	<!--	</insert>-->
-	<!--	-->
-	<!--	-->
+	<!-- 이미지 등록 -->
+	<insert id="regApplyImg" parameterType="java.util.List">
+		insert into
+		MOVE_APPLY_IMG_TBL (
+		IMG_IDX,
+		APPLY_IDX,
+		IMG_NAME,
+		IMG_PATH
+		)
+		select
+		MOVE_APPLY_IMG_SEQ.nextval,
+		MOVE_APPLY_SEQ.currval,
+		T.* from(
+		<foreach collection="list" item="item" separator="UNION ALL">
+			select
+			#{item.imgName} as IMG_NAME,
+			#{item.imgPath} as IMG_PATH
+			from dual
+		</foreach>
+		) T
+	</insert>
 
 </mapper>

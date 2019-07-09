@@ -125,11 +125,14 @@
 						<div class="imgUploadInfo">
 							(최대 12장, 사진 없어도 견적 신청 가능)
 						</div>
-						<div class="imgList">
-							<div class="imgBox">
-							
+						<form id="frm">
+							<div class="imgList">
+								<div class="imgBox">
+									<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="package.imgSel(this, event)">
+									<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 				
