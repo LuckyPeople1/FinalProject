@@ -1,10 +1,9 @@
 package com.dassa.controller.guest;
 
-import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +31,20 @@ public class SaleInLotsController {
 
 	}
 	/**
+	 * @throws Exception 
+	 * 분양 정보 상세 페이지
+	 * @param saleInLotsIDX
+	 * @return
+	 * @throws 
+	 */
+	@RequestMapping("/saleInLotsDetailInformation")
+	public String saleInLotsDetailInformation(Model model,String saleInLotsIDX) throws Exception {
+		SaleInLotsVO saleVO = saleInLotsService.saleInLotsDetailInformation(saleInLotsIDX);
+		model.addAttribute("saleVO",saleVO);
+		return "guest/saleInLots/saleInLotsDetailInformation";
+
+	}
+	/**
 	 * 
 	 * 분양 정보 페이지
 	 * @param saleInLotsArea 
@@ -46,11 +59,10 @@ public class SaleInLotsController {
 		
 		SaleInLotsVO saleInfo = new SaleInLotsVO();
 		saleInfo.setSaleInLotsArea(saleInLotsArea);
-		saleInfo.setSaleInLotsBuildType(saleInLotsBuildType);
-		saleInfo.setSaleInLotsState(saleInLotsState);
-		saleInfo.setSaleInLotsSupplyType(saleInLotsSupplyType);
-		
-		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsInformation(saleInfo,reqPage);
+		saleInfo.setSaleInLotsSearchBuildType(stringToken(saleInLotsBuildType));
+		saleInfo.setSaleInLotsSearchState(stringToken(saleInLotsState));
+		saleInfo.setSaleInLotsSearchSupplyType(stringToken(saleInLotsSupplyType));
+		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsInformation(saleInfo,reqPage,saleInLotsSupplyType,saleInLotsBuildType,saleInLotsState);
 		model.addAttribute("sp",spVO);
 		
 		return "guest/saleInLots/saleInLotsInformation";
@@ -99,6 +111,15 @@ public class SaleInLotsController {
 	public String saleInLotsBrand() {
 		return "guest/saleInLots/saleInLotsBrand";
 
+	}
+	//문자열 나누기용 메소드
+	public String[] stringToken(String str) {
+		StringTokenizer st = new StringTokenizer(str, ",");
+		String [] array = new String[st.countTokens()];
+		for(int i=0;i<array.length;i++) {
+			array[i] = st.nextToken();
+		}
+		return array;
 	}
 
 }
