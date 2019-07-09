@@ -45,6 +45,20 @@
 				</td>
 			</tr>
 			<tr>
+				<th>가입 상태</th>
+				<td colspan="3">
+					<label>
+						<input type="checkbox">
+						<span>정상</span>
+					</label>
+					<label class="ml10">
+						<input type="checkbox">
+						<span>승인 대기</span>
+					</label>
+				</td>
+			</tr>
+			
+			<tr>
 				<th>가입일</th>
 				<td colspan="3">
 					<input id="dateS" class="tbox"> ~ <input id="dateE" class="tbox">
@@ -90,21 +104,71 @@
 			</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="u" items="${list}">
-					<tr>
-						<td>${u.userIdx }</td>
-						<td>${u.userId }</td>
-						<td>${u.userName }</td>
-						<td>${u.userAddr }</td>
-						<td>${u.userPhone }</td>
-						<td>${u.userEmail }</td>
-						<td>${u.userType }</td>
-						<td>${u.enrollDate }</td>
-						<td>
-							<a href="/userManage/deleteUser" class="tag col_blue f_w">회원탈퇴</a>
-						</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td>1</td>
+					<td>ssooya90</td>
+					<td>김경환</td>
+					<td>경기도 부천시</td>
+					<td class="">01084649696</td>
+					<td>email@email.com</td>
+					<td class="">일반회원</td>
+					<td>2018-10-10 17:22:12</td>
+					<td>
+						<span class="tag col_blue f_w">정상</span>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>ssooya90</td>
+					<td>김경환</td>
+					<td>경기도 부천시</td>
+					<td class="">01084649696</td>
+					<td>email@email.com</td>
+					<td class="">일반회원</td>
+					<td>2018-10-10 17:22:12</td>
+					<td>
+						<span class="tag col_blue f_w">정상</span>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>ssooya90</td>
+					<td>김경환</td>
+					<td>경기도 부천시</td>
+					<td class="">01084649696</td>
+					<td>email@email.com</td>
+					<td class="">일반회원</td>
+					<td>2018-10-10 17:22:12</td>
+					<td>
+						<span class="tag col_blue f_w">정상</span>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>ssooya90</td>
+					<td>김경환</td>
+					<td>경기도 부천시</td>
+					<td class="">01084649696</td>
+					<td>email@email.com</td>
+					<td class="">일반회원</td>
+					<td>2018-10-10 17:22:12</td>
+					<td>
+						<span class="tag col_blue f_w">정상</span>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>ssooya90</td>
+					<td>김경환</td>
+					<td>경기도 부천시</td>
+					<td class="">01084649696</td>
+					<td>email@email.com</td>
+					<td class="">일반회원</td>
+					<td>2018-10-10 17:22:12</td>
+					<td>
+						<span class="tag col_blue f_w">정상</span>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -131,3 +195,4 @@
 		</ul>
 	</div>
 </div>
+

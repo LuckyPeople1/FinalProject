@@ -19,6 +19,7 @@ public class UserVO {
 	private String 	userType;				//회원 타입
 	private String  socialId;				//소셜 로그인 할 때 필요
 	private Date	enrollDate;
+	private String  type;
 	
 	public UserVO() {
 		super();
@@ -27,7 +28,7 @@ public class UserVO {
 
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
 			String userEmail, String userIntroduce, String registrationNumber, String businessNumber, String userCar,
-			String userImageName, String userImagePath, String userType, String socialId, Date enrollDate) {
+			String userImageName, String userImagePath, String userType, String socialId, Date enrollDate, String type) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -45,6 +46,7 @@ public class UserVO {
 		this.userType = userType;
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
+		this.type = type;
 	}
 
 	public int getUserIdx() {
@@ -178,11 +180,11 @@ public class UserVO {
 	public String getType() {
 		String type = getUserType();
 		if(type.equals("1")) {
-			return "일반";
-		}else if(type.equals("2")){
 			return "운송기사";
-		}else {
+		}else if(type.equals("2")){
 			return "부동산";
+		}else {
+			return "일반";
 		}
 	}
 }
