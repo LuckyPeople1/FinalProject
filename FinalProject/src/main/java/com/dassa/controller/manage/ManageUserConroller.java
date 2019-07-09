@@ -33,4 +33,8 @@ public class ManageUserConroller {
 	}
 	
 	//회원 탈퇴
+	@RequestMapping("/deleteUser")
+	public String DeleteUser() {
+		return null;
+	}
 }
