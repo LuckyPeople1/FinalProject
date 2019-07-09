@@ -807,7 +807,7 @@
 			$("select[name='selDong']").find("option:selected").text($(this).find("option:selected").text());
 			$.ajax({
 				type : "GET",
-				url : "/shop/kaptList",
+				url : "/driver/kaptList",
 				dataType: "json",
 				async: false,
 				data : {jusoDongCode : jusoDongCode},
@@ -949,139 +949,6 @@
 				+'<p class="fIWZWk">만원<span>(예 월세 1000만원/50만원)</span></p>'
 				+'<button class="iFqJVZ monthlyCloseBtn"></button></div>');
 			return false;
-		});
-		//월세 삭제 버튼 클릭 시 해당 월세 입력 폼 삭제
-		$(document).on('click', '.monthlyCloseBtn' , function(){
-			var sel = confirm("정말 삭제하시겠습니까?");
-			if(sel){
-				$(this).parent("div").remove();
-			}
-		});
-		//평 입력 시 자동 m2면적 계산
-		$("#size1").keyup(function(){
-			var size1 = (Number)($("#size1").val()*3.3058);
-			$("#size2").val(size1.toFixed(2));
-		});
-		$("#size3").keyup(function(){
-			var size2 = (Number)($("#size3").val()*3.3058);
-			$("#size4").val(size2.toFixed(2));
-		})
-		//m2 입력 시 자동 평면적 계산
-		$("#size2").keyup(function(){
-			var size3 = (Number)($("#size2").val()/3.3058);
-			$("#size1").val(size3.toFixed(0));
-		});
-		$("#size4").keyup(function(){
-			var size4 = (Number)($("#size4").val()/3.3058);
-			$("#size3").val(size4.toFixed(0));
-		});
-		//관리비 있음 선택 시
-		$("input:radio[name=maintenance]").click(function(){
-			if($("input[name=maintenance]:checked").val()=="있음"){
-				$("#managePrice").prop("disabled",false);
-				$("input[name=shopItemManagePriceOption]").prop("disabled",false);
-			}else{
-				$("#managePrice").val("");
-				$("#managePrice").prop("disabled",true);
-				$("input[name=shopItemManagePriceOption]").prop("checked",false);
-				$("input[name=shopItemManagePriceOption]").prop("disabled",true);
-			}
-		});
-		//주차비 있음 선택 시
-		$("input:radio[name=shopItemParking]").click(function(){
-			if($("input[name=shopItemParking]:checked").val()=="가능"){
-				$("#parkingPrice").prop("disabled",false);
-			}else{
-				$("#parkingPrice").val("");
-				$("#parkingPrice").prop("disabled",true);
-			}
-		});
-		//매물 등록 버튼 클릭 시	
-		$("#shopItemAdd").click(function(){
-			if($("input[name=shopItemType2]").is(":checked")==false){
-				 alert("건물 유형을 선택해주세요");
-				 $("input[name=shopItemType2]").focus();
-				 return false;
-			}
-			if($("input[name=shopItemAddr1]").val()=="" && $("input[name=shopItemAddr1]").val()){
-				 alert("주소를 입력해주세요");
-				 $("input[name=shopItemAddr1]").focus();
-				 return false;
-			}
-			if($("input[name=shopItemDealPrice]").val()==""){
-				 alert("거래 종류를 선택 후 금액을 입력해주세요");
-				 $("input[name=shopItemType2]").focus();
-				 return false;
-			}
-			if($("#size1").val()==""){
-				 alert("공급 면적을 입력하세요");
-				 $("#size1").focus();
-				 return false;
-			}
-			if($("#size3").val()==""){
-				 alert("전용 면적을 입력하세요");
-				 $("#size3").focus();
-				 return false;
-			}
-			if($("select[name=shopItemFloorAll]").find("option:selected").val()==""){
-				alert("건물 층수를 입력하세요");
-				$("select[name=shopItemFloorAll]").focus();
-				return false;
-			}
-			if($("select[name=shopItemFloor]").find("option:selected").val()==""){
-				alert("해당 층수를 입력하세요");
-				$("select[name=shopItemFloorAll]").focus();
-				return false;
-			}
-			if($("select[name=shopItemHeating]").find("option:selected").val()==""){
-				alert("난방 종류를 선택하세요");
-				$("select[name=shopItemHeating]").focus();
-				return false;
-			}
-			if($("input[name=shopItemMovingDate]").is(":checked")==false){
-				alert("입주 가능일을 선택하세요");
-				$("input[name=shopItemMovingDate]").focus();
-				return false;
-			}
-			if($("input[name=maintenance]:checked").val()=="있음"){
-				if($("input[name=shopItemManagePrice").val()==""){
-					alert("관리비를 입력해주세요");
-					$("input[name=shopItemManagePrice").focus();
-					return false;
-				}
-			}
-			if($("input[name=shopItemParking]:checked").val()=="가능"){
-				if($("input[name=shopItemParkingPrice").val()==""){
-					alert("주차비를 입력해주세요");
-					$("input[name=shopItemParkingPrice").focus();
-					return false;
-				}
-			}
-			if($("input[name=shopItemTitle]").val()==""){
-				alert("제목을 입력하세요");
-				$("input[name=shopItemTitle]").focus();
-				return false;
-			}
-			if($("input[name=shopItemContent]").val()==""){
-				alert("상세 설명을 입력하세요");
-				$("input[name=shopItemContent]").focus();
-				return false;
-			}
-			if($("#structure1").is(':visible') && $("input[name=shopItemStructure]").is(":checked")==false){
-				alert("구조를 선택하세요");
-				$("input[name=shopItemStructure]").focus();
-				return false;
-			}
-			if($("#size1").val()>$("#size3").val()){
-				alert("공급면적이 전용면적보다 클 수 없습니다");
-				$("#size1").focus();
-				return false;
-			}
-			if($("select[name=shopItemFloor]").find("option:selected").val()*1>$("select[name=shopItemFloorAll]").find("option:selected").val()*1){
-				alert("해당 층수가 건물 층수보다 클 수 없습니다");
-				$("select[name=shopItemFloor]").focus();
-				return false;
-			}	
 		});
 		
 	</script>
