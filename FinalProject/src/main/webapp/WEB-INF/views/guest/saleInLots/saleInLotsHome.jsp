@@ -18,6 +18,7 @@
 				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsBrand">브랜드관</a>
+				<a href="/saleInLots/saleInLotsDetailInformation">상세페이지</a>
 			</article>
 		</section>
 		<section class="saleInLotsHome">
@@ -262,13 +263,13 @@
 													type="checkbox"
 													class="inputCheckbox"
 													name="supply_type" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_3">공공분양</span></label></li>
+													class="checkBoxText_3">일반분양</span></label></li>
 											<li><label
 												class="Checkbox_Label" size="22"><input
 													type="checkbox"
 													class="inputCheckbox"
 													name="supply_type" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_3">민간분양</span></label></li>
+													class="checkBoxText_3">임대분양</span></label></li>
 											<li><label
 												class="Checkbox_Label" size="22"><input
 													type="checkbox"
@@ -286,7 +287,19 @@
 													type="checkbox"
 													class="inputCheckbox"
 													name="supply_type" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_3">공공임대</span></label></li>
+													class="checkBoxText_3">지역조합</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">시장정비</span></label></li>		
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">도시환경정비</span></label></li>		
 										</ul>
 									</div>
 								</div>
@@ -820,7 +833,7 @@
 		</section>
 	</div>
 </div>
-<script src="/guest/js/saleInLots/saleInLots.js"></script>
+<script src="/guest/js/saleInLots/saleInLotsHome.js"></script>
 
 </body>
 </html>

@@ -29,48 +29,65 @@ public class GuestInsertController {
 		UserVO userVO = new UserVO();
 		userVO.setUserType(userType);
 		if(userType.equals("1")) {
-			return "guest/insert/commonInsert";
-		}else if(userType.equals("2")){
 			return "guest/insert/driverInsert";
-		}else {
+		}else if(userType.equals("2")){
 			return "guest/insert/shopInsert";
+		}else {
+			return "guest/insert/commonInsert";
 		}
 	}
 	
 	//일반회원가입 로직
 	@RequestMapping(value="/commonInsert")
-	public String CommonInsert(HttpServletRequest request, @RequestParam String userId, String userPw, String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType, String socialId) throws Exception {
+	public String CommonInsert(HttpServletRequest request, @RequestParam String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail) throws Exception {
+		String userId = request.getParameter("userId");
+		String userPw = request.getParameter("userPw");
+		String socialId = request.getParameter("socialId");
+		String userType = request.getParameter("userType");
 		UserVO userVO = new UserVO();
-		String addr = userAddr+userdetailAddr+userExtraAddr;
-		if(socialId == null) {
+		if(socialId != "" && socialId != null) {
+			System.out.println("commonInsert: "+socialId);
+			System.out.println("ㅎㅇ");
+			userVO.setSocialId(socialId);
+		}else {
+			System.out.println("ㅂ2");
 			userVO.setUserId(userId);
 			userVO.setUserPw(userPw);
-			userVO.setUserName(userName);
-			userVO.setUserPhone(userPhone);
-			userVO.setUserAddr(userAddr);
-			userVO.setUserAddr(addr);
-			userVO.setUserEmail(userEmail);
-			userVO.setUserType(userType);
-		}else {
-			userVO.setUserName(userName);
-			userVO.setUserPhone(userPhone);
-			userVO.setUserAddr(userAddr);
-			userVO.setUserAddr(addr);
-			userVO.setUserEmail(userEmail);
-			userVO.setUserType(userType);
-			userVO.setSocialId(socialId);
 		}
+		String addr = userAddr+userdetailAddr+userExtraAddr;	
+		userVO.setUserName(userName);
+		userVO.setUserPhone(userPhone);
+		userVO.setUserAddr(userAddr);
+		userVO.setUserAddr(addr);
+		userVO.setUserEmail(userEmail);
+		userVO.setUserType(userType);
+		System.out.println(userVO.getType());
 		
 		
-		System.out.println("여기는 commonInsert 컨트롤러임");
-		System.out.println(userId);
-		System.out.println(userPw);
-		System.out.println(userName);
-		System.out.println(userPhone);
-		System.out.println(addr);
-		System.out.println(userEmail);
-		System.out.println(userType);
-
+		int result = userService.commonInsert(userVO);
+		if(result > 0) {
+			request.setAttribute("msg", "회원가입이 완료 되었습니다.");
+			request.setAttribute("loc", "/login/");
+			return "guest/common/msg";
+		}else {
+			request.setAttribute("msg", "회원가입이 실패 하였습니다.");
+			request.setAttribute("loc", "redirect:/insert");
+			return "guest/common/msg";
+		}
+	}
+	
+	/*//소셜회원가입 로직
+	@RequestMapping(value="/socialInsert")
+	public String SocialInsert(HttpServletRequest request, @RequestParam String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType, String socialId) throws Exception {
+		UserVO userVO = new UserVO();
+		userVO.setUserName(userName);
+		userVO.setUserPhone(userPhone);
+		userVO.setUserAddr(userAddr);
+		String addr = userAddr+userdetailAddr+userExtraAddr;
+		userVO.setUserAddr(addr);
+		userVO.setUserEmail(userEmail);
+		userVO.setUserType(userType);
+		userVO.setSocialId(socialId);
 		int result = userService.commonInsert(userVO);
 		if(result > 0) {
 			request.setAttribute("msg", "회원가입이 완료 되었습니다.");
@@ -79,34 +96,5 @@ public class GuestInsertController {
 		}else {
 			return "redirect:/insert";
 		}
-	}
-	
-	//일반회원가입 로직
-		@RequestMapping(value="/socialInsert")
-		public String SocialInsert(HttpServletRequest request, @RequestParam String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType, String socialId) throws Exception {
-			UserVO userVO = new UserVO();
-			userVO.setUserName(userName);
-			userVO.setUserPhone(userPhone);
-			userVO.setUserAddr(userAddr);
-			String addr = userAddr+userdetailAddr+userExtraAddr;
-			userVO.setUserAddr(addr);
-			userVO.setUserEmail(userEmail);
-			userVO.setUserType(userType);
-			userVO.setSocialId(socialId);
-			System.out.println("여기는 commonInsert 컨트롤러임");
-			System.out.println(userName);
-			System.out.println(userPhone);
-			System.out.println(addr);
-			System.out.println(userEmail);
-			System.out.println(userType);
-			System.out.println(socialId);
-			int result = userService.commonInsert(userVO);
-			if(result > 0) {
-				request.setAttribute("msg", "회원가입이 완료 되었습니다.");
-				request.setAttribute("loc", "/login/index");
-				return "guest/common/msg";
-			}else {
-				return "redirect:/insert";
-			}
-		}
+	}*/
 }

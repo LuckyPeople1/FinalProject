@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.dassa.mapper.ShopMapper;
 import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
+import com.dassa.vo.ShopItemVO;
 
 @Service("shopService")
 public class ShopService {
@@ -34,5 +35,14 @@ public class ShopService {
 	 */
 	public List<JusoDongVO> getJusoDongList(String jusoGuCode) throws Exception{
 		return shopMapper.getJusoDongList(jusoGuCode);
+	}
+	/**
+	 * 중개사페이지 - 매물등록 
+	 * @param sItem
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopItemAdd(ShopItemVO sItem) throws Exception {
+		return shopMapper.shopItemAdd(sItem);
 	}
 }

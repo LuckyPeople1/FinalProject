@@ -12,6 +12,7 @@
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
 	<script src="/guest/js/ui.js"></script>
+	<script src="/guest/js/insert/insertdriver.js"></script> 
 </head>
 <body>
 <section id="commonInsert_container">
@@ -49,18 +50,36 @@
 								<input type="text" class="tbox post" id="insert_post_code" name="userPostCode" placeholder="우편번호" readonly="readonly">
 								<button type="button" onclick="findPost()" >우편번호 찾기</button><br>
 								<input type="text" class="tbox normal" id="insert_user_addr" name="userAddr" placeholder="주소" readonly="readonly">
-								<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 								<input type="text" class="tbox second_post" id="insert_extra_item" name="userExtraAddr" placeholder="참고항목" readonly="readonly">
+								<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 							</td>
 						</tr>
 						<tr>
 							<th>이메일</th>
 							<td>
 								<input type="text" class="tbox normal" name="userEmail" id="userEmail"><span id="emailCheck" class="regCheck"></span>
-								<input type="hidden" name="userType" value="2">
+								<input type="hidden" name="userType" value="1">
 							</td>
 						</tr>
-								
+						<tr>
+							<th>등록번호</th>
+							<td>
+								<input type="text" class="tbox normal" name="regisNum" id="regisNum">
+							</td>
+						</tr>	
+						<tr>
+							<th>파일 첨부</th>
+							<td>
+								<div class="img_up_list">
+									<div class="img_box">
+										<input type="file" class="hide" accept="image/*" name="imageName" id="fileImg"
+											   onchange="package.imgSel(this, event)" value="${userVO.imageName }">
+										<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
+										<input type="hidden" name="imagePath" value="${userVO.imageName }">
+									</div>
+								</div>
+							</td>
+						</tr>	
 					</table>
 					<div class="commonInsert_btn_group">
 						<button type="submit" class="btn insert_user" id="insertUser">회원가입</button>
@@ -74,5 +93,5 @@
 </body>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/guest/js/insert/insertcommon-post.js"></script>
-<script src="/guest/js/insert/insertcommon.js"></script> 
+<script src="/guest/js/insert/insertcommon.js"></script>
 </html>

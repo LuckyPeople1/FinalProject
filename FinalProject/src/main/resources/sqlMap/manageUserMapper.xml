@@ -20,4 +20,27 @@
 				   enroll_date as enrollDate
 			from user_tbl
 	</select>
+	
+	<select id="getUserSecssionList" parameterType="userOutVO" resultType="userOutVO">
+		 select user_idx as userIdx,
+				user_id as userId,
+				user_pw as userPw,
+				user_name as userName,
+				user_phone as userPhone,
+				user_email as userEmail,
+				user_introduce as userIntroduce,
+				registration_number as registrationNumber,
+				user_car as userCar,
+				image_name as userImageName,
+				image_path as userImagePath,
+				user_type as userType,
+				social_id as socialId,
+				enroll_date as enrollDate,
+				out_date as outDate
+		  from del_user_tbl
+	</select>
+	
+	<delete id="deleteUser" parameterType="userVO">
+		delete from user_tbl where user_idx=#{userIdx}
+	</delete>
 </mapper>

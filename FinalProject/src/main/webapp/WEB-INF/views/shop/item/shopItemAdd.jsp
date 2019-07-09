@@ -10,7 +10,7 @@
 		<%@include file="/WEB-INF/views/shop/page/nav_room.jsp"%>
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
-	<form action="/shopItemAdd" method="post" enctype="multipart/form-data" onsubmit="shopItemAdd()">
+	<form action="/shop/shopItemAdd" method="post" enctype="multipart/form-data" onsubmit="shopItemAdd()">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
@@ -135,10 +135,10 @@
 										<div class="cuOBSd" id="jusoList"></div>
 										<div class="jjeyfJ">
 											<div class="gryuVg cmjtGP">
-												<input autocomplete="off" class="mtaUF kTQnUD" name="dong" placeholder="예)101동" value="">
+												<input autocomplete="off" class="mtaUF kTQnUD" name="shopItemAddr3" placeholder="예)101동" value="">
 											</div>
 											<div class="igeEIT cmjtGP">
-												<input autocomplete="off" class="hTUuaO kTQnUD" name="ho" placeholder="예)201호" value="">
+												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">
 											</div>
 										</div>
 										<div class="ifWEqm">
@@ -205,10 +205,10 @@
 										<div class="fUXvpI" id="addr"></div>
 										<div class="kXKUhT">
 											<div class="jlsyRm gnEBbX">
-												<input autocomplete="off" class="bVCGUR kTQnUD" name="dong"	placeholder="예)101동" value="">
+												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddr3"	placeholder="예)101동" value="">
 											</div>
 											<div class="xUWNs gnEBbX">
-												<input autocomplete="off" class="gVtYYG kTQnUD" name="ho" placeholder="예)201호" value="">
+												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">
 											</div>
 										</div>
 										<div class="gZWbGn">
@@ -260,6 +260,7 @@
 									<div id="dealTypeTd" style="margin-bottom:10px;"></div>
 									<button class="gvJkZp" id="monthly">월세</button>
 									<button class="gvJkZp" id="charter">전세</button>
+									<button class="gvJkZp" id="trading">매매</button>
 									<p class="ZbkTp">
 										<svg width="18" height="18" viewBox="0 0 18 18">
 											<g fill="none" fill-rule="evenodd">
@@ -275,6 +276,86 @@
 					</table>
 				</div>
 				<div class="etFHhl" name="baseInfo" id="baseInfo">
+					<h1>기본 정보</h1>
+					<table>
+						<colgroup>
+							<col width="150px">
+							<col width="450px">
+							<col width="150px">
+							<col width="430px">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
+								<td class="ggZjqG">
+									<p class="hNdXGi">공급 면적</p> 
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" value="" id="size11">
+									<p class="cmXpqK">평</p>
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="" id="size22" step="0.01">
+									<p class="cmXpqK">㎡</p>
+								</td>
+								<th rowspan="2">건물 층수</th>
+								<td class="ggZjqG">
+									<p class="hNdXGi">건물 층수</p> 
+									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
+										<option value="">건물 층수 선택</option>
+										<c:forEach var="i" begin="1" end="49" step="1">
+											<option value=${i }>${i }층</option>
+										</c:forEach>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td class="ggZjqG">
+									<p class="hNdXGi">전용 면적</p> 
+									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" value="" id="size33">
+									<p class="cmXpqK">평</p>
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="" id="size44" step="0.01">
+									<p class="cmXpqK">㎡</p>
+								</td>
+								<td class="ggZjqG">
+									<p class="hNdXGi">해당 층수</p> 
+									<select class="freEbZ hRFrgm" name="shopItemFloor">
+										<option value="">해당 층수 선택</option>
+										<option value="-1">반지층</option>
+										<option value="0">옥탑</option>
+										<c:forEach var="i" begin="1" end="49" step="1">
+											<option value=${i }>${i }층</option>
+										</c:forEach>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>난방 종류</th>
+								<td class="ggZjqG">
+									<select class="iDUqOA hRFrgm" name="shopItemHeating">
+										<option value="">난방 종류 선택</option>
+										<option value="중앙 난방">중앙 난방</option>
+										<option value="개별 난방">개별 난방</option>
+										<option value="지역 난방">지역 난방</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>입주 가능일</th>
+								<td class="fNOtpc">
+									<div>
+										<label class="bVNPCb fSFsCh"> 
+											<input type="radio" name="shopItemMovingDate" value="즉시 입주">
+											<p>즉시 입주</p>
+										</label>
+										<label class="bVNPCb fSFsCh"> 
+											<input type="radio" name="shopItemMovingDate" value="날짜 협의">
+											<p>날짜 협의</p>
+										</label>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<%-- 아파트 오피스텔 기본정보 --%>
+				<div class="etFHhl" name="baseInfo" id="baseInfo2" style="display: none;">
 					<h1>기본 정보</h1>
 					<table>
 						<colgroup>
@@ -316,8 +397,6 @@
 									<p class="hNdXGi">해당 층수</p> 
 									<select class="freEbZ hRFrgm" name="shopItemFloor">
 										<option value="">해당 층수 선택</option>
-										<option value="-1">반지층</option>
-										<option value="0">옥탑</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
@@ -327,15 +406,20 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<select class="iDUqOA hRFrgm" name="shopItemHeating">
-										<option value="">난방 종류 선택</option>
-										<option value="0">중앙 난방</option>
-										<option value="1">개별 난방</option>
-										<option value="2">지역 난방</option>
-									</select>
+									<input type="text" value="-" readonly="readonly" name="shopItemHeating" style="border: none;">
 								</td>
-								<th id="bulidDate1" style="display:none;">준공년도</th>
-								<td id="bulidDate2" class="ggZjqG" style="display:none">
+								<th>시공사</th>
+								<td class="ggZjqG">
+									<input type="text" value="-" readonly="readonly" name="shopItemBulidCompany" style="border: none;">
+								</td>
+							</tr>
+							<tr>
+								<th>복도유형</th>
+								<td class="ggZjqG">
+									<input type="text" value="-" readonly="readonly" name="shopItemBulidHallwayType" style="border: none;">
+								</td>
+								<th>준공년도</th>
+								<td class="ggZjqG">
 									<input type="text" value="-" readonly="readonly" name="shopItemBulidDate" style="border: none;">
 								</td>
 							</tr>
@@ -357,6 +441,8 @@
 						</tbody>
 					</table>
 				</div>
+				
+				
 				<div class="etFHhl" name="additional">
 					<h1>추가정보</h1>
 					<table>
@@ -590,6 +676,14 @@
 						</colgroup>
 						<tbody>
 							<tr>
+								<th>담당자</th>
+								<td class="iXeisV">
+									<select class="iDUqOA hRFrgm" name="shopItemManager">
+										<option value="">담당자 선택</option>
+									</select> 
+								</td>
+							</tr>
+							<tr>
 								<th>제목</th>
 								<td class="iXeisV">
 									<input autocomplete="off" class="cNKZeV kTQnUD" type="text" name="shopItemTitle" placeholder="예)신논현역 도보 5분거리, 혼자 살기 좋은 방 입니다." value="" >
@@ -609,7 +703,7 @@
 							<tr>
 								<th>비공개 메모</th>
 								<td class="iXeisV">
-									<textarea class="fAiWMO hunnDM"	name="shopItemSecret"  placeholder="외부에 공개되지 않으며, 등록자에게만 보이는 메모입니다."></textarea>
+									<textarea class="fAiWMO hunnDM"	name="shopItemSecretMemo"  placeholder="외부에 공개되지 않으며, 등록자에게만 보이는 메모입니다."></textarea>
 								</td>
 							</tr>
 						</tbody>
@@ -826,6 +920,7 @@
 						
 					}else{
 						$('#kaptList').find("li").remove();
+						$('#jusoInfo1').hide();
 						$('#jusoInfo2').show();
 					}
 				}
@@ -837,9 +932,14 @@
 			var newarr1 = test[$(this).val()].split(",");
 			$(".modal").hide();
 			$("#jusoList").html("");
-            $("#jusoList").append( "<p><span>도로명 : "+newarr1[1]+"</span></p><p><span>지번 : "+newarr1[2]+"</span></p>");
+            $("#jusoList").append( "<p><span>도로명 : "+newarr1[1]+"</span></p><p><span>지번 : "+newarr1[2]+"</span></p>"
+            		+"<input type='hidden' name='shopItemAddr1' value='"+newarr1[1]+"'>"
+					+"<input type='hidden' name='shopItemAddr2' value='"+newarr1[2]+"'>"
+            );
             $("input[name='shopItemBulidDate']").val(newarr1[3]);
-            
+            $("input[name='shopItemBulidCompany']").val(newarr1[8]);
+            $("input[name='shopItemHeating']").val(newarr1[9]);
+            $("input[name='shopItemBulidHallwayType']").val(newarr1[10]);
 		});
 		//주소 팝업 창 열기
 		$('#jusoBtn').click(function() {
@@ -860,8 +960,12 @@
 				$(".building_type").show();
 				$("#location1").find('input').val("");
 				$("#location1").find('select').val("");
+				$("#baseInfo").show();
+				$("#baseInfo2").hide();
 				$("#baseInfo").find('input').val("");
 				$("#baseInfo").find('select').val("");
+				$("#baseInfo2").find('input').val("");
+				$("#baseInfo2").find('select').val("");
 				$("#location1").show();
 				$("#location2").hide();
 				$("#structure1").hide();
@@ -871,7 +975,6 @@
 				$("#elev").show();
 				$("#biltin").show();
 			}
-			
 		});
 		$("#oneRoom").click(function(){
 			$(".building_type1").css("display", "block");
@@ -879,12 +982,17 @@
 			$(".building_type").show();
 			$("#location1").find('input').val("");
 			$("#location1").find('select').val("");
+			$("#baseInfo").show();
+			$("#baseInfo2").hide();
 			$("#baseInfo").find('input').val("");
 			$("#baseInfo").find('select').val("");
+			$("#baseInfo2").find('input').val("");
+			$("#baseInfo2").find('select').val("");
 			$("#location1").show();
 			$("#location2").hide();
 			$("#structure1").show();
 			$("#structure2").show();
+			
 		});
 		$("#officetels").click(function() {
 			var sel =  confirm("매물 종류를 변경하면 기존 입력한 항목들이 변경되거나 삭제될 수 있습니다.");
@@ -895,6 +1003,8 @@
 			$("#location2").find('select').val("");
 			$("#location2").show();
 			$("#location1").hide();
+			$("#baseInfo").hide();
+			$("#baseInfo2").show();
 			$(".building_type").show();
 			$("#structure1").show();
 			$("#structure2").show();
@@ -920,9 +1030,33 @@
 			$("#bulidDate2").show();
 			$("#elev").hide();
 			$("#biltin").hide();
+			$("#baseInfo").hide();
+			$("#baseInfo2").show();
+			$("#baseInfo2").find('select').val("");
 			}
 		});
-		
+		//매매 클릭 시 매매 입력 폼 생성
+		$("#trading").click(function(){
+			$("#monthly").attr("disabled",true);
+			$("#charter").attr("disabled",true);
+			$("#trading").attr("disabled",true);
+			$("#dealTypeTd").find("div").remove();
+			$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">매매</p>'
+					+'<input type="hidden" name="shopItemDealType" value="매매">'
+					+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="매매" value="">'
+					+'<p class="fIWZWk">만원<span>(예 매매 5억2000만원)</span></p>'
+					+'<button class="iFqJVZ tradingCloseBtn"></button></div>');
+		});
+		//매매 삭제 버튼 클릭 시 전세 입력 폼 삭제
+		$(document).on('click', '.tradingCloseBtn' , function(){
+			var sel = confirm("정말 삭제하시겠습니까?");
+			if(sel){
+				$(this).parent("div").remove();
+				$("#monthly").attr("disabled",false);
+				$("#charter").attr("disabled",false);
+				$("#trading").attr("disabled",false);
+			}
+		});
 		//전세 클릭 시 전세 입력 폼 생성
 		$("#charter").click(function(){
 			$("#charter").attr("disabled",true);
@@ -950,6 +1084,7 @@
 				+'<button class="iFqJVZ monthlyCloseBtn"></button></div>');
 			return false;
 		});
+
 		//월세 삭제 버튼 클릭 시 해당 월세 입력 폼 삭제
 		$(document).on('click', '.monthlyCloseBtn' , function(){
 			var sel = confirm("정말 삭제하시겠습니까?");
@@ -965,7 +1100,15 @@
 		$("#size3").keyup(function(){
 			var size2 = (Number)($("#size3").val()*3.3058);
 			$("#size4").val(size2.toFixed(2));
-		})
+		});
+		$("#size11").keyup(function(){
+			var size1 = (Number)($("#size11").val()*3.3058);
+			$("#size22").val(size1.toFixed(2));
+		});
+		$("#size33").keyup(function(){
+			var size2 = (Number)($("#size33").val()*3.3058);
+			$("#size44").val(size2.toFixed(2));
+		});
 		//m2 입력 시 자동 평면적 계산
 		$("#size2").keyup(function(){
 			var size3 = (Number)($("#size2").val()/3.3058);
@@ -974,6 +1117,14 @@
 		$("#size4").keyup(function(){
 			var size4 = (Number)($("#size4").val()/3.3058);
 			$("#size3").val(size4.toFixed(0));
+		});
+		$("#size22").keyup(function(){
+			var size3 = (Number)($("#size22").val()/3.3058);
+			$("#size11").val(size3.toFixed(0));
+		});
+		$("#size44").keyup(function(){
+			var size4 = (Number)($("#size44").val()/3.3058);
+			$("#size33").val(size4.toFixed(0));
 		});
 		//관리비 있음 선택 시
 		$("input:radio[name=maintenance]").click(function(){
@@ -998,7 +1149,7 @@
 		});
 		//매물 등록 버튼 클릭 시	
 		$("#shopItemAdd").click(function(){
-			if($("input[name=shopItemType2]").is(":checked")==false){
+			if($("input[name=shopItemType2]").is(":checked")==false && $("input[name=shopItemType2]").is(':visible') ){
 				 alert("건물 유형을 선택해주세요");
 				 $("input[name=shopItemType2]").focus();
 				 return false;
@@ -1012,36 +1163,6 @@
 				 alert("거래 종류를 선택 후 금액을 입력해주세요");
 				 $("input[name=shopItemType2]").focus();
 				 return false;
-			}
-			if($("#size1").val()==""){
-				 alert("공급 면적을 입력하세요");
-				 $("#size1").focus();
-				 return false;
-			}
-			if($("#size3").val()==""){
-				 alert("전용 면적을 입력하세요");
-				 $("#size3").focus();
-				 return false;
-			}
-			if($("select[name=shopItemFloorAll]").find("option:selected").val()==""){
-				alert("건물 층수를 입력하세요");
-				$("select[name=shopItemFloorAll]").focus();
-				return false;
-			}
-			if($("select[name=shopItemFloor]").find("option:selected").val()==""){
-				alert("해당 층수를 입력하세요");
-				$("select[name=shopItemFloorAll]").focus();
-				return false;
-			}
-			if($("select[name=shopItemHeating]").find("option:selected").val()==""){
-				alert("난방 종류를 선택하세요");
-				$("select[name=shopItemHeating]").focus();
-				return false;
-			}
-			if($("input[name=shopItemMovingDate]").is(":checked")==false){
-				alert("입주 가능일을 선택하세요");
-				$("input[name=shopItemMovingDate]").focus();
-				return false;
 			}
 			if($("input[name=maintenance]:checked").val()=="있음"){
 				if($("input[name=shopItemManagePrice").val()==""){

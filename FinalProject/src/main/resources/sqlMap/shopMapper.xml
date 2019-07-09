@@ -2,18 +2,64 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.ShopMapper">
 
+
+	<!-- 주소 구 리스트 가져오기 -->
 	<select id="getJusoGuList" parameterType="string" resultType="jusoGuVO">
 		select 
 			juso_gu_code as jusoGuCode,
 			juso_gu_name as jusoGuName
 		from juso_gu_tbl where juso_gu_code like #{jusoCityCode}||'%' order by juso_gu_name asc
 	</select>
-	
+	<!-- 주소 동 리스트 가져오기 -->
 	<select id="getJusoDongList" parameterType="string" resultType="jusoDongVO">
 		select 
 			juso_dong_code as jusoDongCode,
 			juso_dong_name as jusoDongName
 		from juso_dong_tbl where juso_dong_code like #{jusoGuCode}||'%' order by juso_dong_name asc
 	</select>
-	
+	<insert id="shopItemAdd" parameterType="shopItemVO">
+		insert into shop_item_tbl values(
+			shop_item_idx_seq.nextval,
+			#{userIdx, jdbcType=VARCHAR},
+			#{shopItemTitle, jdbcType=VARCHAR},
+			#{shopItemContent, jdbcType=VARCHAR},
+			#{shopItemSecretMemo, jdbcType=VARCHAR},
+			#{shopItemManager, jdbcType=VARCHAR},
+			#{shopItemFileName, jdbcType=VARCHAR},
+			#{shopItemFilePath, jdbcType=VARCHAR},
+			#{shopItemPremiumState, jdbcType=VARCHAR},
+			#{shopItemType1, jdbcType=VARCHAR},
+			#{shopItemType2, jdbcType=VARCHAR},
+			#{shopItemAddr1, jdbcType=VARCHAR},
+			#{shopItemAddr2, jdbcType=VARCHAR},
+			#{shopItemAddr3, jdbcType=VARCHAR},
+			#{shopItemLatitude, jdbcType=VARCHAR},
+			#{shopItemLongitude, jdbcType=VARCHAR},
+			#{shopItemDealType, jdbcType=VARCHAR},
+			#{shopItemDealPrice, jdbcType=VARCHAR},
+			#{shopItemSize, jdbcType=VARCHAR},
+			#{shopItemSizeAll, jdbcType=VARCHAR},
+			#{shopItemFloor, jdbcType=VARCHAR},
+			#{shopItemFloorAll, jdbcType=VARCHAR},
+			#{shopItemHeating, jdbcType=VARCHAR},
+			#{shopItemBulidCompany, jdbcType=VARCHAR},
+			#{shopItemBulidHallway, jdbcType=VARCHAR},
+			#{shopItemBulidDate, jdbcType=VARCHAR},
+			#{shopItemMovingDate, jdbcType=VARCHAR},
+			#{shopItemManagePrice, jdbcType=VARCHAR},
+			#{shopItemManagePriceOption, jdbcType=VARCHAR},
+			#{shopParkingPrice, jdbcType=VARCHAR},
+			#{shopItemAnimal, jdbcType=VARCHAR},
+			#{shopItemElevator, jdbcType=VARCHAR},
+			#{shopItemBalcony, jdbcType=VARCHAR},
+			#{shopItemBuiltIn, jdbcType=VARCHAR},
+			#{shopItemStructure, jdbcType=VARCHAR},
+			#{shopItemOption, jdbcType=VARCHAR},
+			#{shopItemLoan, jdbcType=VARCHAR},
+			sysdate,
+			#{shopItemDelDate, jdbcType=VARCHAR},
+			#{shopItemOkState, jdbcType=VARCHAR},
+			#{shopItemSaleState, jdbcType=VARCHAR}
+			)
+	</insert>
 </mapper>
