@@ -67,7 +67,7 @@ public class GuestInsertController {
 		int result = userService.commonInsert(userVO);
 		if(result > 0) {
 			request.setAttribute("msg", "회원가입이 완료 되었습니다.");
-			request.setAttribute("loc", "/login/index");
+			request.setAttribute("loc", "/login/");
 			return "guest/common/msg";
 		}else {
 			return "redirect:/insert";

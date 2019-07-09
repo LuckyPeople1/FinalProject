@@ -101,7 +101,7 @@
 						<td>${u.userType }</td>
 						<td>${u.enrollDate }</td>
 						<td>
-							<a href="/userManage/deleteUser" class="tag col_blue f_w">승인대기</a>
+							<a href="/userManage/deleteUser" class="tag col_blue f_w">회원탈퇴</a>
 						</td>
 					</tr>
 				</c:forEach>

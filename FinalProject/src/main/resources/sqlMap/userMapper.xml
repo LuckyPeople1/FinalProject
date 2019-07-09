@@ -68,7 +68,7 @@
 			          null,
 			           null,
 			            null,
-			             #{type},
+			             #{userType},
 			             <choose>
 							<when test="socialId != null">
 								#{socialId},
