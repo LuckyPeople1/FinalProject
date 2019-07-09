@@ -2008,6 +2008,7 @@ section.shopItemAdd .fSFsCh > input[type="radio"]:checked + p {
     background-color: rgb(26, 90, 232);
     border-color: rgb(26, 90, 232);
 }
+
 section.shopItemAdd .fSFsCh > p {
     min-width: 82px;
     height: 46px;
