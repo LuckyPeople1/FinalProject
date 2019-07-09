@@ -14,6 +14,7 @@ import com.dassa.service.DriverService;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverSearchVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.PackageOptionSelectVO;
 
 @Controller
 @RequestMapping("/driver")
@@ -56,7 +57,11 @@ public class DriverAuctionController {
 		
 		//입찰관리 상세보기
 		@RequestMapping("/auctionDetail")
-		public String DriverAuctionDetail() {
+		public String DriverAuctionDetail(Model model,MoveApplyVO moveApplyVO,PackageOptionSelectVO packageOptionVO) {
+			
+			
+			
+			
 			
 			return "driver/auction/driverAuctionDetail";
 		}

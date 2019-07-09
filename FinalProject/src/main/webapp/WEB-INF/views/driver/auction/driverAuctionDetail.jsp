@@ -136,9 +136,9 @@
 						</tr>		
 					</table>
 					<br><br><br>
-					<div class="driverPont"><p3>짐정보</p3></div><br>
+					<div class="driverPont"><p3>짐정보</p3></div><br><hr>
 					<div class="infoBox">
-						<div class="infoTitle">짐 정보</div>
+						<div class="infoTitle"></div>
 						<ul class="infoListBox">
 							<li class="bg">
 								<div class="row static">
@@ -219,37 +219,10 @@
 							<thead></thead>
 							<tbody>
 							<tr>
-								<th>이름<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userName" name="userName" value="${user.userName }" readonly="readonly"></td>  <!--여기 이름 추가해야함!!!  -->
-								<th>아이디<span class="ess">*</span></th>
-								<td><input class="tbox full" readonly="readonly" name="userId" value="${user.userId }" readonly="readonly"></td>
-							</tr>
-							<tr>
-								<th>이메일<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userEmail" name="userEmail" value="${user.userEmail }" readonly="readonly"></td>
-								<th>휴대폰번호<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userPhone" name="userPhone" value="${user.userPhone }" readonly="readonly"></td>							
-							</tr>
-							<tr>
-								<th>자기소개<span class="ess">*</span></th>
-								<td colspan="3"><input class="tbox full" id="userIntroduce" name="userIntroduce" value="${user.userIntroduce }" readonly="readonly"></td>
-							</tr>
-							<tr>
 								<th>운반차량<span class="ess">*</span></th>
 								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }" readonly="readonly"></td>
 								<th>사다리비용여부<span class="ess">*</span></th>
 								<td><input class="tbox full" id="userCar" name="userCar" placeholder="사다리여부를 작성해 주세요"></td>
-							</tr>
-							<tr>
-								<th>프로필 사진<span class="ess">*</span></th>
-								<td colspan="">
-									<div class="img_upload">
-										<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.userImagePath }" readonly="readonly">
-										<!-- <a href="#none" class="imgUp" id="imgUp_0"  name="fileName" > -->
-											<img id="mypage"  src="${user.userImagePath }" > 
-										</a>
-									</div>
-								</td>
 							</tr>
 							<tr>
 								<th>메모</th>
@@ -261,7 +234,7 @@
 						</table>
 						<div class="tip_box">
 							<div class="tip">
-								<span class="f_red">*</span>표시는 입력 불가입니다.(사다리 비용은 반드시 입력하여 주세요)
+								<span class="f_red">*</span>표시는 필수 입력 입니다.
 							</div>
 						</div><br><br><br>
 						<div class="section_title">최종 견적</div><hr>
@@ -269,7 +242,7 @@
 							<ul class="infoListBox">
 								<li class="bg">
 									<div class="row static">
-										<div class="subject">견적금액결정</div>
+										<div class="subject">견적금액결정</div><br>
 										<div><input class="tbox full" id="userCar" name="userCar"></div>
 									</div>
 								</li>
@@ -278,8 +251,8 @@
 					</div>
 				</div>
 			<div class="btn_box">
-				<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
 				<a href="javascript:void(0)" class="btn col_navy f_w">최종결정</a>
+				<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
 			</div>
 		</section>
 	</div>
