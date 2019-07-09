@@ -10,16 +10,21 @@ public class SaleInLotsVO {
 	private String saleInLotsDetailArea;   		// 분양 상세 지역
 	private String saleInLotsMinFloor;			// 최저 층수
 	private String saleInLotsMaxFloor;			// 최대 층수
+	private String saleInLotsHouseScale;		// 단지 규모(동 수)
 	private String saleInLotsHousehold; 		// 총 세대수
 	private String saleInLotsSaleHousehold;		// 분양 세대수
 	private String saleInLotsPriceOne;			// 평당 가격
-	private String saleInLotsPriceAll;			// 분양가격
-	private String saleInLotsRecruitmentData;	// 모집공고 승인일자
+	private String saleInLotsPriceMinAll;		// 최소 분양가격
+	private String saleInLotsPriceMaxAll;		// 최고 분양가격
+	private String saleInLotsRecruitmentDate;	// 모집공고 승인일자
 	private String saleInLotsStartDate;			// 분양 개시 일자
 	private String saleInLotsMinSupplyArea;		// 최소 공급면적
-	private String saleInLotsMaxSupplyAred;		// 최대 공급면적
+	private String saleInLotsMaxSupplyArea;		// 최대 공급면적
 	private String saleInLotsSupplyType;		// 공급유형
-	private String saleInLotsState;        		// 분양 상태						
+	private String saleInLotsState;				// 분양 상태	
+	private String [] saleInLotsSearchState;	// 검색된  분양 상태
+	private String [] saleInLotsSearchBuildType;	// 검색된  건물 유형
+	private String [] saleInLotsSearchSupplyType;	// 검색된  공급 유형
 	private int start;							// 가져올 데이터의 시작 숫자
 	private int end;							// 가져올 데이터의 끝 숫자
 	public SaleInLotsVO() {
@@ -28,10 +33,12 @@ public class SaleInLotsVO {
 	}
 	public SaleInLotsVO(int saleInLotsIDX, String saleInLotsDeveloper, String saleInLotsBuildType,
 			String saleInLotsConstructor, String saleInLotsName, String saleInLotsArea, String saleInLotsDetailArea,
-			String saleInLotsMinFloor, String saleInLotsMaxFloor, String saleInLotsHousehold,
-			String saleInLotsSaleHousehold, String saleInLotsPriceOne, String saleInLotsPriceAll,
-			String saleInLotsRecruitmentData, String saleInLotsStartDate, String saleInLotsMinSupplyArea,
-			String saleInLotsMaxSupplyAred, String saleInLotsSupplyType, String saleInLotsState, int start, int end) {
+			String saleInLotsMinFloor, String saleInLotsMaxFloor, String saleInLotsHouseScale,
+			String saleInLotsHousehold, String saleInLotsSaleHousehold, String saleInLotsPriceOne,
+			String saleInLotsPriceMinAll, String saleInLotsPriceMaxAll, String saleInLotsRecruitmentDate,
+			String saleInLotsStartDate, String saleInLotsMinSupplyArea, String saleInLotsMaxSupplyArea,
+			String saleInLotsSupplyType, String saleInLotsState, String[] saleInLotsSearchState,
+			String[] saleInLotsSearchBuildType, String[] saleInLotsSearchSupplyType, int start, int end) {
 		super();
 		this.saleInLotsIDX = saleInLotsIDX;
 		this.saleInLotsDeveloper = saleInLotsDeveloper;
@@ -42,16 +49,21 @@ public class SaleInLotsVO {
 		this.saleInLotsDetailArea = saleInLotsDetailArea;
 		this.saleInLotsMinFloor = saleInLotsMinFloor;
 		this.saleInLotsMaxFloor = saleInLotsMaxFloor;
+		this.saleInLotsHouseScale = saleInLotsHouseScale;
 		this.saleInLotsHousehold = saleInLotsHousehold;
 		this.saleInLotsSaleHousehold = saleInLotsSaleHousehold;
 		this.saleInLotsPriceOne = saleInLotsPriceOne;
-		this.saleInLotsPriceAll = saleInLotsPriceAll;
-		this.saleInLotsRecruitmentData = saleInLotsRecruitmentData;
+		this.saleInLotsPriceMinAll = saleInLotsPriceMinAll;
+		this.saleInLotsPriceMaxAll = saleInLotsPriceMaxAll;
+		this.saleInLotsRecruitmentDate = saleInLotsRecruitmentDate;
 		this.saleInLotsStartDate = saleInLotsStartDate;
 		this.saleInLotsMinSupplyArea = saleInLotsMinSupplyArea;
-		this.saleInLotsMaxSupplyAred = saleInLotsMaxSupplyAred;
+		this.saleInLotsMaxSupplyArea = saleInLotsMaxSupplyArea;
 		this.saleInLotsSupplyType = saleInLotsSupplyType;
 		this.saleInLotsState = saleInLotsState;
+		this.saleInLotsSearchState = saleInLotsSearchState;
+		this.saleInLotsSearchBuildType = saleInLotsSearchBuildType;
+		this.saleInLotsSearchSupplyType = saleInLotsSearchSupplyType;
 		this.start = start;
 		this.end = end;
 	}
@@ -109,6 +121,12 @@ public class SaleInLotsVO {
 	public void setSaleInLotsMaxFloor(String saleInLotsMaxFloor) {
 		this.saleInLotsMaxFloor = saleInLotsMaxFloor;
 	}
+	public String getSaleInLotsHouseScale() {
+		return saleInLotsHouseScale;
+	}
+	public void setSaleInLotsHouseScale(String saleInLotsHouseScale) {
+		this.saleInLotsHouseScale = saleInLotsHouseScale;
+	}
 	public String getSaleInLotsHousehold() {
 		return saleInLotsHousehold;
 	}
@@ -127,17 +145,23 @@ public class SaleInLotsVO {
 	public void setSaleInLotsPriceOne(String saleInLotsPriceOne) {
 		this.saleInLotsPriceOne = saleInLotsPriceOne;
 	}
-	public String getSaleInLotsPriceAll() {
-		return saleInLotsPriceAll;
+	public String getSaleInLotsPriceMinAll() {
+		return saleInLotsPriceMinAll;
 	}
-	public void setSaleInLotsPriceAll(String saleInLotsPriceAll) {
-		this.saleInLotsPriceAll = saleInLotsPriceAll;
+	public void setSaleInLotsPriceMinAll(String saleInLotsPriceMinAll) {
+		this.saleInLotsPriceMinAll = saleInLotsPriceMinAll;
 	}
-	public String getSaleInLotsRecruitmentData() {
-		return saleInLotsRecruitmentData;
+	public String getSaleInLotsPriceMaxAll() {
+		return saleInLotsPriceMaxAll;
 	}
-	public void setSaleInLotsRecruitmentData(String saleInLotsRecruitmentData) {
-		this.saleInLotsRecruitmentData = saleInLotsRecruitmentData;
+	public void setSaleInLotsPriceMaxAll(String saleInLotsPriceMaxAll) {
+		this.saleInLotsPriceMaxAll = saleInLotsPriceMaxAll;
+	}
+	public String getSaleInLotsRecruitmentDate() {
+		return saleInLotsRecruitmentDate;
+	}
+	public void setSaleInLotsRecruitmentDate(String saleInLotsRecruitmentDate) {
+		this.saleInLotsRecruitmentDate = saleInLotsRecruitmentDate;
 	}
 	public String getSaleInLotsStartDate() {
 		return saleInLotsStartDate;
@@ -151,11 +175,11 @@ public class SaleInLotsVO {
 	public void setSaleInLotsMinSupplyArea(String saleInLotsMinSupplyArea) {
 		this.saleInLotsMinSupplyArea = saleInLotsMinSupplyArea;
 	}
-	public String getSaleInLotsMaxSupplyAred() {
-		return saleInLotsMaxSupplyAred;
+	public String getSaleInLotsMaxSupplyArea() {
+		return saleInLotsMaxSupplyArea;
 	}
-	public void setSaleInLotsMaxSupplyAred(String saleInLotsMaxSupplyAred) {
-		this.saleInLotsMaxSupplyAred = saleInLotsMaxSupplyAred;
+	public void setSaleInLotsMaxSupplyArea(String saleInLotsMaxSupplyArea) {
+		this.saleInLotsMaxSupplyArea = saleInLotsMaxSupplyArea;
 	}
 	public String getSaleInLotsSupplyType() {
 		return saleInLotsSupplyType;
@@ -169,6 +193,24 @@ public class SaleInLotsVO {
 	public void setSaleInLotsState(String saleInLotsState) {
 		this.saleInLotsState = saleInLotsState;
 	}
+	public String[] getSaleInLotsSearchState() {
+		return saleInLotsSearchState;
+	}
+	public void setSaleInLotsSearchState(String[] saleInLotsSearchState) {
+		this.saleInLotsSearchState = saleInLotsSearchState;
+	}
+	public String[] getSaleInLotsSearchBuildType() {
+		return saleInLotsSearchBuildType;
+	}
+	public void setSaleInLotsSearchBuildType(String[] saleInLotsSearchBuildType) {
+		this.saleInLotsSearchBuildType = saleInLotsSearchBuildType;
+	}
+	public String[] getSaleInLotsSearchSupplyType() {
+		return saleInLotsSearchSupplyType;
+	}
+	public void setSaleInLotsSearchSupplyType(String[] saleInLotsSearchSupplyType) {
+		this.saleInLotsSearchSupplyType = saleInLotsSearchSupplyType;
+	}
 	public int getStart() {
 		return start;
 	}
@@ -181,6 +223,5 @@ public class SaleInLotsVO {
 	public void setEnd(int end) {
 		this.end = end;
 	}
-	
 	
 }

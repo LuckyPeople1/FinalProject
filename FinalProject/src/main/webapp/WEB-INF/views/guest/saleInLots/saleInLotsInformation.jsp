@@ -70,7 +70,7 @@
 						<div class="saleInLotsBox">
 							<p class="saleInLotsList">
 								분양목록
-								<span>총<b>123</b>건</span>
+								<span>총<b>${sp.totalCount} </b>건</span>
 							</p>
 							<table class="saleInLotsTable">
 								<colgroup>
@@ -106,21 +106,39 @@
 											<p class="saleInLotsType">${list.saleInLotsSupplyType}</p>
 										</td>
 										<td>
+											<a href="/saleInLots/saleInLotsDetailInformation?saleInLotsIDX=${list.saleInLotsIDX}">
 											<div class="saleInLotsInfoBox">
 												<div class="saleInLotsInfoBox_content">
 													<p class="saleInLotsName">${list.saleInLotsName} </p>
 													<p class="saleInLotsDetailArea">${list.saleInLotsDetailArea} </p>
 												</div>
 											</div>
+											</a>
 										</td>
 										<td>
-											<p class="saleInLotsType">${list.saleInLotsPriceAll} </p>
+											<c:if test="${list.saleInLotsPriceMinAll eq '0'}">
+												<p class="saleInLotsType">준비중 </p>
+											</c:if>
+											<c:if test="${list.saleInLotsPriceMinAll ne '0'}">
+												<p class="saleInLotsType minPrice">최저 : ${list.saleInLotsPriceMinAll} </p>
+												<p class="saleInLotsType maxPrice">최고 : ${list.saleInLotsPriceMaxAll} </p>
+											</c:if>
 										</td>
 										<td>
-											<p class="saleInLotsType">${list.saleInLotsSaleHousehold} </p>
+											<c:if test="${list.saleInLotsSaleHousehold ne '0'}">
+												<p class="saleInLotsType">${list.saleInLotsSaleHousehold}세대 </p>
+											</c:if>
+											<c:if test="${list.saleInLotsSaleHousehold eq '0'}">
+												<p class="saleInLotsType">준비중 </p>
+											</c:if>
 										</td>
 										<td>
-											<p class="saleInLotsType" style="padding: 0px 13px;">${list.saleInLotsMinSupplyArea }/${list.saleInLotsMaxSupplyAred}</p>
+											<c:if test="${list.saleInLotsMinSupplyArea eq null and list.saleInLotsMaxSupplyArea eq null}">
+												<p class="saleInLotsType" style="padding: 0px 13px;">-</p>
+											</c:if>
+											<c:if test="${list.saleInLotsMinSupplyArea ne null}">	
+												<p class="saleInLotsType" style="padding: 0px 13px;">${list.saleInLotsMinSupplyArea }㎡ / ${list.saleInLotsMaxSupplyArea}㎡</p>
+											</c:if>
 										</td>
 									</tr>
 									</c:forEach>
@@ -141,4 +159,5 @@
 	</div>
 </div>
 </body>
+<script src="/guest/js/saleInLots/saleInLotsInformation.js"></script>
 </html>
