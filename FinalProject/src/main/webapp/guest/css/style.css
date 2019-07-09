@@ -1182,6 +1182,13 @@ section.moveStep .applyGroup .infoBox .row .subject{
 	top:50%;
 	transform: translateY(-50%);
 	font-size: 16px;
+	/*width: 50px;*/
+	/*height: 50px;*/
+}
+section.moveStep .applyGroup .infoBox .row .subject img{
+	width: 50px;
+	height: 50px;
+	margin-left:40px;
 }
 
 section.moveStep .applyGroup .infoBox .row .addr{
@@ -1225,10 +1232,22 @@ section.moveStep .applyGroup .infoBox .packageName{
 section.moveStep .applyGroup .infoBox .packageOption{
 	font-size: 14px;
 	color: #666;
+	line-height: 18px;
 }
 
 section.moveStep .applyGroup .infoListBox {
 	font-size: 0;
+	position:relative;
+}
+section.moveStep .applyGroup .infoListBox:before{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 1px;
+	background-color: rgba(0,0,0,0.12);
+	border-bottom:1px solid #fff;
 }
 section.moveStep .applyGroup .infoListBox + .infoListBox{
 	border-top:1px solid rgba(0,0,0,0.87);
@@ -1237,6 +1256,11 @@ section.moveStep .applyGroup .infoListBox + .infoListBox{
 section.moveStep .applyGroup .infoListBox li.package{
 	width: 50%;
 	display:inline-block;
+	/*border-bottom:0;*/
+	/*border-top:1px solid rgba(0,0,0,0.12);*/
+}
+section.moveStep .applyGroup .infoListBox li.package:nth-of-type(odd){
+	/*border-left:1px solid  rgba(0,0,0,0.12);*/
 }
 section.moveStep .applyGroup .guideBox{
 	/*padding:16px;*/

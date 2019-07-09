@@ -1,12 +1,11 @@
 package com.dassa.mapper;
 
 
-import com.dassa.vo.PackageRegOptionVO;
-import com.dassa.vo.PackageRegVO;
-import com.dassa.vo.PackageTempVO;
+import com.dassa.vo.*;
 import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
+import java.util.Map;
 
 @MapperScan("movePackageMapper")
 public interface MovePackageMapper {
@@ -16,4 +15,8 @@ public interface MovePackageMapper {
 	public List<PackageTempVO> getPackageList() throws Exception;
 
 	public PackageTempVO getPackage(int idx) throws Exception;
+
+	public int regApply(MoveApplyVO moveApplyVO) throws Exception;
+
+	public int regApplyPackage(List<PackageOptionSelectVO> packageOptionList) throws Exception;
 }
