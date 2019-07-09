@@ -12,16 +12,25 @@ import com.dassa.service.ManageUserService;
 import com.dassa.vo.UserVO;
 
 @Controller
-@RequestMapping("/userAll")
+@RequestMapping("/userManage")
 public class ManageUserConroller {
 	
 	@Resource
 	private ManageUserService manageUserService;
 	
+	//회원승인 리스트
 	@RequestMapping("/userAllList")
 	public String UserAllList(HttpServletRequest request) throws Exception {
 		List<UserVO> list = manageUserService.getUserList();
 		request.setAttribute("list", list);
 		return "manage/user/userAllList";
 	}
+	
+	//탈퇴회원 관리 페이지
+	@RequestMapping("/userSecssion")
+	public String UserSecssionList() {
+		return "manage/user/userSecList";
+	}
+	
+	//회원 탈퇴
 }

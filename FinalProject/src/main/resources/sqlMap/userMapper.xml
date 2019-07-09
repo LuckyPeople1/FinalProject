@@ -39,7 +39,7 @@
 				   user_car as userCar,
 				   image_name as userImageName,
 				   image_path as userImagePath,
-				   user_type as userType,
+				   user_type as getType,
 				   social_id as socialId,
 				   enroll_date as enrollDate
 			from user_tbl where social_id=#{socialId}
@@ -50,12 +50,12 @@
 			user_no_seq.nextval,
 			<choose>
 				<when test="socialId != null">
-					#{userId},
-					#{userPw},
+					null,
+					null,
 				</when>
 				<otherwise>
-					null,
-					null,
+					#{userId},
+					#{userPw},
 				</otherwise>
 			</choose>
 			   #{userName},
@@ -67,16 +67,17 @@
 			         null,
 			          null,
 			           null,
-			            #{userType},
+			            null,
+			             #{type},
 			             <choose>
-							<when test="#{socialId != null}">
-								null,
+							<when test="socialId != null">
+								#{socialId},
 							</when>
 							<otherwise>
-								#{socialId},
+								null,
 							</otherwise>
-						</choose>
-			              default)
+						 </choose>
+			               default)
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">
