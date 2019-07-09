@@ -24,7 +24,7 @@
 									
 									<c:forEach begin="1" end="${item.packageAmount}" varStatus="status">
 										<li class="listBox">
-											<div class="packageInfo" data-idx="${item.packageIdx}" data-order="${status.count}" onclick="package.packagePop(${item.packageIdx},this)">
+											<div class="packageInfo" data-idx="${item.packageIdx}" data-order="${status.count}" data-type="${item.packageType}" onclick="package.packagePop(${item.packageIdx},this)">
 												<div class="delBox">
 													<a href="#none" class="delBtn" onclick="package.packageRemove(this, event)"></a>
 												</div>
