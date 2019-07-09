@@ -32,10 +32,6 @@
 				<td colspan="3">
 					<label>
 						<input type="checkbox">
-						<span>일반회원</span>
-					</label>
-					<label class="ml10">
-						<input type="checkbox">
 						<span>운송기사</span>
 					</label>
 					<label class="ml10">
@@ -101,7 +97,7 @@
 						<td>${u.userType }</td>
 						<td>${u.enrollDate }</td>
 						<td>
-							<a href="/userManage/deleteUser?userIdx=${u.userIdx }" class="tag col_blue f_w">회원탈퇴</a>
+							<span class="tag col_blue f_w">승인대기</span>
 						</td>
 					</tr>
 				</c:forEach>

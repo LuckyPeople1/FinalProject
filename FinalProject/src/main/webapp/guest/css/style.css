@@ -1182,6 +1182,13 @@ section.moveStep .applyGroup .infoBox .row .subject{
 	top:50%;
 	transform: translateY(-50%);
 	font-size: 16px;
+	/*width: 50px;*/
+	/*height: 50px;*/
+}
+section.moveStep .applyGroup .infoBox .row .subject img{
+	width: 50px;
+	height: 50px;
+	margin-left:40px;
 }
 
 section.moveStep .applyGroup .infoBox .row .addr{
@@ -1225,10 +1232,22 @@ section.moveStep .applyGroup .infoBox .packageName{
 section.moveStep .applyGroup .infoBox .packageOption{
 	font-size: 14px;
 	color: #666;
+	line-height: 18px;
 }
 
 section.moveStep .applyGroup .infoListBox {
 	font-size: 0;
+	position:relative;
+}
+section.moveStep .applyGroup .infoListBox:before{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 1px;
+	background-color: rgba(0,0,0,0.12);
+	border-bottom:1px solid #fff;
 }
 section.moveStep .applyGroup .infoListBox + .infoListBox{
 	border-top:1px solid rgba(0,0,0,0.87);
@@ -1237,6 +1256,11 @@ section.moveStep .applyGroup .infoListBox + .infoListBox{
 section.moveStep .applyGroup .infoListBox li.package{
 	width: 50%;
 	display:inline-block;
+	/*border-bottom:0;*/
+	/*border-top:1px solid rgba(0,0,0,0.12);*/
+}
+section.moveStep .applyGroup .infoListBox li.package:nth-of-type(odd){
+	/*border-left:1px solid  rgba(0,0,0,0.12);*/
 }
 section.moveStep .applyGroup .guideBox{
 	/*padding:16px;*/
@@ -2405,7 +2429,7 @@ section.saleInLotsHome .checkBoxText_2 {
 }
 section.saleInLotsHome .filterBox_ul_3 {
     width: 250px;
-    height: 346px;
+    height: 400px;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
     position: absolute;
@@ -2420,7 +2444,7 @@ section.saleInLotsHome .filterBox_ul_3 {
     border-radius: 3px;
 }
 section.saleInLotsHome .searchBox_filterBox_4 {
-    width: 190px;
+    width: 250px;
 }
 section.saleInLotsHome .searchBox_filterBox_4 > li {
     height: 22px;
@@ -2575,6 +2599,9 @@ section.saleInLotsInformation .saleInLotsType {
     font-size: 14px;
     color: rgb(136, 136, 136);
 }
+section.saleInLotsInformation .minPrice + p{
+	margin-top: 10px;
+}
 section.saleInLotsInformation .saleInLotsInfoBox {
     height: 90px;
     padding: 0px 25px;
@@ -2705,3 +2732,356 @@ section.saleInLotsInformation .pageBtn > svg{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/* saleInLotsDetailInformation 시작(분양 상세 페이지)  */
+section.saleInLotsDetailInformation *{
+	box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+section.saleInLotsDetailInformation .web{
+	width: 100%;
+    min-width: 1366px;
+}
+section.saleInLotsDetailInformation .DetailInformation_header{
+	width: 100%;
+}
+section.saleInLotsDetailInformation .DetailInformation_Box{
+	width: 1180px;
+    position: relative;
+    margin: 0px auto;
+} 
+section.saleInLotsDetailInformation .DetailInformation_leftHeader{
+	display: inline-block;
+    margin-top: 37px;
+}
+section.saleInLotsDetailInformation .leftHeader_content_01{
+	height: 100%;
+    float: left;
+    padding-right: 35px;
+    border-right: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .leftHeader_content_02{
+	height: 100%;
+    display: inline-block;
+    padding-left: 35px;
+}
+section.saleInLotsDetailInformation .detail_state{
+	display: inline-block;
+    width: 62px;
+    height: 24px;
+    margin-right: 7px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    line-height: 24px;
+    background-color: rgb(194, 36, 36);
+    border-radius: 2px;
+}
+section.saleInLotsDetailInformation .detail_name{
+	margin-top: 10px;
+    max-width: 300px;
+    color: rgb(34, 34, 34);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 36px;
+}
+section.saleInLotsDetailInformation .detail_area{
+	color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 5px;
+}
+section.saleInLotsDetailInformation .detail_buildType{
+	display: inline-block;
+    color: rgb(34, 34, 34);
+    font-size: 14px;
+    line-height: 20px;
+}
+section.saleInLotsDetailInformation .detail_price{
+	height: 33px;
+    line-height: 33px;
+    font-size: 18px;
+    color: rgb(34, 34, 34);
+    margin-top: 5px;
+}
+section.saleInLotsDetailInformation .DetailInformation_rightHeader{
+	clear:both;
+	margin-top: 37px;
+    float: right;
+}
+section.saleInLotsDetailInformation .right_item{
+	float: left;
+}
+section.saleInLotsDetailInformation .item_title{
+	margin-bottom: 3px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+}
+section.saleInLotsDetailInformation .item_text{
+	height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(34, 34, 34);
+}
+section.saleInLotsDetailInformation .right_item + li{
+	margin-left: 27px;
+    padding-left: 27px;
+    border-left: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .DetailInformation_btn{
+	position: relative;
+    width: 1180px;
+    height: 42px;
+    margin: 30px auto 11px;
+}
+section.saleInLotsDetailInformation .ContactBtn{
+	float: left;
+    position: relative;
+    width: 116px;
+    height: 42px;
+    background-color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    color: rgb(35, 45, 74);
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+section.saleInLotsDetailInformation .ContactBtn > svg{
+	position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .ContactBtn > span{
+	position: absolute;
+    left: 38px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .DetailInformation_btn > p{
+	float: left;
+    height: 42px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    line-height: 42px;
+    position: relative;
+    user-select: none;
+}
+section.saleInLotsDetailInformation .dot{
+	bottom: 1px;
+    margin: 0px 18px;
+}
+section.saleInLotsDetailInformation .favoritAdd{
+	padding-left: 26px;
+    cursor: pointer;
+}
+section.saleInLotsDetailInformation .DetailInformation_btn > p > svg{
+	width: 18px;
+    height: 20px;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .copyBtn{
+	width: 15px;
+    margin-left: 26px;
+    transform: rotate(45deg);
+    top: -1px;
+    cursor: pointer;
+}
+section.saleInLotsDetailInformation .noticeBtn{
+	float: right;
+    position: relative;
+    width: 180px;
+    height: 42px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+	
+}
+section.saleInLotsDetailInformation .noticeBtn > svg{
+	position: absolute;
+    left: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .noticeBtn > span{
+	position: absolute;
+    left: 61px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .DetailInformation_btn::after{
+	display: block;
+    content: "";
+    clear: both;
+	
+}
+section.saleInLotsDetailInformation .info_content{
+	width: 100%;
+}
+section.saleInLotsDetailInformation .infoBox{
+	width: 1180px;
+    position: relative;
+    margin: 0px auto;
+}
+section.saleInLotsDetailInformation .info_table{
+	width: 100%;
+    margin-bottom: 30px;
+    border-top: 1px solid rgb(34, 34, 34);
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .info_table > tbody > tr > th{
+	font-size: 14px;
+    color: rgb(136, 136, 136);
+    background-color: rgb(248, 249, 250);
+}
+section.saleInLotsDetailInformation .info_table th, .info_table td{
+	padding-left: 12px;
+    font-weight: 400;
+    height: 50px;
+    text-align: left;
+}
+section.saleInLotsDetailInformation .info_table > tbody > tr > td{
+	color: rgb(34, 34, 34);
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+section.saleInLotsDetailInformation .info_table > tbody tr + tr > th, .info_table > tbody tr + tr td{
+	border-top: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .noImgBox {
+	width: 1180px;
+    height: 204px;
+    margin-bottom: 49px;
+    background-color: rgb(250, 250, 250);
+    position: relative;
+}
+section.saleInLotsDetailInformation .noImg{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section.saleInLotsDetailInformation .noImg > div{
+	width: 160px;
+    height: 74px;
+    margin: 0px auto;
+    background: url(/guest/img/saleInLots/noImg.svg) center center / cover no-repeat;
+}
+section.saleInLotsDetailInformation .noImg > p {
+	margin-top: 13px;
+    color: rgb(170, 170, 170);
+    font-size: 13px;
+    text-align: center;
+}
+section.saleInLotsDetailInformation .hiddenLink {
+	display: block;
+    width: 100%;
+    height: 0px;
+}
+section.saleInLotsDetailInformation .hiddenLink.active + div {
+	position: fixed;
+    top: 0px;
+    z-index: 10;
+    animation: 200ms ease-out 0s 1 normal none running jsPtHL;
+}
+
+section.saleInLotsDetailInformation .group_tabs{
+	width: 1180px;
+    height: 53px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 2;
+    margin: 0px auto;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    text-align: center;
+}
+section.saleInLotsDetailInformation .group_tabs > a{
+	width: calc(14.2714%);
+}
+section.saleInLotsDetailInformation .tabs_item{
+	display: inline-block;
+    height: 53px;
+    color: rgb(136, 136, 136);
+    font-size: 15px;
+    line-height: 53px;
+    text-align: center;
+    cursor: pointer;
+}
+section.saleInLotsDetailInformation .tabs_item:hover, .tabs_item:active{
+	color: rgb(34, 34, 34);
+}
+section.saleInLotsDetailInformation .detailPrice_content{
+	width: 100%;
+}
+section.saleInLotsDetailInformation .detailPrice_contentBox{
+	width: 1180px;
+    padding-top: 100px;
+    padding-bottom: 120px;
+    border-top: none;
+}
+section.saleInLotsDetailInformation .price_title{
+	font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 41px;
+}
+section.saleInLotsDetailInformation .price_box{
+	width: 850px;
+    height: 190px;
+    background-color: rgb(255, 255, 255);
+    margin: 30px auto 0px;
+    padding: 35px 0px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+section.saleInLotsDetailInformation .price_box > li{
+	float: left;
+    width: 50%;
+    height: 100%;
+}
+section.saleInLotsDetailInformation .price_box > li + li{
+	border-left: 1px solid rgb(228, 228, 228);
+}
+section.saleInLotsDetailInformation .price_msgBox{
+	width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 15px;
+    margin: 0px auto;
+}
+section.saleInLotsDetailInformation .price_msgTitle{
+	height: 22px;
+    font-size: 15px;
+    color: rgb(102, 102, 102);
+    margin-bottom: 5px;
+}
+section.saleInLotsDetailInformation .price_msgText{
+	height: 36px;
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    margin-bottom: 5px;
+}
+section.saleInLotsDetailInformation
+section.saleInLotsDetailInformation

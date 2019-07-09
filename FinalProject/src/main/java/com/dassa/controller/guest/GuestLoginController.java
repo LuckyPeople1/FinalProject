@@ -54,7 +54,6 @@ public class GuestLoginController {
 			view= "guest/common/msg";
 		} else {
 			request.setAttribute("socialId", socialId);
-			System.out.println(socialId);
 			view="guest/insert/commonInsert";
 		}
 		return view;

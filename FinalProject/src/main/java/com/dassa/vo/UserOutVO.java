@@ -2,7 +2,7 @@ package com.dassa.vo;
 
 import java.sql.Date;
 
-public class UserVO {
+public class UserOutVO {
 	private int 	userIdx;				//고유번호로 쓸것.
 	private String 	userId;
 	private String 	userPw;
@@ -20,15 +20,21 @@ public class UserVO {
 	private String  socialId;				//소셜 로그인 할 때 필요
 	private Date	enrollDate;
 	private String  type;
+	private Date    OutDate;
 	
-	public UserVO() {
+	
+
+	public UserOutVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
+
+
+	public UserOutVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
 			String userEmail, String userIntroduce, String registrationNumber, String businessNumber, String userCar,
-			String userImageName, String userImagePath, String userType, String socialId, Date enrollDate, String type) {
+			String userImageName, String userImagePath, String userType, String socialId, Date enrollDate, String type,
+			Date outDate) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -47,135 +53,220 @@ public class UserVO {
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
 		this.type = type;
+		OutDate = outDate;
 	}
+
+
 
 	public int getUserIdx() {
 		return userIdx;
 	}
 
+
+
 	public void setUserIdx(int userIdx) {
 		this.userIdx = userIdx;
 	}
+
+
 
 	public String getUserId() {
 		return userId;
 	}
 
+
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+
 
 	public String getUserPw() {
 		return userPw;
 	}
 
+
+
 	public void setUserPw(String userPw) {
 		this.userPw = userPw;
 	}
+
+
 
 	public String getUserName() {
 		return userName;
 	}
 
+
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
+
 
 	public String getUserAddr() {
 		return userAddr;
 	}
 
+
+
 	public void setUserAddr(String userAddr) {
 		this.userAddr = userAddr;
 	}
+
+
 
 	public String getUserPhone() {
 		return userPhone;
 	}
 
+
+
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
+
+
 
 	public String getUserEmail() {
 		return userEmail;
 	}
 
+
+
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+
+
 
 	public String getUserIntroduce() {
 		return userIntroduce;
 	}
 
+
+
 	public void setUserIntroduce(String userIntroduce) {
 		this.userIntroduce = userIntroduce;
 	}
+
+
 
 	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
 
+
+
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
+
+
 
 	public String getBusinessNumber() {
 		return businessNumber;
 	}
 
+
+
 	public void setBusinessNumber(String businessNumber) {
 		this.businessNumber = businessNumber;
 	}
+
+
 
 	public String getUserCar() {
 		return userCar;
 	}
 
+
+
 	public void setUserCar(String userCar) {
 		this.userCar = userCar;
 	}
+
+
 
 	public String getUserImageName() {
 		return userImageName;
 	}
 
+
+
 	public void setUserImageName(String userImageName) {
 		this.userImageName = userImageName;
 	}
+
+
 
 	public String getUserImagePath() {
 		return userImagePath;
 	}
 
+
+
 	public void setUserImagePath(String userImagePath) {
 		this.userImagePath = userImagePath;
 	}
+
+
 
 	public String getUserType() {
 		return userType;
 	}
 
+
+
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+
+
 
 	public String getSocialId() {
 		return socialId;
 	}
 
+
+
 	public void setSocialId(String socialId) {
 		this.socialId = socialId;
 	}
+
+
 
 	public Date getEnrollDate() {
 		return enrollDate;
 	}
 
+
+
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
+
+
+
+	public Date getOutDate() {
+		return OutDate;
+	}
+
+
+
+	public void setOutDate(Date outDate) {
+		OutDate = outDate;
+	}
+
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
 
 	public String getType() {
 		String type = getUserType();

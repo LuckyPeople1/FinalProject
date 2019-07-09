@@ -71,8 +71,6 @@ public class ManageMoveController {
 	@RequestMapping("/packageReg")
 	public String packageReg(Model model){
 
-		System.out.println("HERE##");
-
 		model.addAttribute("headerNum",3);
 		return "/manage/move/packageReg";
 	}

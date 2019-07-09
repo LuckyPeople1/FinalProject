@@ -1,4 +1,3 @@
-	
 	$(".searchBox_btn").click(function(){ // 분양 Home 검색 정보
 		// 같은거를 클릭했을 때
 		if($(this).hasClass('on')){

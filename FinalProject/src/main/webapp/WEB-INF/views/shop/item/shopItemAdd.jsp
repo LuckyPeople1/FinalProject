@@ -1084,6 +1084,7 @@
 				+'<button class="iFqJVZ monthlyCloseBtn"></button></div>');
 			return false;
 		});
+
 		//월세 삭제 버튼 클릭 시 해당 월세 입력 폼 삭제
 		$(document).on('click', '.monthlyCloseBtn' , function(){
 			var sel = confirm("정말 삭제하시겠습니까?");

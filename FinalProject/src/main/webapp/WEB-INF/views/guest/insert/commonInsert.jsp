@@ -28,7 +28,12 @@
 							<col width="*">
 						</colgroup>
 						<c:choose>
-							<c:when test="${empty socialId }">
+							<c:when test="${not empty socialId }">
+								<input type="hidden" class="tbox normal" name="socialId" value=${socialId }>
+								<input type="hidden" class="tbox normal" name="userId">
+								<input type="hidden" class="tbox normal" name="userPw">	
+							</c:when>
+							<c:otherwise>
 								<tr>
 									<th>아이디</th>
 									<td><input type="text" class="tbox normal" name="userId" id="userId"><button type="button" class="regCheckBtn">중복체크</button><span id="idCheck" class="regCheck"></span></td>
@@ -37,17 +42,7 @@
 									<th>비밀번호</th>
 									<td><input type="password" class="tbox normal" name="userPw" id="userPw"><span id="pwCheck" class="regCheck"></span></td>
 								</tr>
-							</c:when>
-							<c:when test="${not empty socialId }">
-								<tr>
-									<th>아이디</th>
-									<td><input type="hidden" class="tbox normal" name="userId"></td>
-								</tr>
-								<tr>
-									<th>비밀번호</th>
-									<td><input type="hidden" class="tbox normal" name="userPw"></td>	
-								</tr>
-							</c:when>
+							</c:otherwise>
 						</c:choose>
 						<tr>
 							<th>이름</th>
@@ -63,15 +58,15 @@
 								<input type="text" class="tbox post" id="insert_post_code" name="userPostCode" placeholder="우편번호" readonly="readonly">
 								<button type="button" onclick="findPost()" >우편번호 찾기</button><br>
 								<input type="text" class="tbox normal" id="insert_user_addr" name="userAddr" placeholder="주소" readonly="readonly">
-								<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 								<input type="text" class="tbox second_post" id="insert_extra_item" name="userExtraAddr" placeholder="참고항목" readonly="readonly">
+								<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 							</td>
 						</tr>
 						<tr>
 							<th>이메일</th>
 							<td>
 								<input type="text" class="tbox normal" name="userEmail" id="userEmail"><span id="emailCheck" class="regCheck"></span>
-								<input type="hidden" name="userType" value="1">
+								<input type="hidden" name="userType" value="3">
 							</td>
 						</tr>
 								
