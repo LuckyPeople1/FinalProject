@@ -84,7 +84,6 @@
 						<th>도착지</th>
 						<th>진행상황</th>
 						<th>관리</th>
-						<th>결정</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -102,10 +101,10 @@
 							<a href="/driver/auctionDetail" class="btn col_navy f_w">상세보기</a>
 							<a href="javascript:void(0)" class="btn col_red f_w">삭제</a>
 						</td>
-						<td>
+<!-- 						<td>
 							<a href="shop_info_set.html" class="tag col_blue f_w">최종결정</a>
 							
-						</td>
+						</td> -->
 					</tr>
 					</c:forEach>
 					</tbody>
@@ -134,13 +133,7 @@
 					<a href="#" onclick="fn_next('${pagination.range}','${pagination.range}', '${pagination.rangeSize}')" >Next</a>
 				</li>
 			</c:if>
-	<!-- pagination{e} -->
-				<!-- <li><a href="#none">Prev</a></li>
-				<li><a href="#none" class="num active">1</a></li>
-				<li><a href="#none" class="num">2</a></li>
-				<li><a href="#none" class="num">3</a></li>
-				<li><a href="#none">Next</a></li>
-				<li><a href="#none">Last</a></li> -->
+	
 			</ul>
 		</div>
 

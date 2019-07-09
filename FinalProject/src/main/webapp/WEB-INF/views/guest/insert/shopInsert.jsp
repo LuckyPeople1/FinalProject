@@ -57,7 +57,7 @@
 							<th>이메일</th>
 							<td>
 								<input type="text" class="tbox normal" name="userEmail" id="userEmail"><span id="emailCheck" class="regCheck"></span>
-								<input type="hidden" name="userType" value="3">
+								<input type="hidden" name="userType" value="2">
 							</td>
 						</tr>
 						<tr>

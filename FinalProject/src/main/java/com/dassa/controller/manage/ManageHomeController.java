@@ -1,12 +1,23 @@
 package com.dassa.controller.manage;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dassa.service.ManageUserService;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/manage")
 public class ManageHomeController {
-
+	
+	@Resource
+	private ManageUserService manageUserService;
+	
 	@RequestMapping("/")
 	public String ManageHome(){
 
@@ -15,9 +26,11 @@ public class ManageHomeController {
 	}
 	
 	//승인관리 페이지
-	@RequestMapping("/user/userList")
-	public String ManageUserList() {
-		return "manage/user/userList";
+	@RequestMapping("/user/userApprobate")
+	public String UserApprobateList(HttpServletRequest request) throws Exception {
+		List<UserVO> list = manageUserService.getUserList();
+		request.setAttribute("list", list);
+		return "manage/user/userApprobateList";
 	}
 	
 	//회원 전체 조회

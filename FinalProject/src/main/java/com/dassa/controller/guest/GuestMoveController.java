@@ -3,13 +3,17 @@ package com.dassa.controller.guest;
 
 import com.dassa.service.MovePackageService;
 import com.dassa.vo.*;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/move")
@@ -49,7 +53,6 @@ public class GuestMoveController {
 			HttpSession httpSession,
 			@RequestBody List<PackageSelectVO> packageList) {
 
-		System.out.println(packageList);
 
 		for (PackageSelectVO packageSelectVO : packageList) {
 			System.out.println(packageSelectVO.getPackageName());
@@ -93,9 +96,6 @@ public class GuestMoveController {
 	@RequestMapping("/packagePop")
 	public String packagePop(int idx, String name, Model model) throws Exception {
 
-
-		System.out.println(name + "네임");
-
 		List<PackageRegOptionVO> optionList	=	movePackageService.getPackageOptionList(idx);
 
 		model.addAttribute("optionList", optionList);
@@ -107,7 +107,11 @@ public class GuestMoveController {
 
 	@RequestMapping("/packageFinish")
 	@ResponseBody
-	public String packageFinish(){
+	public String packageFinish(
+			HttpSession httpSession,
+			@RequestBody List<PackageOptionSelectVO>packageOptionList){
+
+		httpSession.setAttribute("packageOptionList",packageOptionList);
 
 		return "Y";
 	}
@@ -270,19 +274,83 @@ public class GuestMoveController {
 		return "Y";
 	}
 
+
+	/**
+	 * 최종정보 확인
+	 * @param httpSession
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/apply")
 	public String apply(HttpSession httpSession, Model model){
 
 		MoveAddrInfoVO startInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("startAddr");
 		MoveAddrInfoVO endInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("endAddr");
 		MoveAddrScheduleVO scheduleInfo	=	 (MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo");
+		List<PackageOptionSelectVO> packageOptionList	=	(List<PackageOptionSelectVO>)httpSession.getAttribute("packageOptionList");
 
 		model.addAttribute("startInfo", startInfo);
 		model.addAttribute("endInfo", endInfo);
 		model.addAttribute("scheduleInfo", scheduleInfo);
+		model.addAttribute("packageOptionList", packageOptionList);
 
 
 		return "guest/move/moveStepApply";
+	}
+
+
+	@RequestMapping("/applyProc")
+	@ResponseBody
+	public String applyProc(HttpSession httpSession) throws Exception {
+
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+
+//		// 비회원일경우 막음
+//		if(userVO == null){
+//			return "L";
+//		}
+
+		// 세션에서 객체를 가져옴
+		List<PackageOptionSelectVO> packageOptionList	=	(List<PackageOptionSelectVO>)httpSession.getAttribute("packageOptionList");
+
+
+
+		MoveApplyVO moveApplyVO	=	movePackageService.pushData(
+				(MoveAddrInfoVO)httpSession.getAttribute("startAddr"),
+				(MoveAddrInfoVO)httpSession.getAttribute("endAddr"),
+				(MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo"),
+				userVO);
+
+
+		System.out.println(((MoveAddrScheduleVO) httpSession.getAttribute("scheduleInfo")).getMoveHelp());
+		System.out.println(((MoveAddrScheduleVO) httpSession.getAttribute("scheduleInfo")).getMoveHope());
+
+		// 이미지 추가해야함
+
+		Map<String, Object> map	=	new HashMap<String, Object>();
+		map.put("applyInfo",moveApplyVO);
+		map.put("optionList",packageOptionList);
+
+
+		List<PackageOptionSelectVO> list = (List<PackageOptionSelectVO>)map.get("optionList");
+
+		System.out.println(list.get(0).getPackageIdx());
+
+
+		int rs	=	movePackageService.regApply(moveApplyVO);
+
+		if(rs > 0){
+
+			rs	=	 movePackageService.regApplyPackage(packageOptionList);
+
+			if(rs >0){
+				return "Y";
+			}
+		}
+
+		return "N";
+
+
 	}
 
 

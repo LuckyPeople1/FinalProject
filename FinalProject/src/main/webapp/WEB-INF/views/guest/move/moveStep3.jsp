@@ -134,7 +134,7 @@
 				</div>
 				
 				<div class="packageBtnBox">
-					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
+					<a href="/move/step2" class="btn col_darkGrey f_w big">뒤로가기</a>
 					<a href="javascript:package.infoFinish()" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>

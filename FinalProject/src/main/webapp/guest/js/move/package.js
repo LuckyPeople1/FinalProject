@@ -261,26 +261,6 @@ var package = {
 
 
 
-		// console.log(idx)
-		// console.log(order)
-		//
-		// $.ajax({
-		// 	type: "POST",
-		// 	url: "/move/packageOptionPop",
-		// 	data: {
-		// 		idx : idx
-		// 	},
-		// 	success:function (data) {
-		//
-		// 		console.log(data)
-		//
-		// 	},
-		// 	error:function () {
-		// 		alert("에러 발생");
-		// 	}
-		// })
-
-
 	},
 
 	/**
@@ -420,11 +400,37 @@ var package = {
 		}
 
 
+		var optionArray	=	new Array();
 
+
+
+
+
+		$('.listBox').each(function () {
+
+			option = {
+				packageIdx	:	$(this).find('.packageInfo').data('idx'),
+				packageType	:	$(this).find('.packageInfo').data('type'),
+				packageName	:	$(this).find('.name').text().trim() + $(this).find('.order').text().trim(),
+				packageOption : $(this).find('.caption').text(),
+				packageImgPath : $(this).find('.selectImg img').attr("src")
+			};
+
+			optionArray.push(option);
+
+		});
+
+
+
+		console.log(optionArray)
 
 		$.ajax({
 			url		:	"/move/packageFinish",
-			data	:	null,
+			type	:	"post",
+			contentType : "application/json; charset=UTF-8",
+			// contentType:'application/json; charset=utf-8',
+			// data	:	optionArray,
+			data	:	JSON.stringify(optionArray),
 			success	:	function (data) {
 
 				if (data.trim() == "Y") {
@@ -434,7 +440,7 @@ var package = {
 				}
 			},
 			error	:	function () {
-				alert("에러 발생")
+				alert("에러 발생!!")
 			}
 		})
 
@@ -535,5 +541,31 @@ var package = {
 
 	},
 
+
+	moveApply	:	function () {
+
+
+		$.ajax({
+			url : "/move/applyProc",
+			// data : formData,
+			success:function (data) {
+
+				if(data.trim() == "L"){
+					alert("로그인 후 요청이 가능합니다.")
+				}else if(data.trim() == "Y"){
+					alert("신청 완료");
+					location.href = '/';
+				}else{
+					alert("신청 실패");
+				}
+
+
+				// location.href='/move/step3'
+			}, error:function () {
+				alert("에러 발생")
+			}
+		})
+
+	}
 
 };
