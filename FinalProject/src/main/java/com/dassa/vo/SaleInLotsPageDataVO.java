@@ -5,14 +5,16 @@ import java.util.ArrayList;
 public class SaleInLotsPageDataVO {
 	private ArrayList<SaleInLotsVO> list;
 	private String pageNavi;
+	private int totalCount;
 	public SaleInLotsPageDataVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SaleInLotsPageDataVO(ArrayList<SaleInLotsVO> list, String pageNavi) {
+	public SaleInLotsPageDataVO(ArrayList<SaleInLotsVO> list, String pageNavi, int totalCount) {
 		super();
 		this.list = list;
 		this.pageNavi = pageNavi;
+		this.totalCount = totalCount;
 	}
 	public ArrayList<SaleInLotsVO> getList() {
 		return list;
@@ -26,5 +28,12 @@ public class SaleInLotsPageDataVO {
 	public void setPageNavi(String pageNavi) {
 		this.pageNavi = pageNavi;
 	}
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+	
 	
 }

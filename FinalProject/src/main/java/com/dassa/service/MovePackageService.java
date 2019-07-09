@@ -246,4 +246,10 @@ public class MovePackageService {
 		return movePackageMapper.regApplyPackage(packageOptionList);
 
 	}
+
+	public int regApplyImg(List<MoveApplyImgVO> imgList) throws Exception {
+
+		return movePackageMapper.regApplyImg(imgList);
+
+	}
 }
