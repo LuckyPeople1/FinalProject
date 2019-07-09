@@ -49,8 +49,8 @@
 								<input type="text" class="tbox post" id="insert_post_code" name="userPostCode" placeholder="우편번호" readonly="readonly">
 								<button type="button" onclick="findPost()" >우편번호 찾기</button><br>
 								<input type="text" class="tbox normal" id="insert_user_addr" name="userAddr" placeholder="주소" readonly="readonly">
-								<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 								<input type="text" class="tbox second_post" id="insert_extra_item" name="userExtraAddr" placeholder="참고항목" readonly="readonly">
+								<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 							</td>
 						</tr>
 						<tr>

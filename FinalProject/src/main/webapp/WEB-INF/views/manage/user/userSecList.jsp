@@ -32,10 +32,6 @@
 				<td colspan="3">
 					<label>
 						<input type="checkbox">
-						<span>일반회원</span>
-					</label>
-					<label class="ml10">
-						<input type="checkbox">
 						<span>운송기사</span>
 					</label>
 					<label class="ml10">
@@ -44,20 +40,6 @@
 					</label>
 				</td>
 			</tr>
-			<tr>
-				<th>가입 상태</th>
-				<td colspan="3">
-					<label>
-						<input type="checkbox">
-						<span>정상</span>
-					</label>
-					<label class="ml10">
-						<input type="checkbox">
-						<span>승인 대기</span>
-					</label>
-				</td>
-			</tr>
-			
 			<tr>
 				<th>가입일</th>
 				<td colspan="3">
@@ -104,71 +86,21 @@
 			</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>ssooya90</td>
-					<td>김경환</td>
-					<td>경기도 부천시</td>
-					<td class="">01084649696</td>
-					<td>email@email.com</td>
-					<td class="">일반회원</td>
-					<td>2018-10-10 17:22:12</td>
-					<td>
-						<span class="tag col_blue f_w">정상</span>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>ssooya90</td>
-					<td>김경환</td>
-					<td>경기도 부천시</td>
-					<td class="">01084649696</td>
-					<td>email@email.com</td>
-					<td class="">일반회원</td>
-					<td>2018-10-10 17:22:12</td>
-					<td>
-						<span class="tag col_blue f_w">정상</span>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>ssooya90</td>
-					<td>김경환</td>
-					<td>경기도 부천시</td>
-					<td class="">01084649696</td>
-					<td>email@email.com</td>
-					<td class="">일반회원</td>
-					<td>2018-10-10 17:22:12</td>
-					<td>
-						<span class="tag col_blue f_w">정상</span>
-					</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>ssooya90</td>
-					<td>김경환</td>
-					<td>경기도 부천시</td>
-					<td class="">01084649696</td>
-					<td>email@email.com</td>
-					<td class="">일반회원</td>
-					<td>2018-10-10 17:22:12</td>
-					<td>
-						<span class="tag col_blue f_w">정상</span>
-					</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>ssooya90</td>
-					<td>김경환</td>
-					<td>경기도 부천시</td>
-					<td class="">01084649696</td>
-					<td>email@email.com</td>
-					<td class="">일반회원</td>
-					<td>2018-10-10 17:22:12</td>
-					<td>
-						<span class="tag col_blue f_w">정상</span>
-					</td>
-				</tr>
+				<c:forEach var="u" items="${list}">
+					<tr>
+						<td>${u.userIdx }</td>
+						<td>${u.userId }</td>
+						<td>${u.userName }</td>
+						<td>${u.userAddr }</td>
+						<td>${u.userPhone }</td>
+						<td>${u.userEmail }</td>
+						<td>${u.userType }</td>
+						<td>${u.enrollDate }</td>
+						<td>
+							<span class="tag col_blue f_w">탈퇴 됨</span>
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
@@ -195,4 +127,3 @@
 		</ul>
 	</div>
 </div>
-

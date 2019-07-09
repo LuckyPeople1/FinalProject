@@ -70,7 +70,9 @@ public class GuestInsertController {
 			request.setAttribute("loc", "/login/");
 			return "guest/common/msg";
 		}else {
-			return "redirect:/insert";
+			request.setAttribute("msg", "회원가입이 실패 하였습니다.");
+			request.setAttribute("loc", "redirect:/insert");
+			return "guest/common/msg";
 		}
 	}
 	
