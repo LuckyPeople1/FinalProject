@@ -24,21 +24,21 @@
 			   		saleinlots_area = #{saleInLotsArea}
 			   </if>
 			   <if test="saleInLotsSearchBuildType[0] != '건물유형'">
-			   		AND regexp_like(saleinlots_build_type, 
-			   		<foreach collection="saleInLotsSearchBuildType"  item="item" close=")" separator="|">
-			   			#{item}
+			   		AND 
+			   		<foreach collection="saleInLotsSearchBuildType" item="item" open="(" close=")" separator="OR">
+			   			saleinlots_build_type like '%'||#{item}||'%'
 			   		</foreach>
-			   </if>
+		  	   </if>
 			   <if test="saleInLotsSearchState[0] != '분양단계'">
-			   		AND regexp_like(saleinlots_state,
-			   		<foreach collection="saleInLotsSearchState"  item="item" close=")" separator="|">
-			   			#{item}
+			   		AND 
+			   		<foreach collection="saleInLotsSearchState"  item="item" open="(" close=")" separator="OR">
+			   			saleinlots_state like '%'||#{item}||'%'
 			   		</foreach>
 			   </if>
 			   <if test="saleInLotsSearchSupplyType[0] != '공급유형'">
-			   		AND regexp_like(saleinlots_supply_type,
-			   		<foreach collection="saleInLotsSearchSupplyType"  item="item" close=")" separator="|">
-			   			#{item}
+			   		AND 
+			   		<foreach collection="saleInLotsSearchSupplyType"  item="item" open="(" close=")" separator="OR">
+			   			saleinlots_supply_type like '%'||#{item}||'%'
 			   		</foreach>
 			   </if> 
 			   </trim>
@@ -53,21 +53,21 @@
 		   		saleinlots_area = #{saleInLotsArea}
 		   </if>
 		   <if test="saleInLotsSearchBuildType[0] != '건물유형'">
-		   		AND regexp_like(saleinlots_build_type, 
-		   		<foreach collection="saleInLotsSearchBuildType"  item="item" close=")" separator="|">
-		   			#{item}
+		   		AND 
+		   		<foreach collection="saleInLotsSearchBuildType" item="item" open="(" close=")" separator="OR">
+		   			saleinlots_build_type like '%'||#{item}||'%'
 		   		</foreach>
 		   </if>
 		   <if test="saleInLotsSearchState[0] != '분양단계'">
-		   		AND regexp_like(saleinlots_state,
-		   		<foreach collection="saleInLotsSearchState"  item="item" close=")" separator="|">
-		   			#{item}
+		   		AND 
+		   		<foreach collection="saleInLotsSearchState" item="item" open="(" close=")" separator="OR">
+		   			saleinlots_state like '%'||#{item}||'%'
 		   		</foreach>
 		   </if>
 		   <if test="saleInLotsSearchSupplyType[0] != '공급유형'">
-		   		AND regexp_like(saleinlots_supply_type,
-		   		<foreach collection="saleInLotsSearchSupplyType"  item="item" close=")" separator="|">
-		   			#{item}
+		   		AND 
+		   		<foreach collection="saleInLotsSearchSupplyType"  item="item" open="(" close=")" separator="OR">
+		   			saleinlots_supply_type like '%'||#{item}||'%'
 		   		</foreach>
 		   </if> 
 		 </trim>
