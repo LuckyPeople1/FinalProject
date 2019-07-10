@@ -120,27 +120,9 @@
 					</tbody>
 				</table>
 				</div>
-				<div class="page_group clearFix">
-				<ul class="page_box">
-					<li class="first arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="prev arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="on">
-						<a href="#none">1</a>
-					</li>
-					<li class="">
-						<a href="#none">2</a>
-					</li>
-					<li class="next arrow">
-						<a href="#none "></a>
-					</li>
-					<li class="end arrow">
-						<a href="#none"></a>
-					</li>
-				</ul>
+				
+				<div id="pageNavi" class="page_group clearFix">
+				${pageNavi}
 			</div>
 		</div>
 		<!-- 푸터 -->

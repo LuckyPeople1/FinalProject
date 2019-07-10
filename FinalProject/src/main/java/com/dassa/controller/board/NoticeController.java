@@ -5,20 +5,18 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.NoticeService;
+import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
 
 
@@ -31,13 +29,29 @@ public class NoticeController {
 	
 	//관리자 공지사항 페이지
 	@RequestMapping("/noticeManageList")//noticeManageList를 맵핑
-	public ModelAndView noticeMangeList() {
-		ArrayList<NoticeVO> list;
+	public ModelAndView noticeMangeList(@RequestParam int reqPage) {
+		/*ArrayList<NoticeVO> list;
 		ModelAndView ma = new ModelAndView();
 		try {
 			list = noticeService.selectAllList();
 			if(!list.isEmpty()) {
 				ma.addObject("list", list);
+				ma.setViewName("manage/board/notice/noticeManageList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;*/
+		ModelAndView ma = new ModelAndView();
+		try {
+			NoticePageData list = noticeService.selectAllList(reqPage);
+			if(!list.isEmpty()) {
+				ArrayList<NoticeVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				System.out.println(pageNavi);
+				ma.addObject("pageNavi", pageNavi);
 				ma.setViewName("manage/board/notice/noticeManageList");
 			}
 		} catch (Exception e) {
@@ -66,7 +80,7 @@ public class NoticeController {
 		return ma;
 	}
 	
-	//기사 공지사항 페이지
+/*	//기사 공지사항 페이지
 	@RequestMapping("/articles/noticeManageArticlesList")
 	public ModelAndView noticeManageArticlesList() {
 		ArrayList<NoticeVO> list;
@@ -101,7 +115,7 @@ public class NoticeController {
 			e.printStackTrace();
 		}
 		return ma;
-	}
+	}*/
 	
 	//관리자 공지사항 수정페이지로 넘어가기
 	@RequestMapping("/noticeManageModify")
