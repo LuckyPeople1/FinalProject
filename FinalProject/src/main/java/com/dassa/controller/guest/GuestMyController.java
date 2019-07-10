@@ -1,6 +1,7 @@
 package com.dassa.controller.guest;
 
 import com.dassa.vo.UserVO;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +61,46 @@ public class GuestMyController {
 		model.addAttribute("tab","0");
 
 		return "/guest/mypage/myInfo";
+	}
+
+
+	/**
+	 * 이사 리스트
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/moveList")
+	public String moveList(Model model){
+
+		model.addAttribute("tab","2");
+
+		return "/guest/mypage/myMoveList";
+	}
+
+
+	/**
+	 * 입찰내역
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/auctionList")
+	public String moveAuction(Model model){
+
+		model.addAttribute("tab","2");
+
+		return "/guest/mypage/myMoveAuctionList";
+	}
+
+	/**
+	 * 입찰 상세보기
+	 * @return
+	 */
+	@RequestMapping("/auctionInfo")
+	public String moveAuctionInfo(Model model){
+
+		model.addAttribute("tab","2");
+
+		return "/guest/mypage/myMoveAuctionInfo";
 	}
 
 }
