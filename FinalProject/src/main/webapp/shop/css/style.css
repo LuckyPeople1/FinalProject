@@ -1438,6 +1438,14 @@ table.table_list .menu_set a{
 }
 
 /** 부동산 매물 등록 시작 **/
+section .shopItemAdd .img_upload{
+	border-color: #cd2024;
+	margin-left:0;
+}
+section shopItemAdd .img_upload .imgUp{
+	background:url("../img/icon_imgUp.png") no-repeat center;
+}
+
 section.shopItemAdd input, button {
     outline: none;
 }
