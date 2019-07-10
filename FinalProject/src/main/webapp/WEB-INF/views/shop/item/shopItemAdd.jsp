@@ -717,14 +717,13 @@
 						<p>- 사진은 가로로 찍은 사진을 권장합니다. (가로 사이즈 최소 800px)</p>
 						<p>- 사진 용량은 사진 한 장당 10MB 까지 등록이 가능합니다.</p>
 						<p>- 사진은 최소 1장 이상 등록해야하며, 최대 10장 까지 등록됩니다.</p>
+						<p>- 최초로 등록 된 이미지는 대표이미지로 사용됩니다.</p>
 					</div>
 					<div class="heKOml">
-						<c:forEach var="i" begin="0" end="9" step="1">
-							<div class="img_upload">
-								<input type="file" name="img_${i}" id="img_${i}" class="hide" onchange="img_change(this)">
-								<a href="#none" class="imgUp" id="imgUp_${i}" onclick="img_up(this)"></a>
-							</div>
-						</c:forEach>
+						<div class="img_upload">
+							<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)">
+							<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a>
+						</div>
 					</div>
 					<p class="bhZAGT">
 						<svg width="18" height="18" viewBox="0 0 18 18">
@@ -917,7 +916,6 @@
 									+"<div class='gvCWFZ'><p class='jyixr'>도로명</p><span class='kQJKWm'>"+newarr[1]+"</span></div>"
 									+"<div class='gvCWFZ'><p class='jyixr'>지번</p><span class='kQJKWm'>"+newarr[2]+"</span></div></li>");
 						}
-						
 					}else{
 						$('#kaptList').find("li").remove();
 						$('#jusoInfo1').hide();
@@ -1060,6 +1058,9 @@
 		//전세 클릭 시 전세 입력 폼 생성
 		$("#charter").click(function(){
 			$("#charter").attr("disabled",true);
+			$("#monthly").attr("disabled",true);
+			$("#trading").attr("disabled",true);
+			$("#dealTypeTd").find("div").remove();
 			$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">전세</p>'
 				+'<input type="hidden" name="shopItemDealType" value="전세">'
 				+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="전세" value="">'
@@ -1071,11 +1072,16 @@
 			var sel = confirm("정말 삭제하시겠습니까?");
 			if(sel){
 				$(this).parent("div").remove();
+				$("#monthly").attr("disabled",false);
 				$("#charter").attr("disabled",false);
+				$("#trading").attr("disabled",false);
 			}
 		});
 		//월세 클릭 시 월세 입력 폼 생성
 		$("#monthly").click(function(){
+			$("#charter").attr("disabled",true);
+			$("#monthly").attr("disabled",true);
+			$("#trading").attr("disabled",true);
 			$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">월세</p>'
 				+'<input type="hidden" name="shopItemDealType" value="월세">'
 				+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="0" placeholder="보증금" value="">'
@@ -1090,6 +1096,9 @@
 			var sel = confirm("정말 삭제하시겠습니까?");
 			if(sel){
 				$(this).parent("div").remove();
+				$("#monthly").attr("disabled",false);
+				$("#charter").attr("disabled",false);
+				$("#trading").attr("disabled",false);
 			}
 		});
 		//평 입력 시 자동 m2면적 계산
@@ -1202,8 +1211,25 @@
 				alert("해당 층수가 건물 층수보다 클 수 없습니다");
 				$("select[name=shopItemFloor]").focus();
 				return false;
-			}	
+			}
 		});
+		$("input[name=img_0]").change(function(){
+			$(this).css("display","none");
+			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
+		});
+//		$("input[name=img_1]").click(function(){
+//			$("#img_upload2").show();
+//		});
+//		$("input[name=img_2]").click(function(){
+//			$("#img_upload3").show();
+//		});
+//		$("input[name=img_3]").click(function(){
+//			$("#img_upload4").show();
+//		});		
+//		$("input[name=img_0]").click(function(){
+//			$(this).css("display","none");
+//			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
+//		});
 		
 	</script>
 	<!-- 다음 지도 api -->
