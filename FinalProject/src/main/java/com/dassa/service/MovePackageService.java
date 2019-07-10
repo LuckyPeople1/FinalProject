@@ -199,13 +199,9 @@ public class MovePackageService {
 	public MoveApplyVO pushData(MoveAddrInfoVO startAddr, MoveAddrInfoVO endAddr, MoveAddrScheduleVO scheduleInfo, UserVO userVO) {
 
 		MoveApplyVO moveApplyVO	=	new MoveApplyVO();
-//		moveApplyVO.setGuestIdx(userVO.getUserIdx());
-//		moveApplyVO.setGuestName(userVO.getUserName());
-//		moveApplyVO.setGuestPhone(userVO.getUserPhone());
-
-		moveApplyVO.setGuestIdx(10);
-		moveApplyVO.setGuestName("테스터");
-		moveApplyVO.setGuestPhone("01084649696");
+		moveApplyVO.setGuestIdx(userVO.getUserIdx());
+		moveApplyVO.setGuestName(userVO.getUserName());
+		moveApplyVO.setGuestPhone(userVO.getUserPhone());
 		moveApplyVO.setStartAddr1(startAddr.getAddr1());
 		moveApplyVO.setStartAddr2(startAddr.getAddr2());
 		moveApplyVO.setStartAddr3(startAddr.getAddr3());

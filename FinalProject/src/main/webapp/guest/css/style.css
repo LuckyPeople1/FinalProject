@@ -1,15 +1,21 @@
 ﻿body {
     min-width: 1366px;
+	height: auto;
 }
 
 .container {
     height: 100%;
+	position:relative;
+	padding-bottom:100px;
 }
 
 .inner{
 	width: 1180px;
 	margin:0 auto;
 
+}
+.container .contents{
+	padding-bottom:150px;
 }
 
 body.popup{
@@ -158,6 +164,33 @@ header .loginMenu a + a{
 	margin-left:15px;
 }
 
+/* footer */
+footer{
+	width: 100%;
+	/*height: 250px;*/
+	background-color: rgb(55, 55, 55);
+	z-index: 1;
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 100px;
+}
+
+footer .footerInfo{
+	min-width: 1366px;
+	margin:0 auto;
+	line-height: 100px;
+	padding:0 30px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #bababa;
+
+	text-align: center;
+
+
+}
+
 
 /* main */
 section.mainSearch .mainSearchBox{
@@ -266,7 +299,9 @@ section.easyFind .easyFindBox{
 
 /* 이사하기 */
 
-section.moveStep .sectionTitle{
+section.moveStep .sectionTitle,
+section.mypage .sectionTitle{
+
 	margin-top: 70px;
 	text-align: center;
 	font-size: 33px;
@@ -1328,6 +1363,169 @@ section.moveStep .applyGroup .memo{
 	min-height: 120px;
 	width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* 마이페이지 myPage */
+
+section.mypage .navTabBox{
+	font-size: 0;
+}
+section.mypage .navTabBox .tab{
+	position:relative;
+	display:inline-block;
+	width: 25%;
+	text-align: center;
+	line-height: 40px;
+	color: rgb(136, 136, 136);;
+	font-size: 18px;
+	padding-bottom:15px;
+	border-bottom:1px solid #f1f1f1;
+	margin-top: 45px;
+	margin-bottom:70px;
+}
+section.mypage .navTabBox .tab:hover,
+section.mypage .navTabBox .tab:focus{
+	color: #000;
+
+}
+section.mypage .navTabBox .tab.on{
+	color: #000;
+}
+
+section.mypage .navTabBox .tab.on:after{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:-1px;
+	height: 2px;
+	background:#000;
+}
+
+
+
+
+
+
+section.mypage .mypageBtnBox{
+	font-size: 0;
+
+}
+section.mypage .mypageCon{
+}
+
+section.mypage .mypageCon .pwChkTitleBox{
+	text-align: center;
+}
+section.mypage .mypageCon.pwChk .tit{
+	font-size: 24px;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+section.mypage .mypageCon.pwChk .sub{
+	font-size: 16px;
+	color: #666;
+}
+
+section.mypage .mypageCon.pwChk .pwChkBox{
+	margin-top: 60px;
+	text-align: center;
+}
+
+section.mypage .mypageCon.pwChk .pwChkBox .tbox{
+	height: 45px;
+	line-height: 43px;
+	font-size: 36px;
+	vertical-align: middle;
+
+}
+
+section.mypage .mypageCon.pwChk .pwChkBox .pwTxt{
+	display:inline-block;
+	vertical-align: middle;
+	font-size: 18px;
+	margin-right: 5px;
+}
+
+section.mypage .mypageCon .mypageBtnBox{
+	margin-top: 70px;
+	text-align: center;
+
+}
+section.mypage .mypageCon .mypageBtnBox a + a{
+	margin-left: 25px;
+}
+
+
+
+/* 내정보 수정 */
+
+section.mypage .mypageCon.myInfo .profileBox{
+	text-align: center;
+	width: 850px;
+	margin:0 auto;
+	border-bottom:1px solid #eaeaea;
+
+}
+
+section.mypage .mypageCon.myInfo .profileBox .imgBox{
+	width: 85px;
+	height: 85px;
+	border-radius: 50%;
+	overflow: hidden;
+	display:inline-block;
+}
+section.mypage .mypageCon.myInfo .profileBox .imgBox img{
+	width: 100%;
+	height: 100%;
+}
+
+section.mypage .mypageCon.myInfo .profileBox .profileBtn a{
+	color: rgb(21, 100, 249);
+	line-height: 50px;
+	font-size: 18px;
+}
+section.mypage .mypageCon.myInfo .profileBox .profileBtn{
+	padding-bottom: 30px;
+}
+
+section.mypage .mypageCon.myInfo .setInfoBox{
+	width: 465px;
+	margin:40px auto;
+}
+
+section.mypage .mypageCon.myInfo .setInfoBox .row .subject{
+	margin-bottom: 10px;
+}
+section.mypage .mypageCon.myInfo .setInfoBox .row .tbox{
+	width: 100%;
+	line-height: 43px;
+	height: 45px;
+}
+section.mypage .mypageCon.myInfo .setInfoBox .row .tbox:focus{
+	boder:1px solid rgb(21, 100, 249);
+}
+section.mypage .mypageCon.myInfo .setInfoBox .row .infoTxt{
+	margin-top: 5px;
+	font-size: 14px;
+	color: #999;
+
+}
+
+section.mypage .mypageCon.myInfo .setInfoBox .row + .row{
+	margin-top: 25px;
+}
+
 
 
 /* SaleInLots 공통부분 CSS (분양) */

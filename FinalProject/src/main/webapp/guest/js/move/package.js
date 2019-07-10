@@ -495,10 +495,6 @@ var package = {
 			}
 		})
 
-
-
-
-
 	},
 
 
@@ -534,12 +530,12 @@ var package = {
 			}
 		});
 
-		//
-		// if(count != $('.infoGroup ').length){
-		//
-		// 	alert("모든 정보를 입력해주세요");
-		// 	return false;
-		// }
+
+		if(count != $('.infoGroup ').length){
+
+			alert("모든 정보를 입력해주세요");
+			return false;
+		}
 
 
 		var formData	=	new FormData($('#frm')[0]);
@@ -589,8 +585,6 @@ var package = {
 					alert("신청 실패");
 				}
 
-
-				// location.href='/move/step3'
 			}, error:function () {
 				alert("에러 발생")
 			}

@@ -29,7 +29,7 @@
 
 #guest_loginHome .login_wrap .login_group{
 	height: 400px;
-	font-size: 20;
+	font-size: 20px;
 	margin:0 auto;
 	border:1px solid #3b3b3b;
 	display:inline-block;
@@ -37,8 +37,8 @@
 
 }
 #guest_loginHome .login_wrap .login_group .login_box{
-	width: 700px;
-	padding:0 50px;
+	/*width: 700px;*/
+	/*padding:0 50px;*/
 	display:inline-block;
 	vertical-align: top;
 	text-align: center;
