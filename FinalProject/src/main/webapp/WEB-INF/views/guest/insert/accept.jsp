@@ -12,11 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="/guest/css/ui.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/guest/css/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="/guest/css/accept-ui.css">
+	<link rel="stylesheet" type="text/css" href="/guest/css/login/accept-ui.css">
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
 	<script src="/guest/js/ui.js"></script>
-	<script src="/guest/js/accept.js"></script>
+	<script src="/guest/js/insert/accept.js"></script>
 </head>
 
 <section id="accept_section">

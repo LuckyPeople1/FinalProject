@@ -52,7 +52,7 @@ public class DriverMypageController {
 			System.out.println("수정실패");
 		}
 		
-		return "rediect:";
+		return "redirect:/driver/";
 	}
 
 }

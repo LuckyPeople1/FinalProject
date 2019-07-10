@@ -1,9 +1,7 @@
 package com.dassa.service;
 
 import com.dassa.mapper.MovePackageMapper;
-import com.dassa.vo.PackageRegOptionVO;
-import com.dassa.vo.PackageRegVO;
-import com.dassa.vo.PackageTempVO;
+import com.dassa.vo.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -186,6 +184,68 @@ public class MovePackageService {
 		}
 
 		return optionVOList;
+
+	}
+
+
+	/**
+	 * 세션이 있는 각각의 데이터를 VO에 넣어줌
+	 * @param startAddr
+	 * @param endAddr
+	 * @param scheduleInfo
+	 * @param userVO
+	 * @return
+	 */
+	public MoveApplyVO pushData(MoveAddrInfoVO startAddr, MoveAddrInfoVO endAddr, MoveAddrScheduleVO scheduleInfo, UserVO userVO) {
+
+		MoveApplyVO moveApplyVO	=	new MoveApplyVO();
+		moveApplyVO.setGuestIdx(userVO.getUserIdx());
+		moveApplyVO.setGuestName(userVO.getUserName());
+		moveApplyVO.setGuestPhone(userVO.getUserPhone());
+		moveApplyVO.setStartAddr1(startAddr.getAddr1());
+		moveApplyVO.setStartAddr2(startAddr.getAddr2());
+		moveApplyVO.setStartAddr3(startAddr.getAddr3());
+		moveApplyVO.setStartLatitude(startAddr.getLatitude());
+		moveApplyVO.setStartLongitude(startAddr.getLongitude());
+		moveApplyVO.setStartType(startAddr.getType());
+		moveApplyVO.setStartStructure(startAddr.getStructure());
+		moveApplyVO.setStartSize(startAddr.getSize());
+		moveApplyVO.setStartFloor(startAddr.getFloor());
+		moveApplyVO.setStartElevator(startAddr.getElevator());
+		moveApplyVO.setStartParking(startAddr.getParking());
+		moveApplyVO.setEndAddr1(endAddr.getAddr1());
+		moveApplyVO.setEndAddr2(endAddr.getAddr2());
+		moveApplyVO.setEndAddr3(endAddr.getAddr3());
+		moveApplyVO.setEndLatitude(endAddr.getLatitude());
+		moveApplyVO.setEndLongitude(endAddr.getLongitude());
+		moveApplyVO.setEndType(endAddr.getType());
+		moveApplyVO.setEndFloor(endAddr.getFloor());
+		moveApplyVO.setEndElevator(endAddr.getElevator());
+		moveApplyVO.setEndParking(endAddr.getParking());
+		moveApplyVO.setApplyDate(scheduleInfo.getDate());
+		moveApplyVO.setApplyTime(scheduleInfo.getTime());
+		moveApplyVO.setApplyHope(scheduleInfo.getMoveHope());
+		moveApplyVO.setApplyHelp(scheduleInfo.getMoveHelp());
+		moveApplyVO.setApplyMemo("일단메모");
+
+		return moveApplyVO;
+	}
+
+
+	public int regApply(MoveApplyVO moveApplyVO) throws Exception {
+
+		return movePackageMapper.regApply(moveApplyVO);
+	}
+
+	public int regApplyPackage(List<PackageOptionSelectVO> packageOptionList) throws Exception {
+
+		return movePackageMapper.regApplyPackage(packageOptionList);
+
+	}
+
+	public int regApplyImg(List<MoveApplyImgVO> imgList) throws Exception {
+
+		return movePackageMapper.regApplyImg(imgList);
 
 	}
 }

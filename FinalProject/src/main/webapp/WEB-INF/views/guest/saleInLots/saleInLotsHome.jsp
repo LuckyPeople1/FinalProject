@@ -7,7 +7,7 @@
 	<div class="contents">
 		<section class="saleInLots">
 			<article class="saleInLotsHeader">
-				<a href="/saleInLots/saleInLotsInformation">분양정보</a>
+				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsThema">테마분양</a>
 				<div class="header"></div>
@@ -18,6 +18,7 @@
 				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsBrand">브랜드관</a>
+				<a href="/saleInLots/saleInLotsDetailInformation">상세페이지</a>
 			</article>
 		</section>
 		<section class="saleInLotsHome">
@@ -32,7 +33,7 @@
 							<div class="searchBox_filter">
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>전국</span>
+										<span id="area">전국</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -64,7 +65,7 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>건물유형</span>
+										<span id="buildType">건물유형</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -109,7 +110,7 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>분양단계</span>
+										<span id="saleState">분양단계</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -238,7 +239,7 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>공급유형</span>
+										<span id="supplyType">공급유형</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
 												d="M1 1l6.533 6L14 1"></path>
@@ -262,13 +263,13 @@
 													type="checkbox"
 													class="inputCheckbox"
 													name="supply_type" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_3">공공분양</span></label></li>
+													class="checkBoxText_3">일반분양</span></label></li>
 											<li><label
 												class="Checkbox_Label" size="22"><input
 													type="checkbox"
 													class="inputCheckbox"
 													name="supply_type" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_3">민간분양</span></label></li>
+													class="checkBoxText_3">임대분양</span></label></li>
 											<li><label
 												class="Checkbox_Label" size="22"><input
 													type="checkbox"
@@ -286,7 +287,19 @@
 													type="checkbox"
 													class="inputCheckbox"
 													name="supply_type" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_3">공공임대</span></label></li>
+													class="checkBoxText_3">지역조합</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">시장정비</span></label></li>		
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">도시환경정비</span></label></li>		
 										</ul>
 									</div>
 								</div>
@@ -820,7 +833,7 @@
 		</section>
 	</div>
 </div>
-<script src="/guest/js/saleInLots/saleInLots.js"></script>
+<script src="/guest/js/saleInLots/saleInLotsHome.js"></script>
 
 </body>
 </html>

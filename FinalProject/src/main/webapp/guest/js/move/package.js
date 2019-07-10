@@ -245,6 +245,8 @@ var package = {
 	 */
 	packagePop: function (idx, e) {
 
+		console.log("확인")
+
 		var popup	=	$('.layerPopup');
 		var name	=	$(e).find('.name').text().trim() + $(e).find('.order').text().trim();
 
@@ -259,26 +261,6 @@ var package = {
 		$('body').addClass('popup');
 
 
-
-
-		// console.log(idx)
-		// console.log(order)
-		//
-		// $.ajax({
-		// 	type: "POST",
-		// 	url: "/move/packageOptionPop",
-		// 	data: {
-		// 		idx : idx
-		// 	},
-		// 	success:function (data) {
-		//
-		// 		console.log(data)
-		//
-		// 	},
-		// 	error:function () {
-		// 		alert("에러 발생");
-		// 	}
-		// })
 
 
 	},
@@ -420,11 +402,37 @@ var package = {
 		}
 
 
+		var optionArray	=	new Array();
 
+
+
+
+
+		$('.listBox').each(function () {
+
+			option = {
+				packageIdx	:	$(this).find('.packageInfo').data('idx'),
+				packageType	:	$(this).find('.packageInfo').data('type'),
+				packageName	:	$(this).find('.name').text().trim() + $(this).find('.order').text().trim(),
+				packageOption : $(this).find('.caption').text(),
+				packageImgPath : $(this).find('.selectImg img').attr("src")
+			};
+
+			optionArray.push(option);
+
+		});
+
+
+
+		console.log(optionArray);
 
 		$.ajax({
 			url		:	"/move/packageFinish",
-			data	:	null,
+			type	:	"post",
+			contentType : "application/json; charset=UTF-8",
+			// contentType:'application/json; charset=utf-8',
+			// data	:	optionArray,
+			data	:	JSON.stringify(optionArray),
 			success	:	function (data) {
 
 				if (data.trim() == "Y") {
@@ -434,7 +442,7 @@ var package = {
 				}
 			},
 			error	:	function () {
-				alert("에러 발생")
+				alert("에러 발생!!")
 			}
 		})
 
@@ -487,10 +495,6 @@ var package = {
 			}
 		})
 
-
-
-
-
 	},
 
 
@@ -498,7 +502,6 @@ var package = {
 	 * 스케쥴 입력 페이지에서 시/분 선택시 합침
 	 */
 	scheduleTime : function () {
-
 
 		var hour	=	$('select[name=hour]').val();
 		var min		=	$('select[name=min]').val();
@@ -510,6 +513,8 @@ var package = {
 		$('input[name=time]').val(hour +":"+min)
 
 	},
+
+
 
 	/**
 	 * 짐 및 이사정보 입력 체크
@@ -525,15 +530,146 @@ var package = {
 			}
 		});
 
+
 		if(count != $('.infoGroup ').length){
 
 			alert("모든 정보를 입력해주세요");
 			return false;
 		}
 
-		location.href='/move/apply';
+
+		var formData	=	new FormData($('#frm')[0]);
+
+
+
+		$.ajax({
+			type : "POST",
+			url : "/move/finishProc",
+			data : formData,
+			enctype: 'multipart/form-data',
+			processData: false,
+			contentType: false,
+			success:function (data) {
+
+				if(data.trim() == "Y"){
+					location.href='/move/apply';
+				}else{
+					alert("실패")
+				}
+			}, error:function () {
+				alert("에러");
+			}
+		})
+
 
 	},
 
+
+	/**
+	 * 최종 이사 요청
+	 */
+	moveApply	:	function () {
+
+
+		$.ajax({
+			url : "/move/applyProc",
+			// data : formData,
+			success:function (data) {
+
+				if(data.trim() == "L"){
+					alert("로그인 후 요청이 가능합니다.")
+				}else if(data.trim() == "Y"){
+					alert("신청 완료");
+					location.href = '/';
+				}else{
+					alert("신청 실패");
+				}
+
+			}, error:function () {
+				alert("에러 발생")
+			}
+		})
+
+	},
+
+
+
+	// 사진첨부
+
+	/**
+	 * 이미지 등록버튼
+	 * @param e
+	 */
+	imgUpload : function (e) {
+
+		$(e).siblings().trigger('click');
+
+	},
+
+
+	/**
+	 * 이미지 선택
+	 * @param e
+	 * @param event
+	 * @param type
+	 * @returns {boolean}
+	 */
+	imgSel: function (e, event, type) {
+		var ext = $(e).val().split(".").pop().toLowerCase();
+
+		if (ext.length > 0) {
+			if ($.inArray(ext, ["gif", "png", "jpg", "jpeg"]) == -1) {
+				alert("gif,png,jpg만 가능합니다.");
+				var file = $(e);
+
+				var agent = navigator.userAgent.toLowerCase();
+				if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+					file.replaceWith(file.clone(true));
+				} else {
+					file.val("");
+				}
+				return false;
+			}
+		}
+		$(e).closest('div').find('img').remove();
+		$(e).closest('div').find('.del_btn').remove();
+
+		var str = '';
+		str += '<img src="' + URL.createObjectURL(event.target.files[0]) + '" alt="이미지">';
+
+		if(type == "M"){
+			str += '<a href="#none" class="del_btn" onclick="package.delImg(this, \'M\')">삭제</a>';
+		}else{
+			str += '<a href="#none" class="del_btn" onclick="package.delImg(this)">삭제</a>';
+
+		}
+		$(e).closest('div').append(str);
+
+		// 이미지 추가
+		if($('.imgBox').length < 12){
+			package.imgAdd();
+		}
+
+		// package.imgNumbering();
+
+
+
+	},
+
+	/**
+	 * 이미지 등록 자동 생성
+	 */
+	imgAdd : function () {
+
+		var str = "";
+		str += "<div class='imgBox'>";
+		str += "<input type='file' class='hide' accept='image/*' name='fileImg' id='fileImg' onchange='package.imgSel(this, event)'>";
+		str += "<a href='#none' class='upload_btn' onclick='package.imgUpload(this)'></a>";
+		str += "</div>";
+
+		// $('.imgList').hide().append(str).fadeIn(1000);
+		$(str).appendTo('.imgList').hide().fadeIn(1000)
+		
+	},
 
 };

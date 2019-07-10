@@ -17,10 +17,16 @@ public interface DriverMapper {
 
 public int driverMypageUpdateText(UserVO userVO) throws Exception;
 
+//입찰관리 리스트
 public List<MoveApplyVO> driverAuctionList(DriverPageData pagination) throws Exception;
 
-public List<MoveApplyVO> driverMoveList() throws Exception;
+//이사관리 리스트
+public List<MoveApplyVO> driverMoveList(DriverPageData pagination) throws Exception;
 
-public int driverTotalCount (DriverPageData pagination);	
+//입찰관리 총게시물 수
+public int driverTotalCount (DriverPageData pagination);
+
+//이사관리 총게시물 수
+public int driverMoveTotalCount(DriverPageData pagination);	
 
 }

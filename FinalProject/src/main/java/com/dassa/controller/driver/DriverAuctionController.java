@@ -30,6 +30,11 @@ public class DriverAuctionController {
 				,@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
 			
 			
+			
+			if(pagination.getUserName()==null) {
+				pagination.setUserName("");
+			}
+			
 			if(pagination.getMinDate()==null && pagination.getMaxDate()==null) {
 				pagination.setMinDate("");
 				pagination.setMaxDate("");
@@ -38,9 +43,9 @@ public class DriverAuctionController {
 			
 			int listCnt=driverService.driverTotalCount(pagination);
 			/*System.out.println("총게시물수:"+listCnt);*/
-	
 			pagination.pageInfo(page, range, listCnt);
 			List<MoveApplyVO> list =driverService.drvierAuctionList(pagination);
+			
 			if(list!=null) {
 				model.addAttribute("list", list);
 				model.addAttribute("pagination", pagination);

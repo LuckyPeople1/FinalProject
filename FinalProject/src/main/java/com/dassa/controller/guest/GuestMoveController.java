@@ -1,20 +1,30 @@
 package com.dassa.controller.guest;
 
 
+import com.dassa.common.FileCommon;
 import com.dassa.service.MovePackageService;
 import com.dassa.vo.*;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/move")
 public class GuestMoveController {
 
+
+	@Resource
+	private FileCommon fileCommon;
 
 	@Resource
 	private MovePackageService movePackageService;
@@ -49,7 +59,6 @@ public class GuestMoveController {
 			HttpSession httpSession,
 			@RequestBody List<PackageSelectVO> packageList) {
 
-		System.out.println(packageList);
 
 		for (PackageSelectVO packageSelectVO : packageList) {
 			System.out.println(packageSelectVO.getPackageName());
@@ -93,9 +102,6 @@ public class GuestMoveController {
 	@RequestMapping("/packagePop")
 	public String packagePop(int idx, String name, Model model) throws Exception {
 
-
-		System.out.println(name + "네임");
-
 		List<PackageRegOptionVO> optionList	=	movePackageService.getPackageOptionList(idx);
 
 		model.addAttribute("optionList", optionList);
@@ -107,7 +113,11 @@ public class GuestMoveController {
 
 	@RequestMapping("/packageFinish")
 	@ResponseBody
-	public String packageFinish(){
+	public String packageFinish(
+			HttpSession httpSession,
+			@RequestBody List<PackageOptionSelectVO>packageOptionList){
+
+		httpSession.setAttribute("packageOptionList",packageOptionList);
 
 		return "Y";
 	}
@@ -270,19 +280,119 @@ public class GuestMoveController {
 		return "Y";
 	}
 
+
+
+
+	/** 이사 이미지 등록 **/
+	@RequestMapping(value = "/finishProc" , method = RequestMethod.POST)
+	@ResponseBody
+	public String finishProc(HttpServletRequest httpServletRequest,
+							 List<MultipartFile> fileImg,
+							 HttpSession httpSession
+							 ){
+
+		List<MoveApplyImgVO>imgList	=	new ArrayList<MoveApplyImgVO>();
+
+		for(MultipartFile img : fileImg){
+
+			if(!img.getOriginalFilename().equals("")){
+				String[] fileInfo	=	fileCommon.fileUp(img, httpServletRequest, "moveApply");
+				MoveApplyImgVO moveApplyImgVO	=	new MoveApplyImgVO();
+				moveApplyImgVO.setImgName(fileInfo[0]);
+				moveApplyImgVO.setImgPath(fileInfo[1]);
+				imgList.add(moveApplyImgVO);
+			}
+		}
+
+		httpSession.setAttribute("imgList",imgList);
+
+		return "Y";
+	}
+
+
+
+
+
+
+
+
+
+	/**
+	 * 최종정보 확인 페이지로 이동
+	 * @param httpSession
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/apply")
 	public String apply(HttpSession httpSession, Model model){
 
 		MoveAddrInfoVO startInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("startAddr");
 		MoveAddrInfoVO endInfo	=	 (MoveAddrInfoVO)httpSession.getAttribute("endAddr");
 		MoveAddrScheduleVO scheduleInfo	=	 (MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo");
+		List<PackageOptionSelectVO> packageOptionList	=	(List<PackageOptionSelectVO>)httpSession.getAttribute("packageOptionList");
 
 		model.addAttribute("startInfo", startInfo);
 		model.addAttribute("endInfo", endInfo);
 		model.addAttribute("scheduleInfo", scheduleInfo);
+		model.addAttribute("packageOptionList", packageOptionList);
 
 
 		return "guest/move/moveStepApply";
+	}
+
+
+	/**
+	 * 최종 이사정보 확인(이사 요청 처리)
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/applyProc")
+	@ResponseBody
+	public String applyProc(HttpSession httpSession) throws Exception {
+
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+
+		// 비회원일경우 막음
+		if(userVO == null){
+			return "L";
+		}
+
+		// 세션에서 객체를 가져옴
+		List<PackageOptionSelectVO> packageOptionList	=	(List<PackageOptionSelectVO>)httpSession.getAttribute("packageOptionList");
+		List<MoveApplyImgVO> imgList	=	(List<MoveApplyImgVO>)httpSession.getAttribute("imgList");
+
+
+
+		MoveApplyVO moveApplyVO	=	movePackageService.pushData(
+				(MoveAddrInfoVO)httpSession.getAttribute("startAddr"),
+				(MoveAddrInfoVO)httpSession.getAttribute("endAddr"),
+				(MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo"),
+				userVO);
+
+
+
+		System.out.println(imgList.get(0).getImgName());
+		System.out.println(imgList.get(0).getImgPath());
+
+
+		int rs	=	movePackageService.regApply(moveApplyVO);
+
+		if(rs > 0){
+
+			rs	=	 movePackageService.regApplyPackage(packageOptionList);
+			movePackageService.regApplyImg(imgList);
+
+
+			if(rs >0){
+
+				return "Y";
+			}
+		}
+
+		return "N";
+
+
 	}
 
 

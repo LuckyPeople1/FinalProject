@@ -29,7 +29,6 @@
 	</resultMap>
 
 
-
 	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
 		insert
 		into MOVE_PACKAGE_TBL values (
@@ -70,13 +69,132 @@
 	<select id="getPackageList" resultMap="packageMap">
 		select *
 		from MOVE_PACKAGE_TBL
-		where PACKAGE_STATUS = 0 order by PACKAGE_IDX
+		where PACKAGE_STATUS = 0
+		order by PACKAGE_IDX
 	</select>
 
 	<select id="getPackage" resultMap="packageMap" parameterType="int">
 		select *
 		from MOVE_PACKAGE_TBL
-		where PACKAGE_STATUS = 0 and PACKAGE_IDX = #{idx}
+		where PACKAGE_STATUS = 0
+		  and PACKAGE_IDX = #{idx}
 	</select>
+
+	<insert id="regApply" parameterType="com.dassa.vo.MoveApplyVO">
+
+		insert into MOVE_APPLY_TBL(APPLY_IDX, -- 고유번호
+								   GUEST_IDX, -- 유저IDX
+								   GUEST_NAME, --
+								   GUEST_PHONE,
+								   START_ADDR1, -- 시작위치(도로명)
+								   START_ADDR2, -- 시작위치(지명)
+								   START_ADDR3, -- 상세주소
+								   START_LATITUDE,
+								   START_LONGITUDE,
+								   START_TYPE,
+								   START_STRUCTURE,
+								   START_SIZE,
+								   START_FLOOR,
+								   START_ELEVATOR,
+								   START_PARKING,
+								   END_ADDR1,
+								   END_ADDR2,
+								   END_ADDR3,
+								   END_LATITUDE,
+								   END_LONGITUDE,
+								   END_TYPE,
+								   END_FLOOR,
+								   END_ELEVATOR,
+								   END_PARKING,
+								   APPLY_DATE, -- 이사일
+								   APPLY_TIME, -- 이사시간
+								   APPLY_HOPE,
+								   APPLY_HELP,
+								   APPLY_MEMO,
+								   APPLY_STATUS,
+								   APPLY_REG_DATE)
+		values (MOVE_APPLY_SEQ.nextval,
+				#{guestIdx},
+				#{guestName},
+				#{guestPhone},
+				#{startAddr1},
+				#{startAddr2},
+				#{startAddr3},
+				#{startLatitude},
+				#{startLongitude},
+				#{startType},
+				#{startStructure},
+				#{startSize},
+				#{startFloor},
+				#{startElevator},
+				#{startParking},
+				#{endAddr1},
+				#{endAddr2},
+				#{endAddr3},
+				#{endLatitude},
+				#{endLongitude},
+				#{endType},
+				#{endFloor},
+				#{endElevator},
+				#{endParking},
+				#{applyDate},
+				#{applyTime},
+				#{applyHope},
+				#{applyHelp},
+				#{applyMemo},
+				0,
+				SYSDATE)
+	</insert>
+
+
+	<!-- 재고 등록 -->
+	<insert id="regApplyPackage" parameterType="java.util.List">
+		insert into
+		MOVE_APPLY_OPTION_TBL (
+		OPTION_IDX,
+		APPLY_IDX,
+		PACKAGE_IDX,
+		PACKAGE_TYPE,
+		PACKAGE_NAME,
+		PACKAGE_OPTION,
+		PACKAGE_IMG_PATH
+		)
+		select
+		MOVE_APPLY_OPTION_SEQ.nextval,
+		MOVE_APPLY_SEQ.currval,
+		T.* from(
+		<foreach collection="list" item="item" separator="UNION ALL ">
+			select
+			#{item.packageIdx} as PACKAGE_IDX,
+			#{item.packageType} as PACKAGE_TYPE,
+			#{item.packageName} as PACKAGE_NAME,
+			#{item.packageOption} as PACKAGE_OPTION,
+			#{item.packageImgPath} as PACKAGE_IMG_PATH
+			from dual
+		</foreach>
+		) T
+	</insert>
+
+	<!-- 이미지 등록 -->
+	<insert id="regApplyImg" parameterType="java.util.List">
+		insert into
+		MOVE_APPLY_IMG_TBL (
+		IMG_IDX,
+		APPLY_IDX,
+		IMG_NAME,
+		IMG_PATH
+		)
+		select
+		MOVE_APPLY_IMG_SEQ.nextval,
+		MOVE_APPLY_SEQ.currval,
+		T.* from(
+		<foreach collection="list" item="item" separator="UNION ALL">
+			select
+			#{item.imgName} as IMG_NAME,
+			#{item.imgPath} as IMG_PATH
+			from dual
+		</foreach>
+		) T
+	</insert>
 
 </mapper>

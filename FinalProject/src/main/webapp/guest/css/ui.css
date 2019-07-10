@@ -35,7 +35,7 @@ label {
 }
 
 .col_main {
-    background-color: #4683bd;
+    background-color: #1564F9;
 }
 
 .col_blue {
@@ -358,4 +358,3 @@ label.chk input:checked ~ span{
 	background-color: #4683bd;
 	color: #fff;
 }
-

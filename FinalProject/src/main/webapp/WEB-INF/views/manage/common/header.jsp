@@ -6,7 +6,7 @@
 		</a>
 	</h1>
 	<div class="nav_menu">
-		<a href="/admin/html/member/memberList.html" class="menu_btn">
+		<a href="/manage/user/userApprobate" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">승인관리</div>
 		</a>
@@ -18,7 +18,7 @@
 			<i class="ico set"></i>
 			<div class="menu_text">이사관리</div>
 		</a>
-		<a href="/manage/board/notice/noticeManageList" class="menu_btn">
+		<a href="/manage/board/notice/noticeManageList/?reqPage=1" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">게시판관리</div>
 		</a>

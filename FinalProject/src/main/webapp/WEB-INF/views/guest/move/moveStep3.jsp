@@ -125,16 +125,19 @@
 						<div class="imgUploadInfo">
 							(최대 12장, 사진 없어도 견적 신청 가능)
 						</div>
-						<div class="imgList">
-							<div class="imgBox">
-							
+						<form id="frm">
+							<div class="imgList">
+								<div class="imgBox">
+									<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="package.imgSel(this, event)">
+									<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 				
 				<div class="packageBtnBox">
-					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
+					<a href="/move/step2" class="btn col_darkGrey f_w big">뒤로가기</a>
 					<a href="javascript:package.infoFinish()" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>

@@ -43,7 +43,7 @@
 								</li>
 							
 							</ul>
-							
+						
 						</div>
 						<div class="infoBox">
 							<div class="infoTitle">이사 시간 및 고객 도움</div>
@@ -124,7 +124,8 @@
 											1. 이사 전까지 모든 포장을 완료해야합니다.<br/>
 											2. 기사님이 목적지까지 운반한 짐을 확인합니다. (운반을 돕기로 협의 된 경우 운반과정에 동참해야합니다.)<br/>
 											3. 이후 이사를 직접 마무리 합니다.
-										</div>									</c:when>
+										</div>
+									</c:when>
 									<c:when test="${scheduleInfo.moveHope == '반포장'}">
 										<div class="hopeTitle">
 											<span class="accent">중요!</span> 반포장 고객님 필수 진행 사항
@@ -151,60 +152,101 @@
 									</c:when>
 								</c:choose>
 							</div>
-							
-							
-						
 						</div>
 						<div class="infoBox">
 							<div class="infoTitle">짐 정보</div>
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">가전</div>
-									</div>
-								</li>
-								<li class="package">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명</div>
-											<div class="packageOption">옵션..</div>
+							<c:set var="count0" value="0"/>
+							<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+								<c:if test="${item.packageType == 0}">
+									<c:set var="count0" value="${count0+1}"/>
+								</c:if>
+							</c:forEach>
+							<c:if test="${count0 != 0}">
+								<ul class="infoListBox">
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">가전</div>
 										</div>
-									</div>
-								</li>
-							</ul>
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">가구</div>
-									</div>
-								</li>
-								<li class="package">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명</div>
-											<div class="packageOption">옵션..</div>
+									</li>
+									<c:forEach items="${packageOptionList}" var="item">
+										<c:if test="${item.packageType == 0}">
+											<li class="package">
+												<div class="row">
+													<div class="subject">
+														<img src="${item.packageImgPath}" alt="이미지">
+													</div>
+													<div class="con">
+														<div class="packageName">${item.packageName}</div>
+														<div class="packageOption">${item.packageOption}</div>
+													</div>
+												</div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</c:if>
+							<c:set var="count1" value="0"/>
+							<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+								<c:if test="${item.packageType == 1}">
+									<c:set var="count0" value="${count1+1}"/>
+								</c:if>
+							</c:forEach>
+							<c:if test="${count1 != 0}">
+								<ul class="infoListBox">
+									
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">가구</div>
 										</div>
-									</div>
-								</li>
-							</ul>
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">기타</div>
-									</div>
-								</li>
-								<li class="package">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명</div>
-											<div class="packageOption">옵션..</div>
+									</li>
+									<c:forEach items="${packageOptionList}" var="item">
+										<c:if test="${item.packageType == 1}">
+											<li class="package">
+												<div class="row">
+													<div class="subject">
+														<img src="${item.packageImgPath}" alt="이미지">
+													</div>
+													<div class="con">
+														<div class="packageName">${item.packageName}</div>
+														<div class="packageOption">${item.packageOption}</div>
+													</div>
+												</div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</c:if>
+							<c:set var="count2" value="0"/>
+							<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+								<c:if test="${item.packageType == 2}">
+									<c:set var="count0" value="${count2+1}"/>
+								</c:if>
+							</c:forEach>
+							<c:if test="${count2 != 0}">
+								<ul class="infoListBox">
+									
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">가구</div>
 										</div>
-									</div>
-								</li>
-							</ul>
+									</li>
+									<c:forEach items="${packageOptionList}" var="item">
+										<c:if test="${item.packageType == 2}">
+											<li class="package">
+												<div class="row">
+													<div class="subject">
+														<img src="${item.packageImgPath}" alt="이미지">
+													</div>
+													<div class="con">
+														<div class="packageName">${item.packageName}</div>
+														<div class="packageOption">${item.packageOption}</div>
+													</div>
+												</div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</c:if>
 							<ul class="infoListBox">
 								<li class="bg">
 									<div class="row static">
@@ -228,12 +270,12 @@
 									</div>
 								</li>
 								<li class="">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명</div>
-											<div class="packageOption">옵션..</div>
-										</div>
+									<div class="imgList">
+										<c:forEach items="${sessionScope.imgList}" var="img">
+											<div class="imgBox">
+												<img src="${img.imgPath}" alt="이미지">
+											</div>
+										</c:forEach>
 									</div>
 								</li>
 							</ul>
@@ -284,7 +326,7 @@
 				</form>
 				<div class="packageBtnBox">
 					<a href="/move/step3" class="btn col_darkGrey f_w big">뒤로가기</a>
-					<a href="javascript:package.scheduleSelect()" class="btn col_main f_w big">견적 요청</a>
+					<a href="javascript:package.moveApply()" class="btn col_main f_w big">견적 요청</a>
 				</div>
 			</div>
 		</section>

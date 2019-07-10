@@ -1,11 +1,28 @@
 package com.dassa.controller.guest;
 
+import java.util.StringTokenizer;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.dassa.service.SaleInLotsService;
+import com.dassa.vo.SaleInLotsPageDataVO;
+import com.dassa.vo.SaleInLotsVO;
+import com.google.gson.JsonObject;
+
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/saleInLots")
 public class SaleInLotsController {
+	
+	@Resource
+	private SaleInLotsService saleInLotsService;
 	/**
 	 * 분양 메인 페이지
 	 * @param 
@@ -18,13 +35,40 @@ public class SaleInLotsController {
 
 	}
 	/**
-	 * 분양 정보 페이지
-	 * @param 
+	 * @throws Exception 
+	 * 분양 정보 상세 페이지
+	 * @param saleInLotsIDX
 	 * @return
 	 * @throws 
 	 */
+	@RequestMapping("/saleInLotsDetailInformation")
+	public String saleInLotsDetailInformation(Model model,String saleInLotsIDX) throws Exception {
+		SaleInLotsVO saleVO = saleInLotsService.saleInLotsDetailInformation(saleInLotsIDX);
+		model.addAttribute("saleVO",saleVO);
+		return "guest/saleInLots/saleInLotsDetailInformation";
+
+	}
+	/**
+	 * 
+	 * 분양 정보 페이지
+	 * @param saleInLotsArea 
+	 * @param saleInLotsBuildType
+	 * @param saleInLotsState
+	 * @param saleInLotssupplyType
+	 * @return
+	 * @throws Exception 
+	 */
 	@RequestMapping("/saleInLotsInformation")
-	public String saleInLotsInformation() {
+	public String saleInLotsInformation(@RequestParam(defaultValue="1") int reqPage, String saleInLotsArea,String saleInLotsSupplyType,String saleInLotsBuildType, String saleInLotsState, Model model) throws Exception {
+		
+		SaleInLotsVO saleInfo = new SaleInLotsVO();
+		saleInfo.setSaleInLotsArea(saleInLotsArea);
+		saleInfo.setSaleInLotsSearchBuildType(stringToken(saleInLotsBuildType));
+		saleInfo.setSaleInLotsSearchState(stringToken(saleInLotsState));
+		saleInfo.setSaleInLotsSearchSupplyType(stringToken(saleInLotsSupplyType));
+		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsInformation(saleInfo,reqPage,saleInLotsSupplyType,saleInLotsBuildType,saleInLotsState);
+		model.addAttribute("sp",spVO);
+		
 		return "guest/saleInLots/saleInLotsInformation";
 
 	}
@@ -71,6 +115,31 @@ public class SaleInLotsController {
 	public String saleInLotsBrand() {
 		return "guest/saleInLots/saleInLotsBrand";
 
+	}
+	@ResponseBody
+	public void saleInLotsInformationAjax(@RequestParam(defaultValue="1") int reqPage, String saleInLotsArea,String saleInLotsSupplyType,String saleInLotsBuildType, String saleInLotsState) throws Exception{
+		SaleInLotsVO saleInfo = new SaleInLotsVO();
+		saleInfo.setSaleInLotsArea(saleInLotsArea);
+		saleInfo.setSaleInLotsSearchBuildType(stringToken(saleInLotsBuildType));
+		saleInfo.setSaleInLotsSearchState(stringToken(saleInLotsState));
+		saleInfo.setSaleInLotsSearchSupplyType(stringToken(saleInLotsSupplyType));
+		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsInformation(saleInfo,reqPage,saleInLotsSupplyType,saleInLotsBuildType,saleInLotsState);
+		JSONObject json = new JSONObject();
+		json.put("spVO", "spVO");
+		
+		
+	}
+	//문자열 나누기용 메소드
+	public String[] stringToken(String str) {
+		StringTokenizer st = new StringTokenizer(str, ",");
+		String [] array = new String[st.countTokens()];
+		for(int i=0;i<array.length;i++) {
+			array[i] = st.nextToken();
+		}
+		for(int i=0;i<array.length;i++) {
+			System.out.println(array[i]);
+		}
+		return array;
 	}
 
 }

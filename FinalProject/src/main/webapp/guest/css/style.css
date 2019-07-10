@@ -1,15 +1,21 @@
 ﻿body {
     min-width: 1366px;
+	height: auto;
 }
 
 .container {
     height: 100%;
+	position:relative;
+	padding-bottom:100px;
 }
 
 .inner{
 	width: 1180px;
 	margin:0 auto;
 
+}
+.container .contents{
+	padding-bottom:150px;
 }
 
 body.popup{
@@ -158,6 +164,33 @@ header .loginMenu a + a{
 	margin-left:15px;
 }
 
+/* footer */
+footer{
+	width: 100%;
+	/*height: 250px;*/
+	background-color: rgb(55, 55, 55);
+	z-index: 1;
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 100px;
+}
+
+footer .footerInfo{
+	min-width: 1366px;
+	margin:0 auto;
+	line-height: 100px;
+	padding:0 30px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #bababa;
+
+	text-align: center;
+
+
+}
+
 
 /* main */
 section.mainSearch .mainSearchBox{
@@ -266,7 +299,9 @@ section.easyFind .easyFindBox{
 
 /* 이사하기 */
 
-section.moveStep .sectionTitle{
+section.moveStep .sectionTitle,
+section.mypage .sectionTitle{
+
 	margin-top: 70px;
 	text-align: center;
 	font-size: 33px;
@@ -748,20 +783,28 @@ section.moveStep .moveInfoGroup .imgUploadBox .imgUploadInfo{
 	color: rgba(0,0,0,0.64);
 	font-size: 16px;
 }
-section.moveStep .moveInfoGroup .imgUploadBox .imgList{
+section.moveStep .moveInfoGroup .imgUploadBox .imgList,
+section.moveStep .infoListBox  .imgList{
 	margin-top: 20px;
+	font-size: 0;
 }
-section.moveStep .moveInfoGroup .imgUploadBox .imgBox{
+section.moveStep .infoListBox  .imgList{
+	margin-top:0;
+}
+
+section.moveStep .moveInfoGroup .imgUploadBox .imgBox,
+section.moveStep .infoListBox  .imgBox{
 	overflow: hidden;
 	display: inline-block;
 	vertical-align: top;
 	width: 87px;
 	height: 90px;
-	margin: 2px;
+	margin: 4px;
 	background-image: url(../img/img_input_img.png);
 	background-size: 87px 90px;
 	background-position: center center;
 	background-repeat: no-repeat;
+	position:relative;
 }
 
 
@@ -793,6 +836,22 @@ section.moveStep .typeList li.separate:before{
 	width: 1px;
 	text-align: center;
 	background-color: rgba(0,0,0,0.3);
+}
+
+
+/* images */
+section.moveStep .imgBox .upload_btn{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 5;
+}
+
+section.moveStep .imgBox img{
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -1182,6 +1241,13 @@ section.moveStep .applyGroup .infoBox .row .subject{
 	top:50%;
 	transform: translateY(-50%);
 	font-size: 16px;
+	/*width: 50px;*/
+	/*height: 50px;*/
+}
+section.moveStep .applyGroup .infoBox .row .subject img{
+	width: 50px;
+	height: 50px;
+	margin-left:40px;
 }
 
 section.moveStep .applyGroup .infoBox .row .addr{
@@ -1225,10 +1291,22 @@ section.moveStep .applyGroup .infoBox .packageName{
 section.moveStep .applyGroup .infoBox .packageOption{
 	font-size: 14px;
 	color: #666;
+	line-height: 18px;
 }
 
 section.moveStep .applyGroup .infoListBox {
 	font-size: 0;
+	position:relative;
+}
+section.moveStep .applyGroup .infoListBox:before{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	height: 1px;
+	background-color: rgba(0,0,0,0.12);
+	border-bottom:1px solid #fff;
 }
 section.moveStep .applyGroup .infoListBox + .infoListBox{
 	border-top:1px solid rgba(0,0,0,0.87);
@@ -1237,6 +1315,11 @@ section.moveStep .applyGroup .infoListBox + .infoListBox{
 section.moveStep .applyGroup .infoListBox li.package{
 	width: 50%;
 	display:inline-block;
+	/*border-bottom:0;*/
+	/*border-top:1px solid rgba(0,0,0,0.12);*/
+}
+section.moveStep .applyGroup .infoListBox li.package:nth-of-type(odd){
+	/*border-left:1px solid  rgba(0,0,0,0.12);*/
 }
 section.moveStep .applyGroup .guideBox{
 	/*padding:16px;*/
@@ -1280,6 +1363,517 @@ section.moveStep .applyGroup .memo{
 	min-height: 120px;
 	width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* 마이페이지 myPage */
+
+section.mypage .navTabBox{
+	font-size: 0;
+}
+section.mypage .navTabBox .tab{
+	position:relative;
+	display:inline-block;
+	width: 25%;
+	text-align: center;
+	line-height: 40px;
+	color: rgb(136, 136, 136);;
+	font-size: 18px;
+	padding-bottom:15px;
+	border-bottom:1px solid #f1f1f1;
+	margin-top: 45px;
+	margin-bottom:70px;
+}
+section.mypage .navTabBox .tab:hover,
+section.mypage .navTabBox .tab:focus{
+	color: #000;
+
+}
+section.mypage .navTabBox .tab.on{
+	color: #000;
+}
+
+section.mypage .navTabBox .tab.on:after{
+	content:'';
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:-1px;
+	height: 2px;
+	background:#000;
+}
+
+
+
+
+
+
+section.mypage .mypageBtnBox{
+	font-size: 0;
+
+}
+section.mypage .mypageCon{
+}
+
+section.mypage .mypageCon .pwChkTitleBox{
+	text-align: center;
+}
+section.mypage .mypageCon.pwChk .tit{
+	font-size: 24px;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+section.mypage .mypageCon.pwChk .sub{
+	font-size: 16px;
+	color: #666;
+}
+
+section.mypage .mypageCon.pwChk .pwChkBox{
+	margin-top: 60px;
+	text-align: center;
+}
+
+section.mypage .mypageCon.pwChk .pwChkBox .tbox{
+	height: 45px;
+	line-height: 43px;
+	font-size: 36px;
+	vertical-align: middle;
+
+}
+
+section.mypage .mypageCon.pwChk .pwChkBox .pwTxt{
+	display:inline-block;
+	vertical-align: middle;
+	font-size: 18px;
+	margin-right: 5px;
+}
+
+section.mypage .mypageCon .mypageBtnBox{
+	margin-top: 70px;
+	text-align: center;
+
+}
+section.mypage .mypageCon .mypageBtnBox a + a{
+	margin-left: 25px;
+}
+
+
+
+/* 내정보 수정 */
+
+section.mypage .mypageCon.myInfo .profileBox{
+	text-align: center;
+	width: 850px;
+	margin:0 auto;
+	border-bottom:1px solid #eaeaea;
+
+}
+
+section.mypage .mypageCon.myInfo .profileBox .imgBox{
+	width: 85px;
+	height: 85px;
+	border-radius: 50%;
+	overflow: hidden;
+	display:inline-block;
+}
+section.mypage .mypageCon.myInfo .profileBox .imgBox img{
+	width: 100%;
+	height: 100%;
+}
+
+section.mypage .mypageCon.myInfo .profileBox .profileBtn a{
+	color: rgb(21, 100, 249);
+	line-height: 50px;
+	font-size: 18px;
+}
+section.mypage .mypageCon.myInfo .profileBox .profileBtn{
+	padding-bottom: 30px;
+}
+
+section.mypage .mypageCon.myInfo .setInfoBox{
+	width: 465px;
+	margin:40px auto;
+}
+
+section.mypage .mypageCon.myInfo .setInfoBox .row .subject{
+	margin-bottom: 10px;
+}
+section.mypage .mypageCon.myInfo .setInfoBox .row .tbox{
+	width: 100%;
+	line-height: 43px;
+	height: 45px;
+}
+section.mypage .mypageCon.myInfo .setInfoBox .row .tbox:focus{
+	boder:1px solid rgb(21, 100, 249);
+}
+section.mypage .mypageCon.myInfo .setInfoBox .row .infoTxt{
+	margin-top: 5px;
+	font-size: 14px;
+	color: #999;
+
+}
+
+section.mypage .mypageCon.myInfo .setInfoBox .row + .row{
+	margin-top: 25px;
+}
+
+
+/** 이사 관리 **/
+section.mypage .mypageCon.move .moveListBox .moveBox,
+section.mypage .mypageCon.move .auctionList .auctionBox{
+	position:relative;
+	border:1px solid #ddd;
+	padding:25px 25px;
+}
+
+section.mypage .mypageCon.move .moveListBox .moveBox .stateBox{
+	position:absolute;
+	right:25px;
+	top:50%;
+	transform: translateY(-50%);
+}
+
+section.mypage .mypageCon.move .moveListBox .moveBox .state {
+	border-radius: 50px;
+	background-color: #666;
+	line-height: 60px;
+	width: 60px;
+	display:inline-block;
+	text-align: center;
+	color: #fff;
+
+}
+section.mypage .mypageCon.move .moveListBox .moveBox .state.on{
+	background-color: #1564F9;
+
+}
+section.mypage .mypageCon.move .moveListBox .dateBox,
+section.mypage .mypageCon.move .moveListBox .timeBox{
+	position:relative;
+	margin-right:30px;
+	color: #666;
+}
+section.mypage .mypageCon.move .moveListBox .hopeBox{
+	color: #666;
+
+}
+/*section.mypage .mypageCon.move .moveListBox .dateBox:before{*/
+/*	content:'';*/
+/*	position:absolute;*/
+/*	left:0;*/
+/*	right:0;*/
+/*	bottom:0;*/
+/*	height: 1px;*/
+/*	background-color: #999;*/
+/*}*/
+section.mypage .mypageCon.move .moveListBox .dateBox:after,
+section.mypage .mypageCon.move .moveListBox .timeBox:after{
+	content:'';
+	position:absolute;
+	right:-18px;
+	width: 1px;
+	height: 15px;
+	top:50%;
+	transform: translateY(-50%);
+	background-color: #999;
+}
+
+
+section.mypage .mypageCon.move .moveListBox .dateBox{
+}
+
+section.mypage .mypageCon.move .moveBox {
+	margin-top: 25px;
+}
+section.mypage .mypageCon.move .moveBox.on {
+	border:1px solid #1564F9;
+}
+section.mypage .mypageCon.move .moveBox.on .top{
+}
+section.mypage .mypageCon.move .moveBox a{
+	display: block;
+}
+section.mypage .mypageCon.move .top{
+	width: calc(100% - 100px);
+	border-bottom:1px solid #eaeaea;
+	padding-bottom:18px;
+}
+
+section.mypage .mypageCon.move .bottom{
+	margin-top: 15px;
+}
+
+section.mypage .mypageCon.move .bottom .arrow{
+	margin: 0 9px;
+	font-size: 10px;
+	color: #666;
+	display:inline-block;
+	vertical-align: middle;
+}
+
+section.mypage .mypageCon.move .bottom .addr{
+	display:inline-block;
+	vertical-align: middle;
+}
+
+section.mypage .mypageCon.move .movePaging{
+	text-align: center;
+	margin-top: 40px;
+	font-size: 0;
+}
+section.mypage .mypageCon.move .movePaging a{
+	display:inline-block;
+	vertical-align: middle;
+	line-height: 30px;
+	width: 30px;
+	border:1px solid #eaeaea;
+	font-size: 18px;
+	margin:0 3px;
+	color: #666;
+}
+
+section.mypage .mypageCon.move .movePaging a:hover{
+	background-color: #1564F9;
+	color: #fff;
+}
+
+section.mypage .mypageCon.move .movePaging a.on{
+	background-color: #1564F9;
+	color: #fff;
+}
+
+section.mypage .mypageCon.move .moveTitle{
+	text-align: center;
+	line-height: 30px;
+	padding-bottom: 40px;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+
+section.mypage .mypageCon.move .moveTitle .tit{
+	display:inline-block;
+	vertical-align: middle;
+}
+section.mypage .mypageCon.move .moveTitle .myMove{
+	/*border:1px solid #eaeaea;*/
+	display:inline-block;
+	padding:0 15px;
+	line-height: 30px;
+	margin-left: 10px;
+	vertical-align: baseline;
+	background-color: #1564F9;
+	color: #fff;
+	font-size: 16px;
+}
+
+section.mypage .mypageCon.move .price{
+	position:absolute;
+	right:70px;
+	top:50%;
+	transform:translateY(-50%);
+	color: #1564F9;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+
+
+section.mypage .mypageCon.move .auctionList .profileBox{
+	position:absolute;
+	left:25px;
+	top:50%;
+	transform: translateY(-50%);
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+}
+section.mypage .mypageCon.move .auctionList .profileBox img{
+	width: 100%;
+	height: 100%;
+}
+section.mypage .mypageCon.move .driverInfo{
+	margin-left:120px;
+	padding:5px 0;
+
+}
+section.mypage .mypageCon.move .driverInfo .driverName{
+	font-weight: 700;
+	font-size: 18px;
+}
+section.mypage .mypageCon.move .driverInfo .driverCount{
+	font-size: 14px;
+	margin-top: 7px;
+	color: #666;
+}
+section.mypage .mypageCon.move .auctionBox a{
+	display:block;
+}
+
+
+section.mypage .mypageCon.move .auctionBox{
+	background:url("../img/icon_package_rightArrow.png") no-repeat top 50% right / 50px 50px;
+}
+
+
+
+/** 입찰 상세 **/
+section.mypage .mypageCon.move .auctionDetailInfo {
+	position:relative;
+
+}
+section.mypage .mypageCon.move .auctionInfoBg{
+	background-color: #1564F9;
+	line-height: 80px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+
+
+}
+
+section.mypage .mypageCon.move .auctionDetailInfo .profileBox{
+	position:absolute;
+	left:25px;
+	top:-60px;
+	width: 130px;
+	height: 130px;
+}
+
+section.mypage .mypageCon.move .auctionDetailInfo .profileBox img{
+	width: 100%;
+	height: 100%;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .driverBox{
+	width: 100%;
+	padding: 15px 0 25px 170px;
+	position: relative;
+	border-bottom:1px solid #eee;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .driverName{
+	font-size: 20px;
+	font-weight: 700;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .driverCount{
+	color: #666;
+	font-size: 14px;
+	padding-top: 9px;
+}
+
+section.mypage .mypageCon.move .auctionDetailInfo .driverIntro{
+	padding:15px;
+	line-height: 20px;
+	border-bottom:1px solid #eee;
+
+}
+section.mypage .mypageCon.move .auctionDetailInfo .driverMemo{
+	border:1px solid #354055;
+	line-height: 22px;
+	margin-top:30px;
+	min-height:100px;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .memoTit{
+	background-color: #354055;
+	color: #fff;
+	line-height: 30px;
+	padding-left:15px;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .memoCon{
+	padding:15px;
+	line-height: 22px;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .auctionPrice{
+	background-color: #354055;
+	font-size: 20px;
+	line-height: 50px;
+	font-weight: 700;
+	padding:0 15px;
+	color: #fff;
+	position:absolute;
+	right:25px;
+	top:44%;
+	transform: translateY(-50%);
+
+}
+
+section.mypage .mypageCon.move .auctionDetailInfo .detailBox{
+	margin-top: 30px;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailBox .detailTit{
+	background-color: #354055;
+	color: #fff;
+	padding-left:15px;
+	line-height: 30px;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon{
+	font-size: 0;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row{
+	padding:15px;
+	width: 50%;
+	display:inline-block;
+	vertical-align: top;
+}
+
+
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row:nth-child(odd){
+	border-left:1px solid #354055;
+
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row:nth-child(even){
+	border-right:1px solid #354055;
+
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row{
+	border-top:1px solid #354055;
+}
+
+
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row:nth-child(2n){
+	border-left:1px solid #354055;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row:nth-child(n+3){
+	border-bottom:1px solid #354055;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row .tit{
+	/*padding:15px 15px 0;*/
+	font-size: 16px;
+	color: #666;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row .txt{
+	color: #354055;
+	font-size: 24px;
+	border-bottom:1px solid #ccc;
+	padding:10px 0 10px;
+	font-weight: 700;
+
+	/*padding:15px 15px 7px;*/
+
+	margin-bottom:10px;
+}
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row .txt.accent{
+	color: #B12500;
+	font-weight: 700;
+}
+
+section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row .sub{
+	font-size: 14px;
+	line-height: 18px;
+	/*min-height: 42px;*/
+	min-height:36px;
+	color: #999;
+}
+
 
 
 /* SaleInLots 공통부분 CSS (분양) */
@@ -2405,7 +2999,7 @@ section.saleInLotsHome .checkBoxText_2 {
 }
 section.saleInLotsHome .filterBox_ul_3 {
     width: 250px;
-    height: 346px;
+    height: 400px;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
     position: absolute;
@@ -2420,7 +3014,7 @@ section.saleInLotsHome .filterBox_ul_3 {
     border-radius: 3px;
 }
 section.saleInLotsHome .searchBox_filterBox_4 {
-    width: 190px;
+    width: 250px;
 }
 section.saleInLotsHome .searchBox_filterBox_4 > li {
     height: 22px;
@@ -2440,29 +3034,29 @@ section.saleInLotsHome .checkBoxText_3 {
 /* SaleInLots(분양메인)  끝 !! */
 
 /* SaleInLotsInformation(분양정보) */
-section.saleInLotsInformation .fppZhw {
+section.saleInLotsInformation .screen {
     width: 100%;
     min-width: 1366px;
     height: 100%;
 }
-section.saleInLotsInformation .bKDIiM {
+section.saleInLotsInformation .web {
     width: 100%;
     min-width: 1366px;
     position: relative;
 }
-section.saleInLotsInformation .kBjcek {
+section.saleInLotsInformation .web_content {
     position: relative;
     width: 1180px;
     margin: 70px auto 0px;
 }
-section.saleInLotsInformation .juHLCg {
+section.saleInLotsInformation .saleInLotsInformation_main {
     line-height: 50px;
     padding-bottom: 80px;
     font-size: 33px;
     text-align: center;
     color: rgb(34, 34, 34);
 }
-section.saleInLotsInformation .dVmoLS {
+section.saleInLotsInformation .saleInLotsInformation_content {
     width: 1180px;
     height: 76px;
     padding-top: 18px;
@@ -2471,7 +3065,7 @@ section.saleInLotsInformation .dVmoLS {
     background-color: rgb(245, 246, 248);
     border-radius: 3px;
 }
-section.saleInLotsInformation .bFqGwy {
+section.saleInLotsInformation .searchBox_filter_type {
     float: left;
     height: 40px;
     margin-left: 5px;
@@ -2479,24 +3073,29 @@ section.saleInLotsInformation .bFqGwy {
     outline : none;
 }
 
-section.saleInLotsInformation .jWSbuk {
+section.saleInLotsInformation .searchBox_btn {
     max-width: 300px;
 }
-section.saleInLotsInformation .jWSbuk > span {
+section.saleInLotsInformation .searchBox_btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 108, 255);
+    border-color: rgb(0, 108, 255);
+}
+section.saleInLotsInformation .searchBox_btn > span {
     display: block;
     width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-section.saleInLotsInformation .jWSbuk > svg {
+section.saleInLotsInformation .searchBox_btn > svg {
     position: absolute;
     top: 50%;
     right: 11px;
     stroke: rgb(34, 34, 34);
     transform: translateY(-50%) rotate(0deg);
 }
-section.saleInLotsInformation .jWSbuk {
+section.saleInLotsInformation .searchBox_btn {
     max-width: 150px;
     height: 40px;
     font-size: 14px;
@@ -2513,39 +3112,39 @@ section.saleInLotsInformation .jWSbuk {
     border-image: initial;
     border-radius: 3px;
 }
-section.saleInLotsInformation .jVcCQd {
+section.saleInLotsInformation .saleInLotsBox {
     width: 1180px;
     position: relative;
     margin: 0px auto;
 }
-section.saleInLotsInformation .eChwwH {
+section.saleInLotsInformation .saleInLotsList {
     height: 36px;
     line-height: 36px;
     font-size: 24px;
     font-weight: 400;
     color: rgb(34, 34, 34);
 }
-section.saleInLotsInformation .eChwwH > span {
+section.saleInLotsInformation .saleInLotsList > span {
     line-height: 22px;
     font-size: 15px;
     color: rgb(102, 102, 102);
 }
-section.saleInLotsInformation .eChwwH::after {
+section.saleInLotsInformation .saleInLotsList::after {
     display: block;
     content: "";
     clear: both;
 }
-section.saleInLotsInformation .faDGTo {
+section.saleInLotsInformation .saleInLotsTable {
     width: 1180px;
     margin-top: 21px;
     border-top: 1px solid rgb(34, 34, 34);
     border-bottom: 1px solid rgb(238, 238, 238);
 }
-section.saleInLotsInformation .eChwwH > span > b {
+section.saleInLotsInformation .saleInLotsList > span > b {
     font-weight: 400;
     color: rgb(50, 108, 249);
 }
-section.saleInLotsInformation .faDGTo > thead th {
+section.saleInLotsInformation .saleInLotsTable > thead th {
     height: 52px;
     line-height: 52px;
     background-color: rgb(248, 248, 248);
@@ -2554,14 +3153,14 @@ section.saleInLotsInformation .faDGTo > thead th {
     text-align: center;
     color: rgb(102, 102, 102);
 }
-section.saleInLotsInformation .faDGTo > tbody tr {
+section.saleInLotsInformation .saleInLotsTable > tbody tr {
     cursor: pointer;
 }
-section.saleInLotsInformation .faDGTo > tbody td {
+section.saleInLotsInformation .saleInLotsTable > tbody td {
     height: 120px;
     text-align: center;
 }
-section.saleInLotsInformation .zZipP {
+section.saleInLotsInformation .saleInLotsState {
     width: 62px;
     height: 24px;
     line-height: 24px;
@@ -2571,47 +3170,711 @@ section.saleInLotsInformation .zZipP {
     margin: 0px auto;
     border-radius: 2px;
 }
-section.saleInLotsInformation .hISOyr {
+section.saleInLotsInformation .saleInLotsType {
     font-size: 14px;
     color: rgb(136, 136, 136);
 }
-section.saleInLotsInformation .iovIKz {
+section.saleInLotsInformation .minPrice + p{
+	margin-top: 10px;
+}
+section.saleInLotsInformation .saleInLotsInfoBox {
     height: 90px;
     padding: 0px 25px;
 }
-section.saleInLotsInformation .jLUpZe {
+section.saleInLotsInformation .saleInLotsInfoBox_content {
+	text-align:center;
     float: left;
     height: 90px;
     padding-top: 5px;
 }
-section.saleInLotsInformation .jLUpZe > p {
-    width: 220px;
-    text-align: left;
+section.saleInLotsInformation .saleInLotsInfoBox_content > p {
+    width: 420px;
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    font-size:18px;
+    margin-bottom: 10px;
 }
-section.saleInLotsInformation .CUsXA {
+section.saleInLotsInformation .saleInLotsName {
     height: 20px;
     font-size: 14px;
     font-weight: 700;
     color: rgb(34, 34, 34);
 }
-section.saleInLotsInformation .hLVydO {
+section.saleInLotsInformation .saleInLotsDetailArea {
     height: 20px;
     font-size: 14px;
     color: rgb(136, 136, 136);
 }
-section.saleInLotsInformation .bvCXMa {
-    position: relative;
-    float: right;
-    width: 144px;
-    height: 90px;
-    background: url(https://d2o59jgeq8ig2.cloudfront.net/complex/1024/7b858459-96e5-40ee-9c0d-886571ec6fed) 0% 0% / cover;
-    border-radius: 3px;
-}
-section.saleInLotsInformation .iovIKz::after {
+section.saleInLotsInformation .saleInLotsInfoBox::after {
     display: block;
     content: "";
     clear: both;
 }
+section.saleInLotsInformation .pageWrap{
+	margin-bottom: 150px;
+}
+section.saleInLotsInformation .wrap{
+	width: 100%;
+    text-align: center;
+    padding-top: 80px;
+}
+section.saleInLotsInformation .pagination{
+	display: inline-block;
+    height: 32px;
+}
+section.saleInLotsInformation .prevBtn{
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding: 0px;
+    margin: 0px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    border-image: initial;
+    border-radius: 50%;
+}
+section.saleInLotsInformation .prevBtn > svg{
+	left: 53%;
+}
+section.saleInLotsInformation .pageNum{
+	float: left;
+}
+section.saleInLotsInformation .pageNum > li{
+	display: inline-table;
+    width: 32px;
+    height: 32px;
+}
+section.saleInLotsInformation .pageNum > li + li {
+	margin-left: 10px;
+}
+section.saleInLotsInformation .selectPage{
+	display: table-cell;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    background-color: rgb(20, 118, 252);
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-radius: 50%;
+    border-color: rgb(20, 118, 252);
+}
+section.saleInLotsInformation .page{
+	display: table-cell;
+    width: 100%;
+    height: 100%;
+    color: rgb(20, 118, 252);
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 50%;
+}
+section.saleInLotsInformation .nextBtn{
+	float: left;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding: 0px;
+    margin: 0px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    border-image: initial;
+    border-radius: 50%;
+}
+section.saleInLotsInformation .nextBtn > svg{
+	left: 53%;
+}
+section.saleInLotsInformation .pageBtn > svg{
+	fill: rgb(170, 170, 170);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section.saleInLotsInformation .searchBox_filterBox_1 {
+    width: 200px;
+    height: 340px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 2;
+    user-select: none;
+    padding: 20px 0px 20px 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.saleInLotsInformation .filterBox_area {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+section.saleInLotsInformation .filterBox_area > li {
+    height: 22px;
+    white-space: nowrap;
+    text-align: left;
+}
+section.saleInLotsInformation .allArea {
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    cursor: pointer;
+}
+section.saleInLotsInformation .area {
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+}
+section.saleInLotsInformation .searchBox_filterBox_2 {
+    width: 250px;
+    height: 280px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 27px 0px 0px 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.saleInLotsInformation .filterBox_title {
+    text-align: left;
+    margin-bottom: 27px;
+    color: rgb(34, 34, 34);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 33px;
+}
+section.saleInLotsInformation .filterBox_title_msg {
+    margin-top: 3px;
+    color: rgb(170, 170, 170);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19px;
+}
+section.saleInLotsInformation .filterBox_title::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.saleInLotsInformation .filterBox_ul {
+    width: 190px;
+}
+section.saleInLotsInformation .filterBox_ul > li {
+    height: 22px;
+    white-space: nowrap;
+}
+section.saleInLotsInformation .Checkbox_Label {
+    display: block;
+    height: 22px;
+    padding-left: 23px;
+    position: relative;
+    cursor: pointer;
+}
+section.saleInLotsInformation .inputCheckbox {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+section.saleInLotsInformation .inputCheckbox:checked + .CheckBox {
+    background-color: rgb(0, 108, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 108, 255);
+    border-image: initial;
+}
+section.saleInLotsInformation .Checkbox_Label > .CheckBox {
+    float: left;
+    width: 22px;
+    height: 22px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.saleInLotsInformation .inputCheckbox:checked + .CheckBox::after {
+    content: "";
+    display: block;
+    width: 47%;
+    height: 27%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: 30% 35%;
+    border-left: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+section.saleInLotsInformation .checkBoxText {
+    margin-left: 10px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    position: relative;
+    float: left;
+}
+section.saleInLotsInformation .filterBox_ul > li + li {
+    margin-top: 12px;
+}
+section.saleInLotsInformation .searchBox_filterBox_3 {
+    width: 340px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 27px 0px 0px 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.saleInLotsInformation .filterBox_ul_2 {
+    width: 300px;
+}
+section.saleInLotsInformation .filterBox_ul_2 > li {
+    width: 50%;
+    float: left;
+    height: 22px;
+    white-space: nowrap;
+}
+section.saleInLotsInformation .filterBox_ul_2 > li + li {
+    margin-top: 12px;
+}
+section.saleInLotsInformation .filterBox_ul_2::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.saleInLotsInformation .checkBoxText_2 {
+    margin-left: 10px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    position: relative;
+    float: left;
+}
+section.saleInLotsInformation .filterBox_ul_3 {
+    width: 250px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 27px 0px 0px 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.saleInLotsInformation .searchBox_filterBox_4 {
+    width: 250px;
+}
+section.saleInLotsInformation .searchBox_filterBox_4 > li {
+    height: 22px;
+    white-space: nowrap;
+}
+section.saleInLotsInformation .searchBox_filterBox_4 > li + li {
+    margin-top: 12px;
+}
+section.saleInLotsInformation .checkBoxText_3 {
+    margin-left: 10px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    position: relative;
+    float: left;
+}
+/* saleInLotsDetailInformation 시작(분양 상세 페이지)  */
+section.saleInLotsDetailInformation *{
+	box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+section.saleInLotsDetailInformation .web{
+	width: 100%;
+    min-width: 1366px;
+}
+section.saleInLotsDetailInformation .DetailInformation_header{
+	width: 100%;
+}
+section.saleInLotsDetailInformation .DetailInformation_Box{
+	width: 1180px;
+    position: relative;
+    margin: 0px auto;
+} 
+section.saleInLotsDetailInformation .DetailInformation_leftHeader{
+	display: inline-block;
+    margin-top: 37px;
+}
+section.saleInLotsDetailInformation .leftHeader_content_01{
+	height: 100%;
+    float: left;
+    padding-right: 35px;
+    border-right: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .leftHeader_content_02{
+	height: 100%;
+    display: inline-block;
+    padding-left: 35px;
+}
+section.saleInLotsDetailInformation .detail_state{
+	display: inline-block;
+    width: 62px;
+    height: 24px;
+    margin-right: 7px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    line-height: 24px;
+    background-color: rgb(194, 36, 36);
+    border-radius: 2px;
+}
+section.saleInLotsDetailInformation .detail_name{
+	margin-top: 10px;
+    max-width: 300px;
+    color: rgb(34, 34, 34);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 36px;
+}
+section.saleInLotsDetailInformation .detail_area{
+	color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 5px;
+}
+section.saleInLotsDetailInformation .detail_buildType{
+	display: inline-block;
+    color: rgb(34, 34, 34);
+    font-size: 14px;
+    line-height: 20px;
+}
+section.saleInLotsDetailInformation .detail_price{
+	height: 33px;
+    line-height: 33px;
+    font-size: 18px;
+    color: rgb(34, 34, 34);
+    margin-top: 5px;
+}
+section.saleInLotsDetailInformation .DetailInformation_rightHeader{
+	clear:both;
+	margin-top: 37px;
+    float: right;
+}
+section.saleInLotsDetailInformation .right_item{
+	float: left;
+}
+section.saleInLotsDetailInformation .item_title{
+	margin-bottom: 3px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+}
+section.saleInLotsDetailInformation .item_text{
+	height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(34, 34, 34);
+}
+section.saleInLotsDetailInformation .right_item + li{
+	margin-left: 27px;
+    padding-left: 27px;
+    border-left: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .DetailInformation_btn{
+	position: relative;
+    width: 1180px;
+    height: 42px;
+    margin: 30px auto 11px;
+}
+section.saleInLotsDetailInformation .ContactBtn{
+	float: left;
+    position: relative;
+    width: 116px;
+    height: 42px;
+    background-color: rgb(255, 255, 255);
+    font-size: 13px;
+    text-align: center;
+    color: rgb(35, 45, 74);
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+section.saleInLotsDetailInformation .ContactBtn > svg{
+	position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .ContactBtn > span{
+	position: absolute;
+    left: 38px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .DetailInformation_btn > p{
+	float: left;
+    height: 42px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    line-height: 42px;
+    position: relative;
+    user-select: none;
+}
+section.saleInLotsDetailInformation .dot{
+	bottom: 1px;
+    margin: 0px 18px;
+}
+section.saleInLotsDetailInformation .favoritAdd{
+	padding-left: 26px;
+    cursor: pointer;
+}
+section.saleInLotsDetailInformation .DetailInformation_btn > p > svg{
+	width: 18px;
+    height: 20px;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .copyBtn{
+	width: 15px;
+    margin-left: 26px;
+    transform: rotate(45deg);
+    top: -1px;
+    cursor: pointer;
+}
+section.saleInLotsDetailInformation .noticeBtn{
+	float: right;
+    position: relative;
+    width: 180px;
+    height: 42px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+	
+}
+section.saleInLotsDetailInformation .noticeBtn > svg{
+	position: absolute;
+    left: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .noticeBtn > span{
+	position: absolute;
+    left: 61px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.saleInLotsDetailInformation .DetailInformation_btn::after{
+	display: block;
+    content: "";
+    clear: both;
+	
+}
+section.saleInLotsDetailInformation .info_content{
+	width: 100%;
+}
+section.saleInLotsDetailInformation .infoBox{
+	width: 1180px;
+    position: relative;
+    margin: 0px auto;
+}
+section.saleInLotsDetailInformation .info_table{
+	width: 100%;
+    margin-bottom: 30px;
+    border-top: 1px solid rgb(34, 34, 34);
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .info_table > tbody > tr > th{
+	font-size: 14px;
+    color: rgb(136, 136, 136);
+    background-color: rgb(248, 249, 250);
+}
+section.saleInLotsDetailInformation .info_table th, .info_table td{
+	padding-left: 12px;
+    font-weight: 400;
+    height: 50px;
+    text-align: left;
+}
+section.saleInLotsDetailInformation .info_table > tbody > tr > td{
+	color: rgb(34, 34, 34);
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+section.saleInLotsDetailInformation .info_table > tbody tr + tr > th, .info_table > tbody tr + tr td{
+	border-top: 1px solid rgb(235, 235, 235);
+}
+section.saleInLotsDetailInformation .noImgBox {
+	width: 1180px;
+    height: 204px;
+    margin-bottom: 49px;
+    background-color: rgb(250, 250, 250);
+    position: relative;
+}
+section.saleInLotsDetailInformation .noImg{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section.saleInLotsDetailInformation .noImg > div{
+	width: 160px;
+    height: 74px;
+    margin: 0px auto;
+    background: url(/guest/img/saleInLots/noImg.svg) center center / cover no-repeat;
+}
+section.saleInLotsDetailInformation .noImg > p {
+	margin-top: 13px;
+    color: rgb(170, 170, 170);
+    font-size: 13px;
+    text-align: center;
+}
+section.saleInLotsDetailInformation .hiddenLink {
+	display: block;
+    width: 100%;
+    height: 0px;
+}
+section.saleInLotsDetailInformation .hiddenLink.active + div {
+	position: fixed;
+    top: 0px;
+    z-index: 10;
+    animation: 200ms ease-out 0s 1 normal none running jsPtHL;
+}
+
+section.saleInLotsDetailInformation .group_tabs{
+	width: 1180px;
+    height: 53px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 2;
+    margin: 0px auto;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    text-align: center;
+}
+section.saleInLotsDetailInformation .group_tabs > a{
+	width: calc(14.2714%);
+}
+section.saleInLotsDetailInformation .tabs_item{
+	display: inline-block;
+    height: 53px;
+    color: rgb(136, 136, 136);
+    font-size: 15px;
+    line-height: 53px;
+    text-align: center;
+    cursor: pointer;
+}
+section.saleInLotsDetailInformation .tabs_item:hover, .tabs_item:active{
+	color: rgb(34, 34, 34);
+}
+section.saleInLotsDetailInformation .detailPrice_content{
+	width: 100%;
+}
+section.saleInLotsDetailInformation .detailPrice_contentBox{
+	width: 1180px;
+    padding-top: 100px;
+    padding-bottom: 120px;
+    border-top: none;
+}
+section.saleInLotsDetailInformation .price_title{
+	font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 41px;
+}
+section.saleInLotsDetailInformation .price_box{
+	width: 850px;
+    height: 190px;
+    background-color: rgb(255, 255, 255);
+    margin: 30px auto 0px;
+    padding: 35px 0px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+section.saleInLotsDetailInformation .price_box > li{
+	float: left;
+    width: 50%;
+    height: 100%;
+}
+section.saleInLotsDetailInformation .price_box > li + li{
+	border-left: 1px solid rgb(228, 228, 228);
+}
+section.saleInLotsDetailInformation .price_msgBox{
+	width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 15px;
+    margin: 0px auto;
+}
+section.saleInLotsDetailInformation .price_msgTitle{
+	height: 22px;
+    font-size: 15px;
+    color: rgb(102, 102, 102);
+    margin-bottom: 5px;
+}
+section.saleInLotsDetailInformation .price_msgText{
+	height: 36px;
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    margin-bottom: 5px;
+}
+

@@ -22,14 +22,14 @@
 }
 #guest_loginHome .login_wrap .logo{
 	display:inline-block;
-	background:url("../img/icon_logo.png") no-repeat center / cover;
+	background: no-repeat center / cover;
 	width:120px;
 	height: 90px;
 }
 
 #guest_loginHome .login_wrap .login_group{
 	height: 400px;
-	font-size: 20;
+	font-size: 20px;
 	margin:0 auto;
 	border:1px solid #3b3b3b;
 	display:inline-block;
@@ -37,8 +37,8 @@
 
 }
 #guest_loginHome .login_wrap .login_group .login_box{
-	width: 700px;
-	padding:0 50px;
+	/*width: 700px;*/
+	/*padding:0 50px;*/
 	display:inline-block;
 	vertical-align: top;
 	text-align: center;
@@ -47,7 +47,7 @@
 }
 #guest_loginHome .login_wrap .login_group .login_tit{
 	padding-top: 191px;
-	background:url("../img/img_login.png") no-repeat center top 74px ;
+	background: no-repeat center top 74px ;
 	color: #fff;
 	font-size: 36px;
 	font-weight: 700;
@@ -110,12 +110,12 @@
 	transform: translate(-50% , -50%);
 }
 #guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico_id{
-	background:url("../img/icon_id_mark.png") no-repeat center / cover;
+	background:url("/guest/img/icon_id_mark.png") no-repeat center / cover;
 	width:21px;
 	height: 22px;
 }
 #guest_loginHome .login_wrap .login_group .login_box .login_input_box .mark .ico_pw{
-	background:url("../img/icon_pw_mark.png") no-repeat center / cover;
+	background:url("/guest/img/icon_pw_mark.png") no-repeat center / cover;
 	width:17px;
 	height: 26px;
 }

@@ -7,7 +7,6 @@ function img_up(e) {
 	var order = id.split("_")[1];
 	$('input[name="img_'+order+'"]').trigger('click');
 
-
 }
 
 

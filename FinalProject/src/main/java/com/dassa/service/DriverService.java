@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.dassa.mapper.DriverMapper;
 import com.dassa.vo.DriverPageData;
-import com.dassa.vo.DriverSearchVO;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.UserVO;
 
@@ -32,32 +31,29 @@ public class DriverService {
 		
 		return driverMapper.driverMypageUpdateText(userVO);
 	}
-
+	
+	//입찰관리 리스트
 	public List<MoveApplyVO> drvierAuctionList(DriverPageData pagination) throws Exception {
 		
 		return driverMapper.driverAuctionList(pagination);
 	}
 	
-	/*
-	//입찰 페이징, 검색 
-	public DriverPageData driverAuctionList(int reqPage, DriverSearchVO driverSearchVO) {
+	//이사관리 리스트
+	public List<MoveApplyVO> driverMoveList(DriverPageData pagination) throws Exception {
 		
-		int numPerPage=10; 	//한페이지당 보는 게시물 수 
-		
-		int totalCount = driverMapper.driverAuctionTotalCount();	//총게시물수
-		
-		
-		return driverMapper.driverAuctionList(driverSearchVO);
-	}*/
-
-	public List<MoveApplyVO> driverMoveList() throws Exception {
-		
-		return driverMapper.driverMoveList();
+		return driverMapper.driverMoveList(pagination);
 	}
 
+	//입찰관리 총게시물수 구하기 
 	public int driverTotalCount(DriverPageData pagination) {
 	
 		return driverMapper.driverTotalCount(pagination);
+	}
+
+	//이사관리 총게시물수 구하기 
+	public int driverMoveTotalCount(DriverPageData pagination) {
+		
+		return driverMapper.driverMoveTotalCount(pagination);
 	}
 
 

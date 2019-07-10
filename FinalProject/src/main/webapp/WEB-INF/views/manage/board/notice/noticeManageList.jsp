@@ -31,7 +31,7 @@
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input class="tbox w_6p">
+							<input class="tbox w_6p" style="width:39%;">
 						</td>
 					</tr>
 					<tr>
@@ -105,7 +105,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">상세보기</a>
+								<a href="/manage/board/notice/noticeManageView?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">상세보기</a>
 							</div>
 							<div>
 								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
@@ -120,27 +120,9 @@
 					</tbody>
 				</table>
 				</div>
-				<div class="page_group clearFix">
-				<ul class="page_box">
-					<li class="first arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="prev arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="on">
-						<a href="#none">1</a>
-					</li>
-					<li class="">
-						<a href="#none">2</a>
-					</li>
-					<li class="next arrow">
-						<a href="#none "></a>
-					</li>
-					<li class="end arrow">
-						<a href="#none"></a>
-					</li>
-				</ul>
+				
+				<div id="pageNavi" class="page_group clearFix">
+				${pageNavi}
 			</div>
 		</div>
 		<!-- 푸터 -->
