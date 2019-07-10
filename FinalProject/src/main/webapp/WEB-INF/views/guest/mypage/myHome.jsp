@@ -1,16 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ssooya
-  Date: 2019-07-10
-  Time: 오전 10:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-	<title>Title</title>
-</head>
-<body>
+<%@include file="/WEB-INF/views/guest/common/head.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<div class="container">
+	<%@include file="/WEB-INF/views/guest/common/header.jsp"%>
+	<div class="contents">
+		<section class="mypage inner">
+			<div class="sectionTitle">MY 다싸</div>
+			<jsp:include page="/WEB-INF/views/guest/mypage/page/myTab.jsp"/>
+		</section>
+	</div>
+	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+</div>
 </body>
 </html>

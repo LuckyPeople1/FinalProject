@@ -23,12 +23,15 @@
 	
 	// 클릭 시 체크 된 체크박스의 내용 모두 표시하기(건물 유형 / 분양단계 / 분양일정/ 공급유형)
 	$(".inputCheckbox").click(function(){
-		
-		
 		var count = $(this).parent().parent().parent().find('input').length; // 체크박스의 수
 		var str = $(this).parents('ul').prev().html();  // 전체일경우 표시될 문자 가져오기
 		var result = str.substr(0,4); // 전체일경우 표시될 문자 4번째 까지 문자 자르기
 		var items=[];  // 체크된 체크박스 내용 저장할 배열
+		if($(this).parent().parent().parent().find('input:checked').length == 0){
+			$(this).parent().parent().parent().find('input').eq(0).prop('checked',true);
+			$(this).parents('div').eq(0).prev().find('span').html(result);
+			return;
+		}
 		if($(this).next().next().html() != '전체'){ // 전체가 체크 되어있지 않을 경우
 			$(this).parent().parent().parent().find('input').eq(0).prop('checked',false); // 전체 체크박스 체크해제
 		}
@@ -52,6 +55,7 @@
 			$(this).parents('div').eq(0).prev().find('span').html(tmp); // 체크된 체크박스 내용 보여주기
 		}
 	});
+	
 	$(".searchBtn").click(function(){
 		var area = $("#area").html();
 		var supplyType = $("#supplyType").html();

@@ -9,56 +9,114 @@
 	</nav>
 	<div class="contents">
 		<div class="page_header">
-			<div class="page_title">전체매물 관리</div>
+			<div class="page_title">전체 매물관리</div>
 			<div class="page_sub_title"></div>
 		</div>
 		<div class="section">
+			<div class="section_title"></div>
+			<div class="set_form search">
+				<table class="table_set">
+					<colgroup>
+						<col width="180">
+						<col width="*">
+						<col width="180">
+						<col width="*">
+					</colgroup>
+					<tr>
+						<th>검색어</th>
+						<td>
+							<span class="sbox small">
+								<select>
+									<option>고객명</option>
+									<option>아이디</option>
+									<option>예약번호</option>
+									<option>상품명</option>
+									<option>담당직원</option>
+								</select>
+							</span>
+							<input class="tbox w_6p">
+						</td>
+					</tr>
+					<tr>
+						<th>상태</th>
+						<td colspan="3">
+							<label><input type="checkbox"><span>판매중</span></label>
+							<label class="ml10"><input type="checkbox"><span>판매완료</span></label>
+							<label class="ml10"><input type="checkbox"><span>노쇼</span></label>
+						</td>
+					</tr>
+				</table>
+				<div class="set_form_search">
+					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
+					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+				</div>
+			</div>
 			<div class="list_form">
+				<div class="table_list_btn">
+					<span class="right_btn">
+						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택 취소</a>
+					</span>
+				</div>
 				<table class="table_list">
 					<colgroup>
-						<col width="70">
-						<col width="70">
-						<col width="140">
-						<col width="100">
-						<col width="140">
-						<col width="100">
-						<col width="120">
-						<col width="120">
-						<col width="100">
-						<col width="100">
-						<col width="100">
-						<col width="170">
+						<col width="50">
+						<col width="90">
+						<col width="90">
+						<col width="90">
+						<col width="200">
+						<col width="80">
+						<col width="90">
+						<col width="90">
+						<col width="90">
 					</colgroup>
 					<thead>
 					<tr>
-						<th>NO</a></th>
-						<th>직급</a></th>
-						<th>이름</a></th>
-						<th>거래 완료 횟수</a></th>
-						<th>휴대폰번호</th>
-						<th>가입일</a></th>
-						<th>관리</th>
+						<th><label><input type="checkbox"></label></th>
+						<th>매물번호</th>
+						<th>담당자</th>
+						<th>매물종류</th>
+						<th>매물제목</th>
+						<th>상세보기</th>
+						<th>매물상태</th>
+						<th>아이템 적용</th>
+						<th>매물등록일</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
+						<td><label><input type="checkbox"></label></td>
 						<td>1</td>
-						<td>대표중개인</td>
-						<td>최희수</td>
-						<td>12회</td>
-						<td>010-8464-9696</td>
-						<td>2019-07-02</td>
 						<td>
-							<a href="/shop/roomInfo" class="btn col_navy f_w">상세보기</a>
-							<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+							<div class="mb5">담당자이름</div>
 						</td>
+						<td>
+							<div>원룸</div>
+						</td>
+						<td>원룸매물1번제목입니다</td>
+						<td>
+							<div class="set_menu">
+								<a href="/shop/itemInfo" class="btn col_navy f_w">상세보기</a>
+							</div>
+						</td>
+						<td>판매중</td>
+						<td>적용중</td>
+						<td>18-09-30<br/>11:30</td>
 					</tr>
 					</tbody>
 				</table>
 			</div>
+			<ul class="page_wrap">
+				<li><a href="#none">First</a></li>
+				<li><a href="#none">Prev</a></li>
+				<li><a href="#none" class="num active">1</a></li>
+				<li><a href="#none" class="num">2</a></li>
+				<li><a href="#none" class="num">3</a></li>
+				<li><a href="#none">Next</a></li>
+				<li><a href="#none">Last</a></li>
+			</ul>
 		</div>
-
 	</div>
+	<footer role="footer" data-include="footer.html"></footer>
 </div>
 </body>
 </html>
