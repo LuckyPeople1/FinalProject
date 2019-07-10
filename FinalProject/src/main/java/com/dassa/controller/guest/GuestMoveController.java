@@ -293,10 +293,6 @@ public class GuestMoveController {
 
 		List<MoveApplyImgVO>imgList	=	new ArrayList<MoveApplyImgVO>();
 
-		System.out.println(fileImg);
-		System.out.println("@@");
-		System.out.println(fileImg.size() + " 몇개");
-
 		for(MultipartFile img : fileImg){
 
 			if(!img.getOriginalFilename().equals("")){
@@ -357,10 +353,10 @@ public class GuestMoveController {
 
 		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
 
-//		// 비회원일경우 막음
-//		if(userVO == null){
-//			return "L";
-//		}
+		// 비회원일경우 막음
+		if(userVO == null){
+			return "L";
+		}
 
 		// 세션에서 객체를 가져옴
 		List<PackageOptionSelectVO> packageOptionList	=	(List<PackageOptionSelectVO>)httpSession.getAttribute("packageOptionList");

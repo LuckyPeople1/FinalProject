@@ -16,6 +16,5 @@
 	<script src="/guest/js/jquery-3.1.1.min.js"></script>
 	<script src="/guest/js/jquery-ui-1.12.1.js"></script>
 	<script src="/guest/js/ui.js"></script>
-	
 </head>
 <body>
