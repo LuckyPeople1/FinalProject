@@ -95,7 +95,7 @@
 						<td>원룸매물1번제목입니다</td>
 						<td>
 							<div class="set_menu">
-								<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
+								<a href="/shop/itemInfo" class="btn col_navy f_w">상세보기</a>
 							</div>
 						</td>
 						<td>판매중</td>
