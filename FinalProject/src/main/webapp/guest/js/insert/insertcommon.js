@@ -32,7 +32,7 @@ $("#userEmail").keyup(function(){
 	}
 });
 
-$.("#userPhone").keyup(function(){
+$("#userPhone").keyup(function(){
 	var userPhone = $("#userPhone").val();
 	var reg = /^\d{3}-\d{3,4}-\d{4}$/;
 	if(!reg.test(userPhone)){
@@ -52,17 +52,23 @@ $(document).ready(function(){
 		var addr = $("#insert_detail_addr").val();
 		var addr2 = $("#insert_post_code").val(); 
 		var idCheck = ($("#idCheck").html() != "");
+		var userCar = $("#userCar").val();
+		var userIntro = $("#userIntro").val();
+		var regisNum = $("#regisNum").val();
+		var fileImg = $(".hide").eq(0).val();
+		var fileImg1 = $(".hide").eq(1).val();
 		
 		var pwCk	= $("#pwCheck").html();
 		var nameCk  = $("#nameCheck").html();
 		var phoneCk = $("#phoneCheck").html();
-		var email	= $("#emailCheck").html();
+		var emailCk	= $("#emailCheck").html();
 		
 		
-		if(id == "" || (idCheck == false)){
+		
+		if(id == ""){
 			alert("아이디를 입력해주세요.");
 			return false;
-		} else if(pw == "" || pwCk != ""){
+		}else if(pw == "" || pwCk != ""){
 			alert("비밀번호를 입력해주세요. ");
 			return false;
 		} else if(name == "" || nameCk != ""){
@@ -71,7 +77,7 @@ $(document).ready(function(){
 		} else if(phone == "" || phoneCk != ""){
 			alert("전화번호를 입력해주세요. ");
 			return false;
-		} else if(email == "" || phoneCk != ""){
+		} else if(email == "" || emailCk != ""){
 			alert("이메일을 입력해주세요");
 			return false;
 		} else if(addr == ""){
@@ -80,6 +86,21 @@ $(document).ready(function(){
 		} else if(addr2 == ""){
 			alert("주소를 입력해주세요");
 			return false;
+		} else if(userCar == ""){
+			alert("차종을 입력해주세요");
+			return false;
+		} else if(userIntro == ""){
+			alert("본인 소개를 입력해주세요.");
+			return false;
+		} else if(regisNum == ""){
+			alert("등록번호를 입력해주세요");
+			return false;
+		} else if(fileImg == ""){
+			alert("첫번째 파일을 첨부해주세요");
+			return false;
+		} else if(fileImg1 == ""){
+			alert("두번째 파일을 첨부해주세요");
+			return false;
 		}
 	});
-}); 
+});

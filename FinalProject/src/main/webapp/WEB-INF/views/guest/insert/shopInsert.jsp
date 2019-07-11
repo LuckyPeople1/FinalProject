@@ -57,13 +57,13 @@
 								</td>
 							</tr>
 							<tr>
-								<th>중개 등록증</th>
+								<th>중개 등록번호</th>
 								<td>
 									<input type="text" class="tbox normal" name="regisNum" id="regisNum">
 								</td>
 							</tr>
 							<tr>
-								<th>사업자 등록증</th>
+								<th>사업자 등록번호</th>
 								<td>
 									<input type="text" class="tbox normal" name="busNum" id="busNum">
 								</td>
