@@ -86,5 +86,6 @@
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
 		</div>
 	</div>
+	<script src="/manage/js/board/board.js"></script>
 </body>
 </html>

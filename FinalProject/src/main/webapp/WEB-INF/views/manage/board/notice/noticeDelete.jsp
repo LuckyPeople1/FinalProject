@@ -9,7 +9,7 @@
 <body>
 <script type="text/javascript">
 	alert('글이 삭제되었습니다.');
-	location.href="/manage/board/notice/noticeManageList";
+	location.href="/manage/board/notice/noticeManageList?reqPage=1";
 </script>
 </body>
 </html>

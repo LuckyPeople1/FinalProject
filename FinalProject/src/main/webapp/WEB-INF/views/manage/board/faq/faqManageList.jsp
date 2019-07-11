@@ -32,7 +32,7 @@
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input class="tbox w_6p">
+							<input class="tbox w_6p"  style="width:39%;">
 						</td>
 					</tr>
 <!-- 					<tr>
@@ -88,54 +88,42 @@
 						<th>NO</th>
 						<th>분류</th>
 						<th>제목</th>
-						<th>작성일시</th>
 						<th>상태</th>
+						<th>작성일시</th>
 						<th>관리</th>
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list }" var="f">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>2</td>
-						<td>이용문의</td>
-						<td class="text-left">회원탈퇴는 어떻게 하는 건가요?</td>
-						<td>2019-07-01</td>
+						<td>${f.faqIndex }</td>
+						<td>${f.faqUserType }</td>
+						<td class="text-left">${f.faqQuestion }</td>
 						<td>
-							<span class="tag col_blue f_w">정상</span>
+						<span class="tag col_blue f_w">${f.faqState }</span>
+						</td>
+						<td>
+							${f.faqRegDate }
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/faq/faqManageModify" class="btn small col_main f_w">수정</a>
+								<a href="/manage/board/faq/faqManageView?faqIndex=${f.faqIndex }"" class="btn small col_main f_w">상세보기</a>
 							</div>
 							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
+								<a href="/manage/board/faq/faqManageModify?faqIndex=${f.faqIndex }" class="btn small col_main f_w">수정</a>
+							</div>
+							<div>
+								<a href="/manage/board/faq/faqDelete?faqIndex=${f.faqIndex }" class="btn small col_darkGrey f_w">삭제</a>
 							</div>
 						</td>
 					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
 			<div class="page_group clearFix">
-				<ul class="page_box">
-					<li class="first arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="prev arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="on">
-						<a href="#none">1</a>
-					</li>
-					<li class="">
-						<a href="#none">2</a>
-					</li>
-					<li class="next arrow">
-						<a href="#none "></a>
-					</li>
-					<li class="end arrow">
-						<a href="#none"></a>
-					</li>
-				</ul>
+				${pageNavi}
 			</div>
 		</div>
 

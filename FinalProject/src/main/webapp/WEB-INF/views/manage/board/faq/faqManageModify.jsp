@@ -22,6 +22,7 @@
 						<span class="title_mark">■ FAQ 수정</span>
 					</div>
 					<section class="section_faq">
+					<form action="/manage/board/faq/faqUpdate" method="post" id="update">
 					<table class="set_table">
 						<colgroup>
 							<col width="180">
@@ -29,31 +30,29 @@
 						</colgroup>
 						<tr>
 							<th>분류</th>
-							<td><label> <input type="radio" name="type">
-									<span>이용문의</span>
-							</label> <label class="ml10"> <input type="radio" name="type">
-									<span>부동산문의</span>
-							</label> <label class="ml10"> <input type="radio" name="type">
-									<span>이사문의</span>
-							</label></td>
+							<td>
+								${faqVO.faqUserType}<input type="hidden" name="faqUserType" value="${faqVO.faqUserType}">
+							</td>
 						</tr>
 						<tr>
 							<th>제목</th>
-							<td><input class="board_input" value="회원탈퇴는 어떻게 해야하나요?"></td>
+							<td><input class="board_input" value="${faqVO.faqQuestion }"></td>
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td><textarea class="board_textarea">faq수정해주세요</textarea></td>
+							<td><textarea class="board_textarea">${faqVO.faqAnswer }</textarea>
+							<input type="hidden" value="${faqVO.faqIndex}" name="faqIndex"></td>
 						</tr>
 						<tr>
 							<td colspan="2">
 								<div class="board_button">
-									<a href="javascript:javascript:void(0)" class="board_Mobtn">수정</a>
+									<a href="#" onclick="document.getElementById('update').submit();" class="board_Mobtn">수정</a>
 									<a href="javascript:history.back()"	class="board_Rebtn">취소</a>
 								</div>
 							</td>
 						</tr>
 					</table>
+					</form>
 				</div>
 			</div>
 

@@ -89,7 +89,7 @@
 					<tbody>
 					
 					<c:forEach items="${list }" var="n">
-					<c:if test="${n.noticeType eq '사용자'}">
+					
 					<tr>
 						<td>
 							<label>
@@ -115,13 +115,13 @@
 							</div>
 						</td>
 					</tr>
-					</c:if>
+			
 					</c:forEach>
 					</tbody>
 				</table>
 				</div>
 				
-				<div id="pageNavi" class="page_group clearFix">
+			<div id="pageNavi" class="page_group clearFix">
 				${pageNavi}
 			</div>
 		</div>

@@ -47,20 +47,28 @@
 								<img src="/upload/board/${noticeVO.noticeFilename }">
 								</a>
 								<div id="upImg" style="display:none;">
-								<input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
-								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }">
+								<%-- <input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
+								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }"> --%>
+								<div class="img_up_list" id="changeImg">
+									<div class="img_box">
+										<input type="file" class="hide" accept="image/*" name="noticefilename" id="fileImg" onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
+										<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
+										<input type="hidden" name="noticefilepath" value="${noticeVO.noticeFilename }">
+										<input type="hidden" name="oldfileName" value="${noticeVO.noticeFilename }">
+									</div>
+								</div>
 								</div>
 								</c:if>
 								<c:if test="${noticeVO.noticeFilename ==null}">
-								<%--<div class="img_up_list" id="changeImg">
+								<div class="img_up_list" id="changeImg">
 									<div class="img_box">
 										<input type="file" class="hide" accept="image/*" name="noticefilename" id="fileImg" onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
 										<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
 										<input type="hidden" name="noticefilepath" value="${noticeVO.noticeFilename }">
 									</div>
-								</div>--%> 
-								<input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
-								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }">
+								</div>
+								<%-- <input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
+								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }"> --%>
 								</c:if>
 							</td>
 						</tr>
@@ -92,5 +100,7 @@
 			$("#upImg").show();
 		});
 	</script>
+		<script src="/manage/js/board/board.js"></script>
+	
 </body>
 </html>

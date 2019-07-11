@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.FaqMapper">
+ <!-- 페이징처리후 리스트출력 -->
+  <select id="selectAllList" resultType="faqVO" parameterType="_int">
+  	select faq_index as faqIndex,
+  		faq_user_type as faqUserType,
+  		faq_question as faqQuestion,
+  		faq_state as faqState,
+  		faq_reg_date as faqRegDate
+  		from (select rownum as rnum, f.* from (select * from faq_tbl where faq_state='정상' order by rownum desc) f)
+  		where rnum between #{start} and #{end}
+  </select>
+   <select id="totalCount" resultType="_int">
+  	select count(*) cnt from faq_tbl
+  </select>
+    <!-- faq뷰페이지 -->
+  <select id="faqView" parameterType="faqVO" resultType="faqVO">
+  	select faq_index as faqIndex,
+  			faq_user_type as faqUserType,
+  			faq_question as faqQuestion,
+  			faq_answer as faqAnswer,
+  			faq_state as faqState,
+  			faq_reg_date as faqRegDate
+  		from faq_tbl where faq_index=#{faqIndex} 
+  </select>
+    <!-- faq업데이트 -->
+  <update id="faqUpdate" parameterType="faqVO">
+  	update faq_tbl set faq_question=#{faqQuestion}, faq_answer=#{faqAnswer} where faq_index=#{faqIndex}
+  </update>
+<!-- faq작성 -->
+	<insert id="faqInsert" parameterType="faqVO">
+		insert into faq_tbl values(
+			faq_index.nextval,
+			#{faqUserType},
+			#{faqQuestion},
+			#{faqAnswer},
+			#{faqState},
+			sysdate)
+	</insert>
+ <!-- faq 삭제  -->
+  <update id="faqDelete" parameterType="faqVO">
+  	update faq_tbl set faq_state='삭제' where faq_index=#{faq_index}
+  </update>
+</mapper>

@@ -40,14 +40,13 @@
 						<tr>
 							<th>분류</th>
 							<td>
-							<!-- <span class="sbox small">
+							<span class="sbox small">
 								<select name="noticeType">
 									<option value="사용자">사용자</option>
 									<option value="부동산">부동산</option>
 									<option value="기사">기사</option>
 								</select>
-							</span> -->
-							사용자<input type="hidden" name="noticeType" value="사용자">
+							</span>
 							</td>
 						</tr>
 						<tr>
