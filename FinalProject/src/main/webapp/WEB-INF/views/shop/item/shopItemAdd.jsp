@@ -208,7 +208,7 @@
 												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddr3"	placeholder="예)101동" value="">
 											</div>
 											<div class="xUWNs gnEBbX">
-												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">
+												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">					
 											</div>
 										</div>
 										<div class="gZWbGn">
@@ -720,9 +720,11 @@
 						<p>- 최초로 등록 된 이미지는 대표이미지로 사용됩니다.</p>
 					</div>
 					<div class="heKOml">
-						<div class="img_upload">
-							<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)">
-							<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a>
+						<div class="imgList">
+							<div class="imgBox">
+								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
+							</div>
 						</div>
 					</div>
 					<p class="bhZAGT">
@@ -849,8 +851,10 @@
 	</form>
 	</section>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
+	<script src="/shop/js/item/item.js"></script>
 	<script src="/shop/js/shop_setting.js"></script>
 	<script>
+		var count=0;
 		var newarr = new Array();
 		$("#jusoInfo").show();
 		$("input[name=shopItemManagePriceOption]").attr("disabled",true);
@@ -1212,10 +1216,6 @@
 				$("select[name=shopItemFloor]").focus();
 				return false;
 			}
-		});
-		$("input[name=img_0]").change(function(){
-			$(this).css("display","none");
-			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
 		});
 //		$("input[name=img_1]").click(function(){
 //			$("#img_upload2").show();

@@ -38,9 +38,15 @@ public class GuestMoveController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/step1")
-	public String moveStep1(Model model) throws Exception {
+	public String moveStep1(Model model, HttpSession httpSession) throws Exception {
 
 		List<PackageRegVO> packageTempVOList = movePackageService.getPackageList();
+
+		model.addAttribute("selectPackageList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
+
+
+
+
 		model.addAttribute("packageList", packageTempVOList);
 
 		return "guest/move/moveStep1";
@@ -61,11 +67,13 @@ public class GuestMoveController {
 
 
 		for (PackageSelectVO packageSelectVO : packageList) {
+			System.out.println(packageSelectVO.getPackageType());
 			System.out.println(packageSelectVO.getPackageName());
+			System.out.println(packageSelectVO.getPackageAmount());
 		}
 
 
-		httpSession.setAttribute("packageList", packageList);
+		httpSession.setAttribute("selectPackageList", packageList);
 
 
 		return "Y";
@@ -79,13 +87,13 @@ public class GuestMoveController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/step2")
-	public String moveStep2(
-			HttpSession httpSession,
-			Model model) throws Exception {
+	public String moveStep2(HttpSession httpSession, Model model) throws Exception {
 
-		// 세션에서 리스트를 가져와서 뷰로 넘겨줌
+		// 스탭1에서 저장한 리스트를 가져와서 뷰로 넘겨줌
+		model.addAttribute("selectPackageList", (List<PackageSelectVO>) httpSession.getAttribute("selectPackageList"));
 
-		model.addAttribute("selectList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
+		// 스탭2에서 저장한 리스트를 가져와서 뷰로 넘겨줌
+		model.addAttribute("packageOptionList", (List<PackageOptionSelectVO>) httpSession.getAttribute("packageOptionList"));
 
 		return "guest/move/moveStep2";
 	}
@@ -349,7 +357,7 @@ public class GuestMoveController {
 	 */
 	@RequestMapping("/applyProc")
 	@ResponseBody
-	public String applyProc(HttpSession httpSession) throws Exception {
+	public String applyProc(HttpSession httpSession, @RequestParam String applyMemo) throws Exception {
 
 		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
 
@@ -368,21 +376,27 @@ public class GuestMoveController {
 				(MoveAddrInfoVO)httpSession.getAttribute("startAddr"),
 				(MoveAddrInfoVO)httpSession.getAttribute("endAddr"),
 				(MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo"),
-				userVO);
-
-
-
-		System.out.println(imgList.get(0).getImgName());
-		System.out.println(imgList.get(0).getImgPath());
-
+				userVO, applyMemo);
 
 		int rs	=	movePackageService.regApply(moveApplyVO);
 
 		if(rs > 0){
 
-			rs	=	 movePackageService.regApplyPackage(packageOptionList);
-			movePackageService.regApplyImg(imgList);
+			for(PackageOptionSelectVO packageOptionSelectVO : packageOptionList){
 
+				System.out.println(packageOptionSelectVO.getPackageIdx() + "이름");
+				System.out.println(packageOptionSelectVO.getPackageName() + "이름");
+				System.out.println(packageOptionSelectVO.getPackageOption() + "옵션");
+			}
+
+			rs	=	 movePackageService.regApplyPackage(packageOptionList);
+
+
+			// 이미지가 있을 때만 처리
+			if(imgList.size() != 0){
+
+				movePackageService.regApplyImg(imgList);
+			}
 
 			if(rs >0){
 

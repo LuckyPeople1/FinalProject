@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.GuestMoveService;
@@ -25,10 +26,10 @@ import com.siot.IamportRestClient.response.Payment;
 @Controller
 @RequestMapping("/my")
 public class GuestMyController {
-	
+
 	private IamportClient client; // 결제 라이브 러리
 	@Resource
-	private GuestMoveService guestMoveService; 
+	private GuestMoveService guestMoveService;
 
 	@RequestMapping("/")
 	public String home(HttpSession httpSession){
@@ -119,7 +120,16 @@ public class GuestMyController {
 
 		return "/guest/mypage/myMoveAuctionInfo";
 	}
-	
+
+
+	@RequestMapping("/moveInfo")
+	public String moveinfo(Model model, @RequestParam int moveIdx){
+
+		return "/guest/mypage/myMoveInfo";
+
+	}
+
+
 	/**
 	 * 입찰 결제
 	 * @return
@@ -131,7 +141,7 @@ public class GuestMyController {
 		String imp_uid = movePaymentimpUid;
 		try {
 			IamportResponse<Payment> payment_response = client.paymentByImpUid(imp_uid);
-			
+
 			System.out.println(payment_response);
 			System.out.println(payment_response.getResponse());
 			String movePaymentPg = payment_response.getResponse().getPgProvider();
@@ -154,11 +164,11 @@ public class GuestMyController {
 			mpVo.setMovePaymentAmount(movePaymentAmount.intValue());
 			mpVo.setMovePaymentDate(movePaymentDate);
 			mpVo.setMovePaymentStatus(movePaymentStatus);
-			
+
 			int result = guestMoveService.guestMovePayment(mpVo);
 		} catch (IamportResponseException e) {
 			System.out.println(e.getMessage());
-			
+
 			switch(e.getHttpStatusCode()) {
 			case 401 :
 				//TODO
@@ -225,10 +235,10 @@ public class GuestMyController {
 			IamportResponse<AccessToken> auth_response = client.getAuth();
 			System.out.println(auth_response.getResponse());
 			System.out.println(auth_response.getResponse().getToken());
-			
+
 		} catch (IamportResponseException e) {
 			System.out.println(e.getMessage());
-			
+
 			switch(e.getHttpStatusCode()) {
 			case 401 :
 				//TODO
