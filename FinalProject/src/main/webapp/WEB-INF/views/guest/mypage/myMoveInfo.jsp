@@ -74,7 +74,7 @@
 								<div class="row">
 									<div class="subject">현재 집</div>
 									<div class="con">
-										<div class="addr">${startInfo.addr1} ${startInfo.addr3}</div>
+										<div class="addr">${moveInfo.driverAuctionDetail.startAddr1 } ${moveInfo.driverAuctionDetail.startAddr3}</div>
 										<div class="addrInfo">
 											${startInfo.type}·${startInfo.structure}·${startInfo.size}
 										</div>
