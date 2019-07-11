@@ -11,6 +11,7 @@
 		<typeAlias type="com.dassa.vo.JusoGuVO" alias="jusoGuVO"/>
 		<typeAlias type="com.dassa.vo.JusoDongVO" alias="jusoDongVO"/>
 		<typeAlias type="com.dassa.vo.ShopItemVO" alias="shopItemVO"/>
+		<typeAlias type="com.dassa.vo.ShopItemImgVO" alias="shopItemImgVO"/>
 		<typeAlias type="com.dassa.vo.NoticeVO" alias="noticeVO"/>
 		<typeAlias type="com.dassa.vo.MoveApplyVO" alias="moveApplyVO"/>	 <!--이사신청 VO  -->
 		<typeAlias type="com.dassa.vo.SaleInLotsVO" alias="saleInLotsVO"/>   <!--분양   VO -->
