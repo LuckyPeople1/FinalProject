@@ -10,25 +10,28 @@ public class UserVO {
 	private String  userAddr;
 	private String 	userPhone;
 	private String 	userEmail;
+	private String  proFilename;			//프로필 사진 파일명
+	private String  priFilepath;			//프로필 사진 경로
 	private String 	userIntroduce;			//이사 소개
 	private String 	registrationNumber; 	//사업자 등록번호
 	private String	businessNumber;			//사업자 등록번호
 	private String 	userCar;				//운행차량
-	private String 	userImageName;
-	private String 	userImagePath;
+	private String 	compFilename;			//등록증 이름
+	private String 	compFilepth;			//등록증 경로
 	private String 	userType;				//회원 타입
 	private String  socialId;				//소셜 로그인 할 때 필요
 	private Date	enrollDate;
 	private String  type;
-	
+
 	public UserVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
-			String userEmail, String userIntroduce, String registrationNumber, String businessNumber, String userCar,
-			String userImageName, String userImagePath, String userType, String socialId, Date enrollDate, String type) {
+			String userEmail, String proFilename, String priFilepath, String userIntroduce, String registrationNumber,
+			String businessNumber, String userCar, String compFilename, String compFilepth, String userType,
+			String socialId, Date enrollDate, String type) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -37,12 +40,14 @@ public class UserVO {
 		this.userAddr = userAddr;
 		this.userPhone = userPhone;
 		this.userEmail = userEmail;
+		this.proFilename = proFilename;
+		this.priFilepath = priFilepath;
 		this.userIntroduce = userIntroduce;
 		this.registrationNumber = registrationNumber;
 		this.businessNumber = businessNumber;
 		this.userCar = userCar;
-		this.userImageName = userImageName;
-		this.userImagePath = userImagePath;
+		this.compFilename = compFilename;
+		this.compFilepth = compFilepth;
 		this.userType = userType;
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
@@ -105,6 +110,22 @@ public class UserVO {
 		this.userEmail = userEmail;
 	}
 
+	public String getProFilename() {
+		return proFilename;
+	}
+
+	public void setProFilename(String proFilename) {
+		this.proFilename = proFilename;
+	}
+
+	public String getPriFilepath() {
+		return priFilepath;
+	}
+
+	public void setPriFilepath(String priFilepath) {
+		this.priFilepath = priFilepath;
+	}
+
 	public String getUserIntroduce() {
 		return userIntroduce;
 	}
@@ -137,20 +158,20 @@ public class UserVO {
 		this.userCar = userCar;
 	}
 
-	public String getUserImageName() {
-		return userImageName;
+	public String getCompFilename() {
+		return compFilename;
 	}
 
-	public void setUserImageName(String userImageName) {
-		this.userImageName = userImageName;
+	public void setCompFilename(String compFilename) {
+		this.compFilename = compFilename;
 	}
 
-	public String getUserImagePath() {
-		return userImagePath;
+	public String getCompFilepth() {
+		return compFilepth;
 	}
 
-	public void setUserImagePath(String userImagePath) {
-		this.userImagePath = userImagePath;
+	public void setCompFilepth(String compFilepth) {
+		this.compFilepth = compFilepth;
 	}
 
 	public String getUserType() {
@@ -167,14 +188,6 @@ public class UserVO {
 
 	public void setSocialId(String socialId) {
 		this.socialId = socialId;
-	}
-
-	public Date getEnrollDate() {
-		return enrollDate;
-	}
-
-	public void setEnrollDate(Date enrollDate) {
-		this.enrollDate = enrollDate;
 	}
 
 	public String getType() {

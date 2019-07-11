@@ -46,11 +46,8 @@ public class GuestInsertController {
 		String userType = request.getParameter("userType");
 		UserVO userVO = new UserVO();
 		if(socialId != "" && socialId != null) {
-			System.out.println("commonInsert: "+socialId);
-			System.out.println("ㅎㅇ");
 			userVO.setSocialId(socialId);
 		}else {
-			System.out.println("ㅂ2");
 			userVO.setUserId(userId);
 			userVO.setUserPw(userPw);
 		}
