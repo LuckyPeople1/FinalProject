@@ -37,10 +37,12 @@ public class ShopItemController {
 	private ShopService shopService;
 	/**
 	 * 부동산 매물관리 페이지(item)
+	 * 
 	 * @return
 	 */
 	@RequestMapping("/item")
 	public String ShopRoom() {
+		
 		return "shop/item/shopItemList";
 	}
 	/**
