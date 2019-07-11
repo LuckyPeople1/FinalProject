@@ -3,6 +3,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +28,14 @@ import com.dassa.vo.ShopItemVO;
 @Controller
 @RequestMapping("/shop")
 public class ShopItemController {
+	
+	private static final int RESULT_EXCEED_SIZE = -2;
+    private static final int RESULT_UNACCEPTED_EXTENSION = -1;
+    private static final int RESULT_SUCCESS = 1;
+    private static final long LIMIT_SIZE = 10 * 1024 * 1024;
+	
+	
+	
 	@Autowired
 	@Qualifier(value="shopService")
 
@@ -68,19 +78,24 @@ public class ShopItemController {
 		String fileMultiName ="";
 		for(int i=0; i<img_0.length; i++) {
 			fileOriginName = img_0[i].getOriginalFilename();
+			System.out.println("기존 파일 명 : "+fileOriginName);
 			SimpleDateFormat formatter = new SimpleDateFormat("YYYYMMDD_HHMMSS_"+i);
 			Calendar now = Calendar.getInstance();
-			String extension = fileOriginName.split("\\.")[1];
-			fileOriginName = formatter.format(now.getTime())+"."+extension;
+			String extension = fileOriginName.split("\\.")[1]; //확장자명
+			fileOriginName = formatter.format(now.getTime())+"."+extension; //날짜+확장자명 
+			System.out.println("변경된 파일 명 : "+fileOriginName);
 			File f = new File(uploadPath+"\\"+fileOriginName);
 			img_0[i].transferTo(f);
+			if(i==0) {fileMultiName += fileOriginName;}
+			else {fileMultiName += ","+fileOriginName;}
 		}
-		sItem.setUserIdx(0);
+		sItem.setUserIdx(0); //매물 올린 부동산
 		System.out.println(sItem);
 		sItem.setShopItemFileName(fileMultiName);
 		shopService.shopItemAdd(sItem);
 		return "shop/shopHome";
 	}
+	
 	/**
 	 * 아파트 목록 API(아파트코드, 아파트명)
 	 * @param jusoDongCode

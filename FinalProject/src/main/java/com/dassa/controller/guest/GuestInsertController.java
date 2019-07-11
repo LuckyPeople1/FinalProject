@@ -39,18 +39,16 @@ public class GuestInsertController {
 	
 	//일반회원가입 로직
 	@RequestMapping(value="/commonInsert")
-	public String CommonInsert(HttpServletRequest request, @RequestParam String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail) throws Exception {
-		String userId = request.getParameter("userId");
-		String userPw = request.getParameter("userPw");
-		String socialId = request.getParameter("socialId");
-		String userType = request.getParameter("userType");
+	public String CommonInsert(HttpServletRequest request, @RequestParam String userId,
+								String userPw, String userName, String userPhone,
+								String userAddr, String userdetailAddr,
+								String userExtraAddr,String userEmail, String compFilename, String compFilepath,
+								String userType, String socialId)
+	throws Exception {
 		UserVO userVO = new UserVO();
 		if(socialId != "" && socialId != null) {
-			System.out.println("commonInsert: "+socialId);
-			System.out.println("ㅎㅇ");
 			userVO.setSocialId(socialId);
 		}else {
-			System.out.println("ㅂ2");
 			userVO.setUserId(userId);
 			userVO.setUserPw(userPw);
 		}
@@ -76,25 +74,36 @@ public class GuestInsertController {
 		}
 	}
 	
-	/*//소셜회원가입 로직
-	@RequestMapping(value="/socialInsert")
-	public String SocialInsert(HttpServletRequest request, @RequestParam String userName, String userPhone, String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userType, String socialId) throws Exception {
+	//일반회원가입 로직
+	@RequestMapping(value="/driverInsert")
+	public String DriverInsert(HttpServletRequest request, @RequestParam String userId, String userPw, String userName, String userPhone,
+								String userAddr, String userdetailAddr, String userExtraAddr,String userEmail, String userCar, 
+								String regisNum, String compFilename, String compFilepath, String userType)
+	throws Exception {
 		UserVO userVO = new UserVO();
+		userVO.setUserId(userId);
+		userVO.setUserPw(userPw);
+		String addr = userAddr+userdetailAddr+userExtraAddr;	
 		userVO.setUserName(userName);
 		userVO.setUserPhone(userPhone);
 		userVO.setUserAddr(userAddr);
-		String addr = userAddr+userdetailAddr+userExtraAddr;
 		userVO.setUserAddr(addr);
 		userVO.setUserEmail(userEmail);
+		userVO.setUserCar(userCar);
+		userVO.setRegistrationNumber(regisNum);
+		userVO.setCompFilename(compFilename);
+		userVO.setCompFilepth(compFilepath);
 		userVO.setUserType(userType);
-		userVO.setSocialId(socialId);
-		int result = userService.commonInsert(userVO);
+		
+		int result = userService.driverInsert(userVO);
 		if(result > 0) {
 			request.setAttribute("msg", "회원가입이 완료 되었습니다.");
-			request.setAttribute("loc", "/login/index");
+			request.setAttribute("loc", "/login/");
 			return "guest/common/msg";
 		}else {
-			return "redirect:/insert";
+			request.setAttribute("msg", "회원가입이 실패 하였습니다.");
+			request.setAttribute("loc", "redirect:/insert");
+			return "guest/common/msg";
 		}
-	}*/
+	}
 }

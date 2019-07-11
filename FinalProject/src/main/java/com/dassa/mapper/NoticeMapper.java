@@ -1,13 +1,18 @@
 package com.dassa.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.dassa.vo.NoticeVO;
 
 public interface NoticeMapper {
 	
 	//관리자 공지사항 조회하기
-	public List<NoticeVO> selectAllList() throws Exception;
+	public ArrayList<NoticeVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	
+	public int totalCount() throws Exception;
 	
 	//업데이트 수정하기
 	public int noticeUpdate(NoticeVO n) throws Exception;

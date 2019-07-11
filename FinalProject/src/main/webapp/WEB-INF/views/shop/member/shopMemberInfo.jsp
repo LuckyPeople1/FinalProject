@@ -9,7 +9,7 @@
 	</nav>
 	<div class="contents">
 		<div class="page_header">
-			<div class="page_title">회원 상세정보</div>
+			<div class="page_title">직원 상세정보</div>
 			<div class="page_sub_title"></div>
 		</div>
 		<ul class="tabs_group clearfix">
@@ -37,56 +37,42 @@
 					<tbody>
 					<tr>
 						<th>이름<span class="ess">*</span></th>
-						<td><input class="tbox full" value=""></td>
+						<td><input class="tbox full" name="employeeName" value=""></td>
 						<th>직급<span class="ess">*</span></th>
 						<td>
 							<span class="sbox full">
-								<select>
+								<select name="employeeRank">
 									<option value="0" selected="selected">직급선택</option>
-									<option value="1">대표공인중개사</option>
-									<option value="2">소속공인중개사</option>
-									<option value="3">중개보조원</option>
-									<option value="4">중개인</option>
+									<option value="1">소속공인중개사</option>
+									<option value="2">중개보조원</option>
+									<option value="3">중개인</option>
 								</select>
 							</span>
 						</td>
 					</tr>
 					<tr>
 						<th>연락처<span class="ess">*</span></th>
-						<td><input class="tbox full" value=""></td>
+						<td><input class="tbox full" name="employeePhone" value=""></td>
 						<th>이메일</th>
-						<td><input class="tbox full" value=""></td>
+						<td><input class="tbox full" name="email" value=""></td>
 					</tr>
 					<tr>
 						<th>주소<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full" value=""></td>
+						<td colspan="3"><input class="tbox full" name="adress" value=""></td>
 					</tr>
 					<tr>
 						<th>중개등록번호<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
+						<td colspan="3"><input class="tbox full" name="registrationNumber"></td>
 					</tr>
 					<tr>
-						<th>중개등록증 첨부<span class="ess">*</span></th>
+						<th>프로필 사진 첨부<span class="ess">*</span></th>
 						<td colspan="3">
 							<div class="img_upload">
 								<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)">
 								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a>
 							</div>
 						</td>
-					</tr>
-					<tr>
-						<th>사업자등록번호<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>사업자등록증 첨부<span class="ess">*</span></th>
-						<td colspan="3">
-							<div class="img_upload">
-								<input type="file" name="img_1" id="img_1" class="hide" onchange="img_change(this)">
-								<a href="#none" class="imgUp" id="imgUp_1" onclick="img_up(this)"></a>
-							</div>
-						</td>
-					</tr>
+					</tr>					
 					</tbody>
 				</table>
 			</div>
@@ -112,7 +98,7 @@
 					<tbody>
 					<tr>
 						<th>담당 매물</th>
-						<td colspan="3"></td>
+						<td colspan="3">서울특별시 영등포구 당산동 1234-1234</td>
 					</tr>
 					<tr>
 					</tr>

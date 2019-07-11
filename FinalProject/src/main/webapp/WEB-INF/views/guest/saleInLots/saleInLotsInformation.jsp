@@ -26,45 +26,272 @@
 					<div class="web_content">
 						<p class="saleInLotsInformation_main">분양정보</p>
 						<div class="saleInLotsInformation_content">
-							<div class="saleInLotsSelectBox" tabindex="0">
-								<div class="SelectBox_content">
-									<span>전국</span>
+							<div class="searchBox_filter_type" tabindex="0">
+								<div class="searchBox_btn">
+									<span id="area">전국</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
+								<div class="searchBox_filterBox_1" width="200"
+										height="340" style="left: 0px; display: none">
+										<ul class="filterBox_area">
+											<li><span class="allArea">전국</span></li>
+											<li><span class="area">서울특별시</span></li>
+											<li><span class="area">부산광역시</span></li>
+											<li><span class="area">대구광역시</span></li>
+											<li><span class="area">인천광역시</span></li>
+											<li><span class="area">광주광역시</span></li>
+											<li><span class="area">대전광역시</span></li>
+											<li><span class="area">울산광역시</span></li>
+											<li><span class="area">세종특별자치시</span></li>
+											<li><span class="area">경기도</span></li>
+											<li><span class="area">강원도</span></li>
+											<li><span class="area">충청북도</span></li>
+											<li><span class="area">충청남도</span></li>
+											<li><span class="area">전라북도</span></li>
+											<li><span class="area">전라남도</span></li>
+											<li><span class="area">경상북도</span></li>
+											<li><span class="area">경상남도</span></li>
+											<li><span class="area">제주특별자치도</span></li>
+										</ul>
+									</div>
 							</div>
-							<div class="saleInLotsSelectBox" tabindex="0">
-								<div class="SelectBox_content">
-									<span>건물유형</span>
+							<div class="searchBox_filter_type" tabindex="0">
+								<div class="searchBox_btn">
+									<span id="buildType">건물유형</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
+								<div class="searchBox_filterBox_2" width="250"
+										height="280" style="left: 0px; display: none;">
+										<h1 class="filterBox_title">건물유형
+											<p class="filterBox_title_msg">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="filterBox_ul">
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">전체</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">아파트</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">오피스텔</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">도시형생활주택</span></label></li>
+										</ul>
+									</div>
 							</div>
-							<div class="saleInLotsSelectBox" tabindex="0">
-								<div class="SelectBox_content">
-									<span>분양단계</span>
+							<div class="searchBox_filter_type" tabindex="0">
+								<div class="searchBox_btn">
+									<span id="saleState">분양단계</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
+								<div class="searchBox_filterBox_2" width="250"
+										height="280" style="left: 0px; display: none;">
+										<h1 class="filterBox_title">분양단계
+											<p class="filterBox_title_msg">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="filterBox_ul">
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">전체</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">분양예정</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">분양중</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="building_type" value=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText">입주모집</span></label></li>
+										</ul>
+									</div>
 							</div>
-							<div class="saleInLotsSelectBox" tabindex="0">
-								<div class="SelectBox_content">
+							<div class="searchBox_filter_type" tabindex="0">
+								<div class="searchBox_btn">
 									<span>분양일정</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
+								<div class="searchBox_filterBox_3" width="340"
+										height="360" style="left: 0px; display: none;">
+										<h1 class="filterBox_title">분양일정
+											<p class="filterBox_title_msg">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="filterBox_ul_2">
+											<li style="width: 100%;"><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText_2">전체</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">모집공고</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">특별공급</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">1순위청약</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">2순위청약</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">청약접수</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">당첨자발표</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">계약기간</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">입주예정일</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">준공시기</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="schedule" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_2">분양시기</span></label></li>
+										</ul>
+									</div>
 							</div>
-							<div class="saleInLotsSelectBox" tabindex="0">
-								<div class="SelectBox_content">
-									<span>공급유형</span>
+							<div class="searchBox_filter_type" tabindex="0">
+								<div class="searchBox_btn">
+									<span id="supplyType">공급유형</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
 								</div>
+								<div class="filterBox_ul_3" width="250"
+										height="346" style="left: 0px; display: none;">
+										<h1 class="filterBox_title">공급유형
+											<p class="filterBox_title_msg">중복선택이 가능합니다.</p>
+										</h1>
+										<ul class="searchBox_filterBox_4">
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value="" checked=""><span
+													class="CheckBox"></span><span
+													class="checkBoxText_3">전체</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">일반분양</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">임대분양</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">재건축</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">재개발</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">지역조합</span></label></li>
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">시장정비</span></label></li>		
+											<li><label
+												class="Checkbox_Label" size="22"><input
+													type="checkbox"
+													class="inputCheckbox"
+													name="supply_type" value=""><span class="CheckBox"></span><span
+													class="checkBoxText_3">도시환경정비</span></label></li>		
+										</ul>
+									</div>
 							</div>
 						</div>
 						<div class="saleInLotsBox">
@@ -160,4 +387,5 @@
 </div>
 </body>
 <script src="/guest/js/saleInLots/saleInLotsInformation.js"></script>
+
 </html>

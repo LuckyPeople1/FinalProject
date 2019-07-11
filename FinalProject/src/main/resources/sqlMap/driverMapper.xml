@@ -12,8 +12,8 @@
 				user_introduce as userIntroduce,
 				registration_number as registrationNumber,
 				user_car as userCar,
-				image_name as userImageName,
-				image_path as userImagePath,
+				comp_filename as compFilename,
+				comp_filepath as compFilepath,
 				user_type as userType,
 				social_id as socialId 
 		  from user_tbl where user_id=#{userId} 
@@ -22,7 +22,7 @@
 	<!--mypage 이미지만 업로드  -->	
 	<update id="driverMypageUpdate" parameterType="userVO">
 	update user_tbl set
-	image_name=#{userImageName}, image_path=#{userImagePath}
+	comp_filename=#{compFilename}, comp_filepath=#{compFilePath}
 		where user_id=#{userId}
 	</update>
 	

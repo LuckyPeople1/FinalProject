@@ -31,4 +31,8 @@ public class UserService {
 	public UserVO idCheck(String userId) {
 		return userMapper.idCheck(userId);
 	}
+
+	public int driverInsert(UserVO userVO) {
+		return userMapper.driverInsert(userVO);
+	}
 }
