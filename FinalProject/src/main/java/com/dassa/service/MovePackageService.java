@@ -194,9 +194,10 @@ public class MovePackageService {
 	 * @param endAddr
 	 * @param scheduleInfo
 	 * @param userVO
+	 * @param applyMemo
 	 * @return
 	 */
-	public MoveApplyVO pushData(MoveAddrInfoVO startAddr, MoveAddrInfoVO endAddr, MoveAddrScheduleVO scheduleInfo, UserVO userVO) {
+	public MoveApplyVO pushData(MoveAddrInfoVO startAddr, MoveAddrInfoVO endAddr, MoveAddrScheduleVO scheduleInfo, UserVO userVO, String applyMemo) {
 
 		MoveApplyVO moveApplyVO	=	new MoveApplyVO();
 		moveApplyVO.setGuestIdx(userVO.getUserIdx());
@@ -226,7 +227,7 @@ public class MovePackageService {
 		moveApplyVO.setApplyTime(scheduleInfo.getTime());
 		moveApplyVO.setApplyHope(scheduleInfo.getMoveHope());
 		moveApplyVO.setApplyHelp(scheduleInfo.getMoveHelp());
-		moveApplyVO.setApplyMemo("일단메모");
+		moveApplyVO.setApplyMemo(applyMemo);
 
 		return moveApplyVO;
 	}

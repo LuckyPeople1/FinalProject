@@ -11,7 +11,7 @@
 					<div class="commonInsert_title">
 						운송기사 회원가입
 					</div>
-					<form action="/insert/commonInsert" method="post">
+					<form action="/insert/driverInsert" method="post" enctype="multipart/form-data">
 						<table class="commonInsert_table">
 							<colgroup>
 								<col width="200">
@@ -39,7 +39,7 @@
 									<input type="text" class="tbox post" id="insert_post_code" name="userPostCode" placeholder="우편번호" readonly="readonly">
 									<button type="button" onclick="findPost()" >우편번호 찾기</button><br>
 									<input type="text" class="tbox normal" id="insert_user_addr" name="userAddr" placeholder="주소" readonly="readonly">
-									<input type="text" class="tbox second_post" id="insert_extra_item" name="userExtraAddr" placeholder="참고항목" readonly="readonly">
+									<input type="hidden" class="tbox second_post" id="insert_extra_item" name="userExtraAddr" placeholder="참고항목" readonly="readonly">
 									<input type="text" class="tbox second_post" id="insert_detail_addr" name="userdetailAddr" placeholder="상세주소">
 								</td>
 							</tr>
@@ -57,6 +57,12 @@
 								</td>
 							</tr>
 							<tr>
+								<th>자기소개</th>
+								<td>
+									<textarea class="tbox normal" name="userIntro" id="userIntro" placeholder="본인을 소개해 주세요."></textarea>
+								</td>
+							</tr>
+							<tr>
 								<th>등록번호</th>
 								<td>
 									<input type="text" class="tbox normal" name="regisNum" id="regisNum">
@@ -68,9 +74,9 @@
 									<div class="img_up_list">
 										<div class="img_box">
 											<input type="file" class="hide" accept="image/*" name="compFilename" id="fileImg"
-												   onchange="package.imgSel(this, event)" value="${userVO.compFilename }">
+												   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
 											<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
-											<input type="hidden" name="compFilepath" value="${userVO.compFilename }">
+											<input type="hidden" name="compFilepath" value="${noticeVO.noticeFilename }">
 										</div>
 									</div>
 								</td>

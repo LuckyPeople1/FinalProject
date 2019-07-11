@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,23 +25,23 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.dassa.common.FileCommon;
 import com.dassa.service.ShopService;
+import com.dassa.vo.MoveApplyImgVO;
+import com.dassa.vo.ShopItemImgVO;
+import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemVO;
 
 @Controller
 @RequestMapping("/shop")
 public class ShopItemController {
 	
-	private static final int RESULT_EXCEED_SIZE = -2;
-    private static final int RESULT_UNACCEPTED_EXTENSION = -1;
-    private static final int RESULT_SUCCESS = 1;
-    private static final long LIMIT_SIZE = 10 * 1024 * 1024;
-	
-	
-	
 	@Autowired
 	@Qualifier(value="shopService")
 
+	@Resource
+	private FileCommon fileCommon;
+	@Resource
 	private ShopService shopService;
 	/**
 	 * 부동산 매물관리 페이지(item)
@@ -72,27 +75,19 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/shopItemAdd")
-	public String ShopItemAdd(MultipartHttpServletRequest  request,@RequestParam("img_0") MultipartFile[] img_0, ShopItemVO sItem)throws Exception {
-		String uploadPath = request.getSession().getServletContext().getRealPath("/upload/shop");
-		String fileOriginName = "";
-		String fileMultiName ="";
-		for(int i=0; i<img_0.length; i++) {
-			fileOriginName = img_0[i].getOriginalFilename();
-			System.out.println("기존 파일 명 : "+fileOriginName);
-			SimpleDateFormat formatter = new SimpleDateFormat("YYYYMMDD_HHMMSS_"+i);
-			Calendar now = Calendar.getInstance();
-			String extension = fileOriginName.split("\\.")[1]; //확장자명
-			fileOriginName = formatter.format(now.getTime())+"."+extension; //날짜+확장자명 
-			System.out.println("변경된 파일 명 : "+fileOriginName);
-			File f = new File(uploadPath+"\\"+fileOriginName);
-			img_0[i].transferTo(f);
-			if(i==0) {fileMultiName += fileOriginName;}
-			else {fileMultiName += ","+fileOriginName;}
-		}
-		sItem.setUserIdx(0); //매물 올린 부동산
-		System.out.println(sItem);
-		sItem.setShopItemFileName(fileMultiName);
-		shopService.shopItemAdd(sItem);
+	public String ShopItemAdd(MultipartHttpServletRequest  request, List<MultipartFile> fileImg, ShopItemVO sItem)throws Exception {
+//		
+//		List<ShopItemImgVO>imgList	=	new ArrayList<ShopItemImgVO>();
+//		for(MultipartFile img : fileImg) {
+//			if(!img.getOriginalFilename().equals("")) {
+//				String[] fileInfo	=	fileCommon.fileUp(img, request, "shopItem");
+//				ShopItemImgVO sItemVO = new ShopItemImgVO();
+//				sItemVO.setImgName(fileInfo[0]);
+//				sItemVO.setImgPath(fileInfo[1]);
+//				imgList.add(sItemVO);
+//			}
+//		}
+//		shopService.shopItemAdd(sItem);
 		return "shop/shopHome";
 	}
 	

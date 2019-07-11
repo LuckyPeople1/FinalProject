@@ -40,8 +40,8 @@ public class DriverMypageController {
 		result=driverService.driverMypageUpdateText(userVO);
 		if(!fileImg.getOriginalFilename().equals("")){
 			String[] fileInfo	=	FileCommon.fileUp(fileImg,request, "driver");
-			userVO.setCompFilename(fileInfo[0]);
-			userVO.setCompFilepth(fileInfo[1]);
+			userVO.setProFilename(fileInfo[0]);
+			userVO.setProFilepath(fileInfo[1]);
 			result=driverService.driverMypageUpdate(userVO);
 		}
 		

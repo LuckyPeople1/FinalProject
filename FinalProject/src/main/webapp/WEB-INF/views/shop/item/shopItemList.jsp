@@ -83,6 +83,9 @@
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="" begin="">
+					
+					</c:forEach>
 					<tr>
 						<td><label><input type="checkbox"></label></td>
 						<td>1</td>
@@ -98,8 +101,23 @@
 								<a href="/shop/itemInfo" class="btn col_navy f_w">상세보기</a>
 							</div>
 						</td>
-						<td>판매중</td>
-						<td>적용중</td>
+						<td>
+							<span class="sbox small">
+								<select>
+									<option value="판매중" selected="selected">판매중</option>
+									<option value="판매중단">판매중단</option>
+									<option value="판매완료">판매완료</option>
+								</select> 
+							</span>
+						</td>
+						<td>
+							<span class="sbox small">
+								<select>
+									<option value="비적용" selected="selected">비적용</option>
+									<option value="적용">적용</option>
+								</select> 
+							</span>
+						</td>
 						<td>18-09-30<br/>11:30</td>
 					</tr>
 					</tbody>

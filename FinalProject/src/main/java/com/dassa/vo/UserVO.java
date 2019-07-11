@@ -11,13 +11,13 @@ public class UserVO {
 	private String 	userPhone;
 	private String 	userEmail;
 	private String  proFilename;			//프로필 사진 파일명
-	private String  priFilepath;			//프로필 사진 경로
+	private String  proFilepath;			//프로필 사진 경로
 	private String 	userIntroduce;			//이사 소개
 	private String 	registrationNumber; 	//사업자 등록번호
 	private String	businessNumber;			//사업자 등록번호
 	private String 	userCar;				//운행차량
 	private String 	compFilename;			//등록증 이름
-	private String 	compFilepth;			//등록증 경로
+	private String 	compFilepath;			//등록증 경로
 	private String 	userType;				//회원 타입
 	private String  socialId;				//소셜 로그인 할 때 필요
 	private Date	enrollDate;
@@ -29,8 +29,8 @@ public class UserVO {
 	}
 
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
-			String userEmail, String proFilename, String priFilepath, String userIntroduce, String registrationNumber,
-			String businessNumber, String userCar, String compFilename, String compFilepth, String userType,
+			String userEmail, String proFilename, String proFilepath, String userIntroduce, String registrationNumber,
+			String businessNumber, String userCar, String compFilename, String compFilepath, String userType,
 			String socialId, Date enrollDate, String type) {
 		super();
 		this.userIdx = userIdx;
@@ -41,13 +41,13 @@ public class UserVO {
 		this.userPhone = userPhone;
 		this.userEmail = userEmail;
 		this.proFilename = proFilename;
-		this.priFilepath = priFilepath;
+		this.proFilepath = proFilepath;
 		this.userIntroduce = userIntroduce;
 		this.registrationNumber = registrationNumber;
 		this.businessNumber = businessNumber;
 		this.userCar = userCar;
 		this.compFilename = compFilename;
-		this.compFilepth = compFilepth;
+		this.compFilepath = compFilepath;
 		this.userType = userType;
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
@@ -118,12 +118,12 @@ public class UserVO {
 		this.proFilename = proFilename;
 	}
 
-	public String getPriFilepath() {
-		return priFilepath;
+	public String getProFilepath() {
+		return proFilepath;
 	}
 
-	public void setPriFilepath(String priFilepath) {
-		this.priFilepath = priFilepath;
+	public void setProFilepath(String proFilepath) {
+		this.proFilepath = proFilepath;
 	}
 
 	public String getUserIntroduce() {
@@ -166,14 +166,6 @@ public class UserVO {
 		this.compFilename = compFilename;
 	}
 
-	public String getCompFilepth() {
-		return compFilepth;
-	}
-
-	public void setCompFilepth(String compFilepth) {
-		this.compFilepth = compFilepth;
-	}
-
 	public String getUserType() {
 		return userType;
 	}
@@ -188,6 +180,22 @@ public class UserVO {
 
 	public void setSocialId(String socialId) {
 		this.socialId = socialId;
+	}
+
+	public String getCompFilepath() {
+		return compFilepath;
+	}
+
+	public void setCompFilepath(String compFilepath) {
+		this.compFilepath = compFilepath;
+	}
+
+	public Date getEnrollDate() {
+		return enrollDate;
+	}
+
+	public void setEnrollDate(Date enrollDate) {
+		this.enrollDate = enrollDate;
 	}
 
 	public String getType() {
