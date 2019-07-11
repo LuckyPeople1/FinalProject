@@ -9,6 +9,8 @@
 				user_name as userName,
 				user_phone as userPhone,
 				user_email as userEmail,
+				pro_filename as proFilename,
+				pro_filepath as proFilepath,
 				user_introduce as userIntroduce,
 				registration_number as registrationNumber,
 				user_car as userCar,
@@ -22,7 +24,7 @@
 	<!--mypage 이미지만 업로드  -->	
 	<update id="driverMypageUpdate" parameterType="userVO">
 	update user_tbl set
-	comp_filename=#{compFilename}, comp_filepath=#{compFilePath}
+	pro_filename=#{proFilename}, pro_filepath=#{proFilepath}
 		where user_id=#{userId}
 	</update>
 	
