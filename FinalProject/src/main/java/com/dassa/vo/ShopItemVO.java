@@ -9,8 +9,7 @@ public class ShopItemVO {
 	private String shopItemContent;												//매물상세정보
 	private String shopItemSecretMemo;											//매물비공개메모
 	private String shopItemManager;												//매물담당자
-	private String shopItemFileName;												//매물파일
-	private String shopItemFilePath;												//매물파일경로
+	private int shopItemImgIdx;														//매물사진테이블 외래키
 	private String shopItemPremiumState;										//매물아이템상태
 	private String shopItemType1;													//매물종류(원룸,투룸,쓰리룸,오피스텔,아파트)
 	private String shopItemType2;													//매물건물유형(단독주택,다가구주택)
@@ -49,16 +48,16 @@ public class ShopItemVO {
 		// TODO Auto-generated constructor stub
 	}
 	public ShopItemVO(int shopItemIdx, int userIdx, String shopItemTitle, String shopItemContent,
-			String shopItemSecretMemo, String shopItemManager, String shopItemFileName, String shopItemFilePath,
-			String shopItemPremiumState, String shopItemType1, String shopItemType2, String shopItemAddr1,
-			String shopItemAddr2, String shopItemAddr3, String shopItemLatitude, String shopItemLongitude,
-			String shopItemDealType, String shopItemDealPrice, String shopItemSize, String shopItemSizeAll,
-			String shopItemFloor, String shopItemFloorAll, String shopItemHeating, String shopItemBulidCompany,
-			String shopItemBulidHallway, String shopItemBulidDate, String shopItemMovingDate,
-			String shopItemManagePrice, String shopItemManagePriceOption, String shopParkingPrice,
-			String shopItemAnimal, String shopItemElevator, String shopItemBalcony, String shopItemBuiltIn,
-			String shopItemStructure, String shopItemOption, String shopItemLoan, Date shopItemRegDate,
-			Date shopItemDelDate, String shopItemOkState, String shopItemSaleState) {
+			String shopItemSecretMemo, String shopItemManager, int shopItemImgIdx, String shopItemPremiumState,
+			String shopItemType1, String shopItemType2, String shopItemAddr1, String shopItemAddr2,
+			String shopItemAddr3, String shopItemLatitude, String shopItemLongitude, String shopItemDealType,
+			String shopItemDealPrice, String shopItemSize, String shopItemSizeAll, String shopItemFloor,
+			String shopItemFloorAll, String shopItemHeating, String shopItemBulidCompany, String shopItemBulidHallway,
+			String shopItemBulidDate, String shopItemMovingDate, String shopItemManagePrice,
+			String shopItemManagePriceOption, String shopParkingPrice, String shopItemAnimal, String shopItemElevator,
+			String shopItemBalcony, String shopItemBuiltIn, String shopItemStructure, String shopItemOption,
+			String shopItemLoan, Date shopItemRegDate, Date shopItemDelDate, String shopItemOkState,
+			String shopItemSaleState) {
 		super();
 		this.shopItemIdx = shopItemIdx;
 		this.userIdx = userIdx;
@@ -66,8 +65,7 @@ public class ShopItemVO {
 		this.shopItemContent = shopItemContent;
 		this.shopItemSecretMemo = shopItemSecretMemo;
 		this.shopItemManager = shopItemManager;
-		this.shopItemFileName = shopItemFileName;
-		this.shopItemFilePath = shopItemFilePath;
+		this.shopItemImgIdx = shopItemImgIdx;
 		this.shopItemPremiumState = shopItemPremiumState;
 		this.shopItemType1 = shopItemType1;
 		this.shopItemType2 = shopItemType2;
@@ -138,17 +136,11 @@ public class ShopItemVO {
 	public void setShopItemManager(String shopItemManager) {
 		this.shopItemManager = shopItemManager;
 	}
-	public String getShopItemFileName() {
-		return shopItemFileName;
+	public int getShopItemImgIdx() {
+		return shopItemImgIdx;
 	}
-	public void setShopItemFileName(String shopItemFileName) {
-		this.shopItemFileName = shopItemFileName;
-	}
-	public String getShopItemFilePath() {
-		return shopItemFilePath;
-	}
-	public void setShopItemFilePath(String shopItemFilePath) {
-		this.shopItemFilePath = shopItemFilePath;
+	public void setShopItemImgIdx(int shopItemImgIdx) {
+		this.shopItemImgIdx = shopItemImgIdx;
 	}
 	public String getShopItemPremiumState() {
 		return shopItemPremiumState;
