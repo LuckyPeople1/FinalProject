@@ -91,4 +91,9 @@ public class DriverService {
 		return driverMapper.driverAuctionUpdate(applyIdx);
 	}
 
+	public DriverVO driverMoveSelectOne(int applyIdx) throws Exception {
+		
+		return driverMapper.driverMoveSelectOne(applyIdx) ;
+	}
+
 }

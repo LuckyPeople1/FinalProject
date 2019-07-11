@@ -199,5 +199,16 @@
 	</update>
 	
 	
+	<select id="driverMoveSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverVO">
+		select	driver_idx as driverIdx,
+				apply_idx as applyIdx,
+				user_car as userCar,
+				driver_message as driverMessage,
+				ladderState,
+				EstimateAmount
+				from driver_tbl
+				where apply_idx = #{applyIdx}
+	</select>
+	
 	
 </mapper>

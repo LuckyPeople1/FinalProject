@@ -17,7 +17,7 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
-				<form action="/driver/move" id="driverMoveForm" method="post">
+				<form action="/driver/" id="driverMoveForm" method="post">
 					<input type="hidden" id="page" name="page" value="${pagination.page }">
 					<input type="hidden" id="range" name="range" value="${pagination.range }">
 					<input type="hidden" id="rangeSize" name="rangeSize" value="${pagination.rangeSize }">
@@ -52,7 +52,7 @@
 				</form>
 				<div class="set_form_search">
 					<a href="javascript:$('#driverMoveForm').submit()" class="btn col_red f_w">검색</a>
-					<a href="/driver/move" class="btn col_grey line ml5">전체 목록</a>
+					<a href="/driver/" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>
 			<div class="list_form">
@@ -115,7 +115,7 @@
 						</c:if>
 						<td>
 							<div class="set_menu">
-								<a href="/driver/driverMoveDetail" class="btn col_navy f_w">상세보기</a>
+								<a href="/driver/Detail?applyIdx=${moveApply.applyIdx }" class="btn col_navy f_w">상세보기</a>
 							</div>
 						</td>
 					</tr>
@@ -148,7 +148,7 @@
 </div>
 <script>
 
-	function fn_pagination(page, range, rangeSize,) {
+	function fn_pagination(page, range, rangeSize) {
 	  
 		var elem = document.getElementById('driverMoveForm');
 		elem.action = "${pageContext.request.contextPath}/driver/move";

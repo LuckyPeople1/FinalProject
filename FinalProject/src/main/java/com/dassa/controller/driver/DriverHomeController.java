@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dassa.service.DriverService;
+import com.dassa.vo.DriverApplyImgVO;
+import com.dassa.vo.DriverApplyOptionVO;
+import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 
 @Controller
@@ -45,5 +49,39 @@ public class DriverHomeController {
 				}
 			return "driver/driverHome";
 		}
+		@RequestMapping("/Detail")
+		public String DriverDetail(Model model,int applyIdx,HttpServletRequest request) throws Exception {
+
+			DriverAuctionDetailVO driverAuctionDetail=driverService.driverSelectOne(applyIdx);	//move_apply_tbl 조회 
+			
+			
+			
+			List<DriverApplyOptionVO> optionList =driverService.driverOptionList(applyIdx);
+			
+			List<DriverApplyImgVO> imgList =driverService.driverImgList(applyIdx);
+			
+			DriverVO driverVO=driverService.driverMoveSelectOne(applyIdx);
+			
+			
+			if(driverAuctionDetail!=null) {
+								
+				
+				model.addAttribute("driverAuctionDetail", driverAuctionDetail);	//move_apply_tbl 정보 selectOne
+				model.addAttribute("optionList", optionList);					//move_apply_option_tbl 정보 list
+				model.addAttribute("imgList", imgList);							//move_apply_img_tbl 정보 list
+				model.addAttribute("driverVO", driverVO);
+				
+				
+				return "driver/driverHomeDetail";
+			}else {
+				return "driver/driverHome";
+			}
+			
+			
+		}
+		
+		
+		
+		
 
 }
