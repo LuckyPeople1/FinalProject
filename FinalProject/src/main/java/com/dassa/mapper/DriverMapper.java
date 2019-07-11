@@ -8,6 +8,7 @@ import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.UserVO;
 
@@ -32,11 +33,18 @@ public int driverTotalCount (DriverPageData pagination) throws Exception;
 //이사관리 총게시물 수
 public int driverMoveTotalCount(DriverPageData pagination) throws Exception;
 
-//입찰관리 상세보기 리스티 뿌리기 
+//입찰관리 상세보기 리트 뿌리기.(상품)
 public DriverAuctionDetailVO driverSelectOne(int applyIdx) throws Exception;
 
+//입찰관리 상세보기 리스트 뿌리기.(옵션)
 public List<DriverApplyOptionVO> driverOptionList(int applyIdx) throws Exception;
 
+//입찰관리 상세보기 리스트 뿌리기.(이미지)
 public List<DriverApplyImgVO> driverImgList(int applyIdx) throws Exception;
+
+//입찰관리 견적값 넣기 insert 하기
+public int driverAuctionInsert(DriverVO driverVO) throws Exception;
+
+public int driverAuctionUpdate(int applyIdx) throws Exception;
 
 }
