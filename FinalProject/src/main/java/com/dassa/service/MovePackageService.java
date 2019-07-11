@@ -249,4 +249,14 @@ public class MovePackageService {
 		return movePackageMapper.regApplyImg(imgList);
 
 	}
+
+	public List<PackageTempVO> getManagePackageList() throws Exception {
+
+		return movePackageMapper.getPackageList();
+
+	}
+
+	public PackageTempVO getPackageSelect(int idx) throws Exception {
+		return movePackageMapper.getPackage(idx);
+	}
 }
