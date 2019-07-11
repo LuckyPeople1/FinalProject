@@ -17,6 +17,7 @@ import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
+import com.siot.IamportRestClient.request.CancelData;
 import com.siot.IamportRestClient.response.AccessToken;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
@@ -126,7 +127,7 @@ public class GuestMyController {
 	@ResponseBody
 	@RequestMapping("/guestMovePayment")
 	public void guestMovePayment(String movePaymentimpUid,int applyIdx,int driverIdx) {
-		testGetToken();
+		GetToken();
 		String imp_uid = movePaymentimpUid;
 		try {
 			IamportResponse<Payment> payment_response = client.paymentByImpUid(imp_uid);
@@ -172,6 +173,40 @@ public class GuestMyController {
 		}
 	}
 	/**
+	 * 입찰 결제 취소
+	 * @return
+	 */
+	public void guestMovePaymentCencel() {
+		GetToken();
+		String test_already_cancelled_imp_uid = "imp_448280090638";
+		CancelData cancel_data = new CancelData(test_already_cancelled_imp_uid, true); //imp_uid를 통한 전액취소
+		
+		try {
+			IamportResponse<Payment> payment_response = client.cancelPaymentByImpUid(cancel_data);
+			
+			if(payment_response.getResponse() != null) {
+				    
+				MovePaymentVO mpVo = new MovePaymentVO();
+				
+			}
+			
+		} catch (IamportResponseException e) {
+			System.out.println(e.getMessage());
+			
+			switch(e.getHttpStatusCode()) {
+			case 401 :
+				//TODO
+				break;
+			case 500 :
+				//TODO
+				break;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	/**
 	 * 결제 준비
 	 * @return
 	 */
@@ -181,10 +216,10 @@ public class GuestMyController {
 		client = new IamportClient(test_api_key, test_api_secret);
 	}
 	/**
-	 * 결제 내역 조회를 위한 토근 생성
+	 * 결제 내역 조회를 위한 토근 발급
 	 * @return
 	 */
-	public void testGetToken() {
+	public void GetToken() {
 		setup();
 		try {
 			IamportResponse<AccessToken> auth_response = client.getAuth();
