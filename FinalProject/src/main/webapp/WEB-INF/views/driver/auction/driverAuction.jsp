@@ -90,7 +90,7 @@
 					<c:forEach items="${list }" var="moveApply" varStatus="i">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${moveApply.guestIdx }</td>
+						<td>${moveApply.applyIdx }</td>
 						<td>${moveApply.applyDate }</td>
 						<td>${moveApply.applyTime }</td>
 						<td>${moveApply.guestName }</td>
@@ -98,7 +98,7 @@
 						<td>${moveApply.endAddr1 }</td>
 						<td><span class="tag col_blue f_w">견적대기</span></td>
 						<td>
-							<a href="/driver/auctionDetail" class="btn col_navy f_w">상세보기</a>
+							<a href="/driver/auctionDetail?applyIdx=${moveApply.applyIdx }" class="btn col_navy f_w">상세보기</a>
 							<a href="javascript:void(0)" class="btn col_red f_w">삭제</a>
 						</td>
 <!-- 						<td>
