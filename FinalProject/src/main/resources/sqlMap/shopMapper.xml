@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.ShopMapper">
-
-
 	<!-- 주소 구 리스트 가져오기 -->
 	<select id="getJusoGuList" parameterType="string" resultType="jusoGuVO">
 		select 
@@ -17,6 +15,7 @@
 			juso_dong_name as jusoDongName
 		from juso_dong_tbl where juso_dong_code like #{jusoGuCode}||'%' order by juso_dong_name asc
 	</select>
+	<!-- 매물 등록  -->
 	<insert id="shopItemAdd" parameterType="shopItemVO">
 		insert into shop_item_tbl values(
 			shop_item_idx_seq.nextval,
@@ -61,7 +60,26 @@
 			#{shopItemSaleState, jdbcType=VARCHAR}
 			)
 	</insert>
-	
-	
+	<!-- 매물 이미지 등록 -->
+	<insert id="shopItemImgAdd" parameterType="java.util.List">
+		insert into 
+		shop_item_img_tbl (
+			shop_img_idx,
+			shop_item_idx,
+			shop_img_name,
+			shop_img_path
+			)
+			select
+			shop_item_img_idx_seq.nextval,
+			shop_item_idx_seq.currval,
+			T.* from(
+			<foreach collection="list" item="item" separator="union all">
+				select
+				#{item.imgName} as shop_img_name,
+				#{item.imgPath} as shop_img_path
+				from dual
+			</foreach>
+			) T
+	</insert>
 	
 </mapper>

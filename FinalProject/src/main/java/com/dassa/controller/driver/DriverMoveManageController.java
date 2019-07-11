@@ -3,7 +3,6 @@ package com.dassa.controller.driver;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dassa.service.DriverService;
+import com.dassa.vo.DriverApplyImgVO;
+import com.dassa.vo.DriverApplyOptionVO;
+import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 
 @Controller
@@ -22,7 +25,7 @@ public class DriverMoveManageController {
 	@Resource
 	private DriverService driverService;
 	
-	//이사 관리 페이지
+		//이사 관리 페이지
 		@RequestMapping("/move")
 		public String DriverMove(Model model,DriverPageData pagination,HttpServletRequest request,
 				 @RequestParam(required = false, defaultValue = "1") int page 
@@ -50,8 +53,34 @@ public class DriverMoveManageController {
 		
 		//이사 관리 상세보기.
 		@RequestMapping("/driverMoveDetail")
-		public String DriverMoveDetail() {
-			return "driver/manager/driverMoveDetail";
+		public String DriverMoveDetail(Model model,int applyIdx,HttpServletRequest request) throws Exception {
+
+			DriverAuctionDetailVO driverAuctionDetail=driverService.driverSelectOne(applyIdx);	//move_apply_tbl 조회 
+			
+			
+			
+			List<DriverApplyOptionVO> optionList =driverService.driverOptionList(applyIdx);
+			
+			List<DriverApplyImgVO> imgList =driverService.driverImgList(applyIdx);
+			
+			DriverVO driverVO=driverService.driverMoveSelectOne(applyIdx);
+			
+			
+			if(driverAuctionDetail!=null) {
+								
+				
+				model.addAttribute("driverAuctionDetail", driverAuctionDetail);	//move_apply_tbl 정보 selectOne
+				model.addAttribute("optionList", optionList);					//move_apply_option_tbl 정보 list
+				model.addAttribute("imgList", imgList);							//move_apply_img_tbl 정보 list
+				model.addAttribute("driverVO", driverVO);
+				
+				
+				return "driver/manager/driverMoveDetail";
+			}else {
+				return "driver/manager/driverMove";
+			}
+			
+			
 		}
 		
 		//@사용자 리뷰 페이지

@@ -2,6 +2,7 @@ package com.dassa.controller.guest;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.Resource;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.GuestMoveService;
+import com.dassa.vo.MoveApplyPage;
+import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 import com.siot.IamportRestClient.IamportClient;
@@ -30,6 +34,12 @@ public class GuestMyController {
 	private IamportClient client; // 결제 라이브 러리
 	@Resource
 	private GuestMoveService guestMoveService;
+
+	/**
+	 * 마이페이지 메인
+	 * @param httpSession
+	 * @return
+	 */
 
 	@RequestMapping("/")
 	public String home(HttpSession httpSession){
@@ -73,6 +83,11 @@ public class GuestMyController {
 	}
 
 
+	/**
+	 * 내 정보
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/info")
 	public String info(Model model){
 
@@ -88,9 +103,11 @@ public class GuestMyController {
 	 * @return
 	 */
 	@RequestMapping("/moveList")
-	public String moveList(Model model){
-
+	public String moveList(Model model,int guestIdx,@RequestParam(defaultValue="1") int reqPage){
+		MoveApplyPage moPage = new MoveApplyPage();
+		MoveApplyPage movePage = guestMoveService.moveList(guestIdx,reqPage,moPage);
 		model.addAttribute("tab","2");
+		model.addAttribute("movePage",movePage);
 
 		return "/guest/mypage/myMoveList";
 	}
@@ -122,9 +139,16 @@ public class GuestMyController {
 	}
 
 
+	/**
+	 * 이사 상세정보 보기
+	 * @param model
+	 * @param moveIdx
+	 * @return
+	 */
 	@RequestMapping("/moveInfo")
-	public String moveinfo(Model model, @RequestParam int moveIdx){
-
+	public String moveInfo(Model model, @RequestParam int applyIdx) throws Exception{
+		MoveInfoTotalData mitd = guestMoveService.moveInfo(applyIdx);
+		model.addAttribute("moveInfo", mitd);
 		return "/guest/mypage/myMoveInfo";
 
 	}

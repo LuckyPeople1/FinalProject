@@ -12,6 +12,7 @@ import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
 import com.dassa.vo.SaleInLotsPageDataVO;
 import com.dassa.vo.SaleInLotsVO;
+import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemVO;
 
@@ -45,8 +46,15 @@ public class ShopService {
 	 * @return
 	 * @throws Exception
 	 */
-	public int shopItemAdd(ShopItemVO sItem) throws Exception {
-		return shopMapper.shopItemAdd(sItem);
+	public int shopItemAdd(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
+		shopMapper.shopItemAdd(sItem);
+		return shopMapper.shopItemImgAdd(sItemImgList);
+		
 	}
-	
+	/**
+	 * 
+	 */
+	public int shopItemImgAdd(List<ShopItemImgVO> sItemImgList) throws Exception{
+		return shopMapper.shopItemImgAdd(sItemImgList);
+	}
 }

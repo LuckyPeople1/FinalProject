@@ -21,4 +21,6 @@ public interface MovePackageMapper {
 	public int regApplyPackage(List<PackageOptionSelectVO> packageOptionList) throws Exception;
 
 	public int regApplyImg(List<MoveApplyImgVO> moveApplyImgList) throws Exception;
+
+	public PackageTempVO getPackageSelect(int idx) throws Exception;
 }

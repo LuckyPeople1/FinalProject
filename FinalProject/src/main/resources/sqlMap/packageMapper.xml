@@ -29,6 +29,8 @@
 	</resultMap>
 
 
+
+
 	<insert id="regPackage" parameterType="com.dassa.vo.PackageRegVO">
 		insert
 		into MOVE_PACKAGE_TBL values (
@@ -78,6 +80,10 @@
 		from MOVE_PACKAGE_TBL
 		where PACKAGE_STATUS = 0
 		  and PACKAGE_IDX = #{idx}
+	</select>
+
+	<select id="getPackageSelect" resultType="com.dassa.vo.PackageRegVO">
+
 	</select>
 
 	<insert id="regApply" parameterType="com.dassa.vo.MoveApplyVO">

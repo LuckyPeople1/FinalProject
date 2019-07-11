@@ -1,8 +1,5 @@
 package com.dassa.controller.shop;
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,10 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -27,9 +21,7 @@ import org.w3c.dom.NodeList;
 
 import com.dassa.common.FileCommon;
 import com.dassa.service.ShopService;
-import com.dassa.vo.MoveApplyImgVO;
 import com.dassa.vo.ShopItemImgVO;
-import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemVO;
 
 @Controller
@@ -68,26 +60,43 @@ public class ShopItemController {
 		return "shop/item/shopItemInfo";
 	}
 	/**
-	 * 매물등록로직(shopItemAdd)
+	 * 부동산 매물 등록페이지(ItemAdd)
 	 * @param request
-	 * @param shopItemFileName
+	 * @param fileImg
 	 * @param sItem
 	 * @return
+	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemAdd")
-	public String ShopItemAdd(MultipartHttpServletRequest  request, List<MultipartFile> fileImg, ShopItemVO sItem)throws Exception {
-//		
-//		List<ShopItemImgVO>imgList	=	new ArrayList<ShopItemImgVO>();
-//		for(MultipartFile img : fileImg) {
-//			if(!img.getOriginalFilename().equals("")) {
-//				String[] fileInfo	=	fileCommon.fileUp(img, request, "shopItem");
-//				ShopItemImgVO sItemVO = new ShopItemImgVO();
-//				sItemVO.setImgName(fileInfo[0]);
-//				sItemVO.setImgPath(fileInfo[1]);
-//				imgList.add(sItemVO);
-//			}
-//		}
-//		shopService.shopItemAdd(sItem);
+	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+		
+		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
+		
+		System.out.println("넘어온 파일 : "+fileImg);
+		
+		for(MultipartFile img : fileImg) {
+			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
+			
+			if(!img.getOriginalFilename().equals("")) {
+				String[] fileInfo	=	fileCommon.fileUp(img, httpServletRequest, "shopItem");
+				System.out.println("넘어온 파일 배열에 담음"+fileInfo);
+				
+				ShopItemImgVO sItemImgVO = new ShopItemImgVO();
+				System.out.println("담을 파일 이름 : "+fileInfo[0]);
+				sItemImgVO.setImgName(fileInfo[0]);
+				System.out.println("담은 파일 이름"+sItemImgVO.getImgName());
+				
+				System.out.println("담을 파일 경로 : "+fileInfo[1]);
+				sItemImgVO.setImgPath(fileInfo[1]);
+				System.out.println("파일경로"+sItemImgVO.getImgPath());
+				
+				imgList.add(sItemImgVO);
+				System.out.println("최종이미지리스트"+imgList);
+			}
+		}
+		shopService.shopItemAdd(sItem, imgList);
+//		shopService.shopItemImgAdd(imgList);
+		
 		return "shop/shopHome";
 	}
 	
