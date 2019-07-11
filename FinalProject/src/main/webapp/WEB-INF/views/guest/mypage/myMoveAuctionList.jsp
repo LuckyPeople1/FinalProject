@@ -14,7 +14,7 @@
 			<div class="mypageCon move">
 				<div class="moveTitle">
 					<span class="tit">입찰 내역</span>
-					<a href="#none" class="myMove">내 이사정보 보기</a>
+					<a href="/my/moveInfo?moveIdx=1" class="myMove">내 이사정보 보기</a>
 				</div>
 				<div class="auctionList">
 					<div class="auctionBox on">

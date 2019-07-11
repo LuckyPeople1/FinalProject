@@ -61,7 +61,7 @@
 				</div>
 				<div class="mypageBtnBox">
 					<a href="/my/" class="btn col_darkGrey f_w big">뒤로가기</a>
-					<a href="/my/info" class="btn col_main f_w big">결제하기</a>
+					<a href="javascript:move.payment()" class="btn col_main f_w big">결제하기</a>
 				</div>
 			</div>
 		</section>

@@ -25,8 +25,7 @@
 			#{shopItemContent, jdbcType=VARCHAR},
 			#{shopItemSecretMemo, jdbcType=VARCHAR},
 			#{shopItemManager, jdbcType=VARCHAR},
-			#{shopItemFileName, jdbcType=VARCHAR},
-			#{shopItemFilePath, jdbcType=VARCHAR},
+			shop_item_img_idx_seq.nextval,
 			#{shopItemPremiumState, jdbcType=VARCHAR},
 			#{shopItemType1, jdbcType=VARCHAR},
 			#{shopItemType2, jdbcType=VARCHAR},
@@ -62,4 +61,7 @@
 			#{shopItemSaleState, jdbcType=VARCHAR}
 			)
 	</insert>
+	
+	
+	
 </mapper>
