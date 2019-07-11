@@ -9,6 +9,8 @@
 				user_name as userName,
 				user_phone as userPhone,
 				user_email as userEmail,
+				pro_filename as proFilename,
+				pro_filepath as proFilepath,
 				user_introduce as userIntroduce,
 				registration_number as registrationNumber,
 				user_car as userCar,
@@ -22,7 +24,7 @@
 	<!--mypage 이미지만 업로드  -->	
 	<update id="driverMypageUpdate" parameterType="userVO">
 	update user_tbl set
-	comp_filename=#{compFilename}, comp_filepath=#{compFilePath}
+	pro_filename=#{proFilename}, pro_filepath=#{proFilepath}
 		where user_id=#{userId}
 	</update>
 	
@@ -102,7 +104,7 @@
 				apply_status as applyStatus,
 				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
 				from move_apply_tbl
-				where (apply_status =1 or apply_status =2)
+				where (apply_status =1 or apply_status =2 or apply_status =3)
 				
 				<if test="userName!=''" >
 				and guest_name like '%'||#{userName}||'%'			
@@ -132,8 +134,10 @@
 				</if>
 		)
 	</select>
+	
+	<!--입찰목록 상세보기 리스트 뿌리기 (상품) -->
 	<select id="driverSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverAuctionDetailVO">
-		select  apply_idx as apply_idx,
+		select  apply_idx as applyIdx,
 				guest_name as guestName,
 				guest_phone as gusetPhone,
 				apply_date as applyDate,
@@ -165,6 +169,7 @@
 				where apply_idx=#{applyIdx}
 	</select>
 	
+	<!--입찰목록 상세보기 리스트 뿌리기  (옵션)-->
 	<select id="driverOptionList" parameterType="_int" resultType="com.dassa.vo.DriverApplyOptionVO">
 		select 
 				option_idx as optionIdx,
@@ -175,7 +180,7 @@
 				from move_apply_option_tbl
 				where apply_idx=#{applyIdx}
 	</select>
-	
+	<!--입찰목록 상세보기 리스트 뿌리기 (이미지) -->
 	<select id="driverImgList" parameterType="_int" resultType="com.dassa.vo.DriverApplyImgVO">
 		select 	img_idx as imgIdx,
 				img_name as imgName,
@@ -183,51 +188,27 @@
 				from move_apply_img_tbl
 				where apply_idx=#{applyIdx} 
 	</select>
+	<!-- //입찰관리 견적값 넣기 insert 하기 -->
+	<insert id="driverAuctionInsert" parameterType="com.dassa.vo.DriverVO">
+		insert into driver_tbl values(#{driverIdx},#{applyIdx},#{userCar},#{driverMessage},#{ladderState},#{estimateAmount},0)
+	</insert>
+	
+	<!-- 입찰관리 입찰상태 update 하기 -->
+	<update id="driverAuctionUpdate" parameterType="_int">
+		update MOVE_APPLY_TBL set apply_status= 1 where apply_idx=#{applyIdx}
+	</update>
 	
 	
-	<!-- <select id="driverAuctionDetailMoveApply" resultType="com.dassa.vo.DriverAuctionDetailVO" parameterType="_int">
-		select  a.apply_idx as apply_idx,
-				a.guest_name as guestName,
-				a.guest_phone as gusetPhone,
-				a.apply_date as applyDate,
-				a.start_addr1 as startAddr1,
-				a.start_addr2 as startAddr2,
-				a.start_addr3 as startAddr3,
-				a.end_addr1 as endAddr1,
-				a.end_addr2 as endAddr2,
-				a.end_addr3 as endAddr3,
-				a.start_latitude as startLatitude,
-				a.start_longitude as startLongitude,
-				a.end_latitude as endLatitude,
-				a.end_longitude as endLongitude,
-				a.start_elevator as startElevator,
-				a.end_elevator as endElevator,
-				a.start_parking as startParking,
-				a.end_parking as endParking,
-				a.start_type as startType,
-				a.end_type as endType,
-				a.start_structure as startStructure,
-				a.start_size as startSize,
-				a.start_floor as startFloor,
-				a.end_floor as endFloor,
-				a.apply_time as applyTime,
-				a.apply_hope as applyHope,
-				a.apply_help as applyHelp,
-				a.apply_memo as applyMemo,
-				b.package_type as packageType,
-				b.package_name as packageName,
-				b.package_option as packageOption,
-				b.package_img_path as packageImgOption,
-				c.img_idx as imgIdx,
-				c.img_name as imgName,
-				c.img_path as imgPath
-				from move_apply_tbl a 
-				left join move_apply_option_tbl b on 
-				a.apply_idx = b.apply_idx 
-				left join move_apply_img_tbl c on 
-				c.apply_idx = a.apply_idx
-				where a.apply_idx=#{applyIdx}
-	</select> -->
+	<select id="driverMoveSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverVO">
+		select	driver_idx as driverIdx,
+				apply_idx as applyIdx,
+				user_car as userCar,
+				driver_message as driverMessage,
+				ladderState,
+				EstimateAmount
+				from driver_tbl
+				where apply_idx = #{applyIdx}
+	</select>
 	
 	
 </mapper>

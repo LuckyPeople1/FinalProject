@@ -54,9 +54,9 @@
 							<th>프로필 사진<span class="ess">*</span></th>
 							<td colspan="">
 								<div class="img_upload">
-									<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.compFilepath }">
+									<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
 									<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
-										<img id="mypage"  src="${user.compFilepath }"> 
+										<img id="mypage"  src="${user.proFilepath }"> 
 									</a>
 								</div>
 							</td>

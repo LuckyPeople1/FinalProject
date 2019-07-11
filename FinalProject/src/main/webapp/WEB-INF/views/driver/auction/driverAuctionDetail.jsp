@@ -124,13 +124,13 @@
 				<div class="set_form">
 					<div class="table_set">
 						<div>
-						<c:forEach items="${imgList }" var="DriverApplyImg" varStatus="i">	
-							<div class="img_upload">
-								<input type="file" name="img_'+i+'" id="img_'+i+'" class="hide" onchange="img_change(this)">
-								<a href="#none" class="imgUp" id="imgUp_'+i+'"><img  src="${DriverApplyImg.imgPath }"></a>
-							</div>
-						</c:forEach>	
-						<div>		
+							<c:forEach items="${imgList }" var="DriverApplyImg" varStatus="i">	
+								<div class="img_upload">
+									<input type="file" name="img_'+i+'" id="img_'+i+'" class="hide" onchange="img_change(this)">
+									<a href="#none" class="imgUp" id="imgUp_'+i+'"><img  src="${DriverApplyImg.imgPath }"></a>
+								</div>
+							</c:forEach>	
+						</div>		
 					</div>
 					<br><br><br>
 					<div class="driverPont"><p3>짐정보</p3></div><br><hr>
@@ -216,10 +216,11 @@
 							</ul>
 						</c:forEach>
 					</c:if>	
-					</div><br><br><br>
-					<div class="section_title">기사정보</div><hr>
 				</div>
 			</div>
+			<form action="/driver/auctioninsert" method="post" id="auctionInsertForm">
+				<br><br><br>
+				<div class="section_title">기사정보</div><hr>
 				<div class="section">
 					<div class="set_form">
 						<table class="table_set">
@@ -235,12 +236,15 @@
 								<th>운반차량<span class="ess">*</span></th>
 								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }" readonly="readonly"></td>
 								<th>사다리비용여부<span class="ess">*</span></th>
-								<td><input class="tbox full" placeholder="사다리여부를 작성해 주세요"></td>
+								<td>
+									<input type="radio" name="ladderState" value="0">사다리 비용 필요하지 않음
+									<input type="radio" name="ladderState" value="1">사다리 비용 필요
+								</td>
 							</tr>
 							<tr>
 								<th>메모</th>
 								<td colspan="3">
-									<textarea class="text_editor smaller"  placeholder="고객님에게 필요한 메세지를 작성해 주세요."></textarea>
+									<textarea class="text_editor smaller" name="driverMessage"  placeholder="고객님에게 필요한 메세지를 작성해 주세요."></textarea>
 								</td>
 							</tr>
 							</tbody>
@@ -256,16 +260,17 @@
 								<li class="bg">
 									<div class="row static">
 										<div class="subject">견적금액결정</div><br>
-										
-										<div><input class="tbox full"></div>
+										<input type="hidden" name="applyIdx" value="${driverAuctionDetail.applyIdx}"> <!--applyIdx 숨기기  -->
+										<div><input class="tbox full" name="estimateAmount"></div>
 									</div>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+			</form>	
 			<div class="btn_box">
-				<a href="javascript:void(0)" class="btn col_navy f_w">최종결정</a>
+				<a href="javascript:$('#auctionInsertForm').submit()" class="btn col_navy f_w">최종결정</a>
 				<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
 			</div>
 		</section>

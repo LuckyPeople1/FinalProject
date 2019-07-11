@@ -98,7 +98,29 @@
 			           null,
 			            #{userCar},
 			             #{compFilename},
-			              null,
+			              #{compFilepath},
+			               #{userType},
+			                null,
+			                 default)
+		</insert>
+		
+		<insert id="shopInsert" parameterType="userVO">
+			insert into user_tbl values (
+			user_no_seq.nextval,
+			 #{userId},
+			  #{userPw},
+			   #{userName},
+			    #{userAddr},
+			     #{userPhone},
+			      #{userEmail},
+			       null,
+			        null,
+			         #{userIntroduce},
+			          #{registrationNumber},
+			           #{businessNumber},
+			            null,
+			             #{compFilename},
+			              #{compFilepath},
 			               #{userType},
 			                null,
 			                 default)

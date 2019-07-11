@@ -20,4 +20,6 @@ public interface UserMapper {
 
 	public int driverInsert(UserVO userVO);
 
+	public int shopInsert(UserVO userVO);
+
 }
