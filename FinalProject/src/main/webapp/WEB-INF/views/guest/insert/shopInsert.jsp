@@ -9,9 +9,9 @@
 			<div class="commonInsert_contents">
 				<div class="commonInsert_field">
 					<div class="commonInsert_title">
-						운송기사 회원가입
+						부동산 회원가입
 					</div>
-					<form action="/insert/driverInsert" method="post">
+					<form action="/insert/shopInsert" method="post" enctype="multipart/form-data">
 						<table class="commonInsert_table">
 							<colgroup>
 								<col width="200">
@@ -51,32 +51,40 @@
 								</td>
 							</tr>
 							<tr>
-								<th>차종</th>
-								<td>
-									<input type="text" class="tbox normal" name="userCar" id="userCar" placeholder="ex) 1톤">
-								</td>
-							</tr>
-							<tr>
 								<th>자기소개</th>
 								<td>
 									<textarea class="tbox normal" name="userIntro" id="userIntro" placeholder="본인을 소개해 주세요."></textarea>
 								</td>
 							</tr>
 							<tr>
-								<th>등록번호</th>
+								<th>중개 등록증</th>
 								<td>
 									<input type="text" class="tbox normal" name="regisNum" id="regisNum">
 								</td>
-							</tr>	
+							</tr>
+							<tr>
+								<th>사업자 등록증</th>
+								<td>
+									<input type="text" class="tbox normal" name="busNum" id="busNum">
+								</td>
+							</tr>
 							<tr>
 								<th>파일 첨부</th>
 								<td>
-									<div class="img_up_list">
+									<div class="img_up_list" style="float:left;">
 										<div class="img_box">
 											<input type="file" class="hide" accept="image/*" name="compFilename" id="fileImg"
-												   onchange="package.imgSel(this, event)" value="${userVO.compFilename }">
+												   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
 											<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
-											<input type="hidden" name="compFilepath" value="${userVO.compFilename }">
+											<input type="hidden" name="compFilepath" value="${noticeVO.noticeFilename }">
+										</div>
+									</div>
+									<div class="img_up_list">
+										<div class="img_box">
+											<input type="file" class="hide" accept="image/*" name="compFilename1" id="fileImg"
+												   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
+											<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
+											<input type="hidden" name="compFilepath" value="${noticeVO.noticeFilename }">
 										</div>
 									</div>
 								</td>

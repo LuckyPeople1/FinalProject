@@ -35,4 +35,8 @@ public class UserService {
 	public int driverInsert(UserVO userVO) {
 		return userMapper.driverInsert(userVO);
 	}
+
+	public int shopInsert(UserVO userVO) {
+		return userMapper.shopInsert(userVO);
+	}
 }
