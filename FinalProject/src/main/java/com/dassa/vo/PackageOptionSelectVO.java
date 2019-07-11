@@ -4,7 +4,7 @@ package com.dassa.vo;
 /**
  * 최종적으로 짐에 대한 옵션을 선택한 객체
  */
-public class PackageOptionSelectVO {
+public class PackageOptionSelectVO {//move_apply_option_tbl에 대한 VO
 
 	private int packageIdx;
 	private int packageType;
