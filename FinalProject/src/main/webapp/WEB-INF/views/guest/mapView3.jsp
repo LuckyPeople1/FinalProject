@@ -80,6 +80,37 @@ section.mapView .fJNXpX > svg {
     stroke: rgb(34, 34, 34);
     transform: translateY(-50%) rotate(0deg);
 }
+section.mapView .cRtqxV {
+    max-width: 150px;
+    height: 100%;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    line-height: 34px;
+    background-color: rgb(0, 108, 255);
+    user-select: none;
+    position: relative;
+    padding: 0px 30px 0px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 108, 255);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.mapView .cRtqxV > span {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+section.mapView .cRtqxV > svg {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    stroke: rgb(255, 255, 255);
+    transform: translateY(-50%) rotate(180deg);
+}
 section.mapView path[Attributes Style] {
     fill: none;
     fill-rule: evenodd;
@@ -364,6 +395,296 @@ section.mapView .custom_zoomcontrol span img {
 section.mapView .custom_zoomcontrol span:first-child {
 	border-bottom: 1px solid #bfbfbf;
 }
+section.mapView .hKGAZL {
+    max-width: 150px;
+    height: 100%;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    line-height: 34px;
+    background-color: rgb(0, 108, 255);
+    user-select: none;
+    position: relative;
+    padding: 0px 30px 0px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 108, 255);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.mapView .hKGAZL > span {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+section.mapView .hKGAZL > svg {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    stroke: rgb(255, 255, 255);
+    transform: translateY(-50%) rotate(180deg);
+}
+section.mapView .kdfXro {
+    height: 100%;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    line-height: 34px;
+    background-color: rgb(0, 108, 255);
+    user-select: none;
+    position: relative;
+    padding: 0px 30px 0px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 108, 255);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.mapView .kdfXro > svg {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    stroke: rgb(255, 255, 255);
+    transform: translateY(-50%) rotate(180deg);
+}
+section.mapView .fhfjff {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 27px 30px 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+    display: none;
+}
+section.mapView .lmqlXb {
+    margin-bottom: 27px;
+    color: rgb(34, 34, 34);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 33px;
+}
+section.mapView .dUdesp {
+    margin-top: 3px;
+    color: rgb(170, 170, 170);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19px;
+}
+section.mapView .lmqlXb::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.mapView .hpBewf {
+    width: 260px;
+}
+section.mapView .hpBewf > li {
+    min-height: 22px;
+    white-space: nowrap;
+}
+section.mapView .kAqGVi {
+    display: block;
+    height: 22px;
+    padding-left: 23px;
+    position: relative;
+    cursor: pointer;
+}
+section.mapView .PcMeW {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+section.mapView .kAqGVi > .CheckBox {
+    float: left;
+    width: 22px;
+    height: 22px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.mapView .PcMeW:checked + .CheckBox {
+    background-color: rgb(0, 108, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 108, 255);
+    border-image: initial;
+}
+section.mapView .PcMeW:checked + .CheckBox::after {
+    content: "";
+    display: block;
+    width: 47%;
+    height: 27%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: 30% 35%;
+    border-left: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+section.mapView .kMvalg {
+    margin-left: 10px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 22px;
+    position: relative;
+    bottom: 1px;
+}
+section.mapView .hpBewf > li + li {
+    margin-top: 12px;
+}
+section.mapView .hpBewf + ul {
+    margin-top: 18px;
+    padding-top: 18px;
+    padding-bottom: 50px;
+    border-top: 1px solid rgb(238, 238, 238);
+}
+section.mapView .kldrnH {
+    margin-top: 15px;
+}
+section.mapView .kldrnH > svg {
+    float: left;
+}
+section.mapView .kldrnH > p {
+    float: left;
+    margin: 0px 0px 0px 5px;
+}
+section.mapView .fhfjff2 {
+  	background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 27px 30px 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+    display:none;
+}
+section.mapView .eLjSYd {
+    width: 190px;
+    padding-bottom: 50px;
+}
+section.mapView .eLjSYd > li {
+    height: 22px;
+    white-space: nowrap;
+}
+section.mapView .eLjSYd > li + li {
+    margin-top: 12px;
+}
+section.mapView .fhfjff3 {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    position: absolute;
+    top: 44px;
+    z-index: 101;
+    user-select: none;
+    padding: 27px 30px 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187);
+    border-image: initial;
+    border-radius: 3px;
+    display:none;
+}
+section.mapView .bZsIeN {
+    width: 240px;
+    padding-bottom: 50px;
+}
+section.mapView .bZsIeN > li {
+    height: 22px;
+    white-space: nowrap;
+}
+section.mapView .eUbtsI {
+    display: block;
+    padding-left: 23px;
+    position: relative;
+    cursor: pointer;
+}
+
+section.mapView .eUbtsI > .Radio--circle::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 255, 255);
+    transform: scale(0);
+    opacity: 0;
+    margin: 4px;
+    border-radius: 50%;
+    transition: transform 0.25s ease-in-out 0s;
+}
+section.mapView .dvQVkh:checked + .Radio--circle::after {
+    background-color: rgb(0, 108, 255);
+    transform: scale(1);
+    opacity: 1;
+}
+section.mapView .eUbtsI > .Radio--circle {
+    float: left;
+    width: 22px;
+    height: 22px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0px, -50%);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 50%;
+}
+section.mapView .dvQVkh {
+    display: none;
+}
+section.mapView input, button {
+    outline: none;
+}
+section.mapView .hLYrBD {
+    margin-left: 10px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    position: relative;
+    
+}
+section.mapView label input ~ span{
+padding:0;
+}
+section.mapView .eUbtsI > .Radio--circle::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 255, 255);
+    transform: scale(0);
+    opacity: 0;
+    margin: 4px;
+    border-radius: 50%;
+    transition: transform 0.25s ease-in-out 0s;
+}
+.bZsIeN > li + li {
+    margin-top: 12px;
+}
 </style>
 <section class="mapView">
 <div class="container">
@@ -387,7 +708,56 @@ section.mapView .custom_zoomcontrol span:first-child {
 							<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
 							</path>
 						</svg>
-					</div>
+					</div>					
+				</div>
+				<div class="styled__FilterBox-sc-1a98puu-2 fhfjff" style="left: 0px;">
+						<h1 class="styled__Title-sc-1a98puu-3 lmqlXb">방종류
+							<p class="styled__Desc-sc-1a98puu-5 dUdesp">중복선택이 가능합니다.</p>
+						</h1><ul class="styled__Ul-sc-1eqdfqp-0 hpBewf">
+						<li>
+							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<span class="CheckBox"></span>
+								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">원룸</span>
+							</label>
+						</li>
+						<li>
+							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<span class="CheckBox"></span>
+								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">투·쓰리룸</span>
+							</label>
+						</li>
+						<li>
+							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<span class="CheckBox"></span>
+								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">오피스텔</span>
+							</label>
+						</li>
+					</ul>
+					<ul class="styled__Ul-sc-1eqdfqp-0 hpBewf">
+						<li>
+							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="">
+								<span class="CheckBox"></span>
+								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">아파트</span>
+							</label>
+							<div class="styled__DescBox-sc-1eqdfqp-1 kldrnH">
+								<svg x="0" y="0" width="18" height="18" viewBox="0 0 27 27">
+									<clipPath id="c1_1">
+										<path d="M13.7,20.6c-.6,0,-1.1,-.5,-1.1,-1.1c0,-.7,.5,-1.2,1.1,-1.2c.7,0,1.2,.5,1.2,1.2c0,.6,-.5,1.1,-1.2,1.1Zm.1,-3.8c-1,0,-1.2,-8.3,-1.2,-9.2c0,-.8,.5,-1.5,1.2,-1.5c.6,0,1.1,.7,1.1,1.5c0,.9,-.2,9.2,-1.1,9.2Z">
+										</path>
+									</clipPath>
+									<g>
+										<circle cx="13.5" cy="13.5" r="13.5" fill="#E6E7EA"></circle>
+										<path fill="#9C9EA3" d="M5,28.3H22.5V-1.4H5V28.3Z" clip-path="url(#c1_1)"></path>
+									</g>
+								</svg>
+							<p class="styled__Desc-sc-1a98puu-5 dUdesp">다중 선택 시 아파트는 포함할 수 없습니다. </p>
+							</div>
+						</li>
+					</ul>
 				</div>
 			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
 				<div class="styled__Btn-sc-1a98puu-1 fJNXpX">
@@ -397,7 +767,35 @@ section.mapView .custom_zoomcontrol span:first-child {
 						</path>
 					</svg>
 				</div>
+										
 			</div>
+			<div class="styled__FilterBox-sc-1a98puu-2 fhfjff2"
+							style="left: 168px;">
+							<h1 class="styled__Title-sc-1a98puu-3 lmqlXb">
+								매물 종류
+								<p class="styled__Desc-sc-1a98puu-5 dUdesp">중복선택이 가능합니다.</p>
+							</h1>
+							<ul class="styled__Ul-sc-7qrnpy-0 eLjSYd">
+								<li><label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"
+									size="22"><input type="checkbox"
+										class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+										name="selling_type" value="" checked=""><span
+										class="CheckBox"></span><span
+										class="styled__Text-sc-7qrnpy-1 nmQzi">월세</span></label></li>
+								<li><label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"
+									size="22"><input type="checkbox"
+										class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+										name="selling_type" value="" checked=""><span
+										class="CheckBox"></span><span
+										class="styled__Text-sc-7qrnpy-1 nmQzi">전세</span></label></li>
+								<li><label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"
+									size="22"><input type="checkbox"
+										class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
+										name="selling_type" value="" checked=""><span
+										class="CheckBox"></span><span
+										class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span></label></li>
+							</ul>
+						</div>			
 			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
 				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
 					<span>가격대</span>
@@ -407,6 +805,7 @@ section.mapView .custom_zoomcontrol span:first-child {
 					</svg>
 				</div>
 			</div>
+			
 			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
 				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
 					<span>관리비</span>
@@ -415,11 +814,12 @@ section.mapView .custom_zoomcontrol span:first-child {
 						</path>
 					</svg>
 				</div>
+	
 			</div>
 			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
 			<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
 				<span>방크기</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
+					<svg width="11" height="7" vfiewBox="0 0 11 7">
 						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
 						</path>
 					</svg>
@@ -432,8 +832,50 @@ section.mapView .custom_zoomcontrol span:first-child {
 						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
 						</path>
 					</svg>
-				</div>
+				</div>						
 			</div>
+			<div class="styled__FilterBox-sc-1a98puu-2 fhfjff3"
+							style="right: 0px;">
+							<h1 class="styled__Title-sc-1a98puu-3 lmqlXb">준공년차</h1>
+							<ul class="styled__Ul-sc-19pabue-0 bZsIeN">
+								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
+									size="22"><input type="radio"
+										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
+										name="enter_date_range" value="" checked=""><span
+										class="Radio--circle"></span><span
+										class="styled__Text-sc-19pabue-1 hLYrBD">전체</span></label></li>
+								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
+									size="22"><input type="radio"
+										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
+										name="enter_date_range" value=""><span
+										class="Radio--circle"></span><span
+										class="styled__Text-sc-19pabue-1 hLYrBD">1년 이내</span></label></li>
+								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
+									size="22"><input type="radio"
+										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
+										name="enter_date_range" value=""><span
+										class="Radio--circle"></span><span
+										class="styled__Text-sc-19pabue-1 hLYrBD">5년 이내</span></label></li>
+								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
+									size="22"><input type="radio"
+										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
+										name="enter_date_range" value=""><span
+										class="Radio--circle"></span><span
+										class="styled__Text-sc-19pabue-1 hLYrBD">10년 이내</span></label></li>
+								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
+									size="22"><input type="radio"
+										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
+										name="enter_date_range" value=""><span
+										class="Radio--circle"></span><span
+										class="styled__Text-sc-19pabue-1 hLYrBD">15년 이내</span></label></li>
+								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
+									size="22"><input type="radio"
+										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
+										name="enter_date_range" value=""><span
+										class="Radio--circle"></span><span
+										class="styled__Text-sc-19pabue-1 hLYrBD">15년 이상</span></label></li>
+							</ul>
+						</div>
 			<div class="styled__Wrap-jzhnoe-0 dgiYtt" tabindex="0">
 				<div class="styled__Btn-jzhnoe-1 bAZEbe">추가필터
 					<svg width="11" height="7" viewBox="0 0 11 7">
@@ -693,11 +1135,7 @@ section.mapView .custom_zoomcontrol span:first-child {
             lineHeight: '31px'
         }
     ]
-    });
-	
-	
-	
-	
+    });	
 	for (var i = 0; i < positions.length; i++){						
  		 var content = '<div class="customoverlay"><input type="hidden" class="btn-why" value="'+positions[i].latlng+'"><span class="title">'+positions[i].name+'</span></div>';	
 	    var customOverlay = new kakao.maps.CustomOverlay({
@@ -706,9 +1144,7 @@ section.mapView .custom_zoomcontrol span:first-child {
 	        content: content	       
 	    });    
 	    
-	}	
-	
-	
+	}		
 	 $(document).ready(function(){		 
 		 for(var i =0;i<positions2.length;i++){
 				var content2 = '<div class="customoverlay2"><input class="tt" type="hidden" value="'+positions2[i].latlng+'"<span class="title">'+positions2[i].name+'</span></div>';
@@ -786,7 +1222,91 @@ section.mapView .custom_zoomcontrol span:first-child {
 		 marker.setMap(null);
 		}		
 	});
-	kakao.maps.event.addListener()
+	$(document).ready(function(){
+		console.log($(".fhfjff3").css("display","none"));
+		$(document).click(function(e){
+			$(".hWgOZv").eq('0').click(function(e){
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+				if($(".fhfjff").is(":visible")){
+					$(".fhfjff").css("display","none");
+				}else{
+					$(".fhfjff").css("display","block");
+				}
+				
+			})
+			for(var i=1;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff").css("display","none");
+				})
+			}
+			$(".hWgOZv").eq('1').click(function(e){
+				if($(".fhfjff2").is(":visible")){
+					$(".fhfjff2").css("display","none");
+				}else{
+					$(".fhfjff2").css("display","block");
+				}
+			})
+			$(".hWgOZv").eq('5').click(function(e){
+				if($(".fhfjff3").is(":visible")){
+					$(".fhfjff3").css("display","none");
+				}else{
+					$(".fhfjff3").css("display","block");
+				}
+				
+			})
+			$(".dgiYtt").click(function(){
+				$(".fhfjff1").css("display","none");
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+			})
+			for(var i=2;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff2").css("display","none");
+				})
+			}
+			for(var i=0;i<$('.hWgOZv').length-1;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff3").css("display","none");
+				})
+			}
+			
+			$(".hWgOZv").click(function(e){		
+				if($(this).children().hasClass('fJNXpX')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					
+					$(this).children().removeClass('fJNXpX');
+					$(this).children().addClass('cRtqxV'); 
+					
+				}else if($(this).children().hasClass('fUMVvC')){
+				
+				 	$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					$(this).children().removeClass('fUMVvC');
+					$(this).children().addClass('hKGAZL');
+				} 
+			})
+			$(".dgiYtt").click(function(e){
+				if($(this).children().hasClass('bAZEbe')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(this).children().removeClass('bAZEbe');
+					$(this).children().addClass('kdfXro');
+				}else{
+					$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV'); 
+				} 
+			})
+		})		
+	})
+	
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
 		// 현재 지도 레벨에서 1레벨 확대한 레벨

@@ -9,11 +9,13 @@
 				user_name as userName,
 				user_phone as userPhone,
 				user_email as userEmail,
+				pro_filename as proFilename,
+				pro_filepath as proFilepath,
 				user_introduce as userIntroduce,
 				registration_number as registrationNumber,
 				user_car as userCar,
-				image_name as userImageName,
-				image_path as userImagePath,
+				comp_filename as compFilename,
+				comp_filepath as compFilepath,
 				user_type as userType,
 				social_id as socialId 
 		  from user_tbl where user_id=#{userId} 
@@ -22,10 +24,9 @@
 	<!--mypage 이미지만 업로드  -->	
 	<update id="driverMypageUpdate" parameterType="userVO">
 	update user_tbl set
-	image_name=#{userImageName}, image_path=#{userImagePath}
+	pro_filename=#{proFilename}, pro_filepath=#{proFilepath}
 		where user_id=#{userId}
 	</update>
-	
 	
 	<!--mypage 텍스트 업로드  -->
 	<update id="driverMypageUpdateText" parameterType="userVO">
@@ -41,7 +42,7 @@
 	<!--입찰 검색 //입찰목록 뿌리기-->
 	<select id="driverAuctionList" resultType="moveApplyVO" parameterType="com.dassa.vo.DriverPageData">
 		select a.* from (
-			select guest_idx as guestIdx,
+			select apply_idx as applyIdx,
 				guest_name as guestName,
 				start_addr1 as startAddr1,
 				start_addr2 as startAddr2,
@@ -55,7 +56,7 @@
 				start_longitude as endLongitude,
 				apply_date as applyDate,
 				apply_time as applyTime,
-				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
+				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
 				from move_apply_tbl
 				where apply_status =0  
 				
@@ -75,7 +76,7 @@
 		select count(*) cnt from
 		(
 			select 
-				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
+				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
 				from move_apply_tbl
 				where apply_status =0  
 				
@@ -89,14 +90,10 @@
 		)
 	</select>
 	
-	
-	
-	
-	
 	<!--이사목록 뿌리기  -->
 	<select id="driverMoveList" resultType="moveApplyVO" parameterType="com.dassa.vo.DriverPageData">
 			 select a.* from (
-			select guest_idx as guestIdx,
+			select apply_idx as applyIdx,
 				apply_date as applyDate,
 				apply_time as applyTime,
 				guest_name as guestName,
@@ -105,9 +102,9 @@
 				end_addr1 as endAddr1,
 				apply_hope as applyHope,
 				apply_status as applyStatus,
-				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
+				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
 				from move_apply_tbl
-				where (apply_status =1 or apply_status =2)
+				where (apply_status =1 or apply_status =2 or apply_status =3)
 				
 				<if test="userName!=''" >
 				and guest_name like '%'||#{userName}||'%'			
@@ -119,12 +116,12 @@
 				) a
 			where rNUM between (#{page}-1)*#{listSize}+1 and #{page}*#{listSize}
 	</select>
-	
+	<!--이사관리 총게시물 수 구하기.  -->
 	<select id="driverMoveTotalCount" resultType="_int" parameterType="com.dassa.vo.DriverPageData">
 			select count(*) cnt from
 			(
 			select 
-				ROW_NUMBER() OVER(ORDER BY guest_Idx DESC) rNUM
+				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
 				from move_apply_tbl
 				where (apply_status =1 or apply_status = 2) 
 				
@@ -137,5 +134,81 @@
 				</if>
 		)
 	</select>
+	
+	<!--입찰목록 상세보기 리스트 뿌리기 (상품) -->
+	<select id="driverSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverAuctionDetailVO">
+		select  apply_idx as applyIdx,
+				guest_name as guestName,
+				guest_phone as gusetPhone,
+				apply_date as applyDate,
+				start_addr1 as startAddr1,
+				start_addr2 as startAddr2,
+				start_addr3 as startAddr3,
+				end_addr1 as endAddr1,
+				end_addr2 as endAddr2,
+				end_addr3 as endAddr3,
+				start_latitude as startLatitude,
+				start_longitude as startLongitude,
+				end_latitude as endLatitude,
+				end_longitude as endLongitude,
+				start_elevator as startElevator,
+				end_elevator as endElevator,
+				start_parking as startParking,
+				end_parking as endParking,
+				start_type as startType,
+				end_type as endType,
+				start_structure as startStructure,
+				start_size as startSize,
+				start_floor as startFloor,
+				end_floor as endFloor,
+				apply_time as applyTime,
+				apply_hope as applyHope,
+				apply_help as applyHelp,
+				apply_memo as applyMemo
+				from move_apply_tbl
+				where apply_idx=#{applyIdx}
+	</select>
+	
+	<!--입찰목록 상세보기 리스트 뿌리기  (옵션)-->
+	<select id="driverOptionList" parameterType="_int" resultType="com.dassa.vo.DriverApplyOptionVO">
+		select 
+				option_idx as optionIdx,
+				package_type as packageType,
+				package_name as packageName,
+				package_option as packageOption,
+				package_img_path as packageImgOption
+				from move_apply_option_tbl
+				where apply_idx=#{applyIdx}
+	</select>
+	<!--입찰목록 상세보기 리스트 뿌리기 (이미지) -->
+	<select id="driverImgList" parameterType="_int" resultType="com.dassa.vo.DriverApplyImgVO">
+		select 	img_idx as imgIdx,
+				img_name as imgName,
+				img_path as imgPath
+				from move_apply_img_tbl
+				where apply_idx=#{applyIdx} 
+	</select>
+	<!-- //입찰관리 견적값 넣기 insert 하기 -->
+	<insert id="driverAuctionInsert" parameterType="com.dassa.vo.DriverVO">
+		insert into driver_tbl values(#{driverIdx},#{applyIdx},#{userCar},#{driverMessage},#{ladderState},#{estimateAmount},0)
+	</insert>
+	
+	<!-- 입찰관리 입찰상태 update 하기 -->
+	<update id="driverAuctionUpdate" parameterType="_int">
+		update MOVE_APPLY_TBL set apply_status= 1 where apply_idx=#{applyIdx}
+	</update>
+	
+	
+	<select id="driverMoveSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverVO">
+		select	driver_idx as driverIdx,
+				apply_idx as applyIdx,
+				user_car as userCar,
+				driver_message as driverMessage,
+				ladderState,
+				EstimateAmount
+				from driver_tbl
+				where apply_idx = #{applyIdx}
+	</select>
+	
 	
 </mapper>

@@ -52,7 +52,7 @@
 									<div class="row">
 										<div class="subject">이사날짜</div>
 										<div class="con">
-											<div class="addr">${scheduleInfo.date}</div>
+											<div class="">${scheduleInfo.date}</div>
 										</div>
 									</div>
 								</li>
@@ -60,7 +60,7 @@
 									<div class="row">
 										<div class="subject">이사시간</div>
 										<div class="con">
-											<div class="addr">${scheduleInfo.time}</div>
+											<div class="">${scheduleInfo.time}</div>
 										</div>
 									</div>
 								</li>
@@ -188,7 +188,7 @@
 							<c:set var="count1" value="0"/>
 							<c:forEach items="${packageOptionList}" var="item" varStatus="status">
 								<c:if test="${item.packageType == 1}">
-									<c:set var="count0" value="${count1+1}"/>
+									<c:set var="count1" value="${count1+1}"/>
 								</c:if>
 							</c:forEach>
 							<c:if test="${count1 != 0}">
@@ -219,7 +219,7 @@
 							<c:set var="count2" value="0"/>
 							<c:forEach items="${packageOptionList}" var="item" varStatus="status">
 								<c:if test="${item.packageType == 2}">
-									<c:set var="count0" value="${count2+1}"/>
+									<c:set var="count2" value="${count2+1}"/>
 								</c:if>
 							</c:forEach>
 							<c:if test="${count2 != 0}">
@@ -247,38 +247,57 @@
 									</c:forEach>
 								</ul>
 							</c:if>
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">짐박스</div>
-									</div>
-								</li>
-								<li class="">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명</div>
-											<div class="packageOption">옵션..</div>
+							
+							<c:set var="count3" value="0"/>
+							<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+								<c:if test="${item.packageType == 3}">
+									<c:set var="count3" value="${count3+1}"/>
+								</c:if>
+							</c:forEach>
+							<c:if test="${count3 != 0}">
+								<ul class="infoListBox">
+									
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">짐박스</div>
 										</div>
-									</div>
-								</li>
-							</ul>
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">사진정보</div>
-									</div>
-								</li>
-								<li class="">
-									<div class="imgList">
-										<c:forEach items="${sessionScope.imgList}" var="img">
-											<div class="imgBox">
-												<img src="${img.imgPath}" alt="이미지">
-											</div>
-										</c:forEach>
-									</div>
-								</li>
-							</ul>
+									</li>
+									<c:forEach items="${packageOptionList}" var="item">
+										<c:if test="${item.packageType == 3}">
+											<li class="package">
+												<div class="row">
+													<div class="subject">
+														<img src="${item.packageImgPath}" alt="이미지">
+													</div>
+													<div class="con">
+														<div class="packageName">${item.packageName}</div>
+														<div class="packageOption">${item.packageOption}</div>
+													</div>
+												</div>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
+							</c:if>
+							
+							<c:if test="${!empty sessionScope.imgList }">
+								<ul class="infoListBox">
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">사진정보</div>
+										</div>
+									</li>
+									<li class="">
+										<div class="imgList">
+											<c:forEach items="${sessionScope.imgList}" var="img">
+												<div class="imgBox">
+													<img src="${img.imgPath}" alt="이미지">
+												</div>
+											</c:forEach>
+										</div>
+									</li>
+								</ul>
+							</c:if>
 							<ul class="infoListBox">
 								<li class="bg">
 									<div class="row static">
@@ -286,7 +305,7 @@
 									</div>
 								</li>
 								<li class="">
-									<textarea class="memo" placeholder="이사 시 요청사항 및 특이사항을 입력해주세요."></textarea>
+									<textarea name="applyMemo" class="memo" placeholder="이사 시 요청사항 및 특이사항을 입력해주세요."></textarea>
 								</li>
 							</ul>
 						</div>

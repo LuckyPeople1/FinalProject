@@ -7,7 +7,7 @@ function findPost() {
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var addr = document.getElementById("insert_user_addr").value; // 주소 변수
             var extraAddr = document.getElementById("insert_extra_item").value; // 참고항목 변수
-            
+            var ExAddr = '';
             //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
             if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                 addr = data.roadAddress;
@@ -31,15 +31,15 @@ function findPost() {
                     extraAddr = ' (' + extraAddr + ')';
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                document.getElementById("insert_extra_item").value = extraAddr;
+                ExAddr = document.getElementById("insert_extra_item").value = extraAddr;
             
             } else {
-                document.getElementById("insert_extra_item").value = '';
+                ExaddrA = document.getElementById("insert_extra_item").value = '';
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById('insert_post_code').value = data.zonecode;
-            document.getElementById("insert_user_addr").value = addr;
+            document.getElementById("insert_user_addr").value = addr+ExAddr;
             // 커서를 상세주소 필드로 이동한다.
             document.getElementById("insert_detail_addr").focus();
         }

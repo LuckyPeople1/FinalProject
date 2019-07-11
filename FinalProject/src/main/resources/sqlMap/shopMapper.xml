@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.ShopMapper">
-
-
 	<!-- 주소 구 리스트 가져오기 -->
 	<select id="getJusoGuList" parameterType="string" resultType="jusoGuVO">
 		select 
@@ -17,6 +15,7 @@
 			juso_dong_name as jusoDongName
 		from juso_dong_tbl where juso_dong_code like #{jusoGuCode}||'%' order by juso_dong_name asc
 	</select>
+	<!-- 매물 등록  -->
 	<insert id="shopItemAdd" parameterType="shopItemVO">
 		insert into shop_item_tbl values(
 			shop_item_idx_seq.nextval,
@@ -25,8 +24,7 @@
 			#{shopItemContent, jdbcType=VARCHAR},
 			#{shopItemSecretMemo, jdbcType=VARCHAR},
 			#{shopItemManager, jdbcType=VARCHAR},
-			#{shopItemFileName, jdbcType=VARCHAR},
-			#{shopItemFilePath, jdbcType=VARCHAR},
+			shop_item_img_idx_seq.nextval,
 			#{shopItemPremiumState, jdbcType=VARCHAR},
 			#{shopItemType1, jdbcType=VARCHAR},
 			#{shopItemType2, jdbcType=VARCHAR},
@@ -62,4 +60,60 @@
 			#{shopItemSaleState, jdbcType=VARCHAR}
 			)
 	</insert>
+	<!-- 매물 이미지 등록 -->
+	<insert id="shopItemImgAdd" parameterType="java.util.List">
+		insert into 
+		shop_item_img_tbl (
+			shop_img_idx,
+			shop_item_idx,
+			shop_img_name,
+			shop_img_path
+			)
+			select
+			shop_item_img_idx_seq.nextval,
+			shop_item_idx_seq.currval,
+			T.* from(
+			<foreach collection="list" item="item" separator="union all">
+				select
+				#{item.imgName} as shop_img_name,
+				#{item.imgPath} as shop_img_path
+				from dual
+			</foreach>
+			) T
+	</insert>
+	<!-- 매물리스트
+	<select id="selectAllList" resultType="shopItemVO" parameterType="_int">	select 
+			shop_item_idx as shopItemIdx,
+			shop_item_title as shopItemTItle,
+			shop_item_content as shopItemContent,
+			shop_item_secret_memo as shopItemSecretMemo,
+			shop_item_manager as shopItemManager,
+			shop_img_idx as shopImgIdx,
+			shop_item_premium_state as shopItemPremium,
+			shop_item_type1 as shopItemType1,
+			shop_item_type2 as shopItemType2,
+			shop_item_addr1 as shopItemAddr1,
+			shop_item_addr2 as shopItemAddr2,
+			shop_item_addr3 as shopItemAddr3,
+			shop_item_deal_type as shopItemDealType,
+			shop_item_deal_price as shopItemDealPrice,
+			shop_item_size as shopItemSize,
+			shop_item_size_all as shopItemSizeAll,
+			shop_item_floor as shopItemFloor,
+			shop_item_floor as shopItemFloorAll,
+			shop_item_heating as shopItemHeating,
+			shop_item_bulid_company as shopItemBulidCompany,
+			shop_item_bulid_hallway as shopItemBulidHallway,
+			shop_item_bulid_date as shopItemBulidDate,
+			shop_item_moving as shopItemMoving,
+			shop_item_manage_price as shopItemManagePrice,
+			shop_item_manage_price_option as shopItemManageOption,
+			shop_item_ 
+			
+			from (select rownum as rnum, n.* from n) where rnum between #{start} and #{end}
+	</select>
+	-->
+	<select id="totalCount" parameterType="_int">
+		select count(*) cnt from shop_item_tbl
+	</select>
 </mapper>

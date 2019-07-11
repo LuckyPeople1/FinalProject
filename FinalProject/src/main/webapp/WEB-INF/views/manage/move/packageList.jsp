@@ -61,113 +61,73 @@
 					<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
 			</div>
-			<div class="list_field">
-				<div class="list_menu">
-					<span class="right_menu">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">엑셀저장</a>
-						<span class="sbox small">
-							<select>
-								<option>번호순 ▼</option>
-								<option>번호순 ▲</option>
-								<option>이름순 ▼</option>
-								<option>발주일순 ▲</option>
-							</select>
-						</span>
-						<span class="sbox small">
-							<select>
-								<option>20개씩</option>
-								<option>50개씩</option>
-								<option>100개씩</option>
-							</select>
-						</span>
-					</span>
-				</div>
-				<table class="list_table">
-					<colgroup>
-						<col width="40">
-						<col width="65">
-						<col width="150">
-						<col width="100">
-						<col width="100">
-						<col width="200">
-						<col width="120">
-						<col width="65">
-						<col width="85">
-						<col width="100">
-					</colgroup>
-					<thead>
-					<tr>
-						<th>
-							<label>
-								<input type="checkbox" name="all_chk">
-							</label>
-						</th>
-						<th>No</th>
-						<th>아이디</th>
-						<th>회원명</th>
-						<th>이메일</th>
-						<th>휴대폰번호</th>
-						<th>구매금액</th>
-						<th>회원가입일</th>
-						<th>상태</th>
-						<th>관리</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td>
-							<label>
-								<input type="checkbox" name="">
-							</label>
-						</td>
-						<td>1</td>
-						<td>ssooya90</td>
-						<td>최희수</td>
-						<td>ssooya90@naver.com</td>
-						<td class="">01084649696</td>
-						<td class="">170,000</td>
-						<td>2018-10-10 17:22:12</td>
-						<td>
-							<span class="tag col_blue f_w">정상</span>
-						</td>
-						<td>
-							<div>
-								<a href="work_info.html" class="btn small col_main f_w">상세정보</a>
-							</div>
-							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">정지</a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>
-								<input type="checkbox" name="">
-							</label>
-						</td>
-						<td>1</td>
-						<td>ssooya90</td>
-						<td>최희수</td>
-						<td>ssooya90@naver.com</td>
-						<td class="">01084649696</td>
-						<td class="">170,000</td>
-						<td>2018-10-10 17:22:12</td>
-						<td>
-							<span class="tag col_blue f_w">정상</span>
-						</td>
-						<td>
-							<div>
-								<a href="work_info.html" class="btn small col_main f_w">상세정보</a>
-							</div>
-							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">정지</a>
-							</div>
-						</td>
-					</tr>
-					
-					</tbody>
-				</table>
-			</div>
+			<table class="list_table">
+				<colgroup>
+					<col width="40">
+					<col width="65">
+					<col width="150">
+					<col width="300">
+					<col width="120">
+					<col width="150">
+					<col width="100">
+				</colgroup>
+				<thead>
+				<tr>
+					<th>
+						<label>
+							<input type="checkbox" name="all_chk">
+						</label>
+					</th>
+					<th>No</th>
+					<th>유형</th>
+					<th>상품명</th>
+					<th>등록일시</th>
+					<th>상태</th>
+					<th>관리</th>
+				</tr>
+				</thead>
+				<tbody>
+				<c:forEach items="${packageList}" var="item">
+					<c:if test="${item.packageType != 3}">
+						<tr>
+							<td>
+								<label>
+									<input type="checkbox" name="">
+								</label>
+							</td>
+							<td>1</td>
+							<td>
+								<c:choose>
+									<c:when test="${item.packageType == 0}">가전</c:when>
+									<c:when test="${item.packageType == 1}">가구</c:when>
+									<c:when test="${item.packageType == 2}">기타</c:when>
+								</c:choose>
+							</td>
+							<td>${item.packageName}</td>
+							<td>${item.packageRegDate}</td>
+							<td>
+								<c:choose>
+									<c:when test="${item.packageStatus == 0}">
+										<span class="tag col_blue f_w">정상</span>
+									</c:when>
+									<c:when test="${item.packageType == 1}">
+										<span class="tag col_darkGrey f_w">정지</span>
+									</c:when>
+								</c:choose>
+							</td>
+							<td>
+								<div>
+									<a href="/manage/move/packageModify?packageIdx=${item.packageIdx}" class="btn small col_main f_w">상세정보</a>
+								</div>
+								<div>
+									<a href="work_info.html" class="btn small col_darkGrey f_w">정지</a>
+								</div>
+							</td>
+						</tr>
+					</c:if>
+				</c:forEach>
+				</tbody>
+			</table>
 			<div class="page_group clearFix">
 				<ul class="page_box">
 					<li class="first arrow">

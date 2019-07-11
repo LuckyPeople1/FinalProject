@@ -4,7 +4,7 @@
 }
 
 .container {
-    height: 100%;
+    /*height: 100%;*/
 	position:relative;
 	padding-bottom:100px;
 }
@@ -20,6 +20,7 @@
 
 body.popup{
 	overflow: hidden;
+	position:absolute;
 
 }
 body.popup:before{
@@ -383,7 +384,8 @@ section.moveStep .packageTypeBox .packageBox .packageSelect{
 	display:none;
 
 }
-section.moveStep .packageTypeBox .packageBox .minusBtn{
+section.moveStep .packageTypeBox .packageBox .minusBtn,
+section.moveStep .packageSelectList .listBox.zim .packageSelect .minusBtn{
 	left:0;
 	top:0;
 	background:url("../img/icon_package_minus.png") no-repeat center/ cover;
@@ -418,7 +420,12 @@ section.moveStep .packageTypeBox .packageTypeList.zimBox{
 	/*padding:10px;*/
 	font-size: 0;
 }
-section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect{
+section.moveStep .packageSelectList .listBox.zim .packageInfo{
+	position:relative;
+	background:none;
+}
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect,
+section.moveStep .packageSelectList .listBox.zim .packageSelect{
 	top:50%;
 	transform: translateY(-50%);
 	bottom:auto;
@@ -426,11 +433,23 @@ section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect{
 	left:auto;
 	display:block;
 }
+
+section.moveStep .packageSelectList .listBox.zim .packageSelect{
+	display:inline-block;
+	position:absolute;
+	right:15px;
+}
+
+
 section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .minusBtn,
-section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn{
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn,
+section.moveStep .packageSelectList .listBox.zim .packageSelect .plusBtn,
+section.moveStep .packageSelectList .listBox.zim .packageSelect .minusBtn{
 	vertical-align: middle;
 }
-section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn{
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn,
+section.moveStep .packageSelectList .listBox.zim .packageSelect .plusBtn{
+
 	background: url(../img/icon_package_plus.png) no-repeat center/ cover;
 	width: 60px;
 	height: 60px;
@@ -438,7 +457,8 @@ section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .plusBtn
 	display: inline-block;
 	z-index: 50;
 }
-section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .qty{
+section.moveStep .packageTypeBox .packageTypeList.zimBox .packageSelect .qty,
+section.moveStep .packageSelectList .listBox.zim .packageSelect .qty{
 	position:static;
 	vertical-align: middle;
 	display:inline-block;
@@ -506,6 +526,13 @@ section.moveStep .packageSelectList .listBox{
 	z-index: 1;
 }
 
+section.moveStep .packageSelectList .listBox.zim{
+	width: 100%;
+}
+section.moveStep .packageSelectList .listBox.zim.on{
+	background: #fff;
+}
+
 section.moveStep .packageSelectList .listBox.on{
 	background-color: #ECF5FC;
 }
@@ -555,13 +582,15 @@ section.moveStep .packageSelectList .packageInfo .title .caption{
 
 section.layerPopup{
 	display:none;
-	position:absolute;
+	position:fixed;
 	left:50%;
 	top:50%;
 	transform: translate(-50%, -50%);
 	z-index: 100;
 	border-radius: 15px;
 	overflow: hidden;
+	max-width:490px;
+	min-width:380px;
 }
 
 section.layerPopup .popupTitle,
@@ -591,6 +620,7 @@ section.layerPopup .optionList .optionTitle{
 }
 section.layerPopup .optionList .optionBox {
 	margin : -5px;
+	font-size: 0;
 }
 section.layerPopup .optionList .optionBox label{
 	margin:5px;
@@ -1254,6 +1284,10 @@ section.moveStep .applyGroup .infoBox .row .addr{
 	margin-bottom: 8px;
 	font-size: 20px;
 }
+section.moveStep .applyGroup .infoBox .row .con{
+	font-size: 20px;
+	margin:0;
+}
 section.moveStep .applyGroup .infoBox .row .addrInfo{
 	color: #666;
 	font-size: 16px;
@@ -1528,6 +1562,10 @@ section.mypage .mypageCon.myInfo .setInfoBox .row + .row{
 
 
 /** 이사 관리 **/
+
+section.mypage .mypageCon.move .moveListBox .moveBox{
+	display:block;
+}
 section.mypage .mypageCon.move .moveListBox .moveBox,
 section.mypage .mypageCon.move .auctionList .auctionBox{
 	position:relative;
@@ -1535,22 +1573,33 @@ section.mypage .mypageCon.move .auctionList .auctionBox{
 	padding:25px 25px;
 }
 
-section.mypage .mypageCon.move .moveListBox .moveBox .stateBox{
+section.mypage .mypageCon.move .moveListBox .moveBox .stateBox,
+section.mypage .mypageCon.move .moveListBox .moveBox .reviewBox{
 	position:absolute;
 	right:25px;
 	top:50%;
 	transform: translateY(-50%);
 }
 
-section.mypage .mypageCon.move .moveListBox .moveBox .state {
+section.mypage .mypageCon.move .moveListBox .moveBox .reviewBox{
+	right:110px;
+
+}
+
+
+section.mypage .mypageCon.move .moveListBox .moveBox .state ,
+section.mypage .mypageCon.move .moveListBox .moveBox .review {
 	border-radius: 50px;
 	background-color: #666;
-	line-height: 60px;
-	width: 60px;
+	line-height: 70px;
+	width: 70px;
 	display:inline-block;
 	text-align: center;
 	color: #fff;
 
+}
+section.mypage .mypageCon.move .moveListBox .moveBox .review {
+	background-color: #354055;
 }
 section.mypage .mypageCon.move .moveListBox .moveBox .state.on{
 	background-color: #1564F9;
@@ -1874,6 +1923,33 @@ section.mypage .mypageCon.move .auctionDetailInfo .detailCon .row .sub{
 	color: #999;
 }
 
+
+/* 내 이사 신청 상세 */
+section.moveStep.mypage .applyGroup{
+	background-color: #354055;
+	padding:0;
+	border: 1px solid #354055;
+	margin-top: 30px;
+}
+section.moveStep.mypage .applyGroup .infoBox{
+	margin-top:0;
+}
+section.moveStep.mypage .applyGroup .infoBox + .infoBox{
+	margin-top: 8px;
+}
+section.moveStep.mypage .applyGroup .applyTitle{
+	color: #fff;
+	padding-left: 15px;
+	line-height: 30px;
+}
+
+section.moveStep.mypage .applyGroup .memoCon{
+	font-size: 16px;
+	line-height: 22px;
+}
+section.moveStep.mypage .applyGroup .row .con{
+	font-size: 20px;
+}
 
 
 /* SaleInLots 공통부분 CSS (분양) */
