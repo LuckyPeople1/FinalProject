@@ -1,5 +1,6 @@
 package com.dassa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import com.dassa.mapper.ShopMapper;
 import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
+import com.dassa.vo.SaleInLotsPageDataVO;
+import com.dassa.vo.SaleInLotsVO;
+import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemVO;
 
 @Service("shopService")
@@ -16,7 +20,6 @@ public class ShopService {
 
 	@Resource(name="shopMapper")
 	private ShopMapper shopMapper;
-	
 	/**
 	 * 중개사페이지 - 도시 선택 시 해당 구 가져오기
 	 * @param jusoCityCode
@@ -45,4 +48,5 @@ public class ShopService {
 	public int shopItemAdd(ShopItemVO sItem) throws Exception {
 		return shopMapper.shopItemAdd(sItem);
 	}
+	
 }
