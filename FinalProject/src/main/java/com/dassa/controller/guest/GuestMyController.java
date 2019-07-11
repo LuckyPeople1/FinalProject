@@ -5,6 +5,7 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -101,6 +102,14 @@ public class GuestMyController {
 		model.addAttribute("tab","2");
 
 		return "/guest/mypage/myMoveAuctionInfo";
+	}
+
+
+	@RequestMapping("/moveInfo")
+	public String moveinfo(Model model, @RequestParam int moveIdx){
+
+		return "/guest/mypage/myMoveInfo";
+
 	}
 
 }

@@ -16,90 +16,88 @@
 					<span class="tit">이사 관리</span>
 				</div>
 				<div class="moveListBox">
-					<div class="moveBox on">
-						<a href="/my/auctionList">
-							<div class="moveInfo">
-								<div class="top">
-									<span class="dateBox">이사날짜 : 2019-05-20</span>
-									<span class="timeBox">이사시간 : 15:30분</span>
-									<span class="hopeBox">[차량만 // 도움있음]</span>
-								</div>
-								<div class="bottom">
+					<a href="/my/auctionList" class="moveBox on">
+						<div class="moveInfo">
+							<div class="top">
+								<span class="dateBox">이사날짜 : 2019-05-20</span>
+								<span class="timeBox">이사시간 : 15:30분</span>
+								<span class="hopeBox">[차량만 // 도움있음]</span>
+							</div>
+							<div class="bottom">
 								<span class="addrBox">
 									<span class="addr">서울시 강서구 강서구청 1-31 5</span>
 									<span class="arrow">▶▶▶</span>
 									<span class="addr">서울시 마포구 153-32길 303호</span>
 								</span>
-								</div>
 							</div>
-							<div class="stateBox">
-								<span class="state on">진행중</span>
+						</div>
+						<div class="stateBox">
+							<span class="state on">진행중</span>
+						</div>
+					</a>
+					<a href="/my/moveInfo?moveIdx=1" class="moveBox">
+						<div class="moveInfo">
+							<div class="top">
+								<span class="dateBox">이사날짜 : 2019-05-20</span>
+								<span class="timeBox">이사시간 : 15:30분</span>
+								<span class="hopeBox">[차량만 // 도움있음]</span>
 							</div>
-						</a>
-					</div>
-					<div class="moveBox">
-						<a href="/my/auctionList">
-							<div class="moveInfo">
-								<div class="top">
-									<span class="dateBox">이사날짜 : 2019-05-20</span>
-									<span class="timeBox">이사시간 : 15:30분</span>
-									<span class="hopeBox">[차량만 // 도움있음]</span>
-								</div>
-								<div class="bottom">
+							<div class="bottom">
 								<span class="addrBox">
 									<span class="addr">서울시 강서구 강서구청 1-31 5</span>
 									<span class="arrow">▶▶▶</span>
 									<span class="addr">서울시 마포구 153-32길 303호</span>
 								</span>
-								</div>
 							</div>
-							<div class="stateBox">
-								<span class="state">마감</span>
+						</div>
+						
+						<!-- 후기를 작성하지 않은 경우 표시 -->
+						<div class="reviewBox">
+							<span class="review">후기작성</span>
+						</div>
+						<!-- -->
+						<div class="stateBox">
+							<span class="state">완료</span>
+						</div>
+					</a>
+					<a href="/my/auctionList" class="moveBox">
+						<div class="moveInfo">
+							<div class="top">
+								<span class="dateBox">이사날짜 : 2019-05-20</span>
+								<span class="timeBox">이사시간 : 15:30분</span>
+								<span class="hopeBox">[차량만 // 도움있음]</span>
 							</div>
-						</a>
-					</div>
-					<div class="moveBox">
-						<a href="#none">
-							<div class="moveInfo">
-								<div class="top">
-									<span class="dateBox">이사날짜 : 2019-05-20</span>
-									<span class="timeBox">이사시간 : 15:30분</span>
-									<span class="hopeBox">[차량만 // 도움있음]</span>
-								</div>
-								<div class="bottom">
+							<div class="bottom">
 								<span class="addrBox">
 									<span class="addr">서울시 강서구 강서구청 1-31 5</span>
 									<span class="arrow">▶▶▶</span>
 									<span class="addr">서울시 마포구 153-32길 303호</span>
 								</span>
-								</div>
 							</div>
-							<div class="stateBox">
-								<span class="state">마감</span>
+						</div>
+						<div class="stateBox">
+							<span class="state">취소</span>
+						</div>
+					</a>
+					<a href="/my/auctionList" class="moveBox">
+						<div class="moveInfo">
+							<div class="top">
+								<span class="dateBox">이사날짜 : 2019-05-20</span>
+								<span class="timeBox">이사시간 : 15:30분</span>
+								<span class="hopeBox">[차량만 // 도움있음]</span>
 							</div>
-						</a>
-					</div>
-					<div class="moveBox">
-						<a href="#none">
-							<div class="moveInfo">
-								<div class="top">
-									<span class="dateBox">이사날짜 : 2019-05-20</span>
-									<span class="timeBox">이사시간 : 15:30분</span>
-									<span class="hopeBox">[차량만 // 도움있음]</span>
-								</div>
-								<div class="bottom">
+							<div class="bottom">
 								<span class="addrBox">
 									<span class="addr">서울시 강서구 강서구청 1-31 5</span>
 									<span class="arrow">▶▶▶</span>
 									<span class="addr">서울시 마포구 153-32길 303호</span>
 								</span>
-								</div>
 							</div>
-							<div class="stateBox">
-								<span class="state">마감</span>
-							</div>
-						</a>
-					</div>
+						</div>
+						<div class="stateBox">
+							<span class="state">완료</span>
+						</div>
+					</a>
 				
 				</div>
 				<div class="movePaging">
