@@ -77,7 +77,10 @@
 #commonInsert_container .regCheckBtn{
 	margin-left: 10px;
 }
-
+#commonInsert_container #userIntro{
+	height: 70px;
+	resize: none;
+}
 
 
 
