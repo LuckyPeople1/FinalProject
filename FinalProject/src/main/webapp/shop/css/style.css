@@ -2730,3 +2730,43 @@ section.shopItemAdd .ivRIHy > p {
 section.shopItemAdd .ivRIHy > p > span {
     color: rgb(21, 100, 249);
 }
+
+section.shopItemAdd .heKOml .imgList,
+section.shopItemAdd .imgList{
+	margin-top: 20px;
+	font-size: 0;
+}
+section.shopItemAdd .heKOml .imgList{
+	margin-top:0;
+}
+
+section.shopItemAdd .imgBox,
+section.shopItemAdd .infoListBox  .imgBox{
+	border: 1px solid black;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	width: 250px;
+	height: 150px;
+	margin: 10px;
+	background-image: url(../img/icon_imgUp.png);
+	background-size: 100px 75px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position:relative;
+}
+section.shopItemAdd .imgBox .upload_btn{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 5;
+}
+section.shopItemAdd .imgBox img{
+	width: 100%;
+	height: 100%;
+}
+
+
+

@@ -18,5 +18,6 @@ public interface UserMapper {
 
 	public UserVO idCheck(String userId);
 
+	public int driverInsert(UserVO userVO);
 
 }

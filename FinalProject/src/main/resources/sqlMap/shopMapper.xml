@@ -62,4 +62,7 @@
 			#{shopItemSaleState, jdbcType=VARCHAR}
 			)
 	</insert>
+	
+	
+	
 </mapper>
