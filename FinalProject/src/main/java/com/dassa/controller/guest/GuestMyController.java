@@ -30,6 +30,11 @@ public class GuestMyController {
 	@Resource
 	private GuestMoveService guestMoveService;
 
+	/**
+	 * 마이페이지 메인
+	 * @param httpSession
+	 * @return
+	 */
 	@RequestMapping("/")
 	public String home(HttpSession httpSession){
 
@@ -72,6 +77,11 @@ public class GuestMyController {
 	}
 
 
+	/**
+	 * 내 정보
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/info")
 	public String info(Model model){
 
@@ -121,6 +131,12 @@ public class GuestMyController {
 	}
 
 
+	/**
+	 * 이사 상세정보 보기
+	 * @param model
+	 * @param moveIdx
+	 * @return
+	 */
 	@RequestMapping("/moveInfo")
 	public String moveinfo(Model model, @RequestParam int moveIdx){
 
