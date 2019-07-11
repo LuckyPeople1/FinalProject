@@ -82,6 +82,28 @@
 			                 default)
 		</insert>
 		
+		<insert id="driverInsert" parameterType="userVO">
+			insert into user_tbl values (
+			user_no_seq.nextval,
+			 #{userId},
+			  #{userPw},
+			   #{userName},
+			    #{userAddr},
+			     #{userPhone},
+			      #{userEmail},
+			       null,
+			        null,
+			         #{userIntroduce},
+			          null,
+			           null,
+			            null,
+			             #{compFilename},
+			              #comFilepath},
+			               #{userType},
+			                null,
+			                 default)
+		</insert>
+		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">
 			select user_id as userId from user_tbl where user_id=#{userId}
 		</select>
