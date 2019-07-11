@@ -11,7 +11,7 @@
 					<div class="commonInsert_title">
 						운송기사 회원가입
 					</div>
-					<form action="/insert/driverInsert" method="post">
+					<form action="/insert/driverInsert" method="post" enctype="multipart/form-data">
 						<table class="commonInsert_table">
 							<colgroup>
 								<col width="200">
@@ -74,9 +74,9 @@
 									<div class="img_up_list">
 										<div class="img_box">
 											<input type="file" class="hide" accept="image/*" name="compFilename" id="fileImg"
-												   onchange="package.imgSel(this, event)" value="${userVO.compFilename }">
+												   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
 											<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
-											<input type="hidden" name="compFilepath" value="${userVO.compFilename }">
+											<input type="hidden" name="compFilepath" value="${noticeVO.noticeFilename }">
 										</div>
 									</div>
 								</td>

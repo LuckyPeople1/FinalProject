@@ -11,7 +11,7 @@ public class UserVO {
 	private String 	userPhone;
 	private String 	userEmail;
 	private String  proFilename;			//프로필 사진 파일명
-	private String  priFilepath;			//프로필 사진 경로
+	private String  proFilepath;			//프로필 사진 경로
 	private String 	userIntroduce;			//이사 소개
 	private String 	registrationNumber; 	//사업자 등록번호
 	private String	businessNumber;			//사업자 등록번호
@@ -29,7 +29,7 @@ public class UserVO {
 	}
 
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
-			String userEmail, String proFilename, String priFilepath, String userIntroduce, String registrationNumber,
+			String userEmail, String proFilename, String proFilepath, String userIntroduce, String registrationNumber,
 			String businessNumber, String userCar, String compFilename, String compFilepath, String userType,
 			String socialId, Date enrollDate, String type) {
 		super();
@@ -41,7 +41,7 @@ public class UserVO {
 		this.userPhone = userPhone;
 		this.userEmail = userEmail;
 		this.proFilename = proFilename;
-		this.priFilepath = priFilepath;
+		this.proFilepath = proFilepath;
 		this.userIntroduce = userIntroduce;
 		this.registrationNumber = registrationNumber;
 		this.businessNumber = businessNumber;
@@ -118,12 +118,12 @@ public class UserVO {
 		this.proFilename = proFilename;
 	}
 
-	public String getPriFilepath() {
-		return priFilepath;
+	public String getProFilepath() {
+		return proFilepath;
 	}
 
-	public void setPriFilepath(String priFilepath) {
-		this.priFilepath = priFilepath;
+	public void setProFilepath(String proFilepath) {
+		this.proFilepath = proFilepath;
 	}
 
 	public String getUserIntroduce() {

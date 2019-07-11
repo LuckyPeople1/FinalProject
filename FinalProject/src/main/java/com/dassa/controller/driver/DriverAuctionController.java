@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,9 @@ import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/driver")
@@ -42,9 +45,7 @@ public class DriverAuctionController {
 				pagination.setMaxDate("");
 			}
 			
-			
 			int listCnt=driverService.driverTotalCount(pagination);
-			/*System.out.println("총게시물수:"+listCnt);*/
 			pagination.pageInfo(page, range, listCnt);
 			List<MoveApplyVO> list =driverService.drvierAuctionList(pagination);
 			if(list!=null) {
@@ -59,9 +60,11 @@ public class DriverAuctionController {
 		@RequestMapping("/auctionDetail")
 		public String DriverAuctionDetail(Model model,int applyIdx,HttpServletRequest request) throws Exception {
 			
-			System.out.println("컨트롤러"+applyIdx);
+		
 			
 			DriverAuctionDetailVO driverAuctionDetail=driverService.driverSelectOne(applyIdx);	//move_apply_tbl 조회 
+			
+			
 			
 			List<DriverApplyOptionVO> optionList =driverService.driverOptionList(applyIdx);
 			
@@ -79,6 +82,32 @@ public class DriverAuctionController {
 				return "driver/auction/driverAuction";
 			}
 			
+		}
+		@RequestMapping("/auctioninsert")
+		public String DriverAuctionInsert(DriverVO driverVO,int applyIdx,HttpSession session,HttpServletRequest request) throws Exception {
+			
+			session=request.getSession();
+			UserVO userVO =(UserVO)session.getAttribute("user");
+			driverVO.setDriverIdx(userVO.getUserIdx());	//세션값 userIdx driver_idx로  driverVO에 저장하기
+			
+			
+			System.out.println("드라이버메세지"+driverVO.getDriverMessage());
+			System.out.println("사다리"+driverVO.getLadderState());
+			System.out.println("견적금액"+driverVO.getEstimateAmount());
+			System.out.println("driver_idx"+driverVO.getDriverIdx());
+			System.out.println("상품번호"+driverVO.getApplyIdx());
+			
+			int result=driverService.driverAuctionInsert(driverVO) ;
+			if(result>0) {
+				int update=driverService.driverAuctionUpdate(applyIdx);
+				
+					return "driver/manager/driverMove";
+				
+			}else {
+				
+				return "driver/auction/driverAuctionDetail";
+			}
+										
 		}
 		
 }

@@ -90,7 +90,7 @@
 					<c:forEach items="${list }" var="moveApply" varStatus="i" >
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${moveApply.guestIdx }</td>
+						<td>${moveApply.applyIdx }</td>
 						<td>${moveApply.applyDate }</td>
 						<td>${moveApply.applyTime }</td>
 						<td>${moveApply.guestName }</td>
@@ -105,10 +105,14 @@
 						</c:if>
 						<c:if test="${moveApply.applyStatus eq 2 }">
 						<td>
-							<span class="tag col_orange f_w">최종완료</span>
+							<span class="tag col_orange f_w">최종 완료</span>
 						</td>
 						</c:if>
-						
+						<c:if test="${moveApply.applyStatus eq 3 }">
+						<td>
+							<span class="tag col_red f_w">예약 취소</span>
+						</td>
+						</c:if>
 						<td>
 							<div class="set_menu">
 								<a href="/driver/driverMoveDetail" class="btn col_navy f_w">상세보기</a>
