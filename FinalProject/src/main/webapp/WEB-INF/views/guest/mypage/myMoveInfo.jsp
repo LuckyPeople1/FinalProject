@@ -46,17 +46,17 @@
 							</div>
 							<div class="row">
 								<div class="tit">이사타입</div>
-								<div class="txt">${moveInfo.maVo. }</div>
+								<div class="txt">반포장 이사</div>
 								<div class="sub">고객님과 기사님이 함께 짐을 포장하고, 짐 이동은 기사님께서 맡아 주시는 이사 방법 입니다.</div>
 							</div>
 							<div class="row">
 								<div class="tit">운전 차량</div>
-								<div class="txt">트럭 (1톤)/카고 자바라호루3단</div>
+								<div class="txt">${moveInfo.maVo.userCar}</div>
 								<div class="sub">기사님이 운영하시는 기본 차량 용적 정보입니다.</div>
 							</div>
 							<div class="row">
 								<div class="tit">사다리비용</div>
-								<div class="txt accent">별도로 필요함</div>
+								<div class="txt accent">${moveInfo.maVo.ladderState == '0' ? '포함' : '별도로 필요함'}</div>
 								<div class="sub">
 									견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.
 								</div>
@@ -424,6 +424,7 @@
 				</c:if>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
+					<a href="javascript:move.paymentCencel()" class="btn col_blue f_w big">결제취소</a>
 				</div>
 			</div>
 		</section>

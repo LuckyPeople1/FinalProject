@@ -46,8 +46,8 @@ var move	=	{
 		        alert(msg);
 		    }
 		});
-	} 
-
+	}
 	
-
+	
 }
+	
