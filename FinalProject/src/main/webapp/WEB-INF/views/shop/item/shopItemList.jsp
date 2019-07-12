@@ -28,30 +28,17 @@
 						<td colspan="3">
 							<span class="sbox small">
 								<select name="shopItemManager">
-									<option selected="selected">담당자선택</option>
-									<option>원룸</option>
-									<option>투룸</option>
-									<option>쓰리룸</option>
-									<option>오피스텔</option>
-									<option>아파트</option>
+									<option selected="selected" value="">담당자선택</option>
 								</select>
 							</span>
 							<span class="sbox small">
-								<select name="shopItemType1">
-									<option selected="selected">매물선택</option>
-									<option>원룸</option>
-									<option>투룸</option>
-									<option>쓰리룸</option>
-									<option>오피스텔</option>
-									<option>아파트</option>
-								</select>
-							</span>
-							<span class="sbox small">
-								<select name="shopItemDealType">
-									<option selected="selected">거래종류선택</option>
-									<option>월세</option>
-									<option>전세</option>
-									<option>매매</option>
+								<select name="type">
+									<option selected="selected" value="">매물선택</option>
+									<option value=1>원룸</option>
+									<option value=2>투룸</option>
+									<option value=3>쓰리룸</option>
+									<option value=4>오피스텔</option>
+									<option value=5>아파트</option>
 								</select>
 							</span>
 						</td>
@@ -145,5 +132,9 @@
 	$("button[name=itemDel]").click(function(){
 		alert($(this).siblings('input[name="idx"]').val());
 	});
+	
+	
+	$.ajax()
+	
 </script>
 </html>

@@ -97,6 +97,7 @@
 				shop_item_reg_date as shopItemRegDate
 			from(select rownum as rnum, item.* from (select * from shop_item_tbl order by rownum desc) item)where rnum between #{start} and #{end} 
 	</select>
+
 	<!-- 매물 총 게시물 수 -->
 	<select id="shopItemTotalCount" resultType="_int">
 		select count(*) cnt from shop_item_tbl
