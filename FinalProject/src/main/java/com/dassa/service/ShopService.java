@@ -43,7 +43,7 @@ public class ShopService {
 		return shopMapper.getJusoDongList(jusoGuCode);
 	}
 	/**
-	 * 중개사페이지 - 매물등록 
+	 * 중개사페이지 - 매물등록, 이미지 같이 등록 
 	 * @param sItem
 	 * @return
 	 * @throws Exception
@@ -53,47 +53,46 @@ public class ShopService {
 		return shopMapper.shopItemImgAdd(sItemImgList);
 		
 	}
-	/**
-	 * 
-	 */
-	public int shopItemImgAdd(List<ShopItemImgVO> sItemImgList) throws Exception{
-		return shopMapper.shopItemImgAdd(sItemImgList);
-	}
-	/**
-	 * 중개사 매물 조회
-	 * @param reqPage
-	 * @return
-	 * @throws Exception
-	 */
 	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
-		int numPerPage = 6;
+		System.out.println("요청페이지"+reqPage);
+		//페이지 당 게시물 수
+		int numPerPage = 5;
+		//총 게시물 수 구하기
 		int totalCount = shopMapper.shopItemTotalCount();
+		//총 페이지 수 구하기
 		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;
 		//요청 페이지의 시작 게시물 번호와 끝 게시물 번호 구하기
 		//시작 게시물 번호
 		int start = (reqPage-1)*numPerPage +1;
+		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
+		System.out.println(start+"/"+end);
 		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end);
+		//페이지 네비 작성
 		String pageNavi = "";
+		//페이지 네비의 수
 		int pageNaviSize = 5;
+		//페이지 번호
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		//이전 버튼 생성
 		if(pageNo !=1) {
-			pageNavi += "<a class='btn' href='/shop/item/shopItemList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<a class='btn' href='/shop/item?reqPage="+(pageNo-1)+"'>이전</a>";
 		}
+		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
 				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
 			}else {
-				pageNavi += "<a class='btn' href='/shop/item/shopItemList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<a class='btn' href='/shop/item?reqPage="+pageNo+"'>"+pageNo+"</a>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-			pageNavi +="<a class='btn' href='/shop/item/shopItemList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi +="<a class='btn' href='/shop/item?reqPage="+pageNo+"'>다음</a>";
 		}
-		ShopItemPageDataVO sipd = new ShopItemPageDataVO(list,pageNavi);
-		return sipd;
+		ShopItemPageDataVO pd = new ShopItemPageDataVO(list,pageNavi);
+		return pd;
 	}
 }
