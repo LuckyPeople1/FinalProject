@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dassa.service.UserService;
 import com.dassa.vo.UserVO;
@@ -23,15 +25,22 @@ public class GuestLoginController {
 	//로그인 홈페이지로 이동
 	@RequestMapping(value="/")
 	public String GuestLogin() {
-		return "guest/login/loginHome";
+		return "/guest/login/loginHome";
+	}
+	
+	//이전페이지로 이동할때 사용
+	@RequestMapping(value="/reLogin")
+	public String RedirectLogin(Model model, HttpServletRequest request ) {
+		String referer = request.getHeader("Referer");
+		model.addAttribute("referer", referer);
+		return "/guest/login/loginHome";
 	}
 	
 	@RequestMapping(value="/logout")
-	public String GuestLogout(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+	public String GuestLogout(HttpSession session, Model model) {
 		session.invalidate();
-		request.setAttribute("msg", "로그아웃 되었습니다.");
-		request.setAttribute("loc", "/login/index");
+		model.addAttribute("msg", "로그아웃 되었습니다.");
+		model.addAttribute("loc", "/login/index");
 		return "guest/common/msg";
 	}
 	
@@ -43,50 +52,46 @@ public class GuestLoginController {
 	
 	//socialLogin
 	@RequestMapping(value="/socialLogin")
-	public String LoginHome(HttpServletRequest request, @RequestParam String socialId) throws Exception{
+	public String LoginHome(HttpSession session, Model model, @RequestParam String socialId) throws Exception{
 		UserVO user = userService.guestLogin(socialId);
-		HttpSession session = request.getSession();
 		String view = "";
 		if(user != null) {
 			session.setAttribute("user", user);
-			request.setAttribute("msg", "로그인 되었습니다.");
-			request.setAttribute("loc", "/login/index");
+			model.addAttribute("msg", "로그인 되었습니다.");
+			model.addAttribute("loc", "/login/index");
 			view= "guest/common/msg";
 		} else {
-			request.setAttribute("socialId", socialId);
+			model.addAttribute("socialId", socialId);
 			view="guest/insert/commonInsert";
 		}
 		return view;
 	}
 	
 	@RequestMapping(value="/commonLogin")
-	public String Login(HttpServletRequest request,String userId,String userPw) throws Exception {
+	public String Login(HttpSession session, Model model,String userId,String userPw, String referer) throws Exception {
 		System.out.println("userId : "+userId);
 		System.out.println("userPw : "+userPw);
+		System.out.println("loc : "+ referer);
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
 		userVO.setUserPw(userPw);
 		UserVO user =userService.selectOneUser(userVO);
 		if(user!=null) {
-			HttpSession session =request.getSession();
 			session.setAttribute("user", user);
-			if(user.getUserType().equals("1")) {
-				request.setAttribute("msg", "로그인 되었습니다.");
-				request.setAttribute("loc", "/driver/");
-				return "guest/common/msg";
-			}else if(user.getUserType().equals("2")) {
-				request.setAttribute("msg", "로그인 되었습니다.");
-				request.setAttribute("loc", "/shop/");
+			if(referer != null) {
+				model.addAttribute("msg", "로그인 되었습니다.");
+				model.addAttribute("loc", referer);
 				return "guest/common/msg";
 			}else {
-				request.setAttribute("msg", "로그인 되었습니다.");
-				request.setAttribute("loc", "/login/index");
+				model.addAttribute("msg", "로그인 되었습니다.");
+				model.addAttribute("loc", "/login/index");
 				return "guest/common/msg";
-			}	
+			}
+				
 		}else {
-			request.setAttribute("msg", "아이디 또는 비밀번호를 확인해주세요.");
-			request.setAttribute("loc", "/login/");
-			return "guest/common/msg";
+			model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요");
+			model.addAttribute("loc", "/login/");
+			return "/guest/common/msg";
 		}
 		
 	}
