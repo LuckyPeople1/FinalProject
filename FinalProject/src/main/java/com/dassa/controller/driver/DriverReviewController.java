@@ -7,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dassa.service.DriverService;
-import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverVO;
 
 
 @Controller
@@ -18,21 +19,33 @@ public class DriverReviewController {
 	
 	
 	@RequestMapping("/driverReview")
-	public String DriverReview(Model model, int applyIdx) throws Exception {
+	public String DriverReview(Model model, int applyIdx,int driverIdx,DriverVO driverVO) throws Exception {
 		
-		System.out.println(applyIdx);
 		
-		MovePaymentVO movePaymentVO=driverService.driverReview(applyIdx);
+		driverVO.setDriverIdx(driverIdx);
+		driverVO.setApplyIdx(applyIdx);
 		
-		if(movePaymentVO!=null) {
-			model.addAttribute("movePaymentVO", movePaymentVO);
+		System.out.println(driverVO.getApplyIdx());
+		System.out.println(driverVO.getDriverIdx());
+		
+		 driverVO=driverService.driverReviewWrite(driverVO);
+		
+		
+		if(driverVO!=null) {
+			model.addAttribute("driverVO",driverVO);
 		}
 		
-		
-		
-		
-		
 		return "guest/review/driverReview";
+	}
+	
+	@RequestMapping("driverReviewInsert")
+	public String driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception {
+		
+		
+		int result =driverService.driverReviewInsert(driverReviewVO);
+		
+		return "";
+		
 	}
 	
 }

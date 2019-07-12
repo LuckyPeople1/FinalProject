@@ -417,11 +417,13 @@
 							</li>
 							</c:if>
 						</ul>
-					
 					</div>
 				
 				</div>
 				</c:if>
+					<span>${moveInfo.maVo.driverIdx}</span>
+					<span>${moveInfo.maVo.applyIdx}</span>
+					<a href="/driverReview?applyIdx=${moveInfo.maVo.applyIdx}&&driverIdx=${moveInfo.maVo.driverIdx}">@@@후기작성</a>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
 					<a href="javascript:move.paymentCencel()" class="btn col_blue f_w big">결제취소</a>

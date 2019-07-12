@@ -8,6 +8,7 @@ import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
+import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.MovePaymentVO;
@@ -54,5 +55,10 @@ public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
 
 //후기 작성 리스트 보내기
 public MovePaymentVO driverReview(int applyIdx) throws Exception;
+
+//후기작성하기
+public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception;
+
+public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception;
 
 }
