@@ -1,4 +1,4 @@
-  $(".regCheckBtn").click(function(){
+$(".regCheckBtn").click(function(){
 	 var userId = $("#userId").val();
 	 $.ajax({
 		 url : "/regCheck/idChk",
