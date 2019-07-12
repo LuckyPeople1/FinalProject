@@ -15,6 +15,7 @@
 			<div class="mypageCon move">
 				<div class="moveTitle">
 					<span class="tit">이사 관리</span>
+				<a href="/driverReview?applyIdx=${list[0].applyIdx }">후기작성</a>
 				</div>
 				<div class="moveListBox">
 					<c:forEach var="list" items="${movePage.list}">

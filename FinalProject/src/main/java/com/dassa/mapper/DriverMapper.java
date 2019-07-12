@@ -10,6 +10,7 @@ import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 
 @MapperScan("driverMapper")
@@ -50,5 +51,8 @@ public int driverAuctionUpdate(int applyIdx) throws Exception;
 
 //이사관리 상세보기 기사정보 값 보기
 public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
+
+//후기 작성 리스트 보내기
+public MovePaymentVO driverReview(int applyIdx) throws Exception;
 
 }

@@ -14,6 +14,7 @@ import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 
 @Service("DriverService")
@@ -94,6 +95,11 @@ public class DriverService {
 	public DriverVO driverMoveSelectOne(int applyIdx) throws Exception {
 		
 		return driverMapper.driverMoveSelectOne(applyIdx) ;
+	}
+
+	public MovePaymentVO driverReview(int applyIdx) throws Exception {
+		
+		return driverMapper.driverReview(applyIdx);
 	}
 
 }

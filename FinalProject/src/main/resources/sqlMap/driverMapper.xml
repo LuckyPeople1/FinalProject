@@ -210,5 +210,11 @@
 				where apply_idx = #{applyIdx}
 	</select>
 	
+	<select id="driverReview" resultType="com.dassa.vo.MovePaymentVO" parameterType="_int">
+		select	apply_idx as applyIdx,
+				driver_idx as driverIdx
+				from move_payment_tbl
+				where apply_idx =#{applyIdx}
+	</select>
 	
 </mapper>
