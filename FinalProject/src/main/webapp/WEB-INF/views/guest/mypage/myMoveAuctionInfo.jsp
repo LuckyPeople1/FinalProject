@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/guest/common/head.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <div class="container">
 	<%@include file="/WEB-INF/views/guest/common/header.jsp" %>
 	<div class="contents">
@@ -16,20 +17,25 @@
 				<div class="auctionDetailInfo">
 					<div class="profileBox">
 						<div class="profile">
-							<img src="/guest/img/img_profile_default.png" alt="프로필">
+							<c:if test="${not empty item.proFilepath }">
+								<img src="${item.proFilepath }" alt="프로필">
+							</c:if>
+							<c:if test="${empty item.proFilepath }">
+								<img src="/guest/img/img_profile_default.png" alt="프로필">
+							</c:if>
 						</div>
 					</div>
 					<div class="driverBox">
-						<div class="driverName">유성연 기사님</div>
-						<div class="driverCount">평점 4.5 &nbsp / &nbsp 리뷰 15건</div>
-						<div class="auctionPrice">견적가 : 150,000원</div>
+						<div class="driverName">${item.userName } 기사님</div>
+						<div class="driverCount">평점 ${item.star } 점 &nbsp / &nbsp 리뷰 ${item.reviewCount } 건</div>
+						<div class="auctionPrice">견적가 : ${item.estimateAmount }원</div>
 					</div>
 					<div class="driverIntro">
-						자기소개서
+						${item.userIntroduce }
 					</div>
 					<div class="driverMemo">
 						<div class="memoTit">메모사항</div>
-						<div class="memoCon">메모내용</div>
+						<div class="memoCon">${item.driverMessage }</div>
 					</div>
 					<div class="detailBox">
 						<div class="detailTit">상세정보</div>
@@ -46,7 +52,7 @@
 							</div>
 							<div class="row">
 								<div class="tit">운전 차량</div>
-								<div class="txt">트럭 (1톤)/카고 자바라호루3단</div>
+								<div class="txt">${item.userCar}</div>
 								<div class="sub">기사님이 운영하시는 기본 차량 용적 정보입니다.</div>
 							</div>
 							<div class="row">
@@ -61,7 +67,7 @@
 				</div>
 				<div class="mypageBtnBox">
 					<a href="/my/" class="btn col_darkGrey f_w big">뒤로가기</a>
-					<a href="javascript:move.payment()" class="btn col_main f_w big">결제하기</a>
+					<a href="javascript:move.payment('${user.userEmail}','${user.userName}','${user.userPhone}','${user.userAddr}','${user.addrCode}','${item.applyIdx }','${item.driverIdx }','${item.estimateAmount }');" class="btn col_main f_w big">결제하기</a>
 				</div>
 			</div>
 		</section>

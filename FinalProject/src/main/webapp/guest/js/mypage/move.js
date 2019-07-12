@@ -1,9 +1,10 @@
 var move	=	{
 		
-	payment 	:	function(){
-		var applyIdx = "";
-		var driverIdx = "";
-		
+	payment  :	function(userEmail,userName,userPhone,userAddr,addrCode,applyIdx,driverIdx,amount){
+		var applyIdx= applyIdx;
+		var driverIdx= driverIdx;
+		console.log(driverIdx);
+		var amount = amount;
 		var IMP = window.IMP;
 		IMP.init("imp54534548");
 		IMP.request_pay({
@@ -11,27 +12,31 @@ var move	=	{
 		    pay_method : 'card',
 		    merchant_uid : 'merchant_' + new Date().getTime(),
 		    name : '이사 결제',
-		    amount : 100,
-		    buyer_email : 'iamport@siot.do',
-		    buyer_name : '구매자이름',
-		    buyer_tel : '010-1234-5678',
-		    buyer_addr : '서울특별시 강남구 삼성동',
-		    buyer_postcode : '123-456'
+		    amount : '100',
+		    buyer_email : userEmail,
+		    buyer_name : userName,
+		    buyer_tel : userPhone,
+		    buyer_addr : userAddr,
+		    buyer_postcode : addrCode
 		}, function(rsp) {
 			var imp_uid = rsp.imp_uid;
-			console.log(str);
 		    if ( rsp.success ) {
 		    	$.ajax({
-		    	    url: "/import",
-		    	    type: "get", // POST method
+		    	    url: "/my/guestMovePayment",
+		    	    type: "POST", // POST method
 		    	    dataType : 'json', // "Content-Type": "application/json"
 		    	    data: {
-		    	    	 impUid : str,
+		    	    	 impUid : imp_uid,
 		    	    	 applyIdx : applyIdx,
 		    	    	 driverIdx : driverIdx
 		    	    }
 		    	  }).done(function(data){
-		    		  alert("결제 완료!!");
+		    		  if(data == '1'){
+		    			  alert("결제가 완료되었습니다.");
+		    			  location.href="/my/"
+		    		  }else{
+		    			  alert("결제가 실패했습니다.");
+		    		  }
 		    	  });
 		    
 		    } else {
@@ -42,5 +47,7 @@ var move	=	{
 		    }
 		});
 	} 
+
+	
 
 }
