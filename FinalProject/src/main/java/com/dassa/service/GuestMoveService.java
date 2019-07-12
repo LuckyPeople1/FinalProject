@@ -16,20 +16,42 @@ import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.MoveApplyPage;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
 
 @Service("GusetMoveService")
 public class GuestMoveService {
 	
-	@Resource
+	@Resource(name="guestMoveMapper")
 	private GuestMoveMapper guestMoveMapper;
 	
 	@Resource(name="driverMapper")
 	private DriverMapper driverMapper;
 	
-	public int guestMovePayment(MovePaymentVO mpVo) {
-		return guestMoveMapper.guestMovePayment(mpVo);
+	public int guestMovePaymentCencel(MovePaymentVO mpVo,int applyIdx) {
+		int result = guestMoveMapper.guestMovePaymentCencel(mpVo);
+		System.out.println("service 갔다온후 :"+result);
+		if(result > 0) {
+			guestMoveMapper.guestMoveApplyCencel(applyIdx);
+		}
+		return result;
+	}
+	public MoveAuctionVO moveAuctionInfo(int applyIdx) {
+		return guestMoveMapper.moveAuctionInfo(applyIdx);
+	}
+	public ArrayList<MoveAuctionVO> moveAuction(int applyIdx){
+		return guestMoveMapper.moveAuction(applyIdx);
+	}
+	public int guestMovePayment(MovePaymentVO mpVo,int applyIdx) {
+		int result = guestMoveMapper.guestMovePayment(mpVo);
+		if(result > 0) {
+			guestMoveMapper.moveApplyStateUpdate(applyIdx);
+			
+		}else {
+
+		}
+		return result;
 	}
 	public MoveApplyPage moveList(int guestIdx,int reqPage,MoveApplyPage moPage){
 		int numPerPage = 5;
@@ -73,7 +95,8 @@ public class GuestMoveService {
 		DriverAuctionDetailVO driverAuctionDetail=driverMapper.driverSelectOne(applyIdx);	//move_apply_tbl 조회 
 		List<DriverApplyOptionVO> optionList =driverMapper.driverOptionList(applyIdx);
 		List<DriverApplyImgVO> imgList =driverMapper.driverImgList(applyIdx);
+		MoveAuctionVO maVo = guestMoveMapper.moveAuctionInfo(applyIdx);					
 		MovePaymentVO payVo = guestMoveMapper.paymentInfo(applyIdx);
-		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo);
+		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo);
 	}
 }
