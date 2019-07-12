@@ -1,13 +1,16 @@
 package com.dassa.controller.guest;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.GuestMoveService;
 import com.dassa.vo.MoveApplyPage;
-import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
@@ -119,9 +122,11 @@ public class GuestMyController {
 	 * @return
 	 */
 	@RequestMapping("/auctionList")
-	public String moveAuction(Model model){
+	public String moveAuction(Model model, @RequestParam int applyIdx){
 
-		model.addAttribute("tab","2");
+		ArrayList<MoveAuctionVO> list = guestMoveService.moveAuction(applyIdx);
+		model.addAttribute("list", list);
+		model.addAttribute("applyIdx",applyIdx);
 
 		return "/guest/mypage/myMoveAuctionList";
 	}
@@ -131,9 +136,10 @@ public class GuestMyController {
 	 * @return
 	 */
 	@RequestMapping("/auctionInfo")
-	public String moveAuctionInfo(Model model){
-
-		model.addAttribute("tab","2");
+	public String moveAuctionInfo(Model model, @RequestParam int applyIdx){
+		MoveAuctionVO maVO = guestMoveService.moveAuctionInfo(applyIdx);
+		
+		model.addAttribute("item",maVO);
 
 		return "/guest/mypage/myMoveAuctionInfo";
 	}
@@ -160,14 +166,16 @@ public class GuestMyController {
 	 */
 	@ResponseBody
 	@RequestMapping("/guestMovePayment")
-	public void guestMovePayment(String movePaymentimpUid,int applyIdx,int driverIdx) {
+	public void guestMovePayment(String impUid,int applyIdx,int driverIdx,HttpServletResponse response) {
 		GetToken();
-		String imp_uid = movePaymentimpUid;
+		String imp_uid = impUid;
 		try {
 			IamportResponse<Payment> payment_response = client.paymentByImpUid(imp_uid);
 
 			System.out.println(payment_response);
 			System.out.println(payment_response.getResponse());
+			System.out.println(payment_response.getResponse().getCardCode());
+			System.out.println(payment_response.getResponse().getCardQuota());
 			String movePaymentPg = payment_response.getResponse().getPgProvider();
 			String movePaymentMerchantUid = payment_response.getResponse().getMerchantUid();
 			String movePaymentPayMethod = payment_response.getResponse().getPayMethod();
@@ -189,7 +197,13 @@ public class GuestMyController {
 			mpVo.setMovePaymentDate(movePaymentDate);
 			mpVo.setMovePaymentStatus(movePaymentStatus);
 
-			int result = guestMoveService.guestMovePayment(mpVo);
+			int result = guestMoveService.guestMovePayment(mpVo,applyIdx);
+			PrintWriter out = response.getWriter();
+			if(result > 0) {
+				out.print("1");
+			}else {
+				out.print("0");
+			}
 		} catch (IamportResponseException e) {
 			System.out.println(e.getMessage());
 
@@ -210,18 +224,32 @@ public class GuestMyController {
 	 * 입찰 결제 취소
 	 * @return
 	 */
-	public void guestMovePaymentCencel() {
+	@ResponseBody
+	@RequestMapping("/guestMovePaymentCencel")
+	public void guestMovePaymentCencel(String impUid,int applyIdx,HttpServletResponse response) {
 		GetToken();
-		String test_already_cancelled_imp_uid = "imp_448280090638";
-		CancelData cancel_data = new CancelData(test_already_cancelled_imp_uid, true); //imp_uid를 통한 전액취소
-		
+
+		String cancelled_imp_uid = impUid;
+		System.out.println(cancelled_imp_uid);
+		CancelData cancel_data = new CancelData(cancelled_imp_uid, true); //imp_uid를 통한 전액취소
+	
 		try {
 			IamportResponse<Payment> payment_response = client.cancelPaymentByImpUid(cancel_data);
-			
+			System.out.println(payment_response.getResponse());
+			PrintWriter out = response.getWriter();	
+			int result = 0;
 			if(payment_response.getResponse() != null) {
-				    
+				System.out.println("null이 아닐떄 : " + payment_response.getResponse().getStatus());
 				MovePaymentVO mpVo = new MovePaymentVO();
-				
+				mpVo.setMovePaymentStatus(payment_response.getResponse().getStatus());
+				mpVo.setMovePaymentImpUid(cancelled_imp_uid);
+				result = guestMoveService.guestMovePaymentCencel(mpVo,applyIdx);
+				System.out.println("컨트롤 끝난후 result" + result);
+			}
+			if(result > 0) {
+				out.print("1");
+			}else {
+				out.print("0");
 			}
 			
 		} catch (IamportResponseException e) {

@@ -50,46 +50,33 @@
 									</span>
 								</div>
 							</div>
-							<div class="stateBox">
-								<c:choose>
-									<c:when test="${list.applyStatus eq 0}">
+							<c:choose>
+								<c:when test="${list.applyStatus eq 0}">
+									<div class="stateBox">
 										<span class="state on">진행중</span>
-									</c:when>
-									<c:when test="${list.applyStatus eq 1}">
-										<span class="state">완료</span>
-									</c:when>
-									<c:otherwise>
+									</div>
+								</c:when>
+								<c:when test="${list.applyStatus eq 1}">
+									<div class="stateBox">
+										<span class="state">결제 완료</span>
+									</div>
+								</c:when>
+								<c:when test="${list.applyStatus eq 2}">
+									<div class="reviewBox">
+										<span class="review">후기작성</span>
+									</div>
+									<div class="stateBox">
+										<span class="state">이사 완료</span>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="stateBox">
 										<span class="state">취소</span>
-									</c:otherwise>
-								</c:choose>
-							</div>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</a>
 					</c:forEach>
-					<a href="/my/auctionList" class="moveBox">
-						<div class="moveInfo">
-							<div class="top">
-								<span class="dateBox">이사날짜 : 2019-05-20</span>
-								<span class="timeBox">이사시간 : 15:30분</span>
-								<span class="hopeBox">[차량만 // 도움있음]</span>
-							</div>
-							<div class="bottom">
-								<span class="addrBox">
-									<span class="addr">서울시 강서구 강서구청 1-31 5</span>
-									<span class="arrow">▶▶▶</span>
-									<span class="addr">서울시 마포구 153-32길 303호</span>
-								</span>
-							</div>
-						</div>
-						<!-- 후기를 작성하지 않은 경우 표시 -->
-						<div class="reviewBox">
-							<span class="review">후기작성</span>
-						</div>
-						<!-- -->
-						<div class="stateBox">
-							<span class="state">완료</span>
-						</div>
-					</a>
-				
 				</div>
 				<div class="movePaging">
 					${movePage.pageNavi }

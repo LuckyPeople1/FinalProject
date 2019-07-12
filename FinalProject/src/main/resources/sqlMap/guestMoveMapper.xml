@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.GuestMoveMapper">
   	<insert id="guestMovePayment" parameterType="com.dassa.vo.MovePaymentVO">
-  		insert into values(
+  		insert into move_payment_tbl values(
   			move_payment_seq.nextval,
   			#{applyIdx},
   			#{driverIdx},
@@ -16,7 +16,7 @@
   			#{movePaymentDate},
   			null,
   			#{movePaymentStatus}
-  			) from move_payment_tbl
+  			)
   	</insert>
   	<select id="moveList" parameterType="java.util.Map" resultType="com.dassa.vo.MoveApplyVO">
   			select a.* from
@@ -39,4 +39,48 @@
   	<select id="moveApplyTotalCount" parameterType="_int" resultType="_int">
   		select count(*) as cnt from move_apply_tbl where guest_idx = #{guestIdx}
   	</select>
+  	<select id="moveAuction" parameterType="_int" resultType="com.dassa.vo.MoveAuctionVO">
+  		select d.driver_idx as driverIdx,
+  			d.apply_idx as applyIdx,
+  			d.estimateAmount as estimateAmount,
+  			d.auction_state as auctionState,
+  			u.user_name as userName,
+  			u.pro_filepath as proFilepath
+  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where apply_idx = #{applyIdx}
+  	</select>
+  	<select id="moveAuctionInfo" parameterType="_int" resultType="com.dassa.vo.MoveAuctionVO">
+  		select d.driver_idx as driverIdx,
+  			d.apply_idx as applyIdx,
+  			d.user_car as userCar,
+  			d.driver_message as driverMessage,
+  			d.ladderstate as ladderState,
+  			d.estimateAmount as estimateAmount,
+  			d.auction_state as auctionState,
+  			u.user_name as userName,
+  			u.pro_filepath as proFilepath,
+  			u.user_introduce as userIntroduce
+  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where apply_idx = #{applyIdx}
+  	</select>
+  	<update id="moveApplyStateUpdate" parameterType="_int">
+  		update move_apply_tbl set apply_status = '1' where apply_idx=#{applyIdx}
+  	</update>
+  	<select id="paymentInfo" parameterType="_int" resultType="com.dassa.vo.MovePaymentVO">
+  		select move_payment_idx as movePaymentIdx,
+  			move_payment_imp_uid as movePaymentImpUid,
+  			apply_idx as applyIdx,
+  			move_payment_method as movePaymentPayMethod,
+  			move_payment_cardname as movePaymentCardName,
+  			move_payment_pg_number as movePaymentPgNumber,
+  			move_payment_amount as movePaymentAmount,
+  			move_payment_date as movePaymentDate,
+  			move_payment_cenceldate as movePaymentCencelDate,
+  			move_payment_status as movePaymentStatus
+  			from move_payment_tbl where apply_idx = #{applyIdx} 
+  	</select>
+  	<update id="guestMovePaymentCencel" parameterType="com.dassa.vo.MovePaymentVO">
+  		update move_payment_tbl set move_payment_status = #{movePaymentStatus}, move_payment_cenceldate = sysdate where MOVE_PAYMENT_imp_uid = #{movePaymentImpUid}
+  	</update>
+  	<update id="guestMoveApplyCencel" parameterType="_int">
+  		update move_apply_tbl set apply_status = '0' where apply_idx=#{applyIdx}
+  	</update>
 </mapper>

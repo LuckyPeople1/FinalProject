@@ -60,9 +60,9 @@
 			</choose>
 			   #{userName},
 			    #{userAddr},
-			     #{userPhone},
-			      #{userEmail},
-			       null,
+			     #{addrCode},
+			      #{userPhone},
+			       #{userEmail},
 			        null,
 			         null,
 			          null,
@@ -70,16 +70,17 @@
 			            null,
 			             null,
 			              null,
-			               #{userType},
-			               <choose>
-							  <when test="socialId != null">
-								  #{socialId},
-							  </when>
-							  <otherwise>
-								  null,
-							  </otherwise>
-						   </choose>
-			                 default)
+			               null,
+			                #{userType},
+			                <choose>
+							   <when test="socialId != null">
+								   #{socialId},
+							   </when>
+							   <otherwise>
+								   null,
+							   </otherwise>
+						    </choose>
+			                  default)
 		</insert>
 		
 		<insert id="driverInsert" parameterType="userVO">
@@ -89,19 +90,20 @@
 			  #{userPw},
 			   #{userName},
 			    #{userAddr},
-			     #{userPhone},
-			      #{userEmail},
-			       null,
+			     #{addrCode},
+			      #{userPhone},
+			       #{userEmail},
 			        null,
-			         #{userIntroduce},
-			          #{registrationNumber},
-			           null,
-			            #{userCar},
-			             #{compFilename},
-			              #{compFilepath},
-			               #{userType},
-			                null,
-			                 default)
+			         null,
+			          #{userIntroduce},
+			           #{registrationNumber},
+			            null,
+			             #{userCar},
+			              #{compFilename},
+			               #{compFilepath},
+			                #{userType},
+			                 null,
+			                  default)
 		</insert>
 		
 		<insert id="shopInsert" parameterType="userVO">
@@ -111,19 +113,20 @@
 			  #{userPw},
 			   #{userName},
 			    #{userAddr},
-			     #{userPhone},
-			      #{userEmail},
-			       null,
+			     #{addrCode},
+			      #{userPhone},
+			       #{userEmail},
 			        null,
-			         #{userIntroduce},
-			          #{registrationNumber},
-			           #{businessNumber},
-			            null,
-			             #{compFilename},
-			              #{compFilepath},
-			               #{userType},
-			                null,
-			                 default)
+			         null,
+			          #{userIntroduce},
+			           #{registrationNumber},
+			            #{businessNumber},
+			             null,
+			              #{compFilename},
+			               #{compFilepath},
+			                #{userType},
+			                 null,
+			                  default)
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">

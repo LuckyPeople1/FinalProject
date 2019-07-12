@@ -8,6 +8,7 @@ public class UserVO {
 	private String 	userPw;
 	private String 	userName;
 	private String  userAddr;
+	private String  addrCode;
 	private String 	userPhone;
 	private String 	userEmail;
 	private String  proFilename;			//프로필 사진 파일명
@@ -27,17 +28,18 @@ public class UserVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String userPhone,
-			String userEmail, String proFilename, String proFilepath, String userIntroduce, String registrationNumber,
-			String businessNumber, String userCar, String compFilename, String compFilepath, String userType,
-			String socialId, Date enrollDate, String type) {
+	
+	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String addrCode,
+			String userPhone, String userEmail, String proFilename, String proFilepath, String userIntroduce,
+			String registrationNumber, String businessNumber, String userCar, String compFilename, String compFilepath,
+			String userType, String socialId, Date enrollDate) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
 		this.userPw = userPw;
 		this.userName = userName;
 		this.userAddr = userAddr;
+		this.addrCode = addrCode;
 		this.userPhone = userPhone;
 		this.userEmail = userEmail;
 		this.proFilename = proFilename;
@@ -51,7 +53,6 @@ public class UserVO {
 		this.userType = userType;
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
-		this.type = type;
 	}
 
 	public int getUserIdx() {
@@ -92,6 +93,14 @@ public class UserVO {
 
 	public void setUserAddr(String userAddr) {
 		this.userAddr = userAddr;
+	}
+
+	public String getAddrCode() {
+		return addrCode;
+	}
+
+	public void setAddrCode(String addrCode) {
+		this.addrCode = addrCode;
 	}
 
 	public String getUserPhone() {
@@ -166,6 +175,14 @@ public class UserVO {
 		this.compFilename = compFilename;
 	}
 
+	public String getCompFilepath() {
+		return compFilepath;
+	}
+
+	public void setCompFilepath(String compFilepath) {
+		this.compFilepath = compFilepath;
+	}
+
 	public String getUserType() {
 		return userType;
 	}
@@ -182,14 +199,6 @@ public class UserVO {
 		this.socialId = socialId;
 	}
 
-	public String getCompFilepath() {
-		return compFilepath;
-	}
-
-	public void setCompFilepath(String compFilepath) {
-		this.compFilepath = compFilepath;
-	}
-
 	public Date getEnrollDate() {
 		return enrollDate;
 	}
@@ -199,7 +208,7 @@ public class UserVO {
 	}
 
 	public String getType() {
-		String type = getUserType();
+		String type = userType;
 		if(type.equals("1")) {
 			return "운송기사";
 		}else if(type.equals("2")){

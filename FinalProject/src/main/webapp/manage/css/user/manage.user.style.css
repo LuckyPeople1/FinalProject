@@ -357,34 +357,34 @@ footer {
     margin: 25px 0;
 }
 
-.set_table {
+.set_man_userTable {
     border-top: 3px solid #4683bd;
 }
 
-.set_table.inner {
+.set_man_userTable.inner {
     border-top: 1px solid #ccc;
     margin-bottom: 30px;
 }
 
-.set_table tr {
+.set_man_userTable tr {
     border-bottom: 1px solid #ccc;
 }
 
-.set_table th, .set_table td {
+.set_man_userTable th, .set_man_userTable td {
     font-size: 15px;
     line-height: 18px;
     color: #3b3b3b;
     font-weight: 500;
 }
 
-.set_table th {
+.set_man_userTable th {
     background-color: #565656;
     text-align: center;
     padding: 14px 0;
 	color: #fff;
 }
 
-.set_table td {
+.set_man_userTable td {
     padding: 10px 20px;
 }
 

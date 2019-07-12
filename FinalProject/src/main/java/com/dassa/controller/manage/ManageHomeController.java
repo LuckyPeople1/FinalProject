@@ -28,7 +28,7 @@ public class ManageHomeController {
 	//승인관리 페이지
 	@RequestMapping("/user/userApprobate")
 	public String UserApprobateList(HttpServletRequest request) throws Exception {
-		List<UserVO> list = manageUserService.getUserList();
+		List<UserVO> list = manageUserService.getUserListAll();
 		request.setAttribute("list", list);
 		return "manage/user/userApprobateList";
 	}

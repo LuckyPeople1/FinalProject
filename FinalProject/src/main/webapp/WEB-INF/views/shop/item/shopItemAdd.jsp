@@ -289,9 +289,9 @@
 								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">공급 면적</p> 
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" value="" id="size11">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize1"value="" id="size11">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="" id="size22" step="0.01">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize2" value="" id="size22" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<th rowspan="2">건물 층수</th>
@@ -308,9 +308,9 @@
 							<tr>
 								<td class="ggZjqG">
 									<p class="hNdXGi">전용 면적</p> 
-									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" value="" id="size33">
+									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll1" value="" id="size33">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="" id="size44" step="0.01">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll2" value="" id="size44" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
@@ -369,9 +369,9 @@
 								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">공급 면적</p> 
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" value="" id="size1">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize1" value="" id="size1">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="" id="size2" step="0.01">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize2" value="" id="size2" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<th rowspan="2">건물 층수</th>
@@ -388,9 +388,9 @@
 							<tr>
 								<td class="ggZjqG">
 									<p class="hNdXGi">전용 면적</p> 
-									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" value="" id="size3">
+									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll1"value="" id="size3">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="" id="size4" step="0.01">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll2" value="" id="size4" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
@@ -441,8 +441,7 @@
 						</tbody>
 					</table>
 				</div>
-				
-				
+
 				<div class="etFHhl" name="additional">
 					<h1>추가정보</h1>
 					<table>
@@ -457,11 +456,11 @@
 								<th rowspan="2">관리비</th>
 								<td class="cCUCai" colspan="3">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="maintenance" value="없음" checked>
+										<input type="radio" name="shopItemManage" value="없음" checked>
 										<p>없음</p>
 									</label>
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="maintenance" value="있음">
+										<input type="radio" name="shopItemManage" value="있음">
 										<p>있음</p>
 									</label>
 										<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemManagePrice" disabled="" value="" id="managePrice">
@@ -1140,8 +1139,8 @@
 			$("#size33").val(size4.toFixed(0));
 		});
 		//관리비 있음 선택 시
-		$("input:radio[name=maintenance]").click(function(){
-			if($("input[name=maintenance]:checked").val()=="있음"){
+		$("input:radio[name=shopItemManage]").click(function(){
+			if($("input[name=shopItemManage]:checked").val()=="있음"){
 				$("#managePrice").prop("disabled",false);
 				$("input[name=shopItemManagePriceOption]").prop("disabled",false);
 			}else{
@@ -1177,7 +1176,7 @@
 				 $("input[name=shopItemType2]").focus();
 				 return false;
 			}
-			if($("input[name=maintenance]:checked").val()=="있음"){
+			if($("input[name=shopItemManage]:checked").val()=="있음"){
 				if($("input[name=shopItemManagePrice").val()==""){
 					alert("관리비를 입력해주세요");
 					$("input[name=shopItemManagePrice").focus();
@@ -1217,20 +1216,6 @@
 				return false;
 			}
 		});
-//		$("input[name=img_1]").click(function(){
-//			$("#img_upload2").show();
-//		});
-//		$("input[name=img_2]").click(function(){
-//			$("#img_upload3").show();
-//		});
-//		$("input[name=img_3]").click(function(){
-//			$("#img_upload4").show();
-//		});		
-//		$("input[name=img_0]").click(function(){
-//			$(this).css("display","none");
-//			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
-//		});
-		
 	</script>
 	<!-- 다음 지도 api -->
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 

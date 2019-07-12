@@ -31,6 +31,7 @@
 						<a id="naverIdLogin"></a>
 					</div>
 				</div>
+				<input type="hidden" name="referer" value="${referer }">
 			</form>
 		</div>
 	</section>

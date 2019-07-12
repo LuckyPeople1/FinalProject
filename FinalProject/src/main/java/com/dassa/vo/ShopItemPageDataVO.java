@@ -26,4 +26,8 @@ public class ShopItemPageDataVO {
 	public void setPageNavi(String pageNavi) {
 		this.pageNavi = pageNavi;
 	}
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
