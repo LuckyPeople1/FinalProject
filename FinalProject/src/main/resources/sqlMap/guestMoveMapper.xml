@@ -66,6 +66,8 @@
   	</update>
   	<select id="paymentInfo" parameterType="_int" resultType="com.dassa.vo.MovePaymentVO">
   		select move_payment_idx as movePaymentIdx,
+  			move_payment_imp_uid as movePaymentImpUid,
+  			apply_idx as applyIdx,
   			move_payment_method as movePaymentPayMethod,
   			move_payment_cardname as movePaymentCardName,
   			move_payment_pg_number as movePaymentPgNumber,
@@ -76,7 +78,7 @@
   			from move_payment_tbl where apply_idx = #{applyIdx} 
   	</select>
   	<update id="guestMovePaymentCencel" parameterType="com.dassa.vo.MovePaymentVO">
-  		update move_payment_tbl set move_payment_status = #{movePaymentStatus} where MOVE_PAYMENT_IDX = #{movePaymentIdx}
+  		update move_payment_tbl set move_payment_status = #{movePaymentStatus}, move_payment_cenceldate = sysdate where MOVE_PAYMENT_imp_uid = #{movePaymentImpUid}
   	</update>
   	<update id="guestMoveApplyCencel" parameterType="_int">
   		update move_apply_tbl set apply_status = '0' where apply_idx=#{applyIdx}

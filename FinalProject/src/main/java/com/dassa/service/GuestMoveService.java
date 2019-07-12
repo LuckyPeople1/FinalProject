@@ -31,6 +31,7 @@ public class GuestMoveService {
 	
 	public int guestMovePaymentCencel(MovePaymentVO mpVo,int applyIdx) {
 		int result = guestMoveMapper.guestMovePaymentCencel(mpVo);
+		System.out.println("service 갔다온후 :"+result);
 		if(result > 0) {
 			guestMoveMapper.guestMoveApplyCencel(applyIdx);
 		}

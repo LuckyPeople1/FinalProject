@@ -46,6 +46,32 @@ var move	=	{
 		        alert(msg);
 		    }
 		});
+	},
+	
+	
+	paymentCencel : function (impUid,applyIdx) {
+		if(confirm("취소하시겠습니까?")){
+			$.ajax({
+				url: "/my/guestMovePaymentCencel",
+				type: "POST",
+				data:{
+					impUid : impUid,
+					applyIdx : applyIdx
+				},
+				success:function(data){
+					if(data == '1'){
+						alert("결제 취소 성공");
+						location.href="/my/";
+					}else{
+						alert("결제 취소 실패");
+					}
+				},
+				 error: function(xhr, status, error) {
+			         alert(error);
+			    }  
+			});
+		}
+		
 	}
 	
 	

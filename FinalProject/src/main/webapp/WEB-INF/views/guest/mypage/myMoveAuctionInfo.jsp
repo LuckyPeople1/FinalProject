@@ -57,9 +57,9 @@
 							</div>
 							<div class="row">
 								<div class="tit">사다리비용</div>
-								<div class="txt accent">별도로 필요함</div>
+								<div class="txt accent">${item.ladderState == '0' ? '포함' : '별도로 필요함'}</div>
 								<div class="sub">
-									견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.
+									${item.ladderState == '0' ? '견적에 사다리 비용이 포함되어 있습니다.' : '견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.'}
 								</div>
 							</div>
 						</div>
