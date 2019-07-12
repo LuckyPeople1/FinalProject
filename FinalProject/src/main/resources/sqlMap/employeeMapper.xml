@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.EmployeeMapper">
+	<insert id="memberInsert" parameterType="employeeVO">
+			insert into SHOP_EMPLOYEE_TBL values (
+			shop_employee_sql.nextval,
+			 #{employeeName},
+			  #{employeeRank},
+			   #{employeePhone},
+			    #{adress},
+			     #{registrationNumber},
+			      #{imageName},
+			       #{imagePath},
+			          #{email},
+			           default,
+			            0)
+		</insert>
+	<!-- 리스트조회 -->
+  <select id="selectAllList" resultType="employeeVO" parameterType="_int">		
+  		select employee_idx as employeeIdx,
+  			employee_name as employeeName,
+  			employee_rank as employeeRank,
+  			employee_phone as employeePhone,
+  			enroll_date as enrollDate,
+  			sell_count as sellCount
+  			 from (select rownum as rnum, m.* from (select * from SHOP_EMPLOYEE_TBL order by rownum desc) m) where rnum between #{start} and #{end}
+  		
+  </select>	
+	<select id="totalCount" resultType="_int">
+  	select count(*) cnt from SHOP_EMPLOYEE_TBL
+  </select>
+</mapper>

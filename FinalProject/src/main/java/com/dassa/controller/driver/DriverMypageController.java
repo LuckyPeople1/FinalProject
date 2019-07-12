@@ -35,7 +35,7 @@ public class DriverMypageController {
 	@RequestMapping(value="/mypageUpdate")
 	@ResponseBody
 	public String DriverMypageUpdate(UserVO userVO,HttpServletRequest request,MultipartFile fileImg) throws Exception {
-		
+		System.out.println(fileImg);
 		int result=0;
 		result=driverService.driverMypageUpdateText(userVO);
 		if(!fileImg.getOriginalFilename().equals("")){
