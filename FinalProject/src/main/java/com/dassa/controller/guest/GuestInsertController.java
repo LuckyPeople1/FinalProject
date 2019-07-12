@@ -43,7 +43,7 @@ public class GuestInsertController {
 	//일반회원가입 로직
 	@RequestMapping(value="/commonInsert")
 	public String CommonInsert(HttpServletRequest request, @RequestParam String userId,
-								String userPw, String userName, String userPhone, String userAddr, 
+								String userPw, String userName, String userPhone, String userAddr, String userPostCode,
 								String userdetailAddr, String userEmail, String compFilename, String compFilepath,
 								String userType, String socialId)
 	throws Exception {
@@ -54,8 +54,9 @@ public class GuestInsertController {
 			userVO.setUserId(userId);
 			userVO.setUserPw(userPw);
 		}
-		String addr = userAddr+userdetailAddr;	
-		userVO.setUserName(userName);
+		String addr = userAddr+userdetailAddr;
+		userVO.setAddrCode(userPostCode);
+		userVO.setUserName(userName); 
 		userVO.setUserPhone(userPhone);
 		userVO.setUserAddr(userAddr);
 		userVO.setUserAddr(addr);
@@ -78,7 +79,7 @@ public class GuestInsertController {
 	//기사 회원가입 로직
 	@RequestMapping(value="/driverInsert")
 	public String DriverInsert(HttpServletRequest request, @RequestParam String userId, String userPw, String userName, String userPhone,
-								String userAddr, String userdetailAddr, String userEmail, String userIntro, String userCar, 
+								String userAddr, String userPostCode, String userdetailAddr, String userEmail, String userIntro, String userCar, 
 								String regisNum, MultipartFile compFilename, String userType)
 	throws Exception {
 		String[] fileInfo = FileCommon.fileUp(compFilename, request, "driver");
@@ -87,6 +88,7 @@ public class GuestInsertController {
 		userVO.setUserPw(userPw);
 		String addr = userAddr+userdetailAddr;	
 		userVO.setUserName(userName);
+		userVO.setAddrCode(userPostCode);
 		userVO.setUserPhone(userPhone);
 		userVO.setUserAddr(userAddr);
 		userVO.setUserAddr(addr);
