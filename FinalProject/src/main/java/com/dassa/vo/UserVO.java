@@ -32,7 +32,7 @@ public class UserVO {
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String addrCode,
 			String userPhone, String userEmail, String proFilename, String proFilepath, String userIntroduce,
 			String registrationNumber, String businessNumber, String userCar, String compFilename, String compFilepath,
-			String userType, String socialId, Date enrollDate, String type) {
+			String userType, String socialId, Date enrollDate) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -53,7 +53,6 @@ public class UserVO {
 		this.userType = userType;
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
-		this.type = type;
 	}
 
 	public int getUserIdx() {
@@ -208,12 +207,8 @@ public class UserVO {
 		this.enrollDate = enrollDate;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public String getType() {
-		String type = getUserType();
+		String type = userType;
 		if(type.equals("1")) {
 			return "운송기사";
 		}else if(type.equals("2")){
