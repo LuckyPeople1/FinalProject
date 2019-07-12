@@ -228,25 +228,28 @@ public class GuestMyController {
 	@RequestMapping("/guestMovePaymentCencel")
 	public void guestMovePaymentCencel(String impUid,int applyIdx,HttpServletResponse response) {
 		GetToken();
+
 		String cancelled_imp_uid = impUid;
+		System.out.println(cancelled_imp_uid);
 		CancelData cancel_data = new CancelData(cancelled_imp_uid, true); //imp_uid를 통한 전액취소
-		
+	
 		try {
 			IamportResponse<Payment> payment_response = client.cancelPaymentByImpUid(cancel_data);
-			
+			System.out.println(payment_response.getResponse());
+			PrintWriter out = response.getWriter();	
+			int result = 0;
 			if(payment_response.getResponse() != null) {
-				    
+				System.out.println("null이 아닐떄 : " + payment_response.getResponse().getStatus());
 				MovePaymentVO mpVo = new MovePaymentVO();
 				mpVo.setMovePaymentStatus(payment_response.getResponse().getStatus());
 				mpVo.setMovePaymentImpUid(cancelled_imp_uid);
-				int result = guestMoveService.guestMovePaymentCencel(mpVo,applyIdx);
-				PrintWriter out = response.getWriter();
-				if(result > 0) {
-					out.print("1");
-				}else {
-					out.print("0");
-				}
-				
+				result = guestMoveService.guestMovePaymentCencel(mpVo,applyIdx);
+				System.out.println("컨트롤 끝난후 result" + result);
+			}
+			if(result > 0) {
+				out.print("1");
+			}else {
+				out.print("0");
 			}
 			
 		} catch (IamportResponseException e) {

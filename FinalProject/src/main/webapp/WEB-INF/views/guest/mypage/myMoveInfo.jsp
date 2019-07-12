@@ -58,7 +58,7 @@
 								<div class="tit">사다리비용</div>
 								<div class="txt accent">${moveInfo.maVo.ladderState == '0' ? '포함' : '별도로 필요함'}</div>
 								<div class="sub">
-									견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.
+									${moveInfo.maVo.ladderState == '0' ? '견적에 사다리 비용이 포함되어 있습니다.' : '견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.'}
 								</div>
 							</div>
 						</div>
@@ -424,7 +424,9 @@
 				</c:if>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
-					<a href="javascript:move.paymentCencel()" class="btn col_blue f_w big">결제취소</a>
+					<c:if test="${not empty moveInfo.payVo}">
+						<a href="javascript:move.paymentCencel('${moveInfo.payVo.movePaymentImpUid}','${moveInfo.payVo.applyIdx }')" class="btn col_blue f_w big">결제취소</a>
+					</c:if>
 				</div>
 			</div>
 		</section>
