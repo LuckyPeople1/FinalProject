@@ -10,10 +10,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -22,6 +25,7 @@ import org.w3c.dom.NodeList;
 import com.dassa.common.FileCommon;
 import com.dassa.service.ShopService;
 import com.dassa.vo.ShopItemImgVO;
+import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemVO;
 
 @Controller
@@ -36,21 +40,35 @@ public class ShopItemController {
 	@Resource
 	private ShopService shopService;
 	/**
-	 * 부동산 매물관리 페이지(item)
+	 * 부동산 매물관리 페이지(itemList)
 	 * 
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public String ShopRoom() {
-		
-		return "shop/item/shopItemList";
+	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
+		int reqPage;
+		try {
+			reqPage=Integer.parseInt(request.getParameter("reqPage"));
+		}catch(NumberFormatException e){
+			reqPage=1;
+		}
+		ModelAndView mav = new ModelAndView();
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
+		if(!sipd.isEmpty()) {
+			ArrayList<ShopItemVO> sItemList = sipd.getList();
+			String pageNavi = sipd.getPageNavi();
+			mav.addObject("list",sItemList);
+			mav.addObject("pageNavi",pageNavi);
+			mav.setViewName("shop/item/shopItemList");
+		}
+		return mav;
 	}
 	/**
 	 * 부동산 매물등록 페이지(itemAdd)
 	 * @return
 	 */
 	@RequestMapping("/itemAdd")
-	public String ShopRoomJoin() {
+	public String ShopItemAdd() {
 		return "shop/item/shopItemAdd";
 	}
 	/**
@@ -58,11 +76,11 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/itemInfo")
-	public String ShopRoomInfo() {
+	public String ShopItemInfo() {
 		return "shop/item/shopItemInfo";
 	}
 	/**
-	 * 부동산 매물 등록페이지(ItemAdd)
+	 * 부동산 매물 등록 로직(ItemAdd)
 	 * @param request
 	 * @param fileImg
 	 * @param sItem
@@ -98,8 +116,7 @@ public class ShopItemController {
 		}
 		shopService.shopItemAdd(sItem, imgList);
 //		shopService.shopItemImgAdd(imgList);
-		
-		return "shop/shopHome";
+		return "shop/item/shopItemList";
 	}
 	
 	/**

@@ -14,23 +14,30 @@
 			<div class="mypageCon move">
 				<div class="moveTitle">
 					<span class="tit">입찰 내역</span>
-					<a href="/my/moveInfo?moveIdx=1" class="myMove">내 이사정보 보기</a>
+					<a href="/my/moveInfo?applyIdx=${applyIdx }" class="myMove">내 이사정보 보기</a>
 				</div>
 				<div class="auctionList">
-					<div class="auctionBox on">
-						<a href="/my/auctionInfo">
-							<div class="auctionInfo">
-								<div class="profileBox">
-									<img src="/guest/img/img_profile_default.png" alt="프로필">
+					<c:forEach var="item" items="${list}">
+						<div class="auctionBox on">
+							<a href="/my/auctionInfo?applyIdx=${item.applyIdx }">
+								<div class="auctionInfo">
+									<div class="profileBox">
+										<c:if test="${not empty item.proFilepath }">
+											<img src="${item.proFilepath }" alt="프로필">
+										</c:if>
+										<c:if test="${empty item.proFilepath }">
+											<img src="/guest/img/img_profile_default.png" alt="프로필">
+										</c:if>
+									</div>
+									<div class="driverInfo">
+										<div class="driverName">${item.userName } 기사님</div>
+										<div class="driverCount">${item.star } &nbsp / &nbsp ${item.reviewCount }</div>
+									</div>
 								</div>
-								<div class="driverInfo">
-									<div class="driverName">유성연 기사님</div>
-									<div class="driverCount">평점 4.5 &nbsp / &nbsp 리뷰 15건</div>
-								</div>
-							</div>
-							<div class="price">10,500원</div>
-						</a>
-					</div>
+								<div class="price">${item.estimateAmount } 원</div>
+							</a>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 		</section>

@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/shop/common/head.jsp" %>   <!--스타일-->    
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <div class="container">
 	<nav>
 		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
 		<%@include file="/WEB-INF/views/shop/page/nav_room.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<div class="contents">
+		<section class="shopItemList">
 		<div class="page_header">
 			<div class="page_title">전체 매물관리</div>
 			<div class="page_sub_title"></div>
@@ -83,19 +83,17 @@
 					</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="" begin="">
-					
-					</c:forEach>
+					<c:forEach items="${list}" var="item">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>1</td>
+						<td>${item.shopItemIdx }</td>
 						<td>
-							<div class="mb5">담당자이름</div>
+							<div class="mb5">${item.shopItemManager }</div>
 						</td>
 						<td>
-							<div>원룸</div>
+							<div>${item.shopItemType1 }</div>
 						</td>
-						<td>원룸매물1번제목입니다</td>
+						<td>${item.shopItemTitle }</td>
 						<td>
 							<div class="set_menu">
 								<a href="/shop/itemInfo" class="btn col_navy f_w">상세보기</a>
@@ -118,21 +116,17 @@
 								</select> 
 							</span>
 						</td>
-						<td>18-09-30<br/>11:30</td>
+						<td>${item.shopItemRegDate }</td>
 					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			<ul class="page_wrap">
-				<li><a href="#none">First</a></li>
-				<li><a href="#none">Prev</a></li>
-				<li><a href="#none" class="num active">1</a></li>
-				<li><a href="#none" class="num">2</a></li>
-				<li><a href="#none" class="num">3</a></li>
-				<li><a href="#none">Next</a></li>
-				<li><a href="#none">Last</a></li>
-			</ul>
+			<div id="pageNavi" class="pageNavi">
+				<span>${pageNavi}</span>
+			</div>
 		</div>
+		</section>
 	</div>
 	<footer role="footer" data-include="footer.html"></footer>
 </div>

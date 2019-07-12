@@ -596,6 +596,7 @@ var package = {
 
 				if(data.trim() == "L"){
 					alert("로그인 후 요청이 가능합니다.")
+					location.href = '/login/reLogin'
 				}else if(data.trim() == "Y"){
 					alert("신청 완료");
 					location.href = '/';
