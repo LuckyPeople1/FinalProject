@@ -1,4 +1,5 @@
 
+
 var package = {
 
 	/**
@@ -55,7 +56,7 @@ var package = {
 		}
 
 		if(type == "M"){
-			var str = "<input type=\"file\" class=\"hide\" accept=\"image/*\" name=\"imageName\" id=\"fileImg\" onchange=\"goodsReg.imgSel(this, event)\" value=\"\">";
+			var str = "<input type=\"file\" class=\"hide\" accept=\"image/*\" name=\"compFilename\" id=\"fileImg\" onchange=\"package.imgSel(this, event)\" value=\"\">";
 			$(e).closest('div').append(str);
 		}
 
@@ -77,3 +78,4 @@ var package = {
 
 	}
 };
+

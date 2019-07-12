@@ -1,18 +1,20 @@
 package com.dassa.mapper;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.NoticeVO;
-
+@MapperScan("noticeMapper")
 public interface NoticeMapper {
 	
 	//관리자 공지사항 조회하기
-	public ArrayList<NoticeVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	public ArrayList<NoticeVO> selectAllList(@Param("start") int start,@Param("end") int end,@Param("code") int code) throws Exception;
 	
-	public int totalCount() throws Exception;
+	public ArrayList<NoticeVO> realestateSelectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+
+	public int totalCount(@Param("code") int code) throws Exception;
 	
 	//업데이트 수정하기
 	public int noticeUpdate(NoticeVO n) throws Exception;

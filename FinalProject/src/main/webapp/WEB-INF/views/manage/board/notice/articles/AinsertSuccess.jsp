@@ -9,7 +9,7 @@
 <body>
 <script type="text/javascript">
 	alert('작성된 글이 등록되었습니다.');
-	location.href="/manage/board/notice/articles/noticeManageArticlesList";
+	location.href="/manage/board/notice/noticeManageList?reqPage=1&code=2";
 </script>
 </body>
 </html>

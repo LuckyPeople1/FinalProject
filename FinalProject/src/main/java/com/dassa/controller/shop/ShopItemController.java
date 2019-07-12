@@ -1,10 +1,9 @@
 package com.dassa.controller.shop;
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -12,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -22,30 +19,30 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.dassa.common.FileCommon;
 import com.dassa.service.ShopService;
+import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemVO;
 
 @Controller
 @RequestMapping("/shop")
 public class ShopItemController {
 	
-	private static final int RESULT_EXCEED_SIZE = -2;
-    private static final int RESULT_UNACCEPTED_EXTENSION = -1;
-    private static final int RESULT_SUCCESS = 1;
-    private static final long LIMIT_SIZE = 10 * 1024 * 1024;
-	
-	
-	
 	@Autowired
 	@Qualifier(value="shopService")
 
+	@Resource
+	private FileCommon fileCommon;
+	@Resource
 	private ShopService shopService;
 	/**
 	 * 부동산 매물관리 페이지(item)
+	 * 
 	 * @return
 	 */
 	@RequestMapping("/item")
 	public String ShopRoom() {
+		
 		return "shop/item/shopItemList";
 	}
 	/**
@@ -65,34 +62,43 @@ public class ShopItemController {
 		return "shop/item/shopItemInfo";
 	}
 	/**
-	 * 매물등록로직(shopItemAdd)
+	 * 부동산 매물 등록페이지(ItemAdd)
 	 * @param request
-	 * @param shopItemFileName
+	 * @param fileImg
 	 * @param sItem
 	 * @return
+	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemAdd")
-	public String ShopItemAdd(MultipartHttpServletRequest  request,@RequestParam("img_0") MultipartFile[] img_0, ShopItemVO sItem)throws Exception {
-		String uploadPath = request.getSession().getServletContext().getRealPath("/upload/shop");
-		String fileOriginName = "";
-		String fileMultiName ="";
-		for(int i=0; i<img_0.length; i++) {
-			fileOriginName = img_0[i].getOriginalFilename();
-			System.out.println("기존 파일 명 : "+fileOriginName);
-			SimpleDateFormat formatter = new SimpleDateFormat("YYYYMMDD_HHMMSS_"+i);
-			Calendar now = Calendar.getInstance();
-			String extension = fileOriginName.split("\\.")[1]; //확장자명
-			fileOriginName = formatter.format(now.getTime())+"."+extension; //날짜+확장자명 
-			System.out.println("변경된 파일 명 : "+fileOriginName);
-			File f = new File(uploadPath+"\\"+fileOriginName);
-			img_0[i].transferTo(f);
-			if(i==0) {fileMultiName += fileOriginName;}
-			else {fileMultiName += ","+fileOriginName;}
+	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+		
+		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
+		
+		System.out.println("넘어온 파일 : "+fileImg);
+		
+		for(MultipartFile img : fileImg) {
+			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
+			
+			if(!img.getOriginalFilename().equals("")) {
+				String[] fileInfo	=	fileCommon.fileUp(img, httpServletRequest, "shopItem");
+				System.out.println("넘어온 파일 배열에 담음"+fileInfo);
+				
+				ShopItemImgVO sItemImgVO = new ShopItemImgVO();
+				System.out.println("담을 파일 이름 : "+fileInfo[0]);
+				sItemImgVO.setImgName(fileInfo[0]);
+				System.out.println("담은 파일 이름"+sItemImgVO.getImgName());
+				
+				System.out.println("담을 파일 경로 : "+fileInfo[1]);
+				sItemImgVO.setImgPath(fileInfo[1]);
+				System.out.println("파일경로"+sItemImgVO.getImgPath());
+				
+				imgList.add(sItemImgVO);
+				System.out.println("최종이미지리스트"+imgList);
+			}
 		}
-		sItem.setUserIdx(0); //매물 올린 부동산
-		System.out.println(sItem);
-		sItem.setShopItemFileName(fileMultiName);
-		shopService.shopItemAdd(sItem);
+		shopService.shopItemAdd(sItem, imgList);
+//		shopService.shopItemImgAdd(imgList);
+		
 		return "shop/shopHome";
 	}
 	

@@ -1,195 +1,286 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@include file="/WEB-INF/views/driver/common/head.jsp" %>   <!--스타일-->
 <body>
 <div class="container">
 	<nav>
 		<%@include file="/WEB-INF/views/driver/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
-		<%@include file="/WEB-INF/views/driver/page/nav_reserve.jsp" %>    <!--맨왼쪽 2번째 네비 메뉴 (마이페이지 메뉴)  -->
+		<%@include file="/WEB-INF/views/driver/page/nav_shop.jsp" %>    <!--맨왼쪽 2번째 네비 메뉴 (입찰관리)  -->
 	</nav>
 	<div class="contents">
 		<div class="page_header">
-			<div class="page_title">예약 상세보기</div>
+			<div class="page_title">이사 입찰 상세보기</div>
 			<div class="page_sub_title"></div>
 		</div>
-		<div class="section">
-			<div class="section_title">회원정보</div>
-			<div class="set_form">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
-					<tr>
-						<th>아이디</th>
-						<td>ssooya90</td>
-						<th>이름</th>
-						<td>최희수</td>
-					</tr>
-					<tr>
-						<th>연락처</th>
-						<td>01084649696</td>
-						<th>추천인</th>
-						<td>qug89889</td>
-					</tr>
-					<tr>
-						<th>이메일</th>
-						<td>ssooya90@naver.com</td>
-						<th>생년월일</th>
-						<td>19901015</td>
-					</tr>
-					<tr>
-						<th>성별</th>
-						<td>남자</td>
-						<th>예약횟수</th>
-						<td>42</td>
-					</tr>
-					<tr>
-						<th>총결제금액</th>
-						<td>650,000원</td>
-						<th>노쇼(NOSHOW) 횟수</th>
-						<td>20</td>
-					</tr>
-					</tbody>
-				</table>
+		<ul class="tabs_group clearfix">
+			<li>
+				<br>
+				<a href="/driver/auctionDetail" class="on">기본정보</a>
+			</li>
+		</ul>
+		<section class="driver ys">
+			<div class="section">
+				<div class="section_title">사용자정보</div><hr>
+			
+				<div class="set_form">
+					<table class="table_set">
+						<colgroup>
+							<col width="180">
+							<col width="*">
+							<col width="180">
+							<col width="*">
+						</colgroup>
+						<thead></thead>
+						<tbody>
+						<tr>
+							<th>이름</th>
+							<td colspan="3">
+								<label><input class="tbox" type="text" value="${driverAuctionDetail.guestName }" readonly="readonly"></label>
+							</td>
+						</tr>
+						<tr>
+							<th>이사날짜</th>
+							<td><input class="tbox full" type="text" value="${driverAuctionDetail.applyDate }" readonly="readonly"></td>
+							<th>휴대폰번호</th>
+							<td><input class="tbox full" type="text" value="${driverAuctionDetail.guestPhone }" readonly="readonly"></td>
+						</tr>
+						<tr>
+							<th>출발지 도로명주소</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startAddr1 }" readonly="readonly"></td>	
+							<th>도착지 도로명주소</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endAddr1 }" readonly="readonly"></td>
+						</tr>
+						<tr>
+							<th>출발지 지번주소</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startAddr2}" readonly="readonly"></td>
+							<th>도착지 지번정보</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endAddr2}" readonly="readonly"></td>
+						</tr>
+						<tr>
+							<th>출발지 상세정보</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startAddr3}" readonly="readonly"></td>
+							<th>도착지 상세정보</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endAddr3}" readonly="readonly"></td>
+						</tr>
+						<tr>
+							<th>출발지 엘레베이터유무</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startElevator }" readonly="readonly"></td>
+							<th>도착지  엘레베이터 유무</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endElevator }" readonly="readonly"></td>	
+						</tr>
+						<tr>
+							<th>출발지 주차 유무</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startParking }" readonly="readonly"></td>
+							<th>도착지  주차 유무</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endParking }" readonly="readonly"></td>	
+						</tr>
+						<tr>
+							<th>출발지 집형태</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startType }" readonly="readonly"></td> <!--start_type   -->
+							<th rowspan="1">도착지  집형태</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endType }" readonly="readonly"></td>	
+						</tr>
+						<tr>
+							<th>출발지 방구조</th>
+							<td colspan="3"><input class="tbox full" value="${driverAuctionDetail.startStructure }" readonly="readonly"></td>	<!--start_structure  -->
+						</tr>
+						<tr>
+							<th>출발지 집평수</th>
+							<td colspan="3"><input class="tbox full" value="${driverAuctionDetail.startSize }" readonly="readonly"></td>	<!--start_size    -->
+						</tr>
+						<tr>
+							<th>출발지 층수</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.startFloor}" readonly="readonly"></td><!--start_floor   -->
+							<th>도착지 층수</th>
+							<td><input class="tbox full" value="${driverAuctionDetail.endFloor }" readonly="readonly"></td>	
+						</tr>
+						
+						<tr>
+							<th>이사 시작 시간</th>
+							<td>
+								<input type="text" value="${driverAuctionDetail.applyTime }" readonly="readonly">
+							</td>
+							<th>이사종류</th>
+							<td><input type="text" value="${driverAuctionDetail.applyHope }" readonly="readonly"></td>
+						</tr>
+						<tr>
+							<th>도움여부(짐을 함께 옮길사람여부)</th>
+							<td colspan="3"><input type="text" value="${driverAuctionDetail.applyHelp }" readonly="readonly"></td>
+						
+						</tr>
+						<tr>
+							<th>메모</th>
+							<td colspan="3"><textarea  readonly="readonly">${list[0].applyMemo } </textarea></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-		<div class="section">
-			<div class="section_title">예약정보</div>
-			<div class="set_form">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
-					<tr>
-						<th>예약번호</th>
-						<td>123456789</td>
-						<th>예약상태</th>
-						<td>예약중</td>
-					</tr>
-					<tr>
-						<th>매장명</th>
-						<td>가인헤어</td>
-						<th>담당직원</th>
-						<td>
-							<span class="sbox normal">
-								<select>
-									<option>ssooya90 (이나영)</option>
-									<option>quyfsdaf (김별)</option>
-								</select>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<th>예약일시</th>
-						<td class="date_info">
-							<span>18-09-30 15:30</span>
-							<a href="javascript:date_change()" class="btn col_red f_w ml10">변경</a>
-							<a href="javascript:reserve_change_pop()" class="btn col_darkGrey f_w ml5">변경내역 보기</a>
-						</td>
-						<th>소요시간</th>
-						<td>2:00</td>
-					</tr>
-					<tr>
-						<th>예약메모</th>
-						<td class="">첨부 이미지를 참고하여 펌 부탁드립니다.</td>
-						<th rowspan="2">첨부 이미지</th>
-						<td rowspan="2">
-							<div class="attach_img">
-								<img src="/driver/img/itemImg.png" alt="첨부 이미지">
+			<div class="section">
+				<div class="section_title">상세정보</div><hr><br>
+				<div class="driverPont"><p3>이사사진</p3></div><br>
+				<div class="set_form">
+					<div class="table_set">
+						<div>
+							<c:forEach items="${imgList }" var="DriverApplyImg" varStatus="i">	
+								<div class="img_upload">
+									<input type="file" name="img_'+i+'" id="img_'+i+'" class="hide" onchange="img_change(this)">
+									<a href="#none" class="imgUp" id="imgUp_'+i+'"><img  src="${DriverApplyImg.imgPath }"></a>
+								</div>
+							</c:forEach>	
+						</div>		
+					</div>
+					<br><br><br>
+					<div class="driverPont"><p3>짐정보</p3></div><br><hr>
+					<div class="infoBox">
+						<div class="infoTitle"></div>
+					<c:if test="${optionList[0].packageType eq 0 }" >
+						<c:forEach items="${optionList }" var="DriverAuctionDetail" varStatus="i">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">가전</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="row">
+										<div class="subject">제품이미지${DriverAuctionDetail.packageImgPath }</div>
+										<div class="con">
+											<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
+											<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</c:forEach>
+					</c:if>
+					<c:if test="${optionList[0].packageType eq 1 }" >
+						<c:forEach items="${optionList }" var="optionList" varStatus="i">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">가구</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="row">
+										<div class="subject" >제품이미지 ${optionList[0].packageImgPath }</div>
+										<div class="con">
+											<div class="packageName">상품명${optionList[0].packageName }</div>
+											<div class="packageOption">옵션${optionList[0].packageOption }</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</c:forEach>
+					</c:if>
+					<c:if test="${optionList[0].packageType eq 2 }" >
+						<c:forEach items="${optionList }" var="DriverAuctionDetail" varStatus="i">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">기타</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명 ${optionList[0].packageImgPath }</div>
+											<div class="packageOption">옵션${optionList[0].packageOption }</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</c:forEach>
+					</c:if>	
+					<c:if test="${list[0].packageType eq 3 }" >	
+						<c:forEach items="${list }" var="DriverAuctionDetail" varStatus="i">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">짐박스</div>
+									</div>
+								</li>
+								<li class="">
+									<div class="row">
+										<div class="subject">제품이미지</div>
+										<div class="con">
+											<div class="packageName">상품명${optionList[0].packageImgPath }</div>
+											<div class="packageOption">옵션${optionList[0].packageOption }</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</c:forEach>
+					</c:if>	
+					</div>
+				</div>
+			</div>
+				<br><br><br>
+				<div class="section_title">기사정보</div><hr>
+				<div class="section">
+					<div class="set_form">
+						<table class="table_set">
+							<colgroup>
+								<col width="180">
+								<col width="*">
+								<col width="180">
+								<col width="*">
+							</colgroup>
+							<thead></thead>
+							<tbody>
+							<tr>
+								<th>운반차량<span class="ess">*</span></th>
+								<td><input class="tbox full" id="userCar" name="userCar" value="${driverVO.userCar }" readonly="readonly"></td>
+								<th>사다리비용여부<span class="ess">*</span></th>
+								<td>
+									<c:if test="${driverVO.ladderState eq 0 }">
+									<input type="radio" name="ladderState" value="0" readonly="readonly" checked="checked">사다리 비용 필요하지 않음
+									</c:if>
+									<c:if test="${driverVO.ladderState eq 1 }">
+									<input type="radio" name="ladderState" value="1" readonly="readonly" checked="checked">사다리 비용 필요
+									</c:if>
+								</td>
+							</tr>
+							<tr>
+								<th>메모</th>
+								<td colspan="3">
+									<textarea class="text_editor smaller" name="driverMessage"  readonly="readonly">${driverVO.driverMessage }</textarea>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="tip_box">
+							<div class="tip">
+								<span class="f_red">*</span>표시는 필수 입력 입니다.
 							</div>
-						</td>
-					</tr>
-					<tr>
-						<th>상품정보</th>
-						<td colspan="">
-							<div class="item_name">블링블링 웨이브펌</div>
-							<div class="option_name">기장 추가 - 어깨 아래 (+50,000)</div>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="section">
-			<div class="section_title">결제정보</div>
-			<div class="set_form">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
-					<tr>
-						<th>결제일</th>
-						<td>18-09-23 15:22:21</td>
-						<th>결제번호</th>
-						<td>123456779</td>
-					</tr>
-					<tr>
-						<th>결제수단</th>
-						<td>카드</td>
-						<th>카드정보</th>
-						<td>현대카드 / 2088-54**-****-****</td>
-					</tr>
-					<tr>
-						<th>결제방식</th>
-						<td>3개월</td>
-						<th>총 결제금액</th>
-						<td>280,000원</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="section">
-			<div class="section_title">메모</div>
-			<div class="set_form">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
-					<tr>
-						<th>메모</th>
-						<td colspan="3">
-							<textarea class="text_editor smaller"></textarea>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="btn_box">
-			<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
-			<a href="javascript:void(0)" class="btn col_red">저장</a>
-		</div>
+						</div><br><br><br>
+						<div class="section_title">최종 견적</div><hr>
+						<div class="infoBox">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">견적금액결정</div><br>
+										<div><input class="tbox full" name="estimateAmount" value="${driverVO.estimateAmount }" readonly="readonly"></div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>	
+		</section>
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
-
 </div>
-<script src="driver/js/shop_setting.js"></script>
-<script>
-
-
-</script>
+<style>
+.request {
+    display: table-cell;
+    vertical-align: middle;
+}
+</style>
+<script src="/driver/js/shop_setting2.js"></script>
 </body>
-</html>
-
+</html>						

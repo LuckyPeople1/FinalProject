@@ -4,7 +4,6 @@ package com.dassa.controller.guest;
 import com.dassa.common.FileCommon;
 import com.dassa.service.MovePackageService;
 import com.dassa.vo.*;
-import com.google.gson.Gson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/move")
@@ -38,9 +35,15 @@ public class GuestMoveController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/step1")
-	public String moveStep1(Model model) throws Exception {
+	public String moveStep1(Model model, HttpSession httpSession) throws Exception {
 
 		List<PackageRegVO> packageTempVOList = movePackageService.getPackageList();
+
+		model.addAttribute("selectPackageList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
+
+
+
+
 		model.addAttribute("packageList", packageTempVOList);
 
 		return "guest/move/moveStep1";
@@ -61,11 +64,13 @@ public class GuestMoveController {
 
 
 		for (PackageSelectVO packageSelectVO : packageList) {
+			System.out.println(packageSelectVO.getPackageType());
 			System.out.println(packageSelectVO.getPackageName());
+			System.out.println(packageSelectVO.getPackageAmount());
 		}
 
 
-		httpSession.setAttribute("packageList", packageList);
+		httpSession.setAttribute("selectPackageList", packageList);
 
 
 		return "Y";
@@ -79,13 +84,13 @@ public class GuestMoveController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/step2")
-	public String moveStep2(
-			HttpSession httpSession,
-			Model model) throws Exception {
+	public String moveStep2(HttpSession httpSession, Model model) throws Exception {
 
-		// 세션에서 리스트를 가져와서 뷰로 넘겨줌
+		// 스탭1에서 저장한 리스트를 가져와서 뷰로 넘겨줌
+		model.addAttribute("selectPackageList", (List<PackageSelectVO>) httpSession.getAttribute("selectPackageList"));
 
-		model.addAttribute("selectList", (List<PackageSelectVO>) httpSession.getAttribute("packageList"));
+		// 스탭2에서 저장한 리스트를 가져와서 뷰로 넘겨줌
+		model.addAttribute("packageOptionList", (List<PackageOptionSelectVO>) httpSession.getAttribute("packageOptionList"));
 
 		return "guest/move/moveStep2";
 	}
@@ -278,6 +283,7 @@ public class GuestMoveController {
 		httpSession.setAttribute("scheduleInfo", moveAddrScheduleVO);
 
 		return "Y";
+
 	}
 
 
@@ -295,6 +301,7 @@ public class GuestMoveController {
 
 		for(MultipartFile img : fileImg){
 
+
 			if(!img.getOriginalFilename().equals("")){
 				String[] fileInfo	=	fileCommon.fileUp(img, httpServletRequest, "moveApply");
 				MoveApplyImgVO moveApplyImgVO	=	new MoveApplyImgVO();
@@ -308,13 +315,6 @@ public class GuestMoveController {
 
 		return "Y";
 	}
-
-
-
-
-
-
-
 
 
 	/**
@@ -349,7 +349,7 @@ public class GuestMoveController {
 	 */
 	@RequestMapping("/applyProc")
 	@ResponseBody
-	public String applyProc(HttpSession httpSession) throws Exception {
+	public String applyProc(HttpSession httpSession, @RequestParam String applyMemo) throws Exception {
 
 		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
 
@@ -364,27 +364,39 @@ public class GuestMoveController {
 
 
 
+		// 세션에 있는 데이터들을 하나의 VO로 합침
 		MoveApplyVO moveApplyVO	=	movePackageService.pushData(
 				(MoveAddrInfoVO)httpSession.getAttribute("startAddr"),
 				(MoveAddrInfoVO)httpSession.getAttribute("endAddr"),
 				(MoveAddrScheduleVO)httpSession.getAttribute("scheduleInfo"),
-				userVO);
+				userVO, applyMemo);
 
-
-
-		System.out.println(imgList.get(0).getImgName());
-		System.out.println(imgList.get(0).getImgPath());
-
-
+		// 기본정보 데이터 삽입
 		int rs	=	movePackageService.regApply(moveApplyVO);
 
 		if(rs > 0){
 
+			// 옵션 데이터 삽입
 			rs	=	 movePackageService.regApplyPackage(packageOptionList);
-			movePackageService.regApplyImg(imgList);
 
+
+			// 이미지가 있을 때만 처리
+			if(imgList.size() != 0){
+
+				//이미지 데이터 삽입
+				movePackageService.regApplyImg(imgList);
+			}
 
 			if(rs >0){
+
+				// 세션초기화
+				httpSession.removeAttribute("startAddr");
+				httpSession.removeAttribute("endAddr");
+				httpSession.removeAttribute("scheduleInfo");
+				httpSession.removeAttribute("imgList");
+				httpSession.removeAttribute("packageOptionList");
+				httpSession.removeAttribute("selectPackageList");
+
 
 				return "Y";
 			}

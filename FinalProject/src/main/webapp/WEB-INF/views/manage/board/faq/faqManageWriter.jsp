@@ -22,6 +22,7 @@
 						<span class="title_mark">■ FAQ 작성</span>
 					</div>
 					<section class="section_faq">
+					<form action="/manage/board/faq/faqInsert" method="post" id="insert">
 					<table class="set_table">
 						<colgroup>
 							<col width="180">
@@ -29,31 +30,30 @@
 						</colgroup>
 						<tr>
 							<th>분류</th>
-							<td><label> <input type="radio" name="type">
-									<span>이용문의</span>
-							</label> <label class="ml10"> <input type="radio" name="type">
-									<span>부동산문의</span>
-							</label> <label class="ml10"> <input type="radio" name="type">
-									<span>이사문의</span>
-							</label></td>
+							<td><label> <input type="radio" name="faqUserType" value="회원문의"><span>회원문의</span></label> 
+								<label class="ml10"> <input type="radio" name="faqUserType" value="부동산문의"><span>부동산문의</span></label> 
+								<label class="ml10"> <input type="radio" name="faqUserType" value="이사문의"><span>이사문의</span></label>
+							</td>
 						</tr>
 						<tr>
 							<th>제목</th>
-							<td><input class="board_input"></td>
+							<td><input class="board_input" name="faqQuestion">
+							<input type="hidden" name="faqState" value="정상"></td>
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td><textarea class="board_textarea"></textarea></td>
+							<td><textarea class="board_textarea" name="faqAnswer"></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2">
 								<div class="board_button">
-									<a href="javascript:javascript:void(0)" class="board_Mobtn">작성</a>
+									<a href="#" onclick="document.getElementById('insert').submit();" class="board_Mobtn">작성</a>
 									<a href="javascript:history.back()"	class="board_Rebtn">취소</a>
 								</div>
 							</td>
 						</tr>
 					</table>
+					</form>
 				</div>
 			</div>
 

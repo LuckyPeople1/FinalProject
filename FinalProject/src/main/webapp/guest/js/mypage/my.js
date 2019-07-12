@@ -5,7 +5,7 @@ var my	= {
 		var pw	=	$('#pwChk');
 
 		if(pw.val() == ""){
-			alert("비밀번호를 입력해주세요.")
+			alert("비밀번호를 입력해주세요.");
 			return false;
 			pw.focus();
 		}

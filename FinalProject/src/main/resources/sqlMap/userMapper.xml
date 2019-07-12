@@ -13,13 +13,16 @@
 				user_id as userId,
 				user_pw as userPw,
 				user_name as userName,
+				addr as userAddr,
 				user_phone as userPhone,
 				user_email as userEmail,
+				pro_filename as proFilename,
+				pro_filepath as proFilepath,
 				user_introduce as userIntroduce,
 				registration_number as registrationNumber,
 				user_car as userCar,
-				image_name as userImageName,
-				image_path as userImagePath,
+				comp_filename as compFilename,
+				comp_filepath as compFilepath,
 				user_type as userType,
 				social_id as socialId,
 				enroll_date as enrollDate 
@@ -27,21 +30,18 @@
 		</select>
 	
 		<select id="socialLogin" parameterType="userVO" resultType="userVO">
-			select user_idx as userIdx,
-				   user_id as userId,
-				   user_pw as userPw,
-				   user_name as userName,
-				   addr as userAddr,
-				   user_phone as userPhone,
-				   user_email as userEmail,
-				   user_introduce as userIntroduce,
-				   registration_number as registrationNumber,
-				   user_car as userCar,
-				   image_name as userImageName,
-				   image_path as userImagePath,
-				   user_type as getType,
-				   social_id as socialId,
-				   enroll_date as enrollDate
+			select 	user_idx as userIdx,
+					user_id as userId,
+					user_pw as userPw,
+					user_name as userName,
+					addr as userAddr,
+					user_phone as userPhone,
+					user_email as userEmail,
+					pro_filename as proFilename,
+					pro_filepath as proFilepath,
+					user_type as userType,
+					social_id as socialId,
+					enroll_date as enrollDate
 			from user_tbl where social_id=#{socialId}
 		</select>
 		
@@ -68,16 +68,62 @@
 			          null,
 			           null,
 			            null,
-			             #{userType},
-			             <choose>
-							<when test="socialId != null">
-								#{socialId},
-							</when>
-							<otherwise>
-								null,
-							</otherwise>
-						 </choose>
-			               default)
+			             null,
+			              null,
+			               #{userType},
+			               <choose>
+							  <when test="socialId != null">
+								  #{socialId},
+							  </when>
+							  <otherwise>
+								  null,
+							  </otherwise>
+						   </choose>
+			                 default)
+		</insert>
+		
+		<insert id="driverInsert" parameterType="userVO">
+			insert into user_tbl values (
+			user_no_seq.nextval,
+			 #{userId},
+			  #{userPw},
+			   #{userName},
+			    #{userAddr},
+			     #{userPhone},
+			      #{userEmail},
+			       null,
+			        null,
+			         #{userIntroduce},
+			          #{registrationNumber},
+			           null,
+			            #{userCar},
+			             #{compFilename},
+			              #{compFilepath},
+			               #{userType},
+			                null,
+			                 default)
+		</insert>
+		
+		<insert id="shopInsert" parameterType="userVO">
+			insert into user_tbl values (
+			user_no_seq.nextval,
+			 #{userId},
+			  #{userPw},
+			   #{userName},
+			    #{userAddr},
+			     #{userPhone},
+			      #{userEmail},
+			       null,
+			        null,
+			         #{userIntroduce},
+			          #{registrationNumber},
+			           #{businessNumber},
+			            null,
+			             #{compFilename},
+			              #{compFilepath},
+			               #{userType},
+			                null,
+			                 default)
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">

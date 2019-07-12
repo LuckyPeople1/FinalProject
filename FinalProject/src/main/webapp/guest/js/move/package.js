@@ -274,6 +274,10 @@ var package = {
 
 		popup.hide();
 		$('body').removeClass('popup');
+
+		// 팝업창 내용 초기화
+		$('section.layerPopup').html('');
+
 	},
 
 
@@ -290,8 +294,9 @@ var package = {
 
 		}else{
 			$(e).parents('.optionBox').siblings('.optionEtc').hide();
-
 		}
+
+
 	},
 
 	optionSelect:function () {
@@ -311,15 +316,21 @@ var package = {
 				return false;
 			}
 
-
+			// 기타가 선택됐을 경우
 			if($('input[name=option' + (i+1) + ']:checked').hasClass('etc')){
 
+				// 기타 값이 없을 경우
+				if($('input[name=optionEtc' + (i+1) + ']').val() == ""){
+					alert("기타를 입력해주세요.")
+					return false;
+				}
 
 				var selectOption	=	{
 					optionName	:	$('.optionList').eq(i).find('.optionTitle').text(),
 					optionValue :	"기타(" + $('input[name=optionEtc' + (i+1) + ']').val() + ")"
 				};
 			}else{
+
 				var selectOption	=	{
 					optionName	:	$('.optionList').eq(i).find('.optionTitle').text(),
 					optionValue :	$('input[name=option' + (i+1) + ']:checked').val()
@@ -328,6 +339,8 @@ var package = {
 
 			selectArray.push(selectOption);
 		}
+
+
 
 
 		// 옵션값 적용
@@ -359,6 +372,10 @@ var package = {
 
 			}
 		});
+
+
+		// 팝업창 초기화
+		console.log("Asdf")
 
 	},
 
@@ -404,27 +421,24 @@ var package = {
 
 		var optionArray	=	new Array();
 
-
-
-
-
 		$('.listBox').each(function () {
 
-			option = {
-				packageIdx	:	$(this).find('.packageInfo').data('idx'),
-				packageType	:	$(this).find('.packageInfo').data('type'),
-				packageName	:	$(this).find('.name').text().trim() + $(this).find('.order').text().trim(),
-				packageOption : $(this).find('.caption').text(),
-				packageImgPath : $(this).find('.selectImg img').attr("src")
-			};
+			// 짐박스가 0개 일 경우 배열에 담지 않음
+			if($(this).find('.caption').text() != "0"){
 
-			optionArray.push(option);
+				option = {
+					packageIdx	:	$(this).find('.packageInfo').data('idx'),
+					packageType	:	$(this).find('.packageInfo').data('type'),
+					packageName	:	$(this).find('.name').text().trim() + $(this).find('.order').text().trim(),
+					packageOption : $(this).find('.caption').text(),
+					packageImgPath : $(this).find('.selectImg img').attr("src")
+				};
+
+				optionArray.push(option);
+			}
 
 		});
 
-
-
-		console.log(optionArray);
 
 		$.ajax({
 			url		:	"/move/packageFinish",
@@ -572,7 +586,11 @@ var package = {
 
 
 		$.ajax({
+			type : "post",
 			url : "/move/applyProc",
+			data : {
+				applyMemo	: $('textarea[name=applyMemo]').val()
+			},
 			// data : formData,
 			success:function (data) {
 

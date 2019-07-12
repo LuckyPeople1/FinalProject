@@ -24,35 +24,33 @@ import com.dassa.vo.NoticeVO;
 @RequestMapping("/manage/board/notice")
 public class NoticeController {
 
-	@Resource
+	@Resource(name="noticeService")
 	private NoticeService noticeService;
 	
 	//관리자 공지사항 페이지
 	@RequestMapping("/noticeManageList")//noticeManageList를 맵핑
-	public ModelAndView noticeMangeList(@RequestParam int reqPage) {
-		/*ArrayList<NoticeVO> list;
-		ModelAndView ma = new ModelAndView();
+	public ModelAndView noticeMangeList(@RequestParam int reqPage,HttpServletRequest request) {
+		int code;
 		try {
-			list = noticeService.selectAllList();
-			if(!list.isEmpty()) {
-				ma.addObject("list", list);
-				ma.setViewName("manage/board/notice/noticeManageList");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			code = Integer.parseInt(request.getParameter("code"));
+		}catch (NumberFormatException e) {
+			code=0;
 		}
-		return ma;*/
 		ModelAndView ma = new ModelAndView();
 		try {
-			NoticePageData list = noticeService.selectAllList(reqPage);
+			NoticePageData list = noticeService.selectAllList(reqPage,code);
 			if(!list.isEmpty()) {
 				ArrayList<NoticeVO> arrlist = list.getList();
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
-				System.out.println(pageNavi);
 				ma.addObject("pageNavi", pageNavi);
-				ma.setViewName("manage/board/notice/noticeManageList");
+				if(code==1) {
+					ma.setViewName("manage/board/notice/noticeManageList");
+				}else if(code==2) {
+					ma.setViewName("manage/board/notice/noticeManageList");
+				}else {
+					ma.setViewName("manage/board/notice/noticeManageList");
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -80,42 +78,45 @@ public class NoticeController {
 		return ma;
 	}
 	
-/*	//기사 공지사항 페이지
-	@RequestMapping("/articles/noticeManageArticlesList")
-	public ModelAndView noticeManageArticlesList() {
-		ArrayList<NoticeVO> list;
-		ModelAndView ma = new ModelAndView();
-		try {
-			list = noticeService.selectAllList();
-			if(!list.isEmpty()) {
-				ma.addObject("list",list);
-				ma.setViewName("manage/board/notice/articles/noticeManageArticlesList");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return ma;
-	}
+//	//기사 공지사항 페이지
+//	@RequestMapping("/articles/noticeManageArticlesList")
+//	public ModelAndView noticeManageArticlesList(@RequestParam int reqPage) {
+//		ModelAndView ma = new ModelAndView();
+//		try {
+//			NoticePageData list = noticeService.selectAllList(reqPage);
+//			if(!list.isEmpty()) {
+//				ArrayList<NoticeVO> arrlist = list.getList();
+//				String pageNavi = list.getPageNavi();
+//				ma.addObject("list", arrlist);
+//				ma.addObject("pageNavi", pageNavi);
+//				ma.setViewName("manage/board/notice/articles/noticeManageArticlesList");
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return ma;
+//	}
+//	//부동산 공지사항 페이지
+//	@RequestMapping("/realestate/noticeManageRealestateList")
+//	public ModelAndView noticeManageRealestateList(@RequestParam int reqPage) {
+//		ModelAndView ma = new ModelAndView();
+//		try {
+//			NoticePageData list = noticeService.realestateSelectAllList(reqPage);
+//			if(!list.isEmpty()) {
+//				ArrayList<NoticeVO> arrlist = list.getList();
+//				String pageNavi = list.getPageNavi();
+//				ma.addObject("list", arrlist);
+//				ma.addObject("pageNavi", pageNavi);
+//				ma.setViewName("manage/board/notice/realestate/noticeManageRealestateList");
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return ma;
+//	}
 	
-	//부동산 공지사항 페이지
-	@RequestMapping("/realestate/noticeManageRealestateList")
-	public ModelAndView noticeManageRealestateList() {
-		ArrayList<NoticeVO> list;
-		ModelAndView ma = new ModelAndView();
-		try {
-			list = noticeService.selectAllList();
-			if(!list.isEmpty()) {
-				ma.addObject("list",list);
-				ma.setViewName("manage/board/notice/realestate/noticeManageRealestateList");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ma;
-	}*/
 	
 	//관리자 공지사항 수정페이지로 넘어가기
 	@RequestMapping("/noticeManageModify")
@@ -138,6 +139,7 @@ public class NoticeController {
 	//업데이트를 실행하는 컨트롤러
 	@RequestMapping("/noticeUpdate")
 	public String noticeUpdate(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
+		if(!noticefilename.isEmpty()) {
 		System.out.println("ti:"+n.getNoticeTitle());
 		System.out.println("co:"+n.getNoticeContent());
 		String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
@@ -180,7 +182,38 @@ public class NoticeController {
 				e.printStackTrace();
 			}
 			return view;
+		}else {
+			String view = "";
+			try {
+				int result = noticeService.noticeUpdate(n);
+				System.out.println("result:"+result);
+				System.out.println("타입-"+n.getNoticeType());
+				if(result>0) {
+					if(n.getNoticeType().equals("사용자")) {
+						view = "manage/board/notice/updateSuccess";
+					}else if(n.getNoticeType().equals("부동산")) {
+						view = "manage/board/notice/realestate/RupdateSuccess";
+					}else if(n.getNoticeType().equals("기사")) {
+						view = "manage/board/notice/articles/AupdateSuccess";
+					}
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return view;
+		}
 	}
+//	            if(status.equals("stay")) {
+//	               c.setCompetitionImg(oldFilename);
+//	            }else {
+//	               File deleteFile = new File(savePath+"/"+oldFilename);
+//	               boolean bool = deleteFile.delete();
+//	               System.out.println(bool?"삭제성공":"삭제실패");
+//	            }
+//	         }
+
+	
 	
 	//관리자 공지사항 작성페이지
 	@RequestMapping("/noticeManageWriter")

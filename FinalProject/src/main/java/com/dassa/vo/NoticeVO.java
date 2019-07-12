@@ -14,13 +14,13 @@ public class NoticeVO {
 	private Date noticeRegDate;
 	private String noticeState;
 	private int rownum;
-	
+	private String boardType;
 	public NoticeVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public NoticeVO(int noticeIndex, String noticeType, String noticeTitle, String noticeContent, String noticeWriter,
-			String noticeFilename, String noticeFilepath, int noticeHit, Date noticeRegDate, String noticeState, int rownum) {
+			String noticeFilename, String noticeFilepath, int noticeHit, Date noticeRegDate, String noticeState, int rownum, String boardType) {
 		super();
 		this.noticeIndex = noticeIndex;
 		this.noticeType = noticeType;
@@ -33,6 +33,7 @@ public class NoticeVO {
 		this.noticeRegDate = noticeRegDate;
 		this.noticeState = noticeState;
 		this.rownum = rownum;
+		this.boardType = boardType;
 	}
 	public int getNoticeIndex() {
 		return noticeIndex;
@@ -100,5 +101,14 @@ public class NoticeVO {
 	public void setRownum(int rownum) {
 		this.rownum = rownum;
 	}
-	
+/*	public String getBoardType() {
+		String boardType = getNoticeType();
+		if(boardType.equals("1")) {
+			return "사용자";
+		}else if(boardType.equals("2")) {
+			return "부동산";
+		}else {
+			return "기사";
+		}
+	}	*/
 }

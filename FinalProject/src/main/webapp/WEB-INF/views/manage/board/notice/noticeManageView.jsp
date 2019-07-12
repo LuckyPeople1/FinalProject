@@ -48,7 +48,7 @@
 						<tr>
 							<td colspan="2">
 								<div class="board_button">
-									<a href="/manage/board/notice/noticeManageList" class="board_Rebtn">목록으로</a>
+									<a href="/manage/board/notice/noticeManageList?reqPage=1" class="board_Rebtn">목록으로</a>
 								</div>
 							</td>
 						</tr>

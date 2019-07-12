@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.GuestMoveMapper">
+  	<insert id="guestMovePayment" parameterType="com.dassa.vo.MovePaymentVO">
+  		insert into values(
+  			move_payment_seq.nextval,
+  			#{applyIdx},
+  			#{driverIdx},
+  			#{movePaymentImpUid},
+  			#{movePaymentMerchantUid},
+  			#{movePaymentPayMethod},
+  			#{movePaymentPg},
+  			#{movePaymentPgNumber},
+  			#{movePaymentCardName},
+  			#{movePaymentAmount},
+  			#{movePaymentDate},
+  			null,
+  			#{movePaymentStatus}
+  			) from move_payment_tbl
+  	</insert>
+  	<select id="moveList" parameterType="java.util.Map" resultType="com.dassa.vo.MoveApplyVO">
+  			select a.* from
+  				(select apply_idx as applyIdx,
+  				apply_date as applyDate,
+  				apply_time as applyTime,
+  				apply_hope as applyHope,
+  				apply_help as applyHelp,
+  				start_addr1 as startAddr1,
+  				start_addr2 as startAddr2,
+  				start_addr3 as startAddr3,
+  				end_addr1 as endAddr1,
+  				end_addr2 as endAddr2,
+  				end_addr3 as endAddr3,
+  				apply_status as applyStatus,
+  				ROW_NUMBER() OVER(ORDER BY apply_idx DESC) rNUM
+  				from move_apply_tbl where guest_idx = #{guestIdx} ) a
+  				where rNUM between #{start} and #{end}
+  	</select>
+  	<select id="moveApplyTotalCount" parameterType="_int" resultType="_int">
+  		select count(*) as cnt from move_apply_tbl where guest_idx = #{guestIdx}
+  	</select>
+</mapper>
