@@ -1,5 +1,5 @@
 package com.dassa.vo;
-
+ 
 public class DriverAuctionDetailVO {
 	private int applyIdx;			//신청한 고유값
 	private int guestIdx;			//사용자 고유번호
