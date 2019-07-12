@@ -31,4 +31,7 @@ public interface ShopMapper {
 	
 	//매물 관리 리스트
 	public ArrayList<ShopItemVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	
+	//매물 상세 보기
+	public ShopItemVO shopItemInfo(int shopItemIdx) throws Exception;
 }

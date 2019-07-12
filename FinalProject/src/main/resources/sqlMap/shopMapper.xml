@@ -25,7 +25,7 @@
 			#{shopItemSecretMemo, jdbcType=VARCHAR},
 			#{shopItemManager, jdbcType=VARCHAR},
 			shop_item_img_idx_seq.nextval,
-			#{shopItemPremiumState, jdbcType=VARCHAR},
+			default,
 			#{shopItemType1, jdbcType=VARCHAR},
 			#{shopItemType2, jdbcType=VARCHAR},
 			#{shopItemAddr1, jdbcType=VARCHAR},
@@ -35,8 +35,10 @@
 			#{shopItemLongitude, jdbcType=VARCHAR},
 			#{shopItemDealType, jdbcType=VARCHAR},
 			#{shopItemDealPrice, jdbcType=VARCHAR},
-			#{shopItemSize, jdbcType=VARCHAR},
-			#{shopItemSizeAll, jdbcType=VARCHAR},
+			#{shopItemSize1, jdbcType=VARCHAR},
+			#{shopItemSizeAll1, jdbcType=VARCHAR},
+			#{shopItemSize2, jdbcType=VARCHAR},
+			#{shopItemSizeAll2, jdbcType=VARCHAR},
 			#{shopItemFloor, jdbcType=VARCHAR},
 			#{shopItemFloorAll, jdbcType=VARCHAR},
 			#{shopItemHeating, jdbcType=VARCHAR},
@@ -44,9 +46,11 @@
 			#{shopItemBulidHallway, jdbcType=VARCHAR},
 			#{shopItemBulidDate, jdbcType=VARCHAR},
 			#{shopItemMovingDate, jdbcType=VARCHAR},
+			#{shopItemManage, jdbcType=VARCHAR},
 			#{shopItemManagePrice, jdbcType=VARCHAR},
 			#{shopItemManagePriceOption, jdbcType=VARCHAR},
-			#{shopParkingPrice, jdbcType=VARCHAR},
+			#{shopItemParking, jdbcType=VARCHAR},
+			#{shopItemParkingPrice, jdbcType=VARCHAR},
 			#{shopItemAnimal, jdbcType=VARCHAR},
 			#{shopItemElevator, jdbcType=VARCHAR},
 			#{shopItemBalcony, jdbcType=VARCHAR},
@@ -57,7 +61,7 @@
 			sysdate,
 			#{shopItemDelDate, jdbcType=VARCHAR},
 			#{shopItemOkState, jdbcType=VARCHAR},
-			#{shopItemSaleState, jdbcType=VARCHAR}
+			default
 			)
 	</insert>
 	<!-- 매물 이미지 등록 -->
@@ -86,12 +90,21 @@
 			select shop_item_idx as shopItemIdx,
 				shop_item_manager as shopItemManager,
 				shop_item_type1 as shopItemType1,
+				shop_item_deal_type as shopItemDealType,
 				shop_item_title as shopItemTitle,
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
 			from(select rownum as rnum, item.* from (select * from shop_item_tbl order by rownum desc) item)where rnum between #{start} and #{end} 
-			<!-- shop_item_title as shopItemTItle,
+	</select>
+	<!-- 매물 총 게시물 수 -->
+	<select id="shopItemTotalCount" resultType="_int">
+		select count(*) cnt from shop_item_tbl
+	</select>
+	<!-- 매물 상세보기 -->
+	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
+		select shop_item_idx as shopItemIdx, 
+			shop_item_title as shopItemTitle,
 			shop_item_content as shopItemContent,
 			shop_item_secret_memo as shopItemSecretMemo,
 			shop_item_manager as shopItemManager,
@@ -104,26 +117,33 @@
 			shop_item_addr3 as shopItemAddr3,
 			shop_item_deal_type as shopItemDealType,
 			shop_item_deal_price as shopItemDealPrice,
-			shop_item_size as shopItemSize,
-			shop_item_size_all as shopItemSizeAll,
+			shop_item_size1 as shopItemSize1,
+			shop_item_size_all1 as shopItemSizeAll1,
+			shop_item_size2 as shopItemSize2,
+			shop_item_size_all2 as shopItemSizeAll2,
 			shop_item_floor as shopItemFloor,
 			shop_item_floor as shopItemFloorAll,
 			shop_item_heating as shopItemHeating,
 			shop_item_bulid_company as shopItemBulidCompany,
 			shop_item_bulid_hallway as shopItemBulidHallway,
 			shop_item_bulid_date as shopItemBulidDate,
-			shop_item_moving as shopItemMoving,
+			shop_item_moving_date as shopItemMovingDate,
+			shop_item_manage as shopItemManage,
 			shop_item_manage_price as shopItemManagePrice,
 			shop_item_manage_price_option as shopItemManageOption,
+			shop_item_parking as shopItemParking,
 			shop_item_parking_price as shopItemParkingPrice,
 			shop_item_animal as shopItemAnimal,
 			shop_item_elevator as shopItemElevator,
 			shop_item_balcony as shopItemBalcony,
 			shop_item_built_in as shopItemBuiltIn,
-			shop_item_
-			 -->
-	</select>
-	<select id="shopItemTotalCount" resultType="_int">
-		select count(*) cnt from shop_item_tbl
+			shop_item_structure as shopItemStructure,
+			shop_item_option as shopItemOption,
+			shop_item_loan as shopItemLoan,
+			shop_item_reg_date as shopItemRegDate,
+			shop_item_del_date as shopItemDelDate,
+			shop_item_ok_state as shopItemOkState,
+			shop_item_sale_state as shopItemSaleState
+			from shop_item_tbl where shop_item_idx=#{shopItemIdx}
 	</select>
 </mapper>
