@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/guest/common/head.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="container">
 	<%@include file="/WEB-INF/views/guest/common/header.jsp" %>
 	<div class="contents">
@@ -13,7 +14,7 @@
 			<!-- 컨텐츠 시작 -->
 			<div class="mypageCon move ">
 				<div class="auctionInfoBg">이사 상세정보</div>
-				
+				<c:if test="${not empty moveInfo.maVo}">
 				<!-- 기사 정보 -->
 				<div class="auctionDetailInfo">
 					<div class="profileBox">
@@ -22,18 +23,18 @@
 						</div>
 					</div>
 					<div class="driverBox">
-						<div class="driverName">유성연 기사님</div>
-						<div class="driverCount">평점 4.5 &nbsp / &nbsp 리뷰 15건</div>
-						<div class="auctionPrice">견적가 : 150,000원</div>
+						<div class="driverName">${moveInfo.maVo.userName} 기사님</div>
+						<div class="driverCount">평점 ${moveInfo.maVo.star} &nbsp / &nbsp 리뷰 ${moveInfo.maVo.reviewCount}</div>
+						<div class="auctionPrice">견적가 : ${moveInfo.maVo.estimateAmount} 원</div>
 					</div>
 					<div class="driverIntro">
-						자기소개서
+						${moveInfo.maVo.userIntroduce}
 					</div>
 					
-					<!-- 기사가 배정되지 않았을 때 표시하지 않음 -->
+					<!-- 기사가 배정되지 않았을 때 표시하지 않음  -->
 					<div class="driverMemo">
 						<div class="memoTit">메모사항</div>
-						<div class="memoCon">메모내용</div>
+						<div class="memoCon">${moveInfo.maVo.driverMessage}</div>
 					</div>
 					<div class="detailBox">
 						<div class="detailTit">상세정보</div>
@@ -50,20 +51,21 @@
 							</div>
 							<div class="row">
 								<div class="tit">운전 차량</div>
-								<div class="txt">트럭 (1톤)/카고 자바라호루3단</div>
+								<div class="txt">${moveInfo.maVo.userCar}</div>
 								<div class="sub">기사님이 운영하시는 기본 차량 용적 정보입니다.</div>
 							</div>
 							<div class="row">
 								<div class="tit">사다리비용</div>
-								<div class="txt accent">별도로 필요함</div>
+								<div class="txt accent">${moveInfo.maVo.ladderState == '0' ? '포함' : '별도로 필요함'}</div>
 								<div class="sub">
-									견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.
+									${moveInfo.maVo.ladderState == '0' ? '견적에 사다리 비용이 포함되어 있습니다.' : '견적에 사다리 비용이 포함되어 있지 않습니다. 사다리 차 비용은 일반적으로 8~10만원 가량이며,<br/>정확한 비용은 기사님에게 문의하시기 바랍니다.'}
 								</div>
 							</div>
 						</div>
 					</div>
+					
 				</div>
-				
+				</c:if>
 				<!-- 이사 정보 -->
 				<div class="applyGroup">
 					<div class="applyTitle">신청정보</div>
@@ -76,10 +78,10 @@
 									<div class="con">
 										<div class="addr">${moveInfo.driverAuctionDetail.startAddr1 } ${moveInfo.driverAuctionDetail.startAddr3}</div>
 										<div class="addrInfo">
-											${startInfo.type}·${startInfo.structure}·${startInfo.size}
+											${moveInfo.driverAuctionDetail.startType}·${moveInfo.driverAuctionDetail.startStructure}·${moveInfo.driverAuctionDetail.startSize}
 										</div>
 										<div class="addrInfo">
-											${startInfo.floor}·${startInfo.elevator == "Y" ? '엘리베이터 O' : '엘리베이터 X'}·${startInfo.parking == "Y" ? '주차 가능' : '주차 불가'}
+											${moveInfo.driverAuctionDetail.startFloor}·${moveInfo.driverAuctionDetail.startElevator == "Y" ? '엘리베이터 O' : '엘리베이터 X'}·${moveInfo.driverAuctionDetail.startParking == "Y" ? '주차 가능' : '주차 불가'}
 										</div>
 									</div>
 								</div>
@@ -88,12 +90,12 @@
 								<div class="row">
 									<div class="subject">이사 갈 집</div>
 									<div class="con">
-										<div class="addr">${endInfo.addr1} ${endInfo.addr3}</div>
+										<div class="addr">${moveInfo.driverAuctionDetail.endAddr1} ${moveInfo.driverAuctionDetail.endAddr3}</div>
 										<div class="addrInfo">
-											${endInfo.type}·${endInfo.floor}
+											${moveInfo.driverAuctionDetail.endType}·${moveInfo.driverAuctionDetail.endFloor}
 										</div>
 										<div class="addrInfo">
-											${endInfo.elevator == "Y" ? '엘리베이터 O' : '엘리베이터 X'}·${endInfo.parking == "Y" ? '주차 가능' : '주차 불가'}
+											${moveInfo.driverAuctionDetail.endElevator == "Y" ? '엘리베이터 O' : '엘리베이터 X'}·${moveInfo.driverAuctionDetail.endParking == "Y" ? '주차 가능' : '주차 불가'}
 										</div>
 									</div>
 								</div>
@@ -109,7 +111,8 @@
 								<div class="row">
 									<div class="subject">이사날짜</div>
 									<div class="con">
-										<div class="addr">${scheduleInfo.date}</div>
+										<div class="addr"><fmt:parseDate value="${moveInfo.driverAuctionDetail.applyDate}" var="dateFmt" pattern="yyyy-MM-dd"/>
+										<fmt:formatDate value="${dateFmt}" pattern="yyyy-MM-dd"/></div>
 									</div>
 								</div>
 							</li>
@@ -117,11 +120,11 @@
 								<div class="row">
 									<div class="subject">이사시간</div>
 									<div class="con">
-										<div class="addr">${scheduleInfo.time}</div>
+										<div class="addr">${moveInfo.driverAuctionDetail.applyTime}</div>
 									</div>
 								</div>
 							</li>
-							<c:if test="${scheduleInfo.moveHelp == 'Y'}">
+							<c:if test="${moveInfo.driverAuctionDetail.applyHelp == 'Y'}">
 								<li>
 									<div class="row">
 										<div class="subject">고객도움 있음</div>
@@ -137,20 +140,20 @@
 						<ul class="infoListBox">
 							<li class="bg">
 								<div class="row">
-									<div class="subject">${scheduleInfo.moveHope}</div>
+									<div class="subject">${moveInfo.driverAuctionDetail.applyHope}</div>
 									<div class="con">
 										<div class="hope">
 											<c:choose>
-												<c:when test="${scheduleInfo.moveHope == '차량만'}">
+												<c:when test="${moveInfo.driverAuctionDetail.applyHope == '차량만'}">
 													기사님이 목적지로의 운전만 진행합니다.
 												</c:when>
-												<c:when test="${scheduleInfo.moveHope == '일반'}">
+												<c:when test="${moveInfo.driverAuctionDetail.applyHope == '일반'}">
 													기사님이 포장 된 짐을 목적지 공간까지 이동/운반 합니다.
 												</c:when>
-												<c:when test="${scheduleInfo.moveHope == '반포장'}">
+												<c:when test="${moveInfo.driverAuctionDetail.applyHope == '반포장'}">
 													기사님이 이용자님과 포장을 함께 진행하여, 도착지에서 가구배치까지 진행합니다.
 												</c:when>
-												<c:when test="${scheduleInfo.moveHope == '포장'}">
+												<c:when test="${moveInfo.driverAuctionDetail.applyHope == '포장'}">
 													기사님이 모든 이사 과정을 진행합니다.
 												</c:when>
 											</c:choose>
@@ -161,7 +164,7 @@
 						</ul>
 						<div class="hopeInfo">
 							<c:choose>
-								<c:when test="${scheduleInfo.moveHope == '차량만'}">
+								<c:when test="${moveInfo.driverAuctionDetail.applyHope == '차량만'}">
 									<div class="hopeTitle">
 										<span class="accent">중요!</span> 차량만 고객님 필수 진행 사항
 									</div>
@@ -173,7 +176,7 @@
 										5. 이후 이사를 직접 마무리 합니다.
 									</div>
 								</c:when>
-								<c:when test="${scheduleInfo.moveHope == '일반'}">
+								<c:when test="${moveInfo.driverAuctionDetail.applyHope == '일반'}">
 									<div class="hopeTitle">
 										<span class="accent">중요!</span> 일반 고객님 필수 진행 사항
 									</div>
@@ -183,7 +186,7 @@
 										3. 이후 이사를 직접 마무리 합니다.
 									</div>
 								</c:when>
-								<c:when test="${scheduleInfo.moveHope == '반포장'}">
+								<c:when test="${moveInfo.driverAuctionDetail.applyHope == '반포장'}">
 									<div class="hopeTitle">
 										<span class="accent">중요!</span> 반포장 고객님 필수 진행 사항
 									</div>
@@ -196,7 +199,7 @@
 										6. 이후 이사를 직접 마무리 합니다.
 									</div>
 								</c:when>
-								<c:when test="${scheduleInfo.moveHope == '포장'}">
+								<c:when test="${moveInfo.driverAuctionDetail.applyHope == '포장'}">
 									<div class="hopeTitle">
 										<span class="accent">중요!</span> 포장 고객님 필수 진행 사항
 									</div>
@@ -213,7 +216,7 @@
 					<div class="infoBox">
 						<div class="infoTitle">짐 정보</div>
 						<c:set var="count0" value="0"/>
-						<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+						<c:forEach items="${moveInfo.optionList}" var="item" varStatus="status">
 							<c:if test="${item.packageType == 0}">
 								<c:set var="count0" value="${count0+1}"/>
 							</c:if>
@@ -225,7 +228,7 @@
 										<div class="subject">가전</div>
 									</div>
 								</li>
-								<c:forEach items="${packageOptionList}" var="item">
+								<c:forEach items="${moveInfo.optionList}" var="item">
 									<c:if test="${item.packageType == 0}">
 										<li class="package">
 											<div class="row">
@@ -243,20 +246,19 @@
 							</ul>
 						</c:if>
 						<c:set var="count1" value="0"/>
-						<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+						<c:forEach items="${moveInfo.optionList}" var="item" varStatus="status">
 							<c:if test="${item.packageType == 1}">
-								<c:set var="count0" value="${count1+1}"/>
+								<c:set var="count1" value="${count1+1}"/>
 							</c:if>
 						</c:forEach>
 						<c:if test="${count1 != 0}">
 							<ul class="infoListBox">
-								
 								<li class="bg">
 									<div class="row static">
 										<div class="subject">가구</div>
 									</div>
 								</li>
-								<c:forEach items="${packageOptionList}" var="item">
+								<c:forEach items="${moveInfo.optionList}" var="item">
 									<c:if test="${item.packageType == 1}">
 										<li class="package">
 											<div class="row">
@@ -274,20 +276,19 @@
 							</ul>
 						</c:if>
 						<c:set var="count2" value="0"/>
-						<c:forEach items="${packageOptionList}" var="item" varStatus="status">
+						<c:forEach items="${moveInfo.optionList}" var="item" varStatus="status">
 							<c:if test="${item.packageType == 2}">
-								<c:set var="count0" value="${count2+1}"/>
+								<c:set var="count2" value="${count2+1}"/>
 							</c:if>
 						</c:forEach>
 						<c:if test="${count2 != 0}">
 							<ul class="infoListBox">
-								
 								<li class="bg">
 									<div class="row static">
-										<div class="subject">가구</div>
+										<div class="subject">기타</div>
 									</div>
 								</li>
-								<c:forEach items="${packageOptionList}" var="item">
+								<c:forEach items="${moveInfo.optionList}" var="item">
 									<c:if test="${item.packageType == 2}">
 										<li class="package">
 											<div class="row">
@@ -304,52 +305,69 @@
 								</c:forEach>
 							</ul>
 						</c:if>
-						<ul class="infoListBox">
-							<li class="bg">
-								<div class="row static">
-									<div class="subject">짐박스</div>
-								</div>
-							</li>
-							<li class="">
-								<div class="row">
-									<div class="subject">제품이미지</div>
-									<div class="con">
-										<div class="packageName">상품명</div>
-										<div class="packageOption">옵션..</div>
+						<c:set var="count3" value="0"/>
+						<c:forEach items="${moveInfo.optionList}" var="item" varStatus="status">
+							<c:if test="${item.packageType == 3}">
+								<c:set var="count3" value="${count3+1}"/>
+							</c:if>
+						</c:forEach>
+						<c:if test="${count3 != 0}">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">짐박스</div>
 									</div>
-								</div>
-							</li>
-						</ul>
-						<ul class="infoListBox">
-							<li class="bg">
-								<div class="row static">
-									<div class="subject">사진정보</div>
-								</div>
-							</li>
-							<li class="">
-								<div class="imgList">
-									<c:forEach items="${sessionScope.imgList}" var="img">
-										<div class="imgBox">
-											<img src="${img.imgPath}" alt="이미지">
-										</div>
-									</c:forEach>
-								</div>
-							</li>
-						</ul>
-						<ul class="infoListBox">
-							<li class="bg">
-								<div class="row static">
-									<div class="subject">메모</div>
-								</div>
-							</li>
-							<li class="memoCon">
-								입력한 메모내용...
-							</li>
-						</ul>
+								</li>
+								<c:forEach items="${moveInfo.optionList}" var="item">
+									<c:if test="${item.packageType == 3}">
+										<li class="package">
+											<div class="row">
+												<div class="subject">
+													<img src="${item.packageImgPath}" alt="이미지">
+												</div>
+												<div class="con">
+													<div class="packageName">${item.packageName}</div>
+													<div class="packageOption">${item.packageOption}</div>
+												</div>
+											</div>
+										</li>
+									</c:if>
+								</c:forEach>
+							</ul>
+						</c:if>
+						<c:if test="${not empty moveInfo.imgList}">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">사진정보</div>
+									</div>
+								</li>
+								<li class="package">
+									<div class="imgList">
+										<c:forEach items="${moveInfo.imgList}" var="img">
+											<div class="imgBox">
+												<img src="${img.imgPath}" alt="이미지">
+											</div>
+										</c:forEach>
+									</div>
+								</li>
+							</ul>
+						</c:if>
+						<c:if test="${not empty moveInfo.driverAuctionDetail.applyMemo}">
+							<ul class="infoListBox">
+								<li class="bg">
+									<div class="row static">
+										<div class="subject">메모</div>
+									</div>
+								</li>
+								<li class="memoCon">
+									${moveInfo.driverAuctionDetail.applyMemo}
+								</li>
+							</ul>
+						</c:if>
 					</div>
-				
 				</div>
-				
+				<c:if test="${not empty moveInfo.payVo}">
 				<!-- 결제 정보 -->
 				<div class="applyGroup">
 					<div class="applyTitle">결제정보</div>
@@ -359,7 +377,12 @@
 								<div class="row">
 									<div class="subject">결제수단</div>
 									<div class="con">
-										<div class="">신용카드 / 현대카드 (4212 - **** - **** - ****) / 일시불</div>
+										<div class="">
+											<c:if test="${moveInfo.payVo.movePaymentPayMethod == 'card' }">
+												신용카드	
+											</c:if>
+										 	/ ${moveInfo.payVo.movePaymentCardName} (결제 승인번호 : ${moveInfo.payVo.movePaymentPgNumber })
+										 </div>
 									</div>
 								</div>
 							</li>
@@ -375,29 +398,35 @@
 								<div class="row">
 									<div class="subject">결제일시</div>
 									<div class="con">
-										<div class="">2019-05-22 12:22:22</div>
+										<div class="">
+											<fmt:formatDate value="${moveInfo.payVo.movePaymentDate }" pattern="yyyy-MM-dd hh:mm:ss"/>
+										</div>
 									</div>
 								</div>
 							</li>
+							<c:if test="${not empty moveInfo.payVo.movePaymentCencelDate }">
 							<li>
 								<div class="row">
 									<div class="subject">취소일시</div>
 									<div class="con">
-										<div class="">2019-05-22 12:22:22</div>
+										<div class="">
+											<fmt:formatDate value="${moveInfo.payVo.movePaymentCencelDate }" pattern="yyyy-MM-dd hh:mm:ss"/>
+										</div>
 									</div>
 								</div>
 							</li>
+							</c:if>
 						</ul>
 					
 					</div>
 				
 				</div>
-				
+				</c:if>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
-					
-					<!-- 완료된 이사건에 대해서 표시 하지 않음 -->
-					<a href="#none" class="btn col_main f_w big">결제취소</a>
+					<c:if test="${not empty moveInfo.payVo}">
+						<a href="javascript:move.paymentCencel('${moveInfo.payVo.movePaymentImpUid}','${moveInfo.payVo.applyIdx }')" class="btn col_blue f_w big">결제취소</a>
+					</c:if>
 				</div>
 			</div>
 		</section>
