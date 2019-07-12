@@ -3,11 +3,11 @@ package com.dassa.vo;
 import java.sql.Date;
 
 public class EmployeeVO {
-	private int employeeIdx;
-	private String employeeName;
-	private String employeeRank;
-	private String employeePhone;
-	private String adress;
+	private int employeeIdx; //직원 인덱스번호
+	private String employeeName; //직원 이름
+	private String employeeRank; //직원 직급
+	private String employeePhone; //직원 전화번호
+	private String adress; //직원 주소
 	private int registrationNumber;
 	private String imageName;
 	private String imagePath;
