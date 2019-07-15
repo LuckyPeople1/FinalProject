@@ -3,7 +3,6 @@ package com.dassa.controller.guest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +21,8 @@ import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyPage;
+import com.dassa.vo.MoveAuctionListVO;
+import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
@@ -107,12 +108,12 @@ public class GuestMyController {
 	 * 이사 리스트
 	 * @param model
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/moveList")
-	public String moveList(Model model,int guestIdx,@RequestParam(defaultValue="1") int reqPage){
+	public String moveList(Model model,int guestIdx,@RequestParam(defaultValue="1") int reqPage) throws Exception{
 		MoveApplyPage moPage = new MoveApplyPage();
 		MoveApplyPage movePage = guestMoveService.moveList(guestIdx,reqPage,moPage);
-		model.addAttribute("tab","2");
 		model.addAttribute("movePage",movePage);
 
 		return "/guest/mypage/myMoveList";
@@ -127,7 +128,7 @@ public class GuestMyController {
 	@RequestMapping("/auctionList")
 	public String moveAuction(Model model, @RequestParam int applyIdx){
 
-		ArrayList<MoveAuctionVO> list = guestMoveService.moveAuction(applyIdx);
+		MoveAuctionListVO list = guestMoveService.moveAuction(applyIdx);
 		model.addAttribute("list", list);
 		model.addAttribute("applyIdx",applyIdx);
 
@@ -141,8 +142,9 @@ public class GuestMyController {
 	@RequestMapping("/auctionInfo")
 	public String moveAuctionInfo(Model model, @RequestParam int applyIdx){
 		MoveAuctionVO maVO = guestMoveService.moveAuctionInfo(applyIdx);
-		
+		MoveAuctionReview reVO = guestMoveService.moveAuctionReview(maVO.getDriverIdx());
 		model.addAttribute("item",maVO);
+		model.addAttribute("reitem",reVO);
 
 		return "/guest/mypage/myMoveAuctionInfo";
 	}

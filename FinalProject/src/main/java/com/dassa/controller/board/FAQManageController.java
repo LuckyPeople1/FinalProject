@@ -90,9 +90,10 @@ public class FAQManageController {
 	//faq수정페이지
 	@RequestMapping("/faqManageModify")
 	public ModelAndView faqManageModify(@RequestParam int faqIndex) {
+		FaqVO f;
 		ModelAndView ma = new ModelAndView();
 		try {
-			FaqVO f = faqService.faqView(faqIndex);
+			f = faqService.faqView(faqIndex);
 			if(f!=null) {
 				ma.addObject("faqVO",f);
 				ma.setViewName("manage/board/faq/faqManageModify");
@@ -106,9 +107,10 @@ public class FAQManageController {
 	//faq수정실행하는 컨트롤러
 	@RequestMapping("/faqUpdate")
 	public String faqUpdate(FaqVO f) {
+		int result;
 		String view = "";
 		try {
-			int result = faqService.faqUpdate(f);
+			result = faqService.faqUpdate(f);
 			System.out.println("result:"+result);
 			System.out.println("타입-"+f.getFaqUserType());
 			if(result>0) {

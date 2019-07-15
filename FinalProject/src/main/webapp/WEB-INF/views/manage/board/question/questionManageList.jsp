@@ -86,10 +86,10 @@
 						<col width="80">
 						<col width="80">
 						<col width="100">
-						<col width="100">
 						<col width="*">
 						<col width="130">
 						<col width="130">
+						<col width="100">
 						<col width="100">
 						<col width="100">
 					</colgroup>
@@ -102,11 +102,11 @@
 						</th>
 						<th>No</th>
 						<th>아이디</th>
-						<th>이름</th>
 						<th>제목</th>
 						<th>작성일시</th>
 						<th>답변일시</th>
 						<th>답변유무</th>
+						<th>상태</th>
 						<th>관리</th>
 					</tr>
 					</thead>
@@ -121,16 +121,18 @@
 						</td>
 						<td>${q.questionsIndex }</td>
 						<td>${q.questionsWriter }</td>
-						<td>최희수</td>
 						<td class="text-left">${q.questionsTitle }</td>
 						<td>${q.questionsRegDate}</td>
 						<td>2019-07-02</td>
+						<td>
+							<span class="tag col_blue f_w">${q.questionsAnswerState }</span>
+						</td>
 						<td>
 							<span class="tag col_blue f_w">${q.questionsState }</span>
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/question/questionManageView" class="btn small col_main f_w">보기</a>
+								<a href="/manage/board/question/questionManageView?questionsIndex=${q.questionsIndex }" class="btn small col_main f_w">보기</a>
 							</div>
 							<div>
 								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>

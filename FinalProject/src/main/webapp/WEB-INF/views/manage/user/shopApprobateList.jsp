@@ -10,6 +10,7 @@
 <div class="contents">
 	<section id="manageUserAllList">
 		<div class="set_field">
+			<div class="field_title"><span class="title_mark">■ 회원 관리</span></div>
 			<div class="field_title"><span class="title_mark">■ 부동산 승인 관리</span></div>
 			<table class="set_man_userTable">
 				<colgroup>
@@ -36,11 +37,15 @@
 					<th>회원 등급</th>
 					<td colspan="3">
 						<label>
-							<input type="checkbox">
+							<input type="checkbox" class="checkUserType">
+							<span>일반회원</span>
+						</label>
+						<label class="ml10">
+							<input type="checkbox" class="checkUserType">
 							<span>운송기사</span>
 						</label>
 						<label class="ml10">
-							<input type="checkbox">
+							<input type="checkbox" class="checkUserType">
 							<span>부동산</span>
 						</label>
 					</td>
@@ -102,6 +107,7 @@
 							<td>${u.type }</td>
 							<td>${u.enrollDate }</td>
 							<td>
+								<a href="/userManage/deleteUser?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
 								<span class="tag col_blue f_w">탈퇴 됨</span>
 							</td>
 						</tr>
@@ -133,3 +139,81 @@
 		</div>
 	</section>
 </div>
+</body>
+</html>
+<script>
+	
+$(".checkUserType").change(function(){
+	var bool = $(this).is(":checked");
+	var type = $(this).next().html();
+	console.log(type);
+	console.log(bool);
+	if(bool){
+		$.ajax({
+			type: "post",
+			url: "/userManage/userCheckList",
+			data: {type:type},
+			success: function(data){
+				$(".list_table").children().eq(2).html("");
+				var listV = $(".list_table").children().eq(2);
+				console.log(listV);
+				str = "";
+				for(var i=0; i<data.list.length; i++){
+					str += "<tr>";
+					str += "<td>"+data.list[i].userId+"</td>";
+					str += "<td>"+data.list[i].userPw+"</td>";
+					str += "<td>"+data.list[i].userName+"</td>";
+					str += "<td>"+data.list[i].userAddr+"</td>";
+					str += "<td>"+data.list[i].userPhone+"</td>";
+					str += "<td>"+data.list[i].userEmail+"</td>";
+					str += "<td>"+type+"</td>";
+					str += "<td>"+data.list[i].enrollDate+"</td>";
+					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
+					str += ">회원탈퇴</a></td>";
+					str += "</tr>";
+					
+				}
+				listV.append(str);
+			}
+		}); /* ajax 끝 */
+	}else{ /* if */
+		$.ajax({
+			type: "post",
+			url: "/userManage/userListAll",
+			success: function(data){
+				$(".list_table").children().eq(2).html("");
+				var listV = $(".list_table").children().eq(2);
+				console.log(listV);
+				console.log(data.list);
+				str = "";
+				
+				
+				for(var i=0; i<data.list.length; i++){
+					var type= "";
+					if(data.list[i].userType == "1"){
+						type = "운송기사";
+					}else if(data.list[i].userType == "2"){
+						type = "부동산";
+					}else if(data.list[i].userType == "3"){
+						type = "일반회원";
+					}
+					str += "<tr>";
+					str += "<td>"+data.list[i].userId+"</td>";
+					str += "<td>"+data.list[i].userPw+"</td>";
+					str += "<td>"+data.list[i].userName+"</td>";
+					str += "<td>"+data.list[i].userAddr+"</td>";
+					str += "<td>"+data.list[i].userPhone+"</td>";
+					str += "<td>"+data.list[i].userEmail+"</td>";
+					str += "<td>"+type+"</td>";
+					str += "<td>"+data.list[i].enrollDate+"</td>";
+					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
+					str += ">회원탈퇴</a></td>";
+					str += "</tr>";
+				}
+				listV.append(str);
+			}
+		}); /* ajax 끝 */
+	}
+});
+	
+</script>

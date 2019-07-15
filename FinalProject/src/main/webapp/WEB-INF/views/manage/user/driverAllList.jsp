@@ -166,8 +166,8 @@ $(".checkUserType").change(function(){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+type+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
-					str += "회원탈퇴</a></td>";
+					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
+					str += ">회원탈퇴</a></td>";
 					str += "</tr>";
 					
 				}

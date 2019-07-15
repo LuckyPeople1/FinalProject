@@ -6,7 +6,7 @@
 		<div class="lnb_show">회원 관리</div>
 		<ul class="lnb_menu">
 			<li>
-				<a href="/manage/user/userAllList" class="menu_name">일반회원 관리</a>
+				<a href="/userManage/userAllList" class="menu_name">일반회원 관리</a>
 				<ul class="lnb_sub_menu">
 					<li><a href="/userManage/userAllList" class="on">회원 관리</a></li>
 					<li><a href="/userManage/userSecssion" class="">탈퇴회원 관리</a></li>

@@ -61,6 +61,9 @@
   			u.user_introduce as userIntroduce
   			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where d.apply_idx = #{applyIdx}
   	</select>
+  	<select id="driverReviewSelect" parameterType="_int" resultType="com.dassa.vo.MoveAuctionReview">
+  		select avg(review_star) as reviewStarAVG ,count(*) as reviewCount from driver_review_tbl where driver_idx=#{driverIdx}
+  	</select>
   	<update id="moveApplyStateUpdate" parameterType="_int">
   		update move_apply_tbl set apply_status = '1' where apply_idx=#{applyIdx}
   	</update>
@@ -100,20 +103,13 @@
 	<insert id="driverReviewInsert" parameterType="com.dassa.vo.DriverReviewVO">
 		insert into driver_review_tbl values (driver_review_idx_seq.nextval,#{driverIdx},#{applyIdx},#{reviewStar},#{reviewMessage},#{extraMoney},sysdate)
 	</insert>
-	
-	<select id="driverReviewMyList" parameterType="com.dassa.vo.DriverReviewVO" resultType="com.dassa.vo.DriverReviewVO">
-	
-		select review_idx as reviewIdx,
-				driver_idx as driverIdx,
-				apply_idx as applyIdx,
-				review_star as reviewStar,
-				review_Message as reviewMessage,
-				extra_money as extraMoney,
-				review_date as reviewDate
-				from  driver_review_tbl
-				where 
+
+	<update id="driverMoveFinalCompletion" parameterType="_int">
+		update move_apply_tbl set apply_status = '2' where apply_idx=#{applyIdx}
+	</update>
+	<select id="driverReviewSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverReviewVO">
+		select review_idx as reviewIdx from driver_review_tbl
 	</select>
-	
 	<select id="applyIdxSelectList" parameterType="_int" resultType="com.dassa.vo.DriverMypageReviewVO">
 	
 	select r.review_idx as reviewIdx,

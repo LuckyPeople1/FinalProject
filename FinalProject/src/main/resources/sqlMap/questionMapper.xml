@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.QuestionMapper">
-	<!-- 리스트조회 -->
+	<!-- 1:1문의 리스트조회 -->
   <select id="selectAllList" resultType="questionVO" parameterType="_int">		
   		select questions_index as questionsIndex,
   			questions_user_type as questionsUserType,
   			questions_title as questionsTitle,
   			questions_answer as questionsAnswer,
+  			questions_answer_state as questionsAnswerState,
   			questions_writer as questionsWriter,
   			questions_reg_date as questionsRegDate,
   			questions_state as questionsState	
@@ -18,7 +19,22 @@
   			 order by rownum desc) n)
   			  where rnum between #{start} and #{end}
   </select>
+  <!-- totalcount -->
   <select id="totalCount" resultType="_int">
   	select count(*) cnt from questions_tbl
   </select>
+  <!-- 1:1문의 뷰페이지 -->
+  <select id="questionView" parameterType="questionVO" resultType="questionVO">
+  	select questions_index as questionsIndex,
+  			questions_title as questionsTitle,
+  			questions_writer as questionsWriter,
+  			questions_content as questionsContent,
+  			questions_answer as questionsAnswer
+  			from questions_tbl
+  			where questions_index=#{questionsIndex}
+  </select>
+  <!-- 1:1문의 답변하기 -->
+  <update id="questionUpdate" parameterType="questionVO">
+  	update questions_tbl set questions_answer=#{questionsAnswer} where questions_index=#{questionsIndex}
+  </update>
 </mapper>

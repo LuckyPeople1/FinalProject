@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dassa.mapper.DriverMapper;
+import com.dassa.mapper.GuestMoveMapper;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
@@ -23,6 +24,9 @@ public class DriverService {
 	
 	@Resource(name="driverMapper")
 	private DriverMapper driverMapper;
+	
+	@Resource(name="guestMoveMapper")
+	private GuestMoveMapper guestMoveMapper;
 	
 	public UserVO selectOne(UserVO userVO) throws Exception {
 		
@@ -108,6 +112,10 @@ public class DriverService {
 		return driverMapper.userNameSelectOne();
 	}
 
+	//이사 최종완료
+	public int driverMoveFinalCompletion(int applyIdx) throws Exception {
+		return guestMoveMapper.driverMoveFinalCompletion(applyIdx);
+	}
 	
 
 }
