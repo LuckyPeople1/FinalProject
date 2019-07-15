@@ -97,7 +97,7 @@
 			</foreach>
 			) T
 	</insert>
-	<!-- 매물리스트 -->
+	<!-- 매물리스트 
 	<select id="selectAllList" resultType="shopItemVO" parameterType=shopItemSearchVO>
 			select shop_item_idx as shopItemIdx,
 				shop_item_manager as shopItemManager,
@@ -117,7 +117,7 @@
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
-
+	-->
 	<!-- 매물 총 게시물 수 -->
 	<select id="shopItemTotalCount" resultType="_int">
 		select count(*) cnt from shop_item_tbl
