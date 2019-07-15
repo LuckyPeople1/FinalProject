@@ -423,7 +423,7 @@
 				</c:if>
 					<span>${moveInfo.maVo.driverIdx}</span>
 					<span>${moveInfo.maVo.applyIdx}</span>
-					<a href="/driverReview?applyIdx=${moveInfo.maVo.applyIdx}&&driverIdx=${moveInfo.maVo.driverIdx}">@@@후기작성</a>
+					<a href="/my/driverReview?applyIdx=${moveInfo.maVo.applyIdx}&&driverIdx=${moveInfo.maVo.driverIdx}">@@@후기작성</a>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
 					<c:if test="${not empty moveInfo.payVo}">

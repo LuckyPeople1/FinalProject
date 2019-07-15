@@ -53,12 +53,6 @@ public int driverAuctionUpdate(int applyIdx) throws Exception;
 //이사관리 상세보기 기사정보 값 보기
 public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
 
-//후기 작성 리스트 보내기
-public MovePaymentVO driverReview(int applyIdx) throws Exception;
 
-//후기작성하기
-public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception;
-
-public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception;
 
 }

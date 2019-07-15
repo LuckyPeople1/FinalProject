@@ -11,7 +11,7 @@
 			<jsp:include page="/WEB-INF/views/guest/mypage/page/myTab.jsp"/>
  			
 				<!-- 컨텐츠 시작 -->
-			<form action="/driverReviewInsert" method="post" id="driverReviewInsert">	
+			<form action="/my/driverReviewInsert" method="post" id="driverReviewInsert">	
 			<input type="hidden" name="driverIdx" value="${driverVO.driverIdx }">
 			<input type="hidden" name="applyIdx" value="${driverVO.applyIdx }">
 				<div class="mypageCon move">
@@ -22,11 +22,12 @@
 								<div class="memoTit">평점</div>
 								<div class="memoCon">
 									<div class="starRev">
-										  <span class="starR on"><input type="hidden" name="reviewStar" value="1"></span>
-										  <span class="starR"><input type="hidden" name="reviewStar" value="2"></span>
-										  <span class="starR"><input type="hidden" name="reviewStar" value="3"></span>
-										  <span class="starR"><input type="hidden" name="reviewStar" value="4"></span>
-										  <span class="starR"><input type="hidden" name="reviewStar" value="5"></span>
+										  <span class="starR on"></span>
+										  <span class="starR"></span>
+										  <span class="starR"></span>
+										  <span class="starR"></span>
+										  <span class="starR"></span>
+										  <input type="hidden" name="reviewStar" >
 									</div>
 								</div>
 							</div>
@@ -47,7 +48,7 @@
 						</div>
 						<div class="mypageBtnBox">
 							<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
-							<a href="javascript:('#driverReviewInsert').submit()" class="btn col_main f_w big">작성완료</a>
+							<a href="javascript:$('#driverReviewInsert').submit()" class="btn col_main f_w big">작성완료</a>
 						</div>
 					</div>
 				</div>
@@ -62,6 +63,8 @@
 	$('.starRev span').click(function(){
 		  $(this).parent().children('span').removeClass('on');
 		  $(this).addClass('on').prevAll('span').addClass('on');
+		  var count = $(".on").length;
+		  $(this).parent().children('input').val(count);
 		  return false;
 		});
 /* 	해당 <span>태그를 클릭 시, 부모를 한번 타고 올라가서 다른 <span>에 class="on"을 add/remove 하면서 변화  */

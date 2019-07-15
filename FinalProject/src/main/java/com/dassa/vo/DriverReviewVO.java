@@ -6,11 +6,15 @@ public class DriverReviewVO {
 	private int reviewIdx;
 	private int driverIdx;
 	private int applyIdx;
-	private String reviewStar;
+	private int reviewStar;
 	private String reviewMessage;
 	private String extraMoney;
 	private Date review_date;
-	public DriverReviewVO(int reviewIdx, int driverIdx, int applyIdx, String reviewStar, String reviewMessage,
+	public DriverReviewVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public DriverReviewVO(int reviewIdx, int driverIdx, int applyIdx, int reviewStar, String reviewMessage,
 			String extraMoney, Date review_date) {
 		super();
 		this.reviewIdx = reviewIdx;
@@ -20,9 +24,6 @@ public class DriverReviewVO {
 		this.reviewMessage = reviewMessage;
 		this.extraMoney = extraMoney;
 		this.review_date = review_date;
-	}
-	public DriverReviewVO() {
-		super();
 	}
 	public int getReviewIdx() {
 		return reviewIdx;
@@ -42,10 +43,10 @@ public class DriverReviewVO {
 	public void setApplyIdx(int applyIdx) {
 		this.applyIdx = applyIdx;
 	}
-	public String getReviewStar() {
+	public int getReviewStar() {
 		return reviewStar;
 	}
-	public void setReviewStar(String reviewStar) {
+	public void setReviewStar(int reviewStar) {
 		this.reviewStar = reviewStar;
 	}
 	public String getReviewMessage() {
@@ -67,5 +68,4 @@ public class DriverReviewVO {
 		this.review_date = review_date;
 	}
 	
-
 }

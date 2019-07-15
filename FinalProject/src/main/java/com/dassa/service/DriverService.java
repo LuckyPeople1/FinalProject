@@ -97,16 +97,6 @@ public class DriverService {
 		return driverMapper.driverMoveSelectOne(applyIdx) ;
 	}
 
-
-
-	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception {
-		// TODO Auto-generated method stub
-		return driverMapper.driverReviewWrite(driverVO);
-	}
-
-	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception {
-		
-		return driverMapper.driverReviewInsert(driverReviewVO);
-	}
+	
 
 }

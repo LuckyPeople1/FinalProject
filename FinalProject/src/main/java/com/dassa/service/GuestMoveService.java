@@ -14,6 +14,8 @@ import com.dassa.mapper.GuestMoveMapper;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
+import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyPage;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.MoveAuctionVO;
@@ -98,5 +100,13 @@ public class GuestMoveService {
 		MoveAuctionVO maVo = guestMoveMapper.moveAuctionInfo(applyIdx);					
 		MovePaymentVO payVo = guestMoveMapper.paymentInfo(applyIdx);
 		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo);
+	}
+	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception {
+		// TODO Auto-generated method stub
+		return guestMoveMapper.driverReviewWrite(driverVO);
+	}
+	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception {
+		
+		return guestMoveMapper.driverReviewInsert(driverReviewVO);
 	}
 }

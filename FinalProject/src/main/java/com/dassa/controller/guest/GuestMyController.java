@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.GuestMoveService;
+import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyPage;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
@@ -158,8 +160,54 @@ public class GuestMyController {
 		return "/guest/mypage/myMoveInfo";
 
 	}
+	
+	//후기 작성할때 필요한 정보 가져오기.
+	@RequestMapping("/driverReview")
+	public String DriverReview(Model model, int applyIdx,int driverIdx,DriverVO driverVO) throws Exception {
+		
+		
+		driverVO.setDriverIdx(driverIdx);
+		driverVO.setApplyIdx(applyIdx);
+		
+		System.out.println(driverVO.getApplyIdx());
+		System.out.println(driverVO.getDriverIdx());
+		
+		 driverVO=guestMoveService.driverReviewWrite(driverVO);
+		
+		
+		if(driverVO!=null) {
+			model.addAttribute("driverVO",driverVO);
+		}
+		
+		return "guest/review/driverReview";
+	}
+	
+	//후기 작성하기 insert
+	@RequestMapping("driverReviewInsert")
+	public String driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception {
+		
+		
+		int result =guestMoveService.driverReviewInsert(driverReviewVO);
+		if(result>0) {
+			
+			return "guest/mypage/myReview"; 
+		}
+		
+		return "";
+		
+	}
+	
+	@RequestMapping("/review")
+	public String driverMyreview() {
+		
+		return "guest/mypage/myReview";
+		
+	}
+	
+	
 
-
+	
+	
 	/**
 	 * 입찰 결제
 	 * @return

@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MovePaymentVO;
@@ -21,4 +23,9 @@ public interface GuestMoveMapper {
 	public int moveApplyStateUpdate(int applyIdx);
 	public int guestMovePaymentCencel(MovePaymentVO mpVo);
 	public int guestMoveApplyCencel(int applyIdx);
+	
+	//후기작성하기
+	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception;
+
+	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception;
 }

@@ -83,4 +83,21 @@
   	<update id="guestMoveApplyCencel" parameterType="_int">
   		update move_apply_tbl set apply_status = '0' where apply_idx=#{applyIdx}
   	</update>
+  	<select id="driverReview" resultType="com.dassa.vo.MovePaymentVO" parameterType="_int">
+		select	apply_idx as applyIdx,
+				driver_idx as driverIdx
+				from move_payment_tbl
+				where apply_idx =#{applyIdx}
+	</select>
+	
+	<select id="driverReviewWrite" resultType="com.dassa.vo.DriverVO" parameterType="com.dassa.vo.DriverVO">
+		select driver_idx as driverIdx,
+				apply_idx as applyIdx,
+				estimateAmount
+				from  driver_tbl 
+				where apply_idx =#{applyIdx} and driver_idx =#{driverIdx} 
+	</select>
+	<insert id="driverReviewInsert" parameterType="com.dassa.vo.DriverReviewVO">
+		insert into driver_review_tbl values (driver_review_idx_seq.nextval,#{driverIdx},#{applyIdx},#{reviewStar},#{reviewMessage},#{extraMoney},sysdate)
+	</insert>
 </mapper>
