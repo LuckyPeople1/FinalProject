@@ -226,18 +226,19 @@ public class UserVO {
 		}else if(type.equals("2")){
 			return "부동산";
 		}else {
-			return "일반";
+			return "일반회원";
 		}
 	}
 	
 	public String getUserStatus() {
-		String uStatus = status;
-		if(uStatus.equals("1")) {
+		String userStatus = status;
+		if(userStatus.equals("1")) {
 			return "정상";
-		}else if(uStatus.equals("2")){
-			return "가입대기";
+		}else if(userStatus.equals("2")){
+			return "승인대기";
 		}else {
 			return "탈퇴";
 		}
 	}
+	
 }

@@ -102,7 +102,7 @@
 							<td>${u.type }</td>
 							<td>${u.enrollDate }</td>
 							<td>
-								<span class="tag col_blue f_w">${u.userStatus }</span>
+								<a href="/userManage/deleteUser?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
 							</td>
 						</tr>
 					</c:forEach>

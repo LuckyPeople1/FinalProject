@@ -25,7 +25,7 @@ public class GuestLoginController {
 	//로그인 홈페이지로 이동
 	@RequestMapping(value="/")
 	public String GuestLogin() {
-		return "/guest/login/loginHome";
+		return "guest/login/loginHome";
 	}
 	
 	//이전페이지로 이동할때 사용
@@ -33,7 +33,7 @@ public class GuestLoginController {
 	public String RedirectLogin(Model model, HttpServletRequest request ) {
 		String referer = request.getHeader("Referer");
 		model.addAttribute("referer", referer);
-		return "/guest/login/loginHome";
+		return "guest/login/loginHome";
 	}
 	
 	@RequestMapping(value="/logout")
@@ -92,7 +92,7 @@ public class GuestLoginController {
 		}else {
 			model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요");
 			model.addAttribute("loc", "/login/");
-			return "/guest/common/msg";
+			return "guest/common/msg";
 		}
 		
 	}
