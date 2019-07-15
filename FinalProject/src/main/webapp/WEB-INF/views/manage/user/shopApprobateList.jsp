@@ -10,7 +10,7 @@
 <div class="contents">
 	<section id="manageUserAllList">
 		<div class="set_field">
-			<div class="field_title"><span class="title_mark">■ 탈퇴 관리</span></div>
+			<div class="field_title"><span class="title_mark">■ 부동산 승인 관리</span></div>
 			<table class="set_man_userTable">
 				<colgroup>
 					<col width="200">
@@ -102,7 +102,7 @@
 							<td>${u.type }</td>
 							<td>${u.enrollDate }</td>
 							<td>
-								<span class="tag col_blue f_w">승인대기</span>
+								<span class="tag col_blue f_w">탈퇴 됨</span>
 							</td>
 						</tr>
 					</c:forEach>
