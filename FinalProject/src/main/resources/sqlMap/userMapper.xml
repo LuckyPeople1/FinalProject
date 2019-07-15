@@ -25,7 +25,8 @@
 				comp_filepath as compFilepath,
 				user_type as userType,
 				social_id as socialId,
-				enroll_date as enrollDate
+				enroll_date as enrollDate,
+				status
 		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
@@ -41,7 +42,8 @@
 					pro_filepath as proFilepath,
 					user_type as userType,
 					social_id as socialId,
-					enroll_date as enrollDate
+					enroll_date as enrollDate,
+					status
 			from user_tbl where social_id=#{socialId}
 		</select>
 		

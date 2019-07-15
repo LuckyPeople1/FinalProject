@@ -78,13 +78,14 @@ public class GuestLoginController {
 		UserVO user =userService.selectOneUser(userVO);
 		if(user!=null) {
 			session.setAttribute("user", user);
-			if(referer != null) {
+			if(referer == "") {
+				session.setAttribute("user", user);
 				model.addAttribute("msg", "로그인 되었습니다.");
-				model.addAttribute("loc", referer);
+				model.addAttribute("loc", "/login/index");
 				return "guest/common/msg";
 			}else {
 				model.addAttribute("msg", "로그인 되었습니다.");
-				model.addAttribute("loc", "/login/index");
+				model.addAttribute("loc", referer);
 				return "guest/common/msg";
 			}
 				
