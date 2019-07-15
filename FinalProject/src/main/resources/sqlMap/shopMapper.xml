@@ -30,22 +30,34 @@
 			#{shopItemType2, jdbcType=VARCHAR},
 			#{shopItemAddr1, jdbcType=VARCHAR},
 			#{shopItemAddr2, jdbcType=VARCHAR},
-			#{shopItemAddr3, jdbcType=VARCHAR},
+			#{shopItemAddrDong1, jdbcType=VARCHAR},
+			#{shopItemAddrHo1, jdbcType=VARCHAR},
+			#{shopItemAddrDong2, jdbcType=VARCHAR},
+			#{shopItemAddrHo2, jdbcType=VARCHAR},
 			#{shopItemLatitude, jdbcType=VARCHAR},
 			#{shopItemLongitude, jdbcType=VARCHAR},
 			#{shopItemDealType, jdbcType=VARCHAR},
+			#{shopItemDeposit, jdbcType=VARCHAR},
 			#{shopItemDealPrice, jdbcType=VARCHAR},
 			#{shopItemSize1, jdbcType=VARCHAR},
 			#{shopItemSizeAll1, jdbcType=VARCHAR},
 			#{shopItemSize2, jdbcType=VARCHAR},
 			#{shopItemSizeAll2, jdbcType=VARCHAR},
-			#{shopItemFloor, jdbcType=VARCHAR},
-			#{shopItemFloorAll, jdbcType=VARCHAR},
-			#{shopItemHeating, jdbcType=VARCHAR},
+			#{shopItemSize3, jdbcType=VARCHAR},
+			#{shopItemSizeAll3, jdbcType=VARCHAR},
+			#{shopItemSize4, jdbcType=VARCHAR},
+			#{shopItemSizeAll4, jdbcType=VARCHAR},
+			#{shopItemFloor1, jdbcType=VARCHAR},
+			#{shopItemFloorAll1, jdbcType=VARCHAR},
+			#{shopItemFloor2, jdbcType=VARCHAR},
+			#{shopItemFloorAll2, jdbcType=VARCHAR},
+			#{shopItemHeating1, jdbcType=VARCHAR},
+			#{shopItemHeating2, jdbcType=VARCHAR},
 			#{shopItemBulidCompany, jdbcType=VARCHAR},
 			#{shopItemBulidHallway, jdbcType=VARCHAR},
 			#{shopItemBulidDate, jdbcType=VARCHAR},
-			#{shopItemMovingDate, jdbcType=VARCHAR},
+			#{shopItemMovingDate1, jdbcType=VARCHAR},
+			#{shopItemMovingDate2, jdbcType=VARCHAR},
 			#{shopItemManage, jdbcType=VARCHAR},
 			#{shopItemManagePrice, jdbcType=VARCHAR},
 			#{shopItemManagePriceOption, jdbcType=VARCHAR},
@@ -79,8 +91,8 @@
 			T.* from(
 			<foreach collection="list" item="item" separator="union all">
 				select
-				#{item.imgName} as shop_img_name,
-				#{item.imgPath} as shop_img_path
+				#{item.shopImgName} as shop_img_name,
+				#{item.shopImgPath} as shop_img_path
 				from dual
 			</foreach>
 			) T
@@ -115,23 +127,35 @@
 			shop_item_type2 as shopItemType2,
 			shop_item_addr1 as shopItemAddr1,
 			shop_item_addr2 as shopItemAddr2,
-			shop_item_addr3 as shopItemAddr3,
+			shop_item_addr_dong1 as shopItemAddrDong1,
+			shop_item_addr_ho1 as shopItemAddrHo1,
+			shop_item_addr_dong2 as shopItemAddrDong2,
+			shop_item_addr_ho2 as shopItemAddrHo2,
 			shop_item_deal_type as shopItemDealType,
+			shop_item_deposit as shopItemDeposit,
 			shop_item_deal_price as shopItemDealPrice,
 			shop_item_size1 as shopItemSize1,
 			shop_item_size_all1 as shopItemSizeAll1,
 			shop_item_size2 as shopItemSize2,
 			shop_item_size_all2 as shopItemSizeAll2,
-			shop_item_floor as shopItemFloor,
-			shop_item_floor as shopItemFloorAll,
-			shop_item_heating as shopItemHeating,
+			shop_item_size3 as shopItemSize3,
+			shop_item_size_all3 as shopItemSizeAll3,
+			shop_item_size4 as shopItemSize4,
+			shop_item_size_all4 as shopItemSizeAll4,
+			shop_item_floor1 as shopItemFloor1,
+			shop_item_floor_all1 as shopItemFloorAll1,
+			shop_item_floor2 as shopItemFloor2,
+			shop_item_floor_all2 as shopItemFloorAll2,
+			shop_item_heating1 as shopItemHeating1,
+			shop_item_heating2 as shopItemHeating2,
 			shop_item_bulid_company as shopItemBulidCompany,
 			shop_item_bulid_hallway as shopItemBulidHallway,
 			shop_item_bulid_date as shopItemBulidDate,
-			shop_item_moving_date as shopItemMovingDate,
+			shop_item_moving_date1 as shopItemMovingDate1,
+			shop_item_moving_date2 as shopItemMovingDate2,
 			shop_item_manage as shopItemManage,
 			shop_item_manage_price as shopItemManagePrice,
-			shop_item_manage_price_option as shopItemManageOption,
+			shop_item_manage_price_option as shopItemManagePriceOption,
 			shop_item_parking as shopItemParking,
 			shop_item_parking_price as shopItemParkingPrice,
 			shop_item_animal as shopItemAnimal,
@@ -146,5 +170,14 @@
 			shop_item_ok_state as shopItemOkState,
 			shop_item_sale_state as shopItemSaleState
 			from shop_item_tbl where shop_item_idx=#{shopItemIdx}
+	</select>
+	<!--매물상세보기 이미지 -->
+	<select id="shopItemImgList" parameterType="_int" resultType="shopItemImgVO">
+		select shop_img_idx as shopImgIdx,
+				shop_item_idx as shopItemIdx,
+				shop_img_name as shopImgName,
+				shop_img_path as shopImgPath
+				from shop_item_img_tbl
+				where shop_item_idx=#{shopItemIdx} 
 	</select>
 </mapper>
