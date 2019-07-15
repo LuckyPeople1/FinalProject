@@ -15,27 +15,39 @@ public class ShopItemVO {
 	private String shopItemType2;													//매물건물유형(단독주택,다가구주택)
 	private String shopItemAddr1;													//매물도로명주소
 	private String shopItemAddr2;													//매물지번주소
-	private String shopItemAddr3;													//매물상세주소(동,호)
+	private String shopItemAddrDong1;											//매물 동(룸)
+	private String shopItemAddrHo1;												//매물 호(룸)
+	private String shopItemAddrDong2;											//매물 동(아파트)
+	private String shopItemAddrHo2;												//매물 호(아파트)
 	private String shopItemLatitude;												//매물위도좌표
 	private String shopItemLongitude;											//매물경도좌표
 	private String shopItemDealType;												//매물거래유형(전세,월세,매매)
+	private String shopItemDeposit;												//매물보증금
 	private String shopItemDealPrice;												//매물거래가격
-	private String shopItemSize1;													//매물공급면적(평)
-	private String shopItemSizeAll1;												//매물공급면적(평)
-	private String shopItemSize2;													//매물공급면적(m2)
-	private String shopItemSizeAll2;												//매물전용면적(m2)
-	private String shopItemFloor;													//매물해당층수
-	private String shopItemFloorAll;												//매물전체층수
-	private String shopItemHeating;												//매물난방형식
+	private String shopItemSize1;													//매물전용면적(룸, 평)
+	private String shopItemSizeAll1;												//매물공급면적(룸, 평)
+	private String shopItemSize2;													//매물전용면적(룸, m2)
+	private String shopItemSizeAll2;												//매물공급면적(룸, m2)
+	private String shopItemSize3;													//매물전용면적(아파트, 평)
+	private String shopItemSizeAll3;												//매물공급면적(아파트, 평)
+	private String shopItemSize4;													//매물전용면적(아파트, m2)
+	private String shopItemSizeAll4;												//매물공급면적(아파트, m2)
+	private String shopItemFloor1;													//매물해당층수(룸)
+	private String shopItemFloorAll1;												//매물전체층수(룸)
+	private String shopItemFloor2;													//매물해당층수(아파트)
+	private String shopItemFloorAll2;												//매물전체층수(아파트)
+	private String shopItemHeating1;												//매물난방형식(룸)
+	private String shopItemHeating2;												//매물난방형식(아파트)
 	private String shopItemBulidCompany;										//매물시공사
 	private String shopItemBulidHallway;										//매물복도유형
 	private String shopItemBulidDate;											//매물시공일
-	private String shopItemMovingDate;											//입주가능일
+	private String shopItemMovingDate1;										//입주가능일(룸)
+	private String shopItemMovingDate2;										//입주가능일(아파트)
 	private String shopItemManage;												//관리비 유무
 	private String shopItemManagePrice;										//관리비
 	private String shopItemManagePriceOption;								//관리비항목
-	private String shopItemParking;														//주차유무
-	private String shopItemParkingPrice;												//주차비
+	private String shopItemParking;												//주차유무
+	private String shopItemParkingPrice;											//주차비
 	private String shopItemAnimal;												//반려동물
 	private String shopItemElevator;												//엘리베이터
 	private String shopItemBalcony;												//발코니
@@ -54,11 +66,14 @@ public class ShopItemVO {
 	public ShopItemVO(int shopItemIdx, int userIdx, String shopItemTitle, String shopItemContent,
 			String shopItemSecretMemo, String shopItemManager, int shopItemImgIdx, String shopItemPremiumState,
 			String shopItemType1, String shopItemType2, String shopItemAddr1, String shopItemAddr2,
-			String shopItemAddr3, String shopItemLatitude, String shopItemLongitude, String shopItemDealType,
+			String shopItemAddrDong1, String shopItemAddrHo1, String shopItemAddrDong2, String shopItemAddrHo2,
+			String shopItemLatitude, String shopItemLongitude, String shopItemDealType, String shopItemDeposit,
 			String shopItemDealPrice, String shopItemSize1, String shopItemSizeAll1, String shopItemSize2,
-			String shopItemSizeAll2, String shopItemFloor, String shopItemFloorAll, String shopItemHeating,
-			String shopItemBulidCompany, String shopItemBulidHallway, String shopItemBulidDate,
-			String shopItemMovingDate, String shopItemManage, String shopItemManagePrice,
+			String shopItemSizeAll2, String shopItemSize3, String shopItemSizeAll3, String shopItemSize4,
+			String shopItemSizeAll4, String shopItemFloor1, String shopItemFloorAll1, String shopItemFloor2,
+			String shopItemFloorAll2, String shopItemHeating1, String shopItemHeating2, String shopItemBulidCompany,
+			String shopItemBulidHallway, String shopItemBulidDate, String shopItemMovingDate1,
+			String shopItemMovingDate2, String shopItemManage, String shopItemManagePrice,
 			String shopItemManagePriceOption, String shopItemParking, String shopItemParkingPrice,
 			String shopItemAnimal, String shopItemElevator, String shopItemBalcony, String shopItemBuiltIn,
 			String shopItemStructure, String shopItemOption, String shopItemLoan, Date shopItemRegDate,
@@ -76,22 +91,34 @@ public class ShopItemVO {
 		this.shopItemType2 = shopItemType2;
 		this.shopItemAddr1 = shopItemAddr1;
 		this.shopItemAddr2 = shopItemAddr2;
-		this.shopItemAddr3 = shopItemAddr3;
+		this.shopItemAddrDong1 = shopItemAddrDong1;
+		this.shopItemAddrHo1 = shopItemAddrHo1;
+		this.shopItemAddrDong2 = shopItemAddrDong2;
+		this.shopItemAddrHo2 = shopItemAddrHo2;
 		this.shopItemLatitude = shopItemLatitude;
 		this.shopItemLongitude = shopItemLongitude;
 		this.shopItemDealType = shopItemDealType;
+		this.shopItemDeposit = shopItemDeposit;
 		this.shopItemDealPrice = shopItemDealPrice;
 		this.shopItemSize1 = shopItemSize1;
 		this.shopItemSizeAll1 = shopItemSizeAll1;
 		this.shopItemSize2 = shopItemSize2;
 		this.shopItemSizeAll2 = shopItemSizeAll2;
-		this.shopItemFloor = shopItemFloor;
-		this.shopItemFloorAll = shopItemFloorAll;
-		this.shopItemHeating = shopItemHeating;
+		this.shopItemSize3 = shopItemSize3;
+		this.shopItemSizeAll3 = shopItemSizeAll3;
+		this.shopItemSize4 = shopItemSize4;
+		this.shopItemSizeAll4 = shopItemSizeAll4;
+		this.shopItemFloor1 = shopItemFloor1;
+		this.shopItemFloorAll1 = shopItemFloorAll1;
+		this.shopItemFloor2 = shopItemFloor2;
+		this.shopItemFloorAll2 = shopItemFloorAll2;
+		this.shopItemHeating1 = shopItemHeating1;
+		this.shopItemHeating2 = shopItemHeating2;
 		this.shopItemBulidCompany = shopItemBulidCompany;
 		this.shopItemBulidHallway = shopItemBulidHallway;
 		this.shopItemBulidDate = shopItemBulidDate;
-		this.shopItemMovingDate = shopItemMovingDate;
+		this.shopItemMovingDate1 = shopItemMovingDate1;
+		this.shopItemMovingDate2 = shopItemMovingDate2;
 		this.shopItemManage = shopItemManage;
 		this.shopItemManagePrice = shopItemManagePrice;
 		this.shopItemManagePriceOption = shopItemManagePriceOption;
@@ -181,11 +208,29 @@ public class ShopItemVO {
 	public void setShopItemAddr2(String shopItemAddr2) {
 		this.shopItemAddr2 = shopItemAddr2;
 	}
-	public String getShopItemAddr3() {
-		return shopItemAddr3;
+	public String getShopItemAddrDong1() {
+		return shopItemAddrDong1;
 	}
-	public void setShopItemAddr3(String shopItemAddr3) {
-		this.shopItemAddr3 = shopItemAddr3;
+	public void setShopItemAddrDong1(String shopItemAddrDong1) {
+		this.shopItemAddrDong1 = shopItemAddrDong1;
+	}
+	public String getShopItemAddrHo1() {
+		return shopItemAddrHo1;
+	}
+	public void setShopItemAddrHo1(String shopItemAddrHo1) {
+		this.shopItemAddrHo1 = shopItemAddrHo1;
+	}
+	public String getShopItemAddrDong2() {
+		return shopItemAddrDong2;
+	}
+	public void setShopItemAddrDong2(String shopItemAddrDong2) {
+		this.shopItemAddrDong2 = shopItemAddrDong2;
+	}
+	public String getShopItemAddrHo2() {
+		return shopItemAddrHo2;
+	}
+	public void setShopItemAddrHo2(String shopItemAddrHo2) {
+		this.shopItemAddrHo2 = shopItemAddrHo2;
 	}
 	public String getShopItemLatitude() {
 		return shopItemLatitude;
@@ -204,6 +249,12 @@ public class ShopItemVO {
 	}
 	public void setShopItemDealType(String shopItemDealType) {
 		this.shopItemDealType = shopItemDealType;
+	}
+	public String getShopItemDeposit() {
+		return shopItemDeposit;
+	}
+	public void setShopItemDeposit(String shopItemDeposit) {
+		this.shopItemDeposit = shopItemDeposit;
 	}
 	public String getShopItemDealPrice() {
 		return shopItemDealPrice;
@@ -235,23 +286,65 @@ public class ShopItemVO {
 	public void setShopItemSizeAll2(String shopItemSizeAll2) {
 		this.shopItemSizeAll2 = shopItemSizeAll2;
 	}
-	public String getShopItemFloor() {
-		return shopItemFloor;
+	public String getShopItemSize3() {
+		return shopItemSize3;
 	}
-	public void setShopItemFloor(String shopItemFloor) {
-		this.shopItemFloor = shopItemFloor;
+	public void setShopItemSize3(String shopItemSize3) {
+		this.shopItemSize3 = shopItemSize3;
 	}
-	public String getShopItemFloorAll() {
-		return shopItemFloorAll;
+	public String getShopItemSizeAll3() {
+		return shopItemSizeAll3;
 	}
-	public void setShopItemFloorAll(String shopItemFloorAll) {
-		this.shopItemFloorAll = shopItemFloorAll;
+	public void setShopItemSizeAll3(String shopItemSizeAll3) {
+		this.shopItemSizeAll3 = shopItemSizeAll3;
 	}
-	public String getShopItemHeating() {
-		return shopItemHeating;
+	public String getShopItemSize4() {
+		return shopItemSize4;
 	}
-	public void setShopItemHeating(String shopItemHeating) {
-		this.shopItemHeating = shopItemHeating;
+	public void setShopItemSize4(String shopItemSize4) {
+		this.shopItemSize4 = shopItemSize4;
+	}
+	public String getShopItemSizeAll4() {
+		return shopItemSizeAll4;
+	}
+	public void setShopItemSizeAll4(String shopItemSizeAll4) {
+		this.shopItemSizeAll4 = shopItemSizeAll4;
+	}
+	public String getShopItemFloor1() {
+		return shopItemFloor1;
+	}
+	public void setShopItemFloor1(String shopItemFloor1) {
+		this.shopItemFloor1 = shopItemFloor1;
+	}
+	public String getShopItemFloorAll1() {
+		return shopItemFloorAll1;
+	}
+	public void setShopItemFloorAll1(String shopItemFloorAll1) {
+		this.shopItemFloorAll1 = shopItemFloorAll1;
+	}
+	public String getShopItemFloor2() {
+		return shopItemFloor2;
+	}
+	public void setShopItemFloor2(String shopItemFloor2) {
+		this.shopItemFloor2 = shopItemFloor2;
+	}
+	public String getShopItemFloorAll2() {
+		return shopItemFloorAll2;
+	}
+	public void setShopItemFloorAll2(String shopItemFloorAll2) {
+		this.shopItemFloorAll2 = shopItemFloorAll2;
+	}
+	public String getShopItemHeating1() {
+		return shopItemHeating1;
+	}
+	public void setShopItemHeating1(String shopItemHeating1) {
+		this.shopItemHeating1 = shopItemHeating1;
+	}
+	public String getShopItemHeating2() {
+		return shopItemHeating2;
+	}
+	public void setShopItemHeating2(String shopItemHeating2) {
+		this.shopItemHeating2 = shopItemHeating2;
 	}
 	public String getShopItemBulidCompany() {
 		return shopItemBulidCompany;
@@ -271,11 +364,17 @@ public class ShopItemVO {
 	public void setShopItemBulidDate(String shopItemBulidDate) {
 		this.shopItemBulidDate = shopItemBulidDate;
 	}
-	public String getShopItemMovingDate() {
-		return shopItemMovingDate;
+	public String getShopItemMovingDate1() {
+		return shopItemMovingDate1;
 	}
-	public void setShopItemMovingDate(String shopItemMovingDate) {
-		this.shopItemMovingDate = shopItemMovingDate;
+	public void setShopItemMovingDate1(String shopItemMovingDate1) {
+		this.shopItemMovingDate1 = shopItemMovingDate1;
+	}
+	public String getShopItemMovingDate2() {
+		return shopItemMovingDate2;
+	}
+	public void setShopItemMovingDate2(String shopItemMovingDate2) {
+		this.shopItemMovingDate2 = shopItemMovingDate2;
 	}
 	public String getShopItemManage() {
 		return shopItemManage;

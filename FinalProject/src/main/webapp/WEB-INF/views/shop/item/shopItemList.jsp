@@ -33,7 +33,7 @@
 							</span>
 							<span class="sbox small">
 								<select name="type">
-									<option selected="selected" value="">매물선택</option>
+									<option selected="selected" value=0>매물선택</option>
 									<option value=1>원룸</option>
 									<option value=2>투룸</option>
 									<option value=3>쓰리룸</option>
@@ -58,9 +58,6 @@
 			</div>
 			<div class="list_form">
 				<div class="table_list_btn">
-					<span class="right_btn">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택 취소</a>
-					</span>
 				</div>
 				<table class="table_list">
 					<colgroup>
@@ -111,7 +108,7 @@
 							<div class="set_menu">
 								<input name="idx" type="hidden" value=${item.shopItemIdx }>
 								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">상세보기</a>
-								<button class="btn col_red f_w" name=itemDel>삭제</button>
+								<a href="/shop/shopItemDelete?shopItemIdx=${item.shopItemIdx }" class="btn small col_red f_w">삭제</a>
 							</div>
 						</td>
 					</tr>
@@ -119,8 +116,8 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="pageNavi" class="pageNavi">
-				<span>${pageNavi}</span>
+			<div id="pageNavi" class="page_group clearFix">
+				${pageNavi}
 			</div>
 		</div>
 		</section>
@@ -128,13 +125,4 @@
 	<footer role="footer" data-include="footer.html"></footer>
 </div>
 </body>
-<script>
-	$("button[name=itemDel]").click(function(){
-		alert($(this).siblings('input[name="idx"]').val());
-	});
-	
-	
-	$.ajax()
-	
-</script>
 </html>

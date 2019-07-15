@@ -24,7 +24,8 @@ public class UserVO {
 	private Date	enrollDate;
 	private String  status;					//회원 상태
 	private String  type;
-
+	private String  userStatus;				//상태 변경
+	
 	public UserVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -225,18 +226,19 @@ public class UserVO {
 		}else if(type.equals("2")){
 			return "부동산";
 		}else {
-			return "일반";
+			return "일반회원";
 		}
 	}
 	
-	/*public String getUserStatus() {
-		String uStatus = status;
-		if(uStatus.equals("1")) {
-			return "가입대기";
-		}else if(uStatus.equals("2")){
+	public String getUserStatus() {
+		String userStatus = status;
+		if(userStatus.equals("1")) {
 			return "정상";
+		}else if(userStatus.equals("2")){
+			return "승인대기";
 		}else {
 			return "탈퇴";
 		}
-	}*/
+	}
+	
 }

@@ -1,43 +1,44 @@
 package com.dassa.vo;
 
 public class ShopItemImgVO {
-	private int imgIdx;
-	private int itemIdx;
-	private String imgName;
-	private String imgPath;
+	private int shopImgIdx;
+	private int shopItemIdx;
+	private String shopImgName;
+	private String shopImgPath;
 	public ShopItemImgVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ShopItemImgVO(int imgIdx, int itemIdx, String imgName, String imgPath) {
+	public ShopItemImgVO(int shopImgIdx, int shopItemIdx, String shopImgName, String shopImgPath) {
 		super();
-		this.imgIdx = imgIdx;
-		this.itemIdx = itemIdx;
-		this.imgName = imgName;
-		this.imgPath = imgPath;
+		this.shopImgIdx = shopImgIdx;
+		this.shopItemIdx = shopItemIdx;
+		this.shopImgName = shopImgName;
+		this.shopImgPath = shopImgPath;
 	}
-	public int getImgIdx() {
-		return imgIdx;
+	public int getShopImgIdx() {
+		return shopImgIdx;
 	}
-	public void setImgIdx(int imgIdx) {
-		this.imgIdx = imgIdx;
+	public void setShopImgIdx(int shopImgIdx) {
+		this.shopImgIdx = shopImgIdx;
 	}
-	public int getItemIdx() {
-		return itemIdx;
+	public int getShopItemIdx() {
+		return shopItemIdx;
 	}
-	public void setItemIdx(int itemIdx) {
-		this.itemIdx = itemIdx;
+	public void setShopItemIdx(int shopItemIdx) {
+		this.shopItemIdx = shopItemIdx;
 	}
-	public String getImgName() {
-		return imgName;
+	public String getShopImgName() {
+		return shopImgName;
 	}
-	public void setImgName(String imgName) {
-		this.imgName = imgName;
+	public void setShopImgName(String shopImgName) {
+		this.shopImgName = shopImgName;
 	}
-	public String getImgPath() {
-		return imgPath;
+	public String getShopImgPath() {
+		return shopImgPath;
 	}
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
+	public void setShopImgPath(String shopImgPath) {
+		this.shopImgPath = shopImgPath;
 	}
+	
 }

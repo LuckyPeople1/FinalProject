@@ -10,6 +10,7 @@ import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @MapperScan("shopMapper")
@@ -30,8 +31,14 @@ public interface ShopMapper {
 	public int shopItemTotalCount() throws Exception;
 	
 	//매물 관리 리스트
-	public ArrayList<ShopItemVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	public ArrayList<ShopItemVO> selectAllList(@Param("start") int start,@Param("end") int end, ShopItemSearchVO itemSearch) throws Exception;
 	
 	//매물 상세 보기
 	public ShopItemVO shopItemInfo(int shopItemIdx) throws Exception;
+	
+	//매물 이미지 뿌리기
+	public List<ShopItemImgVO> shopItemImgList(int shopItemIdx) throws Exception;
+	
+	//매물 삭제
+	public int shopItemDelete(int shopItemIdx) throws Exception;
 }

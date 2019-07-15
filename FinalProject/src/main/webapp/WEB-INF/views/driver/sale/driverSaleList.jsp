@@ -65,27 +65,19 @@
 					<thead>
 					<tr>
 						<th>이사날짜</th>
-						<th>고객명</th>
 						<th>사용자리뷰</th>
 						<th>최종견적</th>
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list }" var="driverReview">
 					<tr>
-						<td>2018-09-07</td>
-						<td>유성연</td>
-						<td>좋아요~~</td>
-						<td>90,000원</td>
-					</tr>
+						<td>${driverReview.reviewDate }</td>
+						<td>${driverReview.reviewMessage }</td>
+						<td>${driverReview.estimateAmount }원</td>
+					</tr>	
+					</c:forEach>	
 					</tbody>
-					<tfoot>
-					<tr>
-						<td>2018-09-07</td>
-						<td>유성연</td>
-						<td>좋아요~~</td>
-						<td>90,000원</td>
-					</tr>
-					</tfoot>
 				</table>
 			</div>
 		</div>

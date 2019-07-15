@@ -2,6 +2,129 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+.gftUiJ {
+    width: 100%;
+    min-width: 1366px;
+    position: absolute;
+    top: 136px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.gkpTsu {
+    width: 512px;
+    box-shadow: rgba(0, 0, 0, 0.18) 1px 0px 1px 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 3;
+}
+
+.eXwtu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.kkLYaw {
+    width: 100%;
+    position: absolute;
+    top: 73px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.kkLYaw > div {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.esEURt {
+    width: 27px;
+    height: 3px;
+    position: relative;
+    margin: 13px auto 16px;
+}
+.esEURt > p {
+    width: 3px;
+    height: 3px;
+    background-color: rgb(216, 216, 216);
+    margin: 0px auto;
+    border-radius: 50%;
+}
+.esEURt > p::before {
+    left: 0px;
+}
+.esEURt > p::before, .esEURt > p::after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: rgb(216, 216, 216);
+    position: absolute;
+    top: 0px;
+    border-radius: 50%;
+}
+.HggYs {
+    width: 20px;
+    height: 50px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.18) 2px 1px 2px -1px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 40%;
+    right: -19px;
+    z-index: 3;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+
+.esEURt > p::after {
+    right: 0px;
+}
+.esEURt::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.kkLYaw > div > p {
+    color: rgb(170, 170, 170);
+    font-size: 17px;
+    white-space: pre;
+}
+.jLBlsX {
+    height: 73px;
+    margin: 0px 30px;
+    padding: 33px 0px 20px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+.hXdylP {
+    display: inline-block;
+    height: 20px;
+    color: rgb(34, 34, 34);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: default;
+}
+.hXdylP + a {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgb(221, 221, 221);
+}
+.herjpP {
+    display: inline-block;
+    height: 20px;
+    color: rgb(197, 197, 197);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+}
 section.mapView .dWEBFj {
     width: 100%;
     height: 66px;
@@ -306,10 +429,13 @@ section.mapView html, body {
 }
 
 section.mapView .map_wrap {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	height: 350px;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 512px;
+    z-index: 2;
+    overflow: hidden;
 }
 
 section.mapView .radius_border {
@@ -692,8 +818,8 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div class="contents">
 		<div class="styled__Header-sfs8fz-0 dWEBFj">
 			<div class="styled__SearchForm-sc-1pc2wuh-0 byjidO">
-				<input autocomplete="off" type="text" name="keyword" class="styled__Input-sc-1pc2wuh-1 keOJyH" placeholder="잠실동 아파트">
-					<svg width="18" height="18" viewBox="0 0 18 18">
+				<input autocomplete="off" type="text" id="mapName" name="keyword" class="styled__Input-sc-1pc2wuh-1 keOJyH" placeholder="잠실동 아파트">
+					<svg width="18" height="18" viewBox="0 0 18 18" id="mapSelect">
 						<g fill="none" fill-rule="evenodd" stroke="#222">
 							<circle cx="7.5" cy="7.5" r="6.5"></circle>
 							<path d="M12 12l5 5"></path>
@@ -904,13 +1030,41 @@ section.mapView .eUbtsI > .Radio--circle::after {
 				</svg>초기화
 			</button>
 		</div>
-	</div>			
-			<input type="text" id="address" value="" size="70"> <input
-				type="button" value="좌표값 검색" onclick="addressChk()">
-			<div class="map_wrap">
+	</div>
+	<div class="styled__Wrap-zfi8ji-0 gftUiJ">
+		<div class="styled__ListWrap-zfi8ji-1 gkpTsu">
+			<div class="styled__Wrap-ityzo6-0 eXwtu">
+				<div class="styled__Tabs-sc-1sk8lv8-0 jLBlsX">
+					<a class="styled__Tab-sc-1sk8lv8-1 hXdylP">조건에 맞는 방 0개</a> <a
+						class="styled__Tab-sc-1sk8lv8-1 herjpP">단지 0개</a>
+				</div>
+				<div class="styled__NoRoom-ityzo6-2 kkLYaw">
+					<div>
+						<svg width="46" height="43" viewBox="0 0 46 43">
+							<g fill="none" fill-rule="evenodd">
+							<path stroke="#B3B3B3" stroke-dasharray="1,3"
+								stroke-linecap="round" d="M5.497 16.505V42.5H40.52V16.048"></path>
+							<path fill="#FFF" fill-rule="nonzero" d="M36 20h7.796v16.892H36z"></path>
+							<path stroke="#B3B3B3" stroke-dasharray="1,3"
+								stroke-linecap="round" d="M17.503 42.497v-15h11.019v15"></path>
+							<path fill-rule="nonzero" stroke="#B3B3B3" stroke-dasharray="1,3"
+								stroke-linecap="round" d="M0 20L23 0l23 20M10 15.478L19.855 7"></path>
+							<g fill="#B3B3B3" fill-rule="nonzero">
+							<path d="M36.11 24.904l8.486 8.485-.707.707-8.485-8.485z"></path>
+							<path d="M35.404 33.39l8.485-8.486.707.707-8.485 8.485z"></path></g></g></svg>
+						<div class="styled__Dots-ityzo6-3 esEURt">
+							<p></p>
+						</div>
+						<p>조건에 맞는 방이 없습니다.</p>
+						<p>맞춤필터를 해제해보세요.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="map_wrap">
 				<div id="map"
 					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-				<!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+				지도 확대, 축소 컨트롤 div 입니다
 				<div class="custom_zoomcontrol radius_border">
 					<span onclick="zoomIn()"><img
 						src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
@@ -918,11 +1072,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
 						alt="축소"></span>
 				</div>
-			</div>
-			<div id="coordXY"></div>
+		</div>
+	</div>			
+		<div id="coordXY"></div>
 			<p>
-				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로
-					이동</a>
+				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a><c:forEach items="${list }" var="v"><span class="test1">${v.shopItemIdx}</span><span class="test">${v.shopItemAddr1 }</span></c:forEach>
 			</p>			
 		</div>
 		<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
@@ -949,41 +1103,15 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
 	function zoomIn() {
 		map.setLevel(map.getLevel() - 1);
-		console.log(map.getLevel());
+		
 
 	}
 
 	// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
 	function zoomOut() {
 		map.setLevel(map.getLevel() + 1);
-		console.log(map.getLevel());
 
-	}
-	function addressChk() {
-		var gap = address.value; // 주소검색어
-		if (gap == "") {
-			alert("주소 검색어를 입력해 주십시오.");
-			address.focus();
-			return;
-		}
-		// 주소-좌표 변환 객체를 생성
-		var geocoder = new daum.maps.services.Geocoder();
-		// 주소로 좌표를 검색
-		geocoder.addressSearch(gap, function(result, status) {
-			// 정상적으로 검색이 완료됐으면,
-			if (status == daum.maps.services.Status.OK) {
-				map.setLevel(3);
-				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-				y = result[0].x;
-				x = result[0].y;
-				coordXY.innerHTML = "<br>X좌표 : " + x + "<br><br>Y좌표 : " + y;
-				// 이동할 위도 경도 위치를 생성합니다 
-				var moveLatLon = new kakao.maps.LatLng(x, y);
-				// 지도 중심을 부드럽게 이동시킵니다
-				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-				map.panTo(moveLatLon);
-			}
-		});
+
 	}
 	var markers = [];	
 	var positions = [ {
@@ -1052,74 +1180,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		name : "강원도"
 	}
 
-	];
-	var positions2 = [{
-			latlng : new kakao.maps.LatLng(37.27943075229118, 127.01763998406159)
-			,name:"가"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(37.55915668706214, 126.92536526611102)
-	      ,name:"나"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(35.13854258261161, 129.1014781294671)
-	      ,name:"다"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(37.55518388656961, 126.92926237742505)
-	      ,name:"라"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(35.20618517638034, 129.07944301057026)
-	      ,name:"마"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(37.561110808242056, 126.9831268386891)
-	      ,name:"바"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(37.86187129655063, 127.7410250820423)
-	      ,name:"사"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(37.47160156778542, 126.62818064142286)
-	      ,name:"아"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(35.10233410927457, 129.02611815856181)
-	      ,name:"자"
-	      },
-	      {
-	    	  latlng : new kakao.maps.LatLng(35.10215562270429, 129.02579793018205)
-	      ,name:"1"	       
-	        },
-	        {
-	        	latlng : new kakao.maps.LatLng(35.475423012251106, 128.76666923366042)
-		      ,name:"2"
-	          
-	        },
-	        {
-	        	latlng : new kakao.maps.LatLng(35.93282824693927, 126.95307628834287)
-	        ,name:"3"
-	        },
-	        {
-	        	latlng : new kakao.maps.LatLng(36.33884892276137, 127.393666019664)
-		      ,name:"4"
-	         
-	        },
-	        {
-	        	latlng : new kakao.maps.LatLng(37.520412849636, 126.9742764161581)
-		      ,name:"5"
-	         
-	        },
-	        {
-	        	latlng : new kakao.maps.LatLng(35.155139675209675, 129.06154773758374)
-		      ,name:"6"
-	          
-	        }]    
-	
-	
-	var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+	];	
 	var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
@@ -1135,7 +1196,8 @@ section.mapView .eUbtsI > .Radio--circle::after {
             lineHeight: '31px'
         }
     ]
-    });	
+    });		
+	
 	for (var i = 0; i < positions.length; i++){						
  		 var content = '<div class="customoverlay"><input type="hidden" class="btn-why" value="'+positions[i].latlng+'"><span class="title">'+positions[i].name+'</span></div>';	
 	    var customOverlay = new kakao.maps.CustomOverlay({
@@ -1144,25 +1206,12 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	        content: content	       
 	    });    
 	    
-	}		
-	 $(document).ready(function(){		 
-		 for(var i =0;i<positions2.length;i++){
-				var content2 = '<div class="customoverlay2"><input class="tt" type="hidden" value="'+positions2[i].latlng+'"<span class="title">'+positions2[i].name+'</span></div>';
-				 var customOverlay2= new kakao.maps.CustomOverlay({
-				    	map: map,
-				    	position: positions2[i].latlng,
-				    	content : content2,
-				    	image:null
-				    })				 
-				 var marker = new kakao.maps.Marker({
-					    position: positions2[i].latlng,
-					    
-					});				
-				 clusterer.addMarker(marker);				 
-		 };
+	}	
+	
+	
+	 $(document).ready(function(){					 
 		 map.setLevel(20);		
-		$(".customoverlay").click(function(){		
-			console.log("응");
+		$(".customoverlay").click(function(){					
 			var strArray=$(this).children().val().split(',');
 			var string = strArray[0];
 			var string2 = strArray[1];
@@ -1171,141 +1220,47 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
 			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));							
 			map.setLevel(10);
-		});
-		$(".customoverlay2").click(function(){
-			var strArray=$(this).children().val().split(',');
-			var string = strArray[0];
-			var string2 = strArray[1];
-			var strArray2 = string.split('(');
-			var strArray3 = string2.split(')');
-			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
-			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));				
-			map.setLevel(map.getLevel()-1);
-		});		
+		});				
 		kakao.maps.event.addListener(map, 'zoom_changed', function() {		
-			console.log(map.getLevel());
+			
 			if (map.getLevel() >10) {
 				clusterer.clear();
-				$(".customoverlay").css("display","block");
-				$(".customoverlay2").css("display","none");
+				$(".customoverlay").css("display","block");				
 			}else {
-				clusterer.clear();
-				$(".customoverlay2").css("display","none");
+				clusterer.clear();			
 				$(".customoverlay").css("display","none");
-				for(var i =0;i<positions2.length;i++){				 
-					 var marker = new kakao.maps.Marker({
-						    position: positions2[i].latlng
-						});					
-					 clusterer.addMarker(marker);
-			 };
+				
+			 var geocoder = new daum.maps.services.Geocoder();
+			 for(var i=0;i<$(".test").length;i++){
+				
+				var content=$(".test1").eq(i).text();
+				geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
+					// 정상적으로 검색이 완료됐으면,
+					if (status == daum.maps.services.Status.OK) {			
+						var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+						var marker = new kakao.maps.Marker({
+							position:coords,
+							content:content
+						});											
+						clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
+					}
+				});
+			}			 
 			}
 		});	
 		map.setLevel(9);
-	});	
+	});		 	 
+	 
 	kakao.maps.event.addListener(map,'mousedown',function(){
-		
-		/* $('.tt').each(function(index) { console.log(index + ': ' + $(this).val()); }); */ 
 		if (map.getLevel() >10) {
 			clusterer.clear();
-				$(".customoverlay").css("display","block");
-				$(".customoverlay2").css("display","none");
-			}else {
-				$(".customoverlay2").css("display","none");
+				$(".customoverlay").css("display","block");				
+			}else {				
 				$(".customoverlay").css("display","none");			
-			clusterer.clear();				
-			for(var i =0;i<positions2.length;i++){				 
-				 var marker = new kakao.maps.Marker({
-					    position: positions2[i].latlng
-					});				
-				 clusterer.addMarker(marker);
-		 };
-		 marker.setMap(null);
-		}		
-	});
-	$(document).ready(function(){
-		console.log($(".fhfjff3").css("display","none"));
-		$(document).click(function(e){
-			$(".hWgOZv").eq('0').click(function(e){
-				$(".fhfjff2").css("display","none");
-				$(".fhfjff3").css("display","none");
-				if($(".fhfjff").is(":visible")){
-					$(".fhfjff").css("display","none");
-				}else{
-					$(".fhfjff").css("display","block");
-				}
-				
-			})
-			for(var i=1;i<$('.hWgOZv').length;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff").css("display","none");
-				})
-			}
-			$(".hWgOZv").eq('1').click(function(e){
-				if($(".fhfjff2").is(":visible")){
-					$(".fhfjff2").css("display","none");
-				}else{
-					$(".fhfjff2").css("display","block");
-				}
-			})
-			$(".hWgOZv").eq('5').click(function(e){
-				if($(".fhfjff3").is(":visible")){
-					$(".fhfjff3").css("display","none");
-				}else{
-					$(".fhfjff3").css("display","block");
-				}
-				
-			})
-			$(".dgiYtt").click(function(){
-				$(".fhfjff1").css("display","none");
-				$(".fhfjff2").css("display","none");
-				$(".fhfjff3").css("display","none");
-			})
-			for(var i=2;i<$('.hWgOZv').length;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff2").css("display","none");
-				})
-			}
-			for(var i=0;i<$('.hWgOZv').length-1;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff3").css("display","none");
-				})
-			}
-			
-			$(".hWgOZv").click(function(e){		
-				if($(this).children().hasClass('fJNXpX')){
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV');
-					$(".dgiYtt ").children().removeClass('kdfXro');
-					$(".dgiYtt ").children().addClass('bAZEbe');
-					
-					$(this).children().removeClass('fJNXpX');
-					$(this).children().addClass('cRtqxV'); 
-					
-				}else if($(this).children().hasClass('fUMVvC')){
-				
-				 	$(".hWgOZv").children().addClass('fUMVvC');
-					$(".hWgOZv").children().removeClass('hKGAZL ');
-					$(".dgiYtt ").children().removeClass('kdfXro');
-					$(".dgiYtt ").children().addClass('bAZEbe');
-					$(this).children().removeClass('fUMVvC');
-					$(this).children().addClass('hKGAZL');
-				} 
-			})
-			$(".dgiYtt").click(function(e){
-				if($(this).children().hasClass('bAZEbe')){
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV');
-					$(this).children().removeClass('bAZEbe');
-					$(this).children().addClass('kdfXro');
-				}else{
-					$(".hWgOZv").children().addClass('fUMVvC');
-					$(".hWgOZv").children().removeClass('hKGAZL ');
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV'); 
-				} 
-			})
-		})		
-	})
+		
+		}
+		
+		});		
 	
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
@@ -1316,6 +1271,40 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		map.setLevel(level, {
 			anchor : cluster.getCenter()
 		});
-	}); 
+	});
+
+	
+	
+	
+	
+	$("#mapSelect").click(function(){		
+		var mapName=$("#mapName").val();
+		
+		
+		var geocoder = new daum.maps.services.Geocoder();
+		geocoder.addressSearch(mapName, function(result, status) {
+			// 정상적으로 검색이 완료됐으면,
+			if (status == daum.maps.services.Status.OK) {
+				map.setLevel(3);
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+				y = result[0].x;
+				x = result[0].y;
+				test1.append("<br>X좌표 : " + x + "<br><br>Y좌표 : " + y);
+				// 이동할 위도 경도 위치를 생성합니다 
+				var moveLatLon = new kakao.maps.LatLng(x, y);
+				// 지도 중심을 부드럽게 이동시킵니다
+				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+				map.panTo(moveLatLon);
+			}
+		});
+		/* $.ajax({
+			url:"/mapSelectOne",			
+			data:{shopItemIdx:mapName},			
+			success : function(data){
+				console.log("성공");
+				
+			}
+		}) */
+	})
 </script>
 </html>

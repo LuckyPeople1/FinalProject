@@ -10,12 +10,9 @@ import org.springframework.stereotype.Service;
 import com.dassa.mapper.ShopMapper;
 import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
-import com.dassa.vo.NoticePageData;
-import com.dassa.vo.NoticeVO;
-import com.dassa.vo.SaleInLotsPageDataVO;
-import com.dassa.vo.SaleInLotsVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @Service("shopService")
@@ -51,7 +48,6 @@ public class ShopService {
 	public int shopItemAdd(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
 		shopMapper.shopItemAdd(sItem);
 		return shopMapper.shopItemImgAdd(sItemImgList);
-		
 	}
 	/**
 	 * 중개사 페이지 - 매물리스트
@@ -59,7 +55,7 @@ public class ShopService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
+	public ShopItemPageDataVO selectAllList(int reqPage,ShopItemSearchVO itemSearch) throws Exception{
 		System.out.println("요청페이지"+reqPage);
 		//페이지 당 게시물 수
 		int numPerPage = 5;
@@ -73,7 +69,7 @@ public class ShopService {
 		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
 		System.out.println(start+"/"+end);
-		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end);
+		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end,itemSearch);
 		//페이지 네비 작성
 		String pageNavi = "";
 		//페이지 네비의 수
@@ -101,7 +97,31 @@ public class ShopService {
 		ShopItemPageDataVO pd = new ShopItemPageDataVO(list,pageNavi);
 		return pd;
 	}
+	/**
+	 * 중개사 페이지 - 매물상세보기
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
 	public ShopItemVO shopItemInfo(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemInfo(shopItemIdx);
+	}
+	/**
+	 * 중개사 페이지 - 상세보기매물이미지
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ShopItemImgVO> shopItemImgList(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemImgList(shopItemIdx);
+	}
+	/**
+	 * 중개사 페이지 - 매물 삭제
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopItemDelete(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemDelete(shopItemIdx);
 	}
 }

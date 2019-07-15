@@ -27,6 +27,7 @@ import com.dassa.service.ShopService;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @Controller
@@ -46,7 +47,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request,ShopItemSearchVO itemSearch)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -54,7 +55,7 @@ public class ShopItemController {
 			reqPage=1;
 		}
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,itemSearch);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
@@ -79,14 +80,48 @@ public class ShopItemController {
 	@RequestMapping("/itemInfo")
 	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
 		ShopItemVO item;
+		List<ShopItemImgVO> siiList;
 		ModelAndView mav = null;
 		try {
+			siiList = shopService.shopItemImgList(shopItemIdx);
 			item = shopService.shopItemInfo(shopItemIdx);
 			mav = new ModelAndView();
 			if(item!=null) {
-				mav.addObject("item",item);
+				System.out.println(item.getShopItemManagePriceOption());
+				System.out.println(item.getShopItemOption());
+				
+				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
+				String[] simpo = new String[7]; //관리비 항목 체크
+				
+				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
+				System.out.println("sss : "+sss);
+				String[] sio = new String[12]; //옵션 항목 체크
+				
+				int i = 0;
+				int j = 0;
+				for(; i<ss.length;i++) {
+						simpo[i] = ss[i];
+				}
+				for(;i<simpo.length;i++) {
+					simpo[i]=null;
+					System.out.println(simpo[i]);
+				}
+				for(; j<sss.length;j++) {
+					sio[j] = sss[j];
+				}
+				for(; j<sio.length;j++) {
+					sio[j]=null;
+					System.out.println(sio[j]);
+				}
+				mav.addObject("item",item); //매물 정보
+				mav.addObject("simpo", simpo); //관리비 항목
+				mav.addObject("sio",sio); //옵션 항목
+				mav.addObject("siiList",siiList);
 				mav.setViewName("shop/item/shopItemInfo");
 			}
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,7 +138,6 @@ public class ShopItemController {
 	 */
 	@RequestMapping("/shopItemAdd")
 	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
-		
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 		
 		System.out.println("넘어온 파일 : "+fileImg);
@@ -117,12 +151,12 @@ public class ShopItemController {
 				
 				ShopItemImgVO sItemImgVO = new ShopItemImgVO();
 				System.out.println("담을 파일 이름 : "+fileInfo[0]);
-				sItemImgVO.setImgName(fileInfo[0]);
-				System.out.println("담은 파일 이름"+sItemImgVO.getImgName());
+				sItemImgVO.setShopImgName(fileInfo[0]);
+				System.out.println("담은 파일 이름"+sItemImgVO.getShopImgName());
 				
 				System.out.println("담을 파일 경로 : "+fileInfo[1]);
-				sItemImgVO.setImgPath(fileInfo[1]);
-				System.out.println("파일경로"+sItemImgVO.getImgPath());
+				sItemImgVO.setShopImgPath(fileInfo[1]);
+				System.out.println("파일경로"+sItemImgVO.getShopImgPath());
 				
 				imgList.add(sItemImgVO);
 				System.out.println("최종이미지리스트"+imgList);
@@ -132,7 +166,54 @@ public class ShopItemController {
 //		shopService.shopItemImgAdd(imgList);
 		return "shop/item/shopItemList";
 	}
+	/**
+	 * 중개사 페이지 - 매물 수정 로직(itemModify)
+	 * @param httpServletRequest
+	 * @param fileImg
+	 * @param sItem
+	 * @param sItemImg
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemModify")
+	public String ShopItemModify(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
+		
+		System.out.println("넘어온 파일 : "+fileImg);
+		
+		for(MultipartFile img : fileImg) {
+			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
+			
+			if(!img.getOriginalFilename().equals("")) {
+				String[] fileInfo	=	fileCommon.fileUp(img, httpServletRequest, "shopItem");
+				System.out.println("넘어온 파일 배열에 담음"+fileInfo);
+				
+				ShopItemImgVO sItemImgVO = new ShopItemImgVO();
+				System.out.println("담을 파일 이름 : "+fileInfo[0]);
+				sItemImgVO.setShopImgName(fileInfo[0]);
+				System.out.println("담은 파일 이름"+sItemImgVO.getShopImgName());
+				
+				System.out.println("담을 파일 경로 : "+fileInfo[1]);
+				sItemImgVO.setShopImgPath(fileInfo[1]);
+				System.out.println("파일경로"+sItemImgVO.getShopImgPath());
+				
+				imgList.add(sItemImgVO);
+				System.out.println("최종이미지리스트"+imgList);
+			}
+		}
+//		shopService.shopItemModify(sItem, imgList);
+//		shopService.shopItemImgAdd(imgList);
+		return "shop/item/shopItemList";
+	}
 	
+	@RequestMapping("/shopItemDelete")
+	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
+		int result = shopService.shopItemDelete(shopItemIdx);
+		if(result>0) {
+			return "shop/item/shopItemList";
+		}
+		return "shop/item/shopItemList";
+	}
 	/**
 	 * 아파트 목록 API(아파트코드, 아파트명)
 	 * @param jusoDongCode

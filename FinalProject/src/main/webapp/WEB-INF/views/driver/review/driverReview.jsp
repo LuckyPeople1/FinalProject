@@ -53,12 +53,12 @@
 			<div class="list_form">
 				<table class="table_list">
 					<colgroup>
-						<col width="40">
-						<col width="70">
 						<col width="*">
-						<col width="150">
-						<col width="200">
-						<col width="150">
+						<col width="*">
+						<col width="*">
+						<col width="*">
+						<col width="*">
+						<col width="*">
 					</colgroup>
 					<thead>
 					<tr>
@@ -66,21 +66,43 @@
 						<th>NO</th>
 						<th>리뷰내용</th>
 						<th>현장추가금</th>
-						<th>이사타입</th>
 						<th>작성일시</th>
 						<th>별점</th>
+						<th>견적금액</th>
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list }" var="reviewManage" varStatus="i">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>1</td>
-						<td class="text-left">이사 좋아요.</td>
-						<td>X</td>
-						<td><span class="tag col_blue f_w">차량만/일반/반포장/포장</span></td>
-						<td>18-05-22 21:22:12</td>
-						<td>★★★★★</td>
+						<td>${reviewManage.applyIdx }</td>
+						<td>${reviewManage.reviewMessage }</td>
+						<td>${reviewManage.extraMoney == 1 ? 'X' : 'O' }</td>
+						<td>${reviewManage.reviewDate }</td>
+						<td><c:if test="${reviewManage.reviewStar eq 1 }"><span class="starR on"></span></c:if>	  
+							<c:if test="${reviewManage.reviewStar eq 2 }"><span class="starR on"></span><span class="starR on"></span></c:if>	
+								<c:if test="${reviewManage.reviewStar eq 3 }">
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+								</c:if>	
+								<c:if test="${reviewManage.reviewStar eq 4 }">
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+								</c:if>	
+								<c:if test="${reviewManage.reviewStar eq 5 }">
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+										  <span class="starR on"></span>
+								</c:if>		  
+						</td>
+						<td>${reviewManage.estimateAmount }</td>
 					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -98,7 +120,27 @@
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 
 </div>
-<script>
+<script type="text/javascript">
+	$('.starRev span').click(function(){
+		  $(this).parent().children('span').removeClass('on');
+		  $(this).addClass('on').prevAll('span').addClass('on');
+		  var count = $(".on").length;
+		  $(this).parent().children('input').val(count);
+		  return false;
+		});
+/* 	해당 <span>태그를 클릭 시, 부모를 한번 타고 올라가서 다른 <span>에 class="on"을 add/remove 하면서 변화  */
 </script>
 </body>
 </html>
+<style>
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+</style>
