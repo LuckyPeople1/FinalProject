@@ -25,7 +25,7 @@
 				comp_filepath as compFilepath,
 				user_type as userType,
 				social_id as socialId,
-				enroll_date as enrollDate 
+				enroll_date as enrollDate
 		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
@@ -80,7 +80,8 @@
 								   null,
 							   </otherwise>
 						    </choose>
-			                  default)
+			                  default),
+			                   null
 		</insert>
 		
 		<insert id="driverInsert" parameterType="userVO">
@@ -103,7 +104,8 @@
 			               #{compFilepath},
 			                #{userType},
 			                 null,
-			                  default)
+			                  default),
+			                   null
 		</insert>
 		
 		<insert id="shopInsert" parameterType="userVO">
@@ -126,7 +128,8 @@
 			               #{compFilepath},
 			                #{userType},
 			                 null,
-			                  default)
+			                  default),
+			       			   null
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">

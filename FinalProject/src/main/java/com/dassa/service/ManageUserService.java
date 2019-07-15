@@ -32,6 +32,4 @@ public class ManageUserService {
 		return manageUserMapper.getUserListAll();
 	}
 
-	
-
 }
