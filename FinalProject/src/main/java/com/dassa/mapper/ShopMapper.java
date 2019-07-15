@@ -37,4 +37,7 @@ public interface ShopMapper {
 	
 	//매물 이미지 뿌리기
 	public List<ShopItemImgVO> shopItemImgList(int shopItemIdx) throws Exception;
+	
+	//매물 삭제
+	public int shopItemDelete(int shopItemIdx) throws Exception;
 }

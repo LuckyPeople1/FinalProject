@@ -111,7 +111,7 @@
 							<div class="set_menu">
 								<input name="idx" type="hidden" value=${item.shopItemIdx }>
 								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">상세보기</a>
-								<button class="btn col_red f_w" name=itemDel>삭제</button>
+								<a href="/shop/shopItemDelete?shopItemIdx=${item.shopItemIdx }" class="btn small col_red f_w">삭제</a>
 							</div>
 						</td>
 					</tr>
@@ -130,7 +130,20 @@
 </body>
 <script>
 	$("button[name=itemDel]").click(function(){
+		var data = $(this).siblings('input[name="idx"]').val();
+		console.log(data);
 		alert($(this).siblings('input[name="idx"]').val());
+		if(confirm("해당 매물을 판매중단 하시겠습니까?")){
+			$.ajax({
+				url:"/shop/shopItemDelete",
+				data:{data:data},
+				type:'post',
+				success : function(){
+					alert("판매중단");
+				}
+			});
+		}
+		return;
 	});
 	
 	

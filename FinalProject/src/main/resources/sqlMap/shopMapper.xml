@@ -180,4 +180,8 @@
 				from shop_item_img_tbl
 				where shop_item_idx=#{shopItemIdx} 
 	</select>
+	<!-- 매물 삭제 -->
+	<update id="shopItemDelete" parameterType="shopItemVO">
+		update shop_item_tbl set shop_item_sale_state='판매중단' where shop_item_idx=#{shopItemIdx}
+	</update>
 </mapper>
