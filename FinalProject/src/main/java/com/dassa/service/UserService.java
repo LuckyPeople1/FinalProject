@@ -16,7 +16,6 @@ public class UserService {
 	private UserMapper userMapper;
 
 	public UserVO selectOneUser(UserVO userVO) throws Exception {
-		
 		return (UserVO)userMapper.selectOneUser(userVO);
 	}
 		

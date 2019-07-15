@@ -24,7 +24,7 @@
 					</div>
 					<div class="driverBox">
 						<div class="driverName">${moveInfo.maVo.userName} 기사님</div>
-						<div class="driverCount">평점 ${moveInfo.maVo.star} &nbsp / &nbsp 리뷰 ${moveInfo.maVo.reviewCount}</div>
+						<div class="driverCount">평점 ${moveInfo.reVo.reviewStarAVG } &nbsp / &nbsp 리뷰 ${moveInfo.reVo.reviewCount }건</div>
 						<div class="auctionPrice">견적가 : ${moveInfo.maVo.estimateAmount} 원</div>
 					</div>
 					<div class="driverIntro">
@@ -417,15 +417,18 @@
 							</li>
 							</c:if>
 						</ul>
-					
 					</div>
 				
 				</div>
 				</c:if>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
-					<c:if test="${not empty moveInfo.payVo}">
+					<c:if test="${not empty moveInfo.payVo and moveInfo.driverAuctionDetail.applyStatus != '2'}">
 						<a href="javascript:move.paymentCencel('${moveInfo.payVo.movePaymentImpUid}','${moveInfo.payVo.applyIdx }')" class="btn col_blue f_w big">결제취소</a>
+					</c:if>
+					
+					<c:if test="${moveInfo.driverAuctionDetail.applyStatus == '2'}">
+						<a href="/my/driverReview?applyIdx=${moveInfo.maVo.applyIdx}&&driverIdx=${moveInfo.maVo.driverIdx}" class="btn col_darkGrey f_w big">후기 작성</a>
 					</c:if>
 				</div>
 			</div>
