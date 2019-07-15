@@ -59,7 +59,10 @@
   			u.user_name as userName,
   			u.pro_filepath as proFilepath,
   			u.user_introduce as userIntroduce
-  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where apply_idx = #{applyIdx}
+  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where d.apply_idx = #{applyIdx}
+  	</select>
+  	<select id="driverReviewSelect" parameterType="_int" resultType="com.dassa.vo.MoveAuctionReview">
+  		select avg(review_star) as reviewStarAVG ,count(*) as reviewCount from driver_review_tbl where driver_idx=#{driverIdx}
   	</select>
   	<update id="moveApplyStateUpdate" parameterType="_int">
   		update move_apply_tbl set apply_status = '1' where apply_idx=#{applyIdx}
@@ -100,4 +103,36 @@
 	<insert id="driverReviewInsert" parameterType="com.dassa.vo.DriverReviewVO">
 		insert into driver_review_tbl values (driver_review_idx_seq.nextval,#{driverIdx},#{applyIdx},#{reviewStar},#{reviewMessage},#{extraMoney},sysdate)
 	</insert>
+
+	<update id="driverMoveFinalCompletion" parameterType="_int">
+		update move_apply_tbl set apply_status = '2' where apply_idx=#{applyIdx}
+	</update>
+
+	<select id="driverReviewMyList" parameterType="com.dassa.vo.DriverReviewVO" resultType="com.dassa.vo.DriverReviewVO">
+	
+		select review_idx as reviewIdx,
+				driver_idx as driverIdx,
+				apply_idx as applyIdx,
+				review_star as reviewStar,
+				review_Message as reviewMessage,
+				extra_money as extraMoney,
+				review_date as reviewDate
+				from  driver_review_tbl
+				where 
+	</select>
+	
+	<select id="applyIdxSelectList" parameterType="_int" resultType="com.dassa.vo.DriverMypageReviewVO">
+	
+	select r.review_idx as reviewIdx,
+				r.driver_idx as driverIdx,
+				r.apply_idx as applyIdx,
+				r.review_star as reviewStar,
+				r.review_Message as reviewMessage,
+				r.extra_money as extraMoney,
+				r.review_date as reviewDate 
+				,d.estimateamount as estimateAmount
+	from driver_review_tbl r join driver_tbl d on (r.driver_idx = d.driver_idx) 
+	where r.apply_idx in (select apply_idx from move_apply_tbl where guest_idx=#{guestIdx})
+	</select>
+
 </mapper>

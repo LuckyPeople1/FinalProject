@@ -11,15 +11,12 @@ public class MoveAuctionVO {
 	private String userName;
 	private String userIntroduce;
 	private String proFilepath;
-	private int star;
-	private int reviewCount;
 	public MoveAuctionVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public MoveAuctionVO(int driverIdx, int applyIdx, String userCar, String driverMessage, String ladderState,
-			String estimateAmount, int auctionState, String userName, String userIntroduce, String proFilepath,
-			int star, int reviewCount) {
+			String estimateAmount, int auctionState, String userName, String userIntroduce, String proFilepath) {
 		super();
 		this.driverIdx = driverIdx;
 		this.applyIdx = applyIdx;
@@ -31,8 +28,6 @@ public class MoveAuctionVO {
 		this.userName = userName;
 		this.userIntroduce = userIntroduce;
 		this.proFilepath = proFilepath;
-		this.star = star;
-		this.reviewCount = reviewCount;
 	}
 	public int getDriverIdx() {
 		return driverIdx;
@@ -93,18 +88,6 @@ public class MoveAuctionVO {
 	}
 	public void setProFilepath(String proFilepath) {
 		this.proFilepath = proFilepath;
-	}
-	public int getStar() {
-		return star;
-	}
-	public void setStar(int star) {
-		this.star = star;
-	}
-	public int getReviewCount() {
-		return reviewCount;
-	}
-	public void setReviewCount(int reviewCount) {
-		this.reviewCount = reviewCount;
 	}
 	
 }

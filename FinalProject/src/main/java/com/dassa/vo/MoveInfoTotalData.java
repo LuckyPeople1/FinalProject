@@ -9,18 +9,20 @@ public class MoveInfoTotalData {
 	private List<DriverApplyImgVO> imgList;
 	private MovePaymentVO payVo;
 	private MoveAuctionVO maVo;
+	private MoveAuctionReview reVo;
 	public MoveInfoTotalData() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public MoveInfoTotalData(DriverAuctionDetailVO driverAuctionDetail, List<DriverApplyOptionVO> optionList,
-			List<DriverApplyImgVO> imgList, MovePaymentVO payVo, MoveAuctionVO maVo) {
+			List<DriverApplyImgVO> imgList, MovePaymentVO payVo, MoveAuctionVO maVo, MoveAuctionReview reVo) {
 		super();
 		this.driverAuctionDetail = driverAuctionDetail;
 		this.optionList = optionList;
 		this.imgList = imgList;
 		this.payVo = payVo;
 		this.maVo = maVo;
+		this.reVo = reVo;
 	}
 	public DriverAuctionDetailVO getDriverAuctionDetail() {
 		return driverAuctionDetail;
@@ -51,6 +53,12 @@ public class MoveInfoTotalData {
 	}
 	public void setMaVo(MoveAuctionVO maVo) {
 		this.maVo = maVo;
+	}
+	public MoveAuctionReview getReVo() {
+		return reVo;
+	}
+	public void setReVo(MoveAuctionReview reVo) {
+		this.reVo = reVo;
 	}
 	
 }

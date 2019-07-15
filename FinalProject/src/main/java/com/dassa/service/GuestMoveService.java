@@ -14,10 +14,13 @@ import com.dassa.mapper.GuestMoveMapper;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
+import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyPage;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MoveAuctionListVO;
+import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
@@ -31,6 +34,9 @@ public class GuestMoveService {
 	@Resource(name="driverMapper")
 	private DriverMapper driverMapper;
 	
+	public MoveAuctionReview moveAuctionReview(int driverIdx) {
+		return guestMoveMapper.driverReviewSelect(driverIdx);
+	}
 	public int guestMovePaymentCencel(MovePaymentVO mpVo,int applyIdx) {
 		int result = guestMoveMapper.guestMovePaymentCencel(mpVo);
 		System.out.println("service 갔다온후 :"+result);
@@ -42,8 +48,15 @@ public class GuestMoveService {
 	public MoveAuctionVO moveAuctionInfo(int applyIdx) {
 		return guestMoveMapper.moveAuctionInfo(applyIdx);
 	}
-	public ArrayList<MoveAuctionVO> moveAuction(int applyIdx){
-		return guestMoveMapper.moveAuction(applyIdx);
+	public MoveAuctionListVO moveAuction(int applyIdx){
+		ArrayList<MoveAuctionVO> auList = guestMoveMapper.moveAuction(applyIdx);
+		ArrayList<MoveAuctionReview> reList = new ArrayList<MoveAuctionReview>();
+		for(int i =0; i<auList.size();i++) {
+			MoveAuctionReview review = guestMoveMapper.driverReviewSelect(auList.get(i).getDriverIdx());
+			reList.add(review);
+		};
+		MoveAuctionListVO list = new MoveAuctionListVO(auList, reList);
+		return list;
 	}
 	public int guestMovePayment(MovePaymentVO mpVo,int applyIdx) {
 		int result = guestMoveMapper.guestMovePayment(mpVo);
@@ -99,7 +112,8 @@ public class GuestMoveService {
 		List<DriverApplyImgVO> imgList =driverMapper.driverImgList(applyIdx);
 		MoveAuctionVO maVo = guestMoveMapper.moveAuctionInfo(applyIdx);					
 		MovePaymentVO payVo = guestMoveMapper.paymentInfo(applyIdx);
-		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo);
+		MoveAuctionReview reVo = guestMoveMapper.driverReviewSelect(maVo.getDriverIdx());
+		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo,reVo);
 	}
 	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception {
 		// TODO Auto-generated method stub
@@ -108,5 +122,10 @@ public class GuestMoveService {
 	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception {
 		
 		return guestMoveMapper.driverReviewInsert(driverReviewVO);
+	}
+	
+	public List<DriverMypageReviewVO> applyIdxSelectList(int guestIdx) {
+	
+		return guestMoveMapper.applyIdxSelectList(guestIdx);
 	}
 }

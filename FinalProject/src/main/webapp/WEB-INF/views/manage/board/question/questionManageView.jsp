@@ -22,43 +22,44 @@
 						<span class="title_mark">■ 1:1 문의답변</span>
 					</div>
 					<section class="section_question">
-					<div class="section_title"></div>
-					<div class="set_form">
-						<table class="set_table">
-							<colgroup>
-								<col width="180">
-								<col width="*">
-							</colgroup>
-							<tr>
-								<th>제목</th>
-								<td>예약을 했는데, 말 없이 방문을 안하면 어떻게 되나요?</td>
-							</tr>
-							<tr>
-								<th>내용</th>
-								<td>
-									<div class="text_con">
-										어제 예약을 했는데, 깜빡하고 방문을 안했습니다.<br /> 어제 예약을 했는데, 깜빡하고 방문을 안했습니다.<br />
-										어제 예약을 했는데, 깜빡하고 방문을 안했습니다. 어떡하죠<br /> 어제 예약을 했는데, 깜빡하고 방문을
-										안했습니다. 어떡하죠<br /> 어제 예약을 했는데, 깜빡하고 방문을 안했습니다. 어떡하죠<br /> 어제
-										예약을 했는데, 깜빡하고 방문을 안했습니다. 어떡하죠
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>답변</th>
-								<td><textarea class="board_textarea"></textarea></td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<div class="board_button">
-										<a href="javascript:javascript:void(0)" class="board_Mobtn">수정</a>
-										<a href="javascript:history.back()" class="board_Rebtn">취소</a>
-									</div>
-								</td>
-							</tr>
-						</table>
-					</div>
-
+					<form action="/manage/board/question/questionUpdate" method="post" id="update">
+						<div class="section_title"></div>
+						<div class="set_form">
+							<table class="set_table">
+								<colgroup>
+									<col width="180">
+									<col width="*">
+								</colgroup>
+								<tr>
+									<th>제목</th>
+									<td>${questionVO.questionsTitle }</td>
+								</tr>
+								<tr>
+									<th>작성자</th>
+									<td>${questionVO.questionsWriter }</td>
+								</tr>
+								<tr>
+									<th>내용</th>
+									<td>
+										<div class="text_con">${questionVO.questionsContent }</div>
+									</td>
+								</tr>
+								<tr>
+									<th>답변</th>
+									<td><textarea class="board_textarea" name="questionsAnswer">${questionVO.questionsAnswer }</textarea>
+									<input type="hidden" name="questionsIndex" value="${questionVO.questionsIndex }"></td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<div class="board_button">
+											<a href="#" onclick="document.getElementById('update').submit();" class="board_Mobtn">등록</a>
+											<a href="javascript:history.back()" class="board_Rebtn">취소</a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</form>
 					</section>
 				</div>
 			</div>
