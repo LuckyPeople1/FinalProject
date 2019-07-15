@@ -250,7 +250,7 @@ public class NoticeController {
 			int result;
 			String view = "";
 			System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
-			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
+			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"/"+"상태-"+n.getNoticeState());
 			try {
 				result = noticeService.noticeInsert(n);
 				if(result>0) {
@@ -271,7 +271,7 @@ public class NoticeController {
 			int result;
 			String view = "";
 			System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
-			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+n.getNoticeHit()+"/"+"상태-"+n.getNoticeState());
+			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+"/"+"상태-"+n.getNoticeState());
 			try {
 				result = noticeService.noticeInsert(n);
 				if(result>0) {
@@ -350,5 +350,4 @@ public class NoticeController {
 		}
 		return view;
 	}*/
-	
 }

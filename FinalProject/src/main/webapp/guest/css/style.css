@@ -3953,6 +3953,8 @@ section.saleInLotsDetailInformation .price_msgText{
     color: rgb(34, 34, 34);
     margin-bottom: 5px;
 }
+
+=======
 /* 분양 가이드 페이지(home) */
 section.saleInLotsProcess .processContent{
 	width: 1180px;
@@ -4168,4 +4170,4 @@ section.saleInLotsProcess .processContentDetail .table__require tbody tr td li p
     display: block;
     padding-left: 20px;
 }
-section.saleInLotsProcess
+
