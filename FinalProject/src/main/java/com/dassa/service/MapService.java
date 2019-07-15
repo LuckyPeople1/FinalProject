@@ -19,9 +19,15 @@ public class MapService {
 		ArrayList<ShopItemVO> list = mapMapper.selectAll();
 		return list;
 	}
-	public ShopItemVO mapSelectOne(String shopItemTitle) throws Exception {
-		System.out.println("service : "+shopItemTitle );
-		return mapMapper.mapSelectOne(shopItemTitle);			
+	public ArrayList<ShopItemVO> mapSelectList(String shopItemAddr1) throws Exception {
+		
+		ArrayList<ShopItemVO> list = mapMapper.mapSelectList(shopItemAddr1);
+		return list;			
+		
+	}
+	public ShopItemVO mapSelectOne(int shopItemIdx) throws Exception {
+		System.out.println("service : "+shopItemIdx );
+		return mapMapper.mapSelectOne(shopItemIdx);			
 		
 	}
 }

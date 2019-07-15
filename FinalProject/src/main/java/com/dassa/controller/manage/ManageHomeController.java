@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dassa.service.ManageUserService;
@@ -25,9 +26,9 @@ public class ManageHomeController {
 	
 	//승인관리 페이지
 	@RequestMapping("/user/userApprobate")
-	public String UserApprobateList(HttpServletRequest request) throws Exception {
+	public String UserApprobateList(Model model) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
-		request.setAttribute("list", list);
+		model.addAttribute("list", list);
 		return "manage/user/userApprobateList";
 	}
 	
@@ -37,12 +38,5 @@ public class ManageHomeController {
 		return "manage/user/userAllList";
 	}
 	
-	//부동산 승인관리 페이지
-	@RequestMapping("/shop/shopApprobate")
-	public String ShopApprobateList(HttpServletRequest request) throws Exception {
-		List<UserVO> list = manageUserService.getUserListAll();
-		request.setAttribute("list", list);
-		return "manage/user/shopApprobateList";
-	}
-
+	
 }

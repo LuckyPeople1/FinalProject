@@ -93,24 +93,26 @@
 	<!--이사목록 뿌리기  -->
 	<select id="driverMoveList" resultType="moveApplyVO" parameterType="com.dassa.vo.DriverPageData">
 			 select a.* from (
-			select apply_idx as applyIdx,
-				apply_date as applyDate,
-				apply_time as applyTime,
-				guest_name as guestName,
-				guest_phone as guestPhone,
-				start_addr1 as startAddr1,
-				end_addr1 as endAddr1,
-				apply_hope as applyHope,
-				apply_status as applyStatus,
-				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
-				from move_apply_tbl
-				where (apply_status =1 or apply_status =2 or apply_status =3)
+				select m.apply_idx as applyIdx,
+				m.apply_date as applyDate,
+				m.apply_time as applyTime,
+				m.guest_name as guestName,
+				m.guest_phone as guestPhone,
+				m.start_addr1 as startAddr1,
+				m.end_addr1 as endAddr1,
+				m.apply_hope as applyHope,
+				m.apply_status as applyStatus,
+				ROW_NUMBER() OVER(ORDER BY m.apply_Idx DESC) rNUM,
+                d.driver_idx as driverIdx
+				from move_apply_tbl m 
+                join driver_tbl d on (m.apply_idx = d.apply_idx)
+				where (m.apply_status =1 or m.apply_status =2 or m.apply_status =3) and (d.driver_idx =#{driverIdx})
 				
 				<if test="userName!=''" >
-				and guest_name like '%'||#{userName}||'%'			
+				and m.guest_name like '%'||#{userName}||'%'			
 				</if>
 				<if test="minDate!='' and maxDate!=''">
-					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+					and m.apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
               		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
 				</if>
 				) a
@@ -211,7 +213,25 @@
 				where apply_idx = #{applyIdx}
 	</select>
 	
+	<select id="driverReview" parameterType="_int" resultType="com.dassa.vo.DriverMypageReviewVO">
+		select  r.review_idx as reviewIdx,
+				r.driver_idx as driverIdx,
+				r.apply_idx as applyIdx,
+				r.review_star as reviewStar,
+				r.review_Message as reviewMessage,
+				r.extra_money as extraMoney,
+				r.review_date as reviewDate,
+				d.estimateamount as estimateAmount
+			from driver_review_tbl r 
+			left join driver_tbl d on (r.driver_idx = d.driver_idx)
+			where r.driver_idx =#{driverIdx}
+	</select>
 	
+	<select id="userNameSelectOne" resultType="com.dassa.vo.UserVO">
+		select user_Name as userName
+		from user_tbl 
+		where user_type= 3 
+	</select>
 	
 	
 </mapper>

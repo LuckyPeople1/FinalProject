@@ -12,10 +12,14 @@ public interface ManageUserMapper {
 	
 	public List<UserVO> getUserList(String userType) throws Exception;
 
-	public List<UserOutVO> getUserSecssionList() throws Exception;
+	public List<UserOutVO> getUserSecssionList(String userType) throws Exception;
 
 	public int deleteUser(int userIdx) throws Exception;
 
 	public List<UserVO> getUserListAll();
+
+	public List<UserVO> getAllApprobateList(String status);
+	
+	public List<UserVO> getTypeApprobateList(String userType);
 
 }

@@ -29,22 +29,38 @@ public class MapViewController {
 	
 	
 	
-	@RequestMapping(value="/mapView")
+	@RequestMapping(value="/mapView",produces = "application/text; charset=utf8")
 	public ModelAndView MapView() throws Exception {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<ShopItemVO> list;
 		list = mapService.selectAll();			
 		mav.addObject("list",list);
-		mav.setViewName("/map/mapView3");
+		mav.setViewName("/map/mapView3");		
 		return mav;
 	}
 	
+	@RequestMapping(value="/mapSelectOne", produces = "application/text; charset=utf8")
+	public ModelAndView mapSelectOne(@RequestParam int shopItemIdx) throws Exception {
+		System.out.println(shopItemIdx);
+		ShopItemVO item;
+		ModelAndView mav = null;
+		item = mapService.mapSelectOne(shopItemIdx);
+		mav = new ModelAndView();
+		mav.addObject("item",item);
+		mav.setViewName("/map/mapView3");
+		return mav;		
+	}
+	
+	
 	@ResponseBody
-	@RequestMapping(value="/mapSelectOne",produces = "application/text; charset=utf8")
-	public String mapSelectOne(HttpServletRequest request, @RequestParam String shopItemTitle,Model model) throws Exception{
-		ShopItemVO item;		
-		item = mapService.mapSelectOne(shopItemTitle);			
-		model.addAttribute("item", item);		
-		return item.getShopItemAddr1();
+	@RequestMapping(value="/mapSelectList")
+	public ModelAndView mapSelectList(@RequestParam String shopItemAddr1) throws Exception{
+		System.out.println(shopItemAddr1);
+		ModelAndView mav = new ModelAndView();
+		ArrayList<ShopItemVO> item;		
+		item = mapService.mapSelectList(shopItemAddr1);			
+		mav.addObject("item",item);
+		mav.setViewName("/map/mapView3");
+		return mav;
 	}
 }

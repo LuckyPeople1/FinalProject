@@ -261,7 +261,7 @@
 									<div class="row static">
 										<div class="subject">견적금액결정</div><br>
 										<input type="hidden" name="applyIdx" value="${driverAuctionDetail.applyIdx}"> <!--applyIdx 숨기기  -->
-										<div><input class="tbox full" name="estimateAmount"></div>
+										<div><input class="tbox full" name="estimateAmount" placeholder="견적 금액은 숫자만 입력하세요 예)10,000"></div>
 									</div>
 								</li>
 							</ul>
