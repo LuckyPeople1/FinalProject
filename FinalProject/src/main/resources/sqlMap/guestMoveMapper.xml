@@ -59,7 +59,10 @@
   			u.user_name as userName,
   			u.pro_filepath as proFilepath,
   			u.user_introduce as userIntroduce
-  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where apply_idx = #{applyIdx}
+  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where d.apply_idx = #{applyIdx}
+  	</select>
+  	<select id="driverReviewSelect" parameterType="_int" resultType="com.dassa.vo.MoveAuctionReview">
+  		select avg(review_star) as reviewStarAVG ,count(*) as reviewCount from driver_review_tbl where driver_idx=#{driverIdx}
   	</select>
   	<update id="moveApplyStateUpdate" parameterType="_int">
   		update move_apply_tbl set apply_status = '1' where apply_idx=#{applyIdx}
@@ -100,4 +103,7 @@
 	<insert id="driverReviewInsert" parameterType="com.dassa.vo.DriverReviewVO">
 		insert into driver_review_tbl values (driver_review_idx_seq.nextval,#{driverIdx},#{applyIdx},#{reviewStar},#{reviewMessage},#{extraMoney},sysdate)
 	</insert>
+	<update id="driverMoveFinalCompletion" parameterType="_int">
+		update move_apply_tbl set apply_status = '2' where apply_idx=#{applyIdx}
+	</update>
 </mapper>

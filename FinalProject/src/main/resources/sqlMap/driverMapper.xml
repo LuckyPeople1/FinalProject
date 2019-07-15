@@ -164,7 +164,8 @@
 				apply_time as applyTime,
 				apply_hope as applyHope,
 				apply_help as applyHelp,
-				apply_memo as applyMemo
+				apply_memo as applyMemo,
+				apply_status as applyStatus
 				from move_apply_tbl
 				where apply_idx=#{applyIdx}
 	</select>

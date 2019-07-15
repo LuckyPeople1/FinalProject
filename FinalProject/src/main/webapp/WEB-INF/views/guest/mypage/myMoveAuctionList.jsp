@@ -17,7 +17,7 @@
 					<a href="/my/moveInfo?applyIdx=${applyIdx }" class="myMove">내 이사정보 보기</a>
 				</div>
 				<div class="auctionList">
-					<c:forEach var="item" items="${list}">
+					<c:forEach var="item" items="${list.auList}" varStatus="i">
 						<div class="auctionBox on">
 							<a href="/my/auctionInfo?applyIdx=${item.applyIdx }">
 								<div class="auctionInfo">
@@ -31,7 +31,7 @@
 									</div>
 									<div class="driverInfo">
 										<div class="driverName">${item.userName } 기사님</div>
-										<div class="driverCount">${item.star } &nbsp / &nbsp ${item.reviewCount }</div>
+										<div class="driverCount">평점${list.reList[i.count-1].reviewStarAVG }점 &nbsp / &nbsp 리뷰 ${list.reList[i.count-1].reviewCount }건 </div>
 									</div>
 								</div>
 								<div class="price">${item.estimateAmount } 원</div>

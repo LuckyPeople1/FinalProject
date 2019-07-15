@@ -3,14 +3,12 @@ package com.dassa.controller.guest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +19,8 @@ import com.dassa.service.GuestMoveService;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyPage;
+import com.dassa.vo.MoveAuctionListVO;
+import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
@@ -126,7 +126,7 @@ public class GuestMyController {
 	@RequestMapping("/auctionList")
 	public String moveAuction(Model model, @RequestParam int applyIdx){
 
-		ArrayList<MoveAuctionVO> list = guestMoveService.moveAuction(applyIdx);
+		MoveAuctionListVO list = guestMoveService.moveAuction(applyIdx);
 		model.addAttribute("list", list);
 		model.addAttribute("applyIdx",applyIdx);
 
@@ -140,8 +140,9 @@ public class GuestMyController {
 	@RequestMapping("/auctionInfo")
 	public String moveAuctionInfo(Model model, @RequestParam int applyIdx){
 		MoveAuctionVO maVO = guestMoveService.moveAuctionInfo(applyIdx);
-		
+		MoveAuctionReview reVO = guestMoveService.moveAuctionReview(maVO.getDriverIdx());
 		model.addAttribute("item",maVO);
+		model.addAttribute("reitem",reVO);
 
 		return "/guest/mypage/myMoveAuctionInfo";
 	}

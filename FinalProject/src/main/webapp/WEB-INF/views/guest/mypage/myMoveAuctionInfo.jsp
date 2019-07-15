@@ -27,7 +27,7 @@
 					</div>
 					<div class="driverBox">
 						<div class="driverName">${item.userName } 기사님</div>
-						<div class="driverCount">평점 ${item.star } 점 &nbsp / &nbsp 리뷰 ${item.reviewCount } 건</div>
+						<div class="driverCount">평점 ${reitem.reviewStarAVG } 점 &nbsp / &nbsp 리뷰 ${reitem.reviewCount } 건</div>
 						<div class="auctionPrice">견적가 : ${item.estimateAmount }원</div>
 					</div>
 					<div class="driverIntro">
