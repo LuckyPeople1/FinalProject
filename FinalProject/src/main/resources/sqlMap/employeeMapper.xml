@@ -16,7 +16,7 @@
 			            0)
 		</insert>
 	<!-- 리스트조회 -->
-  <select id="selectAllList" resultType="employeeVO" parameterType="_int">		
+ <!--  <select id="selectAllList" resultType="employeeVO" parameterType="_int">		
   		select employee_idx as employeeIdx,
   			employee_name as employeeName,
   			employee_rank as employeeRank,
@@ -28,5 +28,5 @@
   </select>	
 	<select id="totalCount" resultType="_int">
   	select count(*) cnt from SHOP_EMPLOYEE_TBL
-  </select>
+  </select> -->
 </mapper>
