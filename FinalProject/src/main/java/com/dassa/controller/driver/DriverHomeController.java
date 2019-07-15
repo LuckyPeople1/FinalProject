@@ -26,10 +26,10 @@ public class DriverHomeController {
 	private DriverService driverService;
 	
 		//기사 홈 페이지 (main page)
-		@RequestMapping("/")
+		@RequestMapping("/home")
 		public String DriverHome(Model model,DriverPageData pagination,HttpServletRequest request,
 				 @RequestParam(required = false, defaultValue = "1") int page 
-				,@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
+				,@RequestParam(required = false, defaultValue = "1") int range,int driverIdx) throws Exception {
 				if(pagination.getUserName()==null) {
 					pagination.setUserName("");
 				}
@@ -42,6 +42,7 @@ public class DriverHomeController {
 				int listCnt=driverService.driverMoveTotalCount(pagination);
 				pagination.pageInfo(page, range, listCnt);	//page현재 페이지 (현재목록의 페이지번호) range 현재 페이지 범위(각 페이지 범위 시작 번호) listCnt 총 게시물 개수 (전체 게시물의 개수)
 				System.out.println("총게시물수:"+listCnt);	//총게시물수!!! 
+				pagination.setDriverIdx(driverIdx);
 				List<MoveApplyVO> list=driverService.driverMoveList(pagination);
 				if(list!=null) {
 					model.addAttribute("list", list);

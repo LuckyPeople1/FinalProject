@@ -21,6 +21,7 @@
 					<input type="hidden" id="page" name="page" value="${pagination.page }">
 					<input type="hidden" id="range" name="range" value="${pagination.range }">
 					<input type="hidden" id="rangeSize" name="rangeSize" value="${pagination.rangeSize }">
+					<input type="hidden" name="driverIdx" value="${pagination.driverIdx }">
 					<table class="table_set">
 						<colgroup>
 							<col width="180">
@@ -52,6 +53,7 @@
 				</form>
 				<div class="set_form_search">
 					<a href="javascript:$('#driverMoveForm').submit()" class="btn col_red f_w">검색</a>
+					<%-- <a href="/driver/review?driverIdx=${sessionScope.user.userIdx }" class=""> --%>
 					<a href="/driver/move" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>

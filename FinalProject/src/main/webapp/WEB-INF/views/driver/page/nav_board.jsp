@@ -5,7 +5,7 @@
 	<div class="sub_nav">
 		<div class="nav_title">사용자 리뷰</div>
 		<div class="nav_group">
-			<a href="/driver/review" class="on">사용자 리뷰 관리</a>
+			<a href="/driver/review?driverIdx=${sessionScope.user.userIdx }" class="on">사용자 리뷰 관리</a>
 		</div>
 	</div>
 </div>
