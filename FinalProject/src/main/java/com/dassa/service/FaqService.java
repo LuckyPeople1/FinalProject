@@ -63,6 +63,7 @@ public class FaqService {
 	}
 	//업데이트
 	public int faqUpdate(FaqVO f) throws Exception{
+		System.out.println("서비스업데이트-"+f);
 		return faqMapper.faqUpdate(f);
 	}
 	//인서트

@@ -36,11 +36,11 @@
 						</tr>
 						<tr>
 							<th>제목</th>
-							<td><input class="board_input" value="${faqVO.faqQuestion }"></td>
+							<td><input class="board_input" name="faqQuestion" value="${faqVO.faqQuestion }"></td>
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td><textarea class="board_textarea">${faqVO.faqAnswer }</textarea>
+							<td><textarea class="board_textarea" name="faqAnswer">${faqVO.faqAnswer }</textarea>
 							<input type="hidden" value="${faqVO.faqIndex}" name="faqIndex"></td>
 						</tr>
 						<tr>

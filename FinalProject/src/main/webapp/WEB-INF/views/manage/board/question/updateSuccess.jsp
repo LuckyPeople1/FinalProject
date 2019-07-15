@@ -8,8 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-	alert('글이 수정되었습니다.');
-	location.href="/manage/board/faq/realestate/faqManageRealestateList?reqPage=1";
+	alert('답변 글이 등록되었습니다.');
+	location.href="/manage/board/question/questionManageList?reqPage=1";
 </script>
 </body>
 </html>
