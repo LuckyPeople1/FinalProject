@@ -10,10 +10,12 @@ import com.dassa.vo.UserVO;
 @MapperScan("manageUserMapper")
 public interface ManageUserMapper {
 	
-	public List<UserVO> getUserList() throws Exception;
+	public List<UserVO> getUserList(String userType) throws Exception;
 
 	public List<UserOutVO> getUserSecssionList() throws Exception;
 
 	public int deleteUser(int userIdx) throws Exception;
+
+	public List<UserVO> getUserListAll();
 
 }

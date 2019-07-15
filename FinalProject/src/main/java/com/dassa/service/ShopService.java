@@ -53,6 +53,12 @@ public class ShopService {
 		return shopMapper.shopItemImgAdd(sItemImgList);
 		
 	}
+	/**
+	 * 중개사 페이지 - 매물리스트
+	 * @param reqPage
+	 * @return
+	 * @throws Exception
+	 */
 	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
 		System.out.println("요청페이지"+reqPage);
 		//페이지 당 게시물 수
@@ -94,5 +100,8 @@ public class ShopService {
 		}
 		ShopItemPageDataVO pd = new ShopItemPageDataVO(list,pageNavi);
 		return pd;
+	}
+	public ShopItemVO shopItemInfo(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemInfo(shopItemIdx);
 	}
 }

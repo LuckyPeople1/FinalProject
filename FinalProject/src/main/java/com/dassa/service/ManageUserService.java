@@ -16,8 +16,8 @@ public class ManageUserService {
 	@Resource(name="manageUserMapper")
 	private ManageUserMapper manageUserMapper;
 	
-	public List<UserVO> getUserList() throws Exception {
-		return manageUserMapper.getUserList();
+	public List<UserVO> getUserList(String userType) throws Exception {
+		return manageUserMapper.getUserList(userType);
 	}
 	
 	public List<UserOutVO> getUserSecssionList() throws Exception {
@@ -26,6 +26,10 @@ public class ManageUserService {
 	
 	public int deleteUser(int userIdx) throws Exception {
 		return manageUserMapper.deleteUser(userIdx);
+	}
+
+	public List<UserVO> getUserListAll() {
+		return manageUserMapper.getUserListAll();
 	}
 
 	

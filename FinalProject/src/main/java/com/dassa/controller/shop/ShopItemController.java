@@ -24,6 +24,7 @@ import org.w3c.dom.NodeList;
 
 import com.dassa.common.FileCommon;
 import com.dassa.service.ShopService;
+import com.dassa.vo.NoticeVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemVO;
@@ -76,8 +77,21 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/itemInfo")
-	public String ShopItemInfo() {
-		return "shop/item/shopItemInfo";
+	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
+		ShopItemVO item;
+		ModelAndView mav = null;
+		try {
+			item = shopService.shopItemInfo(shopItemIdx);
+			mav = new ModelAndView();
+			if(item!=null) {
+				mav.addObject("item",item);
+				mav.setViewName("shop/item/shopItemInfo");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
 	}
 	/**
 	 * 부동산 매물 등록 로직(ItemAdd)

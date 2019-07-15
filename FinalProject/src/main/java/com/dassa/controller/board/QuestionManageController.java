@@ -1,14 +1,43 @@
 package com.dassa.controller.board;
 
+import java.util.ArrayList;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.dassa.service.QuestionService;
+import com.dassa.vo.QuestionPageData;
+import com.dassa.vo.QuestionVO;
+
 @Controller
 @RequestMapping("/manage/board/question")
 public class QuestionManageController {
+	
+	@Resource(name="questionService")
+	private QuestionService questionService;
+	
 	//1:1문의관리
 	@RequestMapping("/questionManageList")
-	public String questionManageList() {
-		return "manage/board/question/questionManageList";
+	public ModelAndView questionManageList(@RequestParam int reqPage) {
+		ModelAndView ma = new ModelAndView();
+		try {
+			QuestionPageData list = questionService.selectAllList(reqPage);
+			if(!list.isEmpty()) {
+				ArrayList<QuestionVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("manage/board/question/questionManageList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
 	}
 	//1:1문의관리뷰
 	@RequestMapping("/questionManageView")

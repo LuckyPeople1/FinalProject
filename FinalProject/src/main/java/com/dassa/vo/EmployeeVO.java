@@ -3,12 +3,12 @@ package com.dassa.vo;
 import java.sql.Date;
 
 public class EmployeeVO {
-	private int employeeIdx;
-	private String employeeName;
-	private String employeeRank;
-	private String employeePhone;
-	private String adress;
-	private int registrationNumber;
+	private int employeeIdx; //직원 인덱스번호
+	private String employeeName; //직원 이름
+	private String employeeRank; //직원 직급
+	private String employeePhone; //직원 전화번호
+	private String adress; //직원 주소
+	private String registrationNumber;
 	private String imageName;
 	private String imagePath;
 	private String email;
@@ -19,7 +19,7 @@ public class EmployeeVO {
 		// TODO Auto-generated constructor stub
 	}
 	public EmployeeVO(int employeeIdx, String employeeName, String employeeRank, String employeePhone, String adress,
-			int registrationNumber, String imageName, String imagePath, String email, Date enrollDate, int sellCount) {
+			String registrationNumber, String imageName, String imagePath, String email, Date enrollDate, int sellCount) {
 		super();
 		this.employeeIdx = employeeIdx;
 		this.employeeName = employeeName;
@@ -63,10 +63,10 @@ public class EmployeeVO {
 	public void setAdress(String adress) {
 		this.adress = adress;
 	}
-	public int getRegistrationNumber() {
+	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
-	public void setRegistrationNumber(int registrationNumber) {
+	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
 	public String getImageName() {

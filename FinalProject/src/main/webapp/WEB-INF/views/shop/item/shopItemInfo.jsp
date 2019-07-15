@@ -10,11 +10,11 @@
 		<%@include file="/WEB-INF/views/shop/page/nav_room.jsp"%>
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
-	<form action="/shop/shopItemAdd" method="post" enctype="multipart/form-data" onsubmit="shopItemAdd()">
+	<form action="/shop/shopItemModify" method="post" enctype="multipart/form-data" onsubmit="shopItemModify()">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
-				<div class="page_title">매물 등록</div>
+				<div class="page_title">매물 수정</div>
 				<div class="page_sub_title"></div>
 			</div>
 			<div class="section">
@@ -29,24 +29,24 @@
 							<tr>
 								<th>종류 선택</th>
 								<td class="fNOtpc">
-									<label class="bVNPCb fSFsCh"> 
-									<input type="radio" name="shopItemType1" checked="" class="room" id="oneRoom" value="원룸">
+									<label class="bVNPCb fSFsCh">
+									<input type="radio" name="shopItemType1" class="room" id="oneRoom" value="원룸"	 <c:if test="${item.shopItemType1 eq '원룸'}">checked="checked"</c:if>>
 										<p>원룸</p>
 									</label>
 									<label class="bVNPCb fSFsCh">
-										<input type="radio" name="shopItemType1" class="room" value="투룸">
+										<input type="radio" name="shopItemType1" class="room" value="투룸" <c:if test="${item.shopItemType1 eq '투룸'}">checked="checked"</c:if>>
 										<p>투룸</p>
 									</label>
 									<label class="bVNPCb fSFsCh">
-									<input type="radio" name="shopItemType1" class="room" value="쓰리룸">
+									<input type="radio" name="shopItemType1" class="room" value="쓰리룸" <c:if test="${item.shopItemType1 eq '쓰리룸'}">checked="checked"</c:if>>
 										<p>쓰리룸</p>
 									</label>
 									<label class="bVNPCb fSFsCh">
-										<input type="radio" name="shopItemType1" id="officetels" value="오피스텔">
+										<input type="radio" name="shopItemType1" id="officetels" value="오피스텔" <c:if test="${item.shopItemType1 eq '오피스텔'}">checked="checked"</c:if>>
 										<p>오피스텔(도시형)</p>
 									</label>
 									<label class="bVNPCb fSFsCh">
-										<input type="radio" name="shopItemType1" id="kapt" value="아파트">
+										<input type="radio" name="shopItemType1" id="kapt" value="아파트" <c:if test="${item.shopItemType1 eq '아파트'}">checked="checked"</c:if>>
 										<p>아파트</p>
 									</label>
 								</td>
@@ -56,28 +56,28 @@
 								<td class="fNOtpc">
 									<div class="building_type1">
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemType2" value="단독주택" >
+											<input type="radio" name="shopItemType2" value="단독주택" <c:if test="${item.shopItemType2 eq '단독주택'}">checked="checked"</c:if>>
 											<p>단독주택</p>
 										</label> <label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemType2" value="다가구주택">
+											<input type="radio" name="shopItemType2" value="다가구주택"<c:if test="${item.shopItemType2 eq '다가구주택'}">checked="checked"</c:if>>
 											<p>다가구주택</p>
 										</label> 
 										<label class="bVNPCb fSFsCh">
-											<input type="radio" name="shopItemType2" value="빌라/연립/다세대">
+											<input type="radio" name="shopItemType2" value="빌라/연립/다세대"<c:if test="${item.shopItemType2 eq '빌라/연립/다세대'}">checked="checked"</c:if>>
 											<p>빌라/연립/다세대</p>
 										</label> 
 										<label class="bVNPCb fSFsCh">
-											<input type="radio" name="shopItemType2" value="상가주택">
+											<input type="radio" name="shopItemType2" value="상가주택"<c:if test="${item.shopItemType2 eq '상가주택'}">checked="checked"</c:if>>
 											<p>상가주택</p>
 										</label>
 									</div>
 									<div class="building_type2">
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemType2"  value="오피스텔">
+											<input type="radio" name="shopItemType2"  value="오피스텔"<c:if test="${item.shopItemType1 eq '오피스텔'}">checked="checked"</c:if>>
 											<p>오피스텔</p>
 										</label> 
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemType2" value="도시형">
+											<input type="radio" name="shopItemType2" value="도시형"<c:if test="${item.shopItemType1 eq '도시형'}">checked="checked"</c:if>>
 											<p>도시형</p>
 										</label>
 									</div>
@@ -135,10 +135,10 @@
 										<div class="cuOBSd" id="jusoList"></div>
 										<div class="jjeyfJ">
 											<div class="gryuVg cmjtGP">
-												<input autocomplete="off" class="mtaUF kTQnUD" name="shopItemAddr3" placeholder="예)101동" value="">
+												<input autocomplete="off" class="mtaUF kTQnUD" name="shopItemAddr3" placeholder="예)101동" value="${shopItemAddr3}">
 											</div>
 											<div class="igeEIT cmjtGP">
-												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">
+												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="${shopItemAddr3}">
 											</div>
 										</div>
 										<div class="ifWEqm">
@@ -289,9 +289,9 @@
 								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">공급 면적</p> 
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" value="" id="size11">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSize1}" id="size11">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="" id="size22" step="0.01">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="${item.shopItemSize2}" id="size22" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<th rowspan="2">건물 층수</th>
@@ -308,9 +308,9 @@
 							<tr>
 								<td class="ggZjqG">
 									<p class="hNdXGi">전용 면적</p> 
-									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" value="" id="size33">
+									<input type="text"  autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSizeAll1}" id="size33">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="" id="size44" step="0.01">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="${item.shopItemSizeAll2}" id="size44" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
@@ -330,6 +330,7 @@
 								<td class="ggZjqG">
 									<select class="iDUqOA hRFrgm" name="shopItemHeating">
 										<option value="">난방 종류 선택</option>
+										
 										<option value="중앙 난방">중앙 난방</option>
 										<option value="개별 난방">개별 난방</option>
 										<option value="지역 난방">지역 난방</option>
@@ -341,11 +342,11 @@
 								<td class="fNOtpc">
 									<div>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="즉시 입주">
+											<input type="radio" name="shopItemMovingDate" value="즉시 입주" <c:if test="${item.shopItemMovingDate eq '즉시 입주'}">checked="checked"</c:if>>
 											<p>즉시 입주</p>
 										</label>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="날짜 협의">
+											<input type="radio" name="shopItemMovingDate" value="날짜 협의" <c:if test="${item.shopItemMovingDate eq '날짜 협의'}">checked="checked"</c:if>>
 											<p>날짜 협의</p>
 										</label>
 									</div>
@@ -369,9 +370,9 @@
 								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">공급 면적</p> 
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" value="" id="size1">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSize1}" id="size1">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="" id="size2" step="0.01">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="${item.shopItemSize2}" id="size2" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<th rowspan="2">건물 층수</th>
@@ -388,9 +389,9 @@
 							<tr>
 								<td class="ggZjqG">
 									<p class="hNdXGi">전용 면적</p> 
-									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" value="" id="size3">
+									<input type="text"  autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSizeAll1}" id="size3">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="" id="size4" step="0.01">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="${item.shopItemSizeAll2}" id="size4" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
@@ -406,21 +407,21 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<input type="text" value="-" readonly="readonly" name="shopItemHeating" style="border: none;">
+									<input type="text" value="${item.shopItemHeating }" readonly="readonly" name="shopItemHeating" style="border: none;">
 								</td>
 								<th>시공사</th>
 								<td class="ggZjqG">
-									<input type="text" value="-" readonly="readonly" name="shopItemBulidCompany" style="border: none;">
+									<input type="text" value="${item.shopItemBulidCompany }" readonly="readonly" name="shopItemBulidCompany" style="border: none;">
 								</td>
 							</tr>
 							<tr>
 								<th>복도유형</th>
 								<td class="ggZjqG">
-									<input type="text" value="-" readonly="readonly" name="shopItemBulidHallwayType" style="border: none;">
+									<input type="text" value="${item.shopItemBulidHallway}" readonly="readonly" name="shopItemBulidHallway" style="border: none;">
 								</td>
 								<th>준공년도</th>
 								<td class="ggZjqG">
-									<input type="text" value="-" readonly="readonly" name="shopItemBulidDate" style="border: none;">
+									<input type="text" value="${item.shopItemBulidDate }" readonly="readonly" name="shopItemBulidDate" style="border: none;">
 								</td>
 							</tr>
 							<tr>
@@ -428,11 +429,11 @@
 								<td class="fNOtpc">
 									<div>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="즉시 입주">
+											<input type="radio" name="shopItemMovingDate" value="즉시 입주" <c:if test="${item.shopItemMovingDate eq '즉시 입주'}">checked="checked"</c:if>>
 											<p>즉시 입주</p>
 										</label>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="날짜 협의">
+											<input type="radio" name="shopItemMovingDate" value="날짜 협의" <c:if test="${item.shopItemMovingDate eq '날짜 협의'}">checked="checked"</c:if>>
 											<p>날짜 협의</p>
 										</label>
 									</div>
@@ -457,14 +458,14 @@
 								<th rowspan="2">관리비</th>
 								<td class="cCUCai" colspan="3">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="maintenance" value="없음" checked>
+										<input type="radio" name="shopItemManage" value="없음" <c:if test="${item.shopItemManage eq '없음'}">checked="checked"</c:if>>
 										<p>없음</p>
 									</label>
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="maintenance" value="있음">
+										<input type="radio" name="shopItemManage" value="있음" <c:if test="${item.shopItemManage eq '있음'}">checked="checked"</c:if>>
 										<p>있음</p>
 									</label>
-										<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemManagePrice" disabled="" value="" id="managePrice">
+										<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemManagePrice" disabled="" value="${item.shopItemManagePrice }" id="managePrice">
 									<p class="iOAqhO">만원</p>
 								</td>
 							</tr>
@@ -475,31 +476,31 @@
 										<p>(다중선택가능)</p>
 									</div> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="인터넷">
+										<input type="checkbox" name="shopItemManagePriceOption" value="인터넷" <c:if test="${item.shopItemManagePriceOption[0] eq '인터넷'}">checked="checked"</c:if>>
 										<p>인터넷</p>
 									</label>
 									<label class="hrokF cdcjQK">
-										<input type="checkbox" name="shopItemManagePriceOption" value="유선TV">
+										<input type="checkbox" name="shopItemManagePriceOption" value="유선TV"<c:if test="${item.shopItemManagePriceOption[1] eq '유선TV'}">checked="checked"</c:if>>
 										<p>유선TV</p>
 									</label>
 									<label class="hrokF cdcjQK">
-										<input type="checkbox" name="shopItemManagePriceOption" value="청소비">
+										<input type="checkbox" name="shopItemManagePriceOption" value="청소비"<c:if test="${item.shopItemManagePriceOption[2] eq '청소비'}">checked="checked"</c:if>>
 										<p>청소비</p>
 									</label>
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="수도세">
+										<input type="checkbox" name="shopItemManagePriceOption" value="수도세"<c:if test="${item.shopItemManagePriceOption[3] eq '수도세'}">checked="checked"</c:if>>
 										<p>수도세</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="도시가스">
+										<input type="checkbox" name="shopItemManagePriceOption" value="도시가스"<c:if test="${item.shopItemManagePriceOption[4] eq '도시가스'}">checked="checked"</c:if>>
 										<p>도시가스</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="전기세">
+										<input type="checkbox" name="shopItemManagePriceOption" value="전기세"<c:if test="${item.shopItemManagePriceOption[5] eq '전기세'}">checked="checked"</c:if>>
 										<p>전기세</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="기타">
+										<input type="checkbox" name="shopItemManagePriceOption" value="기타"<c:if test="${item.shopItemManagePriceOption[6] eq '기타'}">checked="checked"</c:if>>
 										<p>기타</p>
 									</label>
 								</td>
@@ -508,24 +509,24 @@
 								<th>주차여부</th>
 								<td class="cCUCai">
 									<label class="gBFyOc fSFsCh"> 
-										<input type="radio" name="shopItemParking" checked="" value="불가능">
+										<input type="radio" name="shopItemParking" value="불가능" <c:if test="${item.shopItemParking eq '불가능'}">checked="checked"</c:if>>
 										<p>불가능</p>
 									</label>
 									<label class="gBFyOc fSFsCh"> 
-										<input type="radio" name="shopItemParking" value="가능">
+										<input type="radio" name="shopItemParking" value="가능"<c:if test="${item.shopItemParking eq '가능'}">checked="checked"</c:if>>
 											<p>가능</p>
 									</label> 
-									<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemParkingPrice" disabled="" value="" id="parkingPrice">
+									<input type="number" autocomplete="off" class="esuiyZ kTQnUD" type="text" name="shopItemParkingPrice" disabled="" value="${item.shopItemParkingPrice}" id="parkingPrice">
 									<p class="iOAqhO">만원</p>
 								</td>
 								<th>반려동물</th>
 								<td class="cCUCai">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemAnimal" checked="" value="불가능">
+										<input type="radio" name="shopItemAnimal" value="불가능" <c:if test="${item.shopItemAnimal eq '불가능'}">checked="checked"</c:if>>
 										<p>불가능</p>
 									</label> 
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemAnimal" value="가능">
+										<input type="radio" name="shopItemAnimal" value="가능"<c:if test="${item.shopItemAnimal eq '가능'}">checked="checked"</c:if>>
 										<p>가능</p>
 									</label>
 								</td>
@@ -534,22 +535,22 @@
 								<th>엘리베이터</th>
 								<td class="cCUCai">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemElevator" checked="" value="없음">
+										<input type="radio" name="shopItemElevator" value="없음"<c:if test="${item.shopItemElevator eq '없음'}">checked="checked"</c:if>>
 										<p>없음</p>
 									</label>
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemElevator" value="있음">
+										<input type="radio" name="shopItemElevator" value="있음"<c:if test="${item.shopItemElevator eq '있음'}">checked="checked"</c:if>>
 										<p>있음</p>
 									</label>
 								</td>
 								<th>베란다/발코니</th>
 								<td class="cCUCai">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemBalcony" checked="" value="없음">
+										<input type="radio" name="shopItemBalcony" value="없음"<c:if test="${item.shopItemBalcony eq '없음'}">checked="checked"</c:if>>
 										<p>없음</p>
 									</label>
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemBalcony" value="있음">
+										<input type="radio" name="shopItemBalcony" value="있음"<c:if test="${item.shopItemBalcony eq '있음'}">checked="checked"</c:if>>
 										<p>있음</p>
 									</label>
 								</td>
@@ -574,22 +575,22 @@
 								</th>
 								<td class="cCUCai" colspan="1">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemBuiltIn" checked="" value="없음">
+										<input type="radio" name="shopItemBuiltIn" value="없음" <c:if test="${item.shopItemBuiltIn eq '없음'}">checked="checked"</c:if>>
 										<p>없음</p>
 									</label>
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemBuiltIn" value="있음">
+										<input type="radio" name="shopItemBuiltIn" value="있음"<c:if test="${item.shopItemBuiltIn eq '있음'}">checked="checked"</c:if>>
 										<p>있음</p>
 									</label>
 								</td>
 								<th id="structure1">구조</th>
 								<td class="cCUCai" id="structure2">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemStructure" value="복층">
+										<input type="radio" name="shopItemStructure" value="복층"<c:if test="${item.shopItemStructure eq '복층'}">checked="checked"</c:if>>
 										<p>복층</p>
 									</label> 
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemStructure" value="1.5룸/주방분리형">
+										<input type="radio" name="shopItemStructure" value="1.5룸/주방분리형"<c:if test="${item.shopItemStructure eq '1.5룸/주방분리형'}">checked="checked"</c:if>>
 										<p>1.5룸/주방분리형</p>
 									</label>
 								</td>
@@ -686,7 +687,7 @@
 							<tr>
 								<th>제목</th>
 								<td class="iXeisV">
-									<input autocomplete="off" class="cNKZeV kTQnUD" type="text" name="shopItemTitle" placeholder="예)신논현역 도보 5분거리, 혼자 살기 좋은 방 입니다." value="" >
+									<input autocomplete="off" class="cNKZeV kTQnUD" type="text" name="shopItemTitle" placeholder="예)신논현역 도보 5분거리, 혼자 살기 좋은 방 입니다." value="${item.shopItemTitle }" >
 								</td>
 							</tr>
 							<tr>
@@ -697,13 +698,13 @@
 -방 정보와 관련없는 홍보성 정보는 입력하실 수 없습니다. (홈페이지 주소, 블로그, SNS, 메신저ID, 전화번호, 이메일 등)
 - 중개수수료를 언급한 내용은 입력할 수 없습니다. (중개수수료 무료, 꽁짜, 반값 등)
 
-*주의사항 위반시 허위매물로 간주되어 매물 삭제 및 이용의 제한이 있을 수 있습니다."></textarea>
+*주의사항 위반시 허위매물로 간주되어 매물 삭제 및 이용의 제한이 있을 수 있습니다.">${item.shopItemContent }</textarea>
 								</td>
 							</tr>
 							<tr>
 								<th>비공개 메모</th>
 								<td class="iXeisV">
-									<textarea class="fAiWMO hunnDM"	name="shopItemSecretMemo"  placeholder="외부에 공개되지 않으며, 등록자에게만 보이는 메모입니다."></textarea>
+									<textarea class="fAiWMO hunnDM"	name="shopItemSecretMemo"  placeholder="외부에 공개되지 않으며, 등록자에게만 보이는 메모입니다.">${item.shopItemSecretMemo }</textarea>
 								</td>
 							</tr>
 						</tbody>
@@ -744,7 +745,7 @@
 					<span class="eUWDCR">매물관리규정을 확인하였으며, 입력한 정보는 실제 매물과 다름이 없습니다.</span>
 				</label>
 				<button class="kcMULl" type="reset">취소</button>
-				<button class="iEZQG" type="submit" id="shopItemAdd">매물등록</button>
+				<button class="iEZQG" type="submit" id="shopItemModify">매물수정</button>
 			</div>
 			<div class="list_form"></div>
 
@@ -1136,8 +1137,8 @@
 			$("#size33").val(size4.toFixed(0));
 		});
 		//관리비 있음 선택 시
-		$("input:radio[name=maintenance]").click(function(){
-			if($("input[name=maintenance]:checked").val()=="있음"){
+		$("input:radio[name=shopItemManage]").click(function(){
+			if($("input[name=shopItemManage]:checked").val()=="있음"){
 				$("#managePrice").prop("disabled",false);
 				$("input[name=shopItemManagePriceOption]").prop("disabled",false);
 			}else{
@@ -1173,7 +1174,7 @@
 				 $("input[name=shopItemType2]").focus();
 				 return false;
 			}
-			if($("input[name=maintenance]:checked").val()=="있음"){
+			if($("input[name=shopItemManage]:checked").val()=="있음"){
 				if($("input[name=shopItemManagePrice").val()==""){
 					alert("관리비를 입력해주세요");
 					$("input[name=shopItemManagePrice").focus();

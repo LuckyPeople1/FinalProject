@@ -20,8 +20,10 @@ public class ShopItemVO {
 	private String shopItemLongitude;											//매물경도좌표
 	private String shopItemDealType;												//매물거래유형(전세,월세,매매)
 	private String shopItemDealPrice;												//매물거래가격
-	private String shopItemSize;													//매물공급면적
-	private String shopItemSizeAll;												//매물전용면적
+	private String shopItemSize1;													//매물공급면적(평)
+	private String shopItemSizeAll1;												//매물공급면적(평)
+	private String shopItemSize2;													//매물공급면적(m2)
+	private String shopItemSizeAll2;												//매물전용면적(m2)
 	private String shopItemFloor;													//매물해당층수
 	private String shopItemFloorAll;												//매물전체층수
 	private String shopItemHeating;												//매물난방형식
@@ -29,9 +31,11 @@ public class ShopItemVO {
 	private String shopItemBulidHallway;										//매물복도유형
 	private String shopItemBulidDate;											//매물시공일
 	private String shopItemMovingDate;											//입주가능일
+	private String shopItemManage;												//관리비 유무
 	private String shopItemManagePrice;										//관리비
 	private String shopItemManagePriceOption;								//관리비항목
-	private String shopParkingPrice;												//주차비
+	private String shopItemParking;														//주차유무
+	private String shopItemParkingPrice;												//주차비
 	private String shopItemAnimal;												//반려동물
 	private String shopItemElevator;												//엘리베이터
 	private String shopItemBalcony;												//발코니
@@ -51,13 +55,14 @@ public class ShopItemVO {
 			String shopItemSecretMemo, String shopItemManager, int shopItemImgIdx, String shopItemPremiumState,
 			String shopItemType1, String shopItemType2, String shopItemAddr1, String shopItemAddr2,
 			String shopItemAddr3, String shopItemLatitude, String shopItemLongitude, String shopItemDealType,
-			String shopItemDealPrice, String shopItemSize, String shopItemSizeAll, String shopItemFloor,
-			String shopItemFloorAll, String shopItemHeating, String shopItemBulidCompany, String shopItemBulidHallway,
-			String shopItemBulidDate, String shopItemMovingDate, String shopItemManagePrice,
-			String shopItemManagePriceOption, String shopParkingPrice, String shopItemAnimal, String shopItemElevator,
-			String shopItemBalcony, String shopItemBuiltIn, String shopItemStructure, String shopItemOption,
-			String shopItemLoan, Date shopItemRegDate, Date shopItemDelDate, String shopItemOkState,
-			String shopItemSaleState) {
+			String shopItemDealPrice, String shopItemSize1, String shopItemSizeAll1, String shopItemSize2,
+			String shopItemSizeAll2, String shopItemFloor, String shopItemFloorAll, String shopItemHeating,
+			String shopItemBulidCompany, String shopItemBulidHallway, String shopItemBulidDate,
+			String shopItemMovingDate, String shopItemManage, String shopItemManagePrice,
+			String shopItemManagePriceOption, String shopItemParking, String shopItemParkingPrice,
+			String shopItemAnimal, String shopItemElevator, String shopItemBalcony, String shopItemBuiltIn,
+			String shopItemStructure, String shopItemOption, String shopItemLoan, Date shopItemRegDate,
+			Date shopItemDelDate, String shopItemOkState, String shopItemSaleState) {
 		super();
 		this.shopItemIdx = shopItemIdx;
 		this.userIdx = userIdx;
@@ -76,8 +81,10 @@ public class ShopItemVO {
 		this.shopItemLongitude = shopItemLongitude;
 		this.shopItemDealType = shopItemDealType;
 		this.shopItemDealPrice = shopItemDealPrice;
-		this.shopItemSize = shopItemSize;
-		this.shopItemSizeAll = shopItemSizeAll;
+		this.shopItemSize1 = shopItemSize1;
+		this.shopItemSizeAll1 = shopItemSizeAll1;
+		this.shopItemSize2 = shopItemSize2;
+		this.shopItemSizeAll2 = shopItemSizeAll2;
 		this.shopItemFloor = shopItemFloor;
 		this.shopItemFloorAll = shopItemFloorAll;
 		this.shopItemHeating = shopItemHeating;
@@ -85,9 +92,11 @@ public class ShopItemVO {
 		this.shopItemBulidHallway = shopItemBulidHallway;
 		this.shopItemBulidDate = shopItemBulidDate;
 		this.shopItemMovingDate = shopItemMovingDate;
+		this.shopItemManage = shopItemManage;
 		this.shopItemManagePrice = shopItemManagePrice;
 		this.shopItemManagePriceOption = shopItemManagePriceOption;
-		this.shopParkingPrice = shopParkingPrice;
+		this.shopItemParking = shopItemParking;
+		this.shopItemParkingPrice = shopItemParkingPrice;
 		this.shopItemAnimal = shopItemAnimal;
 		this.shopItemElevator = shopItemElevator;
 		this.shopItemBalcony = shopItemBalcony;
@@ -202,17 +211,29 @@ public class ShopItemVO {
 	public void setShopItemDealPrice(String shopItemDealPrice) {
 		this.shopItemDealPrice = shopItemDealPrice;
 	}
-	public String getShopItemSize() {
-		return shopItemSize;
+	public String getShopItemSize1() {
+		return shopItemSize1;
 	}
-	public void setShopItemSize(String shopItemSize) {
-		this.shopItemSize = shopItemSize;
+	public void setShopItemSize1(String shopItemSize1) {
+		this.shopItemSize1 = shopItemSize1;
 	}
-	public String getShopItemSizeAll() {
-		return shopItemSizeAll;
+	public String getShopItemSizeAll1() {
+		return shopItemSizeAll1;
 	}
-	public void setShopItemSizeAll(String shopItemSizeAll) {
-		this.shopItemSizeAll = shopItemSizeAll;
+	public void setShopItemSizeAll1(String shopItemSizeAll1) {
+		this.shopItemSizeAll1 = shopItemSizeAll1;
+	}
+	public String getShopItemSize2() {
+		return shopItemSize2;
+	}
+	public void setShopItemSize2(String shopItemSize2) {
+		this.shopItemSize2 = shopItemSize2;
+	}
+	public String getShopItemSizeAll2() {
+		return shopItemSizeAll2;
+	}
+	public void setShopItemSizeAll2(String shopItemSizeAll2) {
+		this.shopItemSizeAll2 = shopItemSizeAll2;
 	}
 	public String getShopItemFloor() {
 		return shopItemFloor;
@@ -256,6 +277,12 @@ public class ShopItemVO {
 	public void setShopItemMovingDate(String shopItemMovingDate) {
 		this.shopItemMovingDate = shopItemMovingDate;
 	}
+	public String getShopItemManage() {
+		return shopItemManage;
+	}
+	public void setShopItemManage(String shopItemManage) {
+		this.shopItemManage = shopItemManage;
+	}
 	public String getShopItemManagePrice() {
 		return shopItemManagePrice;
 	}
@@ -268,11 +295,17 @@ public class ShopItemVO {
 	public void setShopItemManagePriceOption(String shopItemManagePriceOption) {
 		this.shopItemManagePriceOption = shopItemManagePriceOption;
 	}
-	public String getShopParkingPrice() {
-		return shopParkingPrice;
+	public String getShopItemParking() {
+		return shopItemParking;
 	}
-	public void setShopParkingPrice(String shopParkingPrice) {
-		this.shopParkingPrice = shopParkingPrice;
+	public void setShopItemParking(String shopItemParking) {
+		this.shopItemParking = shopItemParking;
+	}
+	public String getShopItemParkingPrice() {
+		return shopItemParkingPrice;
+	}
+	public void setShopItemParkingPrice(String shopItemParkingPrice) {
+		this.shopItemParkingPrice = shopItemParkingPrice;
 	}
 	public String getShopItemAnimal() {
 		return shopItemAnimal;

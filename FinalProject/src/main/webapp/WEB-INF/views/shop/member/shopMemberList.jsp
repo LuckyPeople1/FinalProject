@@ -41,6 +41,20 @@
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list}" var="v">
+						<tr>
+							<td>${v.getEmployeeIdx }</td>
+							<td>${v.getEmployeeRank }</td>
+							<td>${v.getEmployeeName}</td>
+							<td>${v.getSellCount }</td>
+							<td>${v.getEmployeePhone }</td>
+							<td>${v.getEnrollDate }</td>
+							<td>
+								<a href="/shop/memberInfo" class="btn col_navy f_w">상세보기</a>
+								<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+							</td>
+						</tr>
+					</c:forEach>
 					<tr>
 						<td>1</td>
 						<td>대표중개인</td>

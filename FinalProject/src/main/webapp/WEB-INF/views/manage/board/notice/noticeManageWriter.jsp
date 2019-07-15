@@ -57,9 +57,9 @@
 								<div class="img_up_list">
 									<div class="img_box">
 										<input type="file" class="hide" accept="image/*" name="noticefilename" id="fileImg"
-											   onchange="package.imgSel(this, event)" value="${noticeVO.noticeFilename }">
+											   onchange="package.imgSel(this, event)">
 										<a href="#none" class="upload_btn" onclick="package.imgUpload(this)"></a>
-										<input type="hidden" name="noticefilepath" value="${noticeVO.noticeFilename }">
+										<input type="hidden" name="noticefilepath" >
 									</div>
 								</div>
 							</td>
