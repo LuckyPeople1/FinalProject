@@ -191,7 +191,7 @@ html, body {
 		<button onclick="hideMarkers()">마커 감추기</button>
 		<button onclick="showMarkers()">마커 보이기</button>
 	</p>
-	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+	
 
 </body>
 <script type="text/javascript"
