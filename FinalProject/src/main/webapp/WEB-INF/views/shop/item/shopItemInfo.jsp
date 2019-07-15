@@ -135,10 +135,10 @@
 										<div class="cuOBSd" id="jusoList"></div>
 										<div class="jjeyfJ">
 											<div class="gryuVg cmjtGP">
-												<input autocomplete="off" class="mtaUF kTQnUD" name="shopItemAddrDong2" placeholder="예)101동" value="${item.shopItemAddrDong2}">
+												<input autocomplete="off" class="mtaUF kTQnUD" name="shopItemAddr3" placeholder="예)101동" value="${shopItemAddr3}">
 											</div>
 											<div class="igeEIT cmjtGP">
-												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddrHo2" placeholder="예)201호" value="${item.shopItemAddrHo2}">
+												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="${shopItemAddr3}">
 											</div>
 										</div>
 										<div class="ifWEqm">
@@ -202,13 +202,13 @@
 											<input autocomplete="off" class="fbxLHj kTQnUD" name="keyword" placeholder="예)번동 10-1, 강북구 번동" value="">
 											<button type="button" class="kTyFCo" onclick="jusoSearch()">주소검색</button>
 										</form>
-										<div class="fUXvpI" id="addr">${item.shopItemAddr1 }<br>${item.shopItemAddr2 }</div>
+										<div class="fUXvpI" id="addr"></div>
 										<div class="kXKUhT">
 											<div class="jlsyRm gnEBbX">
-												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddrDong1"	placeholder="예)101동" value="${item.shopItemAddrDong1 }">
+												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddr3"	placeholder="예)101동" value="">
 											</div>
 											<div class="xUWNs gnEBbX">
-												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddrHo1" placeholder="예)201호" value="${item.shopItemAddrHo1 }">
+												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">
 											</div>
 										</div>
 										<div class="gZWbGn">
@@ -258,9 +258,9 @@
 								<th rowspan="2">거래 종류</th>
 								<td class="iFmBhb">
 									<div id="dealTypeTd" style="margin-bottom:10px;"></div>
-									<button class="gvJkZp" id="monthly" type="button">월세</button>
-									<button class="gvJkZp" id="charter" type="button">전세</button>
-									<button class="gvJkZp" id="trading" type="button">매매</button>
+									<button class="gvJkZp" id="monthly">월세</button>
+									<button class="gvJkZp" id="charter">전세</button>
+									<button class="gvJkZp" id="trading">매매</button>
 									<p class="ZbkTp">
 										<svg width="18" height="18" viewBox="0 0 18 18">
 											<g fill="none" fill-rule="evenodd">
@@ -297,8 +297,10 @@
 								<th rowspan="2">건물 층수</th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">건물 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloorAll1">
-										<option value="${item.shopItemFloorAll1}"selected="selected">${item.shopItemFloorAll1}층</option>
+									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
+										<option value="">건물 층수 선택</option>
+										
+										<option val=${item.shopItemFloorAll } selected="selected">${item.shopItemFloorAll }</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
@@ -315,12 +317,12 @@
 								</td>
 								<td class="ggZjqG">
 									<p class="hNdXGi">해당 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloor1">
-										<option value="${item.shopItemFloor1}"selected="selected">${item.shopItemFloor1}층</option>
-										<option value="-1"<c:if test="${item.shopItemFloor1 eq '-1'}">selected="selected"</c:if>>반지층</option>
-										<option value="0"<c:if test="${item.shopItemFloor1 eq '0'}">selected="selected"</c:if>>옥탑</option>
+									<select class="freEbZ hRFrgm" name="shopItemFloor">
+										<option value="">해당 층수 선택</option>
+										<option value="-1">반지층</option>
+										<option value="0">옥탑</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
-											<option value="${i }">${i }층</option>
+											<option value=${i }>${i }층</option>
 										</c:forEach>
 									</select>
 								</td>
@@ -328,11 +330,12 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<select class="iDUqOA hRFrgm" name="shopItemHeating1">
-										<option value="">난방 종류 선택</option>	
-										<option value="중앙 난방"<c:if test="${item.shopItemHeating1 eq '중앙 난방'}">selected="selected"</c:if>>중앙 난방</option>
-										<option value="개별 난방"<c:if test="${item.shopItemHeating1 eq '개별 난방'}">selected="selected"</c:if>>개별 난방</option>
-										<option value="지역 난방"<c:if test="${item.shopItemHeating1 eq '지역 난방'}">selected="selected"</c:if>>지역 난방</option>
+									<select class="iDUqOA hRFrgm" name="shopItemHeating">
+										<option value="">난방 종류 선택</option>
+										
+										<option value="중앙 난방">중앙 난방</option>
+										<option value="개별 난방">개별 난방</option>
+										<option value="지역 난방">지역 난방</option>
 									</select>
 								</td>
 							</tr>
@@ -341,11 +344,11 @@
 								<td class="fNOtpc">
 									<div>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate1" value="즉시 입주" <c:if test="${item.shopItemMovingDate1 eq '즉시 입주'}">checked="checked"</c:if>>
+											<input type="radio" name="shopItemMovingDate" value="즉시 입주" <c:if test="${item.shopItemMovingDate eq '즉시 입주'}">checked="checked"</c:if>>
 											<p>즉시 입주</p>
 										</label>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate1" value="날짜 협의" <c:if test="${item.shopItemMovingDate1 eq '날짜 협의'}">checked="checked"</c:if>>
+											<input type="radio" name="shopItemMovingDate" value="날짜 협의" <c:if test="${item.shopItemMovingDate eq '날짜 협의'}">checked="checked"</c:if>>
 											<p>날짜 협의</p>
 										</label>
 									</div>
@@ -354,8 +357,6 @@
 						</tbody>
 					</table>
 				</div>
-				
-				
 				<%-- 아파트 오피스텔 기본정보 --%>
 				<div class="etFHhl" name="baseInfo" id="baseInfo2" style="display: none;">
 					<h1>기본 정보</h1>
@@ -371,16 +372,17 @@
 								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">공급 면적</p> 
-									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSize3}" id="size1">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSize1}" id="size1">
 									<p class="cmXpqK">평</p>
-									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="${item.shopItemSize4}" id="size2" step="0.01">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize" value="${item.shopItemSize2}" id="size2" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<th rowspan="2">건물 층수</th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">건물 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloorAll2">
-										<option value="${item.shopItemFloorAll2}"selected="selected">${item.shopItemFloorAll2}층</option>
+									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
+										<option value="">건물 층수 선택</option>
+										<option value=${item.shopItemFloorAll } selected="selected">${item.shopItemFloorAll }</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
@@ -390,15 +392,15 @@
 							<tr>
 								<td class="ggZjqG">
 									<p class="hNdXGi">전용 면적</p> 
-									<input type="text"  autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSizeAll3}" id="size3">
+									<input type="text"  autocomplete="off" class="gsCYXz kTQnUD" value="${item.shopItemSizeAll1}" id="size3">
 									<p class="cmXpqK">평</p>
-									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="${item.shopItemSizeAll4}" id="size4" step="0.01">
+									<input type="text" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll" value="${item.shopItemSizeAll2}" id="size4" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
 									<p class="hNdXGi">해당 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloor2">
-										<option value="${item.shopItemFloor2}"selected="selected">${item.shopItemFloor2}층</option>
+									<select class="freEbZ hRFrgm" name="shopItemFloor">
+										<option value="">해당 층수 선택</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
@@ -408,7 +410,7 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<input type="text" value="${item.shopItemHeating2 }" readonly="readonly" name="shopItemHeating2" style="border: none;">
+									<input type="text" value="${item.shopItemHeating }" readonly="readonly" name="shopItemHeating" style="border: none;">
 								</td>
 								<th>시공사</th>
 								<td class="ggZjqG">
@@ -430,11 +432,11 @@
 								<td class="fNOtpc">
 									<div>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate2" value="즉시 입주" <c:if test="${item.shopItemMovingDate2 eq '즉시 입주'}">checked="checked"</c:if>>
+											<input type="radio" name="shopItemMovingDate" value="즉시 입주" <c:if test="${item.shopItemMovingDate eq '즉시 입주'}">checked="checked"</c:if>>
 											<p>즉시 입주</p>
 										</label>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate2" value="날짜 협의" <c:if test="${item.shopItemMovingDate2 eq '날짜 협의'}">checked="checked"</c:if>>
+											<input type="radio" name="shopItemMovingDate" value="날짜 협의" <c:if test="${item.shopItemMovingDate eq '날짜 협의'}">checked="checked"</c:if>>
 											<p>날짜 협의</p>
 										</label>
 									</div>
@@ -477,52 +479,31 @@
 										<p>(다중선택가능)</p>
 									</div> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="인터넷" 
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-											<c:if test="${option eq '인터넷'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="인터넷" <c:if test="${item.shopItemManagePriceOption[0] eq '인터넷'}">checked="checked"</c:if>>
 										<p>인터넷</p>
 									</label>
 									<label class="hrokF cdcjQK">
-										<input type="checkbox" name="shopItemManagePriceOption" value="유선TV"
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-										<c:if test="${option eq '유선TV'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="유선TV"<c:if test="${item.shopItemManagePriceOption[1] eq '유선TV'}">checked="checked"</c:if>>
 										<p>유선TV</p>
 									</label>
 									<label class="hrokF cdcjQK">
-										<input type="checkbox" name="shopItemManagePriceOption" value="청소비"
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-										<c:if test="${option eq '청소비'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="청소비"<c:if test="${item.shopItemManagePriceOption[2] eq '청소비'}">checked="checked"</c:if>>
 										<p>청소비</p>
 									</label>
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="수도세"
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-										<c:if test="${option eq '수도세'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="수도세"<c:if test="${item.shopItemManagePriceOption[3] eq '수도세'}">checked="checked"</c:if>>
 										<p>수도세</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="도시가스"
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-										<c:if test="${option eq '도시가스'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="도시가스"<c:if test="${item.shopItemManagePriceOption[4] eq '도시가스'}">checked="checked"</c:if>>
 										<p>도시가스</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="전기세"
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-										<c:if test="${option eq '전기세'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="전기세"<c:if test="${item.shopItemManagePriceOption[5] eq '전기세'}">checked="checked"</c:if>>
 										<p>전기세</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemManagePriceOption" value="기타"
-										<c:forEach items="${simpo }" varStatus="i" var="option">
-										<c:if test="${option eq '기타'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemManagePriceOption" value="기타"<c:if test="${item.shopItemManagePriceOption[6] eq '기타'}">checked="checked"</c:if>>
 										<p>기타</p>
 									</label>
 								</td>
@@ -621,94 +602,55 @@
 								<th>옵션항목</th>
 								<td class="cCUCai" colspan="3">
 									<label class="hrokF cdcjQK">
-										<input type="checkbox" name="shopItemOption" value="에어컨"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '에어컨'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="에어컨">
 										<p>에어컨</p>
-									</label>
+									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="세탁기"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '세탁기'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="세탁기">
 										<p>세탁기</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="침대"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '침대'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="침대">
 										<p>침대</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="책상"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '책상'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="책상">
 										<p>책상</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="옷장"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '옷장'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="옷장">
 										<p>옷장</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="TV"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq 'TV'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="TV">
 										<p>TV</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="신발장"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '신발장'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="신발장">
 										<p>신발장</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="냉장고"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '냉장고'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="냉장고">
 										<p>냉장고</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="가스레인지"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '가스레인지'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="가스레인지">
 										<p>가스레인지</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="인덕션"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '인덕션'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="인덕션">
 										<p>인덕션</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="전자레인지"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '전자레인지'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="전자레인지">
 										<p>전자레인지</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="전자도어락"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '전자도어락'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="전자도어락">
 										<p>전자도어락</p>
 									</label> 
 									<label class="hrokF cdcjQK"> 
-										<input type="checkbox" name="shopItemOption" value="비데"
-										<c:forEach items="${sio }" varStatus="i" var="option">
-										<c:if test="${option eq '비데'}">checked="checked"</c:if>
-										</c:forEach>>
+										<input type="checkbox" name="shopItemOption" value="비데">
 										<p>비데</p>
 									</label>
 								</td>
@@ -717,11 +659,11 @@
 								<th>전세자금대출</th>
 								<td class="cCUCai" colspan="3">
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemLoan" value="불가능" <c:if test="${item.shopItemLoan eq '불가능'}">checked="checked"</c:if>>
+										<input type="radio" name="shopItemLoan" checked="" value="불가능">
 										<p>불가능</p>
 									</label>
 									<label class="gBFyOc fSFsCh">
-										<input type="radio" name="shopItemLoan" value="가능" <c:if test="${item.shopItemLoan eq '가능'}">checked="checked"</c:if>>
+										<input type="radio" name="shopItemLoan" value="가능">
 										<p>가능</p>
 									</label>
 								</td>
@@ -782,18 +724,10 @@
 						<p>- 최초로 등록 된 이미지는 대표이미지로 사용됩니다.</p>
 					</div>
 					<div class="heKOml">
-					<div class="imgList">
-						<c:forEach var="itemImg" items="${siiList}" begin="0" step="1" varStatus="i">
-							<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
-								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"><img src="${itemImg.shopImgPath }"></a>
-							</div>
-						</c:forEach>
-						<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
-								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
-							</div>
-					</div>
+						<div class="img_upload">
+							<input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)">
+							<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a>
+						</div>
 					</div>
 					<p class="bhZAGT">
 						<svg width="18" height="18" viewBox="0 0 18 18">
@@ -919,101 +853,8 @@
 	</form>
 	</section>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
-	<script src="/shop/js/item/item.js"></script>
 	<script src="/shop/js/shop_setting.js"></script>
 	<script>
-		$(document).ready(function(){
-			if('${item.shopItemDealType}'=='월세'){
-				$("#monthly").attr("disabled",true);
-				$("#charter").attr("disabled",true);
-				$("#trading").attr("disabled",true);
-				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">월세</p>'
-						+'<input type="hidden" name="shopItemDealType" value="월세">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDeposit" type="0" placeholder="보증금" value="${item.shopItemDeposit}">'
-						+'<p class="ktwJnl">/</p><input autocomplete="off" class="ghUXBC kTQnUD"	name="shopItemDealPrice" type="text" placeholder="월세" value="${item.shopItemDealPrice}">'
-						+'<p class="fIWZWk">만원<span>(예 월세 1000만원/50만원)</span></p>'
-						+'<button class="iFqJVZ monthlyCloseBtn"></button></div>');
-			}
-			if('${item.shopItemDealType}'=='전세'){
-				$("#monthly").attr("disabled",true);
-				$("#charter").attr("disabled",true);
-				$("#trading").attr("disabled",true);
-				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">전세</p>'
-						+'<input type="hidden" name="shopItemDealType" value="전세">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="전세" value="">'
-						+'<p class="fIWZWk">만원<span>(예 전세 2000만원)</span></p>'
-						+'<button class="iFqJVZ charterCloseBtn"></button></div>');
-			}
-			if('${item.shopItemDealType}'=='매매'){
-				$("#monthly").attr("disabled",true);
-				$("#charter").attr("disabled",true);
-				$("#trading").attr("disabled",true);
-				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">매매</p>'
-						+'<input type="hidden" name="shopItemDealType" value="매매">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="매매" value="">'
-						+'<p class="fIWZWk">만원<span>(예 매매 5억2000만원)</span></p>'
-						+'<button class="iFqJVZ tradingCloseBtn"></button></div>');
-			}
-			if('${item.shopItemType1}'=='오피스텔'){
-				console.log("오피");
-				$(".building_type1").css("display", "none");
-				$(".building_type2").css("display", "block");
-				$("#location2").show();
-				$("#location1").hide();
-				$("#baseInfo").hide();
-				$("#baseInfo2").show();
-				$(".building_type").show();
-				$("#structure1").show();
-				$("#structure2").show();
-				$("#bulidDate1").show();
-				$("#bulidDate2").show();
-				$("#elev").show();
-				$("#biltin").show();
-			}
-			if('${item.shopItemType1}'=='아파트'){
-				console.log("아파트");
-				$(".building_type1").css("display", "none");
-				$(".building_type2").css("display", "none");
-				$("#location2").show();
-				$("#location1").hide();
-				$(".building_type").hide();
-				$("#structure1").hide();
-				$("#structure2").hide();
-				$("#bulidDate1").show();
-				$("#bulidDate2").show();
-				$("#elev").hide();
-				$("#biltin").hide();
-				$("#baseInfo").hide();
-				$("#baseInfo2").show();
-			}
-			if('${item.shopItemType1}'=='원룸'){
-				$(".building_type1").css("display", "block");
-				$(".building_type2").css("display", "none");
-				$(".building_type").show();
-
-				$("#baseInfo").show();
-				$("#baseInfo2").hide();
-				$("#location1").show();
-				$("#location2").hide();
-				$("#structure1").show();
-				$("#structure2").show();
-			}
-			if('${item.shopItemType1}'=='투룸'||'${item.shopItemType1}'=='쓰리룸'){
-				$(".building_type1").css("display", "block");
-				$(".building_type2").css("display", "none");
-				$(".building_type").show();
-				$("#baseInfo").show();
-				$("#baseInfo2").hide();
-				$("#location1").show();
-				$("#location2").hide();
-				$("#structure1").hide();
-				$("#structure2").hide();
-				$("#bulidDate1").hide();
-				$("#bulidDate2").hide();
-				$("#elev").show();
-				$("#biltin").show();
-			}
-		});
 		var newarr = new Array();
 		$("#jusoInfo").show();
 		$("input[name=shopItemManagePriceOption]").attr("disabled",true);
@@ -1099,7 +940,7 @@
             );
             $("input[name='shopItemBulidDate']").val(newarr1[3]);
             $("input[name='shopItemBulidCompany']").val(newarr1[8]);
-            $("input[name='shopItemHeating2']").val(newarr1[9]);
+            $("input[name='shopItemHeating']").val(newarr1[9]);
             $("input[name='shopItemBulidHallwayType']").val(newarr1[10]);
 		});
 		//주소 팝업 창 열기
@@ -1247,7 +1088,7 @@
 			$("#trading").attr("disabled",true);
 			$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">월세</p>'
 				+'<input type="hidden" name="shopItemDealType" value="월세">'
-				+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDeposit" type="0" placeholder="보증금" value="">'
+				+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="0" placeholder="보증금" value="">'
 				+'<p class="ktwJnl">/</p><input autocomplete="off" class="ghUXBC kTQnUD"	name="shopItemDealPrice" type="text" placeholder="월세" value="">'
 				+'<p class="fIWZWk">만원<span>(예 월세 1000만원/50만원)</span></p>'
 				+'<button class="iFqJVZ monthlyCloseBtn"></button></div>');
@@ -1365,19 +1206,14 @@
 				$("input[name=shopItemStructure]").focus();
 				return false;
 			}
-			if($("#size1").val()<$("#size3").val()){
-				alert("전용면적이 공급면적보다 클 수 없습니다");
+			if($("#size1").val()>$("#size3").val()){
+				alert("공급면적이 전용면적보다 클 수 없습니다");
 				$("#size1").focus();
 				return false;
 			}
-			if($("select[name=shopItemFloor1]").find("option:selected").val()*1>$("select[name=shopItemFloorAll1]").find("option:selected").val()*1){
+			if($("select[name=shopItemFloor]").find("option:selected").val()*1>$("select[name=shopItemFloorAll]").find("option:selected").val()*1){
 				alert("해당 층수가 건물 층수보다 클 수 없습니다");
-				$("select[name=shopItemFloor1]").focus();
-				return false;
-			}
-			if($("select[name=shopItemFloor2]").find("option:selected").val()*1>$("select[name=shopItemFloorAll2]").find("option:selected").val()*1){
-				alert("해당 층수가 건물 층수보다 클 수 없습니다");
-				$("select[name=shopItemFloor2]").focus();
+				$("select[name=shopItemFloor]").focus();
 				return false;
 			}
 		});
