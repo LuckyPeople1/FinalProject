@@ -135,10 +135,10 @@
 										<div class="cuOBSd" id="jusoList"></div>
 										<div class="jjeyfJ">
 											<div class="gryuVg cmjtGP">
-												<input autocomplete="off" class="mtaUF kTQnUD" name="shopItemAddr3" placeholder="예)101동" value="">
+												<input autocomplete="off" class="mtaUF kTQnUD" name=shopItemAddrDong2 placeholder="예)101동" value="">
 											</div>
 											<div class="igeEIT cmjtGP">
-												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">
+												<input autocomplete="off" class="hTUuaO kTQnUD" name="shopItemAddrHo2" placeholder="예)201호" value="">
 											</div>
 										</div>
 										<div class="ifWEqm">
@@ -205,10 +205,10 @@
 										<div class="fUXvpI" id="addr"></div>
 										<div class="kXKUhT">
 											<div class="jlsyRm gnEBbX">
-												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddr3"	placeholder="예)101동" value="">
+												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddrDong1"	placeholder="예)101동" value="">
 											</div>
 											<div class="xUWNs gnEBbX">
-												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddr3" placeholder="예)201호" value="">					
+												<input autocomplete="off" class="gVtYYG kTQnUD" name="shopItemAddrHo1" placeholder="예)201호" value="">					
 											</div>
 										</div>
 										<div class="gZWbGn">
@@ -297,7 +297,7 @@
 								<th rowspan="2">건물 층수</th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">건물 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
+									<select class="freEbZ hRFrgm" name="shopItemFloorAll1">
 										<option value="">건물 층수 선택</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
@@ -315,7 +315,7 @@
 								</td>
 								<td class="ggZjqG">
 									<p class="hNdXGi">해당 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloor">
+									<select class="freEbZ hRFrgm" name="shopItemFloor1">
 										<option value="">해당 층수 선택</option>
 										<option value="-1">반지층</option>
 										<option value="0">옥탑</option>
@@ -328,7 +328,7 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<select class="iDUqOA hRFrgm" name="shopItemHeating">
+									<select class="iDUqOA hRFrgm" name="shopItemHeating1">
 										<option value="">난방 종류 선택</option>
 										<option value="중앙 난방">중앙 난방</option>
 										<option value="개별 난방">개별 난방</option>
@@ -341,11 +341,11 @@
 								<td class="fNOtpc">
 									<div>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="즉시 입주">
+											<input type="radio" name="shopItemMovingDate1" value="즉시 입주">
 											<p>즉시 입주</p>
 										</label>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="날짜 협의">
+											<input type="radio" name="shopItemMovingDate1" value="날짜 협의">
 											<p>날짜 협의</p>
 										</label>
 									</div>
@@ -369,15 +369,15 @@
 								<th rowspan="2"><p>건물 크기</p> <span>(1P = 3.3058㎡)</span></th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">공급 면적</p> 
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize1" value="" id="size1">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize3" value="" id="size1">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize2" value="" id="size2" step="0.01">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSize4" value="" id="size2" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<th rowspan="2">건물 층수</th>
 								<td class="ggZjqG">
 									<p class="hNdXGi">건물 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
+									<select class="freEbZ hRFrgm" name="shopItemFloorAll2">
 										<option value="">건물 층수 선택</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
@@ -388,14 +388,14 @@
 							<tr>
 								<td class="ggZjqG">
 									<p class="hNdXGi">전용 면적</p> 
-									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll1"value="" id="size3">
+									<input type="number"  autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll3"value="" id="size3">
 									<p class="cmXpqK">평</p>
-									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll2" value="" id="size4" step="0.01">
+									<input type="number" autocomplete="off" class="gsCYXz kTQnUD" name="shopItemSizeAll4" value="" id="size4" step="0.01">
 									<p class="cmXpqK">㎡</p>
 								</td>
 								<td class="ggZjqG">
 									<p class="hNdXGi">해당 층수</p> 
-									<select class="freEbZ hRFrgm" name="shopItemFloor">
+									<select class="freEbZ hRFrgm" name="shopItemFloor2">
 										<option value="">해당 층수 선택</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
@@ -406,7 +406,7 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<input type="text" value="-" readonly="readonly" name="shopItemHeating" style="border: none;">
+									<input type="text" value="-" readonly="readonly" name="shopItemHeating2" style="border: none;">
 								</td>
 								<th>시공사</th>
 								<td class="ggZjqG">
@@ -428,11 +428,11 @@
 								<td class="fNOtpc">
 									<div>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="즉시 입주">
+											<input type="radio" name="shopItemMovingDate2" value="즉시 입주">
 											<p>즉시 입주</p>
 										</label>
 										<label class="bVNPCb fSFsCh"> 
-											<input type="radio" name="shopItemMovingDate" value="날짜 협의">
+											<input type="radio" name="shopItemMovingDate2" value="날짜 협의">
 											<p>날짜 협의</p>
 										</label>
 									</div>
@@ -939,7 +939,7 @@
             );
             $("input[name='shopItemBulidDate']").val(newarr1[3]);
             $("input[name='shopItemBulidCompany']").val(newarr1[8]);
-            $("input[name='shopItemHeating']").val(newarr1[9]);
+            $("input[name='shopItemHeating2']").val(newarr1[9]);
             $("input[name='shopItemBulidHallwayType']").val(newarr1[10]);
 		});
 		//주소 팝업 창 열기
@@ -1087,7 +1087,7 @@
 			$("#trading").attr("disabled",true);
 			$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">월세</p>'
 				+'<input type="hidden" name="shopItemDealType" value="월세">'
-				+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="0" placeholder="보증금" value="">'
+				+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDeposit" type="0" placeholder="보증금" value="">'
 				+'<p class="ktwJnl">/</p><input autocomplete="off" class="ghUXBC kTQnUD"	name="shopItemDealPrice" type="text" placeholder="월세" value="">'
 				+'<p class="fIWZWk">만원<span>(예 월세 1000만원/50만원)</span></p>'
 				+'<button class="iFqJVZ monthlyCloseBtn"></button></div>');
@@ -1205,17 +1205,40 @@
 				$("input[name=shopItemStructure]").focus();
 				return false;
 			}
-			if($("#size1").val()>$("#size3").val()){
-				alert("공급면적이 전용면적보다 클 수 없습니다");
+			if($("#size1").val()<$("#size3").val()){
+				alert("전용면적이 공급면적보다 클 수 없습니다");
 				$("#size1").focus();
 				return false;
 			}
-			if($("select[name=shopItemFloor]").find("option:selected").val()*1>$("select[name=shopItemFloorAll]").find("option:selected").val()*1){
+			if($("select[name=shopItemFloor1]").find("option:selected").val()*1>$("select[name=shopItemFloorAll1]").find("option:selected").val()*1){
 				alert("해당 층수가 건물 층수보다 클 수 없습니다");
-				$("select[name=shopItemFloor]").focus();
+				$("select[name=shopItemFloor1]").focus();
+				return false;
+			}
+			if($("select[name=shopItemFloor2]").find("option:selected").val()*1>$("select[name=shopItemFloorAll2]").find("option:selected").val()*1){
+				alert("해당 층수가 건물 층수보다 클 수 없습니다");
+				$("select[name=shopItemFloor2]").focus();
 				return false;
 			}
 		});
+		$("input[name=img_0]").change(function(){
+			$(this).css("display","none");
+			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
+		});
+//		$("input[name=img_1]").click(function(){
+//			$("#img_upload2").show();
+//		});
+//		$("input[name=img_2]").click(function(){
+//			$("#img_upload3").show();
+//		});
+//		$("input[name=img_3]").click(function(){
+//			$("#img_upload4").show();
+//		});		
+//		$("input[name=img_0]").click(function(){
+//			$(this).css("display","none");
+//			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
+//		});
+		
 	</script>
 	<!-- 다음 지도 api -->
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 

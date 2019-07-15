@@ -15,7 +15,7 @@ public class QuestionService {
 	@Resource(name = "questionMapper")
 	private QuestionMapper questionMapper;
 
-	// 관리자 퀘스천 전체조회
+	// 관리자 1:1문의 전체조회
 	public QuestionPageData selectAllList(int reqPage) throws Exception {
 		// 페이지 당 게시물 수
 		int numPerPage = 5;
@@ -89,4 +89,16 @@ public class QuestionService {
 		QuestionPageData pd = new QuestionPageData(list, pageNavi);
 		return pd;
 	}
+	
+	//1:1문의뷰
+	public QuestionVO questionView(int questionsIndex) throws Exception {
+		return questionMapper.questionView(questionsIndex);
+	}
+	
+	//1:1문의답변등록
+	public int questionUpdate(QuestionVO q) throws Exception{
+		System.out.println("서비스업데이트-"+q);
+		return questionMapper.questionUpdate(q);
+	}
+	
 }

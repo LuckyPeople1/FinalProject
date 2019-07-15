@@ -6,11 +6,11 @@
 		</a>
 	</h1>
 	<div class="nav_menu">
-		<a href="/manage/user/userApprobate" class="menu_btn">
+		<a href="/userManage/userAllList" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">승인관리</div>
 		</a>
-		<a href="/admin/html/shop/shopList.html" class="menu_btn">
+		<a href="/userManage/shopAllList" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">부동산관리</div>
 		</a>

@@ -9,24 +9,14 @@
 			<article class="saleInLotsHeader">
 				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보</a>
 				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsThema">테마분양</a>
-				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsSchedule">분양일정</a>
-				<div class="header"></div>
-				<a href="#/news">분양뉴스</a>
-				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsBrand">브랜드관</a>
-				<a href="/saleInLots/saleInLotsDetailInformation">상세페이지</a>
 			</article>
 		</section>
 		<section class="saleInLotsHome">
 			<div class="screen">
 				<div class="web">
-					<div class="bjaGeA">
-						<div style="position: relative;"></div>
-					</div>
 					<div class="searchBox">
 						<div class="searchBox_content">
 							<h1>찾으시는 분양 정보가 있나요?</h1>
@@ -155,90 +145,6 @@
 								</div>
 								<div class="searchBox_filter_type" tabindex="0">
 									<div class="searchBox_btn">
-										<span>분양일정</span>
-										<svg width="15" height="8" viewBox="0 0 15 8">
-											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
-												d="M1 1l6.533 6L14 1"></path>
-										</svg>
-									</div>
-									<div class="searchBox_filterBox_3" width="340"
-										height="360" style="left: 0px; display: none;">
-										<h1 class="filterBox_title">분양일정
-											<p class="filterBox_title_msg">중복선택이 가능합니다.</p>
-										</h1>
-										<ul class="filterBox_ul_2">
-											<li style="width: 100%;"><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="supply_type" value="" checked=""><span
-													class="CheckBox"></span><span
-													class="checkBoxText_2">전체</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">모집공고</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">특별공급</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">1순위청약</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">2순위청약</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">청약접수</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">당첨자발표</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">계약기간</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">입주예정일</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">준공시기</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">분양시기</span></label></li>
-										</ul>
-									</div>
-								</div>
-								<div class="searchBox_filter_type" tabindex="0">
-									<div class="searchBox_btn">
 										<span id="supplyType">공급유형</span>
 										<svg width="15" height="8" viewBox="0 0 15 8">
 											<path fill="none" fill-rule="evenodd" stroke="#BCBCBC"
@@ -326,59 +232,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="iORwhc">
-						<h1 class="iCykeJ">
-							분양뉴스 <a href="#none"> 모두보기 <svg width="10" height="16"
-									viewBox="0 0 10 16">
-									<path fill="none" fill-rule="evenodd" stroke="#444"
-										d="M2 14l6-6-6-6"></path>>
-								</svg>
-							</a>
-						</h1>
-						<div class="bHKpkT">
-							<a href="#none" class="eakAql">
-								<div class="ePcKnV">
-									<div class="jGwobP"></div>
-									<div class="dKzCVJ"></div>
-									<div class="iTfSwu">
-										<h1>기사 제목</h1>
-										<p>기자 이름</p>
-										<p>날짜</p>
-									</div>
-								</div>
-							</a> <a href="#none" class="eakAql">
-								<div class="ePcKnV">
-									<div class="jGwobP"></div>
-									<div class="dKzCVJ"></div>
-									<div class="iTfSwu">
-										<h1>기사 제목</h1>
-										<p>기자 이름</p>
-										<p>날짜</p>
-									</div>
-								</div>
-							</a> <a href="#none" class="eakAql">
-								<div class="ePcKnV">
-									<div class="jGwobP"></div>
-									<div class="dKzCVJ"></div>
-									<div class="iTfSwu">
-										<h1>기사 제목</h1>
-										<p>기자 이름</p>
-										<p>날짜</p>
-									</div>
-								</div>
-							</a> <a href="#none" class="eakAql">
-								<div class="ePcKnV">
-									<div class="jGwobP"></div>
-									<div class="dKzCVJ"></div>
-									<div class="iTfSwu">
-										<h1>기사 제목</h1>
-										<p>기자 이름</p>
-										<p>날짜</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
 					<div class="iAHZaR">
 						<p class="ixXdQT">분양 가이드</p>
 						<div class="cpacuO" color="#6587a2">
@@ -447,7 +300,7 @@
 									<circle cx="17" cy="45.5" r="1"></circle>
 									</g>
 								</svg> <span>청약 가점 확인하기</span>
-							</a> <a class="lbbxgW" href="#none"> <svg width="52" height="52"
+							</a> <a class="lbbxgW" href="http://www.happyhousing.co.kr/index.html" target="_blank" rel="noopener noreferrer"> <svg width="52" height="52"
 									viewBox="0 0 52 52">
 									<g fill="none" fill-rule="evenodd">
 										<path fill="#222" fill-rule="nonzero"
@@ -475,176 +328,8 @@
 							</a>
 						</div>
 					</div>
-					<div class="styled__Wrap-sc-1bz3tal-0 jAJRqo">
-						<div class="styled__Content-sc-1bz3tal-1 dEvOLL">
-							<div class="styled__Title-sc-1bz3tal-2 duJtCH">
-								<h1>분양일정</h1>
-								<a href="#/schedule"> 모두보기 <svg width="10" height="16"
-										viewBox="0 0 10 16">
-									<path fill="none" fill-rule="evenodd" stroke="#FFF"
-											d="M2 14l6-6-6-6"></path>
-								</svg>
-								</a>
-							</div>
-							<div class="styled__Wrap-mlglyj-0 fcbyoR">
-								<div class="styled__TodayWrap-mlglyj-1 knzDAE">
-									<p class="styled__Today-mlglyj-2 fpadeG">TODAY</p>
-									<p class="styled__DateStr-mlglyj-3 fiQpAP">7월 02일</p>
-									<p class="styled__DayStr-mlglyj-4 iqkGpH">화요일</p>
-									<div class="styled__CountWrap-mlglyj-5 eADxsX">
-										<div class="styled__TextWrap-mlglyj-6 cgOMxU">
-											<p class="styled__Text-mlglyj-7 hkccns">접수</p>
-											<p class="styled__Count-mlglyj-8 flxgfr">7</p>
-										</div>
-										<div class="styled__TextWrap-mlglyj-6 cgOMxU">
-											<p class="styled__Text-mlglyj-7 hkccns">공고</p>
-											<p class="styled__Count-mlglyj-8 flxgfr">0</p>
-										</div>
-										<div class="styled__TextWrap-mlglyj-6 cgOMxU">
-											<p class="styled__Text-mlglyj-7 hkccns">발표</p>
-											<p class="styled__Count-mlglyj-8 flxgfr">1</p>
-										</div>
-										<div class="styled__TextWrap-mlglyj-6 cgOMxU">
-											<p class="styled__Text-mlglyj-7 hkccns">계약</p>
-											<p class="styled__Count-mlglyj-8 flxgfr">1</p>
-										</div>
-									</div>
-								</div>
-								<div class="styled__TodaySchedule-mlglyj-9 jxrHVi">
-									<ul class="styled__Schedules-mlglyj-10 iqsorI">
-										<li>
-											<p class="styled__ScheduleType-mlglyj-11 czPdLN">접수</p> <a
-											target="_blank" rel="noopener noreferrer"
-											class="styled__ScheduleStr-mlglyj-12 gXkjSm"
-											href="/sales-in-lots/5bd18ea56cd98b0bccd4a6d5fa1f"> [1순위
-												청약] 서울 서초 그랑자이 (~07/03) </a>
-										</li>
-										<li>
-											<p class="styled__ScheduleType-mlglyj-11 czPdLN">접수</p> <a
-											target="_blank" rel="noopener noreferrer"
-											class="styled__ScheduleStr-mlglyj-12 gXkjSm"
-											href="/sales-in-lots/5b0f917a4d83690fb4681570d378">
-												[특별공급] 경기 판교 대장지구 제일풍경채(A5BL) (~07/02) </a>
-										</li>
-										<li>
-											<p class="styled__ScheduleType-mlglyj-11 czPdLN">접수</p> <a
-											target="_blank" rel="noopener noreferrer"
-											class="styled__ScheduleStr-mlglyj-12 gXkjSm"
-											href="/sales-in-lots/5cd8c4c7dd985510da7b4380592b">
-												[특별공급] 전남 순천 한신더휴 (~07/02) </a>
-										</li>
-										<li>
-											<p class="styled__ScheduleType-mlglyj-11 czPdLN">접수</p> <a
-											target="_blank" rel="noopener noreferrer"
-											class="styled__ScheduleStr-mlglyj-12 gXkjSm"
-											href="/sales-in-lots/5cca960ae5b8763a0edee80b5d28">
-												[특별공급] 대구 e편한세상 두류역 (~07/02) </a>
-										</li>
-										<li>
-											<p class="styled__ScheduleType-mlglyj-11 czPdLN">접수</p> <a
-											target="_blank" rel="noopener noreferrer"
-											class="styled__ScheduleStr-mlglyj-12 gXkjSm"
-											href="/sales-in-lots/5d15c81cc82f683ed76695fd62ca">
-												[특별공급] 경기 고덕 하늘채 시그니처 (~07/02) </a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="styled__Wrap-sc-2wn2qp-0 dsXjXK">
-								<ul class="styled__Ul-sc-2wn2qp-1 gBHgsi">
-									<li><a href="#/schedule?date=20190703"> <span
-											class="styled__DateStr-sc-2wn2qp-2 bjxEtC">7월 03일 수요일</span>
-											<span class="styled__Count-sc-2wn2qp-3 dyeQnl">13건</span> <svg
-												width="10" height="16" viewBox="0 0 10 16">
-												<path fill="none" fill-rule="evenodd" stroke="#FFF"
-													d="M2 14l6-6-6-6"></path>
-											</svg>
-									</a></li>
-									<li><a href="#/schedule?date=20190704"> <span
-											class="styled__DateStr-sc-2wn2qp-2 bjxEtC">7월 04일 목요일</span>
-											<span class="styled__Count-sc-2wn2qp-3 dyeQnl">13건</span> <svg
-												width="10" height="16" viewBox="0 0 10 16">
-												<path fill="none" fill-rule="evenodd" stroke="#FFF"
-													d="M2 14l6-6-6-6"></path>
-											</svg>
-									</a></li>
-									<li><a href="#/schedule?date=20190705"> <span
-											class="styled__DateStr-sc-2wn2qp-2 bjxEtC">7월 05일 금요일</span>
-											<span class="styled__Count-sc-2wn2qp-3 dyeQnl">8건</span> <svg
-												width="10" height="16" viewBox="0 0 10 16">
-												<path fill="none" fill-rule="evenodd" stroke="#FFF"
-													d="M2 14l6-6-6-6"></path>
-											</svg>
-									</a></li>
-									<li><a href="#/schedule?date=20190706"> <span
-											class="styled__DateStr-sc-2wn2qp-2 bjxEtC">7월 06일 토요일</span>
-											<span class="styled__Count-sc-2wn2qp-3 dyeQnl">0건</span> <svg
-												width="10" height="16" viewBox="0 0 10 16">
-												<path fill="none" fill-rule="evenodd" stroke="#FFF"
-													d="M2 14l6-6-6-6"></path>
-											</svg>
-									</a></li>
-									<li><a href="#/schedule?date=20190707"> <span
-											class="styled__DateStr-sc-2wn2qp-2 bjxEtC">7월 07일 일요일</span>
-											<span class="styled__Count-sc-2wn2qp-3 dyeQnl">0건</span> <svg
-												width="10" height="16" viewBox="0 0 10 16">
-												<path fill="none" fill-rule="evenodd" stroke="#FFF"
-													d="M2 14l6-6-6-6"></path>
-											</svg>
-									</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="styled__BorderWrap-sc-1lmuz7r-0 fwksSX">
-						<div class="styled__Wrap-sc-1lmuz7r-1 cDEcwo">
-							<h1 class="styled__Title-sc-1lmuz7r-2 crurOg">테마분양</h1>
-							<div class="styled__SwipeWrap-sc-1lmuz7r-3 hCAvCG">
-								<div class="styled__Swipe-sc-1lmuz7r-4 bTeqvV">
-									<a class="styled__Card-sc-10clnch-0 imPRTB" href="#none">
-										<p class="styled__Header-sc-10clnch-1 HEfwd">THEME 01</p>
-										<div class="styled__Content-sc-10clnch-2 hEdVZP">
-											<p>LH 행복주택</p>
-											<p>전국 10단지</p>
-										</div>
-										<div class="styled__Footer-sc-10clnch-3 jjAvSG">
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">신혼부부</p>
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">청년</p>
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">고령노약자</p>
-										</div>
-									</a> <a class="styled__Card-sc-10clnch-0 imPRTB" href="#none">
-										<p class="styled__Header-sc-10clnch-1 HEfwd">THEME 01</p>
-										<div class="styled__Content-sc-10clnch-2 hEdVZP">
-											<p>LH 행복주택</p>
-											<p>전국 10단지</p>
-										</div>
-										<div class="styled__Footer-sc-10clnch-3 jjAvSG">
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">신혼부부</p>
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">청년</p>
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">고령노약자</p>
-										</div>
-									</a> <a class="styled__Card-sc-10clnch-0 imPRTB" href="#none">
-										<p class="styled__Header-sc-10clnch-1 HEfwd">THEME 01</p>
-										<div class="styled__Content-sc-10clnch-2 hEdVZP">
-											<p>LH 행복주택</p>
-											<p>전국 10단지</p>
-										</div>
-										<div class="styled__Footer-sc-10clnch-3 jjAvSG">
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">신혼부부</p>
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">청년</p>
-											<p class="styled__Tag-sc-10clnch-4 jKpEaA">고령노약자</p>
-										</div>
-									</a>
-								</div>
-							</div>
-							<button class="next">
-								<svg width="14" height="26" viewBox="0 0 14 26">
-									<path fill="none" fill-rule="evenodd" stroke="#444"
-										d="M1 1l12 12L1 25"></path>
-								</svg>
-							</button>
-						</div>
-					</div>
+					
+					
 					<div class="styled__Wrap-hww48k-0 fYSiIV">
 						<p class="styled__Title-hww48k-1 bEymBE">분양 정보</p>
 						<table class="styled__Table-hww48k-2 cWHlPz">
@@ -805,7 +490,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<a class="styled__MoreView-hww48k-11 bhyJUd" href="#/list">분양정보
+						<a class="styled__MoreView-hww48k-11 bhyJUd" href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보
 							모두 보기</a>
 					</div>
 					<div class="styled__Wrap-avmu4m-0 fXYwIW">

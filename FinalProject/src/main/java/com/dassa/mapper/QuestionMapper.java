@@ -14,4 +14,8 @@ public interface QuestionMapper {
 	public ArrayList<QuestionVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
 	
 	public int totalCount() throws Exception;
+
+	public QuestionVO questionView(int questionsIndex) throws Exception;
+
+	public int questionUpdate(QuestionVO q) throws Exception;
 }

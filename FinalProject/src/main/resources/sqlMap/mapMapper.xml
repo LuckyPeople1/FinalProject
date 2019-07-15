@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.MapMapper">
+	<!-- 매물 상세보기 -->
+	<select id="mapSelectOne" parameterType="String" resultType="shopItemVO">
+		select 
+			shop_item_addr1 as shopItemAddr1			
+			from shop_item_tbl where shop_item_title=#{shopItemTitle}
+	</select>
+	<!-- 매물리스트 -->
+	<select id="selectAll" resultType="shopItemVO" parameterType="_int">
+			select shop_item_idx as shopItemIdx,
+				shop_item_addr1 as shopItemAddr1,
+				shop_item_manager as shopItemManager,
+				shop_item_type1 as shopItemType1,
+				shop_item_deal_type as shopItemDealType,
+				shop_item_title as shopItemTitle,
+				shop_item_sale_state as shopItemSaleState,
+				shop_item_premium_state as shopItemPremiumState,
+				shop_item_reg_date as shopItemRegDate
+			from shop_item_tbl 
+	</select>
+</mapper>

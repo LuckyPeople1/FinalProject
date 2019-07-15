@@ -54,5 +54,10 @@ public class DriverMypageController {
 		
 		return "redirect:/driver/";
 	}
-
+	//이사 최종완료
+	@RequestMapping("/driverMoveFinalCompletion")
+	public String driverMoveFinalCompletion(int applyIdx) throws Exception {
+		driverService.driverMoveFinalCompletion(applyIdx);
+		return "driver/manager/driverMove";
+	}
 }
