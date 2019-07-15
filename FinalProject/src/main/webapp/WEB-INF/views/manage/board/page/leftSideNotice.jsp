@@ -8,7 +8,7 @@
 				<ul class="lnb_sub_menu">
 					<li><a href="/manage/board/notice/noticeManageList?reqPage=1" class="">공지사항 관리</a></li>
 					<li><a href="/manage/board/faq/faqManageList?reqPage=1" class="">FAQ 관리</a></li>
-					<li><a href="/manage/board/question/questionManageList" class="">1:1문의 관리</a></li>
+					<li><a href="/manage/board/question/questionManageList?reqPage=1" class="">1:1문의 관리</a></li>
 				</ul>
 			</li>
 			<li>

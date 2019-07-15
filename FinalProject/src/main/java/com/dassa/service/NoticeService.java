@@ -39,7 +39,13 @@ public class NoticeService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//이전 버튼 생성
 		if(pageNo !=1) {
-			pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+(pageNo-1)+"'>이전</a>";
+			if(code==1) {	//부동산이면			
+				pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+(pageNo-1)+"&code=1'>이전</a>";
+			}else if(code==2) {	//기사면
+				pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+(pageNo-1)+"&code=2'>이전</a>";
+			}else {	//사용자면
+				pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+(pageNo-1)+"'>이전</a>";
+			}
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
@@ -47,13 +53,25 @@ public class NoticeService {
 			if(reqPage == pageNo) {
 				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
 			}else {
-				pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				if(code==1) {	//부동산이면				
+					pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"&code=1'>"+pageNo+"</a>";
+				}else if(code==2) {	//기사면
+					pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"&code=2'>"+pageNo+"</a>";
+				}else {	//사용자면
+					pageNavi += "<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				}
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-			pageNavi +="<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"'>다음</a>";
+			if(code==1) {//부동산이면
+				pageNavi +="<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"&code=1'>다음</a>";
+			}else if(code==2) {//기사면
+				pageNavi +="<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"&code=2'>다음</a>";
+			}else {//사용자면
+				pageNavi +="<a class='btn' href='/manage/board/notice/noticeManageList?reqPage="+pageNo+"'>다음</a>";
+			}
 		}
 		NoticePageData pd = new NoticePageData(list,pageNavi);
 		return pd;

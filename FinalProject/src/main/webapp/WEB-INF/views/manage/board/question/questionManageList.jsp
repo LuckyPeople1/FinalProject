@@ -111,20 +111,22 @@
 					</tr>
 					</thead>
 					<tbody>
+				<c:forEach items="${list }" var="q">
+					
 					<tr>
 						<td>
 							<label>
 								<input type="checkbox" name="">
 							</label>
 						</td>
-						<td>1</td>
-						<td>ssooya90</td>
+						<td>${q.questionsIndex }</td>
+						<td>${q.questionsWriter }</td>
 						<td>최희수</td>
-						<td class="text-left">이거 어떻게 해요 이거어떻게해요</td>
-						<td>2019-07-01</td>
+						<td class="text-left">${q.questionsTitle }</td>
+						<td>${q.questionsRegDate}</td>
 						<td>2019-07-02</td>
 						<td>
-							<span class="tag col_blue f_w">답변완료</span>
+							<span class="tag col_blue f_w">${q.questionsState }</span>
 						</td>
 						<td>
 							<div>
@@ -135,33 +137,13 @@
 							</div>
 						</td>
 					</tr>
-					
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			<div class="page_group clearFix">
-				<ul class="page_box">
-					<li class="first arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="prev arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="on">
-						<a href="#none">1</a>
-					</li>
-					<li class="">
-						<a href="#none">2</a>
-					</li>
-					<li class="next arrow">
-						<a href="#none "></a>
-					</li>
-					<li class="end arrow">
-						<a href="#none"></a>
-					</li>
-				</ul>
+			<div id="pageNavi" class="page_group clearFix">
+				${pageNavi}
 			</div>
-		</div>
 		
 		
 		

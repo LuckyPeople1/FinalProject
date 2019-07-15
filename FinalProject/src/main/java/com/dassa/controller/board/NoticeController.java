@@ -44,13 +44,13 @@ public class NoticeController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
-				if(code==1) {
-					ma.setViewName("manage/board/notice/noticeManageList");
-				}else if(code==2) {
-					ma.setViewName("manage/board/notice/noticeManageList");
-				}else {
-					ma.setViewName("manage/board/notice/noticeManageList");
-				}
+				ma.setViewName("manage/board/notice/noticeManageList");
+//				if(code==1) {
+//				}else if(code==2) {
+//					ma.setViewName("manage/board/notice/noticeManageList");
+//				}else {
+//					ma.setViewName("manage/board/notice/noticeManageList");
+//				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
