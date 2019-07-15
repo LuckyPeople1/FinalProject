@@ -8,6 +8,7 @@ public class QuestionVO {
 	private String questionsTitle;
 	private String questionsContent;
 	private String questionsAnswer;
+	private String questionsAnswerState;
 	private String questionsWriter;
 	private Date questionsRegDate;
 	private String questionsState;
@@ -17,13 +18,15 @@ public class QuestionVO {
 		// TODO Auto-generated constructor stub
 	}
 	public QuestionVO(int questionsIndex, String questionsUserType, String questionsTitle, String questionsContent,
-			String questionsAnswer, String questionsWriter, Date questionsRegDate, String questionsState, int rnum) {
+			String questionsAnswer, String questionsAnswerState, String questionsWriter, Date questionsRegDate,
+			String questionsState, int rnum) {
 		super();
 		this.questionsIndex = questionsIndex;
 		this.questionsUserType = questionsUserType;
 		this.questionsTitle = questionsTitle;
 		this.questionsContent = questionsContent;
 		this.questionsAnswer = questionsAnswer;
+		this.questionsAnswerState = questionsAnswerState;
 		this.questionsWriter = questionsWriter;
 		this.questionsRegDate = questionsRegDate;
 		this.questionsState = questionsState;
@@ -59,6 +62,12 @@ public class QuestionVO {
 	public void setQuestionsAnswer(String questionsAnswer) {
 		this.questionsAnswer = questionsAnswer;
 	}
+	public String getQuestionsAnswerState() {
+		return questionsAnswerState;
+	}
+	public void setQuestionsAnswerState(String questionsAnswerState) {
+		this.questionsAnswerState = questionsAnswerState;
+	}
 	public String getQuestionsWriter() {
 		return questionsWriter;
 	}
@@ -83,4 +92,5 @@ public class QuestionVO {
 	public void setRnum(int rnum) {
 		this.rnum = rnum;
 	}
+
 }

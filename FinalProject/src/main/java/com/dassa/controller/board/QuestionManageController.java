@@ -41,8 +41,36 @@ public class QuestionManageController {
 	}
 	//1:1문의관리뷰
 	@RequestMapping("/questionManageView")
-	public String questionManageView() {
-		return "manage/board/question/questionManageView";
+	public ModelAndView questionManageView(@RequestParam int questionsIndex) {
+		QuestionVO q;
+		ModelAndView ma = new ModelAndView();
+		try {
+			q = questionService.questionView(questionsIndex);
+			if(q!=null) {
+				ma.addObject("questionVO", q);
+				ma.setViewName("manage/board/question/questionManageView");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
+	//1:1문의 답변등록
+	@RequestMapping("/questionUpdate")
+	public String questionUpdate(QuestionVO q) {
+		int result;
+		String view="";
+		try {
+			result = questionService.questionUpdate(q);
+			if(result>0) {
+				view="manage/board/question/updateSuccess";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return view;
 	}
 	
 	//1:1부동산관리페이지

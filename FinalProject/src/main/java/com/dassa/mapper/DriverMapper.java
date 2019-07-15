@@ -8,8 +8,10 @@ import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverPageData;
+import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 
 @MapperScan("driverMapper")

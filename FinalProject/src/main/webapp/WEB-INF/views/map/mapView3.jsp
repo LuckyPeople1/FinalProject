@@ -692,8 +692,8 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div class="contents">
 		<div class="styled__Header-sfs8fz-0 dWEBFj">
 			<div class="styled__SearchForm-sc-1pc2wuh-0 byjidO">
-				<input autocomplete="off" type="text" name="keyword" class="styled__Input-sc-1pc2wuh-1 keOJyH" placeholder="잠실동 아파트">
-					<svg width="18" height="18" viewBox="0 0 18 18">
+				<input autocomplete="off" type="text" id="mapName" name="keyword" class="styled__Input-sc-1pc2wuh-1 keOJyH" placeholder="잠실동 아파트">
+					<svg width="18" height="18" viewBox="0 0 18 18" id="mapSelect">
 						<g fill="none" fill-rule="evenodd" stroke="#222">
 							<circle cx="7.5" cy="7.5" r="6.5"></circle>
 							<path d="M12 12l5 5"></path>
@@ -921,8 +921,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			</div>
 			<div id="coordXY"></div>
 			<p>
-				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로
-					이동</a>
+				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a><c:forEach items="${list }" var="v"><span class="test">${v.shopItemAddr1 }</span></c:forEach>
 			</p>			
 		</div>
 		<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
@@ -1145,7 +1144,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	    });    
 	    
 	}		
-	 $(document).ready(function(){		 
+	 $(document).ready(function(){		
 		 for(var i =0;i<positions2.length;i++){
 				var content2 = '<div class="customoverlay2"><input class="tt" type="hidden" value="'+positions2[i].latlng+'"<span class="title">'+positions2[i].name+'</span></div>';
 				 var customOverlay2= new kakao.maps.CustomOverlay({
@@ -1198,6 +1197,19 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						});					
 					 clusterer.addMarker(marker);
 			 };
+			 var geocoder = new daum.maps.services.Geocoder();
+			 for(var i=0;i<$(".test").length;i++){
+				geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
+					// 정상적으로 검색이 완료됐으면,
+					if (status == daum.maps.services.Status.OK) {			
+						var coords = new daum.maps.LatLng(result[0].y, result[0].x);						
+						var marker = new kakao.maps.Marker({
+							position:coords
+						});
+						clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
+					}
+				});
+			}
 			}
 		});	
 		map.setLevel(9);
@@ -1219,11 +1231,25 @@ section.mapView .eUbtsI > .Radio--circle::after {
 					});				
 				 clusterer.addMarker(marker);
 		 };
+		 var geocoder = new daum.maps.services.Geocoder();
+		 for(var i=0;i<$(".test").length;i++){
+			geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
+				// 정상적으로 검색이 완료됐으면,
+				if (status == daum.maps.services.Status.OK) {			
+					var coords = new daum.maps.LatLng(result[0].y, result[0].x);					
+					var marker = new kakao.maps.Marker({
+						position:coords
+					});
+					clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
+				}
+			});
+		}
 		 marker.setMap(null);
 		}		
 	});
-	$(document).ready(function(){
-		console.log($(".fhfjff3").css("display","none"));
+	$(document).ready(function(){		 	
+	
+				
 		$(document).click(function(e){
 			$(".hWgOZv").eq('0').click(function(e){
 				$(".fhfjff2").css("display","none");
@@ -1316,6 +1342,35 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		map.setLevel(level, {
 			anchor : cluster.getCenter()
 		});
-	}); 
+	});
+	$("#mapSelect").click(function(){		
+		var mapName=$("#mapName").val();
+		var test = $("#test");
+		var geocoder = new daum.maps.services.Geocoder();
+		$.ajax({
+			url:"/mapSelectOne",
+			type:"post",
+			data:{shopItemTitle:mapName},			
+			success : function(data){
+				geocoder.addressSearch(data, function(result, status) {
+					// 정상적으로 검색이 완료됐으면,
+					if (status == daum.maps.services.Status.OK) {
+						map.setLevel(3);
+						var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+						y = result[0].x;
+						x = result[0].y;
+						test.append("<br>X좌표 : " + x + "<br><br>Y좌표 : " + y);
+						// 이동할 위도 경도 위치를 생성합니다 
+						var moveLatLon = new kakao.maps.LatLng(x, y);
+						// 지도 중심을 부드럽게 이동시킵니다
+						// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+						map.panTo(moveLatLon);
+					}
+				});
+			}
+		})
+		
+		
+	})
 </script>
 </html>

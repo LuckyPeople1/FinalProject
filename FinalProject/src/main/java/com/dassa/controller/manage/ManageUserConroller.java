@@ -1,6 +1,8 @@
 package com.dassa.controller.manage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +25,7 @@ public class ManageUserConroller {
 	@Resource
 	private ManageUserService manageUserService;
 	
-	//회원승인 리스트
+	//회원전체(승인관리) 리스트
 	@RequestMapping("/userAllList")
 	public String UserAllList(Model model) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
@@ -31,10 +33,9 @@ public class ManageUserConroller {
 		return "manage/user/userAllList";
 	}
 	
-	//회원승인 리스트
 	@RequestMapping("/userListAll")
 	@ResponseBody
-	public Object UserListAll(Map<String,Object> map, String type) throws Exception {
+	public Object UserListAll(Map<String,Object> map) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("list", list);
@@ -70,6 +71,14 @@ public class ManageUserConroller {
 		return retVal;
 	}
 	
+	//일반 회원관리
+	@RequestMapping("/commonUserListAll")
+	public Object CommonUserListAll(Map<String,Object> map) throws Exception {
+		List<UserVO> list = manageUserService.getUserListAll();
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		retVal.put("list", list);
+		return retVal;
+	}
 	
 	//탈퇴회원 관리 페이지
 	@RequestMapping("/userSecssion")

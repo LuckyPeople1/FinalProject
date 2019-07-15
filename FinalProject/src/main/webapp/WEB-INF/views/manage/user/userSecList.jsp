@@ -102,7 +102,7 @@
 							<td>${u.type }</td>
 							<td>${u.enrollDate }</td>
 							<td>
-								<span class="tag col_blue f_w">탈퇴 됨</span>
+								<span class="tag col_blue f_w">${u.userStatus }</span>
 							</td>
 						</tr>
 					</c:forEach>
