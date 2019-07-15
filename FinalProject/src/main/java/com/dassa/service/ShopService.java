@@ -10,12 +10,9 @@ import org.springframework.stereotype.Service;
 import com.dassa.mapper.ShopMapper;
 import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
-import com.dassa.vo.NoticePageData;
-import com.dassa.vo.NoticeVO;
-import com.dassa.vo.SaleInLotsPageDataVO;
-import com.dassa.vo.SaleInLotsVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @Service("shopService")
@@ -58,7 +55,7 @@ public class ShopService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
+	public ShopItemPageDataVO selectAllList(int reqPage,ShopItemSearchVO itemSearch) throws Exception{
 		System.out.println("요청페이지"+reqPage);
 		//페이지 당 게시물 수
 		int numPerPage = 5;
@@ -72,7 +69,7 @@ public class ShopService {
 		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
 		System.out.println(start+"/"+end);
-		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end);
+		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end,itemSearch);
 		//페이지 네비 작성
 		String pageNavi = "";
 		//페이지 네비의 수

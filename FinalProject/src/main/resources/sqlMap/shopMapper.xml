@@ -98,7 +98,7 @@
 			) T
 	</insert>
 	<!-- 매물리스트 -->
-	<select id="selectAllList" resultType="shopItemVO" parameterType="_int">
+	<select id="selectAllList" resultType="shopItemVO" parameterType=shopItemSearchVO>
 			select shop_item_idx as shopItemIdx,
 				shop_item_manager as shopItemManager,
 				shop_item_type1 as shopItemType1,
@@ -107,7 +107,15 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from(select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중' order by rownum desc) item)where rnum between #{start} and #{end} 
+			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중' and
+			<if test="type==0">shop_item_type1='원룸' or shop_item_type1='투룸' or shop_item_type1='쓰리룸' or shop_item_type1='오피스텔' or shop_item_type1='아파트'</if>
+			<if test="type==1">shop_item_type1='원룸'</if>
+			<if test="type==2">shop_item_type1='투룸'</if>
+			<if test="type==3">shop_item_type1='쓰리룸'</if>
+			<if test="type==4">shop_item_type1='오피스텔'</if>
+			<if test="type==5">shop_item_type1='아파트'</if>
+			order by rownum desc) item)
+			where rnum between #{start} and #{end} 
 	</select>
 
 	<!-- 매물 총 게시물 수 -->

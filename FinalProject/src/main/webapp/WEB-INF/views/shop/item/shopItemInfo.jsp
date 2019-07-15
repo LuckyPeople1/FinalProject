@@ -940,7 +940,7 @@
 				$("#trading").attr("disabled",true);
 				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">전세</p>'
 						+'<input type="hidden" name="shopItemDealType" value="전세">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="전세" value="">'
+						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="전세" value="${item.shopItemDealPrice}">'
 						+'<p class="fIWZWk">만원<span>(예 전세 2000만원)</span></p>'
 						+'<button class="iFqJVZ charterCloseBtn"></button></div>');
 			}
@@ -950,7 +950,7 @@
 				$("#trading").attr("disabled",true);
 				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">매매</p>'
 						+'<input type="hidden" name="shopItemDealType" value="매매">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="매매" value="">'
+						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="매매" value="${item.shopItemDealPrice}">'
 						+'<p class="fIWZWk">만원<span>(예 매매 5억2000만원)</span></p>'
 						+'<button class="iFqJVZ tradingCloseBtn"></button></div>');
 			}

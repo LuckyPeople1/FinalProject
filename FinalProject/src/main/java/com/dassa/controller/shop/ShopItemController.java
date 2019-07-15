@@ -27,6 +27,7 @@ import com.dassa.service.ShopService;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @Controller
@@ -46,7 +47,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request,ShopItemSearchVO itemSearch)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -54,7 +55,7 @@ public class ShopItemController {
 			reqPage=1;
 		}
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,itemSearch);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();

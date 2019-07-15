@@ -33,7 +33,7 @@
 							</span>
 							<span class="sbox small">
 								<select name="type">
-									<option selected="selected" value="">매물선택</option>
+									<option selected="selected" value=0>매물선택</option>
 									<option value=1>원룸</option>
 									<option value=2>투룸</option>
 									<option value=3>쓰리룸</option>
