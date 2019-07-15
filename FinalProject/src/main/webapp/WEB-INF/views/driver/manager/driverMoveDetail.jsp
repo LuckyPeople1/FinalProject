@@ -264,7 +264,7 @@
 								<li class="bg">
 									<div class="row static">
 										<div class="subject">견적금액결정</div><br>
-										<div><input class="tbox full" name="estimateAmount" value="${driverVO.estimateAmount }" readonly="readonly"></div>
+										<div><input class="tbox full" name="estimateAmount" value="${driverVO.estimateAmount }원" readonly="readonly"></div>
 									</div>
 								</li>
 							</ul>

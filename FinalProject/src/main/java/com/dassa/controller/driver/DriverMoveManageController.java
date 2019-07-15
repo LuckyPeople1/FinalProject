@@ -14,6 +14,7 @@ import com.dassa.service.DriverService;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
+import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
@@ -29,7 +30,7 @@ public class DriverMoveManageController {
 		@RequestMapping("/move")
 		public String DriverMove(Model model,DriverPageData pagination,HttpServletRequest request,
 				 @RequestParam(required = false, defaultValue = "1") int page 
-				,@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
+				,@RequestParam(required = false, defaultValue = "1") int range,int driverIdx) throws Exception {
 			
 			if(pagination.getUserName()==null) {
 				pagination.setUserName("");
@@ -42,8 +43,10 @@ public class DriverMoveManageController {
 			
 			int listCnt=driverService.driverMoveTotalCount(pagination);
 			pagination.pageInfo(page, range, listCnt);	//page현재 페이지 (현재목록의 페이지번호) range 현재 페이지 범위(각 페이지 범위 시작 번호) listCnt 총 게시물 개수 (전체 게시물의 개수)
-			System.out.println("총게시물수:"+listCnt);	//총게시물수!!! 
+			System.out.println("총게시물수:"+listCnt);	//총게시물수!!!
+			pagination.setDriverIdx(driverIdx);  	//driverIdx 저장
 			List<MoveApplyVO> list=driverService.driverMoveList(pagination);
+			
 			if(list!=null) {
 				model.addAttribute("list", list);
 				model.addAttribute("pagination", pagination);
@@ -83,9 +86,15 @@ public class DriverMoveManageController {
 			
 		}
 		
-		//@사용자 리뷰 페이지
+		//관리자 페이지 리뷰관리
 		@RequestMapping("/review")
-		public String DriverReview() {
+		public String DriverReview(int driverIdx,Model model) {
+			
+			System.out.println(driverIdx);
+			List<DriverMypageReviewVO> list =driverService.driverReview(driverIdx);
+			
+			model.addAttribute("list", list);
+			
 			return "driver/review/driverReview";
 		}
 }

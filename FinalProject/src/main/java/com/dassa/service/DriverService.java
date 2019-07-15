@@ -11,6 +11,7 @@ import com.dassa.mapper.DriverMapper;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
+import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
@@ -95,6 +96,16 @@ public class DriverService {
 	public DriverVO driverMoveSelectOne(int applyIdx) throws Exception {
 		
 		return driverMapper.driverMoveSelectOne(applyIdx) ;
+	}
+	//관리자 페이지 리뷰관리
+	public List<DriverMypageReviewVO> driverReview(int driverIdx) {
+		
+		return driverMapper.driverReview(driverIdx);
+	}
+
+	public List<UserVO> userNameSelectOne() {
+		
+		return driverMapper.userNameSelectOne();
 	}
 
 	

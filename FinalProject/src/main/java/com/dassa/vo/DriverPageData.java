@@ -9,8 +9,39 @@ public class DriverPageData {
 	private String minDate;		//최소날짜
 	private String maxDate;		//최대날짜 
 	private String reviewTitle;	//review 제목 
+	private int driverIdx;
 	
-	 public String getUserName() {
+	 public int getDriverIdx() {
+		return driverIdx;
+	}
+
+	public void setDriverIdx(int driverIdx) {
+		this.driverIdx = driverIdx;
+	}
+
+	public DriverPageData(String userName, String minDate, String maxDate, String reviewTitle, int driverIdx, int page,
+			int range, int listCnt, int pageCnt, int listSize, int rangeSize, int startPage, int endPage, boolean prev,
+			boolean next, int startList) {
+		super();
+		this.userName = userName;
+		this.minDate = minDate;
+		this.maxDate = maxDate;
+		this.reviewTitle = reviewTitle;
+		this.driverIdx = driverIdx;
+		this.page = page;
+		this.range = range;
+		this.listCnt = listCnt;
+		this.pageCnt = pageCnt;
+		this.listSize = listSize;
+		this.rangeSize = rangeSize;
+		this.startPage = startPage;
+		this.endPage = endPage;
+		this.prev = prev;
+		this.next = next;
+		this.startList = startList;
+	}
+
+	public String getUserName() {
 		return userName;
 	}
 
@@ -89,21 +120,6 @@ public class DriverPageData {
 	
 	//게시판 시작번호 시작페이지를 따로 구함...
 	private int startList;
-
-	public DriverPageData(int page, int range, int listCnt, int pageCnt, int listSize, int rangeSize, int startPage,
-			int endPage, boolean prev, boolean next) {
-		super();
-		this.page = page;
-		this.range = range;
-		this.listCnt = listCnt;
-		this.pageCnt = pageCnt;
-		this.listSize = listSize;
-		this.rangeSize = rangeSize;
-		this.startPage = startPage;
-		this.endPage = endPage;
-		this.prev = prev;
-		this.next = next;
-	}
 
 	public DriverPageData() {
 		super();
