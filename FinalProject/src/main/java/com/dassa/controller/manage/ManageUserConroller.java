@@ -1,6 +1,8 @@
 package com.dassa.controller.manage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +36,7 @@ public class ManageUserConroller {
 	//회원승인 리스트
 	@RequestMapping("/userListAll")
 	@ResponseBody
-	public Object UserListAll(Map<String,Object> map, String type) throws Exception {
+	public Object UserListAll(Map<String,Object> map) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("list", list);

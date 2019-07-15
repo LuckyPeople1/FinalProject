@@ -167,8 +167,8 @@ $(".checkUserType").change(function(){
 					str += "<td>"+type+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
 					str += "<td><a";
-					str += "href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+"class='tag col_blue f_w'";
-					str += ">회원탈퇴</a></td>";
+					str += "href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+"class='tag col_blue f_w'>";
+					str += "회원탈퇴</a></td>";
 					str += "</tr>";
 					
 				}
@@ -183,8 +183,19 @@ $(".checkUserType").change(function(){
 				$(".list_table").children().eq(2).html("");
 				var listV = $(".list_table").children().eq(2);
 				console.log(listV);
+				console.log(data.list);
 				str = "";
+				
+				
 				for(var i=0; i<data.list.length; i++){
+					var type= "";
+					if(data.list[i].userType == "1"){
+						type = "운송기사";
+					}else if(data.list[i].userType == "2"){
+						type = "부동산";
+					}else if(data.list[i].userType == "3"){
+						type = "일반회원";
+					}
 					str += "<tr>";
 					str += "<td>"+data.list[i].userId+"</td>";
 					str += "<td>"+data.list[i].userPw+"</td>";
@@ -192,7 +203,7 @@ $(".checkUserType").change(function(){
 					str += "<td>"+data.list[i].userAddr+"</td>";
 					str += "<td>"+data.list[i].userPhone+"</td>";
 					str += "<td>"+data.list[i].userEmail+"</td>";
-					str += "<td>"+data.list[i].userType+"</td>";
+					str += "<td>"+type+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
 					str += "<td><a";
 					str += "href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+"class='tag col_blue f_w'";

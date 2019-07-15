@@ -14,6 +14,7 @@ import com.dassa.mapper.GuestMoveMapper;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
+import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyPage;
@@ -121,5 +122,10 @@ public class GuestMoveService {
 	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception {
 		
 		return guestMoveMapper.driverReviewInsert(driverReviewVO);
+	}
+	
+	public List<DriverMypageReviewVO> applyIdxSelectList(int guestIdx) {
+	
+		return guestMoveMapper.applyIdxSelectList(guestIdx);
 	}
 }

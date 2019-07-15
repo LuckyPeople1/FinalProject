@@ -1,10 +1,12 @@
 package com.dassa.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
@@ -43,4 +45,6 @@ public interface GuestMoveMapper {
 	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception;
 
 	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception;
+	
+	public List<DriverMypageReviewVO> applyIdxSelectList(int guestIdx);
 }

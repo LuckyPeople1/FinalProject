@@ -20,7 +20,8 @@
 				   comp_filepath as compFilepath,
 				   user_type as userType,
 				   social_id as socialId,
-				   enroll_date as enrollDate
+				   enroll_date as enrollDate,
+				   status
 			from user_tbl
 	</select>
 	
@@ -43,7 +44,8 @@
 				   comp_filepath as compFilepath,
 				   user_type as userType,
 				   social_id as socialId,
-				   enroll_date as enrollDate
+				   enroll_date as enrollDate,
+				   status
 			from user_tbl where user_type = #{userType}
 	</select>
 	
@@ -66,7 +68,8 @@
 				   comp_filepath as compFilepath,
 				   user_type as userType,
 				   social_id as socialId,
-				   enroll_date as enrollDate
+				   enroll_date as enrollDate,
+				   status
 		  from del_user_tbl
 	</select>
 	

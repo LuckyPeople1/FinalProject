@@ -59,6 +59,7 @@
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
 	<script src="<c:url value="/guest/js/mypage/move.js"/>"></script>
 	
+</div>
 	<script type="text/javascript">
 	$('.starRev span').click(function(){
 		  $(this).parent().children('span').removeClass('on');
@@ -69,7 +70,6 @@
 		});
 /* 	해당 <span>태그를 클릭 시, 부모를 한번 타고 올라가서 다른 <span>에 class="on"을 add/remove 하면서 변화  */
 	</script>
-</div>
 </body>
 </html>
 <style>

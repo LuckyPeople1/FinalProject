@@ -20,9 +20,7 @@ public class ManageHomeController {
 	
 	@RequestMapping("/")
 	public String ManageHome(){
-
 		return "manage/manageHome";
-
 	}
 	
 	//승인관리 페이지
@@ -37,6 +35,14 @@ public class ManageHomeController {
 	@RequestMapping("/user/userAllList")
 	public String UserAllList() {
 		return "manage/user/userAllList";
+	}
+	
+	//부동산 승인관리 페이지
+	@RequestMapping("/shop/shopApprobate")
+	public String ShopApprobateList(HttpServletRequest request) throws Exception {
+		List<UserVO> list = manageUserService.getUserListAll();
+		request.setAttribute("list", list);
+		return "manage/user/shopApprobateList";
 	}
 
 }
