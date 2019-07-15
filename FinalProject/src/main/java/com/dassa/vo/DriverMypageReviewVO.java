@@ -2,7 +2,7 @@ package com.dassa.vo;
 
 import java.sql.Date;
 
-public class DriverReviewVO {
+public class DriverMypageReviewVO {
 	private int reviewIdx;
 	private int driverIdx;
 	private int applyIdx;
@@ -10,8 +10,9 @@ public class DriverReviewVO {
 	private String reviewMessage;
 	private String extraMoney;
 	private Date reviewDate;
-	public DriverReviewVO(int reviewIdx, int driverIdx, int applyIdx, int reviewStar, String reviewMessage,
-			String extraMoney, Date reviewDate) {
+	private String estimateAmount;
+	public DriverMypageReviewVO(int reviewIdx, int driverIdx, int applyIdx, int reviewStar, String reviewMessage,
+			String extraMoney, Date reviewDate, String estimateAmount) {
 		super();
 		this.reviewIdx = reviewIdx;
 		this.driverIdx = driverIdx;
@@ -20,8 +21,9 @@ public class DriverReviewVO {
 		this.reviewMessage = reviewMessage;
 		this.extraMoney = extraMoney;
 		this.reviewDate = reviewDate;
+		this.estimateAmount = estimateAmount;
 	}
-	public DriverReviewVO() {
+	public DriverMypageReviewVO() {
 		super();
 	}
 	public int getReviewIdx() {
@@ -66,5 +68,13 @@ public class DriverReviewVO {
 	public void setReviewDate(Date reviewDate) {
 		this.reviewDate = reviewDate;
 	}
+	public String getEstimateAmount() {
+		return estimateAmount;
+	}
+	public void setEstimateAmount(String estimateAmount) {
+		this.estimateAmount = estimateAmount;
+	}
+	
+	
 
 }
