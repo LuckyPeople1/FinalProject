@@ -9,12 +9,6 @@
 			<article class="saleInLotsHeader">
 				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계" class="active">분양정보</a>
 				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsThema">테마분양</a>
-				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsSchedule">분양일정</a>
-				<div class="header"></div>
-				<a href="#none">분양뉴스</a>
-				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsBrand">브랜드관</a>
@@ -142,89 +136,6 @@
 													name="building_type" value=""><span
 													class="CheckBox"></span><span
 													class="checkBoxText">입주모집</span></label></li>
-										</ul>
-									</div>
-							</div>
-							<div class="searchBox_filter_type" tabindex="0">
-								<div class="searchBox_btn">
-									<span>분양일정</span>
-									<svg width="11" height="7" viewBox="0 0 11 7">
-										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
-									</svg>
-								</div>
-								<div class="searchBox_filterBox_3" width="340"
-										height="360" style="left: 0px; display: none;">
-										<h1 class="filterBox_title">분양일정
-											<p class="filterBox_title_msg">중복선택이 가능합니다.</p>
-										</h1>
-										<ul class="filterBox_ul_2">
-											<li style="width: 100%;"><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="supply_type" value="" checked=""><span
-													class="CheckBox"></span><span
-													class="checkBoxText_2">전체</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">모집공고</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">특별공급</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">1순위청약</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">2순위청약</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">청약접수</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">당첨자발표</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">계약기간</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">입주예정일</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">준공시기</span></label></li>
-											<li><label
-												class="Checkbox_Label" size="22"><input
-													type="checkbox"
-													class="inputCheckbox"
-													name="schedule" value=""><span class="CheckBox"></span><span
-													class="checkBoxText_2">분양시기</span></label></li>
 										</ul>
 									</div>
 							</div>

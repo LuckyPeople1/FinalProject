@@ -9,12 +9,6 @@
 			<article class="saleInLotsHeader">
 				<a href="/saleInLots/saleInLotsInformation">분양정보</a>
 				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsThema">테마분양</a>
-				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsSchedule">분양일정</a>
-				<div class="header"></div>
-				<a href="#none">분양뉴스</a>
-				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsBrand" class="active">브랜드관</a>
