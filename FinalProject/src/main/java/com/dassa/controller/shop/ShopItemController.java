@@ -165,9 +165,18 @@ public class ShopItemController {
 //		shopService.shopItemImgAdd(imgList);
 		return "shop/item/shopItemList";
 	}
+	/**
+	 * 중개사 페이지 - 매물 수정 로직(itemModify)
+	 * @param httpServletRequest
+	 * @param fileImg
+	 * @param sItem
+	 * @param sItemImg
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/shopItemModify")
 	public String ShopItemModify(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
-List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
+		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 		
 		System.out.println("넘어온 파일 : "+fileImg);
 		
@@ -191,11 +200,19 @@ List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 				System.out.println("최종이미지리스트"+imgList);
 			}
 		}
-		shopService.shopItemModify(sItem, imgList);
+//		shopService.shopItemModify(sItem, imgList);
 //		shopService.shopItemImgAdd(imgList);
 		return "shop/item/shopItemList";
 	}
 	
+	@RequestMapping("/shopItemDelete")
+	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
+		int result = shopService.shopItemDelete(shopItemIdx);
+		if(result>0) {
+			return "shop/item/shopItemList";
+		}
+		return "shop/item/shopItemList";
+	}
 	/**
 	 * 아파트 목록 API(아파트코드, 아파트명)
 	 * @param jusoDongCode

@@ -118,4 +118,13 @@ public class ShopService {
 	public List<ShopItemImgVO> shopItemImgList(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemImgList(shopItemIdx);
 	}
+	/**
+	 * 중개사 페이지 - 매물 삭제
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopItemDelete(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemDelete(shopItemIdx);
+	}
 }
