@@ -19,6 +19,8 @@ import com.dassa.vo.MovePaymentVO;
 public interface GuestMoveMapper {
 	// 결제
 	public int guestMovePayment(MovePaymentVO mpVo);
+	// 리뷰작성 여부 확인
+	public DriverReviewVO driverReviewSelectOne(int applyIdx) throws Exception;
 	// 등록한 이사리스트
 	public ArrayList<MoveApplyVO> moveList(Map<String, Object> parameters);
 	// 페이징 용 카운트

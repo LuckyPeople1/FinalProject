@@ -17,7 +17,7 @@
 					<span class="tit">이사 관리</span>
 				</div>
 				<div class="moveListBox">
-					<c:forEach var="list" items="${movePage.list}">
+					<c:forEach var="list" items="${movePage.list}" varStatus="i">
 						<c:choose>
 							<c:when test="${list.applyStatus eq 0}">
 								<a href="/my/auctionList?applyIdx=${list.applyIdx }" class="moveBox on">
@@ -62,9 +62,11 @@
 									</div>
 								</c:when>
 								<c:when test="${list.applyStatus eq 2}">
-									<div class="reviewBox">
-										<span class="review">후기작성</span>
-									</div>
+									<c:if test="${movePage.reList[0].applyIdx != 0}">
+										<div class="reviewBox">
+											<span class="review">후기작성</span>
+										</div>
+									</c:if>
 									<div class="stateBox">
 										<span class="state">이사 완료</span>
 									</div>

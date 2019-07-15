@@ -299,6 +299,8 @@
 									<p class="hNdXGi">건물 층수</p> 
 									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
 										<option value="">건물 층수 선택</option>
+										
+										<option val=${item.shopItemFloorAll } selected="selected">${item.shopItemFloorAll }</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>
@@ -380,6 +382,7 @@
 									<p class="hNdXGi">건물 층수</p> 
 									<select class="freEbZ hRFrgm" name="shopItemFloorAll">
 										<option value="">건물 층수 선택</option>
+										<option value=${item.shopItemFloorAll } selected="selected">${item.shopItemFloorAll }</option>
 										<c:forEach var="i" begin="1" end="49" step="1">
 											<option value=${i }>${i }층</option>
 										</c:forEach>

@@ -108,12 +108,12 @@ public class GuestMyController {
 	 * 이사 리스트
 	 * @param model
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/moveList")
-	public String moveList(Model model,int guestIdx,@RequestParam(defaultValue="1") int reqPage){
+	public String moveList(Model model,int guestIdx,@RequestParam(defaultValue="1") int reqPage) throws Exception{
 		MoveApplyPage moPage = new MoveApplyPage();
 		MoveApplyPage movePage = guestMoveService.moveList(guestIdx,reqPage,moPage);
-		model.addAttribute("tab","2");
 		model.addAttribute("movePage",movePage);
 
 		return "/guest/mypage/myMoveList";
