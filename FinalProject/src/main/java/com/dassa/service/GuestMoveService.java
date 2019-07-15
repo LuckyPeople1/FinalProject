@@ -68,7 +68,7 @@ public class GuestMoveService {
 		}
 		return result;
 	}
-	public MoveApplyPage moveList(int guestIdx,int reqPage,MoveApplyPage moPage){
+	public MoveApplyPage moveList(int guestIdx,int reqPage,MoveApplyPage moPage) throws Exception{
 		int numPerPage = 5;
 		int totalCount = guestMoveMapper.moveApplyTotalCount(guestIdx);
 		int totalPage = (totalCount%5==0)?(totalCount/5):(totalCount/5)+1;
@@ -79,6 +79,15 @@ public class GuestMoveService {
 		parameters.put("start", start);
 		parameters.put("end", end);
 		ArrayList<MoveApplyVO> list = guestMoveMapper.moveList(parameters);
+		ArrayList<DriverReviewVO> reList = new ArrayList<DriverReviewVO>();
+		for(int i =0;i<list.size();i++) {
+			DriverReviewVO reVO = guestMoveMapper.driverReviewSelectOne(list.get(i).getApplyIdx());
+			if(reVO != null) {
+				reList.add(reVO);
+			}else {
+				reList.add(null);
+			}
+		}
 		String pageNavi = "";
 		int pageNaviSize = 3;
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
@@ -104,7 +113,7 @@ public class GuestMoveService {
 					
 		}
 		
-		return new MoveApplyPage(list, pageNavi);
+		return new MoveApplyPage(list,  reList, pageNavi );
 	}
 	public MoveInfoTotalData moveInfo(int applyIdx) throws Exception {
 		DriverAuctionDetailVO driverAuctionDetail=driverMapper.driverSelectOne(applyIdx);	//move_apply_tbl 조회 
@@ -113,7 +122,9 @@ public class GuestMoveService {
 		MoveAuctionVO maVo = guestMoveMapper.moveAuctionInfo(applyIdx);					
 		MovePaymentVO payVo = guestMoveMapper.paymentInfo(applyIdx);
 		MoveAuctionReview reVo = guestMoveMapper.driverReviewSelect(maVo.getDriverIdx());
-		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo,reVo);
+		DriverReviewVO reOneVO = guestMoveMapper.driverReviewSelectOne(applyIdx);
+		System.out.println(reOneVO.getApplyIdx());
+		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo,reVo,reOneVO);
 	}
 	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception {
 		// TODO Auto-generated method stub

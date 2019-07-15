@@ -51,7 +51,6 @@ public class ShopService {
 	public int shopItemAdd(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
 		shopMapper.shopItemAdd(sItem);
 		return shopMapper.shopItemImgAdd(sItemImgList);
-		
 	}
 	/**
 	 * 중개사 페이지 - 매물리스트
@@ -101,7 +100,31 @@ public class ShopService {
 		ShopItemPageDataVO pd = new ShopItemPageDataVO(list,pageNavi);
 		return pd;
 	}
+	/**
+	 * 중개사 페이지 - 매물상세보기
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
 	public ShopItemVO shopItemInfo(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemInfo(shopItemIdx);
+	}
+	/**
+	 * 중개사 페이지 - 상세보기매물이미지
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ShopItemImgVO> shopItemImgList(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemImgList(shopItemIdx);
+	}
+	/**
+	 * 중개사 페이지 - 매물 삭제
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopItemDelete(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemDelete(shopItemIdx);
 	}
 }

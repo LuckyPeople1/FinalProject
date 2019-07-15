@@ -16,12 +16,14 @@
 				<div class="moveTitle">
 					<span class="tit">REVIEW</span>
 				</div>
+				<div class="moveListBox">
 				<c:forEach items="${list }" var="myReview">
-					<div class="moveListBox">
+					<a href="#none" class="moveBox">
 						<div class="moveInfo">
 							<div class="top">
-								<span class="timeBox">견적가 :${myReview.estimateAmount }원</span><hr>
-									<div class="starRev">평점 :
+								<span class="timeBox">견적가 :${myReview.estimateAmount }원</span>
+								<span class="hopeBox">${myReview.extraMoney == 1 ? '현장추가금 X' : '현장추가금 O' }</span>
+									<div class="starRev">
 										<c:if test="${myReview.reviewStar eq 1 }">
 											  <span class="starR on"></span>
 										</c:if>	  
@@ -48,8 +50,8 @@
 												  <span class="starR on"></span>
 										</c:if>		  
 										 <!--  <input type="hidden" name="reviewStar" value="" > -->
-									</div><br>
-								<span class="hopeBox">${myReview.extraMoney == 1 ? '현장추가금 X' : '현장추가금 O' }</span>
+									</div>
+							</div>	
 							<div class="bottom">
 								<span class="addrBox">
 									<span class="addr">메모내용 </span>
@@ -57,10 +59,10 @@
 									<span class="addr">${myReview.reviewMessage }</span>
 								</span>
 							</div>
-							</div><br>
 						</div>
-					</div>
+					</a>
 				</c:forEach>
+				</div>
 			</div>
 		</section>
 	</div>
