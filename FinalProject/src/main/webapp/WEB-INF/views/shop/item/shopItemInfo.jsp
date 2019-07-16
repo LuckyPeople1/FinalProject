@@ -785,17 +785,15 @@
 					<div class="heKOml">
 					<div class="imgList">
 						<c:forEach var="itemImg" items="${siiList}" begin="0" step="1" varStatus="i">
-							<input type="hidden" name="oldPath" value="${itemImg.shopImgPath }">
-							<input type="hidden" name="oldName" value="${itemImg.shopImgName }">
 							<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)" value="${itemImg.shopImgName }">
 								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"><img src="${itemImg.shopImgPath }"></a>
 							</div>
 						</c:forEach>
 						<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
-								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
-							</div>
+							<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+							<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
+						</div>
 					</div>
 					</div>
 					<p class="bhZAGT">

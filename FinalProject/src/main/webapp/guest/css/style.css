@@ -4170,4 +4170,429 @@ section.saleInLotsProcess .processContentDetail .table__require tbody tr td li p
     display: block;
     padding-left: 20px;
 }
+/* 사용자페이지 매물 css 시작 */
+section.shopItemView .kZTRnS {
+    width: 100%;
+}
+section.shopItemView .ixyaqW {
+    width: 100%;
+    padding-top: 35px;
+    margin-bottom: 35px;
+}
+section.shopItemView .ixyaqW::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .UuNuJ {
+    float: left;
+    height: 62px;
+    padding-right: 25px;
+    border-right: 1px solid rgb(235, 235, 235);
+}
+section.shopItemView .hzbdBs {
+    margin-bottom: 7px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    line-height: 20px;
+}
+section.shopItemView .UuNuJ + li {
+    margin-left: 25px;
+}
+section.shopItemView .cqojtY {
+    float: left;
+    height: 62px;
+    padding-right: 25px;
+    border-right: 1px solid rgb(235, 235, 235);
+}
+section.shopItemView .cqojtY + li {
+    margin-left: 25px;
+}
+section.shopItemView .dUILvV {
+    line-height: 35px;
+    vertical-align: bottom;
+    position: relative;
+}
+section.shopItemView .dUuerR {
+    float: left;
+    color: rgb(34, 34, 34);
+    font-size: 30px;
+    line-height: 35px;
+}
+section.shopItemView .ktfeIl {
+    width: 40px;
+    height: 26px;
+    margin-left: 8px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    top: 5px;
+    padding: 0px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.shopItemView .ktfeIl > svg {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+}
+section.shopItemView svg:not(:root) {
+    overflow: hidden;
+}
+section.shopItemView .ktfeIl > span {
+    color: rgb(34, 34, 34);
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+}
+section.shopItemView .byeNFK {
+    float: right;
+    padding-top: 20px;
+}
+section.shopItemView .byeNFK::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .hhDakc {
+    margin-right: 12px;
+    color: rgb(34, 34, 34);
+    font-size: 14px;
+    text-align: right;
+}
+section.shopItemView .gTIMxh {
+    text-align: right;
+    font-size: 14px;
+    color: rgb(136, 136, 136);
+    margin-right: 12px;
+}
+section.shopItemView .fEkbZe {
+    float: left;
+    width: 116px;
+    height: 38px;
+    color: rgb(34, 34, 34);
+    font-size: 13px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+    border-radius: 19px;
+}
+section.shopItemView .fEkbZe > svg {
+    position: absolute;
+    left: 18px;
+    top: 10px;
+}
+section.shopItemView .fEkbZe > span {
+    position: absolute;
+    left: 38px;
+    top: 8px;
+}
+section.shopItemView .iuNQqL {
+    width: 100%;
+    margin-bottom: 30px;
+    border-top: 2px solid rgb(34, 34, 34);
+}
+section.shopItemView .iuNQqL::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .iuNQqL > li {
+    float: left;
+    width: 25%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemView .gWdVQs::before {
+    content: "·";
+    float: left;
+    color: rgb(34, 34, 34);
+    margin-right: 7px;
+}
+section.shopItemView .gWdVQs::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .gPsGgb {
+    float: left;
+    width: 100px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+}
+section.shopItemView .gbAeEp {
+    float: left;
+    color: rgb(34, 34, 34);
+    font-size: 14px;
+}
+section.shopItemView .bHPFKV {
+    width: 40px;
+    height: 23px;
+    margin-left: 8px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    top: 4px;
+    padding: 0px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
+    border-image: initial;
+    border-radius: 3px;
+}
+section.shopItemView .bHPFKV > svg {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+}
+section.shopItemView .bHPFKV > span {
+    color: rgb(34, 34, 34);
+    font-size: 11px;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+}
+section.shopItemView .jnzTsK {
+    display: inline-block;
+    height: 42px;
+    background-color: rgba(34, 34, 34, 0.7);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    padding: 0px 17px;
+    border-radius: 3px;
+}
+section.shopItemView .jnzTsK > p {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-align: center;
+    line-height: 42px;
+}
+section.shopItemView .fQSDcO {
+    width: 1180px;
+    height: 420px;
+    margin-bottom: 49px;
+    position: relative;
+    cursor: pointer;
+}
+section.shopItemView .fQSDcO::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .kVQrqD {
+    width: 100%;
+    min-height: 260px;
+    padding-bottom: 130px;
+    position: relative;
+}
+section.shopItemView .kVQrqD::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .eRkCVv {
+    float: left;
+    width: 520px;
+    height: 130px;
+    padding-right: 150px;
+    color: rgb(34, 34, 34);
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 36px;
+    white-space: pre-wrap;
+}
+section.shopItemView .cDEjhR {
+    float: left;
+    width: calc(660px);
+    padding-right: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: height 400ms ease 0s;
+}
+section.shopItemView .cDEjhR > div {
+    width: 100%;
+    color: rgb(102, 102, 102);
+    font-size: 16px;
+    line-height: 26px;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+section.shopItemView .jFMhNO {
+    padding-top: 100px;
+    padding-bottom: 120px;
+    border-top: 1px solid rgb(221, 221, 221);
+}
+section.shopItemView .kBQneM {
+    width: 1180px;
+    position: relative;
+    margin: 0px auto;
+}
+section.shopItemView .iSPaSs {
+    width: 850px;
+    margin: 30px auto 0px;
+    border-top: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
 
+section.shopItemView .GYLAC {
+    color: rgb(34, 34, 34);
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 41px;
+}
+section.shopItemView .iSPaSs > thead > tr {
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+section.shopItemView .iSPaSs > thead > tr > th {
+    height: 50px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    font-weight: 500;
+}
+section.shopItemView .iSPaSs > tbody > tr > td {
+    padding-top: 20px;
+    padding-bottom: 27px;
+    vertical-align: top;
+}
+section.shopItemView .iSPaSs > tbody > tr > td > p {
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    text-align: center;
+    line-height: 26px;
+}
+section.shopItemView .boQZaR {
+    width: 850px;
+    height: 112px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
+    margin: 30px auto 0px;
+    padding: 0px 55px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(20, 118, 252);
+    border-image: initial;
+    border-radius: 4px;
+}
+section.shopItemView .boQZaR::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .boQZaR > p {
+    width: 165px;
+    font-size: 20px;
+}
+section.shopItemView .boQZaR > div {
+    width: 573px;
+    font-size: 30px;
+    font-weight: 500;
+}
+section.shopItemView .boQZaR > div > span {
+    margin-left: 5px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    bottom: 4px;
+}
+section.shopItemView .boQZaR > p, .boQZaR > div {
+    float: left;
+    color: rgb(20, 118, 252);
+    line-height: 110px;
+}
+section.shopItemView .lnMkbZ {
+    color: rgb(34, 34, 34);
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 41px;
+}
+section.shopItemView .dDctva {
+    width: 1180px;
+    margin-top: 32px;
+    padding: 0px 104px;
+}
+section.shopItemView .dDctva::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .fuJjGK {
+    width: 40px;
+    height: 40px;
+    margin: 0px auto;
+    background: url(/static/media/shoes.71788279.svg) center center / cover no-repeat;
+}
+section.shopItemVeiw .gqtsIc > p {
+    margin-top: 5px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+}
+section.shopItemView .fIqmuM {
+    color: rgb(34, 34, 34);
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 41px;
+    position: relative;
+    z-index: 10;
+}
+section.shopItemView .qMbaJ {
+    width: 18px;
+    height: 18px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 620px;
+    transform: translateY(-50%);
+}
+section.shopItemView .qMbaJ > svg {
+    position: absolute;
+    top: 0px;
+}
+section.shopItemView .iSIGBT {
+    display: none;
+    width: 320px;
+    box-shadow: rgba(26, 38, 50, 0.15) 0px -2px 5px 0px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 17px 20px 17px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(100, 101, 104);
+    border-image: initial;
+}
+section.shopItemView .hwnvlX {
+    color: rgb(102, 102, 102);
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    margin: 3px 0px 27px;
+}
+section.shopItemView .jdAEqt {
+    width: 850px;
+    height: 400px;
+    position: relative;
+    margin: 29px auto 26px;
+}

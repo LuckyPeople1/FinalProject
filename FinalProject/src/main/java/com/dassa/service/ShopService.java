@@ -57,8 +57,8 @@ public class ShopService {
 	 * @throws Exception
 	 */
 	public int shopItemModify(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
-		shopMapper.shopItemModify(sItem);
-		return  shopMapper.shopItemImgModify(sItemImgList);
+		//shopMapper.shopItemImgModify(sItemImgList);
+		return shopMapper.shopItemModify(sItem);  
 	}
 	/**
 	 * 중개사 페이지 - 매물리스트
