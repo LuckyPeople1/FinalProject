@@ -6,7 +6,7 @@
 		</a>
 	</h1>
 	<div class="nav_menu">
-		<a href="/userManage/userAllList" class="menu_btn">
+		<a href="/userManage/userApprobateList" class="menu_btn">
 			<i class="ico set"></i>
 			<div class="menu_text">승인관리</div>
 		</a>

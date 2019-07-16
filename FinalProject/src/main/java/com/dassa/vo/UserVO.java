@@ -23,8 +23,11 @@ public class UserVO {
 	private String  socialId;				//소셜 로그인 할 때 필요
 	private Date	enrollDate;
 	private String  status;					//회원 상태
+	private Date    outDate;				//탈퇴 일
 	private String  type;
 	private String  userStatus;				//상태 변경
+	private String  userType1;
+	private String  userType2;
 	
 	public UserVO() {
 		super();
@@ -34,7 +37,7 @@ public class UserVO {
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String addrCode,
 			String userPhone, String userEmail, String proFilename, String proFilepath, String userIntroduce,
 			String registrationNumber, String businessNumber, String userCar, String compFilename, String compFilepath,
-			String userType, String socialId, Date enrollDate, String status, String type) {
+			String userType, String socialId, Date enrollDate, String status, Date outDate, String type) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -56,6 +59,7 @@ public class UserVO {
 		this.socialId = socialId;
 		this.enrollDate = enrollDate;
 		this.status = status;
+		this.outDate = outDate;
 		this.type = type;
 	}
 
@@ -219,6 +223,14 @@ public class UserVO {
 		this.status = status;
 	}
 
+	public Date getOutDate() {
+		return outDate;
+	}
+
+	public void setOutDate(Date outDate) {
+		this.outDate = outDate;
+	}
+
 	public String getType() {
 		String type = userType;
 		if(type.equals("1")) {
@@ -226,18 +238,19 @@ public class UserVO {
 		}else if(type.equals("2")){
 			return "부동산";
 		}else {
-			return "일반";
+			return "일반회원";
 		}
 	}
 	
 	public String getUserStatus() {
-		String uStatus = status;
-		if(uStatus.equals("1")) {
+		String userStatus = status;
+		if(userStatus.equals("1")) {
 			return "정상";
-		}else if(uStatus.equals("2")){
-			return "가입대기";
+		}else if(userStatus.equals("2")){
+			return "승인대기";
 		}else {
 			return "탈퇴";
 		}
 	}
+	
 }

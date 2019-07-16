@@ -7,10 +7,9 @@
   			notice_type as noticeType,
   			notice_title as noticeTitle,
   			notice_writer as noticeWriter,
-  			notice_hit as noticeHit,
   			notice_reg_date as noticeRegDate,
   			notice_state as noticeState
-  			 from (select rownum as rnum, n.* from (select * from notice_tbl where notice_state='정상' and 
+  			 from (select rownum as rnum, n.* from (select * from notice_tbl where <!-- notice_state='정상' and --> 
   			 <if test="code==0">notice_type='사용자'</if> 
   			 <if test="code==1">notice_type='부동산'</if> 
   			 <if test="code==2">notice_type='기사'</if> 
@@ -18,18 +17,7 @@
   			  where rnum between #{start} and #{end}
   		
   </select>
-  <!-- 부동산리스트조회 -->
-  <select id="realestateSelectAllList" resultType="noticeVO" parameterType="_int">
-  		select notice_index as noticeIndex,
-  			notice_type as noticeType,
-  			notice_title as noticeTitle,
-  			notice_writer as noticeWriter,
-  			notice_hit as noticeHit,
-  			notice_reg_date as noticeRegDate,
-  			notice_state as noticeState
-  			 from (select rownum as rnum, n.* from (select * from notice_tbl where notice_state='정상' and notice_type='부동산' order by rownum desc) n)
-  			  where rnum between #{start} and #{end}
-  </select>
+
   <select id="totalCount" resultType="_int">
   	select count(*) cnt from notice_tbl where <if test="code == 0"> notice_type='사용자'</if> <if test="code==1">notice_type='부동산'</if><if test="code==2">notice_type='기사'</if>
   </select>

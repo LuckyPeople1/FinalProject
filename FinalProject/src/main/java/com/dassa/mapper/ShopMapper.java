@@ -2,6 +2,7 @@ package com.dassa.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
@@ -10,6 +11,7 @@ import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @MapperScan("shopMapper")
@@ -29,8 +31,20 @@ public interface ShopMapper {
 	//매물 관리 총 게시물 수
 	public int shopItemTotalCount() throws Exception;
 	
-	//매물 관리 리스트
+	//매물 총 리스트
 	public ArrayList<ShopItemVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	
+	//매물 수정
+	public int shopItemModify(ShopItemVO sItem) throws Exception;
+	
+	//매물 이미지 수정
+	public int shopItemImgModify(List<ShopItemImgVO> sItemImgList) throws Exception;
+	
+	//매물 검색 게시물 수
+	public int shopItemSearchCount(Map<String, Object> map) throws Exception;
+	
+	//매물 검색 리스트
+	public ArrayList<ShopItemVO> itemSearchList(@Param("start")int start, @Param("end") int end, Map<String, Object> map) throws Exception;
 	
 	//매물 상세 보기
 	public ShopItemVO shopItemInfo(int shopItemIdx) throws Exception;

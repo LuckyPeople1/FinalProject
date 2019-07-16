@@ -42,7 +42,7 @@
 						<td>
 							<label>
 								<input type="checkbox">
-								<span>답변</span>
+								<span>답변완료</span>
 							</label>
 							<label class="ml10">
 								<input type="checkbox">
@@ -71,19 +71,8 @@
 				</div>
 			</div>
 			<div class="list_field">
-				<div class="list_menu">
-					<span class="left_menu">
-						<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-						<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
-
-					</span>
-					<span class="right_menu">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
-					</span>
-				</div>
 				<table class="list_table">
 					<colgroup>
-						<col width="80">
 						<col width="80">
 						<col width="100">
 						<col width="*">
@@ -95,11 +84,6 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th>
-							<label>
-								<input type="checkbox" name="all_chk">
-							</label>
-						</th>
 						<th>No</th>
 						<th>아이디</th>
 						<th>제목</th>
@@ -114,11 +98,6 @@
 				<c:forEach items="${list }" var="q">
 					
 					<tr>
-						<td>
-							<label>
-								<input type="checkbox" name="">
-							</label>
-						</td>
 						<td>${q.questionsIndex }</td>
 						<td>${q.questionsWriter }</td>
 						<td class="text-left">${q.questionsTitle }</td>

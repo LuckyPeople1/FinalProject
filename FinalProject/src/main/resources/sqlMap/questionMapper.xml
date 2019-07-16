@@ -11,11 +11,10 @@
   			questions_writer as questionsWriter,
   			questions_reg_date as questionsRegDate,
   			questions_state as questionsState	
-  			 from (select rownum as rnum, n.* from (select * from questions_tbl where questions_state='정상' 
-<!--   			 and 
-  			 <if test="code==0">notice_type='사용자'</if> 
-  			 <if test="code==1">notice_type='부동산'</if> 
-  			 <if test="code==2">notice_type='기사'</if>  -->
+  			 from (select rownum as rnum, n.* from (select * from questions_tbl where <!-- questions_state='정상' and --> 
+  			 <if test="code==0">questions_user_type='회원'</if> 
+  			 <if test="code==1">questions_user_type='부동산'</if> 
+  			 <if test="code==2">questions_user_type='기사'</if> 
   			 order by rownum desc) n)
   			  where rnum between #{start} and #{end}
   </select>
@@ -35,6 +34,6 @@
   </select>
   <!-- 1:1문의 답변하기 -->
   <update id="questionUpdate" parameterType="questionVO">
-  	update questions_tbl set questions_answer=#{questionsAnswer} where questions_index=#{questionsIndex}
+  	update questions_tbl set questions_answer=#{questionsAnswer}, questions_answer_state='답변완료' where questions_index=#{questionsIndex}
   </update>
 </mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.NoticeGuestMapper">
+<!-- 리스트조회 -->
+  <select id="selectAllList" resultType="noticeVO" parameterType="_int">		
+  		select notice_index as noticeIndex,
+  			notice_type as noticeType,
+  			notice_title as noticeTitle,
+  			notice_reg_date as noticeRegDate,
+  			notice_state as noticeState
+  			 from (select rownum as rnum, n.* from (select * from notice_tbl where notice_state='정상' and notice_type='사용자' order by rownum desc) n)
+  			  where rnum between #{start} and #{end}
+  </select>
+    <select id="totalCount" resultType="_int">
+  	select count(*) cnt from notice_tbl where notice_type='사용자'
+  </select>
+  <!-- 사용자 상세보기 -->
+    <select id="noticeView" parameterType="noticeVO" resultType="noticeVO">
+  	select notice_index as noticeIndex,
+  			notice_type as noticeType,
+  			notice_title as noticeTitle,
+  			notice_filename as noticeFilename,
+  			notice_filepath as noticeFilepath,
+  			notice_reg_date as noticeRegDate,
+  			notice_content as noticeContent
+  		from notice_tbl where notice_index=#{noticeIndex} 
+  </select>
+  <!-- FAQ전체리스트 -->
+    <select id="selectFaqList" resultType="faqVO" parameterType="_int">
+  	select faq_index as faqIndex,
+  		faq_user_type as faqUserType,
+  		faq_question as faqQuestion,
+  		faq_answer as faqAnswer,
+  		faq_state as faqState,
+  		faq_reg_date as faqRegDate
+  		from (select rownum as rnum, f.* from (select * from faq_tbl where faq_state='정상' order by rownum desc) f)
+  		where rnum between #{start} and #{end}
+  </select>
+   <select id="totalCount1" resultType="_int">
+  	select count(*) cnt from faq_tbl
+  </select>
+</mapper>

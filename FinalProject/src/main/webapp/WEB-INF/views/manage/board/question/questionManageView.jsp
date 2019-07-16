@@ -47,7 +47,8 @@
 								<tr>
 									<th>답변</th>
 									<td><textarea class="board_textarea" name="questionsAnswer">${questionVO.questionsAnswer }</textarea>
-									<input type="hidden" name="questionsIndex" value="${questionVO.questionsIndex }"></td>
+									<input type="hidden" name="questionsIndex" value="${questionVO.questionsIndex }">
+									<input type="hidden" name="questionsState" value="${questionVO.questionsState }"></td>
 								</tr>
 								<tr>
 									<td colspan="2">

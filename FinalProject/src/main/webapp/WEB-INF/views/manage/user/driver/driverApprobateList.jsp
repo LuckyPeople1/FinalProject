@@ -10,7 +10,7 @@
 <div class="contents">
 	<section id="manageUserAllList">
 		<div class="set_field">
-			<div class="field_title"><span class="title_mark">■ 부동산 승인 관리</span></div>
+			<div class="field_title"><span class="title_mark">■ 회원 관리</span></div>
 			<table class="set_man_userTable">
 				<colgroup>
 					<col width="200">
@@ -23,25 +23,24 @@
 					<th>회원 검색</th>
 					<td colspan="">
 						<span class="sbox small">
-							<select name="searchType">
+							<select name="searchType" id="searchType">
 								<option value="1">아이디</option>
 								<option value="2">회원명</option>
-								<option value="3">휴대폰번호</option>
 							</select>
 						</span>
-						<input class="tbox" name="searchWord" value="">
+						<input class="tbox" name="searchWord" id="searchWord" value="">
 					</td>
 				</tr>
 				<tr>
 					<th>회원 등급</th>
 					<td colspan="3">
 						<label>
-							<input type="checkbox">
-							<span>운송기사</span>
+							<input type="checkbox" class="checkUserType">
+							<span>정상 회원</span>
 						</label>
 						<label class="ml10">
-							<input type="checkbox">
-							<span>부동산</span>
+							<input type="checkbox" class="checkUserType">
+							<span>탈퇴 회원</span>
 						</label>
 					</td>
 				</tr>
@@ -60,7 +59,7 @@
 				</tbody>
 			</table>
 			<div class="set_menu">
-				<a href="javascript:void(0)" class="btn normal col_main f_w">검색</a>
+				<button type="submit" id="search_btn"  class="btn normal col_main f_w">검색</button>
 				<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 			</div>
 		</div>
@@ -102,7 +101,7 @@
 							<td>${u.type }</td>
 							<td>${u.enrollDate }</td>
 							<td>
-								<span class="tag col_blue f_w">${u.userStatus }</span>
+								<a href="/userManage/reLoad?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -133,3 +132,5 @@
 		</div>
 	</section>
 </div>
+</body>
+</html>
