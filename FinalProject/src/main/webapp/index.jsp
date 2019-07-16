@@ -26,6 +26,7 @@
 				쉬운방찾기@@@
 				쉬운방찾기@@@
 				쉬운방찾기@@@
+				<a href="/shop/itemView?shopItemIdx=95">방찾기</a>
 				<a href="/guest/notice/noticeList?reqPage=1">공지사항</a>
 			</div>
 		</section>

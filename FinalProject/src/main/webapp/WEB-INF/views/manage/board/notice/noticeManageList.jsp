@@ -54,16 +54,13 @@
 			</div>
 				<div class="list_field">
 					<div class="list_menu">
-					<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-					<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
+
 					<span class="right_menu">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
 						<a href="/manage/board/notice/noticeManageWriter" class="btn col_darkGrey f_w">글쓰기</a>
 					</span>
 				</div>
 				<table class="list_table">
 					<colgroup>
-						<col width="100">
 						<col width="100">
 						<col width="100">						
 						<col width="*">
@@ -73,11 +70,6 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th>
-							<label>
-								<input type="checkbox" name="all_chk">
-							</label>
-						</th>
 						<th>No</th>
 						<th>분류</th>
 						<th>제목</th>
@@ -91,11 +83,6 @@
 					<c:forEach items="${list }" var="n">
 					
 					<tr>
-						<td>
-							<label>
-								<input type="checkbox">
-							</label>
-						</td>
 						<td>${n.noticeIndex }</td>
 						<td>${n.noticeType }</td>
 						<td class="text-left">${n.noticeTitle }</td>

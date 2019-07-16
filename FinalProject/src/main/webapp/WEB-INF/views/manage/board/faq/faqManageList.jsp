@@ -63,18 +63,12 @@
 			</div>
 			<div class="list_field">
 			<div class="list_menu">
-					<span class="left_menu">
-						<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-						<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>					
-					</span>
 					<span class="right_menu">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
 						<a href="/manage/board/faq/faqManageWriter" class="btn col_darkGrey f_w">FAQ작성</a>
 					</span>
 				</div>
 				<table class="list_table">
 					<colgroup>
-						<col width="100">
 						<col width="100">
 						<col width="120">
 						<col width="*">
@@ -84,7 +78,6 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>분류</th>
 						<th>제목</th>
@@ -96,7 +89,6 @@
 					<tbody>
 					<c:forEach items="${list }" var="f">
 					<tr>
-						<td><label><input type="checkbox"></label></td>
 						<td>${f.faqIndex }</td>
 						<td>${f.faqUserType }</td>
 						<td class="text-left">${f.faqQuestion }</td>
