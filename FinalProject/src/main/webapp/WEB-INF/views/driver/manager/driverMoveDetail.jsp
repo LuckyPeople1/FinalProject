@@ -36,83 +36,78 @@
 						<tbody>
 						<tr>
 							<th>이름</th>
-							<td colspan="3">
-								<label><input class="tbox" type="text" value="${driverAuctionDetail.guestName }" readonly="readonly"></label>
-							</td>
+							<td colspan="3">${driverAuctionDetail.guestName }</td>
 						</tr>
 						<tr>
 							<th>이사날짜</th>
-							<td><input class="tbox full" type="text" value="${driverAuctionDetail.applyDate }" readonly="readonly"></td>
+							<td>${driverAuctionDetail.applyDate }</td>
 							<th>휴대폰번호</th>
-							<td><input class="tbox full" type="text" value="${driverAuctionDetail.guestPhone }" readonly="readonly"></td>
+							<td>${driverAuctionDetail.guestPhone }</td>
 						</tr>
 						<tr>
 							<th>출발지 도로명주소</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startAddr1 }" readonly="readonly"></td>	
+							<td>${driverAuctionDetail.startAddr1 }</td>	
 							<th>도착지 도로명주소</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endAddr1 }" readonly="readonly"></td>
+							<td>${driverAuctionDetail.endAddr1 }</td>
 						</tr>
 						<tr>
 							<th>출발지 지번주소</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startAddr2}" readonly="readonly"></td>
+							<td>${driverAuctionDetail.startAddr2}</td>
 							<th>도착지 지번정보</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endAddr2}" readonly="readonly"></td>
+							<td>${driverAuctionDetail.endAddr2}</td>
 						</tr>
 						<tr>
 							<th>출발지 상세정보</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startAddr3}" readonly="readonly"></td>
+							<td>${driverAuctionDetail.startAddr3}</td>
 							<th>도착지 상세정보</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endAddr3}" readonly="readonly"></td>
+							<td>${driverAuctionDetail.endAddr3}</td>
 						</tr>
 						<tr>
 							<th>출발지 엘레베이터유무</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startElevator }" readonly="readonly"></td>
+							<td>${driverAuctionDetail.startElevator }</td>
 							<th>도착지  엘레베이터 유무</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endElevator }" readonly="readonly"></td>	
+							<td>${driverAuctionDetail.endElevator }</td>	
 						</tr>
 						<tr>
 							<th>출발지 주차 유무</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startParking }" readonly="readonly"></td>
+							<td>${driverAuctionDetail.startParking }</td>
 							<th>도착지  주차 유무</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endParking }" readonly="readonly"></td>	
+							<td>${driverAuctionDetail.endParking }</td>	
 						</tr>
 						<tr>
 							<th>출발지 집형태</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startType }" readonly="readonly"></td> <!--start_type   -->
+							<td>${driverAuctionDetail.startType }</td> <!--start_type   -->
 							<th rowspan="1">도착지  집형태</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endType }" readonly="readonly"></td>	
+							<td>${driverAuctionDetail.endType }</td>	
 						</tr>
 						<tr>
 							<th>출발지 방구조</th>
-							<td colspan="3"><input class="tbox full" value="${driverAuctionDetail.startStructure }" readonly="readonly"></td>	<!--start_structure  -->
+							<td colspan="3">${driverAuctionDetail.startStructure }</td>	<!--start_structure  -->
 						</tr>
 						<tr>
 							<th>출발지 집평수</th>
-							<td colspan="3"><input class="tbox full" value="${driverAuctionDetail.startSize }" readonly="readonly"></td>	<!--start_size    -->
+							<td colspan="3">${driverAuctionDetail.startSize }</td>	<!--start_size    -->
 						</tr>
 						<tr>
 							<th>출발지 층수</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.startFloor}" readonly="readonly"></td><!--start_floor   -->
+							<td>${driverAuctionDetail.startFloor}</td><!--start_floor   -->
 							<th>도착지 층수</th>
-							<td><input class="tbox full" value="${driverAuctionDetail.endFloor }" readonly="readonly"></td>	
+							<td>${driverAuctionDetail.endFloor }</td>	
 						</tr>
 						
 						<tr>
 							<th>이사 시작 시간</th>
-							<td>
-								<input type="text" value="${driverAuctionDetail.applyTime }" readonly="readonly">
-							</td>
+							<td>${driverAuctionDetail.applyTime }</td>
 							<th>이사종류</th>
-							<td><input type="text" value="${driverAuctionDetail.applyHope }" readonly="readonly"></td>
+							<td>${driverAuctionDetail.applyHope }</td>
 						</tr>
 						<tr>
 							<th>도움여부(짐을 함께 옮길사람여부)</th>
-							<td colspan="3"><input type="text" value="${driverAuctionDetail.applyHelp }" readonly="readonly"></td>
-						
+							<td colspan="3">${driverAuctionDetail.applyHelp }</td>
 						</tr>
 						<tr>
 							<th>메모</th>
-							<td colspan="3"><textarea  readonly="readonly">${list[0].applyMemo } </textarea></td>
+							<td colspan="3">${list[0].applyMemo }</td>
 						</tr>
 						</tbody>
 					</table>
@@ -234,22 +229,20 @@
 							<tbody>
 							<tr>
 								<th>운반차량<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userCar" name="userCar" value="${driverVO.userCar }" readonly="readonly"></td>
+								<td>${driverVO.userCar }</td>
 								<th>사다리비용여부<span class="ess">*</span></th>
 								<td>
 									<c:if test="${driverVO.ladderState eq 0 }">
-									<input type="radio" name="ladderState" value="0" readonly="readonly" checked="checked">사다리 비용 필요하지 않음
+									사다리 비용 필요하지 않음
 									</c:if>
 									<c:if test="${driverVO.ladderState eq 1 }">
-									<input type="radio" name="ladderState" value="1" readonly="readonly" checked="checked">사다리 비용 필요
+									사다리 비용 필요
 									</c:if>
 								</td>
 							</tr>
 							<tr>
 								<th>메모</th>
-								<td colspan="3">
-									<textarea class="text_editor smaller" name="driverMessage"  readonly="readonly">${driverVO.driverMessage }</textarea>
-								</td>
+								<td colspan="3">${driverVO.driverMessage }</td>
 							</tr>
 							</tbody>
 						</table>
@@ -260,14 +253,7 @@
 						</div><br><br><br>
 						<div class="section_title">최종 견적</div><hr>
 						<div class="infoBox">
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">견적금액결정</div><br>
-										<div><input class="tbox full" name="estimateAmount" value="${driverVO.estimateAmount }원" readonly="readonly"></div>
-									</div>
-								</li>
-							</ul>
+						견적금액:${driverVO.estimateAmount }원
 						</div>
 					</div>
 				</div>	

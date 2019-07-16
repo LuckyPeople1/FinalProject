@@ -106,7 +106,7 @@ public class DriverService {
 		
 		return driverMapper.driverReview(driverIdx);
 	}
-
+	
 	public List<UserVO> userNameSelectOne() {
 		
 		return driverMapper.userNameSelectOne();

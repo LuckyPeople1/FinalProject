@@ -8,10 +8,52 @@ public class DriverPageData {
 	private String userName;	//사용자이름
 	private String minDate;		//최소날짜
 	private String maxDate;		//최대날짜 
-	private String reviewTitle;	//review 제목 
-	private int driverIdx;
+	private String reviewTitle;	//review 제목
+	private int driverIdx;		//드라이버 고유값!!!!!!!!!!
+	private String startAddr1[];	//출발지 주소 값(도로명)	
+	private String endAddr1[];	//도착지 주소 값 (도로명)
 	
-	 public int getDriverIdx() {
+	 public String[] getStartAddr1() {
+		return startAddr1;
+	}
+
+	public void setStartAddr1(String[] startAddr1) {
+		this.startAddr1 = startAddr1;
+	}
+
+	public String[] getEndAddr1() {
+		return endAddr1;
+	}
+
+	public void setEndAddr1(String[] endAddr1) {
+		this.endAddr1 = endAddr1;
+	}
+
+	public DriverPageData(String userName, String minDate, String maxDate, String reviewTitle, int driverIdx,
+			String[] startAddr1, String[] endAddr1, int page, int range, int listCnt, int pageCnt, int listSize,
+			int rangeSize, int startPage, int endPage, boolean prev, boolean next, int startList) {
+		super();
+		this.userName = userName;
+		this.minDate = minDate;
+		this.maxDate = maxDate;
+		this.reviewTitle = reviewTitle;
+		this.driverIdx = driverIdx;
+		this.startAddr1 = startAddr1;
+		this.endAddr1 = endAddr1;
+		this.page = page;
+		this.range = range;
+		this.listCnt = listCnt;
+		this.pageCnt = pageCnt;
+		this.listSize = listSize;
+		this.rangeSize = rangeSize;
+		this.startPage = startPage;
+		this.endPage = endPage;
+		this.prev = prev;
+		this.next = next;
+		this.startList = startList;
+	}
+
+	public int getDriverIdx() {
 		return driverIdx;
 	}
 
@@ -238,5 +280,6 @@ public class DriverPageData {
 		}
 
 	}
+
 	
 }
