@@ -26,6 +26,56 @@
 			from user_tbl
 	</select>
 	
+	<!-- 전체 승인 회원 조회 -->
+	<select id="getAllApprobateList" resultType="userVO">
+		select user_idx as userIdx,
+				   user_id as userId,
+				   user_pw as userPw,
+				   user_name as userName,
+				   addr as userAddr,
+				   addr_code as addrCode,
+				   user_phone as userPhone,
+				   user_email as userEmail,
+				   pro_filename as proFilename,
+				   pro_filepath as proFilepath,
+				   user_introduce as userIntroduce,
+				   registration_number as registrationNumber,
+				   business_number as businessNumber,
+				   user_car as userCar,
+				   comp_filename as compFilename,
+				   comp_filepath as compFilepath,
+				   user_type as userType,
+				   social_id as socialId,
+				   enroll_date as enrollDate,
+				   status
+			from del_user_tbl where status=2
+	</select>
+	
+	<!-- 유저 타입별 승인 회원 조회 -->
+	<select id="getTypeApprobateList" resultType="userVO">
+		select user_idx as userIdx,
+				   user_id as userId,
+				   user_pw as userPw,
+				   user_name as userName,
+				   addr as userAddr,
+				   addr_code as addrCode,
+				   user_phone as userPhone,
+				   user_email as userEmail,
+				   pro_filename as proFilename,
+				   pro_filepath as proFilepath,
+				   user_introduce as userIntroduce,
+				   registration_number as registrationNumber,
+				   business_number as businessNumber,
+				   user_car as userCar,
+				   comp_filename as compFilename,
+				   comp_filepath as compFilepath,
+				   user_type as userType,
+				   social_id as socialId,
+				   enroll_date as enrollDate,
+				   status
+			from del_user_tbl where user_type=#{userType} and status=2
+	</select>
+	
 	<!-- 타입에 따른 회원조회 -->
 	<select id="getUserList" resultType="userVO">
 		select user_idx as userIdx,
@@ -73,7 +123,7 @@
 				   social_id as socialId,
 				   enroll_date as enrollDate,
 				   status
-		  from del_user_tbl
+		  from del_user_tbl where user_type=#{userType} and status=3 order by user_idx
 	</select>
 	
 	<delete id="deleteUser" parameterType="userVO">

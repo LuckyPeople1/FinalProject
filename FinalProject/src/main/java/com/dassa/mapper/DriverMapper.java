@@ -7,6 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import com.dassa.vo.DriverApplyImgVO;
 import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverAuctionDetailVO;
+import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
@@ -52,5 +53,10 @@ public int driverAuctionUpdate(int applyIdx) throws Exception;
 
 //이사관리 상세보기 기사정보 값 보기
 public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
+
+//관리자 페이지 리뷰관리
+public List<DriverMypageReviewVO> driverReview(int driverIdx);
+
+public List<UserVO> userNameSelectOne();
 
 }

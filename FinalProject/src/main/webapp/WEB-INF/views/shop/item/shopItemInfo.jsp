@@ -11,6 +11,7 @@
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<form action="/shop/shopItemModify" method="post" enctype="multipart/form-data" onsubmit="shopItemModify()">
+		<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
@@ -785,14 +786,14 @@
 					<div class="imgList">
 						<c:forEach var="itemImg" items="${siiList}" begin="0" step="1" varStatus="i">
 							<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)" value="${itemImg.shopImgName }">
 								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"><img src="${itemImg.shopImgPath }"></a>
 							</div>
 						</c:forEach>
 						<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
-								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
-							</div>
+							<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+							<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
+						</div>
 					</div>
 					</div>
 					<p class="bhZAGT">
@@ -940,7 +941,7 @@
 				$("#trading").attr("disabled",true);
 				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">전세</p>'
 						+'<input type="hidden" name="shopItemDealType" value="전세">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="전세" value="">'
+						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="전세" value="${item.shopItemDealPrice}">'
 						+'<p class="fIWZWk">만원<span>(예 전세 2000만원)</span></p>'
 						+'<button class="iFqJVZ charterCloseBtn"></button></div>');
 			}
@@ -950,7 +951,7 @@
 				$("#trading").attr("disabled",true);
 				$("#dealTypeTd").append('<div class="bMtYCv"><p class="tmpFp">매매</p>'
 						+'<input type="hidden" name="shopItemDealType" value="매매">'
-						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="매매" value="">'
+						+'<input autocomplete="off" class="fqDzuM kTQnUD" name="shopItemDealPrice" type="1" placeholder="매매" value="${item.shopItemDealPrice}">'
 						+'<p class="fIWZWk">만원<span>(예 매매 5억2000만원)</span></p>'
 						+'<button class="iFqJVZ tradingCloseBtn"></button></div>');
 			}
@@ -1320,7 +1321,7 @@
 			}
 		});
 		//매물 등록 버튼 클릭 시	
-		$("#shopItemAdd").click(function(){
+		$("#shopItemModify").click(function(){
 			if($("input[name=shopItemType2]").is(":checked")==false && $("input[name=shopItemType2]").is(':visible') ){
 				 alert("건물 유형을 선택해주세요");
 				 $("input[name=shopItemType2]").focus();

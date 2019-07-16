@@ -10,7 +10,6 @@ public class NoticeVO {
 	private String noticeWriter;
 	private String noticeFilename;
 	private String noticeFilepath;
-	private int noticeHit;
 	private Date noticeRegDate;
 	private String noticeState;
 	private int rownum;
@@ -20,7 +19,7 @@ public class NoticeVO {
 		// TODO Auto-generated constructor stub
 	}
 	public NoticeVO(int noticeIndex, String noticeType, String noticeTitle, String noticeContent, String noticeWriter,
-			String noticeFilename, String noticeFilepath, int noticeHit, Date noticeRegDate, String noticeState, int rownum, String boardType) {
+			String noticeFilename, String noticeFilepath, Date noticeRegDate, String noticeState, int rownum, String boardType) {
 		super();
 		this.noticeIndex = noticeIndex;
 		this.noticeType = noticeType;
@@ -29,7 +28,6 @@ public class NoticeVO {
 		this.noticeWriter = noticeWriter;
 		this.noticeFilename = noticeFilename;
 		this.noticeFilepath = noticeFilepath;
-		this.noticeHit = noticeHit;
 		this.noticeRegDate = noticeRegDate;
 		this.noticeState = noticeState;
 		this.rownum = rownum;
@@ -76,12 +74,6 @@ public class NoticeVO {
 	}
 	public void setNoticeFilepath(String noticeFilepath) {
 		this.noticeFilepath = noticeFilepath;
-	}
-	public int getNoticeHit() {
-		return noticeHit;
-	}
-	public void setNoticeHit(int noticeHit) {
-		this.noticeHit = noticeHit;
 	}
 	public Date getNoticeRegDate() {
 		return noticeRegDate;

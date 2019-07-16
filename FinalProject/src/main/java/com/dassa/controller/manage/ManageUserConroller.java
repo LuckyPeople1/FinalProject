@@ -25,14 +25,95 @@ public class ManageUserConroller {
 	@Resource
 	private ManageUserService manageUserService;
 	
-	//회원전체(승인관리) 리스트
-	@RequestMapping("/userAllList")
-	public String UserAllList(Model model) throws Exception {
-		List<UserVO> list = manageUserService.getUserListAll();
+	@RequestMapping("/userApprobateList")
+	public String UserApprobateList(Model model, String status) throws Exception{
+		List<UserVO> list = manageUserService.getAllApprobateList(status);
 		model.addAttribute("list", list);
-		return "manage/user/userAllList";
+		return "manage/user/user/allApprobate";
 	}
 	
+	// userType에 따른 회원 리스트 뿌려주기
+	@RequestMapping("/userAllList")
+	public String UserAllList(Model model, String userType) throws Exception {
+		String view = null;
+		if(userType.equals("1")) {
+			List<UserVO> list = manageUserService.getUserList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/driver/driverAllList";
+		}else if(userType.equals("2")) {
+			List<UserVO> list = manageUserService.getUserList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/shop/shopAllList";
+		}else {
+			List<UserVO> list = manageUserService.getUserList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/user/userAllList";
+		}
+		return view;
+	}
+	
+	//userType에 따른 승인관리
+	@RequestMapping("/all/allApprobate")
+	public String AllApprobateList(Model model, String userType) throws Exception {
+		String view = null;
+		if(userType.equals("1")) {
+			List<UserVO> list = manageUserService.getTypeApprobateList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/driver/driverApprobateList";
+		}else {
+			List<UserVO> list = manageUserService.getTypeApprobateList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/shop/shopApprobateList";
+		}
+		return view;
+	}
+	
+	//탈퇴회원 관리
+	@RequestMapping("/all/allSecssion")
+	public String UserSecssionList(Model model, String userType) throws Exception {
+		String view = null;
+		if(userType.equals("1")) {
+			//기사 탈퇴
+			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/driver/driverSecssionList";
+		}else if(userType.equals("2")) {
+			//부동산 탈퇴
+			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/shop/shopSecssionList";
+		}else {
+			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			model.addAttribute("list", list);
+			view = "manage/user/user/userSecssionList";
+		}
+		return view;
+	}
+
+	//부동산 회원 관리
+	@RequestMapping("/shop/shopList")
+	public String ShopUserList() throws Exception{
+		return "manage/user/shop/shopAllList";
+	}
+	
+	//기사 회원 관리
+	@RequestMapping("/driver/driverList")
+	public String DriverUserList() throws Exception{
+		return "manage/user/driver/driverAllList";
+	}
+	
+	
+	
+	//회원 관리
+	@RequestMapping("/userList")
+	public Object CommonUserListAll(Map<String,Object> map) throws Exception {
+		List<UserVO> list = manageUserService.getUserListAll();
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		retVal.put("list", list);
+		return retVal;
+	}
+	
+	//ajax로 유저 리스트 받아오기
 	@RequestMapping("/userListAll")
 	@ResponseBody
 	public Object UserListAll(Map<String,Object> map) throws Exception {
@@ -42,6 +123,7 @@ public class ManageUserConroller {
 		return retVal;
 	}
 	
+	//ajax로 체크한 유저 받아오기 받아오기
 	@RequestMapping("/userCheckList")
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
@@ -71,36 +153,28 @@ public class ManageUserConroller {
 		return retVal;
 	}
 	
-	//일반 회원관리
-	@RequestMapping("/commonUserListAll")
-	public Object CommonUserListAll(Map<String,Object> map) throws Exception {
-		List<UserVO> list = manageUserService.getUserListAll();
-		Map<String, Object> retVal = new HashMap<String, Object>();
-		retVal.put("list", list);
-		return retVal;
-	}
-	
-	//탈퇴회원 관리 페이지
-	@RequestMapping("/userSecssion")
-	public String UserSecssionList(HttpServletRequest request) throws Exception {
-		List<UserOutVO> list = manageUserService.getUserSecssionList();
-		request.setAttribute("list", list);
-		return "manage/user/userSecList";
+	//이전 페이지 url 저장
+	@RequestMapping(value="/reLoad")
+	public String RedirectLogin(Model model, HttpServletRequest request, int userIdx ) {
+		String referer = request.getHeader("Referer");
+		model.addAttribute("referer", referer);
+		model.addAttribute("userIdx", userIdx);
+		return "redirect:/userManage/deleteUser";
 	}
 	
 	//회원 탈퇴
 	@RequestMapping("/deleteUser")
-	public String DeleteUser(HttpServletRequest request) throws Exception {
-		int userIdx = Integer.parseInt(request.getParameter("userIdx"));
+	public String CommonDeleteUser(Model model, String referer , int userIdx) throws Exception {
+		System.out.println(referer);
 		System.out.println(userIdx);
 		int result = manageUserService.deleteUser(userIdx);
 		if(result > 0) {
-			request.setAttribute("msg", "회원 탈퇴가 되었습니다.");
-			request.setAttribute("loc", "/userManage/userAllList");
+			model.addAttribute("msg", "회원 탈퇴가 되었습니다.");
+			model.addAttribute("loc", referer);
 			return "guest/common/msg";
 		}else {
-			request.setAttribute("msg", "회원 탈퇴 실패하였습니다.");
-			request.setAttribute("loc", "/userManage/userAllList");
+			model.addAttribute("msg", "회원 탈퇴 실패하였습니다.");
+			model.addAttribute("loc", referer);
 			return "guest/common/msg";
 		}
 	}

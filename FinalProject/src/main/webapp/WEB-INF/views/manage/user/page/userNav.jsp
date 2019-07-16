@@ -6,26 +6,26 @@
 		<div class="lnb_show">회원 관리</div>
 		<ul class="lnb_menu">
 			<li>
-				<a href="/userManage/userAllList" class="menu_name">일반회원 관리</a>
+				<a href="/userManage/userAllList?userType=3" class="menu_name">일반회원 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/userManage/userAllList" class="on">회원 관리</a></li>
-					<li><a href="/userManage/userSecssion" class="">탈퇴회원 관리</a></li>
+					<li><a href="/userManage/userAllList?userType=3" class="on">회원 관리</a></li>
+					<li><a href="/userManage/all/allSecssion?userType=3" class="">탈퇴회원 관리</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#none" class="menu_name">부동산 관리</a>
+				<a href="/userManage/userAllList?userType=2" class="menu_name">부동산 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="manage/shop/shopApprobate" class="">승인 관리</a></li>
-					<li><a href="reg_index.html" class="">회원 관리</a></li>
-					<li><a href="reg_list.html" class="">탈퇴회원 관리</a></li>
+					<li><a href="/userManage/all/allApprobate?userType=2" class="">승인 관리</a></li>
+					<li><a href="/userManage/userAllList?userType=2" class="">회원 관리</a></li>
+					<li><a href="/userManage/all/allSecssion?userType=2" class="">탈퇴회원 관리</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#none" class="menu_name">기사 관리</a>
+				<a href="/userManage/userAllList?userType=1" class="menu_name">기사 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="reg_index.html" class="">승인 관리</a></li>
-					<li><a href="reg_index.html" class="">회원 관리</a></li>
-					<li><a href="reg_list.html" class="">탈퇴회원 관리</a></li>
+					<li><a href="/userManage/all/allApprobate?userType=1" class="">승인 관리</a></li>
+					<li><a href="/userManage/userAllList?userType=1" class="">회원 관리</a></li>
+					<li><a href="/userManage/all/allSecssion?userType=1" class="">탈퇴회원 관리</a></li>
 				</ul>
 			</li>
 		</ul>

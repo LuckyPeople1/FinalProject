@@ -2,6 +2,7 @@ package com.dassa.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -10,12 +11,9 @@ import org.springframework.stereotype.Service;
 import com.dassa.mapper.ShopMapper;
 import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
-import com.dassa.vo.NoticePageData;
-import com.dassa.vo.NoticeVO;
-import com.dassa.vo.SaleInLotsPageDataVO;
-import com.dassa.vo.SaleInLotsVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
+import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 
 @Service("shopService")
@@ -32,7 +30,6 @@ public class ShopService {
 	public List<JusoGuVO> getJusoGuList(String jusoCityCode) throws Exception{
 		return shopMapper.getJusoGuList(jusoCityCode);
 	}
-	
 	/**
 	 * 중개사페이지 - 구 선택 시 해당 동 가져오기
 	 * @param jusoGuCode
@@ -51,6 +48,17 @@ public class ShopService {
 	public int shopItemAdd(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
 		shopMapper.shopItemAdd(sItem);
 		return shopMapper.shopItemImgAdd(sItemImgList);
+	}
+	/**
+	 * 중개사 페이지 - 매물수정, 이미지 같이 수정
+	 * @param sItem
+	 * @param sItemImgList
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopItemModify(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
+		//shopMapper.shopItemImgModify(sItemImgList);
+		return shopMapper.shopItemModify(sItem);  
 	}
 	/**
 	 * 중개사 페이지 - 매물리스트
