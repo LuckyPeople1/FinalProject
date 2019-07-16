@@ -3,6 +3,7 @@ package com.dassa.controller.board;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +23,16 @@ public class FAQManageController {
 	private FaqService faqService;
 	//faq관리페이지
 	@RequestMapping("/faqManageList")
-	public ModelAndView faqManageList(@RequestParam int reqPage) {
+	public ModelAndView faqManageList(@RequestParam int reqPage,HttpServletRequest request) {
+		int code;
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+		}catch (NumberFormatException e) {
+			code=0;
+		}
 		ModelAndView ma = new ModelAndView();
 		try {
-			FaqPageData list = faqService.selectAllList(reqPage);
+			FaqPageData list = faqService.selectAllList(reqPage,code);
 			if(!list.isEmpty()) {
 				ArrayList<FaqVO> arrlist = list.getList();
 				String pageNavi = list.getPageNavi();

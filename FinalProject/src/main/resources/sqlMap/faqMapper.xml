@@ -8,7 +8,11 @@
   		faq_question as faqQuestion,
   		faq_state as faqState,
   		faq_reg_date as faqRegDate
-  		from (select rownum as rnum, f.* from (select * from faq_tbl where faq_state='정상' order by rownum desc) f)
+  		from (select rownum as rnum, f.* from (select * from faq_tbl where <!-- faq_state='정상' --> 
+  		<if test="code==0">faq_user_type='회원문의'</if> 
+  		<if test="code==1">faq_user_type='부동산'</if> 
+  		<if test="code==2">faq_user_type='기사'</if> 
+  		order by rownum desc) f)
   		where rnum between #{start} and #{end}
   </select>
    <select id="totalCount" resultType="_int">

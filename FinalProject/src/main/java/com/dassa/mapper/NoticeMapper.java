@@ -12,8 +12,6 @@ public interface NoticeMapper {
 	//관리자 공지사항 조회하기
 	public ArrayList<NoticeVO> selectAllList(@Param("start") int start,@Param("end") int end,@Param("code") int code) throws Exception;
 	
-	public ArrayList<NoticeVO> realestateSelectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
-
 	public int totalCount(@Param("code") int code) throws Exception;
 	
 	//업데이트 수정하기
