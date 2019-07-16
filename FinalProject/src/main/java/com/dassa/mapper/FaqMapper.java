@@ -9,8 +9,8 @@ import com.dassa.vo.FaqVO;
 @MapperScan("faqMapper")
 public interface FaqMapper {
 	//전체를 페이징해서 조회하기
-	public ArrayList<FaqVO> selectAllList(@Param("start") int start, @Param("end") int end) throws Exception;
-	public int totalCount() throws Exception;
+	public ArrayList<FaqVO> selectAllList(@Param("start") int start, @Param("end") int end, @Param("code") int code) throws Exception;
+	public int totalCount(@Param("code") int code) throws Exception;
 	
 	//하나에 정보를 상세보기
 	public FaqVO faqView(int faqIndex) throws Exception;

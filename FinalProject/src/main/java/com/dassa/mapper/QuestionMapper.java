@@ -11,11 +11,12 @@ import com.dassa.vo.QuestionVO;
 @MapperScan("questionMapper")
 public interface QuestionMapper {
 	//관리자 Question 조회하기
-	public ArrayList<QuestionVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	public ArrayList<QuestionVO> selectAllList(@Param("start") int start,@Param("end") int end,@Param("code") int code) throws Exception;
 	
-	public int totalCount() throws Exception;
+	public int totalCount(@Param("code") int code) throws Exception;
 
 	public QuestionVO questionView(int questionsIndex) throws Exception;
 
 	public int questionUpdate(QuestionVO q) throws Exception;
+
 }
