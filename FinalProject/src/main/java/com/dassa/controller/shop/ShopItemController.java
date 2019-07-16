@@ -1,12 +1,15 @@
 package com.dassa.controller.shop;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.jasper.tagplugins.jstl.core.Redirect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -47,7 +50,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request,ShopItemSearchVO itemSearch)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -55,7 +58,7 @@ public class ShopItemController {
 			reqPage=1;
 		}
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,itemSearch);
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
@@ -72,61 +75,6 @@ public class ShopItemController {
 	@RequestMapping("/itemAdd")
 	public String ShopItemAdd() {
 		return "shop/item/shopItemAdd";
-	}
-	/**
-	 * 부동산 매물 상세페이지(itemInfo)
-	 * @return
-	 */
-	@RequestMapping("/itemInfo")
-	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
-		ShopItemVO item;
-		List<ShopItemImgVO> siiList;
-		ModelAndView mav = null;
-		try {
-			siiList = shopService.shopItemImgList(shopItemIdx);
-			item = shopService.shopItemInfo(shopItemIdx);
-			mav = new ModelAndView();
-			if(item!=null) {
-				System.out.println(item.getShopItemManagePriceOption());
-				System.out.println(item.getShopItemOption());
-				
-				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
-				String[] simpo = new String[7]; //관리비 항목 체크
-				
-				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
-				System.out.println("sss : "+sss);
-				String[] sio = new String[12]; //옵션 항목 체크
-				
-				int i = 0;
-				int j = 0;
-				for(; i<ss.length;i++) {
-						simpo[i] = ss[i];
-				}
-				for(;i<simpo.length;i++) {
-					simpo[i]=null;
-					System.out.println(simpo[i]);
-				}
-				for(; j<sss.length;j++) {
-					sio[j] = sss[j];
-				}
-				for(; j<sio.length;j++) {
-					sio[j]=null;
-					System.out.println(sio[j]);
-				}
-				mav.addObject("item",item); //매물 정보
-				mav.addObject("simpo", simpo); //관리비 항목
-				mav.addObject("sio",sio); //옵션 항목
-				mav.addObject("siiList",siiList);
-				mav.setViewName("shop/item/shopItemInfo");
-			}
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return mav;
 	}
 	/**
 	 * 부동산 매물 등록 로직(ItemAdd)
@@ -164,7 +112,59 @@ public class ShopItemController {
 		}
 		shopService.shopItemAdd(sItem, imgList);
 //		shopService.shopItemImgAdd(imgList);
-		return "shop/item/shopItemList";
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 부동산 매물 상세페이지(itemInfo)
+	 * @return
+	 */
+	@RequestMapping("/itemInfo")
+	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
+		ShopItemVO item;
+		List<ShopItemImgVO> siiList;
+		ModelAndView mav = null;
+		try {
+			siiList = shopService.shopItemImgList(shopItemIdx);
+			item = shopService.shopItemInfo(shopItemIdx);
+			mav = new ModelAndView();
+			if(item.getShopItemManage().equals("있음")) {
+				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
+				String[] simpo = new String[7]; //관리비 항목 체크
+				int i = 0;
+				for(; i<ss.length;i++) {
+					simpo[i] = ss[i];
+				}
+				for(;i<simpo.length;i++) {
+					simpo[i]=null;
+					System.out.println(simpo[i]);
+				}
+				mav.addObject("simpo",simpo); //관리비 항목
+			}
+			if(item.getShopItemOption()!=null) {
+				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
+				String[] sio = new String[12]; //옵션 항목 체크
+				int j = 0;
+			
+				for(; j<sss.length;j++) {
+					sio[j] = sss[j];
+				}
+				for(; j<sio.length;j++) {
+					sio[j]=null;
+					System.out.println(sio[j]);
+				}
+				mav.addObject("sio",sio); //옵션 항목
+			}
+				mav.addObject("item",item); //매물 정보
+				mav.addObject("siiList",siiList);
+				mav.setViewName("shop/item/shopItemInfo");
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
 	}
 	/**
 	 * 중개사 페이지 - 매물 수정 로직(itemModify)
@@ -177,10 +177,12 @@ public class ShopItemController {
 	 */
 	@RequestMapping("/shopItemModify")
 	public String ShopItemModify(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+		System.out.println("기존 파일 경로 : "+sItemImg.getShopImgName());
+		System.out.println("기존 파일 이름 : "+sItemImg.getShopImgName());
+		System.out.println("기존 파일 인덱스 : "+sItemImg.getShopImgIdx());
+		System.out.println("기존 파일 매물인덱스 : "+sItemImg.getShopItemIdx());
+		
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
-		
-		System.out.println("넘어온 파일 : "+fileImg);
-		
 		for(MultipartFile img : fileImg) {
 			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
 			
@@ -201,11 +203,17 @@ public class ShopItemController {
 				System.out.println("최종이미지리스트"+imgList);
 			}
 		}
-//		shopService.shopItemModify(sItem, imgList);
+		shopService.shopItemModify(sItem, imgList);
 //		shopService.shopItemImgAdd(imgList);
-		return "shop/item/shopItemList";
+		return "redirect:/shop/item";
 	}
 	
+	/**
+	 * 중개사 페이지 - 매물 삭제 로직(itemDelete)
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/shopItemDelete")
 	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);

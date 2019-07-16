@@ -15,7 +15,7 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
-			<form action="/shop/item" id="shopItemSearch" method="get">
+			<form action="/shop/itemSearch" id="shopItemSearch" method="get">
 				<table class="table_set">
 					<colgroup>
 						<col width="180">
@@ -33,12 +33,12 @@
 							</span>
 							<span class="sbox small">
 								<select name="type">
-									<option selected="selected" value=0>매물선택</option>
-									<option value=1>원룸</option>
-									<option value=2>투룸</option>
-									<option value=3>쓰리룸</option>
-									<option value=4>오피스텔</option>
-									<option value=5>아파트</option>
+									<option selected="selected" value="all">매물선택</option>
+									<option value="one">원룸</option>
+									<option value="two">투룸</option>
+									<option value="three">쓰리룸</option>
+									<option value="offi">오피스텔</option>
+									<option value="kapt">아파트</option>
 								</select>
 							</span>
 						</td>

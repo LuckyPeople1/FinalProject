@@ -11,6 +11,7 @@
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<form action="/shop/shopItemModify" method="post" enctype="multipart/form-data" onsubmit="shopItemModify()">
+		<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
@@ -784,6 +785,8 @@
 					<div class="heKOml">
 					<div class="imgList">
 						<c:forEach var="itemImg" items="${siiList}" begin="0" step="1" varStatus="i">
+							<input type="hidden" name="oldPath" value="${itemImg.shopImgPath }">
+							<input type="hidden" name="oldName" value="${itemImg.shopImgName }">
 							<div class="imgBox">
 								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
 								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"><img src="${itemImg.shopImgPath }"></a>
@@ -1320,7 +1323,7 @@
 			}
 		});
 		//매물 등록 버튼 클릭 시	
-		$("#shopItemAdd").click(function(){
+		$("#shopItemModify").click(function(){
 			if($("input[name=shopItemType2]").is(":checked")==false && $("input[name=shopItemType2]").is(':visible') ){
 				 alert("건물 유형을 선택해주세요");
 				 $("input[name=shopItemType2]").focus();
