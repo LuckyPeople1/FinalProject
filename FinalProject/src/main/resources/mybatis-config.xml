@@ -21,5 +21,5 @@
 		<typeAlias type="com.dassa.vo.EmployeeVO" alias="employeeVO"/> <!-- 직원VO -->
 		<typeAlias type="com.dassa.vo.QuestionVO" alias="questionVO"/> <!-- QuestionVO -->
 	</typeAliases>
-
+	
 </configuration>
