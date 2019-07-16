@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.ManageUserService;
-import com.dassa.vo.UserOutVO;
+import com.dassa.vo.SearchUserVO;
 import com.dassa.vo.UserVO;
 
 @Controller
@@ -25,6 +26,7 @@ public class ManageUserConroller {
 	@Resource
 	private ManageUserService manageUserService;
 	
+	//전체 승인관리
 	@RequestMapping("/userApprobateList")
 	public String UserApprobateList(Model model, String status) throws Exception{
 		List<UserVO> list = manageUserService.getAllApprobateList(status);
@@ -74,16 +76,16 @@ public class ManageUserConroller {
 		String view = null;
 		if(userType.equals("1")) {
 			//기사 탈퇴
-			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			List<UserVO> list = manageUserService.getUserSecssionList(userType);
 			model.addAttribute("list", list);
 			view = "manage/user/driver/driverSecssionList";
 		}else if(userType.equals("2")) {
 			//부동산 탈퇴
-			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			List<UserVO> list = manageUserService.getUserSecssionList(userType);
 			model.addAttribute("list", list);
 			view = "manage/user/shop/shopSecssionList";
 		}else {
-			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			List<UserVO> list = manageUserService.getUserSecssionList(userType);
 			model.addAttribute("list", list);
 			view = "manage/user/user/userSecssionList";
 		}
@@ -127,31 +129,84 @@ public class ManageUserConroller {
 	@RequestMapping("/userCheckList")
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
-		System.out.println(type);
+		SearchUserVO searchUserVO = new SearchUserVO();
+		System.out.println("type : "+type);
+		String[] uType = type.split(",");
+		String result = null;
 		String userType = null;
+		String userType1 = null;
+		String userType2 = null;
+		System.out.println("utype"+uType[0]);
+		System.out.println("uType.length: "+uType.length);
 		
-		if(type.equals("운송기사")) {
-			userType = "1";
-		}else if(type.equals("부동산")) {
-			userType = "2";
-		}else if(type.equals("일반회원")) {
-			userType = "3";
+		if(uType.length == 1){
+			if(type.equals("일반회원")) {
+				userType = "3";
+			}else if(type.equals("운송기사")) {
+				userType = "2";
+			}else{
+				userType = "1";
+			}
+			userType1 = userType;
+			searchUserVO.setUserType1(userType1);
+			System.out.println(userType1);
+			System.out.println(searchUserVO.getUserType1());
+		}else if(uType.length >1) {
+			System.out.println("이거도 타니?");
+			for(int i=0; i<uType.length; i++) {
+				result = uType[i];
+				System.out.println(result); //일반회원 운송기사
+				if(result.equals("일반회원")) {
+					userType = "3";
+				}else if(result.equals("운송기사")) {
+					userType = "2";
+				}else{
+					userType = "1";
+				}
+				System.out.println(userType);
+				userType1 = userType;
+				userType2 = userType;
+			}
+			searchUserVO.setUserType1(userType1);
+			System.out.println(searchUserVO.getUserType1());
+			searchUserVO.setUserType2(userType2);
+			System.out.println(searchUserVO.getUserType2());
 		}
 		
-		System.out.println(userType);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		if(userType.equals("1")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
+			System.out.println("gd");
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
 			retVal.put("list", list);
 		}else if(userType.equals("2")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
+			System.out.println("gd2");
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
 			retVal.put("list", list);
 		}else if(userType.equals("3")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
+			System.out.println("gd3");
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
 			retVal.put("list", list);
 		}
 		return retVal;
 	}
+	
+	//전체 승인 페이지 ajax
+	@RequestMapping("/approbate")
+	@ResponseBody
+	public Object Approbate(Map<String,Object> map, String type) throws Exception {
+		System.out.println(type);
+		String userType = null;
+		
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		List<UserVO> list = manageUserService.getAllApprobateList(userType);
+		retVal.put("list", list);
+		return retVal;
+	}
+	
+	/*//체크 해제 되었을 경우
+	@RequestMapping("/unchecked"){
+		return null;
+	}*/
 	
 	//이전 페이지 url 저장
 	@RequestMapping(value="/reLoad")
@@ -165,8 +220,6 @@ public class ManageUserConroller {
 	//회원 탈퇴
 	@RequestMapping("/deleteUser")
 	public String CommonDeleteUser(Model model, String referer , int userIdx) throws Exception {
-		System.out.println(referer);
-		System.out.println(userIdx);
 		int result = manageUserService.deleteUser(userIdx);
 		if(result > 0) {
 			model.addAttribute("msg", "회원 탈퇴가 되었습니다.");
@@ -177,5 +230,33 @@ public class ManageUserConroller {
 			model.addAttribute("loc", referer);
 			return "guest/common/msg";
 		}
+	}
+	
+	//검색
+	@RequestMapping("/search")
+	@ResponseBody
+	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String userId, String userType) {
+		System.out.println("search : "+ searchType);
+		System.out.println("search : "+ userId);
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setSearchType(searchType);
+		searchUserVO.setSearchWord(userId);
+		searchUserVO.setUserType(userType);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		if(searchType.equals("1") && !userId.equals("")) {
+			//아이디 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else if(searchType.equals("2") && !userId.equals("")){
+			//이름 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else {
+			retVal.put("list", "");
+		}
+		return retVal;
 	}
 }
