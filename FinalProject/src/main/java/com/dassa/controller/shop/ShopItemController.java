@@ -218,9 +218,9 @@ public class ShopItemController {
 	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
 		if(result>0) {
-			return "shop/item/shopItemList";
+			return "redirect:/shop/item";
 		}
-		return "shop/item/shopItemList";
+		return "redirect:/shop/item";
 	}
 	/**
 	 * 아파트 목록 API(아파트코드, 아파트명)

@@ -108,7 +108,7 @@
 							<div class="set_menu">
 								<input name="idx" type="hidden" value=${item.shopItemIdx }>
 								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">상세보기</a>
-								<a href="/shop/shopItemDelete?shopItemIdx=${item.shopItemIdx }" class="btn small col_red f_w">삭제</a>
+								<button type="button" class="btn small col_red f_w" name="delItem" value=${item.shopItemIdx }>삭제</button>
 							</div>
 						</td>
 					</tr>
@@ -124,5 +124,14 @@
 	</div>
 	<footer role="footer" data-include="footer.html"></footer>
 </div>
+<script>
+	$("button[name='delItem']").click(function(){
+		var idx = $(this).val();
+		if(confirm("정말 삭제하시겠습니까?")){
+			location.href="/shop/shopItemDelete?shopItemIdx="+idx;
+		}
+		return;
+	})
+</script>
 </body>
 </html>
