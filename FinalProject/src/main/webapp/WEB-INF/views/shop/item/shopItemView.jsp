@@ -22,20 +22,27 @@
 						<li class="cqojtY">
 							<p class="hzbdBs">전용면적</p>
 							<div class="dUILvV">
-								<h1 class="dUuerR">
+								<h1 class="dUuerR" id="sizeSqm1">
 									<c:if test="${item.shopItemType1 eq '원룸'}">${item.shopItemSize2 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '투룸'}">${item.shopItemSize2 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '쓰리룸'}">${item.shopItemSize2 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '오피스텔'}">${item.shopItemSize4 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '아파트'}">${item.shopItemSize4 }㎡</c:if>
 								</h1>
-								<button class="ktfeIl">
+								<h1 class="dUuerR" id="sizePyeong1" style="display: none">
+									<c:if test="${item.shopItemType1 eq '원룸'}">${item.shopItemSize1 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '투룸'}">${item.shopItemSize1 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '쓰리룸'}">${item.shopItemSize1 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '오피스텔'}">${item.shopItemSize3 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '아파트'}">${item.shopItemSize3 }평</c:if>
+								</h1>
+								<button class="ktfeIl sizeChange">
 									<svg width="11" height="23" viewBox="0 0 11 23">
 										<g fill="#222" fill-rule="evenodd" stroke="#222" stroke-width=".2">
 											<path d="M8.066 8.378L6.955 9.624a.335.335 0 0 0 0 .436.26.26 0 0 0 .194.09c.07 0 .14-.03.194-.09L8.92 8.293c.054-.06.08-.14.08-.22a.32.32 0 0 0-.094-.232l-1.563-1.75a.255.255 0 0 0-.388 0 .334.334 0 0 0 0 .435l1.102 1.236h-5.49c-1.415 0-2.567 1.3-2.567 2.9v1.03c0 .17.123.308.275.308.152 0 .275-.138.275-.308v-1.03c0-1.259.905-2.284 2.018-2.284h5.498zM.934 14.622l1.11-1.246a.335.335 0 0 0 0-.436.26.26 0 0 0-.193-.09c-.07 0-.141.03-.195.09L.08 14.707a.325.325 0 0 0-.08.22.32.32 0 0 0 .093.232l1.563 1.75c.108.121.282.121.389 0a.334.334 0 0 0 0-.435L.942 15.238h5.49c1.416 0 2.567-1.3 2.567-2.9v-1.03c0-.17-.123-.308-.274-.308-.153 0-.275.138-.275.308v1.03c0 1.259-.905 2.284-2.018 2.284H.934z"></path>
 										</g>
 									</svg>
-									<span>평</span>
+									<span id='sizeName'>평</span>
 								</button>
 							</div>
 						</li>
@@ -71,20 +78,27 @@
 						<li class="gWdVQs"><p
 								class="gPsGgb">전용/공급면적</p>
 							<div class="gbAeEp">
-								<span>
+								<span id="sizeSqm2">
 									<c:if test="${item.shopItemType1 eq '원룸'}">${item.shopItemSize2 } / ${item.shopItemSizeAll2 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '투룸'}">${item.shopItemSize2 } / ${item.shopItemSizeAll2 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '쓰리룸'}">${item.shopItemSize2 } / ${item.shopItemSizeAll2 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '오피스텔'}">${item.shopItemSize4 } / ${item.shopItemSizeAll4 }㎡</c:if>
 									<c:if test="${item.shopItemType1 eq '아파트'}">${item.shopItemSize4 } / ${item.shopItemSizeAll4 }㎡</c:if>
 								</span>
-								<button class="styled__ChangeBtn-sc-1kb7k96-7 bHPFKV">
+								<span id="sizePyeong2" style="display: none">
+									<c:if test="${item.shopItemType1 eq '원룸'}">${item.shopItemSize1 } / ${item.shopItemSizeAll1 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '투룸'}">${item.shopItemSize1 } / ${item.shopItemSizeAll1 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '쓰리룸'}">${item.shopItemSize1 } / ${item.shopItemSizeAll3 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '오피스텔'}">${item.shopItemSize3 } / ${item.shopItemSizeAll3 }평</c:if>
+									<c:if test="${item.shopItemType1 eq '아파트'}">${item.shopItemSize3 } / ${item.shopItemSizeAll3 }평</c:if>
+								</span>
+								<button class="bHPFKV sizeChange2">
 									<svg width="11" height="23" viewBox="0 0 11 23">
 										<g fill="#222" fill-rule="evenodd" stroke="#222" stroke-width=".2">
 											<path d="M8.066 8.378L6.955 9.624a.335.335 0 0 0 0 .436.26.26 0 0 0 .194.09c.07 0 .14-.03.194-.09L8.92 8.293c.054-.06.08-.14.08-.22a.32.32 0 0 0-.094-.232l-1.563-1.75a.255.255 0 0 0-.388 0 .334.334 0 0 0 0 .435l1.102 1.236h-5.49c-1.415 0-2.567 1.3-2.567 2.9v1.03c0 .17.123.308.275.308.152 0 .275-.138.275-.308v-1.03c0-1.259.905-2.284 2.018-2.284h5.498zM.934 14.622l1.11-1.246a.335.335 0 0 0 0-.436.26.26 0 0 0-.193-.09c-.07 0-.141.03-.195.09L.08 14.707a.325.325 0 0 0-.08.22.32.32 0 0 0 .093.232l1.563 1.75c.108.121.282.121.389 0a.334.334 0 0 0 0-.435L.942 15.238h5.49c1.416 0 2.567-1.3 2.567-2.9v-1.03c0-.17-.123-.308-.274-.308-.153 0-.275.138-.275.308v1.03c0 1.259-.905 2.284-2.018 2.284H.934z"></path>
 										</g>
 									</svg>
-									<span>평</span>
+									<span id="sizeName1">평</span>
 								</button>
 							</div></li>
 						<li class="gWdVQs">
@@ -295,10 +309,10 @@
 						</ul>
 						<!--controls-->
 						<div class="btns" id="next">
-							<img src="/upload/shop/right_arrow.png">
+							<img src="/guest/img/right_arrow.png">
 						</div>
 						<div class="btns" id="previous">
-							<img src="/upload/shop/left_arrow.png">
+							<img src="/guest/img/left_arrow.png">
 						</div>
 						<div id="counter"></div>
 						<div id="pagination-wrap">
@@ -345,11 +359,18 @@
 									<p><c:if test="${item.shopItemDeposit!=null}">${item.shopItemDeposit }/</c:if>${item.shopItemDealPrice }만원</p>
 								</td>
 								<td>
-									<p>${item.shopItemManagePrice } 만원</p>
+									<p><c:if test="${item.shopItemManagePrice!=null}">${item.shopItemManagePrice } 만원</c:if><c:if test="${item.shopItemManagePrice==null}">없음</c:if></p>
 									<p><span><c:if test="${item.shopItemManage eq '있음'}">(${item.shopItemManagePriceOption })</c:if></span></p>
 								</td>
 								<td>
-									<p>${item.shopItemParking }<c:if test="${item.shopItemParking eq '가능'}">(${item.shopItemParkingPrice }만원)</c:if></p>
+									<p>${item.shopItemParking }
+									<c:if test="${item.shopItemParking eq '가능'}">
+										<c:if test="${item.shopItemParkingPrice==null} ">
+										(무료)
+										</c:if>
+										(${item.shopItemParkingPrice }만원)
+									</c:if>
+									</p>
 								</td>
 							</tr>
 						</tbody>
@@ -362,10 +383,95 @@
 				<div	class="jFMhNO kBQneM">
 					<h1 class="lnMkbZ">옵션</h1>
 					<div class="dDctva">
-						<div class="gqtsIc">
-							<div class="fuJjGK"></div>
-							<p>${item.shopItemOption }</p>
-						</div>
+					<c:forEach items="${sio }" varStatus="i" var="option">
+						<c:if test="${option eq '에어컨'}">
+							<div class="gqtsIc">
+							<img src="/guest/img/에어컨.PNG">
+							<p>에어컨</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '세탁기'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/세탁기.PNG">
+							<p>세탁기</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '침대'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/침대.PNG">
+							
+							<p>침대</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '책상'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/책상.PNG">
+							
+							<p>책상</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '옷장'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/옷장.PNG">
+							
+							<p>옷장</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq 'TV'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/TV.PNG">
+							
+							<p>TV</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '신발장'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/신발장.PNG">
+							
+							<p>신발장</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '냉장고'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/냉장고.PNG">
+							
+							<p>냉장고</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '가스레인지'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/가스레인지.PNG">
+							
+							<p>가스레인지</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '인덕션'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/인덕션.PNG">
+							
+							<p>인덕션</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '전자레인지'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/전자레인지.PNG">
+							
+							<p>전자레인지</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '전자도어락'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/전자도어락.PNG">
+							<p>전자도어락</p>
+							</div>
+						</c:if>
+						<c:if test="${option eq '비데'}">
+							<div class="gqtsIc">
+								<img src="/guest/img/비데.PNG">
+							<p>비데</p>
+							</div>
+						</c:if>
+					</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -395,9 +501,81 @@
 </div>
 <script>
 	$(document).ready(function() {
-		var price = ${	item.shopItemParkingPrice} + ${item.shopItemManagePrice};
-		$("#price").html(price + "만 원 + α<span>(관리비 + 주차비)</span>");
+		var dealPrice = ${item.shopItemDealPrice};
+		if(${item.shopItemDealPrice==''}){
+			managePrice = 0;
+		}else{
+			managePrice = "${item.shopItemManagePrice}"*1;
+		}
+		if(${item.shopItemParkingPrice==''}){
+			parkingPrice = 0;
+		}else{
+			parkingPrice = "${item.shopItemParkingPrice}"*1;
+		}
+		//월세면서 관리비,주차비가 있을 시
+		if(${item.shopItemDealType=='월세'} && managePrice!=0 && parkingPricePrice!=0){
+			$("#price").html(dealPrice+managePrice+parkingPrice+"만 원 + α<span>(월세 + 관리비 + 주차비)</span>");
+		}
+		//월세면서 관리비만 있을 시
+		if(${item.shopItemDealType=='월세'}&& managePrice!=0){
+			$("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세 + 관리비)</span>");
+		}
+		//월세면서 주차비만 있을 시
+		if(${item.shopItemDealType=='월세'}&& parkingPricePrice!=0){
+			$("#price").html(dealPrice+parkingPrice+"만 원 + α<span>(월세 + 주차비)</span>");
+		}
+		//월세면서 관리비, 주차비가 없을 시
+		if(${item.shopItemDealType=='월세'}&& managePrice==0 && parkingPricePrice==0){
+			$("#price").html(dealPrice+"만 원 + α<span>(월세)</span>");
+		}
+		//관리비, 주차비가 있을 시
+		if(managePrice!=0 && parkingPrice!=0){
+			$("#price").html(managePrice+parkingPrice+"만 원 + α<span>(관리비 + 주차비)</span>");
+		}
+		//관리비 있을 시
+		if(managePrice!=0){
+			$("#price").html(managePrice+"만 원 + α<span>(관리비)</span>");
+		}
+		//주차비가 있을 시
+		if(parkingPrice!=0){
+			$("#price").html(parkingPrice+"만 원 + α<span>(주차비)</span>");
+		}
+		//무료
+		if(managePrice==0 && parkingPrice==0){
+			$("#price").html("0만 원 + α<span></span>");
+		}
 		
+		
+		//사이즈 변경
+		$(document).on('click', '.sizeChange' , function(){
+			$("#sizeSqm1").hide();
+			$("#sizePyeong1").show();
+			$("#sizeName").html("㎡");
+			$(".sizeChange").addClass('sizeChange1');
+			$(".sizeChange").removeClass('sizeChange');
+		});
+		$(document).on('click', '.sizeChange1' , function(){
+			$("#sizeSqm1").show();
+			$("#sizePyeong1").hide();
+			$("#sizeName").html("평");
+			$(".sizeChange1").addClass('sizeChange');
+			$(".sizeChange1").removeClass('sizeChange1');
+		});
+		
+		$(document).on('click', '.sizeChange2' , function(){
+			$("#sizeSqm2").hide();
+			$("#sizePyeong2").show();
+			$("#sizeName1").html("㎡");
+			$(".sizeChange2").addClass('sizeChange3');
+			$(".sizeChange2").removeClass('sizeChange2');
+		});
+		$(document).on('click', '.sizeChange3' , function(){
+			$("#sizeSqm2").show();
+			$("#sizePyeong2").hide();
+			$("#sizeName1").html("평");
+			$(".sizeChange3").addClass('sizeChange2');
+			$(".sizeChange3").removeClass('sizeChange3');
+		});
 		//current position
         var pos = 0;
         //number of slides
