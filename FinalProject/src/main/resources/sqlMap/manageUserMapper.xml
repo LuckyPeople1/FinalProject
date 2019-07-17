@@ -191,14 +191,14 @@
 		from   user_tbl where 
 			<choose>
 				<when test="searchType == 1 and userType == 3">
-					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
+					user_id like #{searchWord} and user_Type=#{userType}
 				</when>
 				<when test="searchType == 2 and userType == 3">
 					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
 				</when>
 				
 				<when test="searchType == 1 and userType == 2">
-					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
+					user_id like #{searchWord} and user_Type=#{userType}
 				</when>
 				<when test="searchType == 2 and userType == 2">
 					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}

@@ -73,7 +73,8 @@
 			sysdate,
 			#{shopItemDelDate, jdbcType=VARCHAR},
 			#{shopItemOkState, jdbcType=VARCHAR},
-			default
+			default,
+			#{shopItemHouseNumber, jdbcType=VARCHAR}
 			)
 	</insert>
 	<!-- 매물 이미지 등록 -->
@@ -143,7 +144,8 @@
 			shop_item_built_in=#{shopItemBuiltIn, jdbcType=VARCHAR},
 			shop_item_structure=#{shopItemStructure, jdbcType=VARCHAR},
 			shop_item_option=#{shopItemOption, jdbcType=VARCHAR},
-			shop_item_loan=#{shopItemLoan, jdbcType=VARCHAR}
+			shop_item_loan=#{shopItemLoan, jdbcType=VARCHAR},
+			shop_item_house_number=#{shopItemHouseNumber, jdbcType=VARCHAR}
 		where shop_item_idx=#{shopItemIdx}
 	</update>
 	<!-- 매물 이미지 수정 -->
@@ -225,7 +227,8 @@
 			shop_item_reg_date as shopItemRegDate,
 			shop_item_del_date as shopItemDelDate,
 			shop_item_ok_state as shopItemOkState,
-			shop_item_sale_state as shopItemSaleState
+			shop_item_sale_state as shopItemSaleState,
+			shop_item_house_number as shopItemHouseNumber
 			from shop_item_tbl where shop_item_idx=#{shopItemIdx}
 	</select>
 	<!--매물상세보기 이미지 -->
