@@ -11,8 +11,10 @@ import com.dassa.vo.FaqPageData;
 import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
+import com.dassa.vo.QuestionVO;
 @Service("noticeGuestService")
-public class noticeGuestService {
+
+public class NoticeGuestService {
 
 	@Resource(name="noticeGuestMapper")
 	private NoticeGuestMapper noticeGuestMapper;
@@ -103,6 +105,10 @@ public class noticeGuestService {
 		}
 		FaqPageData fpd = new FaqPageData(list, pageNavi);
 		return fpd;
+	}
+
+	public int questionInsert(QuestionVO q) throws Exception {
+		return noticeGuestMapper.questionInsert(q);
 	}
 
 }

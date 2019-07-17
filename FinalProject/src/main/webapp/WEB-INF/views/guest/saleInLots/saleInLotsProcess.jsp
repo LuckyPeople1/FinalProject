@@ -7,9 +7,9 @@
 	<div class="contents">
 		<section class="saleInLots">
 			<article class="saleInLotsHeader">
-				<a href="/saleInLots/saleInLotsInformation" class="active">분양정보</a>
+				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보</a>
 				<div class="header"></div>
-				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
+				<a href="/saleInLots/saleInLotsProcess" class="active">분양가이드</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsBrand">브랜드관</a>
 			</article>
@@ -21,20 +21,21 @@
 					<div class="processNav">
 						<a href="/saleInLots/saleInLotsProcess" class="on">
 							<div class="NavText">주택청약철차</div>
-						</a> <a href="/saleInLots/saleInLotsTerms">
+						</a>
+						<a href="/saleInLots/saleInLotsTerms">
 							<div class="NavText">분양용어</div>
-						</a> <a href="/saleInLots/saleInLotsFaq">
+						</a> 
+						<a href="/saleInLots/saleInLotsFaq">
 							<div class="NavText">자주하는 질문</div>
-						</a> <a href="/saleInLots/saleInLotscalculator">
+						</a> 
+						<a href="/saleInLots/saleInLotsCalculator">
 							<div class="NavText">청약가점계산</div>
 						</a>
 					</div>
 				</section>
 				<div>
 					<div class="wrap">
-						<div class="inputWrap">
-							<input class="input" name="search" placeholder="궁금한 내용을 검색해보세요">
-						</div>
+						
 					</div>
 					<div class="wrap_content">
 						<h1 class="processTitle">

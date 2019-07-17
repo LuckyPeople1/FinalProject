@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.dassa.mapper.SaleInLotsMapper;
+import com.dassa.vo.SaleInLotsFaqVO;
 import com.dassa.vo.SaleInLotsPageDataVO;
+import com.dassa.vo.SaleInLotsTremsVO;
 import com.dassa.vo.SaleInLotsVO;
 
 @Service("SaleinLotsService")
@@ -15,6 +17,17 @@ public class SaleInLotsService {
 	@Resource(name="saleInLotsMapper")
 	private SaleInLotsMapper saleInLotsMapper;
 	
+	//자주하는 질문 전체
+	public ArrayList<SaleInLotsFaqVO> saleInLotsFaq() throws Exception{
+		return saleInLotsMapper.saleInLotsFaq();
+	}
+	//자주하는 질문 ajax
+	public ArrayList<SaleInLotsFaqVO> saleInLotsFaqAjax(SaleInLotsFaqVO sfVo) throws Exception{
+		return saleInLotsMapper.saleInLotsFaqAjax(sfVo);
+	}
+	public ArrayList<SaleInLotsTremsVO> saleInLotsTerms() throws Exception{
+		return saleInLotsMapper.saleInLotsTerms();
+	}
 	public SaleInLotsVO saleInLotsDetailInformation(String saleInLotsIDX) throws Exception {
 		return saleInLotsMapper.saleInLotsDetailInformation(saleInLotsIDX);
 	}

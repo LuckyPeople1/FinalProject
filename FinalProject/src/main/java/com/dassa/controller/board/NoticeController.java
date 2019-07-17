@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,12 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.NoticeService;
 import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
+import com.dassa.vo.SearchNoticeVO;
 
 
 @Controller
@@ -58,6 +62,38 @@ public class NoticeController {
 		}
 		return ma;
 	}
+	//공지사항검색
+	@RequestMapping("/searchKeyword")
+	@ResponseBody
+	public ModelAndView searchKeyword(@RequestParam int reqPage,HttpServletRequest request, SearchNoticeVO s) {
+		int code;
+		System.out.println(reqPage);
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+			System.out.println("코드는"+code);
+		}catch (NumberFormatException e) {
+			code=0;
+		}
+		ModelAndView ma = new ModelAndView();
+		/*s.setKeyWord(keyWord);
+		s.setSearchType(searchType);
+		Map<String, Object> sn = new HashMap<String, Object>();*/
+		try {
+			/*String keyword = request.getParameter("keyword");*/
+			NoticePageData list = noticeService.searchKeyword(reqPage,s);
+			if(!list.isEmpty()) {
+				ArrayList<NoticeVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("manage/board/notice/noticeManageList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
 	    
 	//상세보기
 	@RequestMapping("/noticeManageView")
@@ -76,47 +112,7 @@ public class NoticeController {
 			e.printStackTrace();
 		}
 		return ma;
-	}
-	
-//	//기사 공지사항 페이지
-//	@RequestMapping("/articles/noticeManageArticlesList")
-//	public ModelAndView noticeManageArticlesList(@RequestParam int reqPage) {
-//		ModelAndView ma = new ModelAndView();
-//		try {
-//			NoticePageData list = noticeService.selectAllList(reqPage);
-//			if(!list.isEmpty()) {
-//				ArrayList<NoticeVO> arrlist = list.getList();
-//				String pageNavi = list.getPageNavi();
-//				ma.addObject("list", arrlist);
-//				ma.addObject("pageNavi", pageNavi);
-//				ma.setViewName("manage/board/notice/articles/noticeManageArticlesList");
-//			}
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return ma;
-//	}
-//	//부동산 공지사항 페이지
-//	@RequestMapping("/realestate/noticeManageRealestateList")
-//	public ModelAndView noticeManageRealestateList(@RequestParam int reqPage) {
-//		ModelAndView ma = new ModelAndView();
-//		try {
-//			NoticePageData list = noticeService.realestateSelectAllList(reqPage);
-//			if(!list.isEmpty()) {
-//				ArrayList<NoticeVO> arrlist = list.getList();
-//				String pageNavi = list.getPageNavi();
-//				ma.addObject("list", arrlist);
-//				ma.addObject("pageNavi", pageNavi);
-//				ma.setViewName("manage/board/notice/realestate/noticeManageRealestateList");
-//			}
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return ma;
-//	}
-	
+	}	
 	
 	//관리자 공지사항 수정페이지로 넘어가기
 	@RequestMapping("/noticeManageModify")
@@ -291,7 +287,7 @@ public class NoticeController {
 		}
 	}
 	
-	//관리자 부동산 공지사항 작성페이지
+/*	//관리자 부동산 공지사항 작성페이지
 	@RequestMapping("/realestate/noticeManageRealestateWriter")
 	public String noticeManageRealestateWriter() {
 		return "manage/board/notice/realestate/noticeManageRealestateWriter";
@@ -300,7 +296,7 @@ public class NoticeController {
 	@RequestMapping("/articles/noticeManageArticlesWriter")
 	public String noticeManageArticlesWriter() {
 		return "manage/board/notice/articles/noticeManageArticlesWriter";
-	}
+	}*/
 	
 	//관리자페이지 공지사항 삭제
 	@RequestMapping("/noticeDelete")

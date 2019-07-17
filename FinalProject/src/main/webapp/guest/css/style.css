@@ -3188,6 +3188,22 @@ section.saleInLotsInformation .searchBox_btn {
     border-image: initial;
     border-radius: 3px;
 }
+section.saleInLotsInformation .searchBtn {
+    width: 80px;
+    height: 42px;
+    margin-left: 30px;
+    background-color: rgb(50, 108, 249);
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    vertical-align: middle;
+    padding: 0px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 3px;
+}
 section.saleInLotsInformation .saleInLotsBox {
     width: 1180px;
     position: relative;
@@ -3954,7 +3970,7 @@ section.saleInLotsDetailInformation .price_msgText{
     margin-bottom: 5px;
 }
 
-=======
+
 /* 분양 가이드 페이지(home) */
 section.saleInLotsProcess .processContent{
 	width: 1180px;
@@ -3971,7 +3987,7 @@ section.saleInLotsProcessNav .processNav{
 }
 section.saleInLotsProcessNav .NavText{
 	display: inline-block;
-    width: calc(25%);
+    width: calc(24.5%);
     height: 36px;
     font-size: 16px;
     color: rgb(136, 136, 136);
@@ -4028,6 +4044,7 @@ section.saleInLotsProcess a{
 section.saleInLotsProcess .wrap_content{
 	border-bottom: 1px solid rgba(221, 221, 221, 0.7);
 }
+
 section.saleInLotsProcess .processTitle{
 	position: relative;
     height: 82px;
@@ -4035,6 +4052,24 @@ section.saleInLotsProcess .processTitle{
     cursor: pointer;
     user-select: none;
     padding: 0px 20px;
+}
+section.saleInLotsProcess .processTitle.on{
+	position: relative;
+    height: 82px;
+    color: rgb(50, 108, 249);
+    cursor: pointer;
+    user-select: none;
+    padding: 0px 20px;
+}
+section.saleInLotsProcess .processTitle.on svg {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 20px;
+    height: 10px;
+    fill: rgb(50, 108, 249);
+    transform: translateY(-50%) rotateX(180deg);
+    transition: transform 300ms ease-out 0s;
 }
 section.saleInLotsProcess .title_Label{
 	position: absolute;
@@ -4170,6 +4205,282 @@ section.saleInLotsProcess .processContentDetail .table__require tbody tr td li p
     display: block;
     padding-left: 20px;
 }
+section.saleInLotsProcess .processContentDetail .box:not(:last-of-type) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+section.saleInLotsProcess .processContentDetail .box span {
+    color: rgb(34, 34, 34);
+    font-weight: 700;
+}
+section.saleInLotsProcess .processContentDetail .box p:first-of-type {
+    margin-top: 8px;
+}
+section.saleInLotsProcess .processContentDetail .box p {
+    color: rgb(102, 102, 102);
+}
+section.saleInLotsProcess .processContentDetail .box:not(:first-of-type) {
+    padding-top: 20px;
+}
+section.saleInLotsProcess .faqNavi_li_1.faqon {
+	display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+    line-height: 22px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+section.saleInLotsProcess .faqNavi_li_1{
+	display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(170, 170, 170);
+    line-height: 22px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+section.saleInLotsProcess .faqNavi_li_1 + li::before {
+    position: relative;
+    content: "";
+    top: 3px;
+    display: inline-block;
+    width: 1px;
+    height: 18px;
+    margin-left: 25px;
+    padding-left: 25px;
+    border-left: 1px solid rgb(221, 221, 221);
+}
+section.saleInLotsProcess .faqon + li::before {
+    position: relative;
+    content: "";
+    top: 3px;
+    display: inline-block;
+    width: 1px;
+    height: 18px;
+    margin-left: 25px;
+    padding-left: 25px;
+    border-left: 1px solid rgb(221, 221, 221);
+}
+section.saleInLotsProcess .faqNavi{
+	padding-bottom: 20px;
+	border-bottom: 1px solid black;
+	
+}
+/* 청약 계산 페이지 시작 */
+section.calculator .a_wrap{
+    padding-top: 40px;
+    
+}
+section.calculator .wrap_content{
+    text-align: center;
+}
+section.calculator .notice{
+    background-color: rgb(245, 246, 248);
+    padding: 22px 0px;
+    border-radius: 3px;
+}
+section.calculator .notice > p{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(136, 136, 136);
+    text-align: center;
+    line-height: 23px;
+}
+section.calculator .selectWrap{
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+section.calculator .selectTitle{
+    margin-bottom: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+    line-height: 20px;
+    text-align: left; 
+}
+section.calculator .selectTitle > svg{
+    position: relative;
+    bottom: 1px;
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+section.calculator .selectContent{
+    position: relative;
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    -webkit-appearance: listbox;
+    padding: 13px 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(209, 209, 209);
+    border-image: initial;
+    border-radius: 3px;
+    background: url(/static/media/icon_arrow.915e2b30.svg) right 14px center / 12px 6px no-repeat rgb(255, 255, 255);
+    outline: none;
+}
+section.calculator .selectWrap2{
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 46px;
+}
+section.calculator .selectYear{
+    position: relative;
+    width: 150px;
+    height: 48px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    -webkit-appearance: listbox;
+    padding: 13px 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(209, 209, 209);
+    border-image: initial;
+    border-radius: 3px;
+    background: url(/static/media/icon_arrow.915e2b30.svg) right 14px center / 12px 6px no-repeat rgb(255, 255, 255);
+    outline: none;
+}
+section.calculator .selectYear + select {
+    margin-left: 8px;
+}
+section.calculator .selectMonth{
+    position: relative;
+    width: 150px;
+    height: 48px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    -webkit-appearance: listbox;
+    padding: 13px 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(209, 209, 209);
+    border-image: initial;
+    border-radius: 3px;
+    background: url(/static/media/icon_arrow.915e2b30.svg) right 14px center / 12px 6px no-repeat rgb(255, 255, 255);
+    outline: none;
+}
+section.calculator .selectMonth + select{
+    margin-left: 8px;
+}
+section.calculator .selectBox{
+    position: relative;
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    -webkit-appearance: listbox;
+    padding: 13px 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(209, 209, 209);
+    border-image: initial;
+    border-radius: 3px;
+    background: url(/static/media/icon_arrow.915e2b30.svg) right 14px center / 12px 6px no-repeat rgb(255, 255, 255);
+    outline: none;
+}
+section.calculator .LinkBtn{
+    width: 100%;
+    height: 48px;
+    margin-top: 10px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(34, 34, 34);
+}
+section.calculator .basicBtn{
+    font-size: 16px;
+    font-weight: 600;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+section.calculator .calcBtn{
+    width: 480px;
+    height: 54px;
+    margin-top: 40px;
+    background-color: rgb(50, 108, 249);
+    color: rgb(255, 255, 255);
+}
+section.calculator .completeWrap{
+	width: 470px;
+    margin: 50px auto 0px;
+}
+section.calculator .completeTitle{
+	height: 29px;
+    font-size: 20px;
+    text-align: left;
+    color: rgb(34, 34, 34);
+}
+section.calculator .completeUl{
+	width: 100%;
+    margin: 20px 0px 40px;
+    border-top: 1px solid rgb(221, 221, 221);
+}
+section.calculator .completeLi{
+	float: left;
+    width: 100%;
+    padding-top: 30px;
+    text-align: left;
+}
+section.calculator .completeLi > p:nth-child(n){
+	width: 150px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(136, 136, 136);
+}
+section.calculator .completeLi > p:nth-child(2n){
+	width: 220px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(34, 34, 34);
+}
+section.calculator .completeLi > p:nth-child(3n){
+	width: 100px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: right;
+    color: rgb(50, 108, 249);
+}
+section.calculator .completeUl::after{
+	display: block;
+    content: "";
+    clear: both;
+}
+section.calculator .completeLi > p{
+	float: left;
+}
+section.calculator .reBtn{
+	    width: 470px;
+    height: 54px;
+    margin-top: 40px;
+    background-color: rgb(50, 108, 249);
+    color: rgb(255, 255, 255);
+}
+section.calculator .NoticeMsg{
+	line-height: 19px;
+    font-size: 13px;
+    color: rgb(170, 170, 170);
+    text-align: left;
+}
+section.calculator
+section.calculator
 /* 사용자페이지 매물 css 시작 */
 section.shopItemView .kZTRnS {
     width: 100%;
@@ -4531,18 +4842,24 @@ section.shopItemView .dDctva::after {
     content: "";
     clear: both;
 }
-section.shopItemView .fuJjGK {
-    width: 40px;
-    height: 40px;
-    margin: 0px auto;
-    background: url(/static/media/shoes.71788279.svg) center center / cover no-repeat;
-}
 section.shopItemVeiw .gqtsIc > p {
     margin-top: 5px;
     color: rgb(68, 68, 68);
     font-size: 15px;
     line-height: 25px;
     text-align: center;
+}
+section.shopItemView .gqtsIc {
+    float: left;
+    width: 162px;
+    height: 70px;
+    margin-top: 40px;
+    text-align: center;
+}
+section.shopItemView .dNeTFF {
+    width: 40px;
+    height: 40px;
+    margin: 0px auto;
 }
 section.shopItemView .fIqmuM {
     color: rgb(34, 34, 34);
@@ -4670,3 +4987,240 @@ section.shopItemView #counter{
 }
 section.shopItemView #slider-wrap.active #next{right:0px;}
 section.shopItemView #slider-wrap.active #previous{left:0px;}
+
+section.shopItemViewModal .ekZaGw {
+    width: 380px;
+    position: fixed;
+    z-index: 10010;
+    top: 1em;
+    right: 1em;
+}
+section.shopItemViewModal .hCCxcd {
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1000;
+    padding: 7% 0px;
+    animation: 250ms ease-in-out 0s 1 normal none running cbCEHa;
+}
+section.shopItemViewModal .jxTush {
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 1001;
+    margin: 0px auto;
+}
+section.shopItemViewModal .GoREo {
+    position: relative;
+    user-select: none;
+    padding: 28px 30px 24px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemViewModal .GoREo > h1 {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+section.shopItemViewModal .kXLdvu {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+section.shopItemViewModal .kXLdvu > svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+section.shopItemViewModal .kXLdvu > svg .Circle {
+    fill: rgb(255, 255, 255);
+    stroke: rgb(151, 151, 151);
+    opacity: 0.3;
+}
+section.shopItemViewModal .kXLdvu > svg .Close {
+    stroke: rgb(35, 45, 74);
+}
+section.shopItemViewModal .fxChzu {
+    padding: 30px 30px 50px;
+}
+section.shopItemViewModal .bUnfmq {
+    padding-bottom: 15px;
+    position: relative;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemViewModal .gyvHLB {
+    margin-bottom: 11px;
+}
+section.shopItemViewModal .gyvHLB > h1 {
+    color: rgb(34, 34, 34);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
+section.shopItemViewModal .gyvHLB > p {
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 24px;
+}
+section.shopItemViewModal .hlmgHQ > p {
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 24px;
+}
+section.shopItemViewModal .hlmgHQ > p > font {
+    margin-left: 8px;
+    color: rgb(34, 34, 34);
+    font-weight: 500;
+}
+section.shopItemViewModal .kMFgaL {
+    text-align: center;
+    padding: 30px 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemViewModal .gjVGcx {
+    width: 76px;
+    height: 76px;
+    background-color: rgb(243, 243, 243);
+    position: relative;
+    margin: 0px auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+section.shopItemViewModal .gjVGcx::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: url(/static/media/agent_profile.866681cf.svg) center center / cover no-repeat;
+}
+section.shopItemViewModal .gjVGcx::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: url(https://dabang-prod-profile-image.s3.amazonaws.com/69e632c…) center center / cover no-repeat;
+}
+section.shopItemViewModal .hEBltZ {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+section.shopItemViewModal .fKNqjm {
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    line-height: 24px;
+}
+section.shopItemViewModal .bEkUP {
+    margin-bottom: 8px;
+    color: rgb(20, 118, 252);
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 33px;
+}
+section.shopItemViewModal .bEkUP > svg {
+    margin-right: 7px;
+    position: relative;
+    top: 1px;
+}
+section.shopItemViewModal .jxqoHd {
+    color: rgb(42, 144, 255);
+    font-size: 13px;
+    line-height: 17px;
+    letter-spacing: -0.5px;
+}
+section.shopItemViewModal .kLiQkI {
+    margin-top: 30px;
+    margin-bottom: 8px;
+    color: rgb(20, 118, 252);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29px;
+}
+section.shopItemViewModal .cKVLgb {
+    margin-bottom: 10px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+section.shopItemViewModal .dhDUnZ {
+    width: 100%;
+    height: 56px;
+    position: relative;
+}
+section.shopItemViewModal .kmcUrF {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding: 0px 120px 0px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(208, 210, 214);
+    border-image: initial;
+}
+section.shopItemViewModal .idBxyN {
+    width: 104px;
+    height: 46px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    background-color: rgb(0, 108, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 10px 0px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 2px;
+}
+section.shopItemView .eTgAil {
+    width: 100%;
+    height: 36px;
+    background-color: rgb(54, 101, 206);
+}
+section.shopItemView .eTgAil::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .gknGpv {
+    float: left;
+    height: 36px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 36px;
+    background-color: rgb(6, 73, 192);
+    padding: 0px 20px 0px 15px;
+}
+section.shopItemView .cETKtB {
+    float: left;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 400;
+    position: relative;
+    padding: 6px 0px 8px 17px;
+}
+section.shopItemView .cETKtB > span {
+    line-height: 24px;
+}

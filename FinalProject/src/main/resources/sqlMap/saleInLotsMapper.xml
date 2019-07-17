@@ -96,4 +96,28 @@
 			   	saleinlots_state as saleInLotsState
 			   from saleinlots_tbl where saleinlots_idx = #{saleInLotsIDX}
 	</select>
+	<select id="saleInLotsTerms" resultType="com.dassa.vo.SaleInLotsTremsVO">
+		select saleInLots_terms_idx as saleInLotsTermsIdx,
+			saleInLots_terms_type as saleInLotsTermsType,
+			saleInLots_terms_title as saleInLotsTermsTitle,
+			saleInLots_terms_content as saleInLotsTermsContent
+			from saleInLots_terms_tbl
+	</select>
+	<select id="saleInLotsFaq" resultType="com.dassa.vo.SaleInLotsFaqVO">
+		select saleInLots_faq_idx as saleInLotsFaqIdx,
+			saleInLots_faq_type as saleInLotsFaqType,
+			saleInLots_faq_title as saleInLotsFaqTitle,
+			saleInLots_faq_content as saleInLotsFaqContent
+			from saleInLots_faq_tbl
+	</select>
+	<select id="saleInLotsFaqAjax" parameterType="com.dassa.vo.SaleInLotsFaqVO" resultType="com.dassa.vo.SaleInLotsFaqVO">
+		select saleInLots_faq_idx as saleInLotsFaqIdx,
+			saleInLots_faq_type as saleInLotsFaqType,
+			saleInLots_faq_title as saleInLotsFaqTitle,
+			saleInLots_faq_content as saleInLotsFaqContent
+			from saleInLots_faq_tbl 
+			<if test="saleInLotsFaqType != '전체'">			
+				where saleInLots_faq_type = #{saleInLotsFaqType}
+			</if>
+	</select>
 </mapper>

@@ -89,9 +89,9 @@
 								   null,
 							   </otherwise>
 						    </choose>
-			                  default),
-			                   null,
-			                    null
+			                  default,
+			                   1,
+			                    null)
 		</insert>
 		
 		<insert id="driverInsert" parameterType="userVO">
@@ -114,9 +114,9 @@
 			               #{compFilepath},
 			                #{userType},
 			                 null,
-			                  default),
+			                  default,
 			                   null,
-			                    null
+			                    null)
 		</insert>
 		
 		<insert id="shopInsert" parameterType="userVO">
@@ -139,9 +139,9 @@
 			               #{compFilepath},
 			                #{userType},
 			                 null,
-			                  default),
+			                  default,
 			       			   null,
-			       			    null
+			       			    null)
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">

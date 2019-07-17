@@ -10,7 +10,7 @@
 <div class="contents">
 	<section id="manageUserAllList">
 		<div class="set_field">
-			<div class="field_title"><span class="title_mark">■ 회원 관리</span></div>
+			<div class="field_title"><span class="title_mark">■ 승인 관리</span></div>
 			<table class="set_man_userTable">
 				<colgroup>
 					<col width="200">
@@ -35,10 +35,6 @@
 					<th>회원 등급</th>
 					<td colspan="3">
 						<label>
-							<input type="checkbox" name="user" value="일반회원" class="checkUserType">
-							<span>일반회원</span>
-						</label>
-						<label class="ml10">
 							<input type="checkbox" name="user" value="운송기사" class="checkUserType">
 							<span>운송기사</span>
 						</label>
@@ -63,8 +59,8 @@
 				</tbody>
 			</table>
 			<div class="set_menu">
-				<button type="submit" class="btn normal col_main f_w search_btn">검색</button>
-				<button type="submit" class="btn normal col_darkGrey f_w ml5 search_btn">전체목록</button>
+				<button type="submit" id="searchApprobate_btn" class="btn normal col_main f_w">검색</button>
+				<button type="submit" id="searchApprobateAll_btn" class="btn normal col_darkGrey f_w ml5">전체목록</button>
 			</div>
 		</div>
 		<div class="list_field">

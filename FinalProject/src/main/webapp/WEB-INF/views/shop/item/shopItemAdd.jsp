@@ -1190,13 +1190,6 @@
 					return false;
 				}
 			}
-			if($("input[name=shopItemParking]:checked").val()=="가능"){
-				if($("input[name=shopItemParkingPrice").val()==""){
-					alert("주차비를 입력해주세요");
-					$("input[name=shopItemParkingPrice").focus();
-					return false;
-				}
-			}
 			if($("input[name=shopItemTitle]").val()==""){
 				alert("제목을 입력하세요");
 				$("input[name=shopItemTitle]").focus();
