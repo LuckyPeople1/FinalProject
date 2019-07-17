@@ -130,7 +130,6 @@ public class ManageUserConroller {
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
 		SearchUserVO searchUserVO = null;
-		System.out.println(type);
 		String[] uType = type.split(",");
 		String userType = null;
 		String userType1 = null;
@@ -231,6 +230,31 @@ public class ManageUserConroller {
 		searchUserVO.setSearchType(searchType);
 		searchUserVO.setSearchWord(userId);
 		searchUserVO.setUserType(userType);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		if(searchType.equals("1") && !userId.equals("")) {
+			//아이디 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else if(searchType.equals("2") && !userId.equals("")){
+			//이름 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else {
+			retVal.put("list", "");
+		}
+		return retVal;
+	}
+	
+	//검색
+	@RequestMapping("/searchApprobate")
+	@ResponseBody
+	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String userId) {
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setSearchType(searchType);
+		searchUserVO.setSearchWord(userId);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
 		if(searchType.equals("1") && !userId.equals("")) {
