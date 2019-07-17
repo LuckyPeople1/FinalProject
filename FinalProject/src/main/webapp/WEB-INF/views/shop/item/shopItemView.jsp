@@ -200,19 +200,31 @@
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">시공년도</p>
-								<div class="gbAeEp">${item.shopItemBulidDate } 시공</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemBulidDate != null}">${item.shopItemBulidDate } 시공</c:if>
+								<c:if test="${item.shopItemBulidDate == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">시공사</p>
-								<div class="gbAeEp">${item.shopItemBulidCompany }</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemBulidCompany != null}">${item.shopItemBulidCompany }</c:if>
+								<c:if test="${item.shopItemBulidCompany == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">총 세대수</p>
-								<div class="gbAeEp">${item.shopItemBulidCompany } 세대</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemHouseNumber != null}">${item.shopItemHouseNumber } 세대</c:if>
+								<c:if test="${item.shopItemHouseNumber == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">복도유형</p>
-								<div class="gbAeEp">${item.shopItemBulidHallway }</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemBulidHallway != null}">${item.shopItemBulidHallway }</c:if>
+								<c:if test="${item.shopItemBulidHallway == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">반려동물</p>
@@ -234,19 +246,31 @@
 						<c:if test="${item.shopItemType1 eq '아파트' }">
 							<li class="gWdVQs">
 								<p class="gPsGgb">시공년도</p>
-								<div class="gbAeEp">${item.shopItemBulidDate } 시공</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemBulidDate != null}">${item.shopItemBulidDate } 시공</c:if>
+								<c:if test="${item.shopItemBulidDate == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">시공사</p>
-								<div class="gbAeEp">${item.shopItemBulidCompany }</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemBulidCompany != null}">${item.shopItemBulidCompany }</c:if>
+								<c:if test="${item.shopItemBulidCompany == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">총 세대수</p>
-								<div class="gbAeEp">${item.shopItemBulidCompany } 세대</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemHouseNumber != null}">${item.shopItemHouseNumber } 세대</c:if>
+								<c:if test="${item.shopItemHouseNumber == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">복도유형</p>
-								<div class="gbAeEp">${item.shopItemBulidHallway }</div>
+								<div class="gbAeEp">
+								<c:if test="${item.shopItemBulidHallway != null}">${item.shopItemBulidHallway }</c:if>
+								<c:if test="${item.shopItemBulidHallway == null}">정보없음</c:if>
+								</div>
 							</li>
 							<li class="gWdVQs">
 								<p class="gPsGgb">입주가능일</p>
@@ -304,9 +328,9 @@
 					<h1 class="GYLAC">가격정보</h1>
 					<table class="iSPaSs">
 						<colgroup>
-							<col width="33%">
-							<col width="33%">
-							<col width="33%">
+							<col width="25%">
+							<col width="50%">
+							<col width="25%">
 						</colgroup>
 						<thead>
 							<tr>

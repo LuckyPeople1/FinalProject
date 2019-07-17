@@ -416,7 +416,7 @@
 							<tr>
 								<th>복도유형</th>
 								<td class="ggZjqG">
-									<input type="text" value="-" readonly="readonly" name="shopItemBulidHallwayType" style="border: none;">
+									<input type="text" value="-" readonly="readonly" name="shopItemBulidHallway" style="border: none;">
 								</td>
 								<th>준공년도</th>
 								<td class="ggZjqG">
@@ -436,6 +436,10 @@
 											<p>날짜 협의</p>
 										</label>
 									</div>
+								</td>
+								<th>총 세대수</th>
+								<td class="ggZjqG">
+									<input type="text" value="-" readonly="readonly" name="shopItemHouseNumber" style="border: none;">
 								</td>
 							</tr>
 						</tbody>
@@ -847,6 +851,8 @@
 				</div>
 			</div>
 	</div>
+	<input type="hidden" name="shopItemLatitude" value="">
+	<input type="hidden" name="shopItemLongitude" value="">
 	</form>
 	</section>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
@@ -941,6 +947,7 @@
             $("input[name='shopItemBulidCompany']").val(newarr1[8]);
             $("input[name='shopItemHeating2']").val(newarr1[9]);
             $("input[name='shopItemBulidHallwayType']").val(newarr1[10]);
+            $("input[name='shopItemHouseNumber']").val(newarr1[11]);
 		});
 		//주소 팝업 창 열기
 		$('#jusoBtn').click(function() {
