@@ -29,8 +29,8 @@
 							<c:choose>
 								<c:when test="${not empty socialId }">
 									<input type="hidden" class="tbox normal" name="socialId" value=${socialId }>
-									<input type="hidden" class="tbox normal" name="userId">
-									<input type="hidden" class="tbox normal" name="userPw">	
+									<input type="hidden" class="tbox normal" name="userId"  >
+									<input type="hidden" class="tbox normal" name="userPw"  >	
 								</c:when>
 								<c:otherwise>
 									<tr>

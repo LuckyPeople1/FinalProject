@@ -21,6 +21,7 @@
 				<div class="field_title">
 					<span class="title_mark">■ 공지사항 관리</span>
 				</div>
+				<form action="/manage/board/notice/searchKeyword?reqPage=1" method="get">
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -31,7 +32,7 @@
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input class="tbox w_6p" style="width:39%;">
+							<input class="tbox w_6p" style="width:39%;" name="keyWord">
 						</td>
 					</tr>
 					<tr>
@@ -48,9 +49,11 @@
 					</tr>
 				</table>
 				<div class="set_menu">
+					<button type="submit">ㄱㄱㄱㄱㄱㄱ</button>
 					<a href="#" class="btn normal col_main f_w">검색</a>
-					<a href="#" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<a href="/manage/board/notice/noticeManageList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
+				</form>
 			</div>
 				<div class="list_field">
 					<div class="list_menu">

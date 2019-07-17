@@ -22,7 +22,7 @@
 						<div class="saleInLotsInformation_content">
 							<div class="searchBox_filter_type" tabindex="0">
 								<div class="searchBox_btn">
-									<span id="area">전국</span>
+									<span id="area">${saleInLotsArea }</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
@@ -53,7 +53,7 @@
 							</div>
 							<div class="searchBox_filter_type" tabindex="0">
 								<div class="searchBox_btn">
-									<span id="buildType">건물유형</span>
+									<span id="buildType">${saleInLotsBuildType }</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
@@ -97,7 +97,7 @@
 							</div>
 							<div class="searchBox_filter_type" tabindex="0">
 								<div class="searchBox_btn">
-									<span id="saleState">분양단계</span>
+									<span id="saleState">${saleInLotsState }</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
@@ -141,7 +141,7 @@
 							</div>
 							<div class="searchBox_filter_type" tabindex="0">
 								<div class="searchBox_btn">
-									<span id="supplyType">공급유형</span>
+									<span id="supplyType">${saleInLotsSupplyType }</span>
 									<svg width="11" height="7" viewBox="0 0 11 7">
 										<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
 									</svg>
@@ -204,6 +204,9 @@
 										</ul>
 									</div>
 							</div>
+							<a href="#none">
+								<button class="searchBtn">검색</button>
+							</a>
 						</div>
 						<div class="saleInLotsBox">
 							<p class="saleInLotsList">

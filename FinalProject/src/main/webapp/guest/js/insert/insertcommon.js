@@ -68,7 +68,7 @@ $(document).ready(function(){
 		if(id == ""){
 			alert("아이디를 입력해주세요.");
 			return false;
-		}else if(pw == "" || pwCk != ""){
+		}else if(pw == ""){
 			alert("비밀번호를 입력해주세요. ");
 			return false;
 		} else if(name == "" || nameCk != ""){

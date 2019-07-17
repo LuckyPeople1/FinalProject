@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.NoticeVO;
+import com.dassa.vo.SearchNoticeVO;
 @MapperScan("noticeMapper")
 public interface NoticeMapper {
 	
@@ -25,5 +26,15 @@ public interface NoticeMapper {
 	
 	//삭제
 	public int noticeDelete(int noticeIndex) throws Exception;
+
+/*	//검색
+	public ArrayList<NoticeVO> searchKeywordTitle(@Param("start") int start,@Param("end") int end,@Param("code") int code, String keyword) throws Exception;
+	//제목으로
+	public int titleCount(@Param("code") int code, String keyword) throws Exception;
+*/
+	//검색
+	public ArrayList<NoticeVO> searchKeywordTitle(SearchNoticeVO s) throws Exception;
+	//제목으로
+	public int titleCount(SearchNoticeVO s) throws Exception;
 
 }

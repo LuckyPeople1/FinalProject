@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dassa.service.noticeGuestService;
+import com.dassa.service.NoticeGuestService;
 import com.dassa.vo.FaqPageData;
 import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
+import com.dassa.vo.QuestionVO;
 @Controller
 @RequestMapping("/guest")
 public class GuestController {
 	@Resource(name="noticeGuestService")
-	private noticeGuestService noticeGuestService;
+	private NoticeGuestService noticeGuestService;
 	//사용자 뷰페이지
 	@RequestMapping("/notice/noticeList")
 	public ModelAndView noticeList(@RequestParam int reqPage,HttpServletRequest request) {
@@ -83,4 +84,19 @@ public class GuestController {
 		return ma;
 	}
 	//사용자1:1문의하기
+	@RequestMapping("/notice/questionInsert")
+	public String questionInsert(QuestionVO q) {
+		int result;
+		String view = "";
+		try {
+			result = noticeGuestService.questionInsert(q);
+			if(result>0) {
+				view="/guest/notice/questionInsert";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return view;
+	}
 }
