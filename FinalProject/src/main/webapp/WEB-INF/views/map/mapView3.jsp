@@ -27,7 +27,7 @@
 }
 .gYMri {
     width: 36px;
-    position: absolute;
+    position: relative;
     top: 3px;
     right: 7px;
     z-index: 1;
@@ -39,9 +39,7 @@
     margin: 0px auto;
     background: url(/static/media/like.6879d861.svg) center center / cover;
 }
-.kpKjGs {
-    display: block;
-}
+
 @media only screen and (min-width: 1700px)
 <style>
 .bnManG {
@@ -1247,42 +1245,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						<p>맞춤필터를 해제해보세요.</p>
 					</div>
 				</div> -->
-					<ul class="styled__Ul-ityzo6-5 fxRDHg">
-						<li class="styled__Li-sc-84urxt-0 Mmhsh">
-							<div class="styled__Card-fi3k4t-0 OUJOU">
-								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">
-									<div class="styled__Like-sc-3yrk4m-1 hjVNgq"></div>
-								</div>
-								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/room/5d242a040b1d1356b7c9aae8">
-								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG"></div>
-								<div class="styled__BadgeWrap-fi3k4t-3 gAdXIp">
-									<svg class="styled__Svg-sc-1t9oqsb-0 hhLAzQ" viewBox="0 0 46 18" fill="none">
-										<rect width="46" height="18" rx="2" fill="#CDAF84"></rect>
-										<path d="M14.1586 9.39199V8.35799H5.30362V9.39199H14.1586ZM13.3336 13.825V12.769H7.67962V12.318H13.0366V9.94199H6.37062V10.954H11.7606V11.416H6.39262V13.825H13.3336ZM13.2456 7.89599V6.88399H11.8816L12.1346 5.75099L10.8916 5.57499L10.6826 6.88399H8.75762L8.60362 5.57499L7.34962 5.75099L7.54762 6.88399H6.18362V7.89599H13.2456ZM13.2676 5.29999V4.28799H6.15062V5.29999H13.2676Z" fill="white"></path>
-										<path d="M19.8212 11.361L19.6892 10.327C18.4132 10.569 16.8732 10.613 15.9602 10.613V8.57799H19.0072V4.90399H14.6622V5.92699H17.6982V7.55499H14.6732V11.669H15.7072C17.3682 11.669 18.7872 11.559 19.8212 11.361ZM22.4172 13.869V4.06799H21.1412V7.69799H19.6562V8.77599H21.1412V13.869H22.4172Z" fill="white"></path>
-										<path d="M32.1938 12.593V11.57H23.3388V12.593H32.1938ZM32.0068 8.57799C30.5108 8.32499 28.4428 7.03799 28.4428 5.31099V4.66199H27.1008V5.31099C27.1008 7.04899 25.1538 8.34699 23.5478 8.57799L24.1528 9.62299C25.5058 9.32599 27.2548 8.28099 27.7608 6.96099C28.3218 8.24799 30.0158 9.27099 31.3578 9.57899L32.0068 8.57799Z" fill="white"></path>
-										<path d="M38.5 5.5V12.5M35 9H42" stroke="white" stroke-width="1.2"></path>
-									</svg>
-									<div class="styled__ConfirmBadge-fi3k4t-4 gekGFB" type="confirm">
-										<span>확인매물</span>
-										<font>19.07.09</font>
-									</div>
-								</div>
-								<p class="styled__RoomType-fi3k4t-8 kCTBqT styled__Text-fi3k4t-7 jBkVAv">원룸</p>
-								<p class="styled__Price-fi3k4t-9 glovZ styled__Text-fi3k4t-7 jBkVAv">
-									<span>월세 1000/50</span>
-								</p>
-								<p class="styled__Text-fi3k4t-7 jBkVAv">4층, 17.4m², 관리비 5만</p>
-								<p class="styled__Text-fi3k4t-7 jBkVAv">6,7호선 더블역세권, 신축 원룸입니다.</p>
-							</a>
-						</div>
-					</li>
+					<ul class="styled__Ul-ityzo6-5 fxRDHg">						
 					<c:forEach items="${list }" var="v">
-						<li class="styled__Li-sc-84urxt-0 Mmhsh">
+						 <li class="Mmhsh">
 							<div class="styled__Card-fi3k4t-0 OUJOU">
-								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">
-									<div class="styled__Like-sc-3yrk4m-1 hjVNgq"></div>
-								</div>
+								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">								</div>
 								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/shop/itemView?shopItemIdx=${v.shopItemIdx }">								
 								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG"></div>
 								<div class="styled__BadgeWrap-fi3k4t-3 gAdXIp">
@@ -1306,16 +1273,13 @@ section.mapView .eUbtsI > .Radio--circle::after {
 								<p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemContent }</p>
 							</a>
 						</div>
-					</li>
-					
-					</c:forEach>
+					</li> 					
+					</c:forEach> 
 				</ul>				
 			</div>
 		</div>
 		<div class="map_wrap">
-				<div id="map"
-					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-				지도 확대, 축소 컨트롤 div 입니다
+				<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>				
 				<div class="custom_zoomcontrol radius_border">
 					<span onclick="zoomIn()">
 						<img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"	alt="확대">
@@ -1336,9 +1300,8 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	</section>
 </body>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services,clusterer,drawing"></script>
-<script>
+<script>	
 	
-	//주소 입력 후 x,y 좌표로 받는 코드
 	var address = document.getElementById("address");
 	var coordXY = document.getElementById("coordXY");
 	var x, y = "";
@@ -1346,28 +1309,21 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	var options = {
 		center : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),
 		level : 9
-	//지도 4km 기준 , 서울 특별시
 	};
-
-	var map = new kakao.maps.Map(container, options);
-
-	// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+	var map = new kakao.maps.Map(container, options);	
 	function zoomIn() {
 		map.setLevel(map.getLevel() - 1);
-		
-
-	}
-
-	// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+	}	
 	function zoomOut() {
 		map.setLevel(map.getLevel() + 1);
-
-
-	}
-
-	
+	}	
 	var markers = [];	
-	var positions = [ {latlng : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),	name : "서울특별시"}, {	latlng : new kakao.maps.LatLng(37.455925200122365, 126.70526742296053),
+	var positions = [ 
+	{
+		latlng : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),	
+		name : "서울특별시"
+	}, {	
+		latlng : new kakao.maps.LatLng(37.455925200122365, 126.70526742296053),
 
 		name : "인천광역시"
 	}, {
@@ -1432,28 +1388,6 @@ section.mapView .eUbtsI > .Radio--circle::after {
 
 	];
 	
-	$(document).ready(function(){
-		var positions3 = new Array();
-		var positions2 = new Object();			
-		 var geocoder = new daum.maps.services.Geocoder();
-		 for(var i=0;i<$(".test").length;i++){
-			 geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
-				// 정상적으로 검색이 완료됐으면,
-				if (status == daum.maps.services.Status.OK) {	
-						var coords = new daum.maps.LatLng(result[0].y, result[0].x); 
-						positions2.name="name";
-						positions2.latlng=coords;
-						positions3.push("하이");
-				}
-			});	
-		}
-		 console.log(positions3);
-		 console.log(positions)
-		
-	});
-	
-		
-	
 	var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
@@ -1478,9 +1412,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	        position: positions[i].latlng,
 	        content: content	       
 	    });    
-	    	}
-	
-	
+	    	}	
 	
 	 $(document).ready(function(){					 
 		 map.setLevel(20);		
@@ -1493,9 +1425,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
 			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));							
 			map.setLevel(10);
-		});			
-		
-		kakao.maps.event.addListener(map, 'zoom_changed', function() {		
+		});					
+		map.setLevel(9);
+	});	
+	 
+	kakao.maps.event.addListener(map, 'zoom_changed', function() {		
 			
 			if (map.getLevel() >10) {
 				clusterer.clear();
@@ -1514,13 +1448,16 @@ section.mapView .eUbtsI > .Radio--circle::after {
 							position:coords							
 						});						
 						clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
+						kakao.maps.event.addListener(marker, 'click', function() {
+							
+							map.setCenter(marker.getPosition()); 
+							map.setLevel(5);
+						});
 					}
 				});
 			}			 
 			}
-		});	
-		map.setLevel(9);
-	});		 	 
+		});
 	 
 	kakao.maps.event.addListener(map,'mousedown',function(){
 		if (map.getLevel() >10) {
@@ -1531,129 +1468,17 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		
 		}
 		
-		});		
+	});		
 	
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
-
-		// 현재 지도 레벨에서 1레벨 확대한 레벨
 		var level = map.getLevel() - 1;
-
-		// 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
 		map.setLevel(level, {
 			anchor : cluster.getCenter()
 		});
 	});	
 	
 	
-	
-	$("#mapSelect").click(function(){		
-		var mapName=$("#mapName").val();
-		var geocoder = new daum.maps.services.Geocoder();
-		geocoder.addressSearch(mapName, function(result, status) {
-			// 정상적으로 검색이 완료됐으면,
-			if (status == daum.maps.services.Status.OK) {
-				map.setLevel(3);
-				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-				y = result[0].x;
-				x = result[0].y;
-				test1.append("<br>X좌표 : " + x + "<br><br>Y좌표 : " + y);
-				// 이동할 위도 경도 위치를 생성합니다 
-				var moveLatLon = new kakao.maps.LatLng(x, y);
-				// 지도 중심을 부드럽게 이동시킵니다
-				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-				map.panTo(moveLatLon);
-			}
-		});
-		/* $.ajax({
-			url:"/mapSelectOne",			
-			data:{shopItemIdx:mapName},			
-			success : function(data){
-				console.log("성공");
-				
-			}
-		}) */
-	})
-	
-$(document).ready(function(){				
-		$(document).click(function(e){
-			$(".hWgOZv").eq('0').click(function(e){
-				$(".fhfjff2").css("display","none");
-				$(".fhfjff3").css("display","none");
-				if($(".fhfjff").is(":visible")){
-					$(".fhfjff").css("display","none");
-				}else{
-					$(".fhfjff").css("display","block");
-				}				
-			})
-			for(var i=1;i<$('.hWgOZv').length;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff").css("display","none");
-				})
-			}
-			$(".hWgOZv").eq('1').click(function(e){
-				if($(".fhfjff2").is(":visible")){
-					$(".fhfjff2").css("display","none");
-				}else{
-					$(".fhfjff2").css("display","block");
-				}
-			})
-			$(".hWgOZv").eq('5').click(function(e){
-				if($(".fhfjff3").is(":visible")){
-					$(".fhfjff3").css("display","none");
-				}else{
-					$(".fhfjff3").css("display","block");
-				}				
-			})
-			$(".dgiYtt").click(function(){
-				$(".fhfjff1").css("display","none");
-				$(".fhfjff2").css("display","none");
-				$(".fhfjff3").css("display","none");
-			})
-			for(var i=2;i<$('.hWgOZv').length;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff2").css("display","none");
-				})
-			}
-			for(var i=0;i<$('.hWgOZv').length-1;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff3").css("display","none");
-				})
-			}			
-			$(".hWgOZv").click(function(e){		
-				if($(this).children().hasClass('fJNXpX')){
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV');
-					$(".dgiYtt ").children().removeClass('kdfXro');
-					$(".dgiYtt ").children().addClass('bAZEbe');
-					
-					$(this).children().removeClass('fJNXpX');
-					$(this).children().addClass('cRtqxV'); 
-					
-				}else if($(this).children().hasClass('fUMVvC')){
-				
-				 	$(".hWgOZv").children().addClass('fUMVvC');
-					$(".hWgOZv").children().removeClass('hKGAZL ');
-					$(".dgiYtt ").children().removeClass('kdfXro');
-					$(".dgiYtt ").children().addClass('bAZEbe');
-					$(this).children().removeClass('fUMVvC');
-					$(this).children().addClass('hKGAZL');
-				} 
-			})
-			$(".dgiYtt").click(function(e){
-				if($(this).children().hasClass('bAZEbe')){
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV');
-					$(this).children().removeClass('bAZEbe');
-					$(this).children().addClass('kdfXro');
-				}else{
-					$(".hWgOZv").children().addClass('fUMVvC');
-					$(".hWgOZv").children().removeClass('hKGAZL ');
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV'); 
-				} 
-			})
-		})		
-	})	
-	
+
 </script>
+<script src="/guest/js/map/map.js"></script>
 </html>

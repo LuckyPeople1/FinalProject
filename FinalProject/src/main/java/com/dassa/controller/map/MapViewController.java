@@ -1,6 +1,8 @@
 package com.dassa.controller.map;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +31,7 @@ public class MapViewController {
 	
 	
 	
-	@RequestMapping(value="/mapView",produces = "application/text; charset=utf8")
+	@RequestMapping(value="/mapView",produces = "application/text;  charset=utf8")
 	public ModelAndView MapView() throws Exception {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<ShopItemVO> list;
@@ -37,6 +39,18 @@ public class MapViewController {
 		mav.addObject("list",list);
 		mav.setViewName("/map/mapView3");		
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/mapAView")
+	public Map<String, Object> MapAView(@RequestParam String shopItemAddr1) throws Exception {
+		System.out.println(shopItemAddr1);
+		ArrayList<ShopItemVO> list;		
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		list = mapService.mapSelectList(shopItemAddr1);			
+		System.out.println("list : "+list);
+		retVal.put("list",list);
+		return retVal;
 	}
 	
 	@RequestMapping(value="/mapSelectOne", produces = "application/text; charset=utf8")
@@ -52,7 +66,7 @@ public class MapViewController {
 	}
 	
 	
-	@ResponseBody
+
 	@RequestMapping(value="/mapSelectList")
 	public ModelAndView mapSelectList(@RequestParam String shopItemAddr1) throws Exception{
 		System.out.println(shopItemAddr1);

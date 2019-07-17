@@ -24,6 +24,7 @@ $("#search_btn").click(function(){
 					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
 					str += ">회원탈퇴</a></td>";
 					str += "</tr>";
+					
 				}
 				listV.append(str);
 			}else if(data.list == "") {
