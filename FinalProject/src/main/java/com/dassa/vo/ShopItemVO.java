@@ -59,6 +59,7 @@ public class ShopItemVO {
 	private Date shopItemDelDate;												//매물삭제일
 	private String shopItemOkState;												//매물확인상태
 	private String shopItemSaleState;											//매물상태
+	private String shopItemHouseNumber;										//총 세대수
 	public ShopItemVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -77,7 +78,7 @@ public class ShopItemVO {
 			String shopItemManagePriceOption, String shopItemParking, String shopItemParkingPrice,
 			String shopItemAnimal, String shopItemElevator, String shopItemBalcony, String shopItemBuiltIn,
 			String shopItemStructure, String shopItemOption, String shopItemLoan, Date shopItemRegDate,
-			Date shopItemDelDate, String shopItemOkState, String shopItemSaleState) {
+			Date shopItemDelDate, String shopItemOkState, String shopItemSaleState, String shopItemHouseNumber) {
 		super();
 		this.shopItemIdx = shopItemIdx;
 		this.userIdx = userIdx;
@@ -135,6 +136,7 @@ public class ShopItemVO {
 		this.shopItemDelDate = shopItemDelDate;
 		this.shopItemOkState = shopItemOkState;
 		this.shopItemSaleState = shopItemSaleState;
+		this.shopItemHouseNumber = shopItemHouseNumber;
 	}
 	public int getShopItemIdx() {
 		return shopItemIdx;
@@ -471,5 +473,11 @@ public class ShopItemVO {
 	}
 	public void setShopItemSaleState(String shopItemSaleState) {
 		this.shopItemSaleState = shopItemSaleState;
+	}
+	public String getShopItemHouseNumber() {
+		return shopItemHouseNumber;
+	}
+	public void setShopItemHouseNumber(String shopItemHouseNumber) {
+		this.shopItemHouseNumber = shopItemHouseNumber;
 	}
 }

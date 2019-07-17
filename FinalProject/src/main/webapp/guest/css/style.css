@@ -4842,18 +4842,24 @@ section.shopItemView .dDctva::after {
     content: "";
     clear: both;
 }
-section.shopItemView .fuJjGK {
-    width: 40px;
-    height: 40px;
-    margin: 0px auto;
-    background: url(/static/media/shoes.71788279.svg) center center / cover no-repeat;
-}
 section.shopItemVeiw .gqtsIc > p {
     margin-top: 5px;
     color: rgb(68, 68, 68);
     font-size: 15px;
     line-height: 25px;
     text-align: center;
+}
+section.shopItemView .gqtsIc {
+    float: left;
+    width: 162px;
+    height: 70px;
+    margin-top: 40px;
+    text-align: center;
+}
+section.shopItemView .dNeTFF {
+    width: 40px;
+    height: 40px;
+    margin: 0px auto;
 }
 section.shopItemView .fIqmuM {
     color: rgb(34, 34, 34);
@@ -4971,8 +4977,8 @@ section.shopItemView .btns{
 section.shopItemView .btns:hover{
     background:rgba(0,0,0,0.3); 
 }
-section.shopItemView #next{right:-50px; border-radius:7px 0px 0px 7px;}
-section.shopItemView #previous{left:-50px; border-radius:0px 7px 7px 7px;}
+section.shopItemView #next{right:0px; border-radius:7px 0px 0px 7px;}
+section.shopItemView #previous{left:0px; border-radius:0px 7px 7px 7px;}
 section.shopItemView #counter{
     top: 30px; 
     right:35px; 
@@ -4981,3 +4987,210 @@ section.shopItemView #counter{
 }
 section.shopItemView #slider-wrap.active #next{right:0px;}
 section.shopItemView #slider-wrap.active #previous{left:0px;}
+
+section.shopItemViewModal .ekZaGw {
+    width: 380px;
+    position: fixed;
+    z-index: 10010;
+    top: 1em;
+    right: 1em;
+}
+section.shopItemViewModal .hCCxcd {
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1000;
+    padding: 7% 0px;
+    animation: 250ms ease-in-out 0s 1 normal none running cbCEHa;
+}
+section.shopItemViewModal .jxTush {
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 18px -10px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 1001;
+    margin: 0px auto;
+}
+section.shopItemViewModal .GoREo {
+    position: relative;
+    user-select: none;
+    padding: 28px 30px 24px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemViewModal .GoREo > h1 {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+section.shopItemViewModal .kXLdvu {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+section.shopItemViewModal .kXLdvu > svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+section.shopItemViewModal .kXLdvu > svg .Circle {
+    fill: rgb(255, 255, 255);
+    stroke: rgb(151, 151, 151);
+    opacity: 0.3;
+}
+section.shopItemViewModal .kXLdvu > svg .Close {
+    stroke: rgb(35, 45, 74);
+}
+section.shopItemViewModal .fxChzu {
+    padding: 30px 30px 50px;
+}
+section.shopItemViewModal .bUnfmq {
+    padding-bottom: 15px;
+    position: relative;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemViewModal .gyvHLB {
+    margin-bottom: 11px;
+}
+section.shopItemViewModal .gyvHLB > h1 {
+    color: rgb(34, 34, 34);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
+section.shopItemViewModal .gyvHLB > p {
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 24px;
+}
+section.shopItemViewModal .hlmgHQ > p {
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 24px;
+}
+section.shopItemViewModal .hlmgHQ > p > font {
+    margin-left: 8px;
+    color: rgb(34, 34, 34);
+    font-weight: 500;
+}
+section.shopItemViewModal .kMFgaL {
+    text-align: center;
+    padding: 30px 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+section.shopItemViewModal .gjVGcx {
+    width: 76px;
+    height: 76px;
+    background-color: rgb(243, 243, 243);
+    position: relative;
+    margin: 0px auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+section.shopItemViewModal .gjVGcx::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: url(/static/media/agent_profile.866681cf.svg) center center / cover no-repeat;
+}
+section.shopItemViewModal .gjVGcx::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: url(https://dabang-prod-profile-image.s3.amazonaws.com/69e632c…) center center / cover no-repeat;
+}
+section.shopItemViewModal .hEBltZ {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+section.shopItemViewModal .fKNqjm {
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    line-height: 24px;
+}
+section.shopItemViewModal .bEkUP {
+    margin-bottom: 8px;
+    color: rgb(20, 118, 252);
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 33px;
+}
+section.shopItemViewModal .bEkUP > svg {
+    margin-right: 7px;
+    position: relative;
+    top: 1px;
+}
+section.shopItemViewModal .jxqoHd {
+    color: rgb(42, 144, 255);
+    font-size: 13px;
+    line-height: 17px;
+    letter-spacing: -0.5px;
+}
+section.shopItemViewModal .kLiQkI {
+    margin-top: 30px;
+    margin-bottom: 8px;
+    color: rgb(20, 118, 252);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29px;
+}
+section.shopItemViewModal .cKVLgb {
+    margin-bottom: 10px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+section.shopItemViewModal .dhDUnZ {
+    width: 100%;
+    height: 56px;
+    position: relative;
+}
+section.shopItemViewModal .kmcUrF {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding: 0px 120px 0px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(208, 210, 214);
+    border-image: initial;
+}
+section.shopItemViewModal .idBxyN {
+    width: 104px;
+    height: 46px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    background-color: rgb(0, 108, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 10px 0px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 2px;
+}
+

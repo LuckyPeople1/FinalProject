@@ -24,6 +24,7 @@ public class UserVO {
 	private Date	enrollDate;
 	private String  status;					//회원 상태
 	private Date    outDate;				//탈퇴 일
+	
 	private String  type;
 	private String  userStatus;				//상태 변경
 	private String  userType1;

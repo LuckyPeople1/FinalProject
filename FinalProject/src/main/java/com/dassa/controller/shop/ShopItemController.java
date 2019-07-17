@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.jasper.tagplugins.jstl.core.Redirect;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -87,7 +87,8 @@ public class ShopItemController {
 	@RequestMapping("/shopItemAdd")
 	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
-		
+		System.out.println("입주형태1 : "+sItem.getShopItemMovingDate1());
+		System.out.println("입주형태2 : "+sItem.getShopItemMovingDate2());
 		System.out.println("넘어온 파일 : "+fileImg);
 		
 		for(MultipartFile img : fileImg) {
@@ -142,7 +143,7 @@ public class ShopItemController {
 			}
 			if(item.getShopItemOption()!=null) {
 				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
-				String[] sio = new String[12]; //옵션 항목 체크
+				String[] sio = new String[13]; //옵션 항목 체크
 				int j = 0;
 			
 				for(; j<sss.length;j++) {
@@ -157,6 +158,9 @@ public class ShopItemController {
 				mav.addObject("item",item); //매물 정보
 				mav.addObject("siiList",siiList);
 				mav.setViewName("shop/item/shopItemInfo");
+				System.out.println("입주형태1 : "+item.getShopItemMovingDate1());
+				System.out.println("입주형태2 : "+item.getShopItemMovingDate2());
+				System.out.println("세대 수 : "+item.getShopItemHouseNumber());
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -252,7 +256,7 @@ public class ShopItemController {
 			}
 			if(item.getShopItemOption()!=null) {
 				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
-				String[] sio = new String[12]; //옵션 항목 체크
+				String[] sio = new String[13]; //옵션 항목 체크
 				int j = 0;
 			
 				for(; j<sss.length;j++) {
@@ -341,7 +345,7 @@ public class ShopItemController {
                      String str8 = getTagValue("kaptBcompany", eElement2);		//시공사 8
                      String str9 = getTagValue("codeHeatNm", eElement2);			//난방방식	 9
                      String str10 = getTagValue("codeHalNm", eElement2); 			//복도유형 10
-                     String str11 = getTagValue("kaptdaCnt", eElement2);			//세대수
+                     String str11 = getTagValue("kaptdaCnt", eElement2);			//세대수 11
                      totalString = str+","+str1+","+str2+","+str3+","+str4+","+str5+","+str6+","+str7+","+str8+","+str9+","+str10+","+str11;
                      System.out.println(totalString);
                       }

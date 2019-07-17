@@ -20,8 +20,9 @@ public class MapService {
 		return list;
 	}
 	public ArrayList<ShopItemVO> mapSelectList(String shopItemAddr1) throws Exception {
-		
+		System.out.println("service: "+shopItemAddr1);
 		ArrayList<ShopItemVO> list = mapMapper.mapSelectList(shopItemAddr1);
+		System.out.println("service 맵퍼 들리고: "+list);
 		return list;			
 		
 	}

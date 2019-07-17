@@ -10,7 +10,7 @@
 <div class="contents">
 	<section id="manageUserAllList">
 		<div class="set_field">
-			<div class="field_title"><span class="title_mark">■ 회원 관리</span></div>
+			<div class="field_title"><span class="title_mark">■ 승인 관리</span></div>
 			<table class="set_man_userTable">
 				<colgroup>
 					<col width="200">
@@ -35,10 +35,6 @@
 					<th>회원 등급</th>
 					<td colspan="3">
 						<label>
-							<input type="checkbox" name="user" value="일반회원" class="checkUserType">
-							<span>일반회원</span>
-						</label>
-						<label class="ml10">
 							<input type="checkbox" name="user" value="운송기사" class="checkUserType">
 							<span>운송기사</span>
 						</label>
@@ -63,8 +59,8 @@
 				</tbody>
 			</table>
 			<div class="set_menu">
-				<a href="javascript:void(0)" class="btn normal col_main f_w">검색</a>
-				<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+				<button type="submit" id="searchApprobate_btn" class="btn normal col_main f_w">검색</button>
+				<button type="submit" id="searchApprobateAll_btn" class="btn normal col_darkGrey f_w ml5">전체목록</button>
 			</div>
 		</div>
 		<div class="list_field">
@@ -136,214 +132,6 @@
 		</div>
 	</section>
 </div>
+<script src="/manage/js/user/search.js"></script>
 </body>
 </html>
-<script>
-
-$(".checkUserType").change(function(){
-	var bool = $("input[name='user']:checked").length;
-	var val = "";
-	for(var i = 0; i<bool; i++){
-		val += $("input[name='user']:checked").eq(i).val()+",";
-	}
-	var type = val.substring(0,val.length-1);
-	console.log(type);
-	console.log(bool);
-	if(bool==1){
-		$.ajax({
-			type: "post",
-			url: "/userManage/userCheckList",
-			data: {type:type},
-			success: function(data){
-				$(".list_table").children().eq(2).html("");
-				var listV = $(".list_table").children().eq(2);
-				console.log(listV);
-				var str="";
-				for(var i=0; i<data.list.length; i++){
-					str += "<tr>";
-					str += "<td>"+data.list[i].userId+"</td>";
-					str += "<td>"+data.list[i].userPw+"</td>";
-					str += "<td>"+data.list[i].userName+"</td>";
-					str += "<td>"+data.list[i].userAddr+"</td>";
-					str += "<td>"+data.list[i].userPhone+"</td>";
-					str += "<td>"+data.list[i].userEmail+"</td>";
-					str += "<td>"+data.list[i].type+"</td>";
-					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
-					str += "회원탈퇴</a></td>";
-					str += "</tr>";
-					
-				}
-				listV.append(str);
-			}
-		});
-	}else if(bool==2){
-		$.ajax({
-			type: "post",
-			url: "/userManage/userCheckList",
-			data: {type:type},
-			success: function(data){
-				$(".list_table").children().eq(2).html("");
-				var listV = $(".list_table").children().eq(2);
-				console.log(listV);
-				var str ="";
-				for(var i=0; i<data.list.length; i++){
-					str += "<tr>";
-					str += "<td>"+data.list[i].userId+"</td>";
-					str += "<td>"+data.list[i].userPw+"</td>";
-					str += "<td>"+data.list[i].userName+"</td>";
-					str += "<td>"+data.list[i].userAddr+"</td>";
-					str += "<td>"+data.list[i].userPhone+"</td>";
-					str += "<td>"+data.list[i].userEmail+"</td>";
-					str += "<td>"+data.list[i].type+"</td>";
-					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
-					str += "회원탈퇴</a></td>";
-					str += "</tr>";
-					
-				}
-				listV.append(str);
-			}
-		});
-	}else if(bool==0){ 
-		$.ajax({
-			type: "post",
-			url: "/userManage/approbate",
-			success: function(data){
-				$(".list_table").children().eq(2).html("");
-				var listV = $(".list_table").children().eq(2);
-				console.log(listV);
-				console.log(data.list);
-				var str2 = "";
-				for(var i=0; i<data.list.length; i++){
-					var type= "";
-					if(data.list[i].userType == "1"){
-						type = "운송기사";
-					}else if(data.list[i].userType == "2"){
-						type = "부동산";
-					}else if(data.list[i].userType == "3"){
-						type = "일반회원";
-					}
-					str2 += "<tr>";
-					str2 += "<td>"+data.list[i].userId+"</td>";
-					str2 += "<td>"+data.list[i].userPw+"</td>";
-					str2 += "<td>"+data.list[i].userName+"</td>";
-					str2 += "<td>"+data.list[i].userAddr+"</td>";
-					str2 += "<td>"+data.list[i].userPhone+"</td>";
-					str2 += "<td>"+data.list[i].userEmail+"</td>";
-					str2 += "<td>"+data.list[i].type+"</td>";
-					str2 += "<td>"+data.list[i].enrollDate+"</td>";
-					str2 += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
-					str2 += ">회원탈퇴</a></td>";
-					str2 += "</tr>";
-				}
-				listV.append(str2);
-			}
-		});
-	}
-	/* if(bool2){
-		$.ajax({
-			type: "post",
-			url: "/userManage/userCheckList",
-			data: {type:type},
-			success: function(data){
-				$(".list_table").children().eq(2).html("");
-				var listV = $(".list_table").children().eq(2);
-				console.log(listV);
-				for(var i=0; i<data.list.length; i++){
-					str += "<tr>";
-					str += "<td>"+data.list[i].userId+"</td>";
-					str += "<td>"+data.list[i].userPw+"</td>";
-					str += "<td>"+data.list[i].userName+"</td>";
-					str += "<td>"+data.list[i].userAddr+"</td>";
-					str += "<td>"+data.list[i].userPhone+"</td>";
-					str += "<td>"+data.list[i].userEmail+"</td>";
-					str += "<td>"+type+"</td>";
-					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
-					str += "회원탈퇴</a></td>";
-					str += "</tr>";
-					
-				}
-				listV.append(str);
-			}
-		}); 
-	}else if(bool==0){ 
-		$.ajax({
-			type: "post",
-			url: "/userManage/approbate",
-			success: function(data){
-				$(".list_table").children().eq(2).html("");
-				var listV = $(".list_table").children().eq(2);
-				console.log(listV);
-				console.log(data.list);
-				str2 = "";
-				for(var i=0; i<data.list.length; i++){
-					var type= "";
-					if(data.list[i].userType == "1"){
-						type = "운송기사";
-					}else if(data.list[i].userType == "2"){
-						type = "부동산";
-					}else if(data.list[i].userType == "3"){
-						type = "일반회원";
-					}
-					str2 += "<tr>";
-					str2 += "<td>"+data.list[i].userId+"</td>";
-					str2 += "<td>"+data.list[i].userPw+"</td>";
-					str2 += "<td>"+data.list[i].userName+"</td>";
-					str2 += "<td>"+data.list[i].userAddr+"</td>";
-					str2 += "<td>"+data.list[i].userPhone+"</td>";
-					str2 += "<td>"+data.list[i].userEmail+"</td>";
-					str2 += "<td>"+type+"</td>";
-					str2 += "<td>"+data.list[i].enrollDate+"</td>";
-					str2 += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
-					str2 += ">회원탈퇴</a></td>";
-					str2 += "</tr>";
-				}
-				listV.append(str2);
-			}
-		});
-	} *//* else{
-		$.ajax({
-			type: "post",
-			url: "/userManage/userCheckList",
-			data: {type:type},
-			success: function(data){
-				$(".list_table").children().eq(2).html("");
-				var listV = $(".list_table").children().eq(2);
-				console.log(listV);
-				console.log(data.list);
-				str = "";
-				for(var i=0; i<data.list.length; i++){
-					var type= "";
-					if(data.list[i].userType == "1"){
-						type = "운송기사";
-					}else if(data.list[i].userType == "2"){
-						type = "부동산";
-					}else if(data.list[i].userType == "3"){
-						type = "일반회원";
-					}
-					if(data.list[i].userType != "type"){
-						str += "<tr>";
-						str += "<td>"+data.list[i].userId+"</td>";
-						str += "<td>"+data.list[i].userPw+"</td>";
-						str += "<td>"+data.list[i].userName+"</td>";
-						str += "<td>"+data.list[i].userAddr+"</td>";
-						str += "<td>"+data.list[i].userPhone+"</td>";
-						str += "<td>"+data.list[i].userEmail+"</td>";
-						str += "<td>"+type+"</td>";
-						str += "<td>"+data.list[i].enrollDate+"</td>";
-						str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'";
-						str += ">회원탈퇴</a></td>";
-						str += "</tr>";
-					}
-				}
-				listV.append(str);
-			}
-		});
-	} */
-	
-	
-});
-	
-</script>

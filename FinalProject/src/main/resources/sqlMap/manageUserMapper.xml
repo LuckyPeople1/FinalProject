@@ -50,7 +50,7 @@
 			   enroll_date as enrollDate,
 			   status,
 			   out_date as outDate
-		from   user_tbl where status=2
+		from   user_tbl where (user_type=2 or user_type=1) and status=2
 	</select>
 	
 	<!-- 유저 타입별 승인 회원 조회 -->
@@ -188,29 +188,43 @@
 			   enroll_date as enrollDate,
 			   status,
 			   out_date as outDate
-		from   user_tbl where 
-			<choose>
-				<when test="searchType == 1 and userType == 3">
-					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
-				</when>
-				<when test="searchType == 2 and userType == 3">
-					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
-				</when>
-				
-				<when test="searchType == 1 and userType == 2">
-					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
-				</when>
-				<when test="searchType == 2 and userType == 2">
-					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
-				</when>
-				
-				<when test="searchType == 1 and userType == 1">
-					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
-				</when>
-				<when test="searchType == 2 and userType == 1">
-					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
-				</when>
-			</choose>
+		from   user_tbl where <choose>
+									<when test="userType != null">
+										<choose>
+											<when test="searchType == 1 and userType == 3">
+												user_id like #{searchWord} and user_Type=#{userType}
+											</when>
+											<when test="searchType == 2 and userType == 3">
+												user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
+											</when>
+											
+											<when test="searchType == 1 and userType == 2">
+												user_id like #{searchWord} and user_Type=#{userType}
+											</when>
+											<when test="searchType == 2 and userType == 2">
+												user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
+											</when>
+											
+											<when test="searchType == 1 and userType == 1">
+												user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
+											</when>
+											<when test="searchType == 2 and userType == 1">
+												user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
+											</when>
+										</choose>
+									</when>
+									<otherwise>
+										<choose>
+											<when test="searchType == 1">
+												user_id like #{searchWord} and status = 2
+											</when>
+											<when test="searchType == 2">
+												user_name like '%' || #{searchWord} || '%' and (user_type=1 or user_type=2) and status = 2
+											</when>
+										</choose>
+									</otherwise>
+							  </choose>
+			
 	</select>
 	
 	<update id="deleteUser" parameterType="userVO">

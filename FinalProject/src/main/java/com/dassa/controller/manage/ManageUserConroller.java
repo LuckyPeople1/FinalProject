@@ -28,8 +28,8 @@ public class ManageUserConroller {
 	
 	//전체 승인관리
 	@RequestMapping("/userApprobateList")
-	public String UserApprobateList(Model model, String status) throws Exception{
-		List<UserVO> list = manageUserService.getAllApprobateList(status);
+	public String UserApprobateList(Model model) throws Exception{
+		List<UserVO> list = manageUserService.getAllApprobateList();
 		model.addAttribute("list", list);
 		return "manage/user/user/allApprobate";
 	}
@@ -129,84 +129,74 @@ public class ManageUserConroller {
 	@RequestMapping("/userCheckList")
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
-		SearchUserVO searchUserVO = new SearchUserVO();
-		System.out.println("type : "+type);
+		SearchUserVO searchUserVO = null;
 		String[] uType = type.split(",");
-		String result = null;
 		String userType = null;
 		String userType1 = null;
 		String userType2 = null;
-		System.out.println("utype"+uType[0]);
-		System.out.println("uType.length: "+uType.length);
 		
 		if(uType.length == 1){
+			//type이 한개 경우
+			searchUserVO = new SearchUserVO();
 			if(type.equals("일반회원")) {
 				userType = "3";
 			}else if(type.equals("운송기사")) {
 				userType = "2";
-			}else{
+			}else if(type.equals("부동산")){
 				userType = "1";
 			}
 			userType1 = userType;
 			searchUserVO.setUserType1(userType1);
-			System.out.println(userType1);
-			System.out.println(searchUserVO.getUserType1());
-		}else if(uType.length >1) {
-			System.out.println("이거도 타니?");
-			for(int i=0; i<uType.length; i++) {
-				result = uType[i];
-				System.out.println(result); //일반회원 운송기사
-				if(result.equals("일반회원")) {
-					userType = "3";
-				}else if(result.equals("운송기사")) {
-					userType = "2";
-				}else{
-					userType = "1";
-				}
-				System.out.println(userType);
-				userType1 = userType;
-				userType2 = userType;
+			Map<String, Object> retVal = new HashMap<String, Object>();
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			retVal.put("list", list);
+			return retVal;
+		}else if(uType.length ==2) {
+			//type이 두개 경우
+			searchUserVO = new SearchUserVO();
+			userType1 = uType[0];
+			userType2 = uType[1];
+			if(userType1.equals("일반회원")) {
+				userType1 = "3";
+			}else if(userType1.equals("운송기사")) {
+				userType1 = "2";
+			}else{
+				userType1 = "1";
 			}
 			searchUserVO.setUserType1(userType1);
-			System.out.println(searchUserVO.getUserType1());
+			
+			if(userType2.equals("일반회원")) {
+				userType2 = "3";
+			}else if(userType2.equals("운송기사")) {
+				userType2 = "2";
+			}else{
+				userType2 = "1";
+			}
 			searchUserVO.setUserType2(userType2);
-			System.out.println(searchUserVO.getUserType2());
+			Map<String, Object> retVal = new HashMap<String, Object>();
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			retVal.put("list", list);
+			return retVal;
+		}else {
+			//type이 세개 경우
+			Map<String, Object> retVal = new HashMap<String, Object>();
+			List<UserVO> list = manageUserService.getAllApprobateList();
+			retVal.put("list", list);
+			return retVal;
 		}
 		
-		Map<String, Object> retVal = new HashMap<String, Object>();
-		if(userType.equals("1")) {
-			System.out.println("gd");
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
-			retVal.put("list", list);
-		}else if(userType.equals("2")) {
-			System.out.println("gd2");
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
-			retVal.put("list", list);
-		}else if(userType.equals("3")) {
-			System.out.println("gd3");
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
-			retVal.put("list", list);
-		}
-		return retVal;
+		
 	}
 	
 	//전체 승인 페이지 ajax
 	@RequestMapping("/approbate")
 	@ResponseBody
-	public Object Approbate(Map<String,Object> map, String type) throws Exception {
-		System.out.println(type);
-		String userType = null;
-		
+	public Object Approbate(Map<String,Object> map) throws Exception {	
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		List<UserVO> list = manageUserService.getAllApprobateList(userType);
+		List<UserVO> list = manageUserService.getAllApprobateList();
 		retVal.put("list", list);
 		return retVal;
 	}
-	
-	/*//체크 해제 되었을 경우
-	@RequestMapping("/unchecked"){
-		return null;
-	}*/
 	
 	//이전 페이지 url 저장
 	@RequestMapping(value="/reLoad")
@@ -236,12 +226,35 @@ public class ManageUserConroller {
 	@RequestMapping("/search")
 	@ResponseBody
 	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String userId, String userType) {
-		System.out.println("search : "+ searchType);
-		System.out.println("search : "+ userId);
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
 		searchUserVO.setSearchWord(userId);
 		searchUserVO.setUserType(userType);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		if(searchType.equals("1") && !userId.equals("")) {
+			//아이디 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else if(searchType.equals("2") && !userId.equals("")){
+			//이름 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else {
+			retVal.put("list", "");
+		}
+		return retVal;
+	}
+	
+	//검색
+	@RequestMapping("/searchApprobate")
+	@ResponseBody
+	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String userId) {
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setSearchType(searchType);
+		searchUserVO.setSearchWord(userId);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
 		if(searchType.equals("1") && !userId.equals("")) {
