@@ -18,37 +18,82 @@
 			<div class="section_title"></div>
 			<div class="set_form search">
 			<form action="/driver/auction" id="driverAuctionSearch" method="post">
-			<input type="hidden" id="page" name="page" value="${pagination.page }">
-			<input type="hidden" id="range" name="range" value="${pagination.range }">
-			<input type="hidden" id="rangeSize" name="rangeSize" value="${pagination.rangeSize }">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<tr>
-						<th>고객명</th>
-						<td colspan="4">
-							<input class="tbox w_1p" name="userName" id="userName" value="${pagination.userName }">
-						</td>
-					</tr>
-					<tr>
-						<th>작성일</th>
-						<td colspan="3">
-							<input class="tbox minDate" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
-							<span class="hyphen">~</span>
-							<input class="tbox maxDate" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
-							<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
-							<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
-							<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
-							<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
-							<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>
-							<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
-						</td>
-					</tr>
-				</table>
+				<input type="hidden" id="page" name="page" value="${pagination.page }">
+				<input type="hidden" id="range" name="range" value="${pagination.range }">
+				<input type="hidden" id="rangeSize" name="rangeSize" value="${pagination.rangeSize }">
+					<table class="table_set">
+						<colgroup>
+							<col width="180">
+							<col width="*">
+							<col width="180">
+							<col width="*">
+						</colgroup>
+						<tr>
+							<th>고객명</th>
+							<td colspan="3">
+								<input class="tbox w_1p" name="userName" id="userName" value="${pagination.userName }">
+							</td>
+						</tr>
+						<tr>
+							<th>작성일</th>
+							<td colspan="3">
+								<input class="tbox minDate" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
+								<span class="hyphen">~</span>
+								<input class="tbox maxDate" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
+								<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
+								<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
+								<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
+								<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
+								<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>
+								<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>출발지 주소지 검색</th>
+							<td>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="서울"><span>서울</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="경기"><span>경기</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="인천"><span>인천</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="대전"><span>대전</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="세종"><span>세종</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="충남"><span>충남</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="충북"><span>충북</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="광주"><span>광주</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="전남"><span>전남</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="전북"><span>전북</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="대구"><span>대구</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="경북"><span>경북</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="부산"><span>부산</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="울산"><span>울산</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="경남"><span>경남</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="강원"><span>강원</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="제주"><span>제주</span></label>
+							</td>
+							<th>도착지 주소지 검색</th>
+							<td>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="서울"><span>서울</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="경기"><span>경기</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="인천"><span>인천</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="대전"><span>대전</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="세종"><span>세종</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="충남"><span>충남</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="충북"><span>충북</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="광주"><span>광주</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="전남"><span>전남</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="전북"><span>전북</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="대구"><span>대구</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="경북"><span>경북</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="부산"><span>부산</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="울산"><span>울산</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="경남"><span>경남</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="강원"><span>강원</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="제주"><span>제주</span></label>
+							</td>
+							<%-- <td>출발지<input type="text" class="tbox w_1p" name="startAddr1" value="${list[0].startAddr1 }"></td>
+							<td>도착지<input type="text" name="endAddr1" value="${list[0].endAddr1 }"></td> --%>
+						</tr>
+					</table>
 				</form>
 				<div class="set_form_search">
 					<!-- <a href="javascript:$('#frm').submit()">전송</a> -->
@@ -117,7 +162,6 @@
 					<a class="" href="#" onclick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a>
 				</li>
 			</c:if>
-			
 			
 			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
 				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">

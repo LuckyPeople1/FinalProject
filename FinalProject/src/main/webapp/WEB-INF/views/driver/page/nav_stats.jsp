@@ -5,7 +5,7 @@
 	<div class="sub_nav">
 		<div class="nav_title">통계관리</div>
 		<div class="nav_group">
-			<a href="/driver/saleList" class="on">매출 통계</a>
+			<a href="/driver/saleList?driverIdx=${sessionScope.user.userIdx }" class="on">매출 통계</a>
 		</div>
 	</div>
 </div>

@@ -4,129 +4,216 @@
 	<!-- 전체 회원 조회 -->
 	<select id="getUserListAll" resultType="userVO">
 		select user_idx as userIdx,
-				   user_id as userId,
-				   user_pw as userPw,
-				   user_name as userName,
-				   addr as userAddr,
-				   addr_code as addrCode,
-				   user_phone as userPhone,
-				   user_email as userEmail,
-				   pro_filename as proFilename,
-				   pro_filepath as proFilepath,
-				   user_introduce as userIntroduce,
-				   registration_number as registrationNumber,
-				   business_number as businessNumber,
-				   user_car as userCar,
-				   comp_filename as compFilename,
-				   comp_filepath as compFilepath,
-				   user_type as userType,
-				   social_id as socialId,
-				   enroll_date as enrollDate,
-				   status
-			from user_tbl
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from   user_tbl
 	</select>
 	
 	<!-- 전체 승인 회원 조회 -->
 	<select id="getAllApprobateList" resultType="userVO">
 		select user_idx as userIdx,
-				   user_id as userId,
-				   user_pw as userPw,
-				   user_name as userName,
-				   addr as userAddr,
-				   addr_code as addrCode,
-				   user_phone as userPhone,
-				   user_email as userEmail,
-				   pro_filename as proFilename,
-				   pro_filepath as proFilepath,
-				   user_introduce as userIntroduce,
-				   registration_number as registrationNumber,
-				   business_number as businessNumber,
-				   user_car as userCar,
-				   comp_filename as compFilename,
-				   comp_filepath as compFilepath,
-				   user_type as userType,
-				   social_id as socialId,
-				   enroll_date as enrollDate,
-				   status
-			from del_user_tbl where status=2
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from   user_tbl where status=2
 	</select>
 	
 	<!-- 유저 타입별 승인 회원 조회 -->
 	<select id="getTypeApprobateList" resultType="userVO">
 		select user_idx as userIdx,
-				   user_id as userId,
-				   user_pw as userPw,
-				   user_name as userName,
-				   addr as userAddr,
-				   addr_code as addrCode,
-				   user_phone as userPhone,
-				   user_email as userEmail,
-				   pro_filename as proFilename,
-				   pro_filepath as proFilepath,
-				   user_introduce as userIntroduce,
-				   registration_number as registrationNumber,
-				   business_number as businessNumber,
-				   user_car as userCar,
-				   comp_filename as compFilename,
-				   comp_filepath as compFilepath,
-				   user_type as userType,
-				   social_id as socialId,
-				   enroll_date as enrollDate,
-				   status
-			from del_user_tbl where user_type=#{userType} and status=2
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from   user_tbl where user_type=#{userType} and status=2
 	</select>
+	
+	<select id="getTypeCheckApprobateList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
+		select user_idx as userIdx,
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from   user_tbl where <choose>
+								<when test="userType1 !=null and userType2 != null">
+										(user_type=#{userType1} or user_type = #{userType2})
+								</when>
+								<otherwise>
+									user_type=#{userType1}
+								</otherwise>
+							  </choose>
+							  and status=2
+	</select>
+	
 	
 	<!-- 타입에 따른 회원조회 -->
 	<select id="getUserList" resultType="userVO">
 		select user_idx as userIdx,
-				   user_id as userId,
-				   user_pw as userPw,
-				   user_name as userName,
-				   addr as userAddr,
-				   addr_code as addrCode,
-				   user_phone as userPhone,
-				   user_email as userEmail,
-				   pro_filename as proFilename,
-				   pro_filepath as proFilepath,
-				   user_introduce as userIntroduce,
-				   registration_number as registrationNumber,
-				   business_number as businessNumber,
-				   user_car as userCar,
-				   comp_filename as compFilename,
-				   comp_filepath as compFilepath,
-				   user_type as userType,
-				   social_id as socialId,
-				   enroll_date as enrollDate,
-				   status
-			from user_tbl where user_type = #{userType}
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from   user_tbl where user_type = #{userType}
 	</select>
 	
 	<!-- 탈퇴회원 조회 -->
-	<select id="getUserSecssionList" parameterType="userOutVO" resultType="userOutVO">
+	<select id="getUserSecssionList" parameterType="userVO" resultType="userVO">
 		 select user_idx as userIdx,
-				   user_id as userId,
-				   user_pw as userPw,
-				   user_name as userName,
-				   addr as userAddr,
-				   addr_code as addrCode,
-				   user_phone as userPhone,
-				   user_email as userEmail,
-				   pro_filename as proFilename,
-				   pro_filepath as proFilepath,
-				   user_introduce as userIntroduce,
-				   registration_number as registrationNumber,
-				   business_number as businessNumber,
-				   user_car as userCar,
-				   comp_filename as compFilename,
-				   comp_filepath as compFilepath,
-				   user_type as userType,
-				   social_id as socialId,
-				   enroll_date as enrollDate,
-				   status
-		  from del_user_tbl where user_type=#{userType} and status=3 order by user_idx
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		 from  user_tbl where user_type=#{userType} and status=3 order by user_idx
 	</select>
 	
-	<delete id="deleteUser" parameterType="userVO">
-		delete from user_tbl where user_idx=#{userIdx}
-	</delete>
+	<!-- 회원 리스트 검색 -->
+	<select id="getSearchList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
+		select user_idx as userIdx,
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from   user_tbl where 
+			<choose>
+				<when test="searchType == 1 and userType == 3">
+					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
+				</when>
+				<when test="searchType == 2 and userType == 3">
+					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
+				</when>
+				
+				<when test="searchType == 1 and userType == 2">
+					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
+				</when>
+				<when test="searchType == 2 and userType == 2">
+					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
+				</when>
+				
+				<when test="searchType == 1 and userType == 1">
+					user_id like '%' || #{searchWord} || '%' and user_Type=#{userType}
+				</when>
+				<when test="searchType == 2 and userType == 1">
+					user_name like '%' || #{searchWord} || '%' and user_Type=#{userType}
+				</when>
+			</choose>
+	</select>
+	
+	<update id="deleteUser" parameterType="userVO">
+		update user_tbl set status=3, out_date=sysdate where user_idx=#{userIdx}
+	</update>
 </mapper>

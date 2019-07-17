@@ -989,3 +989,7 @@ section .board_Rebtn{
 	background: #353C43;
 	color: white;	
 }
+
+#manageUserAllList #search_btn{
+	cursor:pointer;
+}
