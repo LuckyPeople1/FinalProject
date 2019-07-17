@@ -3,6 +3,10 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+ .title {font-weight:bold;display:block;}
+    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
+    
 .fxRDHg::after {
     display: block;
     content: "";
@@ -1107,113 +1111,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 										class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span></label></li>
 							</ul>
 						</div>			
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-					<span>가격대</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>
-			</div>
 			
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-					<span>관리비</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>
-	
-			</div>
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-			<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-				<span>방크기</span>
-					<svg width="11" height="7" vfiewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>
-			</div>
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-					<span>준공년차</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>						
-			</div>
-			<div class="styled__FilterBox-sc-1a98puu-2 fhfjff3"
-							style="right: 0px;">
-							<h1 class="styled__Title-sc-1a98puu-3 lmqlXb">준공년차</h1>
-							<ul class="styled__Ul-sc-19pabue-0 bZsIeN">
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value="" checked=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">전체</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">1년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">5년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">10년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">15년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">15년 이상</span></label></li>
-							</f>
-						</div>
-			<div class="styled__Wrap-jzhnoe-0 dgiYtt" tabindex="0">
-				<div class="styled__Btn-jzhnoe-1 bAZEbe">추가필터
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
-					</svg>
-				</div>
-			</div>
-		</div>
-		<div class="styled__BtnWrap-sfs8fz-2 iAUcYP">
-			<button class="styled__Btn-sc-1p3e70q-0 bRnFtN">
-				<svg width="22" height="19" viewBox="0 0 30 26">
-					<g fill="none" fill-rule="evenodd">
-						<g class="Svg__group" fill-rule="nonzero">
-							<path d="M8 13.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zm0-1.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM22 11.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zm0-1.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM15 19.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zm0-1.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z">
-							</path>
-							<path d="M8.75 8.417V4.25a.75.75 0 0 0-1.5 0v4.167a.75.75 0 0 0 1.5 0zM15.75 14.69V4.25a.75.75 0 1 0-1.5 0v10.44a.75.75 0 0 0 1.5 0zM22.75 6.5V4.25a.75.75 0 1 0-1.5 0V6.5a.75.75 0 1 0 1.5 0zM8.75 21.564V13.25a.75.75 0 0 0-1.5 0v8.314a.75.75 0 0 0 1.5 0zM22.75 21.561V11.49a.75.75 0 1 0-1.5 0v10.071a.75.75 0 1 0 1.5 0zM15.75 21.56v-1.88a.75.75 0 1 0-1.5 0v1.88a.75.75 0 1 0 1.5 0z">
-							</path>
-						</g>
-					</g>
-				</svg>전체필터
-			</button>
-			<button class="styled__Btn-sfs8fz-3 bfbsFm" style="padding-left: 36px;">
-				<svg width="22" height="22" viewBox="0 0 22 22" style="left: 14px;">
-					<path fill="#9498A0" fill-rule="evenodd" d="M15.344 10.344h-2L16 7.688l2.688 2.656h-2c0 .96-.245 1.856-.736 2.688-.47.81-1.11 1.45-1.92 1.92a5.201 5.201 0 0 1-2.688.736c-.512 0-1.01-.075-1.496-.224a5.476 5.476 0 0 1-1.352-.624l.976-.96c.565.31 1.19.464 1.872.464.725 0 1.395-.179 2.008-.536a3.972 3.972 0 0 0 1.456-1.456 3.918 3.918 0 0 0 .536-2.008zm-9.344 0c0-.96.245-1.856.736-2.688.47-.81 1.11-1.45 1.92-1.92A5.201 5.201 0 0 1 11.344 5c.512 0 1.013.072 1.504.216.49.144.939.355 1.344.632l-.976.96a3.835 3.835 0 0 0-1.872-.464c-.725 0-1.395.179-2.008.536A3.972 3.972 0 0 0 7.88 8.336a3.918 3.918 0 0 0-.536 2.008h2L6.688 13 4 10.344h2z">
-					</path>
-				</svg>초기화
-			</button>
 		</div>
 	</div>
 	<div class="styled__Wrap-zfi8ji-0 gftUiJ">
@@ -1245,8 +1143,9 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						<p>맞춤필터를 해제해보세요.</p>
 					</div>
 				</div> -->
-					<ul class="styled__Ul-ityzo6-5 fxRDHg">						
+					<ul class="styled__Ul-ityzo6-5 fxRDHg">							
 					<c:forEach items="${list }" var="v">
+						
 						 <li class="Mmhsh">
 							<div class="styled__Card-fi3k4t-0 OUJOU">
 								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">								</div>
@@ -1288,6 +1187,10 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						<img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소">
 					</span>
 				</div>
+				 <div class="hAddr">
+        <span class="title">지도중심기준 행정동 주소정보</span>
+        <span id="centerAddr"></span>
+    </div>
 		</div>
 	</div>			
 		<div id="coordXY"></div>
@@ -1430,7 +1333,6 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	});	
 	 
 	kakao.maps.event.addListener(map, 'zoom_changed', function() {		
-			
 			if (map.getLevel() >10) {
 				clusterer.clear();
 				$(".customoverlay").css("display","block");				
@@ -1446,7 +1348,8 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						var coords = new daum.maps.LatLng(result[0].y, result[0].x);
 						var marker = new kakao.maps.Marker({
 							position:coords							
-						});						
+						});
+						console.log(marker.getPosition());
 						clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
 						kakao.maps.event.addListener(marker, 'click', function() {
 							
@@ -1455,20 +1358,12 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						});
 					}
 				});
-			}			 
+			}
+			
 			}
 		});
 	 
-	kakao.maps.event.addListener(map,'mousedown',function(){
-		if (map.getLevel() >10) {
-			clusterer.clear();
-				$(".customoverlay").css("display","block");				
-			}else {				
-				$(".customoverlay").css("display","none");			
 		
-		}
-		
-	});		
 	
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 		var level = map.getLevel() - 1;
@@ -1476,6 +1371,86 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			anchor : cluster.getCenter()
 		});
 	});	
+	$(document).ready(function(){				
+		$(document).click(function(e){
+			$(".hWgOZv").eq('0').click(function(e){
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+				if($(".fhfjff").is(":visible")){
+					$(".fhfjff").css("display","none");
+				}else{
+					$(".fhfjff").css("display","block");
+				}				
+			})
+			for(var i=1;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff").css("display","none");
+				})
+			}
+			$(".hWgOZv").eq('1').click(function(e){
+				if($(".fhfjff2").is(":visible")){
+					$(".fhfjff2").css("display","none");
+				}else{
+					$(".fhfjff2").css("display","block");
+				}
+			})
+			$(".hWgOZv").eq('5').click(function(e){
+				if($(".fhfjff3").is(":visible")){
+					$(".fhfjff3").css("display","none");
+				}else{
+					$(".fhfjff3").css("display","block");
+				}				
+			})
+			$(".dgiYtt").click(function(){
+				$(".fhfjff1").css("display","none");
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+			})
+			for(var i=2;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff2").css("display","none");
+				})
+			}
+			for(var i=0;i<$('.hWgOZv').length-1;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff3").css("display","none");
+				})
+			}			
+			$(".hWgOZv").click(function(e){		
+				if($(this).children().hasClass('fJNXpX')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					
+					$(this).children().removeClass('fJNXpX');
+					$(this).children().addClass('cRtqxV'); 
+					
+				}else if($(this).children().hasClass('fUMVvC')){
+				
+				 	$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					$(this).children().removeClass('fUMVvC');
+					$(this).children().addClass('hKGAZL');
+				} 
+			})
+			$(".dgiYtt").click(function(e){
+				if($(this).children().hasClass('bAZEbe')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(this).children().removeClass('bAZEbe');
+					$(this).children().addClass('kdfXro');
+				}else{
+					$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV'); 
+				} 
+			})
+		})		
+	})	
 	
 	
 

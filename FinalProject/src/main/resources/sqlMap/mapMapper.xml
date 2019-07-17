@@ -18,7 +18,7 @@
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
-	  from shop_item_tbl where shop_item_addr1 like '%'||#{shopItemAddr1}||'%'
+	  from shop_item_tbl where shop_item_addr1 like #{shopItemAddr1}||'%'
 	</select>
 	<select id="mapSelectOne" parameterType="_int" resultType="shopItemVO">
 		select shop_item_addr1 as shopItemAddr1 from shop_item_tbl where shop_item_idx= #{shopItemIdx}

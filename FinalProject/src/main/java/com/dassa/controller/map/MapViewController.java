@@ -44,18 +44,16 @@ public class MapViewController {
 	@ResponseBody
 	@RequestMapping(value="/mapAView")
 	public Map<String, Object> MapAView(@RequestParam String shopItemAddr1) throws Exception {
-		System.out.println(shopItemAddr1);
 		ArrayList<ShopItemVO> list;		
+		System.out.println("주소 : "+shopItemAddr1);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		list = mapService.mapSelectList(shopItemAddr1);			
-		System.out.println("list : "+list);
 		retVal.put("list",list);
 		return retVal;
 	}
 	
 	@RequestMapping(value="/mapSelectOne", produces = "application/text; charset=utf8")
-	public ModelAndView mapSelectOne(@RequestParam int shopItemIdx) throws Exception {
-		System.out.println(shopItemIdx);
+	public ModelAndView mapSelectOne(@RequestParam int shopItemIdx) throws Exception {		
 		ShopItemVO item;
 		ModelAndView mav = null;
 		item = mapService.mapSelectOne(shopItemIdx);
