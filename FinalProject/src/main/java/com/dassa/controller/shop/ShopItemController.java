@@ -127,7 +127,7 @@ public class ShopItemController {
 			siiList = shopService.shopItemImgList(shopItemIdx);
 			item = shopService.shopItemInfo(shopItemIdx);
 			mav = new ModelAndView();
-			if(item.getShopItemManage().equals("있음")) {
+			if(item.getShopItemManagePriceOption()!=null) {
 				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
 				String[] simpo = new String[7]; //관리비 항목 체크
 				int i = 0;
@@ -266,6 +266,7 @@ public class ShopItemController {
 			}
 				mav.addObject("item",item); //매물 정보
 				mav.addObject("siiList",siiList); //매물 이미지
+				System.out.println("view페이지 이미지 : "+siiList);
 				mav.setViewName("shop/item/shopItemView");
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block

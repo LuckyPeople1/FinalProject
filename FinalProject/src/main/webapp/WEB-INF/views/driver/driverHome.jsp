@@ -17,10 +17,11 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
-				<form action="/driver/" id="driverMoveForm" method="post">
+				<form action="/driver/home" id="driverMoveForm" method="post">
 					<input type="hidden" id="page" name="page" value="${pagination.page }">
 					<input type="hidden" id="range" name="range" value="${pagination.range }">
 					<input type="hidden" id="rangeSize" name="rangeSize" value="${pagination.rangeSize }">
+					<input type="hidden" id="driverIdx" name="driverIdx" value="${pagination.driverIdx }">
 					<table class="table_set">
 						<colgroup>
 							<col width="180">
@@ -52,7 +53,7 @@
 				</form>
 				<div class="set_form_search">
 					<a href="javascript:$('#driverMoveForm').submit()" class="btn col_red f_w">검색</a>
-					<a href="/driver/" class="btn col_grey line ml5">전체 목록</a>
+					<a href="/driver/home?driverIdx=${pagination.driverIdx }" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>
 			<div class="list_form">
@@ -126,17 +127,17 @@
 			<ul class="page_wrap">
 				<c:if test="${pagination.prev}">
 				<li>
-					<a class="" href="#" onclick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a>
+					<a class="" href="" onclick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a>
 				</li>
 			</c:if>
 			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
 				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
-					<a class="num" href="#" onclick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a>
+					<a class="num" href="" onclick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a>
 				</li>
 			</c:forEach>
 			<c:if test="${pagination.next}">
 				<li>
-					<a href="#" onclick="fn_next('${pagination.range}','${pagination.range}', '${pagination.rangeSize}')" >Next</a>
+					<a href="" onclick="fn_next('${pagination.range}','${pagination.range}', '${pagination.rangeSize}')" >Next</a>
 				</li>
 			</c:if>
 			</ul>
@@ -149,9 +150,9 @@
 <script>
 
 	function fn_pagination(page, range, rangeSize) {
-	  
+	  	var driverIdx=$('#driverIdx').val();
 		var elem = document.getElementById('driverMoveForm');
-		elem.action = "${pageContext.request.contextPath}/driver/move";
+		elem.action = "${pageContext.request.contextPath}/driver/move?driverIdx="driverIdx;
 		elem.page.value = page;
 		elem.range.value = range;
 		elem.rangeSize.value = rangeSize;

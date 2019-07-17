@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.noticeGuestService;
+import com.dassa.vo.FaqPageData;
+import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
 @Controller
@@ -56,4 +58,29 @@ public class GuestController {
 		}
 		return ma;
 	}
+	//사용자 1:1문의하기
+	@RequestMapping("/notice/question")
+	public String question() {
+		return "guest/notice/question";
+	}
+	//사용자 faq리스트보기
+	@RequestMapping("/notice/faqList")
+	public ModelAndView faqList(@RequestParam int reqPage,HttpServletRequest request) {
+		ModelAndView ma = new ModelAndView();
+		try {
+			FaqPageData list = noticeGuestService.selectFaqList(reqPage);
+			if(!list.isEmpty()) {
+				ArrayList<FaqVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("guest/notice/faqList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
+	//사용자1:1문의하기
 }

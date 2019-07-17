@@ -262,7 +262,27 @@
 					<p>매물 번호 ${item.shopItemIdx }</p>
 				</div>
 				<div class="fQSDcO">
-					사진 우선 넘어가고
+					<div id="slider-wrap">
+						<ul id="slider">
+							<c:forEach var="itemImg" items="${siiList }" varStatus="i">
+								<li data-color="#1abc9c"><img src="${itemImg.shopImgPath }">
+								</li>
+							</c:forEach>
+						</ul>
+						<!--controls-->
+						<div class="btns" id="next">
+							<img src="/upload/shop/right_arrow.png">
+						</div>
+						<div class="btns" id="previous">
+							<img src="/upload/shop/left_arrow.png">
+						</div>
+						<div id="counter"></div>
+						<div id="pagination-wrap">
+							<ul>
+							</ul>
+						</div>
+						<!--controls-->
+					</div>
 				</div>
 			</div>
 			<%-- 매물 제목 --%>
@@ -342,7 +362,7 @@
 						</div>
 					</h1>
 					<p class="hwnvlX">${item.shopItemAddr2 }</p>
-					<div class="jdAEqt" id="nearMap" style="overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);">
+					<div class="jdAEqt" id="nearMap" style="overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);"></div>
 				</div>
 			</div>
 		</section>
@@ -350,9 +370,88 @@
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 </div>
 <script>
-	$(document).ready(function(){
-		var price = ${item.shopItemParkingPrice} + ${item.shopItemManagePrice};
-		$("#price").html(price+"만 원 + α<span>(관리비 + 주차비)</span>");
+	$(document).ready(function() {
+		var price = ${	item.shopItemParkingPrice} + ${item.shopItemManagePrice};
+		$("#price").html(price + "만 원 + α<span>(관리비 + 주차비)</span>");
+		
+		//current position
+        var pos = 0;
+        //number of slides
+        var totalSlides = $('#slider-wrap ul li').length;
+        //get the slide width
+        var sliderWidth = $('#slider-wrap').width();
+            
+            /*****************
+             BUILD THE SLIDER
+            *****************/
+            //set width to be 'x' times the number of slides
+            $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+            
+            //next slide    
+            $('#next').click(function(){
+                slideRight();
+            });
+            
+            //previous slide
+            $('#previous').click(function(){
+                slideLeft();
+            });
+            
+            
+            
+            /*************************
+             //*> OPTIONAL SETTINGS
+            ************************/
+         
+            //for each slide 
+            $.each($('#slider-wrap ul li'), function() { 
+
+               //create a pagination
+               var li = document.createElement('li');
+               $('#pagination-wrap ul').append(li);    
+            });
+            
+            //counter
+            countSlides();
+            
+            //pagination
+            pagination();
+        /***********
+         SLIDE LEFT
+        ************/
+        function slideLeft(){
+            pos--;
+            if(pos==-1){ pos = totalSlides-1; }
+            $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));    
+            
+            //*> optional
+            countSlides();
+            pagination();
+        }
+        /************
+         SLIDE RIGHT
+        *************/
+        function slideRight(){
+            pos++;
+            if(pos==totalSlides){ pos = 0; }
+            $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
+            
+            //*> optional 
+            countSlides();
+            pagination();
+        } 
+        /************************
+         //*> OPTIONAL SETTINGS
+        ************************/
+        function countSlides(){
+            $('#counter').html(pos+1 + ' / ' + totalSlides);
+        }
+
+        function pagination(){
+            $('#pagination-wrap ul li').removeClass('active');
+            $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
+        }
+
 	});
 </script>
 </body>

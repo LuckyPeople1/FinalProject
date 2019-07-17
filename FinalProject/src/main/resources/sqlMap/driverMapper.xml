@@ -60,13 +60,24 @@
 				from move_apply_tbl
 				where apply_status =0  
 				
-				<if test="userName!=''" >
+				<if test="userName!=''" >				<!--이름 검색  -->
 				and guest_name like '%'||#{userName}||'%'			
 				</if>
-				<if test="minDate!='' and maxDate!=''">
+				<if test="minDate!='' and maxDate!=''">	<!--날짜 검색  -->
 					and apply_date between to_date(replace('${minDate}','-','')||'000000', 'YYYYMMDDhh24miss') 
               		and to_date(replace('${maxDate}','-','')||'235959','YYYYMMDDhh24miss')
 				</if>
+				 <if test="startAddr1 !=null">			<!--츌발지 검색  -->
+					<foreach collection="startAddr1" item="Addr1"  separator=" ">
+						and start_addr1 like '%'||#{Addr1}||'%'
+					</foreach>
+				</if>
+				<if test="endAddr1 !=null">				<!--도착지 검색  -->
+					<foreach collection="endAddr1" item="end1"  separator=" ">
+						and end_addr1 like '%'||#{end1}||'%'
+					</foreach>
+				</if>
+				
 				) a
 			where rNUM between (${page}-1)*${listSize}+1 and ${page}*${listSize}
 	</select>
@@ -80,12 +91,25 @@
 				from move_apply_tbl
 				where apply_status =0  
 				
-				<if test="userName!=''" >
+				<if test="userName!=''" >				<!--이름검색  -->
 				and guest_name like '%'||#{userName}||'%'			
 				</if>
-				<if test="minDate!='' and maxDate!=''">
+				
+				<if test="minDate!='' and maxDate!=''">	<!--날짜 검색  -->
 					and apply_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
               		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+				</if>
+				
+				<if test="startAddr1 !=null">			<!--출발지 주소검색  -->
+					<foreach collection="startAddr1" item="Addr1" separator=" ">
+						and start_addr1 like '%'||#{Addr1}||'%'
+					</foreach>
+				</if>
+				
+				<if test="endAddr1 !=null">				<!--도착지 주소검색  -->
+					<foreach collection="endAddr1" item="end1" separator=" ">
+						and end_addr1 like '%'||#{end1}||'%'
+					</foreach>
 				</if>
 		)
 	</select>

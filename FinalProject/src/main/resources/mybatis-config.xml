@@ -16,7 +16,6 @@
 		<typeAlias type="com.dassa.vo.NoticeVO" alias="noticeVO"/>			<!-- noticeVO -->
 		<typeAlias type="com.dassa.vo.MoveApplyVO" alias="moveApplyVO"/>	 <!--이사신청 VO  -->
 		<typeAlias type="com.dassa.vo.SaleInLotsVO" alias="saleInLotsVO"/>   <!--분양   VO -->
-		<typeAlias type="com.dassa.vo.UserOutVO" alias="userOutVO"/>   <!-- 탈퇴유저 -->
 		<typeAlias type="com.dassa.vo.FaqVO" alias="faqVO"/>			<!-- faqVO -->
 		<typeAlias type="com.dassa.vo.EmployeeVO" alias="employeeVO"/> <!-- 직원VO -->
 		<typeAlias type="com.dassa.vo.QuestionVO" alias="questionVO"/> <!-- QuestionVO -->

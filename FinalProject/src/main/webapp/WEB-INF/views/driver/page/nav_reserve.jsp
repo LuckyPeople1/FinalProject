@@ -5,7 +5,7 @@
 	<div class="sub_nav">
 		<div class="nav_title">이사관리</div>
 		<div class="nav_group">
-			<a href="/driver/move" class="">전체 이사관리</a>
+			<a href="/driver/move?driverIdx=${sessionScope.user.userIdx }" class="">전체 이사관리</a>
 		</div>
 	</div>
 </div>
