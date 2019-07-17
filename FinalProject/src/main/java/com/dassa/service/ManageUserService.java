@@ -32,8 +32,8 @@ public class ManageUserService {
 		return manageUserMapper.getUserListAll();
 	}
 
-	public List<UserVO> getAllApprobateList(String status) {
-		return manageUserMapper.getAllApprobateList(status);
+	public List<UserVO> getAllApprobateList() {
+		return manageUserMapper.getAllApprobateList();
 	}
 	
 	public List<UserVO> getTypeCheckApprobateList(SearchUserVO searchUserVO){

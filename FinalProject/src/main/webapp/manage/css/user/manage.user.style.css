@@ -990,6 +990,6 @@ section .board_Rebtn{
 	color: white;	
 }
 
-#manageUserAllList #search_btn{
+#manageUserAllList .search_btn{
 	cursor:pointer;
 }
