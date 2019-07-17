@@ -147,6 +147,7 @@ $("#searchApprobateAll_btn").click(function(){
 					
 				}
 				listV.append(str);
+				$("#searchWord").val("");
 			}
 		}
 	});
