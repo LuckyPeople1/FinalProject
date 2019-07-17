@@ -28,6 +28,11 @@
 			<artifactId>iamport-rest-client-java</artifactId>
 			<version>0.2.3</version>
 		</dependency>
+		<dependency>
+  <groupId>org.codehaus.jackson</groupId>
+  <artifactId>jackson-mapper-asl</artifactId>
+  <version>1.9.13</version>
+</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

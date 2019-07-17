@@ -18,7 +18,7 @@ public interface ManageUserMapper {
 
 	public List<UserVO> getUserListAll();
 
-	public List<UserVO> getAllApprobateList(String status);
+	public List<UserVO> getAllApprobateList();
 	
 	public List<UserVO> getTypeCheckApprobateList(SearchUserVO searchUserVO);
 

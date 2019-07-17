@@ -8,9 +8,18 @@
 		<div class="commonInsert_wrapper">
 			<div class="commonInsert_contents">
 				<div class="commonInsert_field">
-					<div class="commonInsert_title">
-						일반 회원가입
-					</div>
+					<c:choose>
+						<c:when test="${not empty socialId }">
+							<div class="commonInsert_title">
+								추가 정보 입력
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="commonInsert_title">
+								일반 회원가입
+							</div>
+						</c:otherwise>
+					</c:choose>
 					<form action="/insert/commonInsert" method="post">
 						<table class="commonInsert_table">
 							<colgroup>
