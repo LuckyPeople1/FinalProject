@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.gHsEax {
+section.noticeList .gHsEax {
     line-height: 54px;
     color: rgb(34, 34, 34);
     font-size: 33px;
@@ -7,26 +7,26 @@
     font-weight: 400;
     margin: 70px auto 45px;
 }
-.hvbeFO {
+section.noticeList.hvbeFO {
     width: 100%;
     height: 57px;
     border-bottom: 1px solid rgba(232, 232, 232, 0.7);
 }
-ul, li {
+section.noticeList ul, li {
     list-style: none;
 }
-html {
+section.noticeList html {
     color: -internal-root-color;
 }
-.hvbeFO::after {
+section.noticeList .hvbeFO::after {
     display: block;
     content: "";
     clear: both;
 }
-.kxQgzk {
+section.noticeList .kxQgzk {
     width: 100%;
 }
-ul {
+section.noticeList ul {
     display: block;
     margin-block-start: 0px;
     margin-block-end: 0px;
@@ -35,13 +35,13 @@ ul {
     padding-inline-start: 0px;
     
 }
-.qUCQS {
+section.noticeList .qUCQS {
     width: 100%;
     margin: 50px auto 150px;
     border-top: 1px solid rgb(34, 34, 34);
     border-bottom: 1px solid rgb(204, 204, 204);
 }
-.bGLXyI {
+section.noticeList .bGLXyI {
     width: 100%;
     min-width: 1366px;
     height: 250px;
@@ -50,66 +50,66 @@ ul {
     z-index: 1;
 }
 
-.iAegdM {
+section.noticeList .iAegdM {
     width: 1180px;
     margin: 0px auto;
 }
-.pbYHJ {
+section.noticeList .pbYHJ {
     height: 59px;
     line-height: 58px;
     border-bottom: 1px solid rgb(204, 204, 204);
 }
-.pbYHJ > p:first-child {
+section.noticeList .pbYHJ > p:first-child {
     width: calc(100% - 135px);
 }
 
-.pbYHJ > p {
+section.noticeList .pbYHJ > p {
     float: left;
     color: rgb(34, 34, 34);
     font-size: 15px;
     font-weight: 500;
     text-align: center;
 }
-.pbYHJ > p:last-child {
+section.noticeList .pbYHJ > p:last-child {
     width: 135px;
 }
-a:-webkit-any-link {
+section.noticeList a:-webkit-any-link {
     color: -webkit-link;
     cursor: pointer;
 }
-a {
+section.noticeList a {
     text-decoration: none;
 }
-.bryRNw {
+section.noticeList .bryRNw {
     height: 59px;
     line-height: 58px;
 }
-.bryRNw + li {
+section.noticeList .bryRNw + li {
     border-top: 1px solid rgb(238, 238, 238);
 }
-.bryRNw {
+section.noticeList .bryRNw {
     height: 59px;
     line-height: 58px;
 }
-.bryRNw::after {
+section.noticeList .bryRNw::after {
     display: block;
     content: "";
     clear: both;
 }
-li {
+section.noticeList li {
     display: list-item;
     text-align: -webkit-match-parent;
 }
 
-html body #root {
+section.noticeList html body #root {
     height: 100%;
 }
-.cwWDoG {
+section.noticeList .cwWDoG {
     width: 100%;
     min-width: 1366px;
     height: 100%;
 }
-.fb_reset {
+section.noticeList .fb_reset {
     background: none;
     border: 0;
     border-spacing: 0;
@@ -135,14 +135,14 @@ html body #root {
     white-space: normal;
     word-spacing: normal;
 }
-.ekZaGw {
+section.noticeList .ekZaGw {
     width: 380px;
     position: fixed;
     z-index: 10010;
     top: 1em;
     right: 1em;
 }
-.hvbeFO > li > a {
+section.noticeList .hvbeFO > li > a {
     display: block;
     width: 100%;
     height: 57px;
@@ -152,12 +152,12 @@ html body #root {
     text-align: center;
     border-bottom: 2px solid transparent;
 }
-.hvbeFO > li {
+section.noticeList .hvbeFO > li {
     float: left;
     width: 33.3333%;
     height: 57px;
 }
-.jDHSEw {
+section.noticeList .jDHSEw {
     float: left;
     width: calc(100% - 135px);
     padding-left: 30px;
@@ -167,19 +167,19 @@ html body #root {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.dJQhTV {
+section.noticeList .dJQhTV {
     float: left;
     width: 135px;
     color: rgb(34, 34, 34);
     font-size: 15px;
     text-align: center;
 }
-.hvbeFO > li > a.active {
+section.noticeList .hvbeFO > li > a.active {
     color: rgb(34, 34, 34);
     font-weight: 500;
     border-bottom-color: rgb(72, 72, 72);
 }
-.jDHSEw {
+section.noticeList .jDHSEw {
     float: left;
     width: calc(100% - 135px);
     padding-left: 30px;
@@ -189,19 +189,19 @@ html body #root {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.eugBve {
+section.noticeList .eugBve {
     width: 850px;
     margin: 0px auto;
     padding: 50px 0px 150px;
 }
-.cYaAqA {
+section.noticeList .cYaAqA {
     color: rgb(34, 34, 34);
     font-size: 22px;
     font-weight: 300;
     line-height: 26px;
     text-align: center;
 }
-.mWqem {
+section.noticeList .mWqem {
     margin-top: 6px;
     color: rgb(21, 100, 249);
     font-size: 22px;
@@ -209,31 +209,31 @@ html body #root {
     text-align: center;
 }
 
-.csQndh {
+section.noticeList .csQndh {
     margin-bottom: 40px;
     color: rgb(102, 102, 102);
     font-size: 15px;
     line-height: 26px;
     text-align: center;
 }
-.hIJwlj {
+section.noticeList .hIJwlj {
     width: 100%;
     border-top: 1px solid rgb(204, 204, 204);
     border-bottom: 1px solid rgb(204, 204, 204);
 }
-.hIJwlj > li {
+section.noticeList .hIJwlj > li {
     display: table;
     padding: 16px 0px;
 }
-.hIJwlj > li + li {
+section.noticeList .hIJwlj > li + li {
     border-top: 1px solid rgb(238, 238, 238);
 }
-.cxBJwZ {
+section.noticeList .cxBJwZ {
     width: 100%;
     margin-top: 50px;
     text-align: center;
 }
-.hRSpXj {
+section.noticeList .hRSpXj {
     width: 218px;
     height: 50px;
     color: rgb(255, 255, 255);
@@ -244,7 +244,7 @@ html body #root {
     border-color: initial;
     border-image: initial;
 }
-.efvxco {
+section.noticeList .efvxco {
     display: table-cell;
     width: 130px;
     color: rgb(34, 34, 34);
@@ -253,16 +253,25 @@ html body #root {
     text-align: center;
     vertical-align: middle;
 }
-.ilgADB {
+section.noticeList .usertype{
+    display: table-cell;
+    width: 130px;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+}
+section.noticeList .ilgADB {
     float: left;
     width: 720px;
 }
-.bqTGEL {
+section.noticeList .bqTGEL {
     float: left;
     width: 720px;
     height: 263px;
 }
-.hunnDM {
+section.noticeList .hunnDM {
     color: rgb(68, 68, 68);
     font-size: 15px;
     background-color: rgb(255, 255, 255);
@@ -277,7 +286,7 @@ html body #root {
     border-radius: 0px;
     outline: none;
 }
-.kTQnUD {
+section.noticeList .kTQnUD {
     height: 46px;
     color: rgb(68, 68, 68);
     font-size: 15px;
@@ -292,23 +301,23 @@ html body #root {
     border-radius: 0px;
     outline: none;
 }
-.ogonX {
+section.noticeList .ogonX {
     width: 100%;
     padding: 72px 0px;
 }
-.ogonX > p {
+section.noticeList .ogonX > p {
     color: rgb(102, 102, 102);
     font-size: 22px;
     font-weight: 300;
     text-align: center;
     line-height: 33px;
 }
-.isLaHo {
+section.noticeList .isLaHo {
     width: 100%;
     margin-bottom: 150px;
     border-top: 1px solid rgb(204, 204, 204);
 }
-.bGLXyI {
+section.noticeList .bGLXyI {
     width: 100%;
     min-width: 1366px;
     height: 250px;
@@ -316,45 +325,45 @@ html body #root {
     position: relative;
     z-index: 1;
 }
-.cPXquZ {
+section.noticeList .cPXquZ {
     width: 1180px;
     height: 100%;
     margin: 0px auto;
 }
-.fqUhil {
+section.noticeList .fqUhil {
     display: table;
     width: 100%;
     height: 69px;
     border-right: 1px solid rgb(69, 69, 69);
     border-bottom: 1px solid rgb(69, 69, 69);
 }
-.hyhBst {
+section.noticeList .hyhBst {
     width: 100%;
     height: 180px;
     padding-top: 29px;
     position: relative;
 }
-.hvbeFO > li {
+section.noticeList .hvbeFO > li {
     float: left;
     width: 33.3333%;
     height: 57px;
 }
-.gvvcgC {
+section.noticeList .gvvcgC {
     width: 100%;
     border-bottom: 1px solid rgb(238, 238, 238);
 }
-.cYFCXq {
+section.noticeList .cYFCXq {
     display: table-cell;
     width: 825px;
     height: 100%;
     vertical-align: middle;
 }
-.fHTOVi {
+section.noticeList .fHTOVi {
     display: inline-block;
     color: rgb(170, 170, 170);
     font-size: 13px;
 }
-.gSggcM {
+section.noticeList .gSggcM {
     height: 70px;
     padding-left: 60px;
     color: rgb(34, 34, 34);
@@ -363,7 +372,7 @@ html body #root {
     position: relative;
     cursor: pointer;
 }
-.gSggcM::before {
+section.noticeList .gSggcM::before {
     content: "Q.";
     color: rgb(34, 34, 34);
     font-size: 24px;
@@ -373,7 +382,7 @@ html body #root {
     top: 15px;
     left: 28px;
 }
-.dHAoav {
+section.noticeList .dHAoav {
     color: rgb(102, 102, 102);
     font-size: 15px;
     line-height: 25px;
@@ -383,7 +392,7 @@ html body #root {
     padding: 30px 0px 30px 60px;
     border-top: 1px solid rgb(238, 238, 238);
 }
-.dHAoav::before {
+section.noticeList .dHAoav::before {
     content: "A.";
     color: rgb(21, 100, 249);
     font-size: 24px;

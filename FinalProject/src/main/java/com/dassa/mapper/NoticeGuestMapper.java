@@ -7,6 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticeVO;
+import com.dassa.vo.QuestionVO;
 @MapperScan("noticeGuestMapper")
 public interface NoticeGuestMapper {
 	
@@ -19,5 +20,6 @@ public interface NoticeGuestMapper {
 	//사용자 FAQ전체 리스트
 	public ArrayList<FaqVO> selectFaqList(@Param("start") int start,@Param("end") int end) throws Exception;
 	public int totalCount1() throws Exception;
+	public int questionInsert(QuestionVO q) throws Exception;
 
 }
