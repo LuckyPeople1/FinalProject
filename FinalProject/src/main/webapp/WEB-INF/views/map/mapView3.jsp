@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
@@ -1221,7 +1222,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div class="styled__ListWrap-zfi8ji-1 gkpTsu">
 			<div class="styled__Wrap-ityzo6-0 eXwtu">
 				<div class="styled__Tabs-sc-1sk8lv8-0 jLBlsX">
-					<a class="styled__Tab-sc-1sk8lv8-1 hXdylP">조건에 맞는 방 0개</a>						
+					<a class="styled__Tab-sc-1sk8lv8-1 hXdylP">조건에 맞는 방 ${fn:length(list)}개</a>						
 				</div>
 				
 				
@@ -1282,7 +1283,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">
 									<div class="styled__Like-sc-3yrk4m-1 hjVNgq"></div>
 								</div>
-								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/shop/itemView?shopItemIdx='${v.shopItemIdx }'">
+								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/shop/itemView?shopItemIdx=${v.shopItemIdx }">								
 								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG"></div>
 								<div class="styled__BadgeWrap-fi3k4t-3 gAdXIp">
 									<svg class="styled__Svg-sc-1t9oqsb-0 hhLAzQ" viewBox="0 0 46 18" fill="none">
@@ -1334,8 +1335,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		</div>
 	</section>
 </body>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services,clusterer,drawing"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services,clusterer,drawing"></script>
 <script>
 	
 	//주소 입력 후 x,y 좌표로 받는 코드
@@ -1431,31 +1431,25 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	}
 
 	];
-	var positions3 =new Array();
-	var positions2 = new Object();			
-	 var geocoder = new daum.maps.services.Geocoder();
-	 for(var i=0;i<$(".test").length;i++){
-		 geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
-			// 정상적으로 검색이 완료됐으면,
-			if (status == daum.maps.services.Status.OK) {	
-					var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-					positions2 = new Object();
-					positions2.name="name";
-					positions2.latlng=coords;
-					positions3.push(positions2);
-			}
-		});	
-	}
+	
 	$(document).ready(function(){
-		console.log(positions[0].name);		
-		 for (var i = 0; i < $(".test").length; i++){						
-			var content = '<div><span>'+positions3[i].name+'</span></div>';	
-		    var customOverlay11 = new kakao.maps.CustomOverlay({
-		        map: map,
-		        position: positions3[i].latlng,
-		        content: content	       
-		    });    
-		    	}
+		var positions3 = new Array();
+		var positions2 = new Object();			
+		 var geocoder = new daum.maps.services.Geocoder();
+		 for(var i=0;i<$(".test").length;i++){
+			 geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
+				// 정상적으로 검색이 완료됐으면,
+				if (status == daum.maps.services.Status.OK) {	
+						var coords = new daum.maps.LatLng(result[0].y, result[0].x); 
+						positions2.name="name";
+						positions2.latlng=coords;
+						positions3.push("하이");
+				}
+			});	
+		}
+		 console.log(positions3);
+		 console.log(positions)
+		
 	});
 	
 		
@@ -1554,8 +1548,6 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	
 	$("#mapSelect").click(function(){		
 		var mapName=$("#mapName").val();
-		
-		
 		var geocoder = new daum.maps.services.Geocoder();
 		geocoder.addressSearch(mapName, function(result, status) {
 			// 정상적으로 검색이 완료됐으면,
