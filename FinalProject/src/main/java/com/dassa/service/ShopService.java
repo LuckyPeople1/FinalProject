@@ -15,6 +15,7 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopReservationVO;
 
 @Service("shopService")
 public class ShopService {
@@ -134,5 +135,9 @@ public class ShopService {
 	 */
 	public int shopItemDelete(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemDelete(shopItemIdx);
+	}
+	
+	public int ShopReserveJoin(ShopReservationVO sReserVO) throws Exception{
+		return shopMapper.ShopReserveJoin(sReserVO);
 	}
 }

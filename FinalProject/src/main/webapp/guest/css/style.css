@@ -4882,4 +4882,34 @@ section.shopItemViewModal .idBxyN {
     border-image: initial;
     border-radius: 2px;
 }
-
+section.shopItemView .eTgAil {
+    width: 100%;
+    height: 36px;
+    background-color: rgb(54, 101, 206);
+}
+section.shopItemView .eTgAil::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.shopItemView .gknGpv {
+    float: left;
+    height: 36px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 36px;
+    background-color: rgb(6, 73, 192);
+    padding: 0px 20px 0px 15px;
+}
+section.shopItemView .cETKtB {
+    float: left;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-weight: 400;
+    position: relative;
+    padding: 6px 0px 8px 17px;
+}
+section.shopItemView .cETKtB > span {
+    line-height: 24px;
+}

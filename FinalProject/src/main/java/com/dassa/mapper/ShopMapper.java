@@ -13,6 +13,7 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopReservationVO;
 
 @MapperScan("shopMapper")
 public interface ShopMapper {
@@ -54,4 +55,7 @@ public interface ShopMapper {
 	
 	//매물 삭제
 	public int shopItemDelete(int shopItemIdx) throws Exception;
+	
+	//방문 예약 신청
+	public int ShopReserveJoin(ShopReservationVO sReserVO) throws Exception;
 }

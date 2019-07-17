@@ -64,11 +64,17 @@
 			<%-- 디테일 --%>
 			<div class=" kZTRnS" name="detail">
 				<div class="kBQneM">
+					<div class="eTgAil" type="confirm">
+						<p class="gknGpv" type="confirm">확인매물<span>${item.shopItemRegDate }</span></p>
+						<p class="cETKtB">
+							<span>방주인과 공인중개사가 거래정보를 확인한 매물입니다.</span>
+						</p>
+					</div>
 					<ul class="iuNQqL" id="list">
 						<li class="gWdVQs">
 							<p class="gPsGgb">해당층/건물층</p>
 							<div class="gbAeEp">
-								<c:if test="${item.shopItemType1 eq '원룸'}">${item.shopItemFloor1 }층 / ${item.shopItemFloorAll1 }층</c:if>
+									<c:if test="${item.shopItemType1 eq '원룸'}">${item.shopItemFloor1 }층 / ${item.shopItemFloorAll1 }층</c:if>
 									<c:if test="${item.shopItemType1 eq '투룸'}">${item.shopItemFloor1 }층 / ${item.shopItemFloorAll1 }층</c:if>
 									<c:if test="${item.shopItemType1 eq '쓰리룸'}">${item.shopItemFloor1 }층 / ${item.shopItemFloorAll1 }층</c:if>
 									<c:if test="${item.shopItemType1 eq '오피스텔'}">${item.shopItemFloor2 }층 / ${item.shopItemFloorAll2 }층</c:if>
@@ -550,9 +556,13 @@
 					</div>
 					<h1 class="kLiQkI">방문상담하기</h1>
 					<p class="cKVLgb">연락처를 남겨주시면, 확인 후 연락드립니다.</p>
-					<form class="dhDUnZ" action="/shop/reservation">
-						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='reservationTel'>
-						<button class="idBxyN" type="button" id="reservation">방문예약하기</button>
+					<form class="dhDUnZ" action="/shop/reserveAdd">
+						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
+						<input type="hidden" name="shopReservationName" value="">  <!-- 예약고객 -->
+						<input type="hidden" name="shopReservationManager" value="">
+						<input type="hidden" name="shopReservationState" value="예약대기">
+						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='shopReservationTel'>
+						<button class="idBxyN" type="submit" id="reservation">방문예약하기</button>
 					</form>
 				</div>
 			</div>
@@ -562,7 +572,7 @@
 </div>
 <script>
 	$(document).ready(function() {
-		var dealPrice = ${item.shopItemDealPrice};
+		var dealPrice = "${item.shopItemDealPrice}"*1;
 		if(${item.shopItemDealPrice==''}){
 			managePrice = 0;
 		}else{

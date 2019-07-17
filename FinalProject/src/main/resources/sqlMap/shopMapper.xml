@@ -244,4 +244,18 @@
 	<update id="shopItemDelete" parameterType="shopItemVO">
 		update shop_item_tbl set shop_item_sale_state='판매중단' where shop_item_idx=#{shopItemIdx}
 	</update>
+	
+	<!-- 방문 신청 -->
+	<insert id="ShopReserveJoin" parameterType="shopReservationVO">
+		insert into shop_reservation_tbl values(
+			shop_reservation_idx_seq.nextval,
+			#{shopItemIdx, jdbcType=VARCHAR},
+			#{shopReservationName, jdbcType=VARCHAR},
+			#{shopReservationTel, jdbcType=VARCHAR},
+			#{shopReservationManager, jdbcType=VARCHAR},
+			#{shopReservationState, jdbcType=VARCHAR},
+			sysdate
+		)
+	</insert>
+	
 </mapper>
