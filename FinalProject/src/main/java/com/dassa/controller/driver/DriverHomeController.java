@@ -47,6 +47,7 @@ public class DriverHomeController {
 				if(list!=null) {
 					model.addAttribute("list", list);
 					model.addAttribute("pagination", pagination);
+					model.addAttribute("subNavi", 0);
 				}
 			return "driver/driverHome";
 		}

@@ -1488,7 +1488,7 @@ section.driver.ys .section .infoBox .row .subject{
 	left:0;
 	top:50%;
 	transform: translateY(-50%);
-	font-size: 16px;
+	font-size: 12px;
 }
 
 section.driver.ys .section .infoBox .row .addr{
@@ -1526,11 +1526,11 @@ section.driver.ys .section .infoBox .hopeInfo .hopeText{
 	line-height: 28px;
 }
 section.driver.ys .section .infoBox .packageName{
-	font-size: 16px;
+	font-size: 12px;
 	margin-bottom: 7px;
 }
 section.driver.ys .section .infoBox .packageOption{
-	font-size: 14px;
+	font-size: 12px;
 	color: #666;
 }
 

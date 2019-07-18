@@ -67,6 +67,29 @@ public class ShopMemberController {
 
 
 	/**
+	 * 직원 삭제
+	 * @param shopMemberIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/memberRemoveProc")
+	@ResponseBody
+	public String memberRemoveProc(int shopMemberIdx) throws Exception {
+
+		System.out.println(shopMemberIdx + " 가져오니");
+
+		int rs	= shopMemberService.removeMember(shopMemberIdx);
+
+		if(rs > 0){
+			return "Y";
+		}else{
+			return "N";
+		}
+
+	}
+
+
+	/**
 	 * 직원등록 로직
 	 * @param shopMemberVO
 	 * @param httpServletRequest

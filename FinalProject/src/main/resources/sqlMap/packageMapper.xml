@@ -71,7 +71,7 @@
 	<select id="packageListCnt" parameterType="com.dassa.vo.PackageSearchFilterVO" resultType="int">
 		select count(*) from MOVE_PACKAGE_TBL
 		where PACKAGE_TYPE != 3
-		<if test='packageName != null or !packageName.equals("")'>
+		<if test='!packageName.equals("")'>
 			and PACKAGE_NAME LIKE '%'||#{packageName}||'%'
 		</if>
 		<if test="packageType != null">
@@ -80,10 +80,10 @@
 					#{item}
 				</foreach>
 		</if>
-		<if test="minDate != null">
+		<if test='!minDate.equals("")'>
 			and PACKAGE_REG_DATE <![CDATA[>]]> To_date(#{minDate}, 'yyyy-mm-dd')
 		</if>
-		<if test="maxDate != null">
+		<if test='!maxDate.equals("")'>
 			and PACKAGE_REG_DATE <![CDATA[<]]> To_date(#{maxDate}, 'yyyy-mm-dd')
 		</if>
 
@@ -141,6 +141,7 @@
 		where PACKAGE_STATUS = 0
 		  and PACKAGE_IDX = #{idx}
 	</select>
+
 
 
 
@@ -260,5 +261,62 @@
 		</foreach>
 		) T
 	</insert>
+
+
+
+	<!-- 관리자 패키지 리스트 불러오기 -->
+	<select id="getManagePackageList" resultMap="packageMap">
+		select t2.*
+		from (
+		    select /*+index_desc(move_package_tbl PACKAGE_IDX) */
+		           ROWNUM rnum , t1.*
+		    from MOVE_PACKAGE_TBL t1
+		    where
+				PACKAGE_idx != 0
+				<if test='!keyword.equals("")'>
+					and PACKAGE_NAME LIKE '%'||#{keyword}||'%'
+				</if>
+				<if test="type1 != null">
+					and PACKAGE_TYPE in
+					<foreach collection="type1" item="item" index="index" separator="," open="(" close=")">
+						#{item}
+					</foreach>
+				</if>
+				<if test='!minDate.equals("")'>
+					and PACKAGE_REG_DATE <![CDATA[>]]> To_date(#{minDate}, 'yyyy-mm-dd')
+				</if>
+				<if test='!maxDate.equals("")'>
+					and PACKAGE_REG_DATE <![CDATA[<]]> To_date(#{maxDate}, 'yyyy-mm-dd')
+				</if>
+			and ROWNUM <![CDATA[<=]]> #{pageNum} * #{amount}
+		    order by PACKAGE_IDX desc) t2
+		where
+		      PACKAGE_STATUS = 0
+			 and rnum > (#{pageNum} -1) * #{amount}
+
+	</select>
+
+
+	<!-- 패키지 검색 총 개수 구하기 -->
+	<select id="getTotal" resultType="int">
+		select count(*) from MOVE_PACKAGE_TBL where PACKAGE_IDX > 0
+		<if test='!keyword.equals("")'>
+			and PACKAGE_NAME LIKE '%'||#{keyword}||'%'
+		</if>
+		<if test="type1 != null">
+			and PACKAGE_TYPE in
+			<foreach collection="type1" item="item" index="index" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test='!minDate.equals("")'>
+			and PACKAGE_REG_DATE <![CDATA[>]]> To_date(#{minDate}, 'yyyy-mm-dd')
+		</if>
+		<if test='!maxDate.equals("")'>
+			and PACKAGE_REG_DATE <![CDATA[<]]> To_date(#{maxDate}, 'yyyy-mm-dd')
+		</if>
+
+	</select>
+
 
 </mapper>

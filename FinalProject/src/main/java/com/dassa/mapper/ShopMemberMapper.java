@@ -12,4 +12,6 @@ public interface ShopMemberMapper {
 	public int memberReg(ShopMemberVO shopMemberVO) throws Exception;
 
 	public List<ShopMemberVO> getMember(int userIdx) throws Exception;
+
+	public int removeMember(int shopMemberIdx) throws Exception;
 }
