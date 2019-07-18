@@ -10,8 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="/manage/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/manage/css/ui.css">
 	<link rel="stylesheet" type="text/css" href="/manage/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/manage/css/slick.min.css">
-	<link rel="stylesheet" type="text/css" href="/manage/css/slick-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="/manage/css/jquery-ui.min.css">
 	<script src="/manage/js/jquery-3.1.1.min.js"></script>
 	<script src="/manage/js/jquery-ui-1.12.1.js"></script>

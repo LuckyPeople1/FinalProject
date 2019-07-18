@@ -21,7 +21,7 @@ import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/userManage")
-public class ManageUserConroller {
+public class ManageUserController {
 	
 	@Resource
 	private ManageUserService manageUserService;
@@ -29,8 +29,10 @@ public class ManageUserConroller {
 	//전체 승인관리
 	@RequestMapping("/userApprobateList")
 	public String UserApprobateList(Model model) throws Exception{
+		
 		List<UserVO> list = manageUserService.getAllApprobateList();
 		model.addAttribute("list", list);
+		model.addAttribute("status", "2");
 		return "manage/user/user/allApprobate";
 	}
 	
@@ -123,6 +125,7 @@ public class ManageUserConroller {
 	@RequestMapping("/userCheckList")
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
+		System.out.println(type);
 		SearchUserVO searchUserVO = null;
 		String[] uType = type.split(",");
 		String userType = null;
@@ -135,9 +138,9 @@ public class ManageUserConroller {
 			if(type.equals("일반회원")) {
 				userType = "3";
 			}else if(type.equals("운송기사")) {
-				userType = "2";
-			}else if(type.equals("부동산")){
 				userType = "1";
+			}else if(type.equals("부동산")){
+				userType = "2";
 			}
 			userType1 = userType;
 			searchUserVO.setUserType1(userType1);
@@ -153,18 +156,18 @@ public class ManageUserConroller {
 			if(userType1.equals("일반회원")) {
 				userType1 = "3";
 			}else if(userType1.equals("운송기사")) {
-				userType1 = "2";
-			}else{
 				userType1 = "1";
+			}else if(userType1.equals("부동산")){
+				userType1 = "2";
 			}
 			searchUserVO.setUserType1(userType1);
 			
 			if(userType2.equals("일반회원")) {
 				userType2 = "3";
 			}else if(userType2.equals("운송기사")) {
-				userType2 = "2";
-			}else{
 				userType2 = "1";
+			}else if(userType2.equals("부동산")){
+				userType2 = "2";
 			}
 			searchUserVO.setUserType2(userType2);
 			Map<String, Object> retVal = new HashMap<String, Object>();
@@ -237,7 +240,9 @@ public class ManageUserConroller {
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
 		searchUserVO.setSearchWord(searchWord);
-		searchUserVO.setUserType(userType);
+		if(!userType.equals("") && !userType.equals("null")) {
+			searchUserVO.setUserType(userType);
+		}
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
@@ -260,10 +265,11 @@ public class ManageUserConroller {
 	//승인검색
 	@RequestMapping("/searchApprobate")
 	@ResponseBody
-	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String searchWord) {
+	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String searchWord, String status) {
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
 		searchUserVO.setSearchWord(searchWord);
+		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
 		if(searchType.equals("1") && !searchWord.equals("")) {
@@ -281,4 +287,33 @@ public class ManageUserConroller {
 		}
 		return retVal;
 	} 
+	
+	//달력으로 찾기
+	@RequestMapping("/searchDate")
+	@ResponseBody
+	public Map<String, Object> SearchDate(Model model, @RequestParam String status, String endDate, String startDate, String userType){
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setStatus(status);
+		searchUserVO.setEndDate(endDate);
+		searchUserVO.setStartDate(startDate);
+		searchUserVO.setUserType(userType);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		List<UserVO> list = manageUserService.getSearchDate(searchUserVO);
+		retVal.put("list", list);
+		return retVal;
+	}
+	
+	//달력으로 찾기
+	@RequestMapping("/searchApprobateDate")
+	@ResponseBody
+	public Map<String, Object> SearchApprobateDate(Model model, @RequestParam String status, String endDate, String startDate){
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setStatus(status);
+		searchUserVO.setEndDate(endDate);
+		searchUserVO.setStartDate(startDate);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		List<UserVO> list = manageUserService.getSearchDate(searchUserVO);
+		retVal.put("list", list);
+		return retVal;
+	}
 }

@@ -1,8 +1,5 @@
-
-
-
-$( function() {
-	$( "#dateS,#dateE").datepicker({
+$(function() {
+	$("#dateS,#dateE").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		dateFormat: 'yy-mm-dd',
@@ -18,7 +15,7 @@ $( function() {
 		maxDate:0 // 오늘 이전 날짜 선택 불가
 	});
 
-	$( "#bDateS,#bDateE").datepicker({
+	$("#bDateS,#bDateE").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		dateFormat: 'yy-mm-dd',
@@ -32,7 +29,7 @@ $( function() {
 		showMonthAfterYear: true
 		// yearSuffix: '년',
 	});
-} );
+});
 
 
 
