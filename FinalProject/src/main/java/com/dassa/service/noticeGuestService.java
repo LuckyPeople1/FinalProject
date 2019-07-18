@@ -86,7 +86,7 @@ public class NoticeGuestService {
 		// 페이지 번호
 		int pageNo = ((reqPage - 1) / pageNaviSize) * pageNaviSize + 1;
 		// 이전 버튼 생성
-		if (pageNo != 1) {
+		if (pageNo != 1) { 
 			pageNavi += "<a class='btn' href='/guest/notice/faqList?reqPage=" + (pageNo - 1) + "'>이전</a>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
