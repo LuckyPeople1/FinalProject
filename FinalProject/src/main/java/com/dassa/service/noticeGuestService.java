@@ -16,7 +16,7 @@ import com.dassa.vo.QuestionVO;
 
 public class NoticeGuestService {
 
-	@Resource(name="noticeGuestMapper")
+	@Resource(name="noticeGuestMapper") 
 	private NoticeGuestMapper noticeGuestMapper;
 	
 	public NoticePageData selectAllList(int reqPage) throws Exception{
