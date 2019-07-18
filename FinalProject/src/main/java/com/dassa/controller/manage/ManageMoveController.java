@@ -1,21 +1,21 @@
 package com.dassa.controller.manage;
 
+import com.dassa.common.Criteria;
 import com.dassa.common.FileCommon;
 import com.dassa.service.MovePackageService;
-import com.dassa.vo.PackageRegOptionVO;
-import com.dassa.vo.PackageRegVO;
-import com.dassa.vo.PackageTempVO;
+import com.dassa.vo.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import javafx.scene.control.Pagination;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.activation.CommandMap;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -31,6 +31,8 @@ public class ManageMoveController {
 
 	@Resource
 	private MovePackageService movePackageService;
+
+	private Logger logger = LoggerFactory.getLogger(ManageMoveController.class);
 
 
 	/**
@@ -57,12 +59,21 @@ public class ManageMoveController {
 	 * @return
 	 */
 	@RequestMapping("/packageList")
-	public String packageList(Model model) throws Exception {
+	public String packageList(Model model, Criteria cri) throws Exception {
 
+
+		// null값일 경우 빈값으로 만듦
+		cri.setKeyword(cri.getKeyword() == null ? "" : cri.getKeyword());
+		cri.setMinDate(cri.getMinDate() == null ? "" : cri.getMinDate());
+		cri.setMaxDate(cri.getMaxDate() == null ? "" : cri.getMaxDate());
+
+
+		int total	=	movePackageService.getTotal(cri);
+
+		model.addAttribute("packageList",movePackageService.getManagePackageList(cri));
+		model.addAttribute("pageMaker",new PagingVO(cri, total));
 		model.addAttribute("headerNum",3);
 		model.addAttribute("subNav",2);
-		List<PackageTempVO>packageList	=	movePackageService.getManagePackageList();
-		model.addAttribute("packageList",packageList);
 
 
 		return "/manage/move/packageList";
@@ -72,7 +83,6 @@ public class ManageMoveController {
 
 	/**
 	 * 짐 등록 페이지
-	 *
 	 * @param model
 	 * @return
 	 */
@@ -85,13 +95,19 @@ public class ManageMoveController {
 	}
 
 
+	/**
+	 * 짐 수정 페이지
+	 * @param model
+	 * @param packageIdx
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/packageModify")
 	public String packageModify(Model model, @RequestParam int packageIdx) throws Exception {
 
 		PackageTempVO packageTempVO	=	movePackageService.getPackageSelect(packageIdx);
 		List<PackageRegOptionVO> optionList	=	movePackageService.getPackageOptionList(packageIdx);
 
-		System.out.println(packageTempVO.getPackageName() + "이름");
 
 		model.addAttribute("item", packageTempVO);
 		model.addAttribute("optionList", optionList);
@@ -101,6 +117,45 @@ public class ManageMoveController {
 		model.addAttribute("subNav",2);
 
 		return "/manage/move/packageModify";
+	}
+
+	/**
+	 * 짐 정보 수정 로직
+	 * @param packageRegVO
+	 * @param httpServletRequest
+	 * @param fileImg
+	 * @return
+	 */
+	@RequestMapping(value = "/packageModifyProc", method = RequestMethod.POST)
+	@ResponseBody
+	public String packageModifyProc(PackageRegVO packageRegVO, HttpServletRequest httpServletRequest, MultipartFile fileImg) throws Exception {
+
+		String jsonString	=	httpServletRequest.getParameter("data");
+		Gson gson = new Gson();
+
+		packageRegVO.setPackageOptionList((List<PackageRegOptionVO>)gson.fromJson(jsonString, new TypeToken<List<PackageRegOptionVO>>(){}.getType()));
+
+
+		/**
+		 * 단일 파일업로드, fileName , request, folderName
+		 */
+
+		System.out.println(fileImg);
+		if(fileImg != null){
+
+			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest, "package");
+			packageRegVO.setPackageImgName(fileInfo[0]);
+			packageRegVO.setPackageImgPath(fileInfo[1]);
+		}
+
+		int rs	=	movePackageService.modifyPackage(packageRegVO);
+
+
+		if(rs > 0){
+			return "Y";
+		}else{
+			return "N";
+		}
 	}
 
 
@@ -121,6 +176,8 @@ public class ManageMoveController {
 		Gson gson = new Gson();
 
 		packageRegVO.setPackageOptionList((List<PackageRegOptionVO>)gson.fromJson(jsonString, new TypeToken<List<PackageRegOptionVO>>(){}.getType()));
+
+
 
 
 

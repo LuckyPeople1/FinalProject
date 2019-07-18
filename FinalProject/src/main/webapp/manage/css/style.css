@@ -200,6 +200,88 @@ header .menu_btn i.set {
     height: 40px;
 }
 
+
+header .menu_btn i.move {
+	background: url("../img/icon_nav_move_off.png") no-repeat center / 47px 40px;
+	width: 100%;
+	height: 40px;
+}
+header .menu_btn.on i.move,
+header .menu_btn:hover i.move,
+header .menu_btn:focus i.move {
+	background: url("../img/icon_nav_move_on.png") no-repeat center / 47px 40px;
+	width: 100%;
+	height: 40px;
+}
+
+
+header .menu_btn i.auth {
+	background: url("../img/icon_nav_auth_off.png") no-repeat center / 38px 40px;
+	width: 100%;
+	height: 40px;
+}
+header .menu_btn.on i.auth,
+header .menu_btn:hover i.auth,
+header .menu_btn:focus i.auth {
+	background: url("../img/icon_nav_auth_on.png") no-repeat center / 38px 40px;
+	width: 100%;
+	height: 40px;
+}
+
+
+header .menu_btn i.shop {
+	background: url("../img/icon_nav_shop_off.png") no-repeat center / 51px 40px;
+	width: 100%;
+	height: 40px;
+}
+header .menu_btn.on i.shop,
+header .menu_btn:hover i.shop,
+header .menu_btn:focus i.shop {
+	background: url("../img/icon_nav_shop_on.png") no-repeat center / 51px 40px;
+	width: 100%;
+	height: 40px;
+}
+
+header .menu_btn i.board {
+	background: url("../img/icon_nav_board_off.png") no-repeat center / 45px 40px;
+	width: 100%;
+	height: 40px;
+}
+header .menu_btn.on i.board,
+header .menu_btn:hover i.board,
+header .menu_btn:focus i.board {
+	background: url("../img/icon_nav_board_on.png") no-repeat center / 45px 40px;
+	width: 100%;
+	height: 40px;
+}
+
+header .menu_btn i.sales {
+	background: url("../img/icon_nav_sales_off.png") no-repeat center / 48px 40px;
+	width: 100%;
+	height: 40px;
+}
+header .menu_btn.on i.sales,
+header .menu_btn:hover i.sales,
+header .menu_btn:focus i.sales {
+	background: url("../img/icon_nav_sales_on.png") no-repeat center / 48px 40px;
+	width: 100%;
+	height: 40px;
+}
+
+header .menu_btn i.logout {
+	background: url("../img/icon_nav_logout_off.png") no-repeat center / 48px 40px;
+	width: 100%;
+	height: 40px;
+}
+header .menu_btn.on i.logout,
+header .menu_btn:hover i.logout,
+header .menu_btn:focus i.logout {
+	background: url("../img/icon_nav_logout_on.png") no-repeat center / 48px 40px;
+	width: 100%;
+	height: 40px;
+}
+
+
 header .menu_btn i.set:last-child {
     margin-right: 0;
 }

@@ -1,5 +1,6 @@
 package com.dassa.service;
 
+import com.dassa.common.Criteria;
 import com.dassa.mapper.MovePackageMapper;
 import com.dassa.vo.*;
 import org.springframework.stereotype.Service;
@@ -250,13 +251,28 @@ public class MovePackageService {
 
 	}
 
-	public List<PackageTempVO> getManagePackageList() throws Exception {
+	public List<PackageTempVO> getManagePackageList(Criteria cri) throws Exception {
 
-		return movePackageMapper.getPackageList();
+		return movePackageMapper.getManagePackageList(cri);
 
 	}
 
 	public PackageTempVO getPackageSelect(int idx) throws Exception {
 		return movePackageMapper.getPackage(idx);
+	}
+
+	public int modifyPackage(PackageRegVO packageRegVO) throws Exception {
+		return movePackageMapper.modifyPackage(packageRegVO);
+
+
+	}
+
+	public int packageListCnt(PackageSearchFilterVO packageSearchFilterVO) throws Exception {
+		return movePackageMapper.packageListCnt(packageSearchFilterVO);
+
+	}
+
+	public int getTotal(Criteria cri) throws Exception {
+		return movePackageMapper.getTotal(cri);
 	}
 }

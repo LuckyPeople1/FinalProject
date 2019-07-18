@@ -125,12 +125,12 @@
 				m.start_addr1 as startAddr1,
 				m.end_addr1 as endAddr1,
 				m.apply_hope as applyHope,
-				m.apply_status as applyStatus,
+				d.auction_state as auctionState,
 				ROW_NUMBER() OVER(ORDER BY m.apply_Idx DESC) rNUM,
                 d.driver_idx as driverIdx
 				from move_apply_tbl m 
                 join driver_tbl d on (m.apply_idx = d.apply_idx)
-				where (m.apply_status =1 or m.apply_status =2 or m.apply_status =3) and (d.driver_idx =#{driverIdx})
+				where (d.auction_state =1 or d.auction_state =2 or d.auction_state =3 or d.auction_state = 4) and (d.driver_idx =#{driverIdx})
 				
 				<if test="userName!=''" >
 				and m.guest_name like '%'||#{userName}||'%'			
@@ -147,9 +147,10 @@
 			select count(*) cnt from
 			(
 			select 
-				ROW_NUMBER() OVER(ORDER BY apply_Idx DESC) rNUM
-				from move_apply_tbl
-				where (apply_status =1 or apply_status = 2) 
+				ROW_NUMBER() OVER(ORDER BY m.apply_Idx DESC) rNUM
+				from move_apply_tbl m 
+                join driver_tbl d on (m.apply_idx = d.apply_idx)
+				where (d.auction_state =1 or d.auction_state =2 or d.auction_state =3 or d.auction_state = 4) and (d.driver_idx =#{driverIdx}) 
 				
 				<if test="userName!=''" >
 				and guest_name like '%'||#{userName}||'%'			

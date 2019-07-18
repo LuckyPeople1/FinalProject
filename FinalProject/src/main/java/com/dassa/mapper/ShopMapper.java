@@ -53,9 +53,36 @@ public interface ShopMapper {
 	//매물 이미지 뿌리기
 	public List<ShopItemImgVO> shopItemImgList(int shopItemIdx) throws Exception;
 	
+	//매물 중단
+	public int shopItemStop(int shopItemIdx) throws Exception;
+	
+	//매물 진행
+	public int shopItemIng(int shopItemIdx)throws Exception;
+	
 	//매물 삭제
 	public int shopItemDelete(int shopItemIdx) throws Exception;
 	
 	//방문 예약 신청
-	public int ShopReserveJoin(ShopReservationVO sReserVO) throws Exception;
+	public int shopReserveJoin(ShopReservationVO sReserVO) throws Exception;
+	
+	//방문 리스트 개수
+	public int shopReservationTotalCount() throws Exception;
+	
+	//방문 리스트 뿌리기
+	public ArrayList<ShopReservationVO> selectReservationAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	
+	//방문 진행
+	public int reservationhold(int shopReservationIdx) throws Exception;
+	
+	//방문 완료
+	public int reservationIng(int shopReservationIdx) throws Exception;
+	
+	//방문 삭제
+	public int reservationDel(int shopReservationIdx) throws Exception;
+	
+	//매물 등록 시 현재 매물개수 확인
+	public int shopCount(int userIdx) throws Exception;
+	
+	//매물 등록 개수 update
+	public int shopCountUpdate(ShopItemVO sItem) throws Exception;
 }

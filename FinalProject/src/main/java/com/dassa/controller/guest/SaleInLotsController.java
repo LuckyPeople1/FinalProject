@@ -56,7 +56,6 @@ public class SaleInLotsController {
 	 * @param saleInLotsArea 
 	 * @param saleInLotsBuildType
 	 * @param saleInLotsState
-	 * @param saleInLotssupplyType
 	 * @return
 	 * @throws Exception 
 	 */

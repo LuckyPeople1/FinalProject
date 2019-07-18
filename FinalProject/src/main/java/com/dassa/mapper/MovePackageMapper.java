@@ -1,6 +1,7 @@
 package com.dassa.mapper;
 
 
+import com.dassa.common.Criteria;
 import com.dassa.vo.*;
 import org.mybatis.spring.annotation.MapperScan;
 
@@ -22,5 +23,11 @@ public interface MovePackageMapper {
 
 	public int regApplyImg(List<MoveApplyImgVO> moveApplyImgList) throws Exception;
 
-	public PackageTempVO getPackageSelect(int idx) throws Exception;
+	public int modifyPackage(PackageRegVO packageRegVO) throws Exception;
+
+	public int packageListCnt(PackageSearchFilterVO packageSearchFilterVO) throws Exception;
+
+	public List<PackageTempVO> getManagePackageList(Criteria cri) throws Exception;
+
+	public int getTotal(Criteria cri) throws Exception;
 }
