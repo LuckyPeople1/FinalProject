@@ -4,8 +4,10 @@
 
 <div class="container">
 	<nav>
-		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
-		<%@include file="/WEB-INF/views/shop/page/nav_member.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
+		<!--맨왼쪽  네비 메뉴-->
+		<jsp:include page="/WEB-INF/views/shop/page/nav_main.jsp"/>
+		<!--맨왼쪽  서브네비 메뉴-->
+		<jsp:include page="/WEB-INF/views/shop/page/nav_member.jsp"/>
 	</nav>
 	<div class="contents">
 		<div class="page_header">
@@ -17,125 +19,45 @@
 				<table class="table_list">
 					<colgroup>
 						<col width="70">
-						<col width="70">
 						<col width="140">
-						<col width="100">
-						<col width="140">
-						<col width="100">
-						<col width="120">
 						<col width="120">
 						<col width="100">
-						<col width="100">
-						<col width="100">
-						<col width="170">
+						<col width="50">
 					</colgroup>
 					<thead>
 					<tr>
-						<th>NO</a></th>
-						<th>직급</a></th>
-						<th>이름</a></th>
-						<th>거래 완료 횟수</a></th>
+						<th>No</th>
+						<th>이름</th>
 						<th>휴대폰번호</th>
-						<th>가입일</a></th>
+						<th>가입일</th>
 						<th>관리</th>
 					</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${list}" var="v">
+					<c:if test="${memberList == null || memberList.size() == 0}">
 						<tr>
-							<td>${v.getEmployeeIdx }</td>
-							<td>${v.getEmployeeRank }</td>
-							<td>${v.getEmployeeName}</td>
-							<td>${v.getSellCount }</td>
-							<td>${v.getEmployeePhone }</td>
-							<td>${v.getEnrollDate }</td>
+							<td colspan="5" style="line-height: 50px">등록된 직원이 없습니다</td>
+						</tr>
+					</c:if>
+					<c:forEach items="${memberList}" var="item" varStatus="index" end="${memberList.size()}">
+						<tr>
+							<td>${index.end - index.index}</td>
+							<td>${item.shopMemberName}</td>
+							<td>${item.shopMemberPhone}</td>
+							<td>${item.shopMemberRegDate}</td>
 							<td>
-								<a href="/shop/memberInfo" class="btn col_navy f_w">상세보기</a>
-								<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+<%--								<a href="/shop/member/memberInfo" class="btn col_navy f_w">상세보기</a>--%>
+								<a href="javascript:member.remove(${item.shopMemberIdx})" class="btn col_darkGrey f_w line">삭제</a>
 							</td>
 						</tr>
 					</c:forEach>
-					<tr>
-						<td>1</td>
-						<td>대표중개인</td>
-						<td>최희수</td>
-						<td>12회</td>
-						<td>010-8464-9696</td>
-						<td>2019-07-02</td>
-						<td>
-							<a href="/shop/memberInfo" class="btn col_navy f_w">상세보기</a>
-							<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
-						</td>
-					</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-
 	</div>
-	<footer role="footer" data-include="footer.jsp"></footer>
-	<div class="popup memo">
-		<div class="popupCon">
-			<div class="head">
-				<span>메모</span>
-			</div>
-			<div class="body scroll">
-				<textarea class="text_editor smaller"></textarea>
-			</div>
-			<div class="footer">
-				<a href="javascript:closePop()" class="btn pop col_darkGrey f_w">닫기</a>
-				<a href="javascript:void(0)" class="btn pop col_red f_w">저장</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="popup send">
-		<div class="popupCon">
-			<div class="head">
-				<span>팝업/SMS 전송</span>
-			</div>
-			<div class="body scroll">
-				<div class="send_sel">
-					<a href="#none" class="send_type">SMS 전송</a>
-					<a href="#none" class="send_type">푸시알림 전송</a>
-				</div>
-				<textarea class="text_editor smaller"></textarea>
-			</div>
-			<div class="footer">
-				<a href="javascript:closePop()" class="btn pop col_darkGrey f_w">닫기</a>
-				<a href="javascript:void(0)" class="btn pop col_red f_w">전송</a>
-			</div>
-		</div>
-	</div>
+	<script src="<c:url value="/shop/js/member/member.js"/>"></script>
 
 </div>
-<script>
-	// 메모 팝업창
-	function memo_pop(e){
-		$('.contents').addClass('overlay');
-		$('.popup.memo').show();
-	}
-
-	// sms,푸시알림 팝업창
-	function send_pop(e){
-		$('.contents').addClass('overlay');
-		$('.popup.send').show();
-	}
-
-
-	// sms, 푸시알림 선택
-	$(document).on('click','.send_type',function () {
-
-		$('.send_type').removeClass('on')
-		$(this).addClass('on')
-
-	})
-
-
-
-
-
-
-</script>
 </body>
 </html>

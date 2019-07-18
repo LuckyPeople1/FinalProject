@@ -1,19 +1,21 @@
 package com.dassa.controller.manage;
 
+import com.dassa.common.Criteria;
 import com.dassa.common.FileCommon;
 import com.dassa.service.MovePackageService;
-import com.dassa.vo.PackageRegOptionVO;
-import com.dassa.vo.PackageRegVO;
-import com.dassa.vo.PackageSearchFilterVO;
-import com.dassa.vo.PackageTempVO;
+import com.dassa.vo.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import javafx.scene.control.Pagination;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.activation.CommandMap;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -29,6 +31,8 @@ public class ManageMoveController {
 
 	@Resource
 	private MovePackageService movePackageService;
+
+	private Logger logger = LoggerFactory.getLogger(ManageMoveController.class);
 
 
 	/**
@@ -55,29 +59,21 @@ public class ManageMoveController {
 	 * @return
 	 */
 	@RequestMapping("/packageList")
-	public String packageList(Model model,
-							  @RequestParam(required = false, defaultValue = "1") int page,
-							  @RequestParam(required = false, defaultValue = "1") int range,
-							  PackageSearchFilterVO packageSearchFilterVO
-	) throws Exception {
+	public String packageList(Model model, Criteria cri) throws Exception {
 
-		System.out.println(packageSearchFilterVO + " 패키지");
 
+		// null값일 경우 빈값으로 만듦
+		cri.setKeyword(cri.getKeyword() == null ? "" : cri.getKeyword());
+		cri.setMinDate(cri.getMinDate() == null ? "" : cri.getMinDate());
+		cri.setMaxDate(cri.getMaxDate() == null ? "" : cri.getMaxDate());
+
+
+		int total	=	movePackageService.getTotal(cri);
+
+		model.addAttribute("packageList",movePackageService.getManagePackageList(cri));
+		model.addAttribute("pageMaker",new PagingVO(cri, total));
 		model.addAttribute("headerNum",3);
 		model.addAttribute("subNav",2);
-
-		System.out.println("here");
-
-		if(packageSearchFilterVO != null){
-			int listCnt = movePackageService.packageListCnt(packageSearchFilterVO);
-			System.out.println(listCnt + "몇개");
-		}
-
-
-
-		List<PackageTempVO>packageList	=	movePackageService.getManagePackageList();
-		model.addAttribute("packageList",packageList);
-		model.addAttribute("searchFilter",packageSearchFilterVO);
 
 
 		return "/manage/move/packageList";

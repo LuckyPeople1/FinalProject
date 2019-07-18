@@ -216,14 +216,14 @@ header .menu_btn:focus i.move {
 
 
 header .menu_btn i.auth {
-	background: url("../img/icon_nav_auth_off.png") no-repeat center / 45px 40px;
+	background: url("../img/icon_nav_auth_off.png") no-repeat center / 38px 40px;
 	width: 100%;
 	height: 40px;
 }
 header .menu_btn.on i.auth,
 header .menu_btn:hover i.auth,
 header .menu_btn:focus i.auth {
-	background: url("../img/icon_nav_auth_on.png") no-repeat center / 45px 40px;
+	background: url("../img/icon_nav_auth_on.png") no-repeat center / 38px 40px;
 	width: 100%;
 	height: 40px;
 }

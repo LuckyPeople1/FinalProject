@@ -60,7 +60,7 @@
 								<label class="ml10"><input type="checkbox" name="startAddr1" value="충남"><span>충남</span></label>
 								<label class="ml10"><input type="checkbox" name="startAddr1" value="충북"><span>충북</span></label>
 								<label class="ml10"><input type="checkbox" name="startAddr1" value="광주"><span>광주</span></label>
-								<label class="ml10"><input type="checkbox" name="startAddr1" value="전남"><span>전남</span></label>
+								<label class="ml10"><input type="checkbox" name="startAddr1" value="전남"><span>전남</span></label><br>
 								<label class="ml10"><input type="checkbox" name="startAddr1" value="전북"><span>전북</span></label>
 								<label class="ml10"><input type="checkbox" name="startAddr1" value="대구"><span>대구</span></label>
 								<label class="ml10"><input type="checkbox" name="startAddr1" value="경북"><span>경북</span></label>
@@ -80,7 +80,7 @@
 								<label class="ml10"><input type="checkbox" name="endAddr1" value="충남"><span>충남</span></label>
 								<label class="ml10"><input type="checkbox" name="endAddr1" value="충북"><span>충북</span></label>
 								<label class="ml10"><input type="checkbox" name="endAddr1" value="광주"><span>광주</span></label>
-								<label class="ml10"><input type="checkbox" name="endAddr1" value="전남"><span>전남</span></label>
+								<label class="ml10"><input type="checkbox" name="endAddr1" value="전남"><span>전남</span></label><br>
 								<label class="ml10"><input type="checkbox" name="endAddr1" value="전북"><span>전북</span></label>
 								<label class="ml10"><input type="checkbox" name="endAddr1" value="대구"><span>대구</span></label>
 								<label class="ml10"><input type="checkbox" name="endAddr1" value="경북"><span>경북</span></label>
@@ -144,7 +144,7 @@
 						<td><span class="tag col_blue f_w">견적대기</span></td>
 						<td>
 							<a href="/driver/auctionDetail?applyIdx=${moveApply.applyIdx }" class="btn col_navy f_w">상세보기</a>
-							<a href="javascript:void(0)" class="btn col_red f_w">삭제</a>
+<!-- 						<a href="javascript:void(0)" class="btn col_red f_w">삭제</a> -->
 						</td>
 <!-- 						<td>
 							<a href="shop_info_set.html" class="tag col_blue f_w">최종결정</a>

@@ -1,84 +1,125 @@
 package com.dassa.controller.shop;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.dassa.common.FileCommon;
+import com.dassa.vo.ShopMemberVO;
+import com.dassa.vo.UserVO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.dassa.service.ShopMemberService;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.dassa.common.FileCommon;
-import com.dassa.service.ShopMemberService;
-import com.dassa.vo.EmployeePageDate;
-import com.dassa.vo.EmployeeVO;
-import com.dassa.vo.NoticeVO;
-
 
 @Controller
-@RequestMapping("/shop")
+@RequestMapping("/shop/member")
 public class ShopMemberController {
 	
 	@Resource
-	private  ShopMemberService shopMemberService;
-	
-	@Autowired
-	@Qualifier(value="shopService")
-	//부동산 직원관리 페이지(member)
-	
-	/*@RequestMapping("/member")
-	public String ShopMember() throws Exception {
-		EmployeePageDate list = shopMemberService.selectAll(1);
-		if(!list.isEmpty()) {
-			ArrayList<NoticeVO> arrlist = list.getList();
-			String pageNavi = list.getPageNavi();
-			ma.addObject("list", arrlist);
-			ma.addObject("pageNavi", pageNavi);
-			if(code==1) {
-				ma.setViewName("manage/board/notice/noticeManageList");
-			}else if(code==2) {
-				ma.setViewName("manage/board/notice/noticeManageList");
-			}else {
-				ma.setViewName("manage/board/notice/noticeManageList");
-			}
+	private ShopMemberService shopMemberService;
+
+	@Resource
+	private FileCommon fileCommon;
+
+	// 직원 목록
+	@RequestMapping("/")
+	public String memberList(Model model, HttpSession httpSession) throws Exception {
+
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+
+		if(userVO != null){
+			List<ShopMemberVO>memberList	=	shopMemberService.getMember(userVO.getUserIdx());
+			model.addAttribute("memberList",memberList);
 		}
+
+		model.addAttribute("headerNav",3);
+		model.addAttribute("subNav",1);
+
 		return "shop/member/shopMemberList";
-	}*/
-	//부동산 직원등록 페이지(memberAdd)
-	@RequestMapping("/memberAdd")
-	public String ShopMemberAdd() {
-		return "shop/member/shopMemberAdd";
 	}
-	//부동산 직원 상세페이지(memberInfo)
+
+	// 직원 상세정보
 	@RequestMapping("/memberInfo")
-	public String ShopMemberInfo() {
+	public String memberInfo(Model model){
 		return "shop/member/shopMemberInfo";
 	}
-	
-	
-	@RequestMapping("/shopMemberAdd")
+
+
+
+	/**
+	 * 직원등록 페이지
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/memberReg")
+	public String memberReg(Model model){
+		model.addAttribute("headerNav",3);
+		model.addAttribute("subNav",2);
+		return "shop/member/shopMemberReg";
+	}
+
+
+	/**
+	 * 직원 삭제
+	 * @param shopMemberIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/memberRemoveProc")
 	@ResponseBody
-	public String DriverMypageUpdate(EmployeeVO emp,HttpServletRequest request,MultipartFile fileImg) throws Exception {
-		System.out.println(fileImg);
-		System.out.println(emp.getEmployeeName());		
-		String[] fileInfo = FileCommon.fileUp(fileImg, request, "driver");
-		emp.setImageName(fileInfo[0]);
-		emp.setImagePath(fileInfo[1]);
-		System.out.println("controller/driverInsert: "+emp.getImageName());
-		System.out.println("controller/driverInsert: "+emp.getImagePath());
-		int result= shopMemberService.memberInsert(emp);
-		if(result > 0) {
-			request.setAttribute("msg", "회원가입이 완료 되었습니다.");
-			request.setAttribute("loc", "/login/");
-			return "/";
-		}else {
-			request.setAttribute("msg", "회원가입이 실패 하였습니다.");
-			request.setAttribute("loc", "redirect:/insert");
-			return "/";
-		}		
+	public String memberRemoveProc(int shopMemberIdx) throws Exception {
+
+		System.out.println(shopMemberIdx + " 가져오니");
+
+		int rs	= shopMemberService.removeMember(shopMemberIdx);
+
+		if(rs > 0){
+			return "Y";
+		}else{
+			return "N";
+		}
+
+	}
+
+
+	/**
+	 * 직원등록 로직
+	 * @param shopMemberVO
+	 * @param httpServletRequest
+	 * @param fileImg
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/memberRegProc")
+	@ResponseBody
+	public String memberRegProc(ShopMemberVO shopMemberVO,
+								HttpServletRequest httpServletRequest,
+								MultipartFile fileImg) throws Exception {
+
+		System.out.println(fileImg + "파일이미지");
+
+		if(!fileImg.getOriginalFilename().equals("")){
+
+			String[] fileInfo	=	fileCommon.fileUp(fileImg,httpServletRequest, "package");
+			shopMemberVO.setShopMemberImgName(fileInfo[0]);
+			shopMemberVO.setShopMemberImgPath(fileInfo[1]);
+		}
+
+		int rs	=	shopMemberService.memberReg(shopMemberVO);
+
+		if(rs > 0){
+			return "Y";
+		}else{
+			return "N";
+		}
+
+
 	}
 }
