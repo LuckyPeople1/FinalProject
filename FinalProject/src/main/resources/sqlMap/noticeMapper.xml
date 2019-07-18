@@ -61,7 +61,7 @@
   			#{noticeWriter},
   			null,
   			null,
-  			default, sysdate,
+  			sysdate,
   			#{noticeState})
   	</if>
 	<if test="noticeFilename !=null">
@@ -73,7 +73,7 @@
   			#{noticeWriter},
   			#{noticeFilename},
   			null,
-  			default, sysdate,
+  			sysdate,
   			#{noticeState})
 	</if>
   </insert>
