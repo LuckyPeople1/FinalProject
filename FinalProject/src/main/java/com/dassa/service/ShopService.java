@@ -2,6 +2,7 @@ package com.dassa.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -14,6 +15,7 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopReservationVO;
 
 @Service("shopService")
 public class ShopService {
@@ -29,7 +31,6 @@ public class ShopService {
 	public List<JusoGuVO> getJusoGuList(String jusoCityCode) throws Exception{
 		return shopMapper.getJusoGuList(jusoCityCode);
 	}
-	
 	/**
 	 * 중개사페이지 - 구 선택 시 해당 동 가져오기
 	 * @param jusoGuCode
@@ -50,12 +51,23 @@ public class ShopService {
 		return shopMapper.shopItemImgAdd(sItemImgList);
 	}
 	/**
+	 * 중개사 페이지 - 매물수정, 이미지 같이 수정
+	 * @param sItem
+	 * @param sItemImgList
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopItemModify(ShopItemVO sItem, List<ShopItemImgVO> sItemImgList) throws Exception {
+		//shopMapper.shopItemImgModify(sItemImgList);
+		return shopMapper.shopItemModify(sItem);  
+	}
+	/**
 	 * 중개사 페이지 - 매물리스트
 	 * @param reqPage
 	 * @return
 	 * @throws Exception
 	 */
-	public ShopItemPageDataVO selectAllList(int reqPage,ShopItemSearchVO itemSearch) throws Exception{
+	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
 		System.out.println("요청페이지"+reqPage);
 		//페이지 당 게시물 수
 		int numPerPage = 5;
@@ -69,7 +81,7 @@ public class ShopService {
 		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
 		System.out.println(start+"/"+end);
-		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end,itemSearch);
+		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end);
 		//페이지 네비 작성
 		String pageNavi = "";
 		//페이지 네비의 수
@@ -123,5 +135,9 @@ public class ShopService {
 	 */
 	public int shopItemDelete(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemDelete(shopItemIdx);
+	}
+	
+	public int ShopReserveJoin(ShopReservationVO sReserVO) throws Exception{
+		return shopMapper.ShopReserveJoin(sReserVO);
 	}
 }

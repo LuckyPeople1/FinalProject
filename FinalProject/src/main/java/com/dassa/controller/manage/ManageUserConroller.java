@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.ManageUserService;
-import com.dassa.vo.UserOutVO;
+import com.dassa.vo.SearchUserVO;
 import com.dassa.vo.UserVO;
 
 @Controller
@@ -25,9 +26,10 @@ public class ManageUserConroller {
 	@Resource
 	private ManageUserService manageUserService;
 	
+	//전체 승인관리
 	@RequestMapping("/userApprobateList")
-	public String UserApprobateList(Model model, String status) throws Exception{
-		List<UserVO> list = manageUserService.getAllApprobateList(status);
+	public String UserApprobateList(Model model) throws Exception{
+		List<UserVO> list = manageUserService.getAllApprobateList();
 		model.addAttribute("list", list);
 		return "manage/user/user/allApprobate";
 	}
@@ -74,16 +76,16 @@ public class ManageUserConroller {
 		String view = null;
 		if(userType.equals("1")) {
 			//기사 탈퇴
-			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			List<UserVO> list = manageUserService.getUserSecssionList(userType);
 			model.addAttribute("list", list);
 			view = "manage/user/driver/driverSecssionList";
 		}else if(userType.equals("2")) {
 			//부동산 탈퇴
-			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			List<UserVO> list = manageUserService.getUserSecssionList(userType);
 			model.addAttribute("list", list);
 			view = "manage/user/shop/shopSecssionList";
 		}else {
-			List<UserOutVO> list = manageUserService.getUserSecssionList(userType);
+			List<UserVO> list = manageUserService.getUserSecssionList(userType);
 			model.addAttribute("list", list);
 			view = "manage/user/user/userSecssionList";
 		}
@@ -127,29 +129,72 @@ public class ManageUserConroller {
 	@RequestMapping("/userCheckList")
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
-		System.out.println(type);
+		SearchUserVO searchUserVO = null;
+		String[] uType = type.split(",");
 		String userType = null;
+		String userType1 = null;
+		String userType2 = null;
 		
-		if(type.equals("운송기사")) {
-			userType = "1";
-		}else if(type.equals("부동산")) {
-			userType = "2";
-		}else if(type.equals("일반회원")) {
-			userType = "3";
+		if(uType.length == 1){
+			//type이 한개 경우
+			searchUserVO = new SearchUserVO();
+			if(type.equals("일반회원")) {
+				userType = "3";
+			}else if(type.equals("운송기사")) {
+				userType = "2";
+			}else if(type.equals("부동산")){
+				userType = "1";
+			}
+			userType1 = userType;
+			searchUserVO.setUserType1(userType1);
+			Map<String, Object> retVal = new HashMap<String, Object>();
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			retVal.put("list", list);
+			return retVal;
+		}else if(uType.length ==2) {
+			//type이 두개 경우
+			searchUserVO = new SearchUserVO();
+			userType1 = uType[0];
+			userType2 = uType[1];
+			if(userType1.equals("일반회원")) {
+				userType1 = "3";
+			}else if(userType1.equals("운송기사")) {
+				userType1 = "2";
+			}else{
+				userType1 = "1";
+			}
+			searchUserVO.setUserType1(userType1);
+			
+			if(userType2.equals("일반회원")) {
+				userType2 = "3";
+			}else if(userType2.equals("운송기사")) {
+				userType2 = "2";
+			}else{
+				userType2 = "1";
+			}
+			searchUserVO.setUserType2(userType2);
+			Map<String, Object> retVal = new HashMap<String, Object>();
+			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			retVal.put("list", list);
+			return retVal;
+		}else {
+			//type이 세개 경우
+			Map<String, Object> retVal = new HashMap<String, Object>();
+			List<UserVO> list = manageUserService.getAllApprobateList();
+			retVal.put("list", list);
+			return retVal;
 		}
 		
-		System.out.println(userType);
+		
+	}
+	
+	//전체 승인 페이지 ajax
+	@RequestMapping("/approbate")
+	@ResponseBody
+	public Object Approbate(Map<String,Object> map) throws Exception {	
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		if(userType.equals("1")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
-			retVal.put("list", list);
-		}else if(userType.equals("2")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
-			retVal.put("list", list);
-		}else if(userType.equals("3")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
-			retVal.put("list", list);
-		}
+		List<UserVO> list = manageUserService.getAllApprobateList();
+		retVal.put("list", list);
 		return retVal;
 	}
 	
@@ -165,8 +210,6 @@ public class ManageUserConroller {
 	//회원 탈퇴
 	@RequestMapping("/deleteUser")
 	public String CommonDeleteUser(Model model, String referer , int userIdx) throws Exception {
-		System.out.println(referer);
-		System.out.println(userIdx);
 		int result = manageUserService.deleteUser(userIdx);
 		if(result > 0) {
 			model.addAttribute("msg", "회원 탈퇴가 되었습니다.");
@@ -177,5 +220,56 @@ public class ManageUserConroller {
 			model.addAttribute("loc", referer);
 			return "guest/common/msg";
 		}
+	}
+	
+	//검색
+	@RequestMapping("/search")
+	@ResponseBody
+	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String userId, String userType) {
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setSearchType(searchType);
+		searchUserVO.setSearchWord(userId);
+		searchUserVO.setUserType(userType);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		if(searchType.equals("1") && !userId.equals("")) {
+			//아이디 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else if(searchType.equals("2") && !userId.equals("")){
+			//이름 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else {
+			retVal.put("list", "");
+		}
+		return retVal;
+	}
+	
+	//검색
+	@RequestMapping("/searchApprobate")
+	@ResponseBody
+	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String userId) {
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setSearchType(searchType);
+		searchUserVO.setSearchWord(userId);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		
+		if(searchType.equals("1") && !userId.equals("")) {
+			//아이디 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else if(searchType.equals("2") && !userId.equals("")){
+			//이름 일때
+			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
+			retVal.put("list", list);
+			
+		}else {
+			retVal.put("list", "");
+		}
+		return retVal;
 	}
 }

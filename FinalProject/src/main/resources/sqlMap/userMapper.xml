@@ -26,8 +26,9 @@
 				user_type as userType,
 				social_id as socialId,
 				enroll_date as enrollDate,
-				status
-		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
+				status,
+				out_date as outDate
+		  from user_tbl where user_id=#{userId} and user_pw=#{userPw} and status = 1
 		</select>
 	
 		<select id="socialLogin" parameterType="userVO" resultType="userVO">
@@ -40,11 +41,17 @@
 					user_email as userEmail,
 					pro_filename as proFilename,
 					pro_filepath as proFilepath,
+					user_introduce as userIntroduce,
+					registration_number as registrationNumber,
+					user_car as userCar,
+					comp_filename as compFilename,
+					comp_filepath as compFilepath,
 					user_type as userType,
 					social_id as socialId,
 					enroll_date as enrollDate,
-					status
-			from user_tbl where social_id=#{socialId}
+					status,
+					out_date as outDate
+			from    user_tbl where social_id=#{socialId} and status = 1
 		</select>
 		
 		<insert id="commonInsert" parameterType="userVO">
@@ -82,8 +89,9 @@
 								   null,
 							   </otherwise>
 						    </choose>
-			                  default),
-			                   null
+			                  default,
+			                   1,
+			                    null)
 		</insert>
 		
 		<insert id="driverInsert" parameterType="userVO">
@@ -106,8 +114,9 @@
 			               #{compFilepath},
 			                #{userType},
 			                 null,
-			                  default),
-			                   null
+			                  default,
+			                   null,
+			                    null)
 		</insert>
 		
 		<insert id="shopInsert" parameterType="userVO">
@@ -130,8 +139,9 @@
 			               #{compFilepath},
 			                #{userType},
 			                 null,
-			                  default),
-			       			   null
+			                  default,
+			       			   null,
+			       			    null)
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">

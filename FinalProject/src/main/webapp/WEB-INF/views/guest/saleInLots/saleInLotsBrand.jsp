@@ -7,7 +7,7 @@
 	<div class="contents">
 		<section class="saleInLots">
 			<article class="saleInLotsHeader">
-				<a href="/saleInLots/saleInLotsInformation">분양정보</a>
+				<a href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보</a>
 				<div class="header"></div>
 				<a href="/saleInLots/saleInLotsProcess">분양가이드</a>
 				<div class="header"></div>

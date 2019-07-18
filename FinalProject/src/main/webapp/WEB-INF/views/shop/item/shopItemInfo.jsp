@@ -11,6 +11,7 @@
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<form action="/shop/shopItemModify" method="post" enctype="multipart/form-data" onsubmit="shopItemModify()">
+		<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
@@ -408,21 +409,21 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<input type="text" value="${item.shopItemHeating2 }" readonly="readonly" name="shopItemHeating2" style="border: none;">
+									<input type="text" value='<c:if test="${item.shopItemHeating2 != null}">${item.shopItemHeating2}</c:if><c:if test="${item.shopItemHeating2 == null}">정보없음</c:if>' readonly="readonly" name="shopItemHeating2" style="border: none;">
 								</td>
 								<th>시공사</th>
 								<td class="ggZjqG">
-									<input type="text" value="${item.shopItemBulidCompany }" readonly="readonly" name="shopItemBulidCompany" style="border: none;">
+									<input type="text" value='<c:if test="${item.shopItemBulidCompany != null}">${item.shopItemBulidCompany}</c:if><c:if test="${item.shopItemBulidCompany == null}">정보없음</c:if>' readonly="readonly" name="shopItemBulidCompany" style="border: none;">
 								</td>
 							</tr>
 							<tr>
 								<th>복도유형</th>
 								<td class="ggZjqG">
-									<input type="text" value="${item.shopItemBulidHallway}" readonly="readonly" name="shopItemBulidHallway" style="border: none;">
+									<input type="text" value='<c:if test="${item.shopItemBulidHallway != null}">${item.shopItemBulidHallway}</c:if><c:if test="${item.shopItemBulidHallway == null}">정보없음</c:if>' readonly="readonly" name="shopItemBulidHallway" style="border: none;">
 								</td>
 								<th>준공년도</th>
 								<td class="ggZjqG">
-									<input type="text" value="${item.shopItemBulidDate }" readonly="readonly" name="shopItemBulidDate" style="border: none;">
+									<input type="text" value='<c:if test="${item.shopItemBulidDate != null}">${item.shopItemBulidDate}</c:if><c:if test="${item.shopItemBulidDate == null}">정보없음</c:if>' readonly="readonly" name="shopItemBulidDate" style="border: none;">
 								</td>
 							</tr>
 							<tr>
@@ -438,6 +439,10 @@
 											<p>날짜 협의</p>
 										</label>
 									</div>
+								</td>
+								<th>총 세대수</th>
+								<td class="ggZjqG">
+									<input type="text" readonly="readonly" name="shopItemHouseNumber" style="border: none;" value='<c:if test="${item.shopItemHouseNumber != null}">${item.shopItemHouseNumber} 세대</c:if><c:if test="${item.shopItemHouseNumber == null}">정보없음</c:if>'>
 								</td>
 							</tr>
 						</tbody>
@@ -785,14 +790,14 @@
 					<div class="imgList">
 						<c:forEach var="itemImg" items="${siiList}" begin="0" step="1" varStatus="i">
 							<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)" value="${itemImg.shopImgName }">
 								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"><img src="${itemImg.shopImgPath }"></a>
 							</div>
 						</c:forEach>
 						<div class="imgBox">
-								<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
-								<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
-							</div>
+							<input type="file" class="hide" accept="image/*" name="fileImg" id="fileImg" onchange="item.imgSel(this, event)">
+							<a href="#none" class="upload_btn" onclick="item.imgUpload(this)"></a>
+						</div>
 					</div>
 					</div>
 					<p class="bhZAGT">
@@ -1101,6 +1106,7 @@
             $("input[name='shopItemBulidCompany']").val(newarr1[8]);
             $("input[name='shopItemHeating2']").val(newarr1[9]);
             $("input[name='shopItemBulidHallwayType']").val(newarr1[10]);
+            $("input[name='shopItemHouseNumber']").val(newarr1[11]);
 		});
 		//주소 팝업 창 열기
 		$('#jusoBtn').click(function() {
@@ -1320,7 +1326,7 @@
 			}
 		});
 		//매물 등록 버튼 클릭 시	
-		$("#shopItemAdd").click(function(){
+		$("#shopItemModify").click(function(){
 			if($("input[name=shopItemType2]").is(":checked")==false && $("input[name=shopItemType2]").is(':visible') ){
 				 alert("건물 유형을 선택해주세요");
 				 $("input[name=shopItemType2]").focus();
@@ -1340,13 +1346,6 @@
 				if($("input[name=shopItemManagePrice").val()==""){
 					alert("관리비를 입력해주세요");
 					$("input[name=shopItemManagePrice").focus();
-					return false;
-				}
-			}
-			if($("input[name=shopItemParking]:checked").val()=="가능"){
-				if($("input[name=shopItemParkingPrice").val()==""){
-					alert("주차비를 입력해주세요");
-					$("input[name=shopItemParkingPrice").focus();
 					return false;
 				}
 			}

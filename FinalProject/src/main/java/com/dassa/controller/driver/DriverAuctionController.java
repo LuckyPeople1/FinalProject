@@ -1,5 +1,6 @@
 package com.dassa.controller.driver;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -35,7 +36,14 @@ public class DriverAuctionController {
 				,@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
 			
 			
+			String startAddr1 []=request.getParameterValues("startAddr1");
+			String endAddr1 []=request.getParameterValues("endAddr1");
 			
+			pagination.setStartAddr1(startAddr1);			//출발지 주소 저장
+			pagination.setEndAddr1(endAddr1);				//도착지 주소 저장
+			
+			System.out.println("출발지체크박스111"+Arrays.toString(pagination.getStartAddr1()));
+			System.out.println("도착지체크박스111"+Arrays.toString(pagination.getEndAddr1()));
 			if(pagination.getUserName()==null) {
 				pagination.setUserName("");
 			}
@@ -44,10 +52,22 @@ public class DriverAuctionController {
 				pagination.setMinDate("");
 				pagination.setMaxDate("");
 			}
+			/*String test [] = new String[17];
+			if(pagination.getStartAddr1()==null) {
+				pagination.setStartAddr1(test);
+			}*/
+			/*if(pagination.getEndAddr1()==null) {
+				pagination.setUserName("");
+			}*/
+			
 			
 			int listCnt=driverService.driverTotalCount(pagination);
+			System.out.println("출발지체크박스222"+Arrays.toString(pagination.getStartAddr1()));
+			System.out.println("도착지체크박스222"+Arrays.toString(pagination.getEndAddr1()));
 			pagination.pageInfo(page, range, listCnt);
+			
 			List<MoveApplyVO> list =driverService.drvierAuctionList(pagination);
+			
 			if(list!=null) {
 				model.addAttribute("list", list);
 				model.addAttribute("pagination", pagination);

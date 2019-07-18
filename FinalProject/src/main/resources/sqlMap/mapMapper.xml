@@ -2,8 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.MapMapper">
 	<!-- 매물 상세보기 -->
-	<select id="mapSelectList" parameterType="String" resultType="shopItemVO">
-		select	shop_item_addr1 as shopItemAddr1 from shop_item_tbl where shop_item_addr1 like '%'||#{shopItemAddr1}||'%'
+	<select id="mapSelectList" resultType="shopItemVO">
+		select shop_item_idx as shopItemIdx,
+				shop_item_addr1 as shopItemAddr1,
+				shop_item_manager as shopItemManager,
+				shop_item_type1 as shopItemType1,
+				shop_item_deal_type as shopItemDealType, <!-- 매물종류 -->
+				shop_item_manage_price as shopItemManagePrice, <!-- 관리비 -->
+				shop_item_title as shopItemTitle,
+				shop_item_content as shopItemContent,
+				shop_item_sale_state as shopItemSaleState,
+				shop_item_premium_state as shopItemPremiumState,
+				shop_item_reg_date as shopItemRegDate,
+				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
+				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
+	  from shop_item_tbl where shop_item_addr1 like #{shopItemAddr1}||'%'
 	</select>
 	<select id="mapSelectOne" parameterType="_int" resultType="shopItemVO">
 		select shop_item_addr1 as shopItemAddr1 from shop_item_tbl where shop_item_idx= #{shopItemIdx}
@@ -14,11 +29,17 @@
 				shop_item_addr1 as shopItemAddr1,
 				shop_item_manager as shopItemManager,
 				shop_item_type1 as shopItemType1,
-				shop_item_deal_type as shopItemDealType,
+				shop_item_deal_type as shopItemDealType, <!-- 매물종류 -->
+				shop_item_manage_price as shopItemManagePrice, <!-- 관리비 -->
 				shop_item_title as shopItemTitle,
+				shop_item_content as shopItemContent,
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
-				shop_item_reg_date as shopItemRegDate
+				shop_item_reg_date as shopItemRegDate,
+				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
+				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
 			from shop_item_tbl 
 	</select>
 </mapper>

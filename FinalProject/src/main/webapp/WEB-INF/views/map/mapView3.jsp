@@ -1,8 +1,188 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
-.gftUiJ {
+ .title {font-weight:bold;display:block;}
+    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
+    
+.fxRDHg::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.fxRDHg {
+	height: 663px;
+    width: 100%;
+    padding-top: 20px;
+    overflow: scroll;
+}
+.Mmhsh {
+    float: left;
+    width: 50%;
+    padding-left: 15px;
+    margin-bottom: 50px;
+}
+@media only screen and (min-width: 1700px)
+<style>
+.OUJOU {
+    height: 325px;
+}
+.gYMri {
+    width: 36px;
+    position: relative;
+    top: 3px;
+    right: 7px;
+    z-index: 1;
+    cursor: pointer;
+}
+.hjVNgq {
+    width: 32px;
+    height: 30px;
+    margin: 0px auto;
+    background: url(/static/media/like.6879d861.svg) center center / cover;
+}
+
+@media only screen and (min-width: 1700px)
+<style>
+.bnManG {
+    height: 186px;
+}
+.bnManG {
+    width: 100%;
+    height: 145px;
+    margin-bottom: 12px;
+    background-color: rgb(239, 240, 242);
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.bnManG::before {
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background: url(https://d1774jszgerdmk.cloudfront.net/512/6ade309b-6b76-4fae-bce8-0912373b43b3) center center / cover no-repeat;
+}
+.bnManG::after {
+    content: "";
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+.gAdXIp {
+    height: 21px;
+    margin-bottom: 3px;
+}
+.hhLAzQ {
+    width: 49px;
+    height: 21px;
+    margin-right: 4px;
+}
+.gekGFB {
+    display: inline-block;
+    height: 21px;
+    line-height: 19px;
+    vertical-align: top;
+    padding: 0px 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(168, 193, 252);
+    border-image: initial;
+    border-radius: 2px;
+}
+.gekGFB > span {
+    font-weight: 700;
+}
+.gekGFB > span, .gekGFB > font {
+    display: inline-block;
+    color: rgb(50, 108, 249);
+    font-size: 11px;
+    white-space: nowrap;
+    position: relative;
+    bottom: 2px;
+}
+.gekGFB > font {
+    margin-left: 3px;
+}
+.kCTBqT {
+    font-size: 13px;
+    font-weight: 400;
+}
+.jBkVAv {
+    width: 100%;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+@media only screen and (min-width: 1700px)
+<style>
+.glovZ {
+    margin: 3px 0px 8px;
+}
+.glovZ {
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    margin: 3px 0px 6px;
+    margin-top: 3px;
+    margin-right: 0px;
+    margin-bottom: 6px;
+    margin-left: 0px;
+}
+.jBkVAv {
+    width: 100%;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+path[Attributes Style] {
+    d: path("M 14.1586 9.39199 V 8.35799 H 5.30362 V 9.39199 H 14.1586 Z M 13.3336 13.825 V 12.769 H 7.67962 V 12.318 H 13.0366 V 9.94199 H 6.37062 V 10.954 H 11.7606 V 11.416 H 6.39262 V 13.825 H 13.3336 Z M 13.2456 7.89599 V 6.88399 H 11.8816 L 12.1346 5.75099 L 10.8916 5.57499 L 10.6826 6.88399 H 8.75762 L 8.60362 5.57499 L 7.34962 5.75099 L 7.54762 6.88399 H 6.18362 V 7.89599 H 13.2456 Z M 13.2676 5.29999 V 4.28799 H 6.15062 V 5.29999 H 13.2676 Z");
+    fill: white;
+}
+path[Attributes Style] {
+    d: path("M 19.8212 11.361 L 19.6892 10.327 C 18.4132 10.569 16.8732 10.613 15.9602 10.613 V 8.57799 H 19.0072 V 4.90399 H 14.6622 V 5.92699 H 17.6982 V 7.55499 H 14.6732 V 11.669 H 15.7072 C 17.3682 11.669 18.7872 11.559 19.8212 11.361 Z M 22.4172 13.869 V 4.06799 H 21.1412 V 7.69799 H 19.6562 V 8.77599 H 21.1412 V 13.869 H 22.4172 Z");
+    fill: white;
+}
+path[Attributes Style] {
+    d: path("M 32.1938 12.593 V 11.57 H 23.3388 V 12.593 H 32.1938 Z M 32.0068 8.57799 C 30.5108 8.32499 28.4428 7.03799 28.4428 5.31099 V 4.66199 H 27.1008 V 5.31099 C 27.1008 7.04899 25.1538 8.34699 23.5478 8.57799 L 24.1528 9.62299 C 25.5058 9.32599 27.2548 8.28099 27.7608 6.96099 C 28.3218 8.24799 30.0158 9.27099 31.3578 9.57899 L 32.0068 8.57799 Z");
+    fill: white;
+}
+path[Attributes Style] {
+    d: path("M 38.5 5.5 V 12.5 M 35 9 H 42");
+    stroke: white;
+    stroke-width: 1.2;
+}
+.glovZ > span {
+    vertical-align: middle;
+}
+.glovZ {
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    margin: 3px 0px 6px;
+}
+
+section.mapView .container{
+	position: inherit;
+}
+section.mapView .gftUiJ {
     width: 100%;
     min-width: 1366px;
     position: absolute;
@@ -11,53 +191,57 @@
     left: 0px;
     right: 0px;
 }
-.gkpTsu {
+section.mapView .gkpTsu {
     width: 512px;
     box-shadow: rgba(0, 0, 0, 0.18) 1px 0px 1px 0px;
     position: absolute;
     top: 0px;
     bottom: 0px;
     left: 0px;
-    z-index: 3;
+    /* z-index: 3; */
 }
 
-.eXwtu {
+section.mapView .eXwtu {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.kkLYaw {
+section.mapView .kkLYaw {
     width: 100%;
     position: absolute;
     top: 73px;
     right: 0px;
     bottom: 0px;
     left: 0px;
+    overflow:scroll;
 }
-.kkLYaw > div {
+section.mapView .kkLYaw > div {
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.esEURt {
+section.mapView .esEURt {
     width: 27px;
     height: 3px;
     position: relative;
     margin: 13px auto 16px;
 }
-.esEURt > p {
+
+section.mapView .esEURt > p {
     width: 3px;
     height: 3px;
     background-color: rgb(216, 216, 216);
     margin: 0px auto;
     border-radius: 50%;
 }
-.esEURt > p::before {
+
+section.mapView .esEURt > p::before {
     left: 0px;
 }
-.esEURt > p::before, .esEURt > p::after {
+
+section.mapView .esEURt > p::before, .esEURt > p::after {
     content: "";
     width: 3px;
     height: 3px;
@@ -66,7 +250,8 @@
     top: 0px;
     border-radius: 50%;
 }
-.HggYs {
+
+section.mapView .HggYs {
     width: 20px;
     height: 50px;
     border-top-right-radius: 4px;
@@ -83,26 +268,29 @@
     border-image: initial;
 }
 
-.esEURt > p::after {
+section.mapView .esEURt > p::after {
     right: 0px;
 }
-.esEURt::after {
+section.mapView .esEURt::after {
     display: block;
     content: "";
     clear: both;
 }
-.kkLYaw > div > p {
+
+section.mapView .kkLYaw > div > p {
     color: rgb(170, 170, 170);
     font-size: 17px;
     white-space: pre;
+
 }
-.jLBlsX {
+section.mapView .jLBlsX {
     height: 73px;
     margin: 0px 30px;
     padding: 33px 0px 20px;
     border-bottom: 1px solid rgb(238, 238, 238);
+
 }
-.hXdylP {
+section.mapView .hXdylP {
     display: inline-block;
     height: 20px;
     color: rgb(34, 34, 34);
@@ -110,13 +298,15 @@
     font-weight: 500;
     line-height: 20px;
     cursor: default;
+
 }
-.hXdylP + a {
+section.mapView .hXdylP + a {
     margin-left: 14px;
     padding-left: 14px;
     border-left: 1px solid rgb(221, 221, 221);
+
 }
-.herjpP {
+section.mapView .herjpP {
     display: inline-block;
     height: 20px;
     color: rgb(197, 197, 197);
@@ -313,7 +503,7 @@ section.mapView .iAUcYP {
 section.mapView .bRnFtN {
     height: 100%;
     color: rgb(102, 102, 102);
-    font-size: 14px;
+    font-: 14px;
     border-top-style: initial;
     border-right-style: initial;
     border-bottom-style: initial;
@@ -434,7 +624,7 @@ section.mapView .map_wrap {
     right: 0px;
     bottom: 0px;
     left: 512px;
-    z-index: 2;
+    /* z-index: 2; */
     overflow: hidden;
 }
 
@@ -512,8 +702,7 @@ section.mapView .custom_zoomcontrol span {
 }
 
 section.mapView .custom_zoomcontrol span img {
-	width: 15px;
-	height: 15px;
+	width: 15px;	
 	padding: 12px 0;
 	border: none;
 }
@@ -922,123 +1111,18 @@ section.mapView .eUbtsI > .Radio--circle::after {
 										class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span></label></li>
 							</ul>
 						</div>			
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-					<span>가격대</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>
-			</div>
 			
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-					<span>관리비</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>
-	
-			</div>
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-			<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-				<span>방크기</span>
-					<svg width="11" height="7" vfiewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>
-			</div>
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
-				<div class="styled__Btn-sc-1a98puu-1 fUMVvC">
-					<span>준공년차</span>
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263">
-						</path>
-					</svg>
-				</div>						
-			</div>
-			<div class="styled__FilterBox-sc-1a98puu-2 fhfjff3"
-							style="right: 0px;">
-							<h1 class="styled__Title-sc-1a98puu-3 lmqlXb">준공년차</h1>
-							<ul class="styled__Ul-sc-19pabue-0 bZsIeN">
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value="" checked=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">전체</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">1년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">5년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">10년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">15년 이내</span></label></li>
-								<li><label class="clearfix Radio__Label-lgvo9c-0 eUbtsI"
-									size="22"><input type="radio"
-										class="Radio__RadioStd-lgvo9c-1 dvQVkh"
-										name="enter_date_range" value=""><span
-										class="Radio--circle"></span><span
-										class="styled__Text-sc-19pabue-1 hLYrBD">15년 이상</span></label></li>
-							</ul>
-						</div>
-			<div class="styled__Wrap-jzhnoe-0 dgiYtt" tabindex="0">
-				<div class="styled__Btn-jzhnoe-1 bAZEbe">추가필터
-					<svg width="11" height="7" viewBox="0 0 11 7">
-						<path fill="none" fill-rule="evenodd" stroke-width="1.5" d="M.658 1.021l4.537 4.263 4.463-4.263"></path>
-					</svg>
-				</div>
-			</div>
-		</div>
-		<div class="styled__BtnWrap-sfs8fz-2 iAUcYP">
-			<button class="styled__Btn-sc-1p3e70q-0 bRnFtN">
-				<svg width="22" height="19" viewBox="0 0 30 26">
-					<g fill="none" fill-rule="evenodd">
-						<g class="Svg__group" fill-rule="nonzero">
-							<path d="M8 13.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zm0-1.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM22 11.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zm0-1.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zM15 19.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zm0-1.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z">
-							</path>
-							<path d="M8.75 8.417V4.25a.75.75 0 0 0-1.5 0v4.167a.75.75 0 0 0 1.5 0zM15.75 14.69V4.25a.75.75 0 1 0-1.5 0v10.44a.75.75 0 0 0 1.5 0zM22.75 6.5V4.25a.75.75 0 1 0-1.5 0V6.5a.75.75 0 1 0 1.5 0zM8.75 21.564V13.25a.75.75 0 0 0-1.5 0v8.314a.75.75 0 0 0 1.5 0zM22.75 21.561V11.49a.75.75 0 1 0-1.5 0v10.071a.75.75 0 1 0 1.5 0zM15.75 21.56v-1.88a.75.75 0 1 0-1.5 0v1.88a.75.75 0 1 0 1.5 0z">
-							</path>
-						</g>
-					</g>
-				</svg>전체필터
-			</button>
-			<button class="styled__Btn-sfs8fz-3 bfbsFm" style="padding-left: 36px;">
-				<svg width="22" height="22" viewBox="0 0 22 22" style="left: 14px;">
-					<path fill="#9498A0" fill-rule="evenodd" d="M15.344 10.344h-2L16 7.688l2.688 2.656h-2c0 .96-.245 1.856-.736 2.688-.47.81-1.11 1.45-1.92 1.92a5.201 5.201 0 0 1-2.688.736c-.512 0-1.01-.075-1.496-.224a5.476 5.476 0 0 1-1.352-.624l.976-.96c.565.31 1.19.464 1.872.464.725 0 1.395-.179 2.008-.536a3.972 3.972 0 0 0 1.456-1.456 3.918 3.918 0 0 0 .536-2.008zm-9.344 0c0-.96.245-1.856.736-2.688.47-.81 1.11-1.45 1.92-1.92A5.201 5.201 0 0 1 11.344 5c.512 0 1.013.072 1.504.216.49.144.939.355 1.344.632l-.976.96a3.835 3.835 0 0 0-1.872-.464c-.725 0-1.395.179-2.008.536A3.972 3.972 0 0 0 7.88 8.336a3.918 3.918 0 0 0-.536 2.008h2L6.688 13 4 10.344h2z">
-					</path>
-				</svg>초기화
-			</button>
 		</div>
 	</div>
 	<div class="styled__Wrap-zfi8ji-0 gftUiJ">
 		<div class="styled__ListWrap-zfi8ji-1 gkpTsu">
 			<div class="styled__Wrap-ityzo6-0 eXwtu">
 				<div class="styled__Tabs-sc-1sk8lv8-0 jLBlsX">
-					<a class="styled__Tab-sc-1sk8lv8-1 hXdylP">조건에 맞는 방 0개</a> <a
-						class="styled__Tab-sc-1sk8lv8-1 herjpP">단지 0개</a>
+					<a class="styled__Tab-sc-1sk8lv8-1 hXdylP">조건에 맞는 방 ${fn:length(list)}개</a>						
 				</div>
-				<div class="styled__NoRoom-ityzo6-2 kkLYaw">
+				
+				
+				<!-- <div class="styled__NoRoom-ityzo6-2 kkLYaw">
 					<div>
 						<svg width="46" height="43" viewBox="0 0 46 43">
 							<g fill="none" fill-rule="evenodd">
@@ -1058,20 +1142,55 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						<p>조건에 맞는 방이 없습니다.</p>
 						<p>맞춤필터를 해제해보세요.</p>
 					</div>
-				</div>
+				</div> -->
+					<ul class="styled__Ul-ityzo6-5 fxRDHg">							
+					<c:forEach items="${list }" var="v">
+						
+						 <li class="Mmhsh">
+							<div class="styled__Card-fi3k4t-0 OUJOU">
+								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">								</div>
+								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/shop/itemView?shopItemIdx=${v.shopItemIdx }">								
+								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG"></div>
+								<div class="styled__BadgeWrap-fi3k4t-3 gAdXIp">
+									<svg class="styled__Svg-sc-1t9oqsb-0 hhLAzQ" viewBox="0 0 46 18" fill="none">
+										<rect width="46" height="18" rx="2" fill="#CDAF84"></rect>
+										<path d="M14.1586 9.39199V8.35799H5.30362V9.39199H14.1586ZM13.3336 13.825V12.769H7.67962V12.318H13.0366V9.94199H6.37062V10.954H11.7606V11.416H6.39262V13.825H13.3336ZM13.2456 7.89599V6.88399H11.8816L12.1346 5.75099L10.8916 5.57499L10.6826 6.88399H8.75762L8.60362 5.57499L7.34962 5.75099L7.54762 6.88399H6.18362V7.89599H13.2456ZM13.2676 5.29999V4.28799H6.15062V5.29999H13.2676Z" fill="white"></path>
+										<path d="M19.8212 11.361L19.6892 10.327C18.4132 10.569 16.8732 10.613 15.9602 10.613V8.57799H19.0072V4.90399H14.6622V5.92699H17.6982V7.55499H14.6732V11.669H15.7072C17.3682 11.669 18.7872 11.559 19.8212 11.361ZM22.4172 13.869V4.06799H21.1412V7.69799H19.6562V8.77599H21.1412V13.869H22.4172Z" fill="white"></path>
+										<path d="M32.1938 12.593V11.57H23.3388V12.593H32.1938ZM32.0068 8.57799C30.5108 8.32499 28.4428 7.03799 28.4428 5.31099V4.66199H27.1008V5.31099C27.1008 7.04899 25.1538 8.34699 23.5478 8.57799L24.1528 9.62299C25.5058 9.32599 27.2548 8.28099 27.7608 6.96099C28.3218 8.24799 30.0158 9.27099 31.3578 9.57899L32.0068 8.57799Z" fill="white"></path>
+										<path d="M38.5 5.5V12.5M35 9H42" stroke="white" stroke-width="1.2"></path>
+									</svg>
+									<div class="styled__ConfirmBadge-fi3k4t-4 gekGFB" type="confirm">
+										<span>확인매물</span>
+										<font>${v.shopItemRegDate }</font>
+									</div>
+								</div>
+								<p class="styled__RoomType-fi3k4t-8 kCTBqT styled__Text-fi3k4t-7 jBkVAv">${v.shopItemType1 }</p>
+								<p class="styled__Price-fi3k4t-9 glovZ styled__Text-fi3k4t-7 jBkVAv">
+									<span>${v.shopItemDealType} ${v.shopItemDeposit}/${v.shopItemDealPrice }</span>
+								</p>
+								<p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor1 }, ${v.shopItemSize2 }, 관리비 ${v.shopItemManagePrice }</p>
+								<p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemContent }</p>
+							</a>
+						</div>
+					</li> 					
+					</c:forEach> 
+				</ul>				
 			</div>
 		</div>
 		<div class="map_wrap">
-				<div id="map"
-					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-				지도 확대, 축소 컨트롤 div 입니다
+				<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>				
 				<div class="custom_zoomcontrol radius_border">
-					<span onclick="zoomIn()"><img
-						src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
-						alt="확대"></span> <span onclick="zoomOut()"><img
-						src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
-						alt="축소"></span>
+					<span onclick="zoomIn()">
+						<img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"	alt="확대">
+					</span> 
+					<span onclick="zoomOut()">
+						<img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소">
+					</span>
 				</div>
+				 <div class="hAddr">
+        <span class="title">지도중심기준 행정동 주소정보</span>
+        <span id="centerAddr"></span>
+    </div>
 		</div>
 	</div>			
 		<div id="coordXY"></div>
@@ -1083,11 +1202,9 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		</div>
 	</section>
 </body>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services,clusterer,drawing"></script>
-<script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services,clusterer,drawing"></script>
+<script>	
 	
-	//주소 입력 후 x,y 좌표로 받는 코드
 	var address = document.getElementById("address");
 	var coordXY = document.getElementById("coordXY");
 	var x, y = "";
@@ -1095,29 +1212,20 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	var options = {
 		center : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),
 		level : 9
-	//지도 4km 기준 , 서울 특별시
 	};
-
-	var map = new kakao.maps.Map(container, options);
-
-	// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+	var map = new kakao.maps.Map(container, options);	
 	function zoomIn() {
 		map.setLevel(map.getLevel() - 1);
-		
-
-	}
-
-	// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+	}	
 	function zoomOut() {
 		map.setLevel(map.getLevel() + 1);
-
-
-	}
+	}	
 	var markers = [];	
-	var positions = [ {
-		latlng : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),
+	var positions = [ 
+	{
+		latlng : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),	
 		name : "서울특별시"
-	}, {
+	}, {	
 		latlng : new kakao.maps.LatLng(37.455925200122365, 126.70526742296053),
 
 		name : "인천광역시"
@@ -1175,12 +1283,14 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		latlng : new kakao.maps.LatLng(34.811823882052146, 126.39226600466537),
 
 		name : "전라남도"
-	}, {
+	}, 
+	{
 		latlng : new kakao.maps.LatLng(37.88532578582254, 127.72982901035823),
 		name : "강원도"
 	}
 
-	];	
+	];
+	
 	var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
@@ -1205,9 +1315,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	        position: positions[i].latlng,
 	        content: content	       
 	    });    
-	    
-	}	
-	
+	    	}	
 	
 	 $(document).ready(function(){					 
 		 map.setLevel(20);		
@@ -1220,9 +1328,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
 			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));							
 			map.setLevel(10);
-		});				
-		kakao.maps.event.addListener(map, 'zoom_changed', function() {		
-			
+		});					
+		map.setLevel(9);
+	});	
+	 
+	kakao.maps.event.addListener(map, 'zoom_changed', function() {		
 			if (map.getLevel() >10) {
 				clusterer.clear();
 				$(".customoverlay").css("display","block");				
@@ -1231,80 +1341,119 @@ section.mapView .eUbtsI > .Radio--circle::after {
 				$(".customoverlay").css("display","none");
 				
 			 var geocoder = new daum.maps.services.Geocoder();
-			 for(var i=0;i<$(".test").length;i++){
-				
-				var content=$(".test1").eq(i).text();
+			 for(var i=0;i<$(".test").length;i++){				
 				geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
 					// 정상적으로 검색이 완료됐으면,
 					if (status == daum.maps.services.Status.OK) {			
 						var coords = new daum.maps.LatLng(result[0].y, result[0].x);
 						var marker = new kakao.maps.Marker({
-							position:coords,
-							content:content
-						});											
+							position:coords							
+						});
+						console.log(marker.getPosition());
 						clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
+						kakao.maps.event.addListener(marker, 'click', function() {
+							
+							map.setCenter(marker.getPosition()); 
+							map.setLevel(5);
+						});
 					}
 				});
-			}			 
 			}
-		});	
-		map.setLevel(9);
-	});		 	 
+			
+			}
+		});
 	 
-	kakao.maps.event.addListener(map,'mousedown',function(){
-		if (map.getLevel() >10) {
-			clusterer.clear();
-				$(".customoverlay").css("display","block");				
-			}else {				
-				$(".customoverlay").css("display","none");			
 		
-		}
-		
-		});		
 	
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
-
-		// 현재 지도 레벨에서 1레벨 확대한 레벨
 		var level = map.getLevel() - 1;
-
-		// 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
 		map.setLevel(level, {
 			anchor : cluster.getCenter()
 		});
-	});
-
-	
-	
-	
-	
-	$("#mapSelect").click(function(){		
-		var mapName=$("#mapName").val();
-		
-		
-		var geocoder = new daum.maps.services.Geocoder();
-		geocoder.addressSearch(mapName, function(result, status) {
-			// 정상적으로 검색이 완료됐으면,
-			if (status == daum.maps.services.Status.OK) {
-				map.setLevel(3);
-				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-				y = result[0].x;
-				x = result[0].y;
-				test1.append("<br>X좌표 : " + x + "<br><br>Y좌표 : " + y);
-				// 이동할 위도 경도 위치를 생성합니다 
-				var moveLatLon = new kakao.maps.LatLng(x, y);
-				// 지도 중심을 부드럽게 이동시킵니다
-				// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-				map.panTo(moveLatLon);
+	});	
+	$(document).ready(function(){				
+		$(document).click(function(e){
+			$(".hWgOZv").eq('0').click(function(e){
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+				if($(".fhfjff").is(":visible")){
+					$(".fhfjff").css("display","none");
+				}else{
+					$(".fhfjff").css("display","block");
+				}				
+			})
+			for(var i=1;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff").css("display","none");
+				})
 			}
-		});
-		/* $.ajax({
-			url:"/mapSelectOne",			
-			data:{shopItemIdx:mapName},			
-			success : function(data){
-				console.log("성공");
+			$(".hWgOZv").eq('1').click(function(e){
+				if($(".fhfjff2").is(":visible")){
+					$(".fhfjff2").css("display","none");
+				}else{
+					$(".fhfjff2").css("display","block");
+				}
+			})
+			$(".hWgOZv").eq('5').click(function(e){
+				if($(".fhfjff3").is(":visible")){
+					$(".fhfjff3").css("display","none");
+				}else{
+					$(".fhfjff3").css("display","block");
+				}				
+			})
+			$(".dgiYtt").click(function(){
+				$(".fhfjff1").css("display","none");
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+			})
+			for(var i=2;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff2").css("display","none");
+				})
+			}
+			for(var i=0;i<$('.hWgOZv').length-1;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff3").css("display","none");
+				})
+			}			
+			$(".hWgOZv").click(function(e){		
+				if($(this).children().hasClass('fJNXpX')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					
+					$(this).children().removeClass('fJNXpX');
+					$(this).children().addClass('cRtqxV'); 
+					
+				}else if($(this).children().hasClass('fUMVvC')){
 				
-			}
-		}) */
-	})
+				 	$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					$(this).children().removeClass('fUMVvC');
+					$(this).children().addClass('hKGAZL');
+				} 
+			})
+			$(".dgiYtt").click(function(e){
+				if($(this).children().hasClass('bAZEbe')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(this).children().removeClass('bAZEbe');
+					$(this).children().addClass('kdfXro');
+				}else{
+					$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV'); 
+				} 
+			})
+		})		
+	})	
+	
+	
+
 </script>
+<script src="/guest/js/map/map.js"></script>
 </html>

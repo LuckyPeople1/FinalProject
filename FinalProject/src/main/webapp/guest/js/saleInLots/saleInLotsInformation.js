@@ -57,17 +57,14 @@
 				}
 			}
 		}
+	});
+	$(".searchBtn").click(function(){
 		var area = $("#area").html();
 		var supplyType = $("#supplyType").html();
 		var buildType = $("#buildType").html();
 		var saleState = $("#saleState").html();
-		$.ajax({
-			url:"//saleInLots/saleInLotsInformation",
-			dataType:"json", 
-			data : {saleInLotsArea:area,saleInLotsSupplyType:supplyType,saleInLotsBuildType:buildType,saleInLotsState:saleState},
-			success:function(data){
-				
-			}
-		});
-	});
+		var supplyType = $("#supplyType").html();
+		
+		$(".searchBtn").parent().attr("href","/saleInLots/saleInLotsInformation?saleInLotsArea="+area+"&saleInLotsSupplyType="+supplyType+"&saleInLotsBuildType="+buildType+"&saleInLotsState="+saleState);
+	})
  

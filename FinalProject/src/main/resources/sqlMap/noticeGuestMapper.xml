@@ -25,4 +25,31 @@
   			notice_content as noticeContent
   		from notice_tbl where notice_index=#{noticeIndex} 
   </select>
+  <!-- FAQ전체리스트 -->
+    <select id="selectFaqList" resultType="faqVO" parameterType="_int">
+  	select faq_index as faqIndex,
+  		faq_user_type as faqUserType,
+  		faq_question as faqQuestion,
+  		faq_answer as faqAnswer,
+  		faq_state as faqState,
+  		faq_reg_date as faqRegDate
+  		from (select rownum as rnum, f.* from (select * from faq_tbl where faq_state='정상' order by rownum desc) f)
+  		where rnum between #{start} and #{end}
+  </select>
+   <select id="totalCount1" resultType="_int">
+  	select count(*) cnt from faq_tbl
+  </select>
+  <!-- 사용자 1:1 문의보내기 -->
+  <insert id="questionInsert" parameterType="questionVO">
+  		insert into questions_tbl values(
+  			questions_index.nextval,
+  			#{questionsUserType},
+  			#{questionsTitle},
+  			#{questionsContent},
+  			null,  	
+  			#{questionsAnswerState},
+  			#{questionsWriter},
+  			sysdate,
+  			#{questionsState})
+  </insert>
 </mapper>

@@ -9,7 +9,7 @@
   			notice_writer as noticeWriter,
   			notice_reg_date as noticeRegDate,
   			notice_state as noticeState
-  			 from (select rownum as rnum, n.* from (select * from notice_tbl where notice_state='정상' and 
+  			 from (select rownum as rnum, n.* from (select * from notice_tbl where <!-- notice_state='정상' and --> 
   			 <if test="code==0">notice_type='사용자'</if> 
   			 <if test="code==1">notice_type='부동산'</if> 
   			 <if test="code==2">notice_type='기사'</if> 
@@ -82,4 +82,21 @@
   <update id="noticeDelete" parameterType="noticeVO">
   	update notice_tbl set notice_state='삭제' where notice_index=#{notice_index}
   </update>
+  
+  <!-- 검색 -->
+  <select id="searchKeywordTitle" resultType="noticeVO" parameterType="com.dassa.vo.SearchNoticeVO">
+  	select notice_index as noticeIndex,
+  			notice_type as noticeType,
+  			notice_title as noticeTitle,
+  			notice_writer as noticeWriter,
+  			notice_reg_date as noticeRegDate,
+  			notice_state as noticeState
+  			 from (select rownum as rnum, n.* from (select * from notice_tbl where 
+  			 notice_title=#{keyWord}
+  			 order by rownum desc) n)
+  			  where rnum between #{start} and #{end}
+  </select>
+   <select id="titleCount" resultType="com.dassa.vo.SearchNoticeVO">
+	select count(*) cnt from notice_tbl where notice_title like(#{keyWord})
+  </select>
 </mapper>

@@ -1,11 +1,14 @@
 package com.dassa.controller.shop;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,7 +50,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request,ShopItemSearchVO itemSearch)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -55,7 +58,7 @@ public class ShopItemController {
 			reqPage=1;
 		}
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,itemSearch);
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
@@ -74,61 +77,6 @@ public class ShopItemController {
 		return "shop/item/shopItemAdd";
 	}
 	/**
-	 * 부동산 매물 상세페이지(itemInfo)
-	 * @return
-	 */
-	@RequestMapping("/itemInfo")
-	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
-		ShopItemVO item;
-		List<ShopItemImgVO> siiList;
-		ModelAndView mav = null;
-		try {
-			siiList = shopService.shopItemImgList(shopItemIdx);
-			item = shopService.shopItemInfo(shopItemIdx);
-			mav = new ModelAndView();
-			if(item!=null) {
-				System.out.println(item.getShopItemManagePriceOption());
-				System.out.println(item.getShopItemOption());
-				
-				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
-				String[] simpo = new String[7]; //관리비 항목 체크
-				
-				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
-				System.out.println("sss : "+sss);
-				String[] sio = new String[12]; //옵션 항목 체크
-				
-				int i = 0;
-				int j = 0;
-				for(; i<ss.length;i++) {
-						simpo[i] = ss[i];
-				}
-				for(;i<simpo.length;i++) {
-					simpo[i]=null;
-					System.out.println(simpo[i]);
-				}
-				for(; j<sss.length;j++) {
-					sio[j] = sss[j];
-				}
-				for(; j<sio.length;j++) {
-					sio[j]=null;
-					System.out.println(sio[j]);
-				}
-				mav.addObject("item",item); //매물 정보
-				mav.addObject("simpo", simpo); //관리비 항목
-				mav.addObject("sio",sio); //옵션 항목
-				mav.addObject("siiList",siiList);
-				mav.setViewName("shop/item/shopItemInfo");
-			}
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return mav;
-	}
-	/**
 	 * 부동산 매물 등록 로직(ItemAdd)
 	 * @param request
 	 * @param fileImg
@@ -139,7 +87,8 @@ public class ShopItemController {
 	@RequestMapping("/shopItemAdd")
 	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
-		
+		System.out.println("입주형태1 : "+sItem.getShopItemMovingDate1());
+		System.out.println("입주형태2 : "+sItem.getShopItemMovingDate2());
 		System.out.println("넘어온 파일 : "+fileImg);
 		
 		for(MultipartFile img : fileImg) {
@@ -164,10 +113,65 @@ public class ShopItemController {
 		}
 		shopService.shopItemAdd(sItem, imgList);
 //		shopService.shopItemImgAdd(imgList);
-		return "shop/item/shopItemList";
+		return "redirect:/shop/item";
 	}
 	/**
-	 * 중개사 페이지 - 매물 수정 로직(itemModify)
+	 * 부동산 매물 상세페이지(itemInfo)
+	 * @return
+	 */
+	@RequestMapping("/itemInfo")
+	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
+		ShopItemVO item;
+		List<ShopItemImgVO> siiList;
+		ModelAndView mav = null;
+		try {
+			siiList = shopService.shopItemImgList(shopItemIdx);
+			item = shopService.shopItemInfo(shopItemIdx);
+			mav = new ModelAndView();
+			if(item.getShopItemManagePriceOption()!=null) {
+				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
+				String[] simpo = new String[7]; //관리비 항목 체크
+				int i = 0;
+				for(; i<ss.length;i++) {
+					simpo[i] = ss[i];
+				}
+				for(;i<simpo.length;i++) {
+					simpo[i]=null;
+					System.out.println(simpo[i]);
+				}
+				mav.addObject("simpo",simpo); //관리비 항목
+			}
+			if(item.getShopItemOption()!=null) {
+				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
+				String[] sio = new String[13]; //옵션 항목 체크
+				int j = 0;
+			
+				for(; j<sss.length;j++) {
+					sio[j] = sss[j];
+				}
+				for(; j<sio.length;j++) {
+					sio[j]=null;
+					System.out.println(sio[j]);
+				}
+				mav.addObject("sio",sio); //옵션 항목
+			}
+				mav.addObject("item",item); //매물 정보
+				mav.addObject("siiList",siiList);
+				mav.setViewName("shop/item/shopItemInfo");
+				System.out.println("입주형태1 : "+item.getShopItemMovingDate1());
+				System.out.println("입주형태2 : "+item.getShopItemMovingDate2());
+				System.out.println("세대 수 : "+item.getShopItemHouseNumber());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	/**
+	 * 중개사 페이지 - 매물 수정 로직(itemModify) - 미완성
 	 * @param httpServletRequest
 	 * @param fileImg
 	 * @param sItem
@@ -177,10 +181,13 @@ public class ShopItemController {
 	 */
 	@RequestMapping("/shopItemModify")
 	public String ShopItemModify(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+		System.out.println(fileImg.size());
+		System.out.println(fileImg.get(0));
+		System.out.println(fileImg.get(1).getName());
+		System.out.println(fileImg.get(2).getOriginalFilename());
+		System.out.println(fileImg.get(3).getOriginalFilename());
+		System.out.println(fileImg.get(4).getOriginalFilename());
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
-		
-		System.out.println("넘어온 파일 : "+fileImg);
-		
 		for(MultipartFile img : fileImg) {
 			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
 			
@@ -195,25 +202,86 @@ public class ShopItemController {
 				
 				System.out.println("담을 파일 경로 : "+fileInfo[1]);
 				sItemImgVO.setShopImgPath(fileInfo[1]);
-				System.out.println("파일경로"+sItemImgVO.getShopImgPath());
+				System.out.println("담은 파일경로"+sItemImgVO.getShopImgPath());
 				
 				imgList.add(sItemImgVO);
 				System.out.println("최종이미지리스트"+imgList);
 			}
 		}
-//		shopService.shopItemModify(sItem, imgList);
+		shopService.shopItemModify(sItem, imgList);
 //		shopService.shopItemImgAdd(imgList);
-		return "shop/item/shopItemList";
+		return "redirect:/shop/item";
 	}
 	
+	/**
+	 * 중개사 페이지 - 매물 삭제 로직(itemDelete)
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/shopItemDelete")
 	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
 		if(result>0) {
-			return "shop/item/shopItemList";
+			return "redirect:/shop/item";
 		}
-		return "shop/item/shopItemList";
+		return "redirect:/shop/item";
 	}
+	/**
+	 * 사용자 페이지 - 매물 상세정보(itemVIew) 
+	 * @param shopItemIdx
+	 * @return
+	 */
+	@RequestMapping("/itemView")
+	public ModelAndView shopItemView(@RequestParam int shopItemIdx) {
+		ShopItemVO item;
+		List<ShopItemImgVO> siiList;
+		ModelAndView mav = null;
+		try {
+			siiList = shopService.shopItemImgList(shopItemIdx);
+			item = shopService.shopItemInfo(shopItemIdx);
+			mav = new ModelAndView();
+			if(item.getShopItemManage().equals("있음")) {
+				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
+				String[] simpo = new String[7]; //관리비 항목 체크
+				int i = 0;
+				for(; i<ss.length;i++) {
+					simpo[i] = ss[i];
+				}
+				for(;i<simpo.length;i++) {
+					simpo[i]=null;
+					System.out.println(simpo[i]);
+				}
+				mav.addObject("simpo",simpo); //관리비 항목
+			}
+			if(item.getShopItemOption()!=null) {
+				String [] sss = item.getShopItemOption().split(","); //옵션 항목 가져와서 배열로 저장
+				String[] sio = new String[13]; //옵션 항목 체크
+				int j = 0;
+			
+				for(; j<sss.length;j++) {
+					sio[j] = sss[j];
+				}
+				for(; j<sio.length;j++) {
+					sio[j]=null;
+					System.out.println(sio[j]);
+				}
+				mav.addObject("sio",sio); //옵션 항목
+			}
+				mav.addObject("item",item); //매물 정보
+				mav.addObject("siiList",siiList); //매물 이미지
+				System.out.println("view페이지 이미지 : "+siiList);
+				mav.setViewName("shop/item/shopItemView");
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mav;
+	}
+	
 	/**
 	 * 아파트 목록 API(아파트코드, 아파트명)
 	 * @param jusoDongCode
@@ -277,7 +345,7 @@ public class ShopItemController {
                      String str8 = getTagValue("kaptBcompany", eElement2);		//시공사 8
                      String str9 = getTagValue("codeHeatNm", eElement2);			//난방방식	 9
                      String str10 = getTagValue("codeHalNm", eElement2); 			//복도유형 10
-                     String str11 = getTagValue("kaptdaCnt", eElement2);			//세대수
+                     String str11 = getTagValue("kaptdaCnt", eElement2);			//세대수 11
                      totalString = str+","+str1+","+str2+","+str3+","+str4+","+str5+","+str6+","+str7+","+str8+","+str9+","+str10+","+str11;
                      System.out.println(totalString);
                       }

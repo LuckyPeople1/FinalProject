@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.dassa.mapper.ManageUserMapper;
-import com.dassa.vo.UserOutVO;
+import com.dassa.vo.SearchUserVO;
 import com.dassa.vo.UserVO;
 
 @Service("ManageUserService")
@@ -20,7 +20,7 @@ public class ManageUserService {
 		return manageUserMapper.getUserList(userType);
 	}
 	
-	public List<UserOutVO> getUserSecssionList(String userType) throws Exception {
+	public List<UserVO> getUserSecssionList(String userType) throws Exception {
 		return manageUserMapper.getUserSecssionList(userType);
 	}
 	
@@ -32,11 +32,19 @@ public class ManageUserService {
 		return manageUserMapper.getUserListAll();
 	}
 
-	public List<UserVO> getAllApprobateList(String status) {
-		return manageUserMapper.getAllApprobateList(status);
+	public List<UserVO> getAllApprobateList() {
+		return manageUserMapper.getAllApprobateList();
 	}
 	
-	public List<UserVO> getTypeApprobateList(String userType){
+	public List<UserVO> getTypeCheckApprobateList(SearchUserVO searchUserVO){
+		return manageUserMapper.getTypeCheckApprobateList(searchUserVO);
+	}
+
+	public List<UserVO> getSearchList(SearchUserVO searchUserVO) {
+		return manageUserMapper.getSearchList(searchUserVO);
+	}
+
+	public List<UserVO> getTypeApprobateList(String userType) {
 		return manageUserMapper.getTypeApprobateList(userType);
 	}
 }

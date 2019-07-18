@@ -73,7 +73,8 @@
 			sysdate,
 			#{shopItemDelDate, jdbcType=VARCHAR},
 			#{shopItemOkState, jdbcType=VARCHAR},
-			default
+			default,
+			#{shopItemHouseNumber, jdbcType=VARCHAR}
 			)
 	</insert>
 	<!-- 매물 이미지 등록 -->
@@ -97,8 +98,65 @@
 			</foreach>
 			) T
 	</insert>
-	<!-- 매물리스트 
-	<select id="selectAllList" resultType="shopItemVO" parameterType=shopItemSearchVO>
+	<!-- 매물 수정 -->
+	<update id="shopItemModify" parameterType="shopItemVO">
+		update shop_item_tbl set 
+			shop_item_title=#{shopItemTitle, jdbcType=VARCHAR},
+			shop_item_content=#{shopItemContent, jdbcType=VARCHAR},
+			shop_item_secret_memo=#{shopItemSecretMemo, jdbcType=VARCHAR},
+			shop_item_manager=#{shopItemManager, jdbcType=VARCHAR},
+			shop_item_type1=#{shopItemType1, jdbcType=VARCHAR},
+			shop_item_type2=#{shopItemType2, jdbcType=VARCHAR},
+			shop_item_addr1=#{shopItemAddr1, jdbcType=VARCHAR},
+			shop_item_addr2=#{shopItemAddr2, jdbcType=VARCHAR},
+			shop_item_addr_dong1=#{shopItemAddrDong1, jdbcType=VARCHAR},
+			shop_item_addr_ho1=#{shopItemAddrHo1, jdbcType=VARCHAR},
+			shop_item_addr_dong2=#{shopItemAddrDong2, jdbcType=VARCHAR},
+			shop_item_addr_ho2=#{shopItemAddrHo2, jdbcType=VARCHAR},
+			shop_item_latitude=#{shopItemLatitude, jdbcType=VARCHAR},
+			shop_item_longitude=#{shopItemLongitude, jdbcType=VARCHAR},
+			shop_item_deal_type=#{shopItemDealType, jdbcType=VARCHAR},
+			shop_item_deposit=#{shopItemDeposit, jdbcType=VARCHAR},
+			shop_item_deal_price=#{shopItemDealPrice, jdbcType=VARCHAR},
+			shop_item_size1=#{shopItemSize1, jdbcType=VARCHAR},
+			shop_item_size_all1=#{shopItemSizeAll1, jdbcType=VARCHAR},
+			shop_item_size2=#{shopItemSize2, jdbcType=VARCHAR},
+			shop_item_size_all2=#{shopItemSizeAll2, jdbcType=VARCHAR},
+			shop_item_size3=#{shopItemSize3, jdbcType=VARCHAR},
+			shop_item_size_all3=#{shopItemSizeAll3, jdbcType=VARCHAR},
+			shop_item_size4=#{shopItemSize4, jdbcType=VARCHAR},
+			shop_item_size_all4=#{shopItemSizeAll4, jdbcType=VARCHAR},
+			shop_item_floor1=#{shopItemFloor1, jdbcType=VARCHAR},
+			shop_item_floor_all1=#{shopItemFloorAll1, jdbcType=VARCHAR},
+			shop_item_floor2=#{shopItemFloor2, jdbcType=VARCHAR},
+			shop_item_floor_all2=#{shopItemFloorAll2, jdbcType=VARCHAR},
+			shop_item_heating1=#{shopItemHeating1, jdbcType=VARCHAR},
+			shop_item_moving_date1=#{shopItemMovingDate1, jdbcType=VARCHAR},
+			shop_item_moving_date2=#{shopItemMovingDate2, jdbcType=VARCHAR},
+			shop_item_manage=#{shopItemManage, jdbcType=VARCHAR},
+			shop_item_manage_price=#{shopItemManagePrice, jdbcType=VARCHAR},
+			shop_item_manage_price_option=#{shopItemManagePriceOption, jdbcType=VARCHAR},
+			shop_item_parking=#{shopItemParking, jdbcType=VARCHAR},
+			shop_item_parking_price=#{shopItemParkingPrice, jdbcType=VARCHAR},
+			shop_item_animal=#{shopItemAnimal, jdbcType=VARCHAR},
+			shop_item_elevator=#{shopItemElevator, jdbcType=VARCHAR},
+			shop_item_balcony=#{shopItemBalcony, jdbcType=VARCHAR},
+			shop_item_built_in=#{shopItemBuiltIn, jdbcType=VARCHAR},
+			shop_item_structure=#{shopItemStructure, jdbcType=VARCHAR},
+			shop_item_option=#{shopItemOption, jdbcType=VARCHAR},
+			shop_item_loan=#{shopItemLoan, jdbcType=VARCHAR},
+			shop_item_house_number=#{shopItemHouseNumber, jdbcType=VARCHAR}
+		where shop_item_idx=#{shopItemIdx}
+	</update>
+	<!-- 매물 이미지 수정 -->
+	<update id="shopItemImgModify" parameterType="shopItemImgVO">
+		update shop_item_img_tbl set
+			shop_img_name=#{shopImgName},
+			shop_img_path=#{shopImgPath}
+		where shop_item_img_idx=#{shopImgIdx} and shop_item_idx=#{shopItemIdx}
+	</update>
+	<!-- 매물 전체 리스트 -->
+	<select id="selectAllList" resultType="shopItemVO" parameterType="_int">
 			select shop_item_idx as shopItemIdx,
 				shop_item_manager as shopItemManager,
 				shop_item_type1 as shopItemType1,
@@ -107,20 +165,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중' and
-			<if test="type==0">shop_item_type1='원룸' or shop_item_type1='투룸' or shop_item_type1='쓰리룸' or shop_item_type1='오피스텔' or shop_item_type1='아파트'</if>
-			<if test="type==1">shop_item_type1='원룸'</if>
-			<if test="type==2">shop_item_type1='투룸'</if>
-			<if test="type==3">shop_item_type1='쓰리룸'</if>
-			<if test="type==4">shop_item_type1='오피스텔'</if>
-			<if test="type==5">shop_item_type1='아파트'</if>
+			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중'
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
-	-->
 	<!-- 매물 총 게시물 수 -->
 	<select id="shopItemTotalCount" resultType="_int">
-		select count(*) cnt from shop_item_tbl
+		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중'
 	</select>
 	<!-- 매물 상세보기 -->
 	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
@@ -176,7 +227,8 @@
 			shop_item_reg_date as shopItemRegDate,
 			shop_item_del_date as shopItemDelDate,
 			shop_item_ok_state as shopItemOkState,
-			shop_item_sale_state as shopItemSaleState
+			shop_item_sale_state as shopItemSaleState,
+			shop_item_house_number as shopItemHouseNumber
 			from shop_item_tbl where shop_item_idx=#{shopItemIdx}
 	</select>
 	<!--매물상세보기 이미지 -->
@@ -186,10 +238,24 @@
 				shop_img_name as shopImgName,
 				shop_img_path as shopImgPath
 				from shop_item_img_tbl
-				where shop_item_idx=#{shopItemIdx} 
+				where shop_item_idx=#{shopItemIdx}
 	</select>
 	<!-- 매물 삭제 -->
 	<update id="shopItemDelete" parameterType="shopItemVO">
 		update shop_item_tbl set shop_item_sale_state='판매중단' where shop_item_idx=#{shopItemIdx}
 	</update>
+	
+	<!-- 방문 신청 -->
+	<insert id="ShopReserveJoin" parameterType="shopReservationVO">
+		insert into shop_reservation_tbl values(
+			shop_reservation_idx_seq.nextval,
+			#{shopItemIdx, jdbcType=VARCHAR},
+			#{shopReservationName, jdbcType=VARCHAR},
+			#{shopReservationTel, jdbcType=VARCHAR},
+			#{shopReservationManager, jdbcType=VARCHAR},
+			#{shopReservationState, jdbcType=VARCHAR},
+			sysdate
+		)
+	</insert>
+	
 </mapper>

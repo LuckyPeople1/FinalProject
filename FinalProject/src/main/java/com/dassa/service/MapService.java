@@ -20,7 +20,6 @@ public class MapService {
 		return list;
 	}
 	public ArrayList<ShopItemVO> mapSelectList(String shopItemAddr1) throws Exception {
-		
 		ArrayList<ShopItemVO> list = mapMapper.mapSelectList(shopItemAddr1);
 		return list;			
 		

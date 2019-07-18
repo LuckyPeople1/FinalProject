@@ -21,6 +21,7 @@
 				<div class="field_title">
 					<span class="title_mark">■ 공지사항 관리</span>
 				</div>
+				<form action="/manage/board/notice/searchKeyword?reqPage=1" method="get">
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -31,7 +32,7 @@
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input class="tbox w_6p" style="width:39%;">
+							<input class="tbox w_6p" style="width:39%;" name="keyWord">
 						</td>
 					</tr>
 					<tr>
@@ -48,22 +49,21 @@
 					</tr>
 				</table>
 				<div class="set_menu">
+					<button type="submit">ㄱㄱㄱㄱㄱㄱ</button>
 					<a href="#" class="btn normal col_main f_w">검색</a>
-					<a href="#" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<a href="/manage/board/notice/noticeManageList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
+				</form>
 			</div>
 				<div class="list_field">
 					<div class="list_menu">
-					<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-					<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
+
 					<span class="right_menu">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>
 						<a href="/manage/board/notice/noticeManageWriter" class="btn col_darkGrey f_w">글쓰기</a>
 					</span>
 				</div>
 				<table class="list_table">
 					<colgroup>
-						<col width="100">
 						<col width="100">
 						<col width="100">						
 						<col width="*">
@@ -73,11 +73,6 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th>
-							<label>
-								<input type="checkbox" name="all_chk">
-							</label>
-						</th>
 						<th>No</th>
 						<th>분류</th>
 						<th>제목</th>
@@ -91,11 +86,6 @@
 					<c:forEach items="${list }" var="n">
 					
 					<tr>
-						<td>
-							<label>
-								<input type="checkbox">
-							</label>
-						</td>
 						<td>${n.noticeIndex }</td>
 						<td>${n.noticeType }</td>
 						<td class="text-left">${n.noticeTitle }</td>
