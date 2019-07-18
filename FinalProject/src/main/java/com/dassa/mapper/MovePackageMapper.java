@@ -22,5 +22,7 @@ public interface MovePackageMapper {
 
 	public int regApplyImg(List<MoveApplyImgVO> moveApplyImgList) throws Exception;
 
-	public PackageTempVO getPackageSelect(int idx) throws Exception;
+	public int modifyPackage(PackageRegVO packageRegVO) throws Exception;
+
+	public int packageListCnt(PackageSearchFilterVO packageSearchFilterVO) throws Exception;
 }

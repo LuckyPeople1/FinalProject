@@ -181,6 +181,76 @@ var package = {
 
 
 	/**
+	 * 짐 정보 수정
+	 * @param packageIdx
+	 */
+	packageModify: function () {
+
+		var formData = new FormData($('#regFrm')[0]);
+		var count	=	$('.packageOption').length;
+		var optionList	=	new Array();
+
+
+		if($('.img_up_list img').length == 0){
+			alert("이미지를 등록해주세요.")
+			return false;
+		}
+
+
+		for(var i = 0 ; i < 5 ; i ++){
+
+			// 옵션명 담기
+			var optionValue	=	"";
+
+			$('.optionValueList').eq(i).find('input[name=packageOptionValue]').each(function (index) {
+
+				if(index >= 1){
+					optionValue += ",";
+				}
+
+				optionValue += $(this).val()
+
+			});
+
+			var option	=	{
+				packageOptionName	: $('input[name=packageOptionName]').eq(i).val(),
+				packageOptionValue : optionValue,
+				packageOptionEtc : $('.etcCheckBox').eq(i).find('input[type=checkbox]:checked').val()
+			};
+
+			optionList.push(option);
+		}
+
+		formData.append('data', JSON.stringify(optionList));
+
+		$.ajax({
+			type : "post",
+			url : "/manage/move/packageModifyProc",
+			data : formData,
+			enctype: 'multipart/form-data',
+			processData: false,
+			contentType: false,
+			dataType : "html",
+			// dataType : "json",
+			success : function (data) {
+
+				if(data == "Y"){
+					alert("수정 완료");
+					location.href='/manage/move/packageList';
+				}else{
+					alert("수정 실패");
+				}
+
+			}, error : function () {
+
+				console.log("에러")
+
+			}
+		})
+	},
+
+
+	/**
 	 * 이미지 등록 검사
 	 * @param e
 	 * @param event
@@ -234,7 +304,7 @@ var package = {
 		}
 
 		if(type == "M"){
-			var str = "<input type=\"file\" class=\"hide\" accept=\"image/*\" name=\"fileImg\" id=\"fileImg\" onchange=\"goodsReg.imgSel(this, event)\" value=\"\">";
+			var str = "<input type=\"file\" class=\"hide\" accept=\"image/*\" name=\"fileImg\" id=\"fileImg\" onchange=\"package.imgSel(this, event)\" value=\"\">";
 			$(e).closest('div').append(str);
 		}
 
