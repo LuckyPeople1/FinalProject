@@ -15,6 +15,7 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
 
@@ -48,7 +49,11 @@ public class ShopService {
 	 * @throws Exception
 	 */
 	public int shopCount(int userIdx) throws Exception{
-		return shopMapper.shopCount(userIdx);
+		ArrayList<ShopPremiumItemVO> list = shopMapper.shopCount();
+		int arrSize = list.size();
+		System.out.println("service userIdx : "+userIdx);
+		System.out.println("return count : "+arrSize);
+		return arrSize;
 	}
 	
 	/**

@@ -111,6 +111,7 @@ public class ShopItemController {
 				System.out.println("최종이미지리스트"+imgList);
 			}
 		}
+		System.out.println("콘트롤러 userIdx : "+userIdx);
 		int count = shopService.shopCount(userIdx);
 		System.out.println("등록 가능 매물 개수 : "+count);
 		if(count>0) {
@@ -118,11 +119,24 @@ public class ShopItemController {
 			System.out.println("상품등록할 상품idx"+sItem.getShopItemIdx());
 			System.out.println("상품등록할 userIdx"+userIdx);
 			shopService.shopCountUpdate(sItem);
-			
 			return "redirect:/shop/item";
 		}else {
 			return "redirect:/shop/";
 		}
+	}
+	
+	@RequestMapping("/test")
+	public void testArr(HttpServletRequest httpServletRequest) {
+		int userIdx = 0;
+		int count;
+		try {
+			count = shopService.shopCount(userIdx);
+			System.out.println("등록 가능 매물 개수 : "+count);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	/**
 	 * 부동산 매물 상세페이지(itemInfo)

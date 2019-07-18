@@ -13,6 +13,7 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationVO;
 
 @MapperScan("shopMapper")
@@ -80,8 +81,8 @@ public interface ShopMapper {
 	//방문 삭제
 	public int reservationDel(int shopReservationIdx) throws Exception;
 	
-	//매물 등록 시 현재 매물개수 확인
-	public int shopCount(int userIdx) throws Exception;
+	//매물 등록 시 현재 매물개수 확인 수정확인
+	public ArrayList<ShopPremiumItemVO> shopCount() throws Exception;
 	
 	//매물 등록 개수 update
 	public int shopCountUpdate(ShopItemVO sItem) throws Exception;
