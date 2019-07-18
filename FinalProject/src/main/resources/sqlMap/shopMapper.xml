@@ -165,13 +165,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중'
+			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단'
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
 	<!-- 매물 총 게시물 수 -->
 	<select id="shopItemTotalCount" resultType="_int">
-		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중'
+		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단'
 	</select>
 	<!-- 매물 상세보기 -->
 	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
@@ -240,13 +240,20 @@
 				from shop_item_img_tbl
 				where shop_item_idx=#{shopItemIdx}
 	</select>
-	<!-- 매물 삭제 -->
-	<update id="shopItemDelete" parameterType="shopItemVO">
+	<!-- 매물 판매 중단 -->
+	<update id="shopItemStop" parameterType="shopItemVO">
 		update shop_item_tbl set shop_item_sale_state='판매중단' where shop_item_idx=#{shopItemIdx}
 	</update>
-	
+	<!-- 매물 판매 진행 -->
+	<update id="shopItemIng" parameterType="shopItemVO">
+		update shop_item_tbl set shop_item_sale_state='판매중' where shop_item_idx=#{shopItemIdx}
+	</update>
+	<!-- 매물 삭제 -->
+	<update id="shopItemDelete" parameterType="shopItemVO">
+		update shop_item_tbl set shop_item_sale_state='삭제' where shop_item_idx=#{shopItemIdx}
+	</update>
 	<!-- 방문 신청 -->
-	<insert id="ShopReserveJoin" parameterType="shopReservationVO">
+	<insert id="shopReserveJoin" parameterType="shopReservationVO">
 		insert into shop_reservation_tbl values(
 			shop_reservation_idx_seq.nextval,
 			#{userIdx, jdbcType=VARCHAR},
@@ -254,9 +261,38 @@
 			#{shopReservationName, jdbcType=VARCHAR},
 			#{shopReservationTel, jdbcType=VARCHAR},
 			#{shopReservationManager, jdbcType=VARCHAR},
-			#{shopReservationState, jdbcType=VARCHAR},
+			default,
 			sysdate
 		)
 	</insert>
-	
+	<!-- 방문 리스트 개수 -->
+	<select id="shopReservationTotalCount" resultType="_int">
+		select count(*) cnt from shop_reservation_tbl where shop_reservation_state='예약대기' or shop_reservation_state='예약완료'
+	</select>
+	<!-- 방문 리스트 뿌리기 -->
+	<select id="selectReservationAllList" resultType="shopReservationVO" parameterType="_int">
+			select shop_reservation_idx as shopReservationIdx,
+				user_idx as userIdx,
+				shop_item_idx as shopItemIdx,
+				shop_reservation_name as shopReservationName,
+				shop_reservation_tel as shopReservationTel,
+				shop_reservation_manager as shopReservationManager,
+				shop_reservation_state as shopReservationState,
+				shop_reservation_date as shopReservationDate
+			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료'
+			order by rownum desc) item)
+			where rnum between #{start} and #{end} 
+	</select>
+	<!-- 예약 진행 -->
+	<update id="reservationhold" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='예약완료' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	<!-- 예약 완료 -->
+	<update id="reservationIng" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='상담완료' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	<!-- 예약 삭제 -->
+	<update id="reservationDel" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='삭제' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
 </mapper>

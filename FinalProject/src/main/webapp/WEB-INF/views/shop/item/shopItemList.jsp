@@ -101,13 +101,21 @@
 							<div>${item.shopItemDealType }</div>
 						</td>
 						<td>${item.shopItemTitle }</td>
-						<td><span class="tag col_blue f_w">${item.shopItemSaleState }</span></td>
+						<td>
+						<span class="tag col_blue f_w">${item.shopItemSaleState }</span>
+						</td>
 						<td><span class="tag col_green f_w">${item.shopItemPremiumState }</span></td>
 						<td>${item.shopItemRegDate }</td>
 						<td>
 							<div class="set_menu">
 								<input name="idx" type="hidden" value=${item.shopItemIdx }>
 								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">상세보기</a>
+								<c:if test="${item.shopItemSaleState eq '판매중단'}">
+									<button type="button" class="btn small col_blue f_w" name="addItem" value=${item.shopItemIdx }>판매진행</button>
+								</c:if>
+								<c:if test="${item.shopItemSaleState eq '판매중'}">
+									<button type="button" class="btn small col_blue f_w" name="stopItem" value=${item.shopItemIdx }>판매중단</button>
+								</c:if>
 								<button type="button" class="btn small col_red f_w" name="delItem" value=${item.shopItemIdx }>삭제</button>
 							</div>
 						</td>
@@ -129,6 +137,20 @@
 		var idx = $(this).val();
 		if(confirm("정말 삭제하시겠습니까?")){
 			location.href="/shop/shopItemDelete?shopItemIdx="+idx;
+		}
+		return;
+	});
+	$("button[name='stopItem']").click(function(){
+		var idx = $(this).val();
+		if(confirm("판매중단으로 변경하시겠습니까?")){
+			location.href="/shop/shopItemStop?shopItemIdx="+idx;
+		}
+		return;
+	});
+	$("button[name='addItem']").click(function(){
+		var idx = $(this).val();
+		if(confirm("판매중으로 변경하시겠습니까?")){
+			location.href="/shop/shopItemIng?shopItemIdx="+idx;
 		}
 		return;
 	})

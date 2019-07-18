@@ -212,7 +212,6 @@ public class ShopItemController {
 //		shopService.shopItemImgAdd(imgList);
 		return "redirect:/shop/item";
 	}
-	
 	/**
 	 * 중개사 페이지 - 매물 삭제 로직(itemDelete)
 	 * @param shopItemIdx
@@ -222,6 +221,34 @@ public class ShopItemController {
 	@RequestMapping("/shopItemDelete")
 	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
+		if(result>0) {
+			return "redirect:/shop/item";
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 중개사 페이지 - 매물 판매 중단 로직(itemStop)
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemStop")
+	public String shopItemStop(@RequestParam int shopItemIdx)throws Exception {
+		int result = shopService.shopItemStop(shopItemIdx);
+		if(result>0) {
+			return "redirect:/shop/item";
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 중개사 페이지 - 매물 판매 진행 로직(itemIng)
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemIng")
+	public String shopItemIng(@RequestParam int shopItemIdx)throws Exception {
+		int result = shopService.shopItemIng(shopItemIdx);
 		if(result>0) {
 			return "redirect:/shop/item";
 		}
