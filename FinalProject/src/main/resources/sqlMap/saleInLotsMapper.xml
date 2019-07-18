@@ -120,4 +120,46 @@
 				where saleInLots_faq_type = #{saleInLotsFaqType}
 			</if>
 	</select>
+	<select id="saleInLotsBrandTotalCount" parameterType="java.util.Map" resultType="_int">
+		select count(*) as cnt from saleInLots_tbl where
+		<if test='brandName.equals("아이파크")'>
+			saleInLots_constructor like '%'||'에이치디씨현대산업개발'||'%'
+		</if>
+		<if test='brandName.equals("푸르지오")'>
+			saleInLots_constructor like '%'||'대우건설'||'%'
+		</if>
+		<if test='brandName.equals("자이")'>
+			saleInLots_constructor like '%'||'지에스건설'||'%'
+		</if>
+	</select>
+	<select id="saleInLotsBrand" parameterType="java.util.Map" resultType="saleInLotsVO">
+		select a.* from
+			   (select 
+			   saleinlots_idx as saleInLotsIDX,
+			   saleinlots_state as saleInLotsState,
+			   saleinlots_build_type as saleInLotsBuildType,
+			   saleinlots_supply_type as saleInLotsSupplyType,
+			   saleinlots_name as saleInLotsName,
+			   saleinlots_detail_area as saleInLotsDetailArea,
+			   saleinlots_price_min_all as saleInLotsPriceMinAll,
+			   saleinlots_price_max_all as saleInLotsPriceMaxAll,
+			   saleinlots_sale_household as saleInLotsSaleHousehold,
+			   saleinlots_min_floor as saleInLotsMinFloor,
+			   saleinlots_max_floor as saleInLotsMaxFloor,
+			   saleinLots_min_supply_area as saleInLotsMinSupplyArea,
+			   saleinLots_max_supply_area as saleInLotsMaxSupplyArea,
+			   ROW_NUMBER() OVER(ORDER BY saleinlots_idx ASC) rNUM
+			   from saleinlots_tbl where 
+				<if test='brandName.equals("아이파크")'>
+					saleInLots_constructor like '%'||'에이치디씨현대산업개발'||'%'
+				</if>
+				<if test='brandName.equals("푸르지오")'>
+					saleInLots_constructor like '%'||'대우건설'||'%'
+				</if>
+				<if test='brandName.equals("자이")'>
+					saleInLots_constructor like '%'||'지에스건설'||'%'
+				</if>
+			     ) a
+			   where rNUM between #{start} and #{end}
+	</select>
 </mapper>

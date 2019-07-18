@@ -1,6 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="http://code.jquery.com/jquery-3.4.0.js"></script>
-
 <nav class="lnb_wrap">
 	<div class="lnb_con">
 		<div class="lnb_show">회원 관리</div>

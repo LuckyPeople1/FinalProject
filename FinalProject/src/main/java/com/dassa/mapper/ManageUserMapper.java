@@ -28,4 +28,6 @@ public interface ManageUserMapper {
 
 	public List<UserVO> getSearchUserList(SearchUserVO searchUserVO);
 
+	public List<UserVO> getSearchDate(SearchUserVO searchUserVO);
+
 }

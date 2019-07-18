@@ -7,7 +7,22 @@ public class SearchUserVO {
 	private String userType1;
 	private String userType2;
 	private String status;
+	private String endDate;
+	private String startDate;
 	
+	
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
 	public String getSearchType() {
 		return searchType;
 	}
@@ -45,7 +60,7 @@ public class SearchUserVO {
 		this.status = status;
 	}
 	public SearchUserVO(String searchType, String searchWord, String userType, String userType1, String userType2,
-			String status) {
+			String status, String endDate, String startDate) {
 		super();
 		this.searchType = searchType;
 		this.searchWord = searchWord;
@@ -53,6 +68,8 @@ public class SearchUserVO {
 		this.userType1 = userType1;
 		this.userType2 = userType2;
 		this.status = status;
+		this.endDate = endDate;
+		this.startDate = startDate;
 	}
 	public SearchUserVO() {
 		super();

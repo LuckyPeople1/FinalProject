@@ -52,8 +52,6 @@
 						<tr>
 							<th>파일</th>
 							<td>
-								<%-- <input type="file" name="noticeFilename" value="${noticeVO.noticeFilename }"><br>
-								<input type="hidden" name="noticeFilepath" value="${noticeVO.noticeFilepath }"> --%>
 								<div class="img_up_list">
 									<div class="img_box">
 										<input type="file" class="hide" accept="image/*" name="noticefilename" id="fileImg"

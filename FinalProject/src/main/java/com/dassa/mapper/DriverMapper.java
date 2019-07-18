@@ -1,5 +1,6 @@
 package com.dassa.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.annotation.MapperScan;
@@ -50,7 +51,8 @@ public int driverAuctionInsert(DriverVO driverVO) throws Exception;
 
 //입찰관리 입찰상태 update 하기
 public int driverAuctionUpdate(int applyIdx) throws Exception;
-
+//입찰관리 입찰상태 짐update 하기
+public int driverAuctionApplyUpdate(int applyIdx) throws Exception;
 //이사관리 상세보기 기사정보 값 보기
 public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
 
@@ -58,5 +60,8 @@ public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
 public List<DriverMypageReviewVO> driverReview(int driverIdx);
 
 public List<UserVO> userNameSelectOne();
+
+//매출 통계
+public ArrayList<MovePaymentVO> driverSaleList(int driverIdx);
 
 }

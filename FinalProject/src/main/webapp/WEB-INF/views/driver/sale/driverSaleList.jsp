@@ -70,11 +70,11 @@
 					</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${list }" var="driverReview">
+					<c:forEach items="${list }" var="driverPayment">
 					<tr>
-						<td>${driverReview.reviewDate }</td>
-						<td>${driverReview.reviewMessage }</td>
-						<td>${driverReview.estimateAmount }원</td>
+						<td>${driverPayment.movePaymentIdx }</td>
+						<td>${driverPayment.movePaymentImpUid }</td>
+						<td>${driverPayment.movePaymentAmount }원</td>
 					</tr>	
 					</c:forEach>	
 					</tbody>

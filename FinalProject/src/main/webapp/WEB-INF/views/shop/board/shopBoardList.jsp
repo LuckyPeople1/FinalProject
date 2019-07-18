@@ -30,12 +30,12 @@
 					</colgroup>
 					<tr>
 						<th>검색어</th>
-						<td>
+						<td colspan="3">
 							<input class="tbox w_6p">
 						</td>
 					</tr>
 					<tr>
-						<th>예약일</th>
+						<th>작성일</th>
 						<td colspan="3">
 							<input class="tbox" id="dateS">
 							<span class="hyphen">~</span>
@@ -57,107 +57,63 @@
 			<div class="list_form">
 				<div class="table_list_btn">
 					<span class="right_btn">
-						<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택 취소</a>
+						<a href="/shop/board/shopNoticeWriter" class="btn col_darkGrey f_w">글쓰기</a>
 					</span>
 				</div>
 				<table class="table_list">
 					<colgroup>
-						<col width="40">
-						<col width="65">
-						<col width="115">
-						<col width="80">
-						<col width="80">
-						<col width="115">
+						<col width="60">
 						<col width="90">
-						<col width="200">
-						<col width="90">
+						<col width="*">
+						<col width="130">
+						<col width="130">
+						<col width="100">
 						<col width="80">
-						<col width="85">
-						<col width="170">
 					</colgroup>
 					<thead>
 					<tr>
 						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
-						<th>예약번호</th>
-						<th>매장명</th>
-						<th>아이디<br/>고객명</th>
-						<th>연락처</th>
-						<th>예약일시</th>
-						<th>상품명</th>
-						<th>총 상품금액</th>
-						<th>담당직원</th>
-						<th>예약상태</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일시</th>
+						<th>상태</th>
 						<th>관리</th>
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list }" var="s">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>1</td>
+						<td>${s.noticeIndex }</td>
 						<td>
-							<div class="mb5">1808021-1234</div>
-							<a href="#none" class="btn col_grey line" onclick="memo_pop(this)">메모</a>
+							<div class="text-left">${s.noticeTitle }</div>
 						</td>
 						<td>
-							<div>가인네일</div>
+							<div>${s.noticeWriter }</div>
 						</td>
-						<td>ssooya90<br/>최희수</td>
-						<td>01084649696</td>
-						<td>18-09-30<br/>11:30</td>
 						<td>
-							<div class="item_name">블링블링 웨이브펌</div>
-							<div class="option_name">기장추가 - 가슴아래(+50,000)</div>
-							<div class="option_name">클리닉 - 클리닉A(+50,000)</div>
+							<div>${s.noticeRegDate }</div>
 						</td>
-						<td>150,000</td>
-						<td>이나영</td>
 						<td>
-							<span class="tag col_green f_w">체크아웃</span>
+							<div>${s.noticeState }</div>
 						</td>
 						<td>
 							<div class="set_menu">
-								<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
+								<a href="/shop/board/shopNoticeView?noticeIndex=${s.noticeIndex }" class="btn col_navy f_w">상세보기</a>
+								<a href="/shop/board/shopNoticeModify?noticeIndex=${s.noticeIndex }" class="btn col_darkGrey f_w">수정하기</a>
+								<a href="/shop/board/shopNoticeDelete?noticeIndex=${s.noticeIndex }" class="btn col_red f_w">삭제하기</a>
 							</div>
 
 						</td>
 					</tr>
-					<tr>
-						<td><label><input type="checkbox"></label></td>
-						<td>1</td>
-						<td>
-							<div class="mb5">1808021-1234</div>
-							<a href="#none" class="btn col_grey line" onclick="memo_pop(this)">메모</a>
-						</td>
-						<td>
-							<div>가인네일</div>
-						</td>
-						<td>ssooya90<br/>최희수</td>
-						<td>01084649696</td>
-						<td>18-09-30<br/>11:30</td>
-						<td>
-							<div class="item_name">블링블링 웨이브펌</div>
-							<div class="option_name">기장추가 - 가슴아래(+50,000)</div>
-							<div class="option_name">클리닉 - 클리닉A(+50,000)</div>
-						</td>
-						<td>150,000</td>
-						<td>이나영</td>
-						<td>
-							<span class="tag col_green f_w">예약중</span>
-						</td>
-						<td>
-							<div class="set_menu">
-								<a href="reserve_checkout.html" class="btn col_red f_w">체크아웃</a>
-								<a href="reserve_noshow.html" class="btn col_darkGrey f_w">노쇼</a>
-								<a href="reserve_info.html" class="btn col_navy f_w">상세보기</a>
-								<a href="reserve_cancel_info.html" class="btn col_grey line">취소</a>
-							</div>
-
-						</td>
-					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
+			<div id="pageNavi" class="page_group clearFix">
+				${pageNavi}
+			</div><br>
 			<ul class="page_wrap">
 				<li><a href="#none">First</a></li>
 				<li><a href="#none">Prev</a></li>
