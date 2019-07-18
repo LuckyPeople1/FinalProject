@@ -65,7 +65,10 @@
   		select avg(review_star) as reviewStarAVG ,count(*) as reviewCount from driver_review_tbl where driver_idx=#{driverIdx}
   	</select>
   	<update id="moveApplyStateUpdate" parameterType="_int">
-  		update move_apply_tbl set apply_status = '1' where apply_idx=#{applyIdx}
+  		update move_apply_tbl set apply_status = '2' where apply_idx=#{applyIdx}
+  	</update>
+  	<update id="moveDriverStateUpdate" parameterType="_int">
+  		update driver_tbl set auction_state = 2 where apply_idx=#{applyIdx}
   	</update>
   	<select id="paymentInfo" parameterType="_int" resultType="com.dassa.vo.MovePaymentVO">
   		select move_payment_idx as movePaymentIdx,
@@ -82,6 +85,9 @@
   	</select>
   	<update id="guestMovePaymentCencel" parameterType="com.dassa.vo.MovePaymentVO">
   		update move_payment_tbl set move_payment_status = #{movePaymentStatus}, move_payment_cenceldate = sysdate where MOVE_PAYMENT_imp_uid = #{movePaymentImpUid}
+  	</update>
+  	<update id="guestMoveDriverCencel" parameterType="_int">
+  		update driver_tbl set auction_state = 4 where apply_idx=#{applyIdx}
   	</update>
   	<update id="guestMoveApplyCencel" parameterType="_int">
   		update move_apply_tbl set apply_status = '0' where apply_idx=#{applyIdx}
@@ -104,11 +110,14 @@
 		insert into driver_review_tbl values (driver_review_idx_seq.nextval,#{driverIdx},#{applyIdx},#{reviewStar},#{reviewMessage},#{extraMoney},sysdate)
 	</insert>
 
+	<update id="moveApplyFinalCompletion" parameterType="_int">
+		update move_apply_tbl set apply_status = '3' where apply_idx=#{applyIdx}
+	</update>
 	<update id="driverMoveFinalCompletion" parameterType="_int">
-		update move_apply_tbl set apply_status = '2' where apply_idx=#{applyIdx}
+		update driver_tbl set auction_state = 3 where apply_idx=#{applyIdx}
 	</update>
 	<select id="driverReviewSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverReviewVO">
-		select review_idx as reviewIdx from driver_review_tbl
+		select review_idx as reviewIdx from driver_review_tbl where apply_idx=#{applyIdx}
 	</select>
 	<select id="applyIdxSelectList" parameterType="_int" resultType="com.dassa.vo.DriverMypageReviewVO">
 	

@@ -42,6 +42,7 @@ public class GuestMoveService {
 		System.out.println("service 갔다온후 :"+result);
 		if(result > 0) {
 			guestMoveMapper.guestMoveApplyCencel(applyIdx);
+			guestMoveMapper.guestMoveDriverCencel(applyIdx);
 		}
 		return result;
 	}
@@ -62,7 +63,7 @@ public class GuestMoveService {
 		int result = guestMoveMapper.guestMovePayment(mpVo);
 		if(result > 0) {
 			guestMoveMapper.moveApplyStateUpdate(applyIdx);
-			
+			guestMoveMapper.moveDriverStateUpdate(applyIdx);
 		}else {
 
 		}
@@ -83,7 +84,9 @@ public class GuestMoveService {
 		for(int i =0;i<list.size();i++) {
 			DriverReviewVO reVO = guestMoveMapper.driverReviewSelectOne(list.get(i).getApplyIdx());
 			if(reVO != null) {
+				System.out.println(reVO.getReviewIdx());
 				reList.add(reVO);
+				System.out.println(reList.get(0).getReviewIdx());
 			}else {
 				reList.add(null);
 			}
@@ -121,7 +124,10 @@ public class GuestMoveService {
 		List<DriverApplyImgVO> imgList =driverMapper.driverImgList(applyIdx);
 		MoveAuctionVO maVo = guestMoveMapper.moveAuctionInfo(applyIdx);					
 		MovePaymentVO payVo = guestMoveMapper.paymentInfo(applyIdx);
-		MoveAuctionReview reVo = guestMoveMapper.driverReviewSelect(maVo.getDriverIdx());
+		MoveAuctionReview reVo = null;
+		if(maVo != null) {
+			reVo = guestMoveMapper.driverReviewSelect(maVo.getDriverIdx());
+		}
 		DriverReviewVO reOneVO = guestMoveMapper.driverReviewSelectOne(applyIdx);
 		System.out.println(reOneVO.getApplyIdx());
 		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo,reVo,reOneVO);

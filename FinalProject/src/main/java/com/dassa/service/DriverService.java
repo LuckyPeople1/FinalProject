@@ -1,5 +1,6 @@
 package com.dassa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 
 @Service("DriverService")
@@ -96,7 +98,11 @@ public class DriverService {
 		
 		return driverMapper.driverAuctionUpdate(applyIdx);
 	}
-
+	@Transactional
+	public int driverAuctionApplyUpdate(int applyIdx) throws Exception{
+		return driverMapper.driverAuctionApplyUpdate(applyIdx);
+	}
+	
 	public DriverVO driverMoveSelectOne(int applyIdx) throws Exception {
 		
 		return driverMapper.driverMoveSelectOne(applyIdx) ;
@@ -114,8 +120,14 @@ public class DriverService {
 
 	//이사 최종완료
 	public int driverMoveFinalCompletion(int applyIdx) throws Exception {
-		return guestMoveMapper.driverMoveFinalCompletion(applyIdx);
+		int result =  guestMoveMapper.driverMoveFinalCompletion(applyIdx);
+		if(result > 0) {
+			guestMoveMapper.moveApplyFinalCompletion(applyIdx);
+		}
+		return result;
 	}
-	
+	public ArrayList<MovePaymentVO> driverSaleList(int driverIdx){
+		return driverMapper.driverSaleList(driverIdx);
+	}
 
 }

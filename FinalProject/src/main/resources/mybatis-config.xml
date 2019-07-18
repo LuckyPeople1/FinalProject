@@ -11,6 +11,7 @@
 		<typeAlias type="com.dassa.vo.JusoGuVO" alias="jusoGuVO"/>
 		<typeAlias type="com.dassa.vo.JusoDongVO" alias="jusoDongVO"/>
 		<typeAlias type="com.dassa.vo.ShopItemVO" alias="shopItemVO"/> <!-- 매물 -->
+		<typeAlias type="com.dassa.vo.ShopPremiumItemVO" alias="shopPremiumItemVO"/>
 		<typeAlias type="com.dassa.vo.ShopItemImgVO" alias="shopItemImgVO"/> <!-- 매물 이미지 -->
 		<typeAlias type="com.dassa.vo.ShopReservationVO" alias="shopReservationVO"/> <!-- 매물 이미지 -->
 		<typeAlias type="com.dassa.vo.ShopItemSearchVO" alias="shopItemSearchVO"/> <!-- 매물 이미지 -->

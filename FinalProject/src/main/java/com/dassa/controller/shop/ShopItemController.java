@@ -85,7 +85,7 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemAdd")
-	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg, @RequestParam int userIdx)throws Exception {
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 		System.out.println("입주형태1 : "+sItem.getShopItemMovingDate1());
 		System.out.println("입주형태2 : "+sItem.getShopItemMovingDate2());
@@ -111,9 +111,18 @@ public class ShopItemController {
 				System.out.println("최종이미지리스트"+imgList);
 			}
 		}
-		shopService.shopItemAdd(sItem, imgList);
-//		shopService.shopItemImgAdd(imgList);
-		return "redirect:/shop/item";
+		int count = shopService.shopCount(userIdx);
+		System.out.println("등록 가능 매물 개수 : "+count);
+		if(count>0) {
+			shopService.shopItemAdd(sItem, imgList);
+			System.out.println("상품등록할 상품idx"+sItem.getShopItemIdx());
+			System.out.println("상품등록할 userIdx"+userIdx);
+			shopService.shopCountUpdate(sItem);
+			
+			return "redirect:/shop/item";
+		}else {
+			return "redirect:/shop/";
+		}
 	}
 	/**
 	 * 부동산 매물 상세페이지(itemInfo)

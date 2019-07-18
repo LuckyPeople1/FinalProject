@@ -1,6 +1,8 @@
 package com.dassa.controller.guest;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
@@ -10,16 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.SaleInLotsService;
 import com.dassa.vo.SaleInLotsFaqVO;
 import com.dassa.vo.SaleInLotsPageDataVO;
 import com.dassa.vo.SaleInLotsTremsVO;
 import com.dassa.vo.SaleInLotsVO;
-import com.google.gson.JsonObject;
-
-import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/saleInLots")
@@ -86,7 +84,8 @@ public class SaleInLotsController {
 	 * @throws 
 	 */
 	@RequestMapping("/saleInLotsProcess")
-	public String saleInLotsProcess() {
+	public String saleInLotsProcess(Model model,@RequestParam(defaultValue="0")int tab) {
+		model.addAttribute("tab",tab);
 		return "guest/saleInLots/saleInLotsProcess";
 
 	}
@@ -98,15 +97,16 @@ public class SaleInLotsController {
 	 * @throws 
 	 */
 	@RequestMapping("/saleInLotsFaq")
-	public String saleInLotsFaq(Model model) throws Exception {
+	public String saleInLotsFaq(Model model,@RequestParam(defaultValue="0")int tab) throws Exception {
 		ArrayList<SaleInLotsFaqVO> list = saleInLotsService.saleInLotsFaq();
 		model.addAttribute("list",list);
+		model.addAttribute("tab", tab);
 		return "guest/saleInLots/saleInLotsFaq";
 
 	}
 	/**
 	 * @throws Exception 
-	 * 분양 가이드 페이지(자주하는 질문)
+	 * 분양 가이드 페이지(자주하는 질문)Ajax
 	 * @param 
 	 * @return
 	 * @throws 
@@ -118,7 +118,6 @@ public class SaleInLotsController {
 		sfVo.setSaleInLotsFaqType(type);
 		ArrayList<SaleInLotsFaqVO> list = saleInLotsService.saleInLotsFaqAjax(sfVo);
 		return list;
-
 	}
 	/**
 	 * @throws Exception 
@@ -128,9 +127,10 @@ public class SaleInLotsController {
 	 * @throws 
 	 */
 	@RequestMapping("/saleInLotsTerms")
-	public String saleInLotsTerms(Model model) throws Exception {
+	public String saleInLotsTerms(Model model,@RequestParam(defaultValue="0")int tab) throws Exception {
 		ArrayList<SaleInLotsTremsVO> list = saleInLotsService.saleInLotsTerms();
 		model.addAttribute("list", list);
+		model.addAttribute("tab",tab);
 		return "guest/saleInLots/saleInLotsTerms";
 	}
 	/**
@@ -146,14 +146,28 @@ public class SaleInLotsController {
 
 	}
 	/**
+	 * @throws Exception 
 	 * 분양 브랜드관 페이지
 	 * @param 
 	 * @return
 	 * @throws 
 	 */
 	@RequestMapping("/saleInLotsBrand")
-	public String saleInLotsBrand() {
+	public String saleInLotsBrand(Model model, @RequestParam(defaultValue="1") int reqPage,@RequestParam(defaultValue="아이파크")String brandName) throws Exception {
+		Map<String, Object> str = new HashMap<String, Object>();
+		str.put("brandName", brandName);
+		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsBrand(reqPage,str);
+		model.addAttribute("sp",spVO);
 		return "guest/saleInLots/saleInLotsBrand";
+
+	}
+	@ResponseBody
+	@RequestMapping("/saleInLotsBrandAjax")
+	public SaleInLotsPageDataVO saleInLotsBrandAjax(@RequestParam(defaultValue="1") int reqPage,String brandName) throws Exception {
+		Map<String, Object> str = new HashMap<String, Object>();
+		str.put("brandName", brandName);
+		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsBrand(reqPage,str);
+		return spVO;
 
 	}
 	//문자열 나누기용 메소드

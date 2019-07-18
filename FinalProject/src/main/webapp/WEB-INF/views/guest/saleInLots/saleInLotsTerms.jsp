@@ -38,7 +38,7 @@
 						
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 1 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>01</span> 분양공고문
 							</div>
@@ -48,7 +48,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 1 ? 'block' : 'none' }">
 							<c:forEach var="item" items="${list }">
 								<c:if test="${item.saleInLotsTermsType == '분양공고문' }">
 									<div class="box">
@@ -60,7 +60,7 @@
 						</div>
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 2 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>02</span> 대출용어
 							</div>
@@ -70,7 +70,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 2 ? 'block' : 'none' }">
 							<c:forEach var="item" items="${list }">
 								<c:if test="${item.saleInLotsTermsType == '대출용어' }">
 									<div class="box">
@@ -82,7 +82,7 @@
 						</div>
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 3 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>03</span> 주택용어
 							</div>
@@ -92,7 +92,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 3 ? 'block' : 'none' }">
 							<c:forEach var="item" items="${list }">
 								<c:if test="${item.saleInLotsTermsType == '주택용어' }">
 									<div class="box">
@@ -104,7 +104,7 @@
 						</div>
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 4 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>04</span> 건축물용어
 							</div>
@@ -114,7 +114,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 4 ? 'block' : 'none' }">
 							<c:forEach var="item" items="${list }">
 								<c:if test="${item.saleInLotsTermsType == '건축물 용어' }">
 									<div class="box">
