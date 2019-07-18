@@ -259,4 +259,15 @@ public class MovePackageService {
 	public PackageTempVO getPackageSelect(int idx) throws Exception {
 		return movePackageMapper.getPackage(idx);
 	}
+
+	public int modifyPackage(PackageRegVO packageRegVO) throws Exception {
+		return movePackageMapper.modifyPackage(packageRegVO);
+
+
+	}
+
+	public int packageListCnt(PackageSearchFilterVO packageSearchFilterVO) throws Exception {
+		return movePackageMapper.packageListCnt(packageSearchFilterVO);
+
+	}
 }

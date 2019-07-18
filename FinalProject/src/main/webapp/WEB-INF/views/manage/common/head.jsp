@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="/manage/css/jquery-ui.min.css">
 	<script src="/manage/js/jquery-3.1.1.min.js"></script>
 	<script src="/manage/js/jquery-ui-1.12.1.js"></script>
+	<script src="/manage/js/search.js"></script>
 	<script src="/manage/js/ui.js"></script>
 </head>
 <body>
