@@ -90,21 +90,30 @@
 				</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="u" items="${list}">
-						<tr>
-							<td>${u.userIdx }</td>
-							<td>${u.userId }</td>
-							<td>${u.userName }</td>
-							<td>${u.userAddr }</td>
-							<td>${u.userPhone }</td>
-							<td>${u.userEmail }</td>
-							<td>${u.type }</td>
-							<td>${u.enrollDate }</td>
-							<td>
-								<a href="/userManage/deleteUser?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
-							</td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${not empty list }">
+							<c:forEach var="u" items="${list}">
+								<tr>
+									<td>${u.userIdx }</td>
+									<td>${u.userId }</td>
+									<td>${u.userName }</td>
+									<td>${u.userAddr }</td>
+									<td>${u.userPhone }</td>
+									<td>${u.userEmail }</td>
+									<td>${u.type }</td>
+									<td>${u.enrollDate }</td>
+									<td>
+										<a href="/userManage/reLoad?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="9">승인대기 회원 목록이 없습니다.</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 		</div>

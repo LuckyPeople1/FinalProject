@@ -6,6 +6,8 @@ public class SearchUserVO {
 	private String userType;
 	private String userType1;
 	private String userType2;
+	private String status;
+	
 	public String getSearchType() {
 		return searchType;
 	}
@@ -36,18 +38,27 @@ public class SearchUserVO {
 	public void setUserType2(String userType2) {
 		this.userType2 = userType2;
 	}
-	public SearchUserVO() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getStatus() {
+		return status;
 	}
-	public SearchUserVO(String searchType, String searchWord, String userType, String userType1, String userType2) {
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public SearchUserVO(String searchType, String searchWord, String userType, String userType1, String userType2,
+			String status) {
 		super();
 		this.searchType = searchType;
 		this.searchWord = searchWord;
 		this.userType = userType;
 		this.userType1 = userType1;
 		this.userType2 = userType2;
+		this.status = status;
 	}
+	public SearchUserVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 }
