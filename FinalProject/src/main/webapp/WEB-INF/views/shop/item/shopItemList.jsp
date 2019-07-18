@@ -102,7 +102,12 @@
 						</td>
 						<td>${item.shopItemTitle }</td>
 						<td>
-						<span class="tag col_blue f_w">${item.shopItemSaleState }</span>
+						<c:if test="${item.shopItemSaleState eq '판매중단'}">
+							<span class="tag col_darkGrey f_w">${item.shopItemSaleState }</span>
+						</c:if>
+						<c:if test="${item.shopItemSaleState eq '판매중'}">
+							<span class="tag col_blue f_w">${item.shopItemSaleState }</span>
+						</c:if>
 						</td>
 						<td><span class="tag col_green f_w">${item.shopItemPremiumState }</span></td>
 						<td>${item.shopItemRegDate }</td>
@@ -114,7 +119,7 @@
 									<button type="button" class="btn small col_blue f_w" name="addItem" value=${item.shopItemIdx }>판매진행</button>
 								</c:if>
 								<c:if test="${item.shopItemSaleState eq '판매중'}">
-									<button type="button" class="btn small col_blue f_w" name="stopItem" value=${item.shopItemIdx }>판매중단</button>
+									<button type="button" class="btn small col_darkGrey f_w" name="stopItem" value=${item.shopItemIdx }>판매중단</button>
 								</c:if>
 								<button type="button" class="btn small col_red f_w" name="delItem" value=${item.shopItemIdx }>삭제</button>
 							</div>

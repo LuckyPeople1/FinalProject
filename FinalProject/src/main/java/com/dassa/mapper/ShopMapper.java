@@ -79,4 +79,10 @@ public interface ShopMapper {
 	
 	//방문 삭제
 	public int reservationDel(int shopReservationIdx) throws Exception;
+	
+	//매물 등록 시 현재 매물개수 확인
+	public int shopCount(int userIdx) throws Exception;
+	
+	//매물 등록 개수 update
+	public int shopCountUpdate(ShopItemVO sItem) throws Exception;
 }

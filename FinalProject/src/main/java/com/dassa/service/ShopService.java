@@ -42,7 +42,17 @@ public class ShopService {
 		return shopMapper.getJusoDongList(jusoGuCode);
 	}
 	/**
-	 * 중개사페이지 - 매물등록, 이미지 같이 등록 
+	 * 등록 가능 매물 개수
+	 * @param userIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopCount(int userIdx) throws Exception{
+		return shopMapper.shopCount(userIdx);
+	}
+	
+	/**
+	 * 중개사페이지 - 매물등록, 이미지 같이 등록
 	 * @param sItem
 	 * @return
 	 * @throws Exception
@@ -51,6 +61,11 @@ public class ShopService {
 		shopMapper.shopItemAdd(sItem);
 		return shopMapper.shopItemImgAdd(sItemImgList);
 	}
+	
+	public int shopCountUpdate(ShopItemVO sItem)throws Exception{
+		return shopMapper.shopCountUpdate(sItem);
+	}
+	
 	/**
 	 * 중개사 페이지 - 매물수정, 이미지 같이 수정
 	 * @param sItem

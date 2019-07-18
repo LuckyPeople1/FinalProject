@@ -15,6 +15,10 @@
 			juso_dong_name as jusoDongName
 		from juso_dong_tbl where juso_dong_code like #{jusoGuCode}||'%' order by juso_dong_name asc
 	</select>
+	<!-- 등록 할 수 있는 개수 확인 -->
+	<select id="shopCount" resultType="_int">
+		select count(*) from shop_premium_item_tbl where shop_item_idx=0
+	</select>
 	<!-- 매물 등록  -->
 	<insert id="shopItemAdd" parameterType="shopItemVO">
 		insert into shop_item_tbl values(
@@ -77,6 +81,14 @@
 			#{shopItemHouseNumber, jdbcType=VARCHAR}
 			)
 	</insert>
+	<!-- 매물 등록 시  아이템 개수 증감 -->
+	<update id="shopCountUpdate" parameterType="shopItemVO">
+		update shop_premium_item_tbl set
+		 (select rownum as rnum, item.* from (select * from shop_premium_item_tbl where shop_item_idx=0 order by rownum desc) item)
+			shop_item_idx=shop_item_idx_seq.currval
+		where user_idx=#{userIdx}
+	</update>
+	
 	<!-- 매물 이미지 등록 -->
 	<insert id="shopItemImgAdd" parameterType="java.util.List">
 		insert into 
@@ -242,7 +254,7 @@
 	</select>
 	<!-- 매물 판매 중단 -->
 	<update id="shopItemStop" parameterType="shopItemVO">
-		update shop_item_tbl set shop_item_sale_state='판매중단' where shop_item_idx=#{shopItemIdx}
+		update shop_item_tbl set shop_item_sale_state='판매중단', shop_item_del_date=sysdate where shop_item_idx=#{shopItemIdx}
 	</update>
 	<!-- 매물 판매 진행 -->
 	<update id="shopItemIng" parameterType="shopItemVO">
