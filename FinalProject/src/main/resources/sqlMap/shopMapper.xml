@@ -249,6 +249,7 @@
 	<insert id="ShopReserveJoin" parameterType="shopReservationVO">
 		insert into shop_reservation_tbl values(
 			shop_reservation_idx_seq.nextval,
+			#{userIdx, jdbcType=VARCHAR},
 			#{shopItemIdx, jdbcType=VARCHAR},
 			#{shopReservationName, jdbcType=VARCHAR},
 			#{shopReservationTel, jdbcType=VARCHAR},
