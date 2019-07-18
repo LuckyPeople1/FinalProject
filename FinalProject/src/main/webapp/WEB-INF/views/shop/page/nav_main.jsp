@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="main_nav_wrap">
 	<div class="main_nav">
-		<a href="/shop/" class="on">
+		<a href="/shop/" class="">
 			<i class="ico home">홈</i>
 			<span class="nav_txt">홈</span>
 		</a>
@@ -10,7 +10,7 @@
 			<i class="ico set">부동산 설정</i>
 			<span class="nav_txt">부동산 설정</span>
 		</a>
-		<a href="/shop/member" class="">
+		<a href="/shop/member/" class="${headerNav == 3 ? 'on' : ''}">
 			<i class="ico member">직원관리</i>
 			<span class="nav_txt">직원관리</span>
 		</a>

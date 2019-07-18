@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.ShopMemberMapper">
+
+
+	<resultMap id="memberListMap" type="com.dassa.vo.ShopMemberVO">
+		<result column="SHOP_MEMBER_IDX" property="shopMemberIdx"/>
+		<result column="SHOP_IDX" property="shopIdx"/>
+		<result column="SHOP_MEMBER_NAME" property="shopMemberName"/>
+		<result column="SHOP_MEMBER_PHONE" property="shopMemberPhone"/>
+		<result column="SHOP_MEMBER_COMMENT" property="shopMemberComment"/>
+		<result column="SHOP_MEMBER_IMG_NAME" property="shopMemberImgName"/>
+		<result column="SHOP_MEMBER_IMG_PATH" property="shopMemberImgPath"/>
+		<result column="SHOP_MEMBER_STATE" property="shopMemberState"/>
+		<result column="SHOP_MEMBER_REG_DATE" property="shopMemberRegDate"/>
+		<result column="SHOP_MEMBER_LEAVE_DATE" property="shopMemberLeaveDate"/>
+	</resultMap>
+
+	<!-- 직원 등록 -->
+	<insert id="memberReg" parameterType="com.dassa.vo.ShopMemberVO">
+		insert into SHOP_MEMBER_TBL
+		values (SHOP_MEMBER_SEQ.nextval,
+		#{shopIdx},
+		#{shopMemberName},
+		#{shopMemberPhone},
+		null,
+		<choose>
+			<when test="shopMemberImgName != null">
+				#{shopMemberImgName},
+				#{shopMemberImgPath},
+			</when>
+			<otherwise>
+				null,
+				null,
+			</otherwise>
+		</choose>
+		0,
+		sysdate,
+		null
+		)
+	</insert>
+
+	<select id="getMember" resultMap="memberListMap" parameterType="int">
+		select * from SHOP_MEMBER_TBL where SHOP_MEMBER_STATE = 0 and SHOP_IDX = #{userIdx}
+	</select>
+
+</mapper>

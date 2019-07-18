@@ -557,6 +557,7 @@
 					<h1 class="kLiQkI">방문상담하기</h1>
 					<p class="cKVLgb">연락처를 남겨주시면, 확인 후 연락드립니다.</p>
 					<form class="dhDUnZ" action="/shop/reserveAdd">
+						<input type="hidden" name="userIdx" value="${item.userIdx }">
 						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
 						<input type="hidden" name="shopReservationName" value="">  <!-- 예약고객 -->
 						<input type="hidden" name="shopReservationManager" value="">
