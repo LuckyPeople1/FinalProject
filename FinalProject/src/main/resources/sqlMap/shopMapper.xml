@@ -283,7 +283,6 @@
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
-	
 	<!-- 예약 진행 -->
 	<update id="reservationhold" parameterType="shopReservationVO">
 		update shop_reservation_tbl set shop_reservation_state='예약완료' where shop_reservation_idx=#{shopReservationIdx}
@@ -296,6 +295,4 @@
 	<update id="reservationDel" parameterType="shopReservationVO">
 		update shop_reservation_tbl set shop_reservation_state='삭제' where shop_reservation_idx=#{shopReservationIdx}
 	</update>
-	
-	
 </mapper>
