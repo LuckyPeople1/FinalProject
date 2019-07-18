@@ -10,7 +10,7 @@
 			<i class="ico auth"></i>
 			<div class="menu_text">승인관리</div>
 		</a>
-		<a href="/userManage/shopAllList" class="menu_btn">
+		<a href="/shopManage/shopAllList" class="menu_btn">
 			<i class="ico shop"></i>
 			<div class="menu_text">부동산관리</div>
 		</a>

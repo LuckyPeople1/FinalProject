@@ -13,6 +13,8 @@
 			<div class="set_field">
 				<div class="field_title"><span class="title_mark">■ 짐 관리</span></div>
 				<form id="searchFrm">
+					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 					<table class="set_table">
 						<colgroup>
 							<col width="200">
@@ -24,15 +26,15 @@
 						<tr>
 							<th>짐 이름</th>
 							<td colspan="3">
-								<input class="tbox normal" name="packageName" value="${searchFilter.packageName}">
+								<input class="tbox normal" name="keyword" value="${pageMaker.cri.keyword}">
 							</td>
 						</tr>
 						<tr>
 							<th>짐 유형</th>
 							<td colspan="3">
 								<label>
-									<input type="checkbox" name="packageType" value="0"
-									<c:forEach items="${searchFilter.packageType}" var="item">
+									<input type="checkbox" name="type1" value="0"
+									<c:forEach items="${pageMaker.cri.type1}" var="item">
 										<c:if test="${item == 0}">checked</c:if>
 									</c:forEach>
 									>
@@ -40,16 +42,16 @@
 									
 								</label>
 								<label class="ml10">
-									<input type="checkbox" name="packageType" value="1"
-									<c:forEach items="${searchFilter.packageType}" var="item">
+									<input type="checkbox" name="type1" value="1"
+									<c:forEach items="${pageMaker.cri.type1}" var="item">
 										   <c:if test="${item == 1}">checked</c:if>
 									</c:forEach>
 									>
 									<span>가구</span>
 								</label>
 								<label class="ml10">
-									<input type="checkbox" name="packageType" value="2"
-									<c:forEach items="${searchFilter.packageType}" var="item">
+									<input type="checkbox" name="type1" value="2"
+									<c:forEach items="${pageMaker.cri.type1}" var="item">
 										   <c:if test="${item == 2}">checked</c:if>
 									</c:forEach>
 									>									<span>기타</span>
@@ -59,7 +61,9 @@
 						<tr>
 							<th>등록일</th>
 							<td colspan="3">
-								<input id="dateS" class="tbox" name="minDate" value="${searchFilter.minDate}"> ~ <input id="dateE" class="tbox" name="maxDate" value="${searchFilter.maxDate}">
+								<input id="dateS" class="tbox" name="minDate" value="${pageMaker.cri.minDate}">
+								~
+								<input id="dateE" class="tbox" name="maxDate" value="${pageMaker.cri.maxDate}">
 								<a href="javascript:setSearchDate('0d')" class="btn smaller higher col_grey ml10">당일</a>
 								<a href="javascript:setSearchDate('1d')" class="btn smaller higher col_grey ml5">어제</a>
 								<a href="javascript:setSearchDate('1w')" class="btn smaller higher col_grey ml5">일주일</a>
@@ -79,7 +83,6 @@
 			</div>
 			<table class="list_table">
 				<colgroup>
-					<col width="40">
 					<col width="65">
 					<col width="150">
 					<col width="300">
@@ -89,11 +92,6 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th>
-						<label>
-							<input type="checkbox" name="all_chk">
-						</label>
-					</th>
 					<th>No</th>
 					<th>유형</th>
 					<th>상품명</th>
@@ -103,15 +101,19 @@
 				</tr>
 				</thead>
 				<tbody>
+				
+				<!-- 내용이 없을 경우 -->
+				<c:if test="${packageList.size() == 0}">
+					<tr>
+						<td colspan="6" style="line-height: 60px;">게시물이 없습니다.</td>
+					</tr>
+				</c:if>
+				
+				<!-- 리스트 반복 -->
 				<c:forEach items="${packageList}" var="item">
 					<c:if test="${item.packageType != 3}">
 						<tr>
-							<td>
-								<label>
-									<input type="checkbox" name="">
-								</label>
-							</td>
-							<td>1</td>
+							<td>${item.packageIdx}</td>
 							<td>
 								<c:choose>
 									<c:when test="${item.packageType == 0}">가전</c:when>
@@ -144,33 +146,51 @@
 				</c:forEach>
 				</tbody>
 			</table>
+			
 			<div class="page_group clearFix">
 				<ul class="page_box">
-					<li class="first arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="prev arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="on">
-						<a href="#none">1</a>
-					</li>
-					<li class="">
-						<a href="#none">2</a>
-					</li>
-					<li class="next arrow">
-						<a href="#none "></a>
-					</li>
-					<li class="end arrow">
-						<a href="#none"></a>
-					</li>
+<%--					<li class="first arrow">--%>
+<%--						<a href="#none"></a>--%>
+<%--					</li>--%>
+					<c:if test="${pageMaker.prev}">
+						<li class="prev arrow">
+							<a href="${pageMaker.startPage -1}"></a>
+						</li>
+					</c:if>
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="">
+							<a href="${num}">${num}</a>
+						</li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next}">
+						<li class="next arrow">
+							<a href="${pageMaker.endPage +1} "></a>
+						</li>
+					</c:if>
+					
+<%--					<li class="end arrow">--%>
+<%--						<a href="#none"></a>--%>
+<%--					</li>--%>
 				</ul>
 			</div>
 		</div>
 		
 		
+		<script>
+			$('.page_box a').on('click',function (e) {
+				
+				e.preventDefault();
+				
+				console.log('click');
+
+				$('#searchFrm').find('input[name=pageNum]').val($(this).attr("href"));
+				$('#searchFrm').submit();
+			})
+			
+		</script>
 		
-		<!-- 푸터 -->
-		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
+		
+		
 	</div>
 </div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.ShopPremiumMapper">
+	<insert id="PremiumItemAdd" parameterType="shopPremiumItemVO">
+		insert into shop_premium_item_tbl values(
+		shop_premium_item_idx_seq.nextval,
+		default,
+		#{shopItemIdx, jdbcType=VARCHAR},
+		#{userIdx},
+		sysdate,
+		#{shopPremiumItemEndDate, jdbcType=VARCHAR}
+		)
+	</insert>
+</mapper>

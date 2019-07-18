@@ -22,7 +22,7 @@
 						<col width="140">
 						<col width="120">
 						<col width="100">
-						<col width="170">
+						<col width="50">
 					</colgroup>
 					<thead>
 					<tr>
@@ -39,15 +39,15 @@
 							<td colspan="5" style="line-height: 50px">등록된 직원이 없습니다</td>
 						</tr>
 					</c:if>
-					<c:forEach items="${memberList}" var="item">
+					<c:forEach items="${memberList}" var="item" varStatus="index" end="${memberList.size()}">
 						<tr>
-							<td>1</td>
+							<td>${index.end - index.index}</td>
 							<td>${item.shopMemberName}</td>
 							<td>${item.shopMemberPhone}</td>
 							<td>${item.shopMemberRegDate}</td>
 							<td>
-								<a href="/shop/member/memberInfo" class="btn col_navy f_w">상세보기</a>
-								<a href="javascript:void(0)" class="btn col_grey line">삭제</a>
+<%--								<a href="/shop/member/memberInfo" class="btn col_navy f_w">상세보기</a>--%>
+								<a href="javascript:member.remove(${item.shopMemberIdx})" class="btn col_darkGrey f_w line">삭제</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -56,6 +56,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="<c:url value="/shop/js/member/member.js"/>"></script>
 
 </div>
 </body>

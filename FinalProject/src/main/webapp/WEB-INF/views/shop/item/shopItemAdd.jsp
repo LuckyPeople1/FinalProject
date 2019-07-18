@@ -11,6 +11,7 @@
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<form action="/shop/shopItemAdd" method="post" enctype="multipart/form-data" onsubmit="shopItemAdd()">
+	<input type="hidden" name="userIdx" value="0">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">

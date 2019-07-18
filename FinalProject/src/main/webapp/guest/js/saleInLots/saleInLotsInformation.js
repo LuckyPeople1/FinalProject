@@ -1,4 +1,34 @@
- $(".searchBox_btn").click(function(){ // 분양 Home 검색 정보
+$(document).ready(function(){
+	var minIndex= $(".minPrice").length;
+	var maxIndex= $(".maxPrice").length;
+	var minstr = new Array();
+	var maxstr = new Array();
+	for(var i=0; i<minIndex; i++){
+		minstr.push($(".minPrice").eq(i).html());
+		
+	}
+	for(var i=0; i<maxIndex; i++){
+		maxstr.push($(".maxPrice").eq(i).html());
+		
+	}
+	for(var i=0; i<minIndex; i++){
+		if(minstr[i].length < 14){
+			$(".minPrice").eq(i).html("최저 : "+minstr[i].substring(4,5)+"억 "+minstr[i].substring(5,9)+"만원");
+		}else{
+			$(".minPrice").eq(i).html("최저 : "+minstr[i].substring(4,6)+"억 "+minstr[i].substring(6,10)+"만원");
+		}
+	}
+	for(var i=0; i<maxIndex; i++){
+		if(maxstr[i].length < 14){
+			$(".maxPrice").eq(i).html("최저 : "+maxstr[i].substring(4,5)+"억 "+maxstr[i].substring(5,9)+"만원");
+		}else{
+			$(".maxPrice").eq(i).html("최저 : "+maxstr[i].substring(4,6)+"억 "+maxstr[i].substring(6,10)+"만원");
+		}
+	}
+	
+});
+
+$(".searchBox_btn").click(function(){ // 분양 Home 검색 정보
 		// 같은거를 클릭했을 때
 		if($(this).hasClass('on')){
 			// 기존값 사라지게

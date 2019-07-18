@@ -4,23 +4,23 @@
 		<div class="lnb_show">부동산 관리</div>
 		<ul class="lnb_menu">
 			<li>
-				<a href="#none" class="menu_name">이사 관리</a>
+				<a href="#none" class="menu_name">매물 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/manage/shop/moveAllList" class="">이사 목록</a></li>
-					<li><a href="#none" class="">완료된 이사</a></li>
+					<li><a href="/manage/shop/moveAllList" class="">매물 목록</a></li>
+					<li><a href="/manage/shop/moveAllList" class="">판매 된 매물 목록</a></li>
+					<li><a href="/manage/shop/moveAllList" class="">삭제 된 매물 목록</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#none" class="menu_name">짐 관리</a>
+				<a href="#none" class="menu_name">부동산 스태프 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/manage/shop/packageList" class="on">짐 관리</a></li>
-					<li><a href="/manage/shop/packageReg" class="">짐 등록</a></li>
+					<li><a href="/shop/member/">스태프 관리</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#none" class="menu_name">기사 관리</a>
+				<a href="#none" class="menu_name">부동산 아이템 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="#none" class="">기사 목록</a></li>
+					<li><a href="/shop/member/">아이템 관리</a></li>
 				</ul>
 			</li>
 		</ul>

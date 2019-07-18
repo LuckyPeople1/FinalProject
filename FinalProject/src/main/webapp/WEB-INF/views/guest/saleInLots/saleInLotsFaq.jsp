@@ -47,9 +47,22 @@
 						<li class="faqNavi_li_1">기타</li>
 					</div>
 					<div class="content_box">
-					<c:forEach var="item" items="${list }">
+					<c:forEach var="item" items="${list }" varStatus="i">
 						<div class="wrap_content">
-							<h1 class="processTitle">
+							<c:choose>
+								<c:when test="${i.count == 1}">
+									<h1 class="processTitle ${tab == 1 ? 'on' : ''}">
+								</c:when>
+								<c:when test="${i.count == 2}">
+									<h1 class="processTitle ${tab == 2 ? 'on' : ''}">
+								</c:when>
+								<c:when test="${i.count == 3}">
+									<h1 class="processTitle ${tab == 3 ? 'on' : ''}">
+								</c:when>
+								<c:otherwise>
+									<h1 class="processTitle">
+								</c:otherwise>
+							</c:choose>
 								<div class="title_Label">
 									<span style="font-size: 14px;">${item.saleInLotsFaqType }</span>${item.saleInLotsFaqTitle }
 								</div>
@@ -59,7 +72,20 @@
 									</path>
 								</svg>
 							</h1>
-							<div class="processContentDetail" style="display: none">
+							<c:choose>
+								<c:when test="${i.count == 1}">
+									<div class="processContentDetail" style="display:${tab == 1 ? 'block' : 'none' }">
+								</c:when>
+								<c:when test="${i.count == 2}">
+									<div class="processContentDetail" style="display:${tab == 2 ? 'block' : 'none' }">
+								</c:when>
+								<c:when test="${i.count == 3}">
+									<div class="processContentDetail" style="display:${tab == 3 ? 'block' : 'none' }">
+								</c:when>
+								<c:otherwise>
+									<div class="processContentDetail" style="display:none">
+								</c:otherwise>
+							</c:choose>
 								<p style="white-space: pre-line;">${item.saleInLotsFaqContent }</p>					
 							</div>
 						</div>

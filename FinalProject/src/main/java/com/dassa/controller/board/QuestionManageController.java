@@ -80,7 +80,7 @@ public class QuestionManageController {
 		return view;
 	}
 	
-	//1:1부동산관리페이지
+/**	//1:1부동산관리페이지
 	@RequestMapping("/realestate/questionManageRealestateList")
 	public String questionManageRealestateList() {
 		return "manage/board/question/realestate/questionManageRealestateList";
@@ -90,6 +90,22 @@ public class QuestionManageController {
 	@RequestMapping("/articles/questionManageAriticlesList")
 	public String questionManageAriticlesList() {
 		return "manage/board/question/articles/questionManageAriticlesList";
+	}**/
+	//1:1문의 삭제
+	@RequestMapping("/questionManageDelete")
+	public String questionManageDelete(@RequestParam int questionsIndex) {
+		int result;
+		String view="";
+		try {
+			result = questionService.questionManageDelete(questionsIndex);
+			System.out.println(result);
+			if(result>0) {
+				view="manage/board/question/shopQuestionDelete";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return view;
 	}
-	
 }
