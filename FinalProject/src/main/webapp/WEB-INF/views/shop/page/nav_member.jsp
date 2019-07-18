@@ -2,10 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="sub_nav_wrap">
 	<div class="sub_nav">
-		<div class="nav_title">회원 관리</div>
+		<div class="nav_title">직원 관리</div>
 		<div class="nav_group">
-			<a href="/shop/member" class="on">회원 관리</a>
-			<a href="/shop/memberAdd" class="">회원 등록</a>
+			<a href="/shop/member/" class="${subNav == 1 ? 'on' : ''}">직원 관리</a>
+			<a href="/shop/member/memberReg" class="${subNav == 2 ? 'on' : ''}">직원 등록</a>
 		</div>
 	</div>
 </div>

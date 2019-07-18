@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.logging.impl.SLF4JLocationAwareLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +58,6 @@ public class SaleInLotsController {
 	 * @param saleInLotsArea 
 	 * @param saleInLotsBuildType
 	 * @param saleInLotsState
-	 * @param saleInLotssupplyType
 	 * @return
 	 * @throws Exception 
 	 */
