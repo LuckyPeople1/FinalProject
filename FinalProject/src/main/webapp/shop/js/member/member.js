@@ -1,8 +1,11 @@
 var member = {
 
+	/**
+	 * 직원등록 로직
+	 * @returns {boolean}
+	 */
 	reg: function () {
 
-		console.log("asdf")
 
 		if($('#shopMemberName').val() == ''){
 			alert("이름을 입력해주세요");
@@ -15,7 +18,6 @@ var member = {
 			$('#shopMemberPhone').focus();
 			return false;
 		}
-
 
 		var formData = new FormData($('#regFrm')[0]);
 
@@ -42,6 +44,43 @@ var member = {
 			}
 
 		})
+
+
+	},
+
+
+	/**
+	 * 직원 삭제로직
+	 * @param shopMemberIdx
+	 */
+	remove : function (shopMemberIdx) {
+
+		if(confirm("직원을 삭제하시겠습니까?")){
+
+			$.ajax({
+				url: "/shop/member/memberRemoveProc",
+				data: {
+					shopMemberIdx	:	shopMemberIdx
+				},
+				success: function (data) {
+
+					if(data.trim() == "Y"){
+						alert("직원이 삭제되었습니다.");
+						location.reload();
+					}else{
+						alert("등록 실패");
+					}
+
+				},
+				error:function () {
+
+					alert("에러 발생");
+				}
+
+			})
+		}
+
+
 
 
 	}

@@ -30,4 +30,9 @@ public class ShopMemberService {
 		return shopMemberMapper.getMember(userIdx);
 
 	}
+
+	public int removeMember(int shopMemberIdx) throws Exception {
+		return shopMemberMapper.removeMember(shopMemberIdx);
+
+	}
 }
