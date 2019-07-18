@@ -38,6 +38,8 @@ public class ManageUserConroller {
 	@RequestMapping("/userAllList")
 	public String UserAllList(Model model, String userType) throws Exception {
 		String view = null;
+		model.addAttribute("userType",userType);
+		model.addAttribute("status", "1");
 		if(userType.equals("1")) {
 			List<UserVO> list = manageUserService.getUserList(userType);
 			model.addAttribute("list", list);
@@ -58,6 +60,8 @@ public class ManageUserConroller {
 	@RequestMapping("/all/allApprobate")
 	public String AllApprobateList(Model model, String userType) throws Exception {
 		String view = null;
+		model.addAttribute("userType", userType);
+		model.addAttribute("status", "2");
 		if(userType.equals("1")) {
 			List<UserVO> list = manageUserService.getTypeApprobateList(userType);
 			model.addAttribute("list", list);
@@ -65,8 +69,10 @@ public class ManageUserConroller {
 		}else {
 			List<UserVO> list = manageUserService.getTypeApprobateList(userType);
 			model.addAttribute("list", list);
+			model.addAttribute("status", list.iterator().next().getStatus());
 			view = "manage/user/shop/shopApprobateList";
 		}
+		
 		return view;
 	}
 	
@@ -74,6 +80,8 @@ public class ManageUserConroller {
 	@RequestMapping("/all/allSecssion")
 	public String UserSecssionList(Model model, String userType) throws Exception {
 		String view = null;
+		model.addAttribute("userType", userType);
+		model.addAttribute("status", "3");
 		if(userType.equals("1")) {
 			//기사 탈퇴
 			List<UserVO> list = manageUserService.getUserSecssionList(userType);
@@ -90,21 +98,7 @@ public class ManageUserConroller {
 			view = "manage/user/user/userSecssionList";
 		}
 		return view;
-	}
-
-	//부동산 회원 관리
-	@RequestMapping("/shop/shopList")
-	public String ShopUserList() throws Exception{
-		return "manage/user/shop/shopAllList";
-	}
-	
-	//기사 회원 관리
-	@RequestMapping("/driver/driverList")
-	public String DriverUserList() throws Exception{
-		return "manage/user/driver/driverAllList";
-	}
-	
-	
+	}	
 	
 	//회원 관리
 	@RequestMapping("/userList")
@@ -188,6 +182,20 @@ public class ManageUserConroller {
 		
 	}
 	
+	//Type별 전체회원 리스트 뿌리기 ajax
+	@RequestMapping("/typeUserList")
+	@ResponseBody
+	public Object TypeUserList(Map<String,Object> map, String userType, String status) throws Exception {
+		SearchUserVO searchUserVO = new SearchUserVO();
+		searchUserVO.setUserType(userType);
+		searchUserVO.setStatus(status);
+		Map<String, Object> retVal = new HashMap<String, Object>();
+		List<UserVO> list = manageUserService.getSearchUserList(searchUserVO);
+		retVal.put("list", list);
+		return retVal;
+		
+	}
+	
 	//전체 승인 페이지 ajax
 	@RequestMapping("/approbate")
 	@ResponseBody
@@ -225,19 +233,20 @@ public class ManageUserConroller {
 	//검색
 	@RequestMapping("/search")
 	@ResponseBody
-	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String userId, String userType) {
+	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String searchWord, String userType,String status) {
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
-		searchUserVO.setSearchWord(userId);
+		searchUserVO.setSearchWord(searchWord);
 		searchUserVO.setUserType(userType);
+		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
-		if(searchType.equals("1") && !userId.equals("")) {
+		if(searchType.equals("1") && !searchWord.equals("")) {
 			//아이디 일때
 			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
 			retVal.put("list", list);
 			
-		}else if(searchType.equals("2") && !userId.equals("")){
+		}else if(searchType.equals("2") && !searchWord.equals("")){
 			//이름 일때
 			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
 			retVal.put("list", list);
@@ -248,21 +257,21 @@ public class ManageUserConroller {
 		return retVal;
 	}
 	
-	//검색
+	//승인검색
 	@RequestMapping("/searchApprobate")
 	@ResponseBody
-	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String userId) {
+	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String searchWord) {
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
-		searchUserVO.setSearchWord(userId);
+		searchUserVO.setSearchWord(searchWord);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
-		if(searchType.equals("1") && !userId.equals("")) {
+		if(searchType.equals("1") && !searchWord.equals("")) {
 			//아이디 일때
 			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
 			retVal.put("list", list);
 			
-		}else if(searchType.equals("2") && !userId.equals("")){
+		}else if(searchType.equals("2") && !searchWord.equals("")){
 			//이름 일때
 			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
 			retVal.put("list", list);
@@ -271,5 +280,5 @@ public class ManageUserConroller {
 			retVal.put("list", "");
 		}
 		return retVal;
-	}
+	} 
 }

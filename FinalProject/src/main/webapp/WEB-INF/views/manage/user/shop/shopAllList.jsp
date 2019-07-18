@@ -10,7 +10,7 @@
 <div class="contents">
 	<section id="manageUserAllList">
 		<div class="set_field">
-			<div class="field_title"><span class="title_mark">■ 회원 관리</span></div>
+			<div class="field_title"><span class="title_mark">■ 부동산 회원 관리</span></div>
 			<table class="set_man_userTable">
 				<colgroup>
 					<col width="200">
@@ -31,7 +31,7 @@
 						<input class="tbox" name="searchWord" id="searchWord" value="">
 					</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th>회원 등급</th>
 					<td colspan="3">
 						<label>
@@ -43,7 +43,7 @@
 							<span>탈퇴 회원</span>
 						</label>
 					</td>
-				</tr>
+				</tr> -->
 				<tr>
 					<th>가입일</th>
 					<td colspan="3">
@@ -59,8 +59,8 @@
 				</tbody>
 			</table>
 			<div class="set_menu">
-				<button type="submit" id="search_btn"  class="btn normal col_main f_w">검색</button>
-				<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+				<button type="submit" id="search_btn" onclick="search_btn(${userType}, ${status })" class="btn normal col_main f_w">검색</button>
+				<button type="submit" id="searchAll_btn" onclick="searchAll_btn(${userType}, ${status })" class="btn normal col_darkGrey f_w ml5">전체목록</button>
 			</div>
 		</div>
 		<div class="list_field">
@@ -90,21 +90,30 @@
 				</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="u" items="${list}">
-						<tr>
-							<td>${u.userIdx }</td>
-							<td>${u.userId }</td>
-							<td>${u.userName }</td>
-							<td>${u.userAddr }</td>
-							<td>${u.userPhone }</td>
-							<td>${u.userEmail }</td>
-							<td>${u.type }</td>
-							<td>${u.enrollDate }</td>
-							<td>
-								<a href="/userManage/reLoad?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
-							</td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${not empty list }">
+							<c:forEach var="u" items="${list}">
+								<tr>
+									<td>${u.userIdx }</td>
+									<td>${u.userId }</td>
+									<td>${u.userName }</td>
+									<td>${u.userAddr }</td>
+									<td>${u.userPhone }</td>
+									<td>${u.userEmail }</td>
+									<td>${u.type }</td>
+									<td>${u.enrollDate }</td>
+									<td>
+										<a href="/userManage/reLoad?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="9">회원 목록이 없습니다.</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 		</div>
@@ -132,5 +141,6 @@
 		</div>
 	</section>
 </div>
+<script src="/manage/js/user/search.js"></script>
 </body>
 </html>
