@@ -17,8 +17,8 @@
 							</div>
 							<div class="leftHeader_content_02">
 								<span class="detail_buildType">${saleVO.saleInLotsBuildType }</span>
-								<p class="detail_price">최저 분양가 : ${saleVO.saleInLotsPriceMinAll} </p>
-								<p class="detail_price">최고 분양가 : ${saleVO.saleInLotsPriceMaxAll}</p>
+								<p class="detail_price minprice">최저 분양가 : ${saleVO.saleInLotsPriceMinAll}</p>
+								<p class="detail_price maxprice">최고 분양가 : ${saleVO.saleInLotsPriceMaxAll}</p>
 							</div>
 						</div>
 						<ul class="DetailInformation_rightHeader">
@@ -31,8 +31,8 @@
 								<p class="item_text">${saleVO.saleInLotsSaleHousehold}세대</p>
 							</li>
 							<li class="right_item">
-								<p class="item_title">최저-최고층</p>
-								<p class="item_text">${saleVO.saleInLotsMinFloor }-${saleVO.saleInLotsMaxFloor }</p>
+								<p class="item_title">최저 - 최고층</p>
+								<p class="item_text">${saleVO.saleInLotsMinFloor } - ${saleVO.saleInLotsMaxFloor }</p>
 							</li>
 							<li class="right_item">
 								<p class="item_title">단지규모</p>
@@ -147,14 +147,6 @@
 					<div class="stikey_infoBar">
 						
 					</div>
-					<div class="group_tabs">
-						<a class="tabs_item">가격정보</a>
-						<a class="tabs_item">청약결과</a>
-						<a class="tabs_item">분양일정</a>
-						<a class="tabs_item">평형정보</a>
-						<a class="tabs_item">위치정보</a>
-						<a class="tabs_item">주변 추천 분양정보</a>
-					</div>
 				</div>
 				<div style="padding-top: 0px;">
 					<div class="detailPrice_content">
@@ -164,13 +156,13 @@
 								<li>
 									<div class="price_msgBox">
 										<p class="price_msgTitle">분양가</p>
-										<p class="price_msgText">${saleVO.saleInLotsPriceMinAll } ~ ${saleVO.saleInLotsPriceMaxAll }</p>
+										<p class="price_msgText"><span class="minprice2">${saleVO.saleInLotsPriceMinAll }</span> ~ <span class="maxprice2">${saleVO.saleInLotsPriceMaxAll }</span></p>
 									</div>
 								</li>
 								<li>
 									<div class="price_msgBox">
 										<p class="price_msgTitle">평당가</p>
-										<p class="price_msgText">${saleVO.saleInLotsPriceOne }<span>/3.3m²당</span></p>
+										<p class="price_msgText priceOne">${saleVO.saleInLotsPriceOne }<span>/3.3m²당</span></p>
 									</div>
 								</li>
 							</ul>
@@ -182,5 +174,6 @@
 	</div>
 </div>
 
+<script src="/guest/js/saleInLots/saleInLotsDetailInformation.js"></script>
 </body>
 </html>

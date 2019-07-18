@@ -3236,6 +3236,9 @@ section.saleInLotsInformation .saleInLotsList > span > b {
     font-weight: 400;
     color: rgb(50, 108, 249);
 }
+section.saleInLotsInformation .saleInLotsTable > tbody tr + tr {
+    border-top: 1px solid rgb(238, 238, 238);
+}
 section.saleInLotsInformation .saleInLotsTable > thead th {
     height: 52px;
     line-height: 52px;
@@ -3270,13 +3273,13 @@ section.saleInLotsInformation .minPrice + p{
 	margin-top: 10px;
 }
 section.saleInLotsInformation .saleInLotsInfoBox {
-    height: 90px;
+    height: 55px;
     padding: 0px 25px;
 }
 section.saleInLotsInformation .saleInLotsInfoBox_content {
 	text-align:center;
     float: left;
-    height: 90px;
+    height: 55px;
     padding-top: 5px;
 }
 section.saleInLotsInformation .saleInLotsInfoBox_content > p {
@@ -3665,7 +3668,7 @@ section.saleInLotsDetailInformation .detail_state{
 }
 section.saleInLotsDetailInformation .detail_name{
 	margin-top: 10px;
-    max-width: 300px;
+    max-width: 200px;
     color: rgb(34, 34, 34);
     font-size: 22px;
     font-weight: 700;
@@ -4479,8 +4482,292 @@ section.calculator .NoticeMsg{
     color: rgb(170, 170, 170);
     text-align: left;
 }
-section.calculator
-section.calculator
+/* 분양 페이지 브랜드관  CSS*/
+section.saleInLotsBrand .screen{
+	width: 100%;
+    min-width: 1366px;
+    height: 100%;
+}
+section.saleInLotsBrand .wrap{
+	width: 100%;
+    min-width: 1366px;
+    position: relative;
+}
+section.saleInLotsBrand .main_screen{
+	position: relative;
+    width: 1180px;
+    margin: 70px auto 0px;
+}
+section.saleInLotsBrand .title{
+	line-height: 50px;
+    padding-bottom: 80px;
+    font-size: 33px;
+    text-align: center;
+    color: rgb(34, 34, 34)
+}
+section.saleInLotsBrand .brandBox{
+	width: 100%;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+section.saleInLotsBrand .brandContent{
+	position: relative;
+    right: 0px;
+    width: 800px;
+    height: 127px;
+    transition: right 0.5s ease-out 0s;
+}
+section.saleInLotsBrand .brandCard{
+	float: left;
+    width: 180px;
+    height: 127px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+section.saleInLotsBrand .brandCard.on{
+	float: left;
+    width: 180px;
+    height: 127px;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(34, 34, 34);
+    border-image: initial;
+}
+section.saleInLotsBrand .brandImg{
+	width: 100%;
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+section.saleInLotsBrand .img1::before{
+	width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    content: "";
+    position: absolute;
+    background:url(/guest/img/saleInLots/ipark.jpg) center center / cover;
+    background-position: center center;
+}
+section.saleInLotsBrand .img2::before{
+	width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    content: "";
+    position: absolute;
+    background:url(/guest/img/saleInLots/prugio.jpg) center center / cover;
+    background-position: center center;
+}
+section.saleInLotsBrand .img3::before{
+	width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    content: "";
+    position: absolute;
+    background:url(/guest/img/saleInLots/xii.jpg) center center / cover;
+    background-position: center center;
+}
+section.saleInLotsBrand .brandImg::after{
+	content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+section.saleInLotsBrand .brandCard + div{
+	margin-left: 20px;
+}
+section.saleInLotsBrand .brandName{
+	height: 37px;
+    line-height: 35px;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(136, 136, 136);
+}
+section.saleInLotsBrand .contentWrap{
+	width: 1180px;
+    position: relative;
+    margin: 40px auto 0px;
+}
+section.saleInLotsBrand .dataTable{
+	width: 1180px;
+    margin-top: 13px;
+    border-top: 1px solid rgb(34, 34, 34);
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+section.saleInLotsBrand .dataTable > tbody tr + tr {
+    border-top: 1px solid rgb(238, 238, 238);
+}
+section.saleInLotsBrand .dataTable > thead th{
+	height: 52px;
+    line-height: 52px;
+    background-color: rgb(248, 248, 248);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: rgb(102, 102, 102);
+}
+section.saleInLotsBrand .dataTable > tbody tr{
+	cursor: pointer;
+}
+section.saleInLotsBrand .dataTable > tbody td{
+	height: 120px;
+    text-align: center;
+}
+section.saleInLotsBrand .saleInLotsState{
+	width: 62px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(18, 58, 123);
+    margin: 0px auto;
+    border-radius: 2px;
+}
+section.saleInLotsBrand .saleInLotsType{
+	font-size: 14px;
+    color: rgb(136, 136, 136);
+}
+section.saleInLotsBrand .saleInLotsInfoBox{
+	height: 55px;
+    padding: 0px 25px;
+}
+section.saleInLotsBrand .saleInLotsInfoBox_content {
+	text-align:center;
+    float: left;
+    height: 55px;
+    padding-top: 5px;
+}
+section.saleInLotsBrand .saleInLotsInfoBox_content > p {
+    width: 420px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size:18px;
+    margin-bottom: 10px;
+}
+section.saleInLotsBrand .saleInLotsName {
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+}
+section.saleInLotsBrand .saleInLotsDetailArea {
+    height: 20px;
+    font-size: 14px;
+    color: rgb(136, 136, 136);
+}
+section.saleInLotsBrand .saleInLotsInfoBox::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+section.saleInLotsBrand .pageWrap{
+	margin-bottom: 150px;
+}
+section.saleInLotsBrand .page_wrap{
+	width: 100%;
+    text-align: center;
+    padding-top: 80px;
+}
+section.saleInLotsBrand .pagination{
+	display: inline-block;
+    height: 32px;
+}
+section.saleInLotsBrand .prevBtn{
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding: 0px;
+    margin: 0px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    border-image: initial;
+    border-radius: 50%;
+}
+section.saleInLotsBrand .prevBtn > svg{
+	left: 53%;
+}
+section.saleInLotsBrand .pageNum{
+	float: left;
+}
+section.saleInLotsBrand .pageNum > li{
+	display: inline-table;
+    width: 32px;
+    height: 32px;
+}
+section.saleInLotsBrand .pageNum > li + li {
+	margin-left: 10px;
+}
+section.saleInLotsBrand .selectPage{
+	display: table-cell;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    background-color: rgb(20, 118, 252);
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-radius: 50%;
+    border-color: rgb(20, 118, 252);
+}
+section.saleInLotsBrand .page{
+	display: table-cell;
+    width: 100%;
+    height: 100%;
+    color: rgb(20, 118, 252);
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 50%;
+}
+section.saleInLotsBrand .nextBtn{
+	float: left;
+    width: 32px;
+    height: 32px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding: 0px;
+    margin: 0px 18px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    border-image: initial;
+    border-radius: 50%;
+}
+section.saleInLotsBrand .nextBtn > svg{
+	left: 53%;
+}
+section.saleInLotsBrand .pageBtn > svg{
+	fill: rgb(170, 170, 170);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* 사용자페이지 매물 css 시작 */
 section.shopItemView .kZTRnS {
     width: 100%;

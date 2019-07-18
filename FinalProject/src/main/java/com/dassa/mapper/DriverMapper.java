@@ -1,5 +1,6 @@
 package com.dassa.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.annotation.MapperScan;
@@ -58,5 +59,8 @@ public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
 public List<DriverMypageReviewVO> driverReview(int driverIdx);
 
 public List<UserVO> userNameSelectOne();
+
+//매출 통계
+public ArrayList<MovePaymentVO> driverSaleList(int driverIdx);
 
 }

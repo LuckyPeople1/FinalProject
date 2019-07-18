@@ -257,5 +257,18 @@
 		where user_type= 3 
 	</select>
 	
+	<select id="driverSaleList" parameterType="_int" resultType="com.dassa.vo.MovePaymentVO">
+		select move_payment_idx as movePaymentIdx,
+  			move_payment_imp_uid as movePaymentImpUid,
+  			apply_idx as applyIdx,
+  			move_payment_method as movePaymentPayMethod,
+  			move_payment_cardname as movePaymentCardName,
+  			move_payment_pg_number as movePaymentPgNumber,
+  			move_payment_amount as movePaymentAmount,
+  			move_payment_date as movePaymentDate,
+  			move_payment_cenceldate as movePaymentCencelDate,
+  			move_payment_status as movePaymentStatus
+  			from move_payment_tbl where driver_idx = #{driverIdx}
+	</select>
 	
 </mapper>

@@ -239,11 +239,12 @@
 							<p class="wsqAd">주택 청약 절차</p>
 							<div class="beFetf">
 								<div>
-									<a href="#none"> 1. 청약통장 가입하기 </a> <a href="#none"> 2. 원하는
-										주택 찾아보기 </a> <a href="#none"> 3. 내 자격과 순위 확인하기 </a>
+									<a href="/saleInLots/saleInLotsProcess?tab=1"> 1. 청약통장 가입하기 </a> 
+									<a href="/saleInLots/saleInLotsProcess?tab=2"> 2. 원하는주택 찾아보기 </a> 
+									<a href="/saleInLots/saleInLotsProcess?tab=3"> 3. 내 자격과 순위 확인하기 </a>
 								</div>
 							</div>
-							<a class="kOckbc" href="#none"> 더 알아보기 <svg width="10"
+							<a class="kOckbc" href="/saleInLots/saleInLotsProcess"> 더 알아보기 <svg width="10"
 									height="16" viewBox="0 0 10 16">
 									<path fill="none" fill-rule="evenodd" stroke="#FFF"
 										d="M2 14l6-6-6-6"></path>
@@ -255,11 +256,13 @@
 							<p class="wsqAd">알아보기</p>
 							<div class="beFetf">
 								<div>
-									<a href="#none"> 1. 분양공고문 </a> <a href="#none"> 2. 대출용어 </a> <a
-										href="#none"> 3. 주택용어 </a> <a href="#none"> 4. 건축물용어 </a>
+									<a href="/saleInLots/saleInLotsTerms?tab=1"> 1. 분양공고문 </a> 
+									<a href="/saleInLots/saleInLotsTerms?tab=2"> 2. 대출용어 </a> 
+									<a href="/saleInLots/saleInLotsTerms?tab=3"> 3. 주택용어 </a> 
+									<a href="/saleInLots/saleInLotsTerms?tab=4"> 4. 건축물용어 </a>
 								</div>
 							</div>
-							<a class="kOckbc" href="#none"> 더 알아보기 <svg width="10"
+							<a class="kOckbc" href="/saleInLots/saleInLotsTerms"> 더 알아보기 <svg width="10"
 									height="16" viewBox="0 0 10 16">
 									<path fill="none" fill-rule="evenodd" stroke="#FFF"
 										d="M2 14l6-6-6-6"></path>
@@ -271,12 +274,12 @@
 							<p class="wsqAd">분양질문</p>
 							<div class="beFetf">
 								<div>
-									<a href="#none"> 1. 청약가점제란 무었인가요? </a> <a href="#none"> 2.
-										청약 1순위의 조건은 어떻게 되나요? </a> <a href="#none"> 3. 생애최초주택구입 특별공급이
-										뭔가요? </a>
+									<a href="/saleInLots/saleInLotsFaq?tab=1"> 1. 청약가점제란 무었인가요? </a> 
+									<a href="/saleInLots/saleInLotsFaq?tab=2"> 2. 무주택기간은 어떻게 산정하나요? </a> 
+									<a href="/saleInLots/saleInLotsFaq?tab=3"> 3. 청약가점제에서 무주택자의 기준은 어떻게 되나요? </a>
 								</div>
 							</div>
-							<a class="kOckbc" href="#none"> 더 알아보기 <svg width="10"
+							<a class="kOckbc" href="/saleInLots/saleInLotsFaq"> 더 알아보기 <svg width="10"
 									height="16" viewBox="0 0 10 16">
 									<path fill="none" fill-rule="evenodd" stroke="#FFF"
 										d="M2 14l6-6-6-6"></path>
@@ -284,7 +287,7 @@
 							</a>
 						</div>
 						<div class="iuzufP">
-							<a class="lbbxgW" href="#none"> <svg width="52" height="52"
+							<a class="lbbxgW" href="/saleInLots/saleInLotsCalculator"> <svg width="52" height="52"
 									viewBox="0 0 52 52">
 									<g fill="#222" fill-rule="evenodd">
 										<path fill-rule="nonzero"

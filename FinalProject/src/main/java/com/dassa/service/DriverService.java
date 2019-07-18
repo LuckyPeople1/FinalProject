@@ -1,5 +1,6 @@
 package com.dassa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverReviewVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.UserVO;
 
 @Service("DriverService")
@@ -116,6 +118,8 @@ public class DriverService {
 	public int driverMoveFinalCompletion(int applyIdx) throws Exception {
 		return guestMoveMapper.driverMoveFinalCompletion(applyIdx);
 	}
-	
+	public ArrayList<MovePaymentVO> driverSaleList(int driverIdx){
+		return driverMapper.driverSaleList(driverIdx);
+	}
 
 }
