@@ -122,8 +122,8 @@ public class DriverAuctionController {
 			System.out.println("자동차"+driverVO.getUserCar());
 			int result=driverService.driverAuctionInsert(driverVO) ;
 			if(result>0) {
-				int update=driverService.driverAuctionUpdate(applyIdx);
-				
+				driverService.driverAuctionApplyUpdate(applyIdx);
+				driverService.driverAuctionUpdate(applyIdx);
 					return "driver/manager/driverMove";
 				
 			}else {

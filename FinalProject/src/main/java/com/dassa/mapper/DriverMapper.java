@@ -51,7 +51,8 @@ public int driverAuctionInsert(DriverVO driverVO) throws Exception;
 
 //입찰관리 입찰상태 update 하기
 public int driverAuctionUpdate(int applyIdx) throws Exception;
-
+//입찰관리 입찰상태 짐update 하기
+public int driverAuctionApplyUpdate(int applyIdx) throws Exception;
 //이사관리 상세보기 기사정보 값 보기
 public DriverVO driverMoveSelectOne(int applyIdx) throws Exception;
 

@@ -222,10 +222,12 @@
 	</insert>
 	
 	<!-- 입찰관리 입찰상태 update 하기 -->
-	<update id="driverAuctionUpdate" parameterType="_int">
+	<update id="driverAuctionApplyUpdate" parameterType="_int">
 		update MOVE_APPLY_TBL set apply_status= 1 where apply_idx=#{applyIdx}
 	</update>
-	
+	<update id="driverAuctionUpdate" parameterType="_int">
+		update driver_tbl set auction_state= 1 where apply_idx=#{applyIdx}
+	</update>
 	
 	<select id="driverMoveSelectOne" parameterType="_int" resultType="com.dassa.vo.DriverVO">
 		select	driver_idx as driverIdx,
