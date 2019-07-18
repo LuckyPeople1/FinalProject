@@ -38,10 +38,82 @@ public class MoveApplyVO {
 	private String applyRegDate;	//이사신청 날짜
 	private String applyEndDate;	//예약 완료된 날짜
 	private String applyCancelDate;	//예약 취소된 날짜
-
+	private String auctionState;	//driver_tbl 에서 사용하는  state 
 	
 
-	
+
+
+	public String getAuctionState() {
+		return auctionState;
+	}
+
+
+
+
+
+
+
+	public void setAuctionState(String auctionState) {
+		this.auctionState = auctionState;
+	}
+
+
+
+
+
+
+
+	public MoveApplyVO(int applyIdx, int guestIdx, String guestName, String guestPhone, int driverIdx,
+			String driverName, String driverPhone, String startAddr1, String startAddr2, String startAddr3,
+			String startLatitude, String startLongitude, String startType, String startStructure, String startSize,
+			String startFloor, String startElevator, String startParking, String endAddr1, String endAddr2,
+			String endAddr3, String endLatitude, String endLongitude, String endType, String endFloor,
+			String endElevator, String endParking, String applyDate, String applyTime, String applyHope,
+			String applyHelp, String applyMemo, String applyStatus, String applyRegDate, String applyEndDate,
+			String applyCancelDate, String auctionState) {
+		super();
+		this.applyIdx = applyIdx;
+		this.guestIdx = guestIdx;
+		this.guestName = guestName;
+		this.guestPhone = guestPhone;
+		this.driverIdx = driverIdx;
+		this.driverName = driverName;
+		this.driverPhone = driverPhone;
+		this.startAddr1 = startAddr1;
+		this.startAddr2 = startAddr2;
+		this.startAddr3 = startAddr3;
+		this.startLatitude = startLatitude;
+		this.startLongitude = startLongitude;
+		this.startType = startType;
+		this.startStructure = startStructure;
+		this.startSize = startSize;
+		this.startFloor = startFloor;
+		this.startElevator = startElevator;
+		this.startParking = startParking;
+		this.endAddr1 = endAddr1;
+		this.endAddr2 = endAddr2;
+		this.endAddr3 = endAddr3;
+		this.endLatitude = endLatitude;
+		this.endLongitude = endLongitude;
+		this.endType = endType;
+		this.endFloor = endFloor;
+		this.endElevator = endElevator;
+		this.endParking = endParking;
+		this.applyDate = applyDate;
+		this.applyTime = applyTime;
+		this.applyHope = applyHope;
+		this.applyHelp = applyHelp;
+		this.applyMemo = applyMemo;
+		this.applyStatus = applyStatus;
+		this.applyRegDate = applyRegDate;
+		this.applyEndDate = applyEndDate;
+		this.applyCancelDate = applyCancelDate;
+		this.auctionState = auctionState;
+	}
+
+
+
+
 
 
 

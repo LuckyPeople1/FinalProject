@@ -34,6 +34,7 @@ public class DriverSaleListController {
 		
 		model.addAttribute("user", user); 						//userName 가져오기 
 		model.addAttribute("list", list);
+		model.addAttribute("subNavi", 5);
 		return "driver/sale/driverSaleList";
 	}
 }
