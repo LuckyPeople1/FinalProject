@@ -56,7 +56,6 @@
 			</div>
 			<div class="btnWrap">
 				<a href="javascript:history.back()" class="btn col_darkGrey bigger f_w">취소</a>
-				<a href="javascript:javascript:void(0)" class="btn col_red bigger f_w ml10">작성</a>
 			</div>
 		</div>
 

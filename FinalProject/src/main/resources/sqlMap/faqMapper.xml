@@ -46,6 +46,6 @@
 	</insert>
  <!-- faq 삭제  -->
   <update id="faqDelete" parameterType="faqVO">
-  	update faq_tbl set faq_state='삭제' where faq_index=#{faq_index}
+  	update faq_tbl set faq_state='삭제' where faq_index=#{faqIndex}
   </update>
 </mapper>

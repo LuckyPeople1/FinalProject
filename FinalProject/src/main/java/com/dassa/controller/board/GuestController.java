@@ -83,7 +83,7 @@ public class GuestController {
 		}
 		return ma;
 	}
-	//사용자1:1문의하기
+	//사용자1:1문의하기 인서트
 	@RequestMapping("/notice/questionInsert")
 	public String questionInsert(QuestionVO q) {
 		int result;
@@ -91,7 +91,7 @@ public class GuestController {
 		try {
 			result = noticeGuestService.questionInsert(q);
 			if(result>0) {
-				view="/guest/notice/questionInsert";
+				view="guest/notice/questionInsert";
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

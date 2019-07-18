@@ -35,7 +35,7 @@
 						<h1 class="styled__Name-sc-1v9ngdo-1 cYaAqA">고객센터</h1>
 						<p class="styled__Tel-sc-1v9ngdo-2 mWqem">02-1234-5678</p>
 						<p class="styled__OpenTime-sc-1v9ngdo-3 csQndh">평일 10:00 ~ 18:30 (토, 일요일, 공휴일 휴무)</p>
-						<form action="/guest/notice/questionInsert" method="post">
+						<form action="/shop/board/question/shopQuestionInsert" method="post">
 						<ul class="styled__Ul-sc-1v9ngdo-4 hIJwlj">
 							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">제목<input type="hidden" name="questionsWriter" value="test22"></p>
 								<input autocomplete="off" class="styled__TitleInput-sc-1v9ngdo-6 ilgADB Input-sfsekm-0 kTQnUD" name="questionsTitle">

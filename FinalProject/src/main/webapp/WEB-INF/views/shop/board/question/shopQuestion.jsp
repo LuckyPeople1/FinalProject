@@ -108,7 +108,7 @@
 									</td>
 									<td>
 										<a href="/shop/board/question/shopQuestionView?questionsIndex=${q.questionsIndex }" class="btn col_navy f_w">보기</a>
-										<a href="javascript:void(0)" class="btn col_grey line">삭제</a></td>
+										<a href="/shop/board/question/shopQuestionDelete?questionsIndex=${q.questionsIndex }" class="btn col_grey line">삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -74,5 +74,10 @@ public class QuestionService {
 		System.out.println("서비스업데이트-"+q);
 		return questionMapper.questionUpdate(q);
 	}
+
+	//1:1삭제
+	public int questionManageDelete(int questionsIndex) throws Exception{
+		return questionMapper.questionManageDelete(questionsIndex);
+	}
 	
 }

@@ -283,4 +283,38 @@ public class ShopBoardController {
 	public String shopQuestionWriter() {
 		return "shop/board/question/shopQuestionWriter";
 	}
+	//1:1문의인서트
+	@RequestMapping("/question/shopQuestionInsert")
+	public String shopQuestionInsert(QuestionVO q) {
+		int result;
+		String view = "";
+		try {
+			result = shopBoardService.shopQuestionInsert(q);
+			if(result>0) {
+				view="shop/board/question/shopQuestionInsert";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return view;
+	}	
+	
+	//1:1문의삭제하기
+	@RequestMapping("/question/shopQuestionDelete")
+	public String shopQuestionDelete(@RequestParam int questionsIndex) {
+		int result;
+		String view="";
+		try {
+			result = shopBoardService.shopQuestionDelete(questionsIndex);
+			System.out.println(result);
+			if(result>0) {
+				view="shop/board/question/shopQuestionDelete";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return view;
+	}
 }

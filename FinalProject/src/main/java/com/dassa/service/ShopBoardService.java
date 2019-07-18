@@ -164,4 +164,12 @@ public class ShopBoardService {
 	public QuestionVO shopQuestionView(int questionsIndex) throws Exception {
 		return shopBoardMapper.shopQuestionView(questionsIndex);
 	}
+	//1:1문의삭제
+	public int shopQuestionDelete(int questionsIndex) throws Exception{
+		return shopBoardMapper.shopQuestionDelete(questionsIndex);
+	}
+	//1:1인서트
+	public int shopQuestionInsert(QuestionVO q) throws Exception{
+		return shopBoardMapper.shopQuestionInsert(q);
+	}
 }

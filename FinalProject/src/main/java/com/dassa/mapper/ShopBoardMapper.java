@@ -38,5 +38,11 @@ public interface ShopBoardMapper {
 	
 	//1:1문의뷰
 	public QuestionVO shopQuestionView(int questionsIndex) throws Exception;
+	
+	//1:1문의삭제
+	public int shopQuestionDelete(int questionsIndex) throws Exception;
+	
+	//1:1문의인서트
+	public int shopQuestionInsert(QuestionVO q) throws Exception;
 
 }

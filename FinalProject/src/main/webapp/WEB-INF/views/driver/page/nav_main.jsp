@@ -29,6 +29,11 @@
 			<i class="ico stats">매출관리</i>
 			<span class="nav_txt">매출관리</span>
 		</a>
+		<a href="notice" class="">
+			<i class="ico board">게시판관리</i>
+			<span class="nav_txt">게시판관리</span>
+
+		</a>
 		<a href="/login/logout" class="logout">
 			<i class="ico logout">로그아웃</i>
 			<span class="nav_txt">로그아웃</span>

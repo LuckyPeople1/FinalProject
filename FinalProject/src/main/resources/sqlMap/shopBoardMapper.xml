@@ -120,6 +120,27 @@
   			questions_content as questionsContent,
   			questions_answer as questionsAnswer
   			from questions_tbl
-  			where questions_index=#{questionsIndex}
+  			where questions_state='정상' and questions_index=#{questionsIndex}
   </select> 
+  
+  <!-- 1:1 문의 삭제 -->
+   <update id="shopQuestionDelete" parameterType="questionVO">
+  	update questions_tbl set questions_state='삭제' where questions_index=#{questionsIndex}
+  </update> 
+  
+  
+   <!-- 사용자 1:1 문의보내기 -->
+  <insert id="shopQuestionInsert" parameterType="questionVO">
+  		insert into questions_tbl values(
+  			questions_index.nextval,
+  			#{questionsUserType},
+  			#{questionsTitle},
+  			#{questionsContent},
+  			null,  	
+  			#{questionsAnswerState},
+  			#{questionsWriter},
+  			sysdate,
+  			#{questionsState})
+  </insert> 
+  
 </mapper>
