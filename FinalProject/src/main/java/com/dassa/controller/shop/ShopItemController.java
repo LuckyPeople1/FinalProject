@@ -130,7 +130,7 @@ public class ShopItemController {
 			shopService.shopCountUpdate(sItem);
 			return "redirect:/shop/item";
 		}else {
-			return "redirect:/shop/";
+			return "redirect:/shop/premiumItem";
 		}
 	}
 	
@@ -218,12 +218,6 @@ public class ShopItemController {
 	 */
 	@RequestMapping("/shopItemModify")
 	public String ShopItemModify(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
-		System.out.println(fileImg.size());
-		System.out.println(fileImg.get(0));
-		System.out.println(fileImg.get(1).getName());
-		System.out.println(fileImg.get(2).getOriginalFilename());
-		System.out.println(fileImg.get(3).getOriginalFilename());
-		System.out.println(fileImg.get(4).getOriginalFilename());
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 		for(MultipartFile img : fileImg) {
 			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
@@ -256,10 +250,17 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemDelete")
-	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
+	public String shopItemDelete(@RequestParam int shopItemIdx, @RequestParam int userIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
 		if(result>0) {
 			shopService.shopPremiumItemStop(shopItemIdx);
+			result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			}
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -271,10 +272,17 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemStop")
-	public String shopItemStop(@RequestParam int shopItemIdx)throws Exception {
+	public String shopItemStop(@RequestParam int shopItemIdx, @RequestParam int userIdx)throws Exception {
 		int result = shopService.shopItemStop(shopItemIdx);
 		if(result>0) {
 			shopService.shopPremiumItemStop(shopItemIdx);
+			result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			}
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -442,4 +450,52 @@ public class ShopItemController {
            return "정보없음";
        return nValue.getNodeValue();
    }
+	/**
+	 * 아이템 적용
+	 * @param shopItemIdx
+	 * @param userIdx
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/powerIng")
+	public String powerIng(@RequestParam int shopItemIdx, @RequestParam int userIdx, HttpSession httpSession)throws Exception {
+		
+		int count = shopService.powerCount(userIdx);//아이템 적용 시 버튼 상태변경
+		System.out.println("등록 가능 매물 개수 : "+count);
+		if(count>0) {
+			int result = shopService.powerIng(shopItemIdx);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemIng(map);//아이템 적용 시 아이템 적용 개수 update
+				return "redirect:/shop/item";
+			}
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 아이템 해지
+	 * @param shopItemIdx
+	 * @param userIdx
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/powerEnd")
+	public String powerEnd(@RequestParam int shopItemIdx, @RequestParam int userIdx, HttpSession httpSession)throws Exception {
+
+		int result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("shopItemIdx", shopItemIdx);
+		map.put("userIdx", userIdx);
+		if(result>0) {
+			shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			return "redirect:/shop/item";
+			
+		}
+		return "redirect:/shop/item";
+	}
+	
 }

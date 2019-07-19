@@ -54,6 +54,10 @@
  	<select id="shopCount"  resultType="shopPremiumItemVO" parameterType="_int">
 		select shop_premium_item_idx as shopPremiumItemIdx from shop_premium_item_tbl where shop_item_idx=0 and user_idx=#{userIdx}
 	</select>
+	<!-- 아이템 적용 할 수 있는 개수 확인 -->
+	<select id="powerCount"  resultType="shopPowerItemVO" parameterType="_int">
+		select shop_power_item_idx as shopPowerItemIdx from shop_power_item_tbl where shop_power_item_state=0 and user_idx=#{userIdx}
+	</select>
 	<!-- 매물 등록  -->
 	<insert id="shopItemAdd" parameterType="shopItemVO">
 		insert into shop_item_tbl values(
@@ -125,6 +129,7 @@
 			(select rownum as rnum, item.* from (select * from shop_premium_item_tbl where shop_item_idx=0 and user_idx=#{userIdx} order by rownum asc)
 			 item where rownum = 1))
 	</update>
+	
 	<!-- 매물 이미지 등록 -->
 	<insert id="shopItemImgAdd" parameterType="java.util.List">
 		insert into 
@@ -289,15 +294,26 @@
 				shop_img_name as shopImgName,
 				shop_img_path as shopImgPath
 				from shop_item_img_tbl
-				where shop_item_idx=#{shopItemIdx}
+			where shop_item_idx=#{shopItemIdx}
 	</select>
+	
+	<!-- 아이템 적용 -->
+	<update id="powerIng" parameterType="_int">
+		update shop_item_tbl set shop_item_premium_state='1' where shop_item_idx=#{shopItemIdx}
+	</update>
+	<!-- 아이템 적용 중단 -->
+	<update id="powerEnd" parameterType="_int">
+		update shop_item_tbl set shop_item_premium_state='0' where shop_item_idx=#{shopItemIdx}
+	</update>
+	
+	
 	<!-- 매물 판매 중단 -->
 	<update id="shopItemStop" parameterType="shopItemVO">
 		update shop_item_tbl set shop_item_sale_state='판매중단', shop_item_del_date=sysdate where shop_item_idx=#{shopItemIdx}
 	</update>
 	<!-- 매물 판매 매물 판매중단,삭제 시 아이템 개수 update-->
 	<update id="shopPremiumItemStop" parameterType="_int">
-	update shop_premium_item_tbl set shop_item_idx=0
+		update shop_premium_item_tbl set shop_item_idx=0
 			where shop_premium_item_idx=(select shop_premium_item_idx from
 			(select rownum as rnum, item.* from (select * from shop_premium_item_tbl where shop_item_idx=#{shopItemIdx} order by rownum asc)
 			 item where rownum = 1))
@@ -311,6 +327,21 @@
 		update shop_premium_item_tbl set shop_item_idx=#{shopItemIdx}
 			where shop_premium_item_idx=(select shop_premium_item_idx from
 			(select rownum as rnum, item.* from (select * from shop_premium_item_tbl where shop_item_idx=0 and user_idx=#{userIdx} order by rownum asc)
+			 item where rownum = 1))
+	</update>
+	
+	<!-- 아이템 적용 시 개수 update -->
+	<update id="shopPowerItemIng" parameterType="map">
+		update shop_power_item_tbl set shop_item_idx=#{shopItemIdx}, shop_power_item_state=1
+			where shop_power_item_idx=(select shop_power_item_idx from
+			(select rownum as rnum, item.* from (select * from shop_power_item_tbl where shop_item_idx=0 and user_idx=#{userIdx} order by rownum asc)
+			 item where rownum = 1))
+	</update>
+	<!-- 아이템 해지 시 개수 update -->
+	<update id="shopPowerItemEnd" parameterType="map">
+		update shop_power_item_tbl set shop_item_idx=#{shopItemIdx}, shop_power_item_state=0
+			where shop_power_item_idx=(select shop_power_item_idx from
+			(select rownum as rnum, item.* from (select * from shop_power_item_tbl where shop_item_idx=#{shopItemIdx} and user_idx=#{userIdx} order by rownum asc)
 			 item where rownum = 1))
 	</update>
 	<!-- 매물 삭제 -->
