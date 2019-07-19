@@ -254,7 +254,7 @@
 						</div><br><br><br>
 						<div class="section_title">최종 견적</div><hr>
 						<div class="infoBox">
-							<div class="row static">견적금액:${driverVO.estimateAmount }원</div>
+							<div class="row static">견적금액:${driverVO.estimateAmount }</div>
 						</div>
 					</div>
 				</div>	

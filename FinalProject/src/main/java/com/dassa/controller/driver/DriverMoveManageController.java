@@ -129,14 +129,15 @@ public class DriverMoveManageController {
 			System.out.println("상품번호"+driverVO.getApplyIdx());
 			System.out.println("자동차"+driverVO.getUserCar()); 
 			int result=driverService.driverMoveUpdate(driverVO);
+			int driverIdx=driverVO.getDriverIdx();
 			if(result>0) {
 					model.addAttribute("msg", "수정성공");
-					model.addAttribute("loc", "driver/manager/driverMove.jsp");
+					model.addAttribute("loc", "/driver/home?driverIdx="+driverIdx);
 					return "guest/common/msg";
 				
 			}else {
-				model.addAttribute("msg", "수정성공");
-				model.addAttribute("loc", "driver/manager/driverMove.jsp");
+				model.addAttribute("msg", "수정실패");
+				model.addAttribute("loc", "/driver/home?driverIdx="+driverIdx);
 				return "guest/common/msg";
 			}
 		}

@@ -68,7 +68,7 @@
 						<col width="130">
 						<col width="130">
 						<col width="100">
-						<col width="80">
+						<col width="120">
 						<col width="85">
 						<col width="100">
 					</colgroup>
@@ -102,6 +102,7 @@
 						<c:if test="${moveApply.auctionState eq 1 }">
 							<td>
 								<span class="tag col_green f_w">견적 완료</span>
+								<a href="/driver/driverMoveDetailUpdate?applyIdx=${moveApply.applyIdx }"><span class="tag col_blue f_w">견적 수정</span></a>
 							</td>
 						</c:if>
 						<c:if test="${moveApply.auctionState eq 2 }">
@@ -157,7 +158,7 @@
 	function fn_pagination(page, range, rangeSize) {
 	  	var driverIdx=$('#driverIdx').val();
 		var elem = document.getElementById('driverMoveForm');
-		elem.action = "${pageContext.request.contextPath}/driver/move?driverIdx="driverIdx;
+		elem.action = "${pageContext.request.contextPath}/driver/move?driverIdx="+driverIdx;
 		elem.page.value = page;
 		elem.range.value = range;
 		elem.rangeSize.value = rangeSize;
