@@ -11,6 +11,7 @@ import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverSaleVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.MovePaymentVO;
@@ -62,6 +63,9 @@ public List<DriverMypageReviewVO> driverReview(int driverIdx);
 public List<UserVO> userNameSelectOne();
 
 //매출 통계
-public ArrayList<MovePaymentVO> driverSaleList(int driverIdx);
+public ArrayList<DriverSaleVO> driverYearSumList(int driverIdx);
+public ArrayList<DriverSaleVO> driverYearAvgList(int driverIdx);
+public ArrayList<DriverSaleVO> driverMonthSumList(int driverIdx);
+public ArrayList<DriverSaleVO> driverMonthAvgList(int driverIdx);
 
 }

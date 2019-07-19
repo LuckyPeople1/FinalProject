@@ -30,7 +30,6 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form">
-			<form action="/shop/board/shopNoticeInsert" method="post" id="insert" enctype="multipart/form-data">
 				<table class="table_set">
 					<colgroup>
 						<col width="180">
@@ -60,7 +59,6 @@
 						${noticeVO.noticeContent }</td>
 					</tr>
 						</table>
-				</form>
 			</div>
 			<div class="btnWrap">
 				<a href="javascript:history.back()" class="btn col_darkGrey bigger f_w">목록으로</a>

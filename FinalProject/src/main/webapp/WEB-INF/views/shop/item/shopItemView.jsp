@@ -48,8 +48,8 @@
 						</li>
 						<li class="byeNFK">
 							<div	style="float: left;">
-								<p class="hhDakc">삼성공인중개사사무소</p>
-								<p class="gTIMxh">김재수</p>
+								<p class="hhDakc">${item.shopName }</p>
+								<p class="gTIMxh">${item.shopItemManager }</p>
 							</div>
 							<button class="fEkbZe" id="modalOpen">
 								<svg width="18" height="18" viewBox="0 0 18 18">
@@ -528,27 +528,20 @@
 				<div class="fxChzu">
 					<div class="bUnfmq">
 						<div class="gyvHLB">
-							<h1>베스트공인중개사사무소</h1>
-							<p>서울특별시 강북구 한천로 123가길 66, 1층(번동)</p>
-						</div>
-						<div class="hlmgHQ">
-							<p>
-								대표명<font>손경희</font>
-							</p>
-							<p>
-								대표번호<font>02-902-5454</font>
-							</p>
+							<h1>${item.shopName }</h1>
 						</div>
 					</div>
 					<div class="kMFgaL">
-						<div class="gjVGcx"></div>
+						<div class="gjVGcx">
+							<img src="${member.shopMemberImgPath }">
+						</div>
 						<div class="hEBltZ">
-							<p class="fKNqjm">담당: 정윤성 (중개보조원)</p>
+							<p class="fKNqjm">담당자 : ${item.shopItemManager }</p>
 							<p class="bEkUP">
 								<svg width="18" height="19" viewBox="0 0 18 19">
 									<path fill="#1476FC" fill-rule="evenodd" d="M17.063 13.313c1.015 1.015 1.015 2.132 0 3.351-.407.474-.805.83-1.194 1.066-.39.237-.71.373-.965.407-.254.034-.618.05-1.091.05-1.32 0-2.895-.677-4.723-2.03a29.861 29.861 0 0 1-3.961-3.403A27.204 27.204 0 0 1 1.117 7.32C.102 5.424-.203 3.867.203 2.648.406 2.005.88 1.447 1.625.973l.05-.051c.61-.406 1.152-.61 1.626-.61.643 0 1.219.305 1.726.915l.051.05c.779 1.016 1.32 1.812 1.625 2.387.508 1.05.491 1.947-.05 2.691-.407.542-.61.931-.61 1.168 0 .102.22.407.66.915l.05.05c.813.914 1.254 1.405 1.321 1.473.034 0 .068.017.102.05l.203.204a39.899 39.899 0 0 0 1.473 1.422l.05.05c.305.271.508.407.61.407.169 0 .66-.254 1.472-.762.237-.17.525-.254.864-.254.609 0 1.345.254 2.209.762.863.508 1.532.999 2.005 1.473z"></path>
 								</svg>
-								010-4653-8121
+								${member.shopMemberPhone }
 							</p>
 							<p class=" jxqoHd">연락 시 다싸에서 보고 연락한다고 말씀하시면</p>
 							<p class=" jxqoHd">더욱 빠르게 상담 받을 수 있습니다.</p>
@@ -559,8 +552,8 @@
 					<form class="dhDUnZ" action="/shop/reserveAdd">
 						<input type="hidden" name="userIdx" value="${item.userIdx }">
 						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
-						<input type="hidden" name="shopReservationName" value="">  <!-- 예약고객 -->
-						<input type="hidden" name="shopReservationManager" value="">
+						<input type="hidden" name="shopReservationName" value="${sessionScope.user.userName }">  <!-- 예약고객 -->
+						<input type="hidden" name="shopReservationManager" value="${item.shopItemManager }">
 						<input type="hidden" name="shopReservationState" value="예약대기">
 						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='shopReservationTel'>
 						<button class="idBxyN" type="submit" id="reservation">방문예약하기</button>
@@ -573,7 +566,7 @@
 </div>
 <script>
 	$(document).ready(function() {
-		var dealPrice = "${item.shopItemDealPrice}"*1;
+/* 		var dealPrice = "${item.shopItemDealPrice}"*1;
 		if(${item.shopItemDealPrice==''}){
 			managePrice = 0;
 		}else{
@@ -592,8 +585,13 @@
 		if(${item.shopItemDealType=='월세'}&& managePrice!=0){
 			$("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세 + 관리비)</span>");
 		}
-		//월세면서 주차비만 있을 시
-		if(${item.shopItemDealType=='월세'}&& parkingPricePrice!=0){
+		//월세면서 주차비가 없을 시 
+		if(${item.shopItemDealType=='월세'}&& managePrice==0){
+			$("#price").html(dealPrice+parkingPrice+"만 원 + α<span>(월세 + 주차비)</span>");
+		}
+
+		//월세면서 주차비가 없을 시 
+		if(${item.shopItemDealType=='월세'}&& managePrice==0){
 			$("#price").html(dealPrice+parkingPrice+"만 원 + α<span>(월세 + 주차비)</span>");
 		}
 		//월세면서 관리비, 주차비가 없을 시
@@ -615,7 +613,7 @@
 		//무료
 		if(managePrice==0 && parkingPrice==0){
 			$("#price").html("0만 원 + α<span></span>");
-		}
+		} */
 		
 		
 		//사이즈 변경

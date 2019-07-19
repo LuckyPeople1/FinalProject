@@ -33,6 +33,7 @@ public class SaleInLotsController {
 	 */
 	@RequestMapping("/")
 	public String saleInLotsHome() {
+		
 		return "guest/saleInLots/saleInLotsHome";
 
 	}
@@ -158,6 +159,7 @@ public class SaleInLotsController {
 		str.put("brandName", brandName);
 		SaleInLotsPageDataVO spVO = saleInLotsService.saleInLotsBrand(reqPage,str);
 		model.addAttribute("sp",spVO);
+		model.addAttribute("tab",brandName);
 		return "guest/saleInLots/saleInLotsBrand";
 
 	}

@@ -11,7 +11,8 @@
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<form action="/shop/shopItemAdd" method="post" enctype="multipart/form-data" onsubmit="shopItemAdd()">
-	<input type="hidden" name="userIdx" value="0">
+	<input type="hidden" name="userIdx" value="${sessionScope.user.userIdx }">
+	<input type="hidden" name="shopName" value="${sessionScope.user.companyName }">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
@@ -687,9 +688,11 @@
 									<c:forEach items="${memberList}" var="item" varStatus="index" end="${memberList.size()}">
 										<option value="${item.shopMemberName}">${item.shopMemberName}</option>
 									</c:forEach>
-									</select> 
+									</select>
+									<input type="hidden" name="shopItemManagerPhone" value="${sessionScope.user.userPhone }"> 
 								</td>
 							</tr>
+							
 							<tr>
 								<th>제목</th>
 								<td class="iXeisV">

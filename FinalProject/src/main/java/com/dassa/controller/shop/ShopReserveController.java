@@ -3,6 +3,7 @@ package com.dassa.controller.shop;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.ShopService;
-import com.dassa.vo.ShopItemPageDataVO;
-import com.dassa.vo.ShopItemVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/shop")
@@ -25,15 +25,16 @@ public class ShopReserveController {
 	private ShopService shopService;
 	//부동산 방문관리 페이지(reserve)
 	@RequestMapping("/reserve")
-	public ModelAndView ShopReserve(HttpServletRequest request)throws Exception {
+	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
 		}catch(NumberFormatException e){
 			reqPage=1;
 		}
+		UserVO userVO = (UserVO)httpSession.getAttribute("user");
 		ModelAndView mav = new ModelAndView();
-		ShopReservationPageDataVO sipd = shopService.selectReservationAllList(reqPage);
+		ShopReservationPageDataVO sipd = shopService.selectReservationAllList(reqPage,userVO);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopReservationVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
