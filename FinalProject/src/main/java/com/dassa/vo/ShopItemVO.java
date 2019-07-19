@@ -5,10 +5,12 @@ import java.sql.Date;
 public class ShopItemVO {
 	private int shopItemIdx; 															//매물번호
 	private int userIdx;																	//부동산번호
+	private String shopName;														//부동산이름
 	private String shopItemTitle;													//매물제목
 	private String shopItemContent;												//매물상세정보
 	private String shopItemSecretMemo;											//매물비공개메모
 	private String shopItemManager;												//매물담당자
+	private String shopItemManagerPhone;										//매물담당자연락처
 	private int shopItemImgIdx;														//매물사진테이블 외래키
 	private String shopItemPremiumState;										//매물아이템상태
 	private String shopItemType1;													//매물종류(원룸,투룸,쓰리룸,오피스텔,아파트)
@@ -64,17 +66,17 @@ public class ShopItemVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ShopItemVO(int shopItemIdx, int userIdx, String shopItemTitle, String shopItemContent,
-			String shopItemSecretMemo, String shopItemManager, int shopItemImgIdx, String shopItemPremiumState,
-			String shopItemType1, String shopItemType2, String shopItemAddr1, String shopItemAddr2,
-			String shopItemAddrDong1, String shopItemAddrHo1, String shopItemAddrDong2, String shopItemAddrHo2,
-			String shopItemLatitude, String shopItemLongitude, String shopItemDealType, String shopItemDeposit,
-			String shopItemDealPrice, String shopItemSize1, String shopItemSizeAll1, String shopItemSize2,
-			String shopItemSizeAll2, String shopItemSize3, String shopItemSizeAll3, String shopItemSize4,
-			String shopItemSizeAll4, String shopItemFloor1, String shopItemFloorAll1, String shopItemFloor2,
-			String shopItemFloorAll2, String shopItemHeating1, String shopItemHeating2, String shopItemBulidCompany,
-			String shopItemBulidHallway, String shopItemBulidDate, String shopItemMovingDate1,
-			String shopItemMovingDate2, String shopItemManage, String shopItemManagePrice,
+	public ShopItemVO(int shopItemIdx, int userIdx, String shopName, String shopItemTitle, String shopItemContent,
+			String shopItemSecretMemo, String shopItemManager, String shopItemManagerPhone, int shopItemImgIdx,
+			String shopItemPremiumState, String shopItemType1, String shopItemType2, String shopItemAddr1,
+			String shopItemAddr2, String shopItemAddrDong1, String shopItemAddrHo1, String shopItemAddrDong2,
+			String shopItemAddrHo2, String shopItemLatitude, String shopItemLongitude, String shopItemDealType,
+			String shopItemDeposit, String shopItemDealPrice, String shopItemSize1, String shopItemSizeAll1,
+			String shopItemSize2, String shopItemSizeAll2, String shopItemSize3, String shopItemSizeAll3,
+			String shopItemSize4, String shopItemSizeAll4, String shopItemFloor1, String shopItemFloorAll1,
+			String shopItemFloor2, String shopItemFloorAll2, String shopItemHeating1, String shopItemHeating2,
+			String shopItemBulidCompany, String shopItemBulidHallway, String shopItemBulidDate,
+			String shopItemMovingDate1, String shopItemMovingDate2, String shopItemManage, String shopItemManagePrice,
 			String shopItemManagePriceOption, String shopItemParking, String shopItemParkingPrice,
 			String shopItemAnimal, String shopItemElevator, String shopItemBalcony, String shopItemBuiltIn,
 			String shopItemStructure, String shopItemOption, String shopItemLoan, Date shopItemRegDate,
@@ -82,10 +84,12 @@ public class ShopItemVO {
 		super();
 		this.shopItemIdx = shopItemIdx;
 		this.userIdx = userIdx;
+		this.shopName = shopName;
 		this.shopItemTitle = shopItemTitle;
 		this.shopItemContent = shopItemContent;
 		this.shopItemSecretMemo = shopItemSecretMemo;
 		this.shopItemManager = shopItemManager;
+		this.shopItemManagerPhone = shopItemManagerPhone;
 		this.shopItemImgIdx = shopItemImgIdx;
 		this.shopItemPremiumState = shopItemPremiumState;
 		this.shopItemType1 = shopItemType1;
@@ -150,6 +154,12 @@ public class ShopItemVO {
 	public void setUserIdx(int userIdx) {
 		this.userIdx = userIdx;
 	}
+	public String getShopName() {
+		return shopName;
+	}
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
 	public String getShopItemTitle() {
 		return shopItemTitle;
 	}
@@ -173,6 +183,12 @@ public class ShopItemVO {
 	}
 	public void setShopItemManager(String shopItemManager) {
 		this.shopItemManager = shopItemManager;
+	}
+	public String getShopItemManagerPhone() {
+		return shopItemManagerPhone;
+	}
+	public void setShopItemManagerPhone(String shopItemManagerPhone) {
+		this.shopItemManagerPhone = shopItemManagerPhone;
 	}
 	public int getShopItemImgIdx() {
 		return shopItemImgIdx;
@@ -480,4 +496,5 @@ public class ShopItemVO {
 	public void setShopItemHouseNumber(String shopItemHouseNumber) {
 		this.shopItemHouseNumber = shopItemHouseNumber;
 	}
+	
 }

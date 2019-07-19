@@ -103,8 +103,9 @@
 		<div class="list_form">
 
 		</div>
+		테스트 ${sessionScope.user.userIdx }
 		<div class="btn_box">
-			<a href="/shop/premiumItemAdd?userIdx=0" class="btn col_red">구매 테스트</a>
+			<a href="/shop/premiumItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">구매 테스트</a>
 		</div>
 	</div>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
