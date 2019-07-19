@@ -113,7 +113,8 @@
 						<td>${item.shopItemRegDate }</td>
 						<td>
 							<div class="set_menu">
-								<input name="idx" type="hidden" value=${item.shopItemIdx }>
+								<input name="userIdx" type="hidden" value=${sessionScope.user.userIdx }>
+								<input name="shopItemIdx" type="hidden" value=${item.shopItemIdx }>
 								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">상세보기</a>
 								<c:if test="${item.shopItemSaleState eq '판매중단'}">
 									<button type="button" class="btn small col_blue f_w" name="addItem" value=${item.shopItemIdx }>판매진행</button>
@@ -140,22 +141,25 @@
 <script>
 	$("button[name='delItem']").click(function(){
 		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
 		if(confirm("정말 삭제하시겠습니까?")){
-			location.href="/shop/shopItemDelete?shopItemIdx="+idx;
+			location.href="/shop/shopItemDelete?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
 	});
 	$("button[name='stopItem']").click(function(){
 		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
 		if(confirm("판매중단으로 변경하시겠습니까?")){
-			location.href="/shop/shopItemStop?shopItemIdx="+idx;
+			location.href="/shop/shopItemStop?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
 	});
 	$("button[name='addItem']").click(function(){
 		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
 		if(confirm("판매중으로 변경하시겠습니까?")){
-			location.href="/shop/shopItemIng?shopItemIdx="+idx;
+			location.href="/shop/shopItemIng?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
 	})

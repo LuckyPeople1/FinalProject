@@ -265,7 +265,7 @@
 		where user_type= 3 
 	</select>
 	
-	<select id="driverSaleList" parameterType="_int" resultType="com.dassa.vo.MovePaymentVO">
+	<!-- <select id="driverSaleList" parameterType="_int" resultType="com.dassa.vo.MovePaymentVO">
 		select move_payment_idx as movePaymentIdx,
   			move_payment_imp_uid as movePaymentImpUid,
   			apply_idx as applyIdx,
@@ -277,6 +277,29 @@
   			move_payment_cenceldate as movePaymentCencelDate,
   			move_payment_status as movePaymentStatus
   			from move_payment_tbl where driver_idx = #{driverIdx}
+	</select> -->
+	<select id="driverYearSumList" parameterType="_int" resultType="com.dassa.vo.DriverSaleVO">
+		SELECT to_char(move_payment_date,'yyyy') as driverSaledate, 
+			SUM(move_payment_amount*0.9) as driverSaleAmount
+			FROM move_payment_tbl where driver_idx=#{driverIdx} and move_payment_cenceldate is null 
+			GROUP BY to_char(move_payment_date,'yyyy') order by 1
 	</select>
-	
+	<select id="driverYearAvgList" parameterType="_int" resultType="com.dassa.vo.DriverSaleVO">
+		SELECT to_char(move_payment_date,'yyyy') as driverSaledate, 
+			floor(avg(move_payment_amount*0.9)) as driverSaleAmount
+			FROM move_payment_tbl where driver_idx=#{driverIdx} and move_payment_cenceldate is null 
+			GROUP BY to_char(move_payment_date,'yyyy') order by 1
+	</select>
+	<select id="driverMonthSumList" parameterType="_int" resultType="com.dassa.vo.DriverSaleVO">
+		SELECT to_char(move_payment_date,'yyyymm') as driverSaledate, 
+			SUM(move_payment_amount*0.9) as driverSaleAmount
+			FROM move_payment_tbl where driver_idx=#{driverIdx} and move_payment_cenceldate is null 
+			GROUP BY to_char(move_payment_date,'yyyymm') order by 1
+	</select>
+	<select id="driverMonthAvgList" parameterType="_int" resultType="com.dassa.vo.DriverSaleVO">
+		SELECT to_char(move_payment_date,'yyyymm') as driverSaledate, 
+			floor(avg(move_payment_amount*0.9)) as driverSaleAmount
+			FROM move_payment_tbl where driver_idx=#{driverIdx} and move_payment_cenceldate is null 
+			GROUP BY to_char(move_payment_date,'yyyymm') order by 1
+	</select>
 </mapper>

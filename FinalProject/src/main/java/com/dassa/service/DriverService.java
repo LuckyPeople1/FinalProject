@@ -16,6 +16,8 @@ import com.dassa.vo.DriverAuctionDetailVO;
 import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverSaleDataVO;
+import com.dassa.vo.DriverSaleVO;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.MovePaymentVO;
@@ -129,8 +131,14 @@ public class DriverService {
 		}
 		return result;
 	}
-	public ArrayList<MovePaymentVO> driverSaleList(int driverIdx) throws Exception{
-		return driverMapper.driverSaleList(driverIdx);
+
+	public DriverSaleDataVO driverSaleList(int driverIdx){
+		ArrayList<DriverSaleVO> yearSum = driverMapper.driverYearSumList(driverIdx);
+		ArrayList<DriverSaleVO> yearAvg = driverMapper.driverYearAvgList(driverIdx);
+		ArrayList<DriverSaleVO> monthSum = driverMapper.driverMonthSumList(driverIdx);
+		ArrayList<DriverSaleVO> monthAvg = driverMapper.driverMonthAvgList(driverIdx);
+		return new DriverSaleDataVO(yearSum, yearAvg, monthSum, monthAvg);
+
 	}
 	
 	@Transactional

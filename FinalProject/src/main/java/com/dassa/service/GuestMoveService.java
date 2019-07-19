@@ -84,9 +84,7 @@ public class GuestMoveService {
 		for(int i =0;i<list.size();i++) {
 			DriverReviewVO reVO = guestMoveMapper.driverReviewSelectOne(list.get(i).getApplyIdx());
 			if(reVO != null) {
-				System.out.println(reVO.getReviewIdx());
 				reList.add(reVO);
-				System.out.println(reList.get(0).getReviewIdx());
 			}else {
 				reList.add(null);
 			}

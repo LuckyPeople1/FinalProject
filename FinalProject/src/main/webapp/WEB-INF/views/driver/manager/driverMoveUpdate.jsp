@@ -265,7 +265,7 @@
 							</ul>
 						</div>
 						<div class="btn_box">
-							<a href="javascript:$('#moveUpdateForm').submit()" class="btn col_navy f_w">견적 수정</a>
+							<a href="javascript:$('#moveUpdateForm').submit()"  class="btn col_navy f_w">견적 수정</a>
 							<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
 						</div>
 					</div>
