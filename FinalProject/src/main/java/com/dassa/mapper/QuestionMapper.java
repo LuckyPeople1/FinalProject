@@ -19,4 +19,6 @@ public interface QuestionMapper {
 
 	public int questionUpdate(QuestionVO q) throws Exception;
 
+	public int questionManageDelete(int questionsIndex) throws Exception;
+
 }

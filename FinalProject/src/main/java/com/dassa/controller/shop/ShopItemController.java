@@ -1,11 +1,11 @@
 package com.dassa.controller.shop;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,12 +25,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.dassa.common.FileCommon;
+import com.dassa.service.ShopMemberService;
 import com.dassa.service.ShopService;
-import com.dassa.vo.NoticeVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
-import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopMemberVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/shop")
@@ -71,10 +71,19 @@ public class ShopItemController {
 	/**
 	 * 부동산 매물등록 페이지(itemAdd)
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/itemAdd")
-	public String ShopItemAdd() {
-		return "shop/item/shopItemAdd";
+	public ModelAndView ShopItemAdd(HttpSession httpSession, Model model) throws Exception {
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+		ModelAndView mav = new ModelAndView();
+		System.out.println(	"세션에 담긴 유저 번호 : "+(UserVO)httpSession.getAttribute("user"));
+		if(userVO != null){
+			List<ShopMemberVO> memberList = shopService.getMember(userVO.getUserIdx());
+			mav.addObject("memberList",memberList);
+			mav.setViewName("shop/item/shopItemAdd");
+		}
+		return mav;
 	}
 	/**
 	 * 부동산 매물 등록 로직(ItemAdd)
@@ -85,7 +94,7 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemAdd")
-	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
+	public String ShopItemAdd(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg, @RequestParam int userIdx)throws Exception {
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 		System.out.println("입주형태1 : "+sItem.getShopItemMovingDate1());
 		System.out.println("입주형태2 : "+sItem.getShopItemMovingDate2());
@@ -111,9 +120,32 @@ public class ShopItemController {
 				System.out.println("최종이미지리스트"+imgList);
 			}
 		}
-		shopService.shopItemAdd(sItem, imgList);
-//		shopService.shopItemImgAdd(imgList);
-		return "redirect:/shop/item";
+		System.out.println("콘트롤러 userIdx : "+userIdx);
+		int count = shopService.shopCount(userIdx);
+		System.out.println("등록 가능 매물 개수 : "+count);
+		if(count>0) {
+			shopService.shopItemAdd(sItem, imgList);
+			System.out.println("상품등록할 상품idx"+sItem.getShopItemIdx());
+			System.out.println("상품등록할 userIdx"+userIdx);
+			shopService.shopCountUpdate(sItem);
+			return "redirect:/shop/item";
+		}else {
+			return "redirect:/shop/";
+		}
+	}
+	
+	@RequestMapping("/test")
+	public void testArr(HttpServletRequest httpServletRequest) {
+		int userIdx = 0;
+		int count;
+		try {
+			count = shopService.shopCount(userIdx);
+			System.out.println("등록 가능 매물 개수 : "+count);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	/**
 	 * 부동산 매물 상세페이지(itemInfo)
@@ -212,7 +244,6 @@ public class ShopItemController {
 //		shopService.shopItemImgAdd(imgList);
 		return "redirect:/shop/item";
 	}
-	
 	/**
 	 * 중개사 페이지 - 매물 삭제 로직(itemDelete)
 	 * @param shopItemIdx
@@ -222,6 +253,34 @@ public class ShopItemController {
 	@RequestMapping("/shopItemDelete")
 	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
+		if(result>0) {
+			return "redirect:/shop/item";
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 중개사 페이지 - 매물 판매 중단 로직(itemStop)
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemStop")
+	public String shopItemStop(@RequestParam int shopItemIdx)throws Exception {
+		int result = shopService.shopItemStop(shopItemIdx);
+		if(result>0) {
+			return "redirect:/shop/item";
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 중개사 페이지 - 매물 판매 진행 로직(itemIng)
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemIng")
+	public String shopItemIng(@RequestParam int shopItemIdx)throws Exception {
+		int result = shopService.shopItemIng(shopItemIdx);
 		if(result>0) {
 			return "redirect:/shop/item";
 		}

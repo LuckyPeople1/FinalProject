@@ -38,7 +38,7 @@
 						
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 1 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>01</span> 청약통장 가입하기
 							</div>
@@ -48,7 +48,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 1 ? 'block' : 'none' }">
 							<h1 class="title">▪ 청약통장 선택</h1>
 							<p class="text">2015년 9월 1일부터 청약예금, 청약부금, 청약저축 신규발급이 중단되고,
 								3가지 통장의 기능을 모두 모은 주택청약종합저축으로 일원화되었다.</p>
@@ -106,7 +106,7 @@
 						</div>
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 2 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>02</span> 원하는 주택 찾아보기
 							</div>
@@ -116,7 +116,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 2 ? 'block' : 'none' }">
 							<h1 class="title">· 민영주택이란 민간건설업체가 주택도시기금의 지원 없이 건설하는 주택으로
 								민간분양과 민간임대로 나뉜다.</h1>
 							<h1 class="title">· 국민주택이란 주택도시기금의 지원을 받아 건설하는 약 25평 이하의
@@ -158,7 +158,7 @@
 						</div>
 					</div>
 					<div class="wrap_content">
-						<h1 class="processTitle">
+						<h1 class="processTitle ${tab == 3 ? 'on' : ''}">
 							<div class="title_Label">
 								<span>03</span> 내 자격과 순위 확인하기
 							</div>
@@ -168,7 +168,7 @@
 								</path>
 							</svg>
 						</h1>
-						<div class="processContentDetail" style="display: none">
+						<div class="processContentDetail" style="display:${tab == 3 ? 'block' : 'none' }">
 							<p class="text">
 								<span class="bold underline">민영주택</span>
 								<null>은 입주자모집공고일 현재 당일 주택건설지역에 거주하는 만 19세 이상인 자만 신청가능.</null>

@@ -24,6 +24,7 @@ public class UserVO {
 	private Date	enrollDate;
 	private String  status;					//회원 상태
 	private Date    outDate;				//탈퇴 일
+	private String  companyName;			//회사명
 	
 	private String  type;
 	private String  userStatus;				//상태 변경
@@ -38,7 +39,8 @@ public class UserVO {
 	public UserVO(int userIdx, String userId, String userPw, String userName, String userAddr, String addrCode,
 			String userPhone, String userEmail, String proFilename, String proFilepath, String userIntroduce,
 			String registrationNumber, String businessNumber, String userCar, String compFilename, String compFilepath,
-			String userType, String socialId, Date enrollDate, String status, Date outDate, String type) {
+			String userType, String socialId, Date enrollDate, String status, Date outDate, String companyName,
+			String type, String userStatus, String userType1, String userType2) {
 		super();
 		this.userIdx = userIdx;
 		this.userId = userId;
@@ -61,8 +63,14 @@ public class UserVO {
 		this.enrollDate = enrollDate;
 		this.status = status;
 		this.outDate = outDate;
+		this.companyName = companyName;
 		this.type = type;
+		this.userStatus = userStatus;
+		this.userType1 = userType1;
+		this.userType2 = userType2;
 	}
+
+
 
 	public int getUserIdx() {
 		return userIdx;
@@ -230,6 +238,14 @@ public class UserVO {
 
 	public void setOutDate(Date outDate) {
 		this.outDate = outDate;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public String getType() {

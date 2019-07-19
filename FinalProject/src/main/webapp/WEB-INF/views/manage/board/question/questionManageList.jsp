@@ -75,20 +75,20 @@
 					<colgroup>
 						<col width="80">
 						<col width="100">
+						<col width="100">
 						<col width="*">
 						<col width="130">
 						<col width="130">
-						<col width="100">
 						<col width="100">
 						<col width="100">
 					</colgroup>
 					<thead>
 					<tr>
 						<th>No</th>
+						<th>분류</th>
 						<th>아이디</th>
 						<th>제목</th>
 						<th>작성일시</th>
-						<th>답변일시</th>
 						<th>답변유무</th>
 						<th>상태</th>
 						<th>관리</th>
@@ -99,10 +99,10 @@
 					
 					<tr>
 						<td>${q.questionsIndex }</td>
+						<td>${q.questionsUserType }</td>
 						<td>${q.questionsWriter }</td>
 						<td class="text-left">${q.questionsTitle }</td>
 						<td>${q.questionsRegDate}</td>
-						<td>2019-07-02</td>
 						<td>
 							<span class="tag col_blue f_w">${q.questionsAnswerState }</span>
 						</td>
@@ -114,7 +114,7 @@
 								<a href="/manage/board/question/questionManageView?questionsIndex=${q.questionsIndex }" class="btn small col_main f_w">보기</a>
 							</div>
 							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">삭제</a>
+								<a href="/manage/board/question/questionManageDelete?questionsIndex=${q.questionsIndex }" class="btn small col_darkGrey f_w">삭제</a>
 							</div>
 						</td>
 					</tr>

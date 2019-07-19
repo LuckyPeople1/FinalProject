@@ -11,6 +11,7 @@
 		<!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<form action="/shop/shopItemAdd" method="post" enctype="multipart/form-data" onsubmit="shopItemAdd()">
+	<input type="hidden" name="userIdx" value="0">
 	<div class="contents">
 		<section class="shopItemAdd">
 			<div class="page_header">
@@ -682,7 +683,10 @@
 								<th>담당자</th>
 								<td class="iXeisV">
 									<select class="iDUqOA hRFrgm" name="shopItemManager">
-										<option value="">담당자 선택</option>
+									<option value="">담당자 선택</option>
+									<c:forEach items="${memberList}" var="item" varStatus="index" end="${memberList.size()}">
+										<option value="${item.shopMemberName}">${item.shopMemberName}</option>
+									</c:forEach>
 									</select> 
 								</td>
 							</tr>

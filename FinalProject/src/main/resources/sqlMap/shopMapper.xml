@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.ShopMapper">
+	<resultMap id="memberListMap" type="com.dassa.vo.ShopMemberVO">
+		<result column="SHOP_MEMBER_IDX" property="shopMemberIdx"/>
+		<result column="SHOP_IDX" property="shopIdx"/>
+		<result column="SHOP_MEMBER_NAME" property="shopMemberName"/>
+		<result column="SHOP_MEMBER_PHONE" property="shopMemberPhone"/>
+		<result column="SHOP_MEMBER_COMMENT" property="shopMemberComment"/>
+		<result column="SHOP_MEMBER_IMG_NAME" property="shopMemberImgName"/>
+		<result column="SHOP_MEMBER_IMG_PATH" property="shopMemberImgPath"/>
+		<result column="SHOP_MEMBER_STATE" property="shopMemberState"/>
+		<result column="SHOP_MEMBER_REG_DATE" property="shopMemberRegDate"/>
+		<result column="SHOP_MEMBER_LEAVE_DATE" property="shopMemberLeaveDate"/>
+	</resultMap>
+
+
+	<!-- 중개사 myPage -->
+	<select id="shopMyPage" parameterType="userVO" resultType="userVO">
+		select user_idx as userIdx,
+			user_id as userId,
+			user_name as userName,
+			user_phone as userPhone,
+			pro_filename as proFilename,
+			pro_filepath as proFilepath,
+			user_introduce as userIntroduce,
+			registration_number as registrationNumber,
+			business_number as businessNumber
+		from user_tbl where user_id=#{userId}
+	</select>
+	<!-- 직원 가져오기 -->
+	<select id="getMember" resultMap="memberListMap" parameterType="int">
+		select * from SHOP_MEMBER_TBL where SHOP_MEMBER_STATE = 0 and SHOP_IDX = #{userIdx}
+	</select>
 	<!-- 주소 구 리스트 가져오기 -->
 	<select id="getJusoGuList" parameterType="string" resultType="jusoGuVO">
 		select 
@@ -14,6 +45,10 @@
 			juso_dong_code as jusoDongCode,
 			juso_dong_name as jusoDongName
 		from juso_dong_tbl where juso_dong_code like #{jusoGuCode}||'%' order by juso_dong_name asc
+	</select>
+	<!-- 등록 할 수 있는 개수 확인 -->
+ 	<select id="shopCount"  resultType="shopPremiumItemVO">
+		select shop_premium_item_idx as shopPremiumItemIdx from shop_premium_item_tbl where shop_item_idx=0 and user_idx=0
 	</select>
 	<!-- 매물 등록  -->
 	<insert id="shopItemAdd" parameterType="shopItemVO">
@@ -77,6 +112,13 @@
 			#{shopItemHouseNumber, jdbcType=VARCHAR}
 			)
 	</insert>
+	<!-- 매물 등록 시 아이템에 해당 매물 등록(올릴 수 있는 카운트 차감)  -->
+	<update id="shopCountUpdate" parameterType="shopItemVO">
+		update shop_premium_item_tbl set shop_item_idx=shop_item_idx_seq.currval
+			where shop_premium_item_idx=(select shop_premium_item_idx from
+			(select rownum as rnum, item.* from (select * from shop_premium_item_tbl where shop_item_idx=0 and user_idx=#{userIdx} order by rownum asc)
+			 item where rownum = 1))
+	</update>
 	<!-- 매물 이미지 등록 -->
 	<insert id="shopItemImgAdd" parameterType="java.util.List">
 		insert into 
@@ -165,13 +207,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중'
+			from (select rownum as rnum, item.* from (select * from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단'
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
 	<!-- 매물 총 게시물 수 -->
 	<select id="shopItemTotalCount" resultType="_int">
-		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중'
+		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단'
 	</select>
 	<!-- 매물 상세보기 -->
 	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
@@ -240,22 +282,59 @@
 				from shop_item_img_tbl
 				where shop_item_idx=#{shopItemIdx}
 	</select>
+	<!-- 매물 판매 중단 -->
+	<update id="shopItemStop" parameterType="shopItemVO">
+		update shop_item_tbl set shop_item_sale_state='판매중단', shop_item_del_date=sysdate where shop_item_idx=#{shopItemIdx}
+	</update>
+	<!-- 매물 판매 진행 -->
+	<update id="shopItemIng" parameterType="shopItemVO">
+		update shop_item_tbl set shop_item_sale_state='판매중' where shop_item_idx=#{shopItemIdx}
+	</update>
 	<!-- 매물 삭제 -->
 	<update id="shopItemDelete" parameterType="shopItemVO">
-		update shop_item_tbl set shop_item_sale_state='판매중단' where shop_item_idx=#{shopItemIdx}
+		update shop_item_tbl set shop_item_sale_state='삭제' where shop_item_idx=#{shopItemIdx}
 	</update>
-	
 	<!-- 방문 신청 -->
-	<insert id="ShopReserveJoin" parameterType="shopReservationVO">
+	<insert id="shopReserveJoin" parameterType="shopReservationVO">
 		insert into shop_reservation_tbl values(
 			shop_reservation_idx_seq.nextval,
+			#{userIdx, jdbcType=VARCHAR},
 			#{shopItemIdx, jdbcType=VARCHAR},
 			#{shopReservationName, jdbcType=VARCHAR},
 			#{shopReservationTel, jdbcType=VARCHAR},
 			#{shopReservationManager, jdbcType=VARCHAR},
-			#{shopReservationState, jdbcType=VARCHAR},
+			default,
 			sysdate
 		)
 	</insert>
-	
+	<!-- 방문 리스트 개수 -->
+	<select id="shopReservationTotalCount" resultType="_int">
+		select count(*) cnt from shop_reservation_tbl where shop_reservation_state='예약대기' or shop_reservation_state='예약완료'
+	</select>
+	<!-- 방문 리스트 뿌리기 -->
+	<select id="selectReservationAllList" resultType="shopReservationVO" parameterType="_int">
+			select shop_reservation_idx as shopReservationIdx,
+				user_idx as userIdx,
+				shop_item_idx as shopItemIdx,
+				shop_reservation_name as shopReservationName,
+				shop_reservation_tel as shopReservationTel,
+				shop_reservation_manager as shopReservationManager,
+				shop_reservation_state as shopReservationState,
+				shop_reservation_date as shopReservationDate
+			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료'
+			order by rownum desc) item)
+			where rnum between #{start} and #{end} 
+	</select>
+	<!-- 예약 진행 -->
+	<update id="reservationhold" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='예약완료' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	<!-- 예약 완료 -->
+	<update id="reservationIng" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='상담완료' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	<!-- 예약 삭제 -->
+	<update id="reservationDel" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='삭제' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
 </mapper>

@@ -28,6 +28,7 @@ public class DriverMypageController {
 		UserVO userVO=(UserVO)session.getAttribute("user");
 		UserVO user=driverService.selectOne(userVO);
 		model.addAttribute("user", user);  //user값 보내기 requestParam과 같은기능
+		model.addAttribute("subNavi", 1);
 		return "driver/mypage/driverMypage";
 	}
 	

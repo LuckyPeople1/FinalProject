@@ -3,22 +3,24 @@ package com.dassa.vo;
 import java.sql.Date;
 
 public class ShopReservationVO {
-	private int shopReservationIdx;
-	private int shopItemIdx;
-	private String shopReservationName;
-	private String shopReservationTel;
-	private String shopReservationManager;
-	private String  shopReservationState;
-	private Date  shopReservationDate;
+	private int shopReservationIdx; 			//예약번호
+	private int userIdx;								//예약한 부동산
+	private int shopItemIdx;						//예약한 매물
+	private String shopReservationName;	//예약한 고객이름
+	private String shopReservationTel;		//예약한 고객번호
+	private String shopReservationManager;//예약담당자
+	private String  shopReservationState;	//예약상태
+	private Date  shopReservationDate;		//예약신청일
 	public ShopReservationVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ShopReservationVO(int shopReservationIdx, int shopItemIdx, String shopReservationName,
+	public ShopReservationVO(int shopReservationIdx, int userIdx, int shopItemIdx, String shopReservationName,
 			String shopReservationTel, String shopReservationManager, String shopReservationState,
 			Date shopReservationDate) {
 		super();
 		this.shopReservationIdx = shopReservationIdx;
+		this.userIdx = userIdx;
 		this.shopItemIdx = shopItemIdx;
 		this.shopReservationName = shopReservationName;
 		this.shopReservationTel = shopReservationTel;
@@ -31,6 +33,12 @@ public class ShopReservationVO {
 	}
 	public void setShopReservationIdx(int shopReservationIdx) {
 		this.shopReservationIdx = shopReservationIdx;
+	}
+	public int getUserIdx() {
+		return userIdx;
+	}
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
 	}
 	public int getShopItemIdx() {
 		return shopItemIdx;
@@ -68,5 +76,4 @@ public class ShopReservationVO {
 	public void setShopReservationDate(Date shopReservationDate) {
 		this.shopReservationDate = shopReservationDate;
 	}
-	
 }

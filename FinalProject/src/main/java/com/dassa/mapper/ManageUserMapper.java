@@ -26,4 +26,8 @@ public interface ManageUserMapper {
 
 	public List<UserVO> getTypeApprobateList(String userType);
 
+	public List<UserVO> getSearchUserList(SearchUserVO searchUserVO);
+
+	public List<UserVO> getSearchDate(SearchUserVO searchUserVO);
+
 }

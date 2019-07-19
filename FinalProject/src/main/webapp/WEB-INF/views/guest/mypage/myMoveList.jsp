@@ -19,7 +19,7 @@
 				<div class="moveListBox">
 					<c:forEach var="list" items="${movePage.list}" varStatus="i">
 						<c:choose>
-							<c:when test="${list.applyStatus eq 0}">
+							<c:when test="${list.applyStatus eq 0 or list.applyStatus eq 1}">
 								<a href="/my/auctionList?applyIdx=${list.applyIdx }" class="moveBox on">
 							</c:when>
 							<c:otherwise>
@@ -58,11 +58,16 @@
 								</c:when>
 								<c:when test="${list.applyStatus eq 1}">
 									<div class="stateBox">
-										<span class="state">결제 완료</span>
+										<span class="state on">입찰 완료</span>
 									</div>
 								</c:when>
 								<c:when test="${list.applyStatus eq 2}">
-									<c:if test="${movePage.reList[0].applyIdx != 0}">
+									<div class="stateBox">
+										<span class="state">결제 완료</span>
+									</div>
+								</c:when>
+								<c:when test="${list.applyStatus eq 3}">	<!--최종완료  -->
+									<c:if test="${movePage.reList[i.count-1].reviewIdx == 0}">
 										<div class="reviewBox">
 											<span class="review">후기작성</span>
 										</div>

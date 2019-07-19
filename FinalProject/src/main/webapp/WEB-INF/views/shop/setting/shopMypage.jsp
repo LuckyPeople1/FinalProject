@@ -26,23 +26,49 @@
 					<tbody>
 					<tr>
 						<th>회사명<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="" value=""></td>
 						<th>대표자명<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userName" value="${user.userName }"></td>
 					</tr>
 					<tr>
 						<th>연락처<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
-						<th>팩스번호</th>
-						<td><input class="tbox full"></td>
+						<td><input class="tbox full" name="userPhone" value="${user.userPhone }"></td>
+						<th>이메일</th>
+						<td><input class="tbox full" name="userEmail" value="${uesr.userEmail }"></td>
 					</tr>
 					<tr>
 						<th>주소<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
+						<td colspan="3"><input class="tbox full" name="userAddr" value="${user.userAddr } ${addrCode}"></td>
 					</tr>
 					<tr>
 						<th>사업자등록번호<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
+						<td><input class="tbox full" name="businessNumber" value="${user.businessNumber }"></td>
+						<th>사업자 등록증<span class="ess">*</span></th>
+						<td>
+							<div class="img_upload">
+								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
+								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
+									<img id="mypage"  src="${user.proFilepath }"> 
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>중개사번호<span class="ess">*</span></th>
+						<td><input class="tbox full" name="registrationNumber" value="${user.registrationNumber }"></td>
+						<th>중개사 등록증<span class="ess">*</span></th>
+						<td>
+							<div class="img_upload">
+								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
+								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
+									<img id="mypage"  src="${user.proFilepath }"> 
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>자기소개<span class="ess">*</span></th>
+						<td colspan="3"><input class="tbox full" id="userIntroduce" name="userIntroduce" value="${user.userIntroduce }"></td>
 					</tr>
 					</tbody>
 				</table>

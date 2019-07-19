@@ -47,4 +47,12 @@ public class ManageUserService {
 	public List<UserVO> getTypeApprobateList(String userType) {
 		return manageUserMapper.getTypeApprobateList(userType);
 	}
+
+	public List<UserVO> getSearchUserList(SearchUserVO searchUserVO) {
+		return manageUserMapper.getSearchUserList(searchUserVO);
+	}
+
+	public List<UserVO> getSearchDate(SearchUserVO searchUserVO) {
+		return manageUserMapper.getSearchDate(searchUserVO);
+	}
 }

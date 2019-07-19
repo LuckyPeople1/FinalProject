@@ -1,24 +1,18 @@
 package com.dassa.service;
 
-import java.util.ArrayList;
-
-import javax.annotation.Resource;
-
+import com.dassa.mapper.NoticeGuestMapper;
+import com.dassa.vo.*;
 import org.springframework.stereotype.Service;
 
-import com.dassa.mapper.NoticeGuestMapper;
-import com.dassa.vo.FaqPageData;
-import com.dassa.vo.FaqVO;
-import com.dassa.vo.NoticePageData;
-import com.dassa.vo.NoticeVO;
-import com.dassa.vo.QuestionVO;
-@Service("noticeGuestService")
+import javax.annotation.Resource;
+import java.util.ArrayList;
 
+@Service("noticeGuestService")
 public class NoticeGuestService {
 
-	@Resource(name="noticeGuestMapper") 
+	@Resource(name="noticeGuestMapper")
 	private NoticeGuestMapper noticeGuestMapper;
-	
+
 	public NoticePageData selectAllList(int reqPage) throws Exception{
 		//페이지 당 게시물 수
 		int numPerPage = 10;
@@ -41,13 +35,13 @@ public class NoticeGuestService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//이전 버튼 생성
 		if(pageNo !=1) {
-				pageNavi += "<a class='btn' href='/guest/notice/noticeList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<a class='btn' href='/guest/notice/noticeList?reqPage="+(pageNo-1)+"'>이전</a>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
 			}else {
 				pageNavi += "<a class='btn' href='/guest/notice/noticeList?reqPage="+pageNo+"'>"+pageNo+"</a>";
 			}
@@ -60,7 +54,7 @@ public class NoticeGuestService {
 		NoticePageData pd = new NoticePageData(list,pageNavi);
 		return pd;
 	}
-	
+
 	//사용자 페이지 상세보기
 	public NoticeVO noticeView(int noticeIndex) throws Exception {
 		return noticeGuestMapper.noticeView(noticeIndex);
@@ -86,7 +80,7 @@ public class NoticeGuestService {
 		// 페이지 번호
 		int pageNo = ((reqPage - 1) / pageNaviSize) * pageNaviSize + 1;
 		// 이전 버튼 생성
-		if (pageNo != 1) { 
+		if (pageNo != 1) {
 			pageNavi += "<a class='btn' href='/guest/notice/faqList?reqPage=" + (pageNo - 1) + "'>이전</a>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
@@ -110,5 +104,4 @@ public class NoticeGuestService {
 	public int questionInsert(QuestionVO q) throws Exception {
 		return noticeGuestMapper.questionInsert(q);
 	}
-
 }

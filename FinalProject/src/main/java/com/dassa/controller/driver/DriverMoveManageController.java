@@ -50,6 +50,7 @@ public class DriverMoveManageController {
 			if(list!=null) {
 				model.addAttribute("list", list);
 				model.addAttribute("pagination", pagination);
+				model.addAttribute("subNavi", 3);
 			}
 			return "driver/manager/driverMove";
 		}
@@ -94,7 +95,7 @@ public class DriverMoveManageController {
 			List<DriverMypageReviewVO> list =driverService.driverReview(driverIdx);
 			
 			model.addAttribute("list", list);
-			
+			model.addAttribute("subNavi", 4);
 			return "driver/review/driverReview";
 		}
 }

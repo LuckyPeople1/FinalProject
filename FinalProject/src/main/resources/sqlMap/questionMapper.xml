@@ -36,4 +36,9 @@
   <update id="questionUpdate" parameterType="questionVO">
   	update questions_tbl set questions_answer=#{questionsAnswer}, questions_answer_state='답변완료' where questions_index=#{questionsIndex}
   </update>
+  
+    <!-- 1:1 문의 삭제 -->
+   <update id="questionManageDelete" parameterType="questionVO">
+  	update questions_tbl set questions_state='삭제' where questions_index=#{questionsIndex}
+  </update> 
 </mapper>

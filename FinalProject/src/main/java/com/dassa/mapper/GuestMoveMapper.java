@@ -35,14 +35,20 @@ public interface GuestMoveMapper {
 	public MoveAuctionVO moveAuctionInfo(int applyIdx);
 	//결제시 스테이터스 변경
 	public int moveApplyStateUpdate(int applyIdx);
+	//결제시 드라이버 테이블 스테이트 변경
+	public int moveDriverStateUpdate(int applyIdx);
 	//결제 취소
 	public int guestMovePaymentCencel(MovePaymentVO mpVo);
 	//결제 취소시 스테이터스 변경
 	public int guestMoveApplyCencel(int applyIdx);
+	//결제 취소시 드라이버 테이블 스테이트 변경
+	public int guestMoveDriverCencel(int applyIdx);
 	//마이페이지 기사 리뷰평점, 건수
 	public MoveAuctionReview driverReviewSelect(int driverIdx); 
 	//이사 최종완료
 	public int driverMoveFinalCompletion(int applyIdx) throws Exception;
+	//이사 최종완료시 짐 스테이트 변경
+	public int moveApplyFinalCompletion(int applyIdx) throws Exception;
 	//후기작성하기
 	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception;
 

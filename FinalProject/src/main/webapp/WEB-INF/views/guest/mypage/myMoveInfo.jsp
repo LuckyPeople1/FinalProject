@@ -18,9 +18,16 @@
 				<!-- 기사 정보 -->
 				<div class="auctionDetailInfo">
 					<div class="profileBox">
-						<div class="profile">
-							<img src="/guest/img/img_profile_default.png" alt="프로필">
-						</div>
+						<c:if test="${empty moveInfo.maVo.proFilepath}">
+							<div class="profile">
+								<img src="/guest/img/img_profile_default.png" alt="프로필">
+							</div>
+						</c:if>
+						<c:if test="${not empty moveInfo.maVo.proFilepath}">
+							<div class="profile">
+								<img src="${moveInfo.maVo.proFilepath}" alt="프로필">
+							</div>
+						</c:if>
 					</div>
 					<div class="driverBox">
 						<div class="driverName">${moveInfo.maVo.userName} 기사님</div>
@@ -423,11 +430,11 @@
 				</c:if>
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
-					<c:if test="${not empty moveInfo.payVo and moveInfo.driverAuctionDetail.applyStatus != '2'}">
+					<c:if test="${not empty moveInfo.payVo and moveInfo.driverAuctionDetail.applyStatus != '3'}">
 						<a href="javascript:move.paymentCencel('${moveInfo.payVo.movePaymentImpUid}','${moveInfo.payVo.applyIdx }')" class="btn col_blue f_w big">결제취소</a>
 					</c:if>
 					
-					<c:if test="${moveInfo.driverAuctionDetail.applyStatus == '2' and moveInfo.reOneVo.applyIdx != 0}">
+					<c:if test="${moveInfo.driverAuctionDetail.applyStatus == '3' and moveInfo.reOneVo.applyIdx == 0}">
 						<a href="/my/driverReview?applyIdx=${moveInfo.maVo.applyIdx}&&driverIdx=${moveInfo.maVo.driverIdx}" class="btn col_darkGrey f_w big">후기 작성</a>
 					</c:if>
 				</div>

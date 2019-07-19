@@ -133,89 +133,83 @@
 					<br><br><br>
 					<div class="driverPont"><p3>짐정보</p3></div><br><hr>
 					<div class="infoBox">
-						<div class="infoTitle"></div>
-					<c:if test="${optionList[0].packageType eq 0 }" >
-						<c:forEach items="${optionList }" var="DriverAuctionDetail" varStatus="i">
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">가전</div>
-									</div>
-								</li>
-								<li class="package">
-									<div class="row">
-										<div class="subject">제품이미지${DriverAuctionDetail.packageImgPath }</div>
-										<div class="con">
-											<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
-											<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
+						<c:forEach items="${optionList }" var="DriverAuctionDetail" varStatus="i">		
+							<c:if test="${DriverAuctionDetail.packageType eq 0 }" >
+								<ul class="infoListBox">
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">가전</div>
 										</div>
-									</div>
-								</li>
-							</ul>
-						</c:forEach>
-					</c:if>
-					<c:if test="${optionList[0].packageType eq 1 }" >
-						<c:forEach items="${optionList }" var="optionList" varStatus="i">
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">가구</div>
-									</div>
-								</li>
-								<li class="package">
-									<div class="row">
-										<div class="subject" >제품이미지 ${optionList[0].packageImgPath }</div>
-										<div class="con">
-											<div class="packageName">상품명${optionList[0].packageName }</div>
-											<div class="packageOption">옵션${optionList[0].packageOption }</div>
+									</li>
+									<li class="package">
+										<div class="row">
+											<div class="subject">제품이미지${DriverAuctionDetail.packageImgPath }</div>
+											<div class="con">
+												<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
+												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
+											</div>
 										</div>
-									</div>
-								</li>
-							</ul>
-						</c:forEach>
-					</c:if>
-					<c:if test="${optionList[0].packageType eq 2 }" >
-						<c:forEach items="${optionList }" var="DriverAuctionDetail" varStatus="i">
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">기타</div>
-									</div>
-								</li>
-								<li class="package">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명 ${optionList[0].packageImgPath }</div>
-											<div class="packageOption">옵션${optionList[0].packageOption }</div>
+									</li>
+								</ul>
+							</c:if>
+							<c:if test="${DriverAuctionDetail.packageType eq 1 }" >
+								<ul class="infoListBox">
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">가구</div>
 										</div>
-									</div>
-								</li>
-							</ul>
-						</c:forEach>
-					</c:if>	
-					<c:if test="${list[0].packageType eq 3 }" >	
-						<c:forEach items="${list }" var="DriverAuctionDetail" varStatus="i">
-							<ul class="infoListBox">
-								<li class="bg">
-									<div class="row static">
-										<div class="subject">짐박스</div>
-									</div>
-								</li>
-								<li class="">
-									<div class="row">
-										<div class="subject">제품이미지</div>
-										<div class="con">
-											<div class="packageName">상품명${optionList[0].packageImgPath }</div>
-											<div class="packageOption">옵션${optionList[0].packageOption }</div>
+									</li>
+									<li class="package">
+										<div class="row">
+											<div class="subject" >제품이미지 ${DriverAuctionDetail.packageImgPath }</div>
+											<div class="con">
+												<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
+												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
+											</div>
 										</div>
-									</div>
-								</li>
-							</ul>
+									</li>
+								</ul>
+							</c:if>
+							<c:if test="${DriverAuctionDetail.packageType eq 2 }" >
+								<ul class="infoListBox">
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">기타</div>
+										</div>
+									</li>
+									<li class="package">
+										<div class="row">
+											<div class="subject">제품이미지</div>
+											<div class="con">
+												<div class="packageName">상품명 ${DriverAuctionDetail.packageImgPath }</div>
+												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</c:if>	
+							<c:if test="${DriverAuctionDetail.packageType eq 3 }" >	
+								<ul class="infoListBox">
+									<li class="bg">
+										<div class="row static">
+											<div class="subject">짐박스</div>
+										</div>
+									</li>
+									<li class="">
+										<div class="row">
+											<div class="subject">제품이미지</div>
+											<div class="con">
+												<div class="packageName">상품명${DriverAuctionDetail.packageImgPath }</div>
+												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</c:if>	
 						</c:forEach>
-					</c:if>	
+					</div>
 				</div>
-			</div>
+			</div>	
 			<form action="/driver/auctioninsert" method="post" id="auctionInsertForm">
 				<br><br><br>
 				<div class="section_title">기사정보</div><hr>
@@ -232,7 +226,7 @@
 							<tbody>
 							<tr>
 								<th>운반차량<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }" readonly="readonly"></td>
+								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }"></td>
 								<th>사다리비용여부<span class="ess">*</span></th>
 								<td>
 									<input type="radio" name="ladderState" value="0">사다리 비용 필요하지 않음
