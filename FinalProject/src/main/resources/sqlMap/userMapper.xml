@@ -27,7 +27,8 @@
 				social_id as socialId,
 				enroll_date as enrollDate,
 				status,
-				out_date as outDate
+				out_date as outDate,
+				company_name as companyName
 		  from user_tbl where user_id=#{userId} and user_pw=#{userPw} and status = 1
 		</select>
 	
@@ -50,7 +51,8 @@
 					social_id as socialId,
 					enroll_date as enrollDate,
 					status,
-					out_date as outDate
+					out_date as outDate,
+					company_name as companyName
 			from    user_tbl where social_id=#{socialId} and status = 1
 		</select>
 		
@@ -91,7 +93,8 @@
 						    </choose>
 			                  default,
 			                   1,
-			                    null)
+			                    null,
+			                     null)
 		</insert>
 		
 		<insert id="driverInsert" parameterType="userVO">
@@ -116,7 +119,8 @@
 			                 null,
 			                  default,
 			                   null,
-			                    null)
+			                    null,
+			                     null)
 		</insert>
 		
 		<insert id="shopInsert" parameterType="userVO">
@@ -141,7 +145,8 @@
 			                 null,
 			                  default,
 			       			   null,
-			       			    null)
+			       			    null,
+			       			     #{companyName})
 		</insert>
 		
 		<select id="idCheck" parameterType="userVO" resultType="userVO">

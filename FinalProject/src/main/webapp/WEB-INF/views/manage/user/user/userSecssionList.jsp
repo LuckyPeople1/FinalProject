@@ -34,12 +34,12 @@
 						<th>가입 신청일</th>
 						<td colspan="3">
 							<input id="dateS" class="tbox"> ~ <input id="dateE" class="tbox">
-							<a href="javascript:setSearchDate('0d')" class="btn smaller higher col_grey ml10">당일</a>
-							<a href="javascript:setSearchDate('1d')" class="btn smaller higher col_grey ml5">어제</a>
-							<a href="javascript:setSearchDate('1w')" class="btn smaller higher col_grey ml5">일주일</a>
-							<a href="javascript:setSearchDate('1m')" class="btn smaller higher col_grey ml5">1달</a>
-							<a href="javascript:setSearchDate('3m')" class="btn smaller higher col_grey ml5">3달</a>
-							<a href="javascript:setSearchDate('6m')" class="btn smaller higher col_grey ml5">6달</a>
+							<a href="javascript:setSearchDate('0d', ${status }, ${userType })" class="btn smaller higher col_grey ml10">당일</a>
+							<a href="javascript:setSearchDate('1d', ${status }, ${userType })" class="btn smaller higher col_grey ml5">어제</a>
+							<a href="javascript:setSearchDate('1w', ${status }, ${userType })" class="btn smaller higher col_grey ml5">일주일</a>
+							<a href="javascript:setSearchDate('1m', ${status }, ${userType })" class="btn smaller higher col_grey ml5">1달</a>
+							<a href="javascript:setSearchDate('3m', ${status }, ${userType })" class="btn smaller higher col_grey ml5">3달</a>
+							<a href="javascript:setSearchDate('6m', ${status }, ${userType })" class="btn smaller higher col_grey ml5">6달</a>
 						</td>
 					</tr>
 					</tbody>
@@ -55,8 +55,8 @@
 					<col width="65">
 					<col width="150">
 					<col width="100">
-					<col width="100">
-					<col width="200">
+					<col width="150">
+					<col width="150">
 					<col width="120">
 					<col width="65">
 					<col width="85">

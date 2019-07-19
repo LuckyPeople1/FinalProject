@@ -55,8 +55,8 @@
 					<col width="65">
 					<col width="150">
 					<col width="100">
-					<col width="100">
-					<col width="200">
+					<col width="150">
+					<col width="150">
 					<col width="120">
 					<col width="65">
 					<col width="85">

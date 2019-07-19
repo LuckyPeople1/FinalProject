@@ -11,8 +11,10 @@ function search_btn(userType, status){
 		url: "/userManage/search",
 		data: {searchType:searchType, searchWord:searchWord, userType:userType, status:status},
 		success: function(data){
+			var uStatus = "";
+			var uType = "";
 			if(data.list != ""){
-				var uStatus = "";
+				
 				for(var i=0; i<data.list.length; i++){
 					console.log(data.list[i].status);
 					if(data.list[i].userType == "1"){
@@ -41,7 +43,12 @@ function search_btn(userType, status){
 					str += "<td>"+data.list[i].userName+"</td>";
 					str += "<td>"+data.list[i].userAddr+"</td>";
 					str += "<td>"+data.list[i].userPhone+"</td>";
-					str += "<td>"+data.list[i].userEmail+"</td>";
+					if(uType == "부동산"){
+						str += "<td>"+data.list[i].companyName+"</td>";
+						str += "<td>"+data.list[i].userEmail+"</td>";
+					}else{
+						str += "<td>"+data.list[i].userEmail+"</td>";
+					}
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
 					if(uStatus == "탈퇴"){
@@ -56,7 +63,11 @@ function search_btn(userType, status){
 			}else if(data.list == "") {
 				str = "";
 				str += "<tr>";
-				str += "<td colspan=9>일치하는 정보가 없습니다.</td>";
+				if(userType == "2"){
+					str += "<td colspan=10>일치하는 정보가 없습니다.</td>";
+				}else{
+					str += "<td colspan=9>일치하는 정보가 없습니다.</td>";
+				}
 				str += "</tr>";
 				listV.append(str);
 			}
@@ -76,7 +87,6 @@ function searchAll_btn(userType, status){
 		data: {userType:userType, status:status},
 		success: function(data){
 			if(data.list != ""){
-				
 				for(var i=0; i<data.list.length; i++){
 					if(data.list[i].userType == "1"){
 						uType = "운송기사";
@@ -102,7 +112,12 @@ function searchAll_btn(userType, status){
 					str += "<td>"+data.list[i].userName+"</td>";
 					str += "<td>"+data.list[i].userAddr+"</td>";
 					str += "<td>"+data.list[i].userPhone+"</td>";
-					str += "<td>"+data.list[i].userEmail+"</td>";
+					if(uType == "부동산"){
+						str += "<td>"+data.list[i].companyName+"</td>";
+						str += "<td>"+data.list[i].userEmail+"</td>";
+					}else{
+						str += "<td>"+data.list[i].userEmail+"</td>";
+					}
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
 					if(uStatus == "탈퇴"){
@@ -117,7 +132,11 @@ function searchAll_btn(userType, status){
 			}else if(data.list == "") {
 				str = "";
 				str += "<tr>";
-				str += "<td colspan=9>일치하는 정보가 없습니다.</td>";
+				if(userType == "2"){
+					str += "<td colspan=10>일치하는 정보가 없습니다.</td>";
+				}else{
+					str += "<td colspan=9>일치하는 정보가 없습니다.</td>";
+				}
 				str += "</tr>";
 				listV.append(str);
 				$("#searchWord").val("");
@@ -498,10 +517,9 @@ function setSearchDate(start, status, userType){
 	$('#dateS').val(startDate);
 	
 	if(typeof userType == "undefined"){
-		searchApprobateDate(status, endDate, startDate, userType);
+		searchApprobateDate(status, endDate, startDate);
 		console.log("userType이 없음");
 		console.log(userType);
-		
 	}else{
 		searchDate(status, endDate, startDate, userType);
 		console.log("userType이 있음");
@@ -531,7 +549,11 @@ function searchDate(status, endDate, startDate, userType){
 			}else if(data.list == "") {
 				var str = "";
 				str += "<tr>";
-				str += "<td colspan=9>일치하는 정보가 없습니다.</td>";
+				if(userType == "2"){
+					str += "<td colspan=10>일치하는 정보가 없습니다.</td>";
+				}else{
+					str += "<td colspan=9>일치하는 정보가 없습니다.</td>";
+				}
 				str += "</tr>";
 				listV.append(str);
 				$("#searchWord").val("");
@@ -542,7 +564,7 @@ function searchDate(status, endDate, startDate, userType){
 };
 
 //userType이 없을 때
-function searchApprobateDate(status, endDate, startDate, userType){
+function searchApprobateDate(status, endDate, startDate,userType){
 	$.ajax({
 		type: "post",
 		url: "/userManage/searchApprobateDate",
@@ -595,7 +617,12 @@ function searchSuccess(data, listV, userType){
 		str += "<td>"+data.list[i].userName+"</td>";
 		str += "<td>"+data.list[i].userAddr+"</td>";
 		str += "<td>"+data.list[i].userPhone+"</td>";
-		str += "<td>"+data.list[i].userEmail+"</td>";
+		if(uType == "부동산" && typeof userType != "undefined"){
+			str += "<td>"+data.list[i].companyName+"</td>";
+			str += "<td>"+data.list[i].userEmail+"</td>";
+		}else{
+			str += "<td>"+data.list[i].userEmail+"</td>";
+		}
 		str += "<td>"+uType+"</td>";
 		str += "<td>"+data.list[i].enrollDate+"</td>";
 		str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
