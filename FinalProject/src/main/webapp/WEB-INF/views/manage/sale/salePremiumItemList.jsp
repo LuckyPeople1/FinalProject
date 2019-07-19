@@ -10,7 +10,7 @@
 		
 		<div class="contents">
 			<div class="set_field">
-				<div class="field_title"><span class="title_mark">■ 매출 목록</span></div>
+				<div class="field_title"><span class="title_mark">■ 상품 매출 목록</span></div>
 				<table class="set_table">
 					<colgroup>
 						<col width="200">
