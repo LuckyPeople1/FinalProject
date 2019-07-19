@@ -27,6 +27,7 @@ public class ShopMemberService {
 	}
 
 	public List<ShopMemberVO> getMember(int userIdx) throws Exception {
+		System.out.println("서비스 유저 번호 : "+userIdx);
 		return shopMemberMapper.getMember(userIdx);
 
 	}

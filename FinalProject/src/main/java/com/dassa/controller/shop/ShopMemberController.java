@@ -119,7 +119,6 @@ public class ShopMemberController {
 		}else{
 			return "N";
 		}
-
-
 	}
+	
 }

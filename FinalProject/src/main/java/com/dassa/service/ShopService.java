@@ -15,15 +15,38 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopMemberVO;
 import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
+import com.dassa.vo.UserVO;
 
 @Service("shopService")
 public class ShopService {
 
 	@Resource(name="shopMapper")
 	private ShopMapper shopMapper;
+	/**
+	 * 
+	 * @param userIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ShopMemberVO> getMember(int userIdx) throws Exception {
+		System.out.println("서비스 유저 번호 : "+userIdx);
+		return shopMapper.getMember(userIdx);
+
+	}
+	/**
+	 * 중개사페이지 - 마이페이지
+	 * @param userVO
+	 * @return
+	 * @throws Exception
+	 */
+	public UserVO selectOne(UserVO userVO) throws Exception {
+		return shopMapper.shopMyPage(userVO);
+	}
+	
 	/**
 	 * 중개사페이지 - 도시 선택 시 해당 구 가져오기
 	 * @param jusoCityCode
@@ -66,7 +89,12 @@ public class ShopService {
 		shopMapper.shopItemAdd(sItem);
 		return shopMapper.shopItemImgAdd(sItemImgList);
 	}
-	
+	/**
+	 * 매물 등록 시 아이템에 해당 매물 등록(올릴 수 있는 카운트 차감)
+	 * @param sItem
+	 * @return
+	 * @throws Exception
+	 */
 	public int shopCountUpdate(ShopItemVO sItem)throws Exception{
 		return shopMapper.shopCountUpdate(sItem);
 	}

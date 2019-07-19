@@ -13,11 +13,19 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopMemberVO;
 import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationVO;
+import com.dassa.vo.UserVO;
 
 @MapperScan("shopMapper")
 public interface ShopMapper {
+	//직원 가져오기
+	public List<ShopMemberVO> getMember(int userIdx) throws Exception;
+	
+	//부동산 마이페이지
+	public UserVO shopMyPage(UserVO userVO) throws Exception;
+	
 	//주소 구 조회
 	public List<JusoGuVO> getJusoGuList(String jusoCityCode) throws Exception;
 	

@@ -683,7 +683,10 @@
 								<th>담당자</th>
 								<td class="iXeisV">
 									<select class="iDUqOA hRFrgm" name="shopItemManager">
-										<option value="">담당자 선택</option>
+									<option value="">담당자 선택</option>
+									<c:forEach items="${memberList}" var="item" varStatus="index" end="${memberList.size()}">
+										<option value="${item.shopMemberName}">${item.shopMemberName}</option>
+									</c:forEach>
 									</select> 
 								</td>
 							</tr>

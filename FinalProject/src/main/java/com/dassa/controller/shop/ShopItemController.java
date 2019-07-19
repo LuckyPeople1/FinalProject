@@ -1,11 +1,11 @@
 package com.dassa.controller.shop;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,12 +25,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.dassa.common.FileCommon;
+import com.dassa.service.ShopMemberService;
 import com.dassa.service.ShopService;
-import com.dassa.vo.NoticeVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
-import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopMemberVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/shop")
@@ -71,10 +71,19 @@ public class ShopItemController {
 	/**
 	 * 부동산 매물등록 페이지(itemAdd)
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/itemAdd")
-	public String ShopItemAdd() {
-		return "shop/item/shopItemAdd";
+	public ModelAndView ShopItemAdd(HttpSession httpSession, Model model) throws Exception {
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+		ModelAndView mav = new ModelAndView();
+		System.out.println(	"세션에 담긴 유저 번호 : "+(UserVO)httpSession.getAttribute("user"));
+		if(userVO != null){
+			List<ShopMemberVO> memberList = shopService.getMember(userVO.getUserIdx());
+			mav.addObject("memberList",memberList);
+			mav.setViewName("shop/item/shopItemAdd");
+		}
+		return mav;
 	}
 	/**
 	 * 부동산 매물 등록 로직(ItemAdd)
