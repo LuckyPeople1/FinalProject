@@ -3,6 +3,23 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+ .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+ .kpKjGs{
+ 	display:block;
+ }
  .title {font-weight:bold;display:block;}
     .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
@@ -1118,7 +1135,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div class="styled__ListWrap-zfi8ji-1 gkpTsu">
 			<div class="styled__Wrap-ityzo6-0 eXwtu">
 				<div class="styled__Tabs-sc-1sk8lv8-0 jLBlsX">
-					<a class="styled__Tab-sc-1sk8lv8-1 hXdylP">조건에 맞는 방 ${fn:length(list)}개</a>						
+					<a class="hXdylP">조건에 맞는 방 ${fn:length(list)}개</a>						
 				</div>
 				
 				
@@ -1195,7 +1212,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	</div>			
 		<div id="coordXY"></div>
 			<p>
-				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a><c:forEach items="${list }" var="v"><span class="test1">${v.shopItemIdx}</span><span class="test">${v.shopItemAddr1 }</span></c:forEach>
+				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a><c:forEach items="${list }" var="v"><span class="test2">${v.shopItemTitle }</span><span class="test1">${v.shopItemIdx}</span><span class="test">${v.shopItemAddr1 }</span></c:forEach>
 			</p>			
 		</div>
 		<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
@@ -1220,7 +1237,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	function zoomOut() {
 		map.setLevel(map.getLevel() + 1);
 	}	
-	var markers = [];	
+		
 	var positions = [ 
 	{
 		latlng : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),	
@@ -1291,6 +1308,23 @@ section.mapView .eUbtsI > .Radio--circle::after {
 
 	];
 	
+	
+	var overlay = new kakao.maps.CustomOverlay({}); 	
+			
+	
+	function makeOverListener(map,position, overlay) {
+	    return function() {	    	
+	    	overlay.setMap(map);
+	    };
+	}
+	
+	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+	function makeOutListener(overlay) {
+	    return function() {	    	
+	    	 overlay.setMap(null);
+	    };
+	}		
+	
 	var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
         averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
@@ -1327,11 +1361,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			var strArray3 = string2.split(')');
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
 			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));							
-			map.setLevel(10);
+			map.setLevel(8);
 		});					
 		map.setLevel(9);
 	});	
-	 
+	 var geocoder = new daum.maps.services.Geocoder();	 
 	kakao.maps.event.addListener(map, 'zoom_changed', function() {		
 			if (map.getLevel() >10) {
 				clusterer.clear();
@@ -1341,116 +1375,59 @@ section.mapView .eUbtsI > .Radio--circle::after {
 				$(".customoverlay").css("display","none");
 				
 			 var geocoder = new daum.maps.services.Geocoder();
-			 for(var i=0;i<$(".test").length;i++){				
-				geocoder.addressSearch($(".test").eq(i).text(), function(result, status) {
-					// 정상적으로 검색이 완료됐으면,
-					if (status == daum.maps.services.Status.OK) {			
-						var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-						var marker = new kakao.maps.Marker({
-							position:coords							
-						});
-						console.log(marker.getPosition());
-						clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문
-						kakao.maps.event.addListener(marker, 'click', function() {
-							
-							map.setCenter(marker.getPosition()); 
-							map.setLevel(5);
-						});
-					}
-				});
-			}
-			
-			}
-		});
-	 
-		
+						for(var i=0;i<$(".test").length;i++){							
+							geocoder.addressSearch($(".test").eq(i).html(), function(result, status) {	
+								// 정상적으로 검색이 완료됐으면,
+								if (status == daum.maps.services.Status.OK) {			
+									var coords = new daum.maps.LatLng(result[0].y, result[0].x);									
+									var marker = new kakao.maps.Marker({
+										position:coords
+									});						
+									clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문									
+									kakao.maps.event.addListener(marker, 'click', function() {							
+										map.setCenter(marker.getPosition()); 
+										
+									});									
+									var content = '<div class="wrap">' + 
+							        '    <div class="info">' + 
+							        '        <div class="title">'+ 
+							        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+							        '        </div>' + 
+							        '        <div class="body">' + 
+							        '            <div class="img">' +
+							        '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+							        '           </div>' + 
+							        '            <div class="desc">' + 
+							        '                <div class="ellipsis">'+result[0].address_name+'</div>' + 
+							        '                <div class="jibun ellipsis">(우) '+result[0].address.zip_code+' (지번)'+result[0].address.region_3depth_name+" "+result[0].address.main_address_no +'</div>' +
+							        '            </div>' + 
+							        '        </div>' + 
+							        '    </div>' +    
+							        '</div>';				        
+									overlay = new kakao.maps.CustomOverlay({});
+									overlay.setContent(content);						
+									overlay.setPosition(coords);
+								    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map,coords,overlay));
+								    kakao.maps.event.addListener(marker, 'mouseout',makeOutListener(overlay));				   
+								}
+							});
+						}
+					}						
+	
+		});	 		
 	
 	kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
-		var level = map.getLevel() - 1;
+		var level = map.getLevel() - 3;
 		map.setLevel(level, {
 			anchor : cluster.getCenter()
 		});
-	});	
-	$(document).ready(function(){				
-		$(document).click(function(e){
-			$(".hWgOZv").eq('0').click(function(e){
-				$(".fhfjff2").css("display","none");
-				$(".fhfjff3").css("display","none");
-				if($(".fhfjff").is(":visible")){
-					$(".fhfjff").css("display","none");
-				}else{
-					$(".fhfjff").css("display","block");
-				}				
-			})
-			for(var i=1;i<$('.hWgOZv').length;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff").css("display","none");
-				})
-			}
-			$(".hWgOZv").eq('1').click(function(e){
-				if($(".fhfjff2").is(":visible")){
-					$(".fhfjff2").css("display","none");
-				}else{
-					$(".fhfjff2").css("display","block");
-				}
-			})
-			$(".hWgOZv").eq('5').click(function(e){
-				if($(".fhfjff3").is(":visible")){
-					$(".fhfjff3").css("display","none");
-				}else{
-					$(".fhfjff3").css("display","block");
-				}				
-			})
-			$(".dgiYtt").click(function(){
-				$(".fhfjff1").css("display","none");
-				$(".fhfjff2").css("display","none");
-				$(".fhfjff3").css("display","none");
-			})
-			for(var i=2;i<$('.hWgOZv').length;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff2").css("display","none");
-				})
-			}
-			for(var i=0;i<$('.hWgOZv').length-1;i++){
-				$(".hWgOZv").eq(i).click(function(e){
-					$(".fhfjff3").css("display","none");
-				})
-			}			
-			$(".hWgOZv").click(function(e){		
-				if($(this).children().hasClass('fJNXpX')){
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV');
-					$(".dgiYtt ").children().removeClass('kdfXro');
-					$(".dgiYtt ").children().addClass('bAZEbe');
-					
-					$(this).children().removeClass('fJNXpX');
-					$(this).children().addClass('cRtqxV'); 
-					
-				}else if($(this).children().hasClass('fUMVvC')){
-				
-				 	$(".hWgOZv").children().addClass('fUMVvC');
-					$(".hWgOZv").children().removeClass('hKGAZL ');
-					$(".dgiYtt ").children().removeClass('kdfXro');
-					$(".dgiYtt ").children().addClass('bAZEbe');
-					$(this).children().removeClass('fUMVvC');
-					$(this).children().addClass('hKGAZL');
-				} 
-			})
-			$(".dgiYtt").click(function(e){
-				if($(this).children().hasClass('bAZEbe')){
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV');
-					$(this).children().removeClass('bAZEbe');
-					$(this).children().addClass('kdfXro');
-				}else{
-					$(".hWgOZv").children().addClass('fUMVvC');
-					$(".hWgOZv").children().removeClass('hKGAZL ');
-					$(".hWgOZv").children().addClass('fJNXpX');
-					$(".hWgOZv").children().removeClass('cRtqxV'); 
-				} 
-			})
-		})		
-	})	
+	});
+	
+			
+	
+	
+	
+		
 	
 	
 

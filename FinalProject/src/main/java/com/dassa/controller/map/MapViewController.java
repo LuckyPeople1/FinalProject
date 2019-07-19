@@ -42,30 +42,41 @@ public class MapViewController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/mapAView")
-	public Map<String, Object> MapAView(@RequestParam String shopItemAddr1) throws Exception {
-		ArrayList<ShopItemVO> list;		
-		System.out.println("주소 : "+shopItemAddr1);
-		Map<String, Object> retVal = new HashMap<String, Object>();
-		list = mapService.mapSelectList(shopItemAddr1);			
-		retVal.put("list",list);
-		return retVal;
+	@RequestMapping(value="/mapAll")
+	public ArrayList<ShopItemVO> MapAll() throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		ArrayList<ShopItemVO> list;
+		list = mapService.mapAll();
+		return list;
 	}
 	
-	@RequestMapping(value="/mapSelectOne", produces = "application/text; charset=utf8")
-	public ModelAndView mapSelectOne(@RequestParam int shopItemIdx) throws Exception {		
-		ShopItemVO item;
-		ModelAndView mav = null;
-		item = mapService.mapSelectOne(shopItemIdx);
-		mav = new ModelAndView();
-		mav.addObject("item",item);
-		mav.setViewName("/map/mapView3");
-		return mav;		
+	@ResponseBody
+	@RequestMapping(value="/mapAView")
+	public ArrayList<ShopItemVO> MapAView(String shopItemAddr1, String shopItemAddr2) throws Exception {
+		
+		ArrayList<ShopItemVO> list;				
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("shopItemAddr1", shopItemAddr1);
+		map.put("shopItemAddr2", shopItemAddr2);
+		list = mapService.mapSelectList(map);		
+		return list;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/mapSelectOne")
+	public ArrayList<ShopItemVO> MapSelectOne(String shopItemAddr1) throws Exception {		
+		ArrayList<ShopItemVO> list;
+		System.out.println(shopItemAddr1);
+		Map<String, Object> map = new HashMap<String, Object>();		
+		map.put("shopItemAddr1", shopItemAddr1);
+		list = mapService.mapSelectOne(map);
+		System.out.println(list);		
+		return list;		
 	}
 	
 	
 
-	@RequestMapping(value="/mapSelectList")
+	/*@RequestMapping(value="/mapSelectList")
 	public ModelAndView mapSelectList(@RequestParam String shopItemAddr1) throws Exception{
 		System.out.println(shopItemAddr1);
 		ModelAndView mav = new ModelAndView();
@@ -74,5 +85,5 @@ public class MapViewController {
 		mav.addObject("item",item);
 		mav.setViewName("/map/mapView3");
 		return mav;
-	}
+	}*/
 }
