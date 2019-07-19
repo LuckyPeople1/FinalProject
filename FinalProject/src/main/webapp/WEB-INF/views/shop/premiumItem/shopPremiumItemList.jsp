@@ -5,6 +5,7 @@
 <div class="container">
 	<nav>
 		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
+		<%@include file="/WEB-INF/views/shop/page/nav_reserve.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<div class="contents">
 		<div class="page_header">
@@ -105,7 +106,10 @@
 		</div>
 		테스트 ${sessionScope.user.userIdx }
 		<div class="btn_box">
-			<a href="/shop/premiumItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">구매 테스트</a>
+			<a href="/shop/premiumItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">등록 개수 구매 테스트</a>
+		</div>
+		<div class="btn_box">
+			<a href="/shop/powerItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">파워 링크 구매 테스트</a>
 		</div>
 	</div>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>

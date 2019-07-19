@@ -36,13 +36,13 @@ public class DriverService {
 		
 		return driverMapper.driverMyPage(userVO);
 	}
-
+	@Transactional
 	public int driverMypageUpdate(UserVO userVO) throws Exception {
 		
 		
 		return driverMapper.driverMypageUpdate(userVO);
 	}
-
+	@Transactional
 	public int driverMypageUpdateText(UserVO userVO) throws Exception {
 		
 		return driverMapper.driverMypageUpdateText(userVO);
@@ -60,13 +60,13 @@ public class DriverService {
 		return driverMapper.driverMoveList(pagination);
 	}
 
-	//입찰관리 총게시물수 구하기 
+	//입찰관리 총게시물수 구하기
 	public int driverTotalCount(DriverPageData pagination) throws Exception {
 	
 		return driverMapper.driverTotalCount(pagination);
 	}
 
-	//이사관리 총게시물수 구하기 
+	//이사관리 총게시물수 구하기
 	public int driverMoveTotalCount(DriverPageData pagination) throws Exception {
 		
 		return driverMapper.driverMoveTotalCount(pagination);
@@ -101,6 +101,7 @@ public class DriverService {
 		
 		return driverMapper.driverAuctionUpdate(applyIdx);
 	}
+	
 	@Transactional
 	public int driverAuctionApplyUpdate(int applyIdx) throws Exception{
 		return driverMapper.driverAuctionApplyUpdate(applyIdx);
@@ -122,6 +123,7 @@ public class DriverService {
 	}
 
 	//이사 최종완료
+	@Transactional
 	public int driverMoveFinalCompletion(int applyIdx) throws Exception {
 		int result =  guestMoveMapper.driverMoveFinalCompletion(applyIdx);
 		if(result > 0) {
@@ -129,12 +131,21 @@ public class DriverService {
 		}
 		return result;
 	}
+
 	public DriverSaleDataVO driverSaleList(int driverIdx){
 		ArrayList<DriverSaleVO> yearSum = driverMapper.driverYearSumList(driverIdx);
 		ArrayList<DriverSaleVO> yearAvg = driverMapper.driverYearAvgList(driverIdx);
 		ArrayList<DriverSaleVO> monthSum = driverMapper.driverMonthSumList(driverIdx);
 		ArrayList<DriverSaleVO> monthAvg = driverMapper.driverMonthAvgList(driverIdx);
 		return new DriverSaleDataVO(yearSum, yearAvg, monthSum, monthAvg);
+
 	}
+	
+	@Transactional
+	public int driverMoveUpdate(DriverVO driverVO) throws Exception {
+		
+		return driverMapper.driverMoveUpdate(driverVO);
+	}
+	
 
 }

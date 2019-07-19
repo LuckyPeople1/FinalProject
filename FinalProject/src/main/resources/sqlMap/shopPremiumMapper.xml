@@ -8,7 +8,17 @@
 		#{shopItemIdx, jdbcType=VARCHAR},
 		#{userIdx},
 		sysdate,
-		#{shopPremiumItemEndDate, jdbcType=VARCHAR}
+		default
+		)
+	</insert>
+	<insert id="PowerItemAdd" parameterType="com.dassa.vo.ShopPowerItemVO">
+		insert into shop_power_item_tbl values(
+		shop_power_item_idx_seq.nextval,
+		default,
+		#{shopItemIdx, jdbcType=VARCHAR},
+		#{userIdx},
+		sysdate,
+		default
 		)
 	</insert>
 </mapper>

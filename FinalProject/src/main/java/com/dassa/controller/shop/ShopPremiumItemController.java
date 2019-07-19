@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dassa.service.ShopPremiumService;
 import com.dassa.service.ShopService;
+import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
 
 @Controller
@@ -33,6 +34,15 @@ public class ShopPremiumItemController {
 	@RequestMapping("/premiumItemAdd")
 	public String PremiumItemAdd(ShopPremiumItemVO spiVO) throws Exception{
 		int result = shopPremiumService.PremiumItemAdd(spiVO);
+		if(result>0) {
+			return "shop/premiumItem/shopPremiumItemList";
+		}
+		return "shop/premiumItem/shopPremiumItemList";
+	}
+	
+	@RequestMapping("/powerItemAdd")
+	public String PowerItemAdd(ShopPowerItemVO powerVo) throws Exception{
+		int result = shopPremiumService.PowerItemAdd(powerVo);
 		if(result>0) {
 			return "shop/premiumItem/shopPremiumItemList";
 		}

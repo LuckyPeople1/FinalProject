@@ -9,8 +9,22 @@ public class SearchUserVO {
 	private String status;
 	private String endDate;
 	private String startDate;
+	private int    startPage;
+	private int    endPage;
 	
 	
+	public int getStartPage() {
+		return startPage;
+	}
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+	public int getEndPage() {
+		return endPage;
+	}
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
 	public String getEndDate() {
 		return endDate;
 	}
@@ -59,8 +73,9 @@ public class SearchUserVO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
 	public SearchUserVO(String searchType, String searchWord, String userType, String userType1, String userType2,
-			String status, String endDate, String startDate) {
+			String status, String endDate, String startDate, int startPage, int endPage) {
 		super();
 		this.searchType = searchType;
 		this.searchWord = searchWord;
@@ -70,6 +85,8 @@ public class SearchUserVO {
 		this.status = status;
 		this.endDate = endDate;
 		this.startDate = startDate;
+		this.startPage = startPage;
+		this.endPage = endPage;
 	}
 	public SearchUserVO() {
 		super();
