@@ -1,7 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/WEB-INF/views/shop/common/head.jsp" %>   <!--스타일-->    
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="/WEB-INF/views/driver/common/head.jsp" %>   <!--스타일-->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,8 +11,8 @@
 <body>
 <div class="container">
 	<nav>
-		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
-		<%@include file="/WEB-INF/views/shop/page/nav_board.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
+		<%@include file="/WEB-INF/views/driver/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
+		<%@include file="/WEB-INF/views/driver/page/nav_notice.jsp" %>    <!--맨왼쪽 2번째 네비 메뉴 (마이페이지 메뉴)  -->
 	</nav>
 	<div class="contents">
 		<div class="page_header">
@@ -57,7 +58,7 @@
 			<div class="list_form">
 				<div class="table_list_btn">
 					<span class="right_btn">
-						<a href="/shop/board/shopNoticeWriter" class="btn col_darkGrey f_w">글쓰기</a>
+						<a href="/driver/board/driverNoticeWriter" class="btn col_darkGrey f_w">글쓰기</a>
 					</span>
 				</div>
 				<table class="table_list">
@@ -82,27 +83,27 @@
 					</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${list }" var="s">
+					<c:forEach items="${list }" var="q">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${s.rnum }</td>
+						<td>${q.rnum }</td>
 						<td>
-							<div class="text-left">${s.noticeTitle }</div>
+							<div class="text-left">${q.noticeTitle }</div>
 						</td>
 						<td>
-							<div>${s.noticeWriter }</div>
+							<div>${q.noticeWriter }</div>
 						</td>
 						<td>
-							<div>${s.noticeRegDate }</div>
+							<div>${q.noticeRegDate }</div>
 						</td>
 						<td>
-							<div>${s.noticeState }</div>
+							<div>${q.noticeState }</div>
 						</td>
 						<td>
 							<div class="set_menu">
-								<a href="/shop/board/shopNoticeView?noticeIndex=${s.noticeIndex }" class="btn col_navy f_w">상세보기</a>
-								<a href="/shop/board/shopNoticeModify?noticeIndex=${s.noticeIndex }" class="btn col_darkGrey f_w">수정하기</a>
-								<a href="/shop/board/shopNoticeDelete?noticeIndex=${s.noticeIndex }" class="btn col_red f_w">삭제하기</a>
+								<a href="/driver/board/driverNoticeList?noticeIndex=${q.noticeIndex }" class="btn col_navy f_w">상세보기</a>
+								<a href="/driver/board/driverNoticeModify?noticeIndex=${q.noticeIndex }" class="btn col_darkGrey f_w">수정하기</a>
+								<a href="/driver/board/driverNoticeDelete?noticeIndex=${q.noticeIndex }" class="btn col_red f_w">삭제하기</a>
 							</div>
 
 						</td>
@@ -111,18 +112,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="pageNavi" class="page_group clearFix">
-				${pageNavi}
-			</div><br>
-			<ul class="page_wrap">
-				<li><a href="#none">First</a></li>
-				<li><a href="#none">Prev</a></li>
-				<li><a href="#none" class="num active">1</a></li>
-				<li><a href="#none" class="num">2</a></li>
-				<li><a href="#none" class="num">3</a></li>
-				<li><a href="#none">Next</a></li>
-				<li><a href="#none">Last</a></li>
-			</ul>
+					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
 		</div>
 	</div>
 	<footer role="footer" data-include="footer.html"></footer>

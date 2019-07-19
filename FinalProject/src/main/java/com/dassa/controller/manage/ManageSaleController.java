@@ -14,9 +14,14 @@ public class ManageSaleController {
 	 * @param String
 	 * @return
 	 */
-	@RequestMapping("/saleAllList")
-	public String moveList(Model model){
+	@RequestMapping("/salePremiumList")
+	public String salePremiumList(Model model){
 
-		return "/manage/sale/saleAllList";
+		return "/manage/sale/salePremiumItemList";
+	}
+	@RequestMapping("/saleMoveList")
+	public String saleMoveList(Model model){
+
+		return "/manage/sale/saleMoveList";
 	}
 }

@@ -1,24 +1,18 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/WEB-INF/views/shop/common/head.jsp" %>   <!--스타일-->    
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="/WEB-INF/views/driver/common/head.jsp" %>   <!--스타일-->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="../css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/ui.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script src="../js/jquery-3.1.1.min.js"></script>
-	<script src="../js/jquery-ui-1.12.1.js"></script>
-	<script src="../js/ui.js"></script>
-	<script src="../js/include.js"></script>
 </head>
 <body>
 <div class="container">
 	<nav>
-		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
-		<%@include file="/WEB-INF/views/shop/page/nav_board.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
+		<%@include file="/WEB-INF/views/driver/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
+		<%@include file="/WEB-INF/views/driver/page/nav_notice.jsp" %>    <!--맨왼쪽 2번째 네비 메뉴 (마이페이지 메뉴)  -->
 	</nav>
 	<div class="contents">
 		<div class="page_header">
@@ -72,7 +66,7 @@
 					<div class="table_list_btn">
 						<span class="right_btn">
 							<a href="board_notice_write.html" class="btn col_darkGrey f_w">선택 삭제</a>
-							<a href="/shop/board/question/shopQuestionWriter" class="btn col_red f_w">1:1문의하기</a>
+							<a href="/driver/board/question/driverQuestionWriter" class="btn col_red f_w">1:1문의하기</a>
 						</span>
 					</div>
 					<table class="table_list">
@@ -107,15 +101,15 @@
 									<td><span class="tag col_blue f_w">${q.questionsAnswerState }</span>
 									</td>
 									<td>
-										<a href="/shop/board/question/shopQuestionView?questionsIndex=${q.questionsIndex }" class="btn col_navy f_w">보기</a>
-										<a href="/shop/board/question/shopQuestionDelete?questionsIndex=${q.questionsIndex }" class="btn col_grey line">삭제</a></td>
+										<a href="/driver/board/question/driverQuestionView?questionsIndex=${q.questionsIndex }" class="btn col_navy f_w">보기</a>
+										<a href="/driver/board/question/driverQuestionDelete?questionsIndex=${q.questionsIndex }" class="btn col_grey line">삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 				</div>
 			</div>
-				<div id="pageNavi" class="page_group clearFix">${pageNavi}</div>
+					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
 		</div>
 	<footer role="footer" data-include="footer.html"></footer>
 

@@ -12,14 +12,14 @@ public class NoticeVO {
 	private String noticeFilepath;
 	private Date noticeRegDate;
 	private String noticeState;
-	private int rownum;
+	private int rnum;
 	private String boardType;
 	public NoticeVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public NoticeVO(int noticeIndex, String noticeType, String noticeTitle, String noticeContent, String noticeWriter,
-			String noticeFilename, String noticeFilepath, Date noticeRegDate, String noticeState, int rownum, String boardType) {
+			String noticeFilename, String noticeFilepath, Date noticeRegDate, String noticeState, int rnum, String boardType) {
 		super();
 		this.noticeIndex = noticeIndex;
 		this.noticeType = noticeType;
@@ -30,7 +30,7 @@ public class NoticeVO {
 		this.noticeFilepath = noticeFilepath;
 		this.noticeRegDate = noticeRegDate;
 		this.noticeState = noticeState;
-		this.rownum = rownum;
+		this.rnum = rnum;
 		this.boardType = boardType;
 	}
 	public int getNoticeIndex() {
@@ -87,11 +87,11 @@ public class NoticeVO {
 	public void setNoticeState(String noticeState) {
 		this.noticeState = noticeState;
 	}
-	public int getRownum() {
-		return rownum;
+	public int getRnum() {
+		return rnum;
 	}
-	public void setRownum(int rownum) {
-		this.rownum = rownum;
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
 /*	public String getBoardType() {
 		String boardType = getNoticeType();

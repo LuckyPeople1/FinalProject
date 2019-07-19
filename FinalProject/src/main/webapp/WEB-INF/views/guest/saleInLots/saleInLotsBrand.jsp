@@ -22,15 +22,15 @@
 						<p class="title">브랜드관</p>
 						<div class="brandBox">
 							<div class="brandContent">
-								<div class="brandCard on">
+								<div class="brandCard ${tab == '아이파크' ? 'on' : ''  }">
 									<div class="brandImg img1"></div>
 									<div class="brandName">아이파크</div>
 								</div>
-								<div class="brandCard">
+								<div class="brandCard ${tab == '푸르지오' ? 'on' : ''  }">
 									<div class="brandImg img2"></div>
 									<div class="brandName">푸르지오</div>
 								</div>
-								<div class="brandCard">
+								<div class="brandCard ${tab == '자이' ? 'on' : ''  }">
 									<div class="brandImg img3"></div>
 									<div class="brandName">자이</div>
 								</div>
