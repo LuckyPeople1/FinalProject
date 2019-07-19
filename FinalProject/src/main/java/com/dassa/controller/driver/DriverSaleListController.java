@@ -1,17 +1,21 @@
 package com.dassa.controller.driver;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.annotation.Resource;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.DriverService;
-import com.dassa.vo.DriverMypageReviewVO;
-import com.dassa.vo.MovePaymentVO;
+
+import com.dassa.vo.DriverSaleDataVO;
+
 import com.dassa.vo.UserVO;
 
 @Controller
@@ -24,16 +28,15 @@ public class DriverSaleListController {
 	//통계관리 페이지
 	@RequestMapping("/saleList")
 	public String driverSaleList(Model model,int driverIdx) {
-		
-		System.out.println(driverIdx);
-		
-//		List<UserVO> user =driverService.userNameSelectOne();	//유저 이름 뽑아오기.
-		
-		ArrayList<MovePaymentVO> list =driverService.driverSaleList(driverIdx);
-		
-//		model.addAttribute("user", user); 						//userName 가져오기 
-		model.addAttribute("list", list);
-		model.addAttribute("subNavi", 5);
 		return "driver/sale/driverSaleList";
+	}
+	@ResponseBody
+	@RequestMapping("/saleListAjax")
+	public DriverSaleDataVO driverSaleListAjax(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		UserVO user = (UserVO)session.getAttribute("user");
+		int driverIdx = user.getUserIdx();
+		DriverSaleDataVO dsVO = driverService.driverSaleList(driverIdx);
+		return dsVO;
 	}
 }
