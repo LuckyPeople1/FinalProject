@@ -23,6 +23,9 @@ public interface ShopMapper {
 	//직원 가져오기
 	public List<ShopMemberVO> getMember(int userIdx) throws Exception;
 	
+	//담당직원 가져오기
+	public ShopMemberVO getMemberView(String shopMemberName) throws Exception;
+	
 	//부동산 마이페이지
 	public UserVO shopMyPage(UserVO userVO) throws Exception;
 	
@@ -42,7 +45,7 @@ public interface ShopMapper {
 	public int shopItemTotalCount() throws Exception;
 	
 	//매물 총 리스트
-	public ArrayList<ShopItemVO> selectAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	public ArrayList<ShopItemVO> selectAllList(Map<String, Object> map) throws Exception;
 	
 	//매물 수정
 	public int shopItemModify(ShopItemVO sItem) throws Exception;
@@ -78,7 +81,7 @@ public interface ShopMapper {
 	public int shopReservationTotalCount() throws Exception;
 	
 	//방문 리스트 뿌리기
-	public ArrayList<ShopReservationVO> selectReservationAllList(@Param("start") int start,@Param("end") int end) throws Exception;
+	public ArrayList<ShopReservationVO> selectReservationAllList(Map<String, Object> map) throws Exception;
 	
 	//방문 진행
 	public int reservationhold(int shopReservationIdx) throws Exception;
@@ -94,4 +97,11 @@ public interface ShopMapper {
 	
 	//매물 등록 개수 update
 	public int shopCountUpdate(ShopItemVO sItem) throws Exception;
+	
+	//매물 판매 중단 시 아이템 개수 update
+	public int shopPremiumItemStop(int shopItemIdx) throws Exception;
+	
+	//매물 진행 시 아이템 개수 update
+	public int shopPremiumItemIng(Map<String, Object> map) throws Exception;
+	
 }
