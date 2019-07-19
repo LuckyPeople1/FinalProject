@@ -69,6 +69,8 @@ public class QuestionManageController {
 		int result;
 		String view="";
 		try {
+			String an = q.getQuestionsAnswer().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsAnswer(an);
 			result = questionService.questionUpdate(q);
 			if(result>0) {
 				view="manage/board/question/updateSuccess";

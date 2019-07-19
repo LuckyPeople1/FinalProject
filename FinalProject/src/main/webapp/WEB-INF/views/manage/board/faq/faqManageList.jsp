@@ -89,7 +89,7 @@
 					<tbody>
 					<c:forEach items="${list }" var="f">
 					<tr>
-						<td>${f.faqIndex }</td>
+						<td>${f.rnum }</td>
 						<td>${f.faqUserType }</td>
 						<td class="text-left">${f.faqQuestion }</td>
 						<td>

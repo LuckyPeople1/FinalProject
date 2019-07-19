@@ -111,8 +111,8 @@
 			</div>
 					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
 		</div>
-	<footer role="footer" data-include="footer.html"></footer>
 
 </div>
+	<footer role="footer" data-include="footer.html"></footer>
 </body>
 </html>

@@ -21,7 +21,7 @@
 				<div class="field_title">
 					<span class="title_mark">■ 공지사항 관리</span>
 				</div>
-				<form action="/manage/board/notice/searchKeyword?reqPage=1" method="get" id="search">
+				<form action="/manage/board/notice/searchKeyword?reqPage=1" method="post" id="search">
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -49,8 +49,9 @@
 					</tr>
 				</table>
 				<div class="set_menu">
-					<a href="#" onclick="document.getElementById('search').submit();" class="btn normal col_main f_w">검색</a>
-					<a href="/manage/board/notice/noticeManageList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<!-- <button type="submit" class="btn normal col">ㄲㄲㄲㄱ</button> -->
+					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w">검색</a>
+					<a href="/manage/board/notice/noticeManageList?reqPage=1" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
 				</form>
 			</div>
@@ -85,7 +86,7 @@
 					<c:forEach items="${list }" var="n">
 					
 					<tr>
-						<td>${n.noticeIndex }</td>
+						<td>${n.rnum }</td>
 						<td>${n.noticeType }</td>
 						<td class="text-left">${n.noticeTitle }</td>
 						<td>${n.noticeRegDate }</td>
@@ -106,6 +107,7 @@
 					</tr>
 			
 					</c:forEach>
+					
 					</tbody>
 				</table>
 				</div>

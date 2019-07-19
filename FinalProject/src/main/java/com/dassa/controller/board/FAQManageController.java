@@ -77,6 +77,10 @@ public class FAQManageController {
 		String view = "";
 		System.out.println("제목-"+f.getFaqQuestion()+"/"+"내용-"+f.getFaqAnswer()+"/"+"타입-"+f.getFaqUserType()+"/"+"상태-"+f.getFaqState());
 		try {
+			String an = f.getFaqAnswer().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			f.setFaqAnswer(an);
+			String qu = f.getFaqQuestion().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			f.setFaqQuestion(qu);
 			result = faqService.faqInsert(f);
 			if(result>0) {
 					if(f.getFaqUserType().equals("회원문의")) {

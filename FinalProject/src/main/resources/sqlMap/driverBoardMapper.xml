@@ -17,35 +17,8 @@
    <select id="totalCount" resultType="_int">
   	select count(*) cnt from notice_tbl where notice_type='기사' and notice_state='정상'
   </select>
-     <!-- 공지사항 시가 작성 인서트 -->
-  <insert id="driverNoticeInsert" parameterType="noticeVO">
-  	<if test="noticeFilename==null">
-  	  	insert into notice_tbl values
-  			(notice_index.nextval,
-  			#{noticeType},
-  			#{noticeTitle},
-  			#{noticeContent},
-  			#{noticeWriter},
-			null,
-  			null,
-  			sysdate,
-  			#{noticeState})
-  	</if>
-	<if test="noticeFilename !=null">
-	 	  	insert into notice_tbl values
-  			(notice_index.nextval,
-  			#{noticeType},
-  			#{noticeTitle},
-  			#{noticeContent},
-  			#{noticeWriter},
-  			#{noticeFilename},
-  			null,
-  			sysdate,
-  			#{noticeState})
-	</if>
-  </insert>
-  
-      <!-- 공지사항뷰페이지 -->
+ 
+  <!-- 공지사항뷰페이지 -->
   <select id="driverNoticeView" parameterType="noticeVO" resultType="noticeVO">
   	select notice_index as noticeIndex,
   			notice_type as noticeType,
@@ -56,29 +29,7 @@
   			notice_content as noticeContent
   		from notice_tbl where notice_index=#{noticeIndex} 
   </select>
-  
-      <!-- 기사공지사항업데이트 -->
-  <update id="driverNoticeUpdate" parameterType="noticeVO">
-  <if test="noticeFilename !=null">
-  	update notice_tbl set notice_title=#{noticeTitle},
-  						notice_filename=#{noticeFilename},
-  						notice_filepath=null,
-  						notice_content=#{noticeContent} 
-  						where notice_index=#{noticeIndex}
-  	</if>
-  	<if test="noticeFilename ==null">
-  		update notice_tbl set notice_title=#{noticeTitle},
-  						notice_filename=null,
-  						notice_filepath=null,
-  						notice_content=#{noticeContent} 
-  						where notice_index=#{noticeIndex}
-  	</if>
-  </update>
-  
-      <!-- 기사공지사항 삭제 -->
-  <update id="driverNoticeDelete" parameterType="noticeVO">
-  	update notice_tbl set notice_state='삭제' where notice_index=#{notice_index}
-  </update>
+
   
     <!-- 기사faq리스트조회 -->
   <select id="driverFaqList" resultType="faqVO" parameterType="_int">

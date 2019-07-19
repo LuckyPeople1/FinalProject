@@ -15,18 +15,9 @@ public interface DriverBoardMapper {
 	public ArrayList<NoticeVO> selectNoticeList(@Param("start") int start,@Param("end") int end) throws Exception;
 	public int totalCount() throws Exception;
 	
-	//기사 공지사항 인서트
-	public int driverNoticeInsert(NoticeVO n) throws Exception;
-	
 	//기사 공지사항 상세보기
 	public NoticeVO driverNoticeView(int noticeIndex) throws Exception;
 	
-	//기사 공지사항 업데이트
-	public int driverNoticeUpdate(NoticeVO n) throws Exception;
-	
-	//기사 공지사항 삭제
-	public int driverNoticeDelete(int noticeIndex) throws Exception;
-
 	//기사 faq 리스트
 	public ArrayList<FaqVO> driverFaqList(@Param("start") int start,@Param("end") int end) throws Exception;
 	public int faqTotalCount() throws Exception;

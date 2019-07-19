@@ -59,26 +59,11 @@ public class DriverBoardService {
 		return pd;
 	}
 
-	//기사 공지사항 작성
-	public int driverNoticeInsert(NoticeVO n) throws Exception{
-		return driverBoardMapper.driverNoticeInsert(n);
-	}
-
 	//기사 공지사항 상세보기
 	public NoticeVO driverNoticeView(int noticeIndex) throws Exception{
 		return driverBoardMapper.driverNoticeView(noticeIndex);
 	}
 	
-	//기사 공지사항 업데이트
-	public int driverNoticeUpdate(NoticeVO n) throws Exception {
-		return driverBoardMapper.driverNoticeUpdate(n);
-	}
-
-	//기사 공지사항 삭제
-	public int driverNoticeDelete(int noticeIndex) throws Exception {
-		return driverBoardMapper.driverNoticeDelete(noticeIndex);
-	}
-
 	//기사 faq리스트
 	public FaqPageData driverFaqList(int reqPage) throws Exception {
 		//페이지 당 게시물 수
