@@ -38,9 +38,9 @@
 						<tr>
 							<th>이사날짜</th>
 							<td colspan="3">
-								<input class="tbox" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
+								<input class="tbox maxDate" id="dateE" name="minDate" value="${pagination.minDate }" readonly="readonly">
 								<span class="hyphen">~</span>
-								<input class="tbox" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
+								<input class="tbox minDate" id="dateS" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
 								<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
 								<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
 								<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
@@ -137,7 +137,7 @@
 				</li>
 			</c:if>
 			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
-				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> >
 					<a class="num" href="" onclick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a>
 				</li>
 			</c:forEach>
@@ -148,7 +148,6 @@
 			</c:if>
 			</ul>
 		</div>
-
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 

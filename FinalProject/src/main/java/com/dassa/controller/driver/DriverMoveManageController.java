@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverPageData;
 import com.dassa.vo.DriverVO;
 import com.dassa.vo.MoveApplyVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/driver")
@@ -85,6 +87,58 @@ public class DriverMoveManageController {
 			}
 			
 			
+		}
+		
+		@RequestMapping("/driverMoveDetailUpdate")
+		public String DriverMoveDetailUpdate(Model model,int applyIdx,HttpServletRequest request) throws Exception {
+			
+			DriverAuctionDetailVO driverAuctionDetail=driverService.driverSelectOne(applyIdx);	//move_apply_tbl 조회 
+			
+			List<DriverApplyOptionVO> optionList =driverService.driverOptionList(applyIdx);
+			
+			List<DriverApplyImgVO> imgList =driverService.driverImgList(applyIdx);
+			
+			DriverVO driverVO=driverService.driverMoveSelectOne(applyIdx);
+			
+			
+			if(driverAuctionDetail!=null) {
+								
+				
+				model.addAttribute("driverAuctionDetail", driverAuctionDetail);	//move_apply_tbl 정보 selectOne
+				model.addAttribute("optionList", optionList);					//move_apply_option_tbl 정보 list
+				model.addAttribute("imgList", imgList);							//move_apply_img_tbl 정보 list
+				model.addAttribute("driverVO", driverVO);
+				
+				return "driver/manager/driverMoveUpdate";
+			}else {
+				return "driver/manager/driverMove";
+			}
+			
+		}
+		@RequestMapping("/moveUpdate")
+		public String DriverMoveUpdate(Model model,DriverVO driverVO,int applyIdx,HttpSession session,HttpServletRequest request) throws Exception {
+			session=request.getSession();
+			UserVO userVO =(UserVO)session.getAttribute("user");
+			driverVO.setDriverIdx(userVO.getUserIdx());	//세션값 userIdx driver_idx로  driverVO에 저장하기
+
+			
+			System.out.println("드라이버메세지"+driverVO.getDriverMessage());
+			System.out.println("사다리"+driverVO.getLadderState());
+			System.out.println("견적금액"+driverVO.getEstimateAmount());
+			System.out.println("driver_idx"+driverVO.getDriverIdx());
+			System.out.println("상품번호"+driverVO.getApplyIdx());
+			System.out.println("자동차"+driverVO.getUserCar()); 
+			int result=driverService.driverMoveUpdate(driverVO);
+			if(result>0) {
+					model.addAttribute("msg", "수정성공");
+					model.addAttribute("loc", "driver/manager/driverMove.jsp");
+					return "guest/common/msg";
+				
+			}else {
+				model.addAttribute("msg", "수정성공");
+				model.addAttribute("loc", "driver/manager/driverMove.jsp");
+				return "guest/common/msg";
+			}
 		}
 		
 		//관리자 페이지 리뷰관리

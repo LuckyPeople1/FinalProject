@@ -37,11 +37,11 @@
 						<tr>
 							<th>작성일</th>
 							<td colspan="3">
-								<input class="tbox minDate" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
+								<input class="tbox maxDate" id="dateE" name="minDate" value="${pagination.minDate }" readonly="readonly">
 								<span class="hyphen">~</span>
-								<input class="tbox maxDate" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
+								<input class="tbox minDate" id="dateS" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
 								<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
-								<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
+								<a href="javascript:setSearchDate('1d')" class="btn col_grey line">다음날</a>
 								<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
 								<a href="javascript:setSearchDate('1m')" class="btn col_grey line">1개월</a>
 								<a href="javascript:setSearchDate('3m')" class="btn col_grey line ">3개월</a>

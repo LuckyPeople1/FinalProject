@@ -120,7 +120,7 @@ public class DriverAuctionController {
 			System.out.println("driver_idx"+driverVO.getDriverIdx());
 			System.out.println("상품번호"+driverVO.getApplyIdx());
 			System.out.println("자동차"+driverVO.getUserCar());
-			int result=driverService.driverAuctionInsert(driverVO) ;
+			int result=driverService.driverAuctionInsert(driverVO);
 			if(result>0) {
 				driverService.driverAuctionApplyUpdate(applyIdx);
 				driverService.driverAuctionUpdate(applyIdx);

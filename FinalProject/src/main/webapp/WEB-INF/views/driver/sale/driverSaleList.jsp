@@ -47,7 +47,7 @@
 			<div class="list_form">
 				<div class="table_list_btn">
 					<span class="right_btn">
-						<a href="board_notice_write.html" class="btn col_green f_w">엑셀저장</a>
+						<!-- <a href="board_notice_write.html" class="btn col_green f_w">엑셀저장</a> -->
 					</span>
 				</div>
 				<table class="table_list">

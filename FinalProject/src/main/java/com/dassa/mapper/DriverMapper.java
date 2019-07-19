@@ -64,4 +64,7 @@ public List<UserVO> userNameSelectOne();
 //매출 통계
 public ArrayList<MovePaymentVO> driverSaleList(int driverIdx);
 
+public int driverMoveUpdate(DriverVO driverVO) throws Exception;
+
+
 }
