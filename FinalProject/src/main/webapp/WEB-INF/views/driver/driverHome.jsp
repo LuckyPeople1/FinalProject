@@ -99,21 +99,27 @@
 						<td>${moveApply.startAddr1 }</td>
 						<td>${moveApply.endAddr1 }</td>
 						<td><span class="tag col_blue f_w">${moveApply.applyHope }</span></td>
-						<c:if test="${moveApply.applyStatus eq 1 }">
-						<td>
-							<span class="tag col_green f_w">견적 완료</span>
-						</td>
+						<c:if test="${moveApply.auctionState eq 1 }">
+							<td>
+								<span class="tag col_green f_w">견적 완료</span>
+							</td>
 						</c:if>
-						<c:if test="${moveApply.applyStatus eq 2 }">
-						<td>
-							<span class="tag col_orange f_w">최종 완료</span>
-						</td>
+						<c:if test="${moveApply.auctionState eq 2 }">
+							<td>
+								<span class="tag col_green f_w">결제 완료</span>
+							</td>
 						</c:if>
-						<c:if test="${moveApply.applyStatus eq 3 }">
-						<td>
-							<span class="tag col_red f_w">예약 취소</span>
-						</td>
+						<c:if test="${moveApply.auctionState eq 3 }">
+							<td>
+								<span class="tag col_orange f_w">최종완료</span>
+							</td>
 						</c:if>
+						<c:if test="${moveApply.auctionState eq 4 }">
+							<td>
+								<span class="tag col_red f_w">예약 취소</span>
+							</td>
+						</c:if>
+						
 						<td>
 							<div class="set_menu">
 								<a href="/driver/Detail?applyIdx=${moveApply.applyIdx }" class="btn col_navy f_w">상세보기</a>
