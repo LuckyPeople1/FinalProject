@@ -295,7 +295,7 @@
 														 </choose> 
 								  	</when>
 								  	<otherwise>
-								  		status = #{status}and <choose>
+								  		(user_type=1 or user_type=2) and status = #{status}and <choose>
 															<when test="status != 3 ">
 																(enroll_date between #{startDate} and #{endDate})
 															</when>

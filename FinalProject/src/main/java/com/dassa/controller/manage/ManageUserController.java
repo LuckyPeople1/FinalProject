@@ -125,7 +125,6 @@ public class ManageUserController {
 	@RequestMapping("/userCheckList")
 	@ResponseBody
 	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
-		System.out.println(type);
 		SearchUserVO searchUserVO = null;
 		String[] uType = type.split(",");
 		String userType = null;
