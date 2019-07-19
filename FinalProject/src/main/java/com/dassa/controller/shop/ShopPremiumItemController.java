@@ -1,5 +1,7 @@
 package com.dassa.controller.shop;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,7 +21,7 @@ public class ShopPremiumItemController {
 	
 	//부동산 상품관리 페이지(premiumItem)
 	@RequestMapping("/premiumItem")
-	public String ShopItem() {
+	public String ShopItem(HttpSession httpSession) {
 		return "shop/premiumItem/shopPremiumItemList";
 	}
 	/**

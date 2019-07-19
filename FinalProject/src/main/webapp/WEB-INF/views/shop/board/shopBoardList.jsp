@@ -85,7 +85,7 @@
 					<c:forEach items="${list }" var="s">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${s.noticeIndex }</td>
+						<td>${s.rnum }</td>
 						<td>
 							<div class="text-left">${s.noticeTitle }</div>
 						</td>

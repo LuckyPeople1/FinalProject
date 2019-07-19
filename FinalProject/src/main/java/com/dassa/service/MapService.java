@@ -1,7 +1,7 @@
 package com.dassa.service;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -19,14 +19,20 @@ public class MapService {
 		ArrayList<ShopItemVO> list = mapMapper.selectAll();
 		return list;
 	}
-	public ArrayList<ShopItemVO> mapSelectList(String shopItemAddr1) throws Exception {
-		ArrayList<ShopItemVO> list = mapMapper.mapSelectList(shopItemAddr1);
+	
+	public ArrayList<ShopItemVO> mapAll() throws Exception {
+		ArrayList<ShopItemVO> list = mapMapper.mapAll();
+		return list;
+	}
+	
+	public ArrayList<ShopItemVO> mapSelectList(Map<String, Object> map) throws Exception {
+		ArrayList<ShopItemVO> list = mapMapper.mapSelectList(map);	
 		return list;			
 		
 	}
-	public ShopItemVO mapSelectOne(int shopItemIdx) throws Exception {
-		System.out.println("service : "+shopItemIdx );
-		return mapMapper.mapSelectOne(shopItemIdx);			
+	public ArrayList<ShopItemVO> mapSelectOne(Map<String, Object> map) throws Exception {		
+		ArrayList<ShopItemVO> list = mapMapper.mapSelectOne(map);		
+		return list;
 		
 	}
 }

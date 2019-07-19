@@ -1,6 +1,7 @@
 package com.dassa.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,15 +16,48 @@ import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopMemberVO;
 import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
+import com.dassa.vo.UserVO;
 
 @Service("shopService")
 public class ShopService {
 
 	@Resource(name="shopMapper")
 	private ShopMapper shopMapper;
+	/**
+	 * 전체직원가져오기
+	 * @param userIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ShopMemberVO> getMember(int userIdx) throws Exception {
+		System.out.println("서비스 유저 번호 : "+userIdx);
+		return shopMapper.getMember(userIdx);
+
+	}
+	/**
+	 * 담당 직원 가져오기
+	 * @param userName
+	 * @return
+	 * @throws Exception
+	 */
+	public ShopMemberVO getMemberView(String shopMemberName) throws Exception{
+		System.out.println("서비스 담당자 이름 :"+shopMemberName);
+		return shopMapper.getMemberView(shopMemberName);
+	}
+	/**
+	 * 중개사페이지 - 마이페이지
+	 * @param userVO
+	 * @return
+	 * @throws Exception
+	 */
+	public UserVO selectOne(UserVO userVO) throws Exception {
+		return shopMapper.shopMyPage(userVO);
+	}
+	
 	/**
 	 * 중개사페이지 - 도시 선택 시 해당 구 가져오기
 	 * @param jusoCityCode
@@ -49,7 +83,7 @@ public class ShopService {
 	 * @throws Exception
 	 */
 	public int shopCount(int userIdx) throws Exception{
-		ArrayList<ShopPremiumItemVO> list = shopMapper.shopCount();
+		ArrayList<ShopPremiumItemVO> list = shopMapper.shopCount(userIdx);
 		int arrSize = list.size();
 		System.out.println("service userIdx : "+userIdx);
 		System.out.println("return count : "+arrSize);
@@ -66,7 +100,12 @@ public class ShopService {
 		shopMapper.shopItemAdd(sItem);
 		return shopMapper.shopItemImgAdd(sItemImgList);
 	}
-	
+	/**
+	 * 매물 등록 시 아이템에 해당 매물 등록(올릴 수 있는 카운트 차감)
+	 * @param sItem
+	 * @return
+	 * @throws Exception
+	 */
 	public int shopCountUpdate(ShopItemVO sItem)throws Exception{
 		return shopMapper.shopCountUpdate(sItem);
 	}
@@ -88,8 +127,7 @@ public class ShopService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
-		System.out.println("요청페이지"+reqPage);
+	public ShopItemPageDataVO selectAllList(int reqPage,UserVO uservo) throws Exception{
 		//페이지 당 게시물 수
 		int numPerPage = 5;
 		//총 게시물 수 구하기
@@ -102,7 +140,14 @@ public class ShopService {
 		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
 		System.out.println(start+"/"+end);
-		ArrayList<ShopItemVO> list = shopMapper.selectAllList(start,end);
+		   Map<String, Object> map = new HashMap<String, Object>();
+		   int userIdx=uservo.getUserIdx();
+		   map.put("start",start);
+		   map.put("end",end);
+		   map.put("userIdx", userIdx);
+
+			ArrayList<ShopItemVO> list= shopMapper.selectAllList(map);
+	
 		//페이지 네비 작성
 		String pageNavi = "";
 		//페이지 네비의 수
@@ -167,6 +212,24 @@ public class ShopService {
 		return shopMapper.shopItemStop(shopItemIdx);
 	}
 	/**
+	 * 중개사 페이지 - 매물 판매중단 시 아이템 개수 update
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopPremiumItemStop(int shopItemIdx) throws Exception{
+		return shopMapper.shopPremiumItemStop(shopItemIdx);
+	}
+	/**
+	 * 중개사 페이지 - 매물 판매진행 시 아이템 개수 update
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int shopPremiumItemIng(Map<String, Object> map) throws Exception{
+		return shopMapper.shopPremiumItemIng(map);
+	}
+	/**
 	 * 중개사 페이지 - 매물 판매진행
 	 * @param shopItemIdx
 	 * @return
@@ -217,7 +280,7 @@ public class ShopService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ShopReservationPageDataVO selectReservationAllList(int reqPage) throws Exception{
+	public ShopReservationPageDataVO selectReservationAllList(int reqPage,UserVO uservo) throws Exception{
 		System.out.println("요청페이지"+reqPage);
 		//페이지 당 게시물 수
 		int numPerPage = 5;
@@ -231,7 +294,13 @@ public class ShopService {
 		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
 		System.out.println(start+"/"+end);
-		ArrayList<ShopReservationVO> list = shopMapper.selectReservationAllList(start,end);
+		Map<String, Object> map = new HashMap<String, Object>();
+		int userIdx=uservo.getUserIdx();
+		System.out.println("방문페이지유저번호"+userIdx);
+		map.put("start", start);
+		map.put("end", end);
+		map.put("userIdx", userIdx);
+		ArrayList<ShopReservationVO> list = shopMapper.selectReservationAllList(map);
 		//페이지 네비 작성
 		String pageNavi = "";
 		//페이지 네비의 수

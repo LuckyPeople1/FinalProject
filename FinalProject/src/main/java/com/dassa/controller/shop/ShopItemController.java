@@ -6,9 +6,9 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,11 +26,11 @@ import org.w3c.dom.NodeList;
 
 import com.dassa.common.FileCommon;
 import com.dassa.service.ShopService;
-import com.dassa.vo.NoticeVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
-import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
+import com.dassa.vo.ShopMemberVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/shop")
@@ -50,15 +49,16 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
 		}catch(NumberFormatException e){
 			reqPage=1;
 		}
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,userVO);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
@@ -71,10 +71,19 @@ public class ShopItemController {
 	/**
 	 * 부동산 매물등록 페이지(itemAdd)
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping("/itemAdd")
-	public String ShopItemAdd() {
-		return "shop/item/shopItemAdd";
+	public ModelAndView ShopItemAdd(HttpSession httpSession, Model model) throws Exception {
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+		ModelAndView mav = new ModelAndView();
+		System.out.println(	"세션에 담긴 유저 번호 : "+(UserVO)httpSession.getAttribute("user"));
+		if(userVO != null){
+			List<ShopMemberVO> memberList = shopService.getMember(userVO.getUserIdx());
+			mav.addObject("memberList",memberList);
+			mav.setViewName("shop/item/shopItemAdd");
+		}
+		return mav;
 	}
 	/**
 	 * 부동산 매물 등록 로직(ItemAdd)
@@ -143,7 +152,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/itemInfo")
-	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
+	public ModelAndView ShopItemInfo(HttpSession httpSession, @RequestParam int shopItemIdx) {
 		ShopItemVO item;
 		List<ShopItemImgVO> siiList;
 		ModelAndView mav = null;
@@ -177,6 +186,11 @@ public class ShopItemController {
 					System.out.println(sio[j]);
 				}
 				mav.addObject("sio",sio); //옵션 항목
+			}
+			UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+			if(userVO != null){
+				List<ShopMemberVO> memberList = shopService.getMember(userVO.getUserIdx());
+				mav.addObject("memberList",memberList);
 			}
 				mav.addObject("item",item); //매물 정보
 				mav.addObject("siiList",siiList);
@@ -245,6 +259,7 @@ public class ShopItemController {
 	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
 		if(result>0) {
+			shopService.shopPremiumItemStop(shopItemIdx);
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -259,6 +274,7 @@ public class ShopItemController {
 	public String shopItemStop(@RequestParam int shopItemIdx)throws Exception {
 		int result = shopService.shopItemStop(shopItemIdx);
 		if(result>0) {
+			shopService.shopPremiumItemStop(shopItemIdx);
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -270,9 +286,13 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemIng")
-	public String shopItemIng(@RequestParam int shopItemIdx)throws Exception {
+	public String shopItemIng(@RequestParam int shopItemIdx, @RequestParam int userIdx, HttpSession httpSession)throws Exception {
 		int result = shopService.shopItemIng(shopItemIdx);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("shopItemIdx", shopItemIdx);
+		map.put("userIdx", userIdx);
 		if(result>0) {
+			shopService.shopPremiumItemIng(map);
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -318,6 +338,11 @@ public class ShopItemController {
 				}
 				mav.addObject("sio",sio); //옵션 항목
 			}
+			String shopMemberName = item.getShopItemManager();
+			System.out.println("넘어온 담당자이름 : "+shopMemberName);
+			ShopMemberVO member = shopService.getMemberView(shopMemberName);
+			System.out.println("컨트롤러 멤버"+member);
+				mav.addObject("member",member);
 				mav.addObject("item",item); //매물 정보
 				mav.addObject("siiList",siiList); //매물 이미지
 				System.out.println("view페이지 이미지 : "+siiList);

@@ -5,7 +5,9 @@
 		<a href="/" class="logoBtn"></a>
 	</h1>
 	<div class="rolePageBox">
-		<a href="/shop/">프로중개사 사이트</a>
+		<c:if test="${not empty sessionScope.user}">
+			<a href="/shop/home?userIdx=${sessionScope.user.userIdx }">프로중개사 사이트</a>
+		</c:if>
 		<a href="/driver/home?driverIdx=${sessionScope.user.userIdx}">운송기사 사이트</a>
 		<a href="/manage/">관리자 사이트</a>
 	</div>

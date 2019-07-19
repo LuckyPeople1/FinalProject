@@ -216,17 +216,15 @@
 						</div>
 						<div class="elygmO">
 							<div class="laiUsh">
-								<a class="iyddZa" href="#none">
-									<button>#전국 청약접수중</button>
-								</a> <a class="iyddZa" href="#none">
+								<a class="iyddZa" href="/saleInLots/saleInLotsInformation?saleInLotsArea=서울특별시&saleInLotsSupplyType=공급유형&saleInLotsBuildType=아파트&saleInLotsState=분양단계">
 									<button>#서울 아파트</button>
-								</a> <a class="iyddZa" href="#none">
+								</a> <a class="iyddZa" href="/saleInLots/saleInLotsInformation?saleInLotsArea=경기도&saleInLotsSupplyType=공급유형&saleInLotsBuildType=오피스텔&saleInLotsState=분양단계">
 									<button>#경기 오피스텔</button>
-								</a> <a class="iyddZa" href="#none">
+								</a> <a class="iyddZa" href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=일반분양,임대분양&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">
 									<button>#전국 공공분양/임대</button>
-								</a> <a class="iyddZa" href="#none">
+								</a> <a class="iyddZa" href="/saleInLots/saleInLotsInformation?saleInLotsArea=서울특별시&saleInLotsSupplyType=재건축,재개발&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">
 									<button>#서울 재건축/재개발</button>
-								</a> <a class="iyddZa" href="#none">
+								</a> <a class="iyddZa" href="/saleInLots/saleInLotsInformation?saleInLotsArea=부산광역시&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양예정">
 									<button>#부산 분양예정</button>
 								</a>
 							</div>
@@ -357,140 +355,54 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>
-										<p class="styled__Tag-hww48k-9 gchvgx">모집중</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">아파트</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">공공임대</p>
-									</td>
-									<td>
-										<div class="styled__SaleInfoWrap-hww48k-4 kNDRvM">
-											<div class="styled__SaleInfo-hww48k-6 efCxWW">
-												<p class="styled__SalesName-hww48k-7 gYWhVo">[LH행복] 파주운정
-													A-39BL</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY">경기도 파주시 와동동
-												</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY"
-													style="margin-top: 17px;">19.07.11 ~ 19.07.18 1순위 청약</p>
+								<c:forEach var="list" items="${sp.list}" >
+									<tr>
+										<td>
+											<p class="saleInLotsState">${list.saleInLotsState}</p>
+										</td>
+										<td>
+											<p class="saleInLotsType">${list.saleInLotsBuildType}</p>
+										</td>
+										<td>
+											<p class="saleInLotsType">${list.saleInLotsSupplyType}</p>
+										</td>
+										<td>
+											<a href="/saleInLots/saleInLotsDetailInformation?saleInLotsIDX=${list.saleInLotsIDX}">
+											<div class="saleInLotsInfoBox">
+												<div class="saleInLotsInfoBox_content">
+													<p class="saleInLotsName">${list.saleInLotsName} </p>
+													<p class="saleInLotsDetailArea">${list.saleInLotsDetailArea} </p>
+												</div>
 											</div>
-											<div class="styled__SaleImg-hww48k-5 fEtMGt"></div>
-										</div>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">1581/7</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">580세대</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI"
-											style="padding: 0px 13px;">16㎡ / 26㎡ / 36㎡</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p class="styled__Tag-hww48k-9 dGSSGe">분양중</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">오피스텔</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">민간분양</p>
-									</td>
-									<td>
-										<div class="styled__SaleInfoWrap-hww48k-4 kNDRvM">
-											<div class="styled__SaleInfo-hww48k-6 efCxWW">
-												<p class="styled__SalesName-hww48k-7 gYWhVo">여의도 아리스타</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY">서울특별시 영등포구
-													당산동</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY"
-													style="margin-top: 17px;">21.10월 입주예정일</p>
-											</div>
-											<div class="styled__SaleImg-hww48k-5 kNEwZB"></div>
-										</div>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">1억9700</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">306세대</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI"
-											style="padding: 0px 13px;">19㎡ / 20㎡ / 33㎡</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p class="styled__Tag-hww48k-9 dGSSGe">분양중</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">오피스텔</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">민간분양</p>
-									</td>
-									<td>
-										<div class="styled__SaleInfoWrap-hww48k-4 kNDRvM">
-											<div class="styled__SaleInfo-hww48k-6 efCxWW">
-												<p class="styled__SalesName-hww48k-7 gYWhVo">파주 운정지구
-													디에이블</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY">경기도 파주시 와동동</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY"
-													style="margin-top: 17px;">20.11월 입주예정일</p>
-											</div>
-											<div class="styled__SaleImg-hww48k-5 bJIhkq"></div>
-										</div>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">1억4728</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">440세대</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI"
-											style="padding: 0px 13px;">23㎡ / 26㎡</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p class="styled__Tag-hww48k-9 gchvgx">모집중</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">아파트</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">공공임대</p>
-									</td>
-									<td>
-										<div class="styled__SaleInfoWrap-hww48k-4 kNDRvM">
-											<div class="styled__SaleInfo-hww48k-6 efCxWW">
-												<p class="styled__SalesName-hww48k-7 gYWhVo">[LH행복] 광주쌍촌
-													101</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY">광주광역시 서구
-													쌍촌동</p>
-												<p class="styled__SalesText-hww48k-8 efaAdY"
-													style="margin-top: 17px;">19.07.11 ~ 19.07.18 1순위 청약</p>
-											</div>
-											<div class="styled__SaleImg-hww48k-5 qVvaV"></div>
-										</div>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">1200/6</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI">21세대</p>
-									</td>
-									<td>
-										<p class="styled__Text-hww48k-3 cjuHoI"
-											style="padding: 0px 13px;">16㎡ / 26㎡ / 36㎡</p>
-									</td>
-								</tr>
+											</a>
+										</td>
+										<td>
+											<c:if test="${list.saleInLotsPriceMinAll eq '0'}">
+												<p class="saleInLotsType">준비중 </p>
+											</c:if>
+											<c:if test="${list.saleInLotsPriceMinAll ne '0'}">
+												<p class="saleInLotsType minPrice">최저 : ${list.saleInLotsPriceMinAll} </p>
+												<p class="saleInLotsType maxPrice">최고 : ${list.saleInLotsPriceMaxAll} </p>
+											</c:if>
+										</td>
+										<td>
+											<c:if test="${list.saleInLotsSaleHousehold ne '0'}">
+												<p class="saleInLotsType">${list.saleInLotsSaleHousehold}세대 </p>
+											</c:if>
+											<c:if test="${list.saleInLotsSaleHousehold eq '0'}">
+												<p class="saleInLotsType">준비중 </p>
+											</c:if>
+										</td>
+										<td>
+											<c:if test="${list.saleInLotsMinSupplyArea eq null and list.saleInLotsMaxSupplyArea eq null}">
+												<p class="saleInLotsType" style="padding: 0px 13px;">-</p>
+											</c:if>
+											<c:if test="${list.saleInLotsMinSupplyArea ne null}">	
+												<p class="saleInLotsType" style="padding: 0px 13px;">${list.saleInLotsMinSupplyArea }㎡ / ${list.saleInLotsMaxSupplyArea}㎡</p>
+											</c:if>
+										</td>
+									</tr>
+									</c:forEach>
 							</tbody>
 						</table>
 						<a class="styled__MoreView-hww48k-11 bhyJUd" href="/saleInLots/saleInLotsInformation?saleInLotsArea=전국&saleInLotsSupplyType=공급유형&saleInLotsBuildType=건물유형&saleInLotsState=분양단계">분양정보
@@ -500,16 +412,13 @@
 						<p class="styled__Title-avmu4m-1 ejXHWF">브랜드관</p>
 						<div class="styled__SwipeWrap-avmu4m-2 hMqAac">
 							<div class="styled__Swipe-avmu4m-3 eoCrnb">
-								<a class="styled__Card-flnw8b-0 gcyzDd" href="#/brand?seq=1">
+								<a class="styled__Card-flnw8b-0 gcyzDd" href="/saleInLots/saleInLotsBrand?brandName=아이파크">
 									<div class="styled__Img-flnw8b-1 cgRRbZ"></div>
 									<div class="styled__BrandName-flnw8b-2 kBqRhS">아이파크</div>
-								</a> <a class="styled__Card-flnw8b-0 gcyzDd" href="#/brand?seq=2">
+								</a> <a class="styled__Card-flnw8b-0 gcyzDd" href="/saleInLots/saleInLotsBrand?brandName=푸르지오"">
 									<div class="styled__Img-flnw8b-1 gTnXDR"></div>
 									<div class="styled__BrandName-flnw8b-2 kBqRhS">푸르지오</div>
-								</a> <a class="styled__Card-flnw8b-0 gcyzDd" href="#/brand?seq=6">
-									<div class="styled__Img-flnw8b-1 kZJcgE"></div>
-									<div class="styled__BrandName-flnw8b-2 kBqRhS">LH행복주택</div>
-								</a> <a class="styled__Card-flnw8b-0 gcyzDd" href="#/brand?seq=8">
+								</a> <a class="styled__Card-flnw8b-0 gcyzDd" href="/saleInLots/saleInLotsBrand?brandName=자이"">
 									<div class="styled__Img-flnw8b-1 hiyOAi"></div>
 									<div class="styled__BrandName-flnw8b-2 kBqRhS">자이</div>
 								</a>

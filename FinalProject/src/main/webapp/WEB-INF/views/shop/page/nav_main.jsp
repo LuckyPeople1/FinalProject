@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div class="main_nav_wrap">
 	<div class="main_nav">
-		<a href="/shop/" class="">
+		<a href="/shop/home?userIdx=${sessionScope.user.userIdx }">
 			<i class="ico home">홈</i>
 			<span class="nav_txt">홈</span>
 		</a>
