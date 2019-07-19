@@ -226,7 +226,7 @@
 							<tbody>
 							<tr>
 								<th>운반차량<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }"></td>
+								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }" placeholder="1톤"></td>
 								<th>사다리비용여부<span class="ess">*</span></th>
 								<td>
 									<input type="radio" name="ladderState" value="0">사다리 비용 필요하지 않음

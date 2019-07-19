@@ -3,6 +3,143 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+.cdZmjD > p {
+    display: table-cell;
+   	padding-left: 45px;
+    padding-top: 115px;
+    padding-bottom: 30px;
+    color: rgb(68, 68, 68);
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+.dsnFwu {
+    width: 100%;
+    height: 58px;
+    padding: 16px 20px 18px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    min-width: 100%;
+}
+.dsnFwu > svg {
+    float: left;
+}
+g[Attributes Style] {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: rgb(162, 162, 162);
+}
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+.dhDZXc {
+    float: left;
+    width: 266px;
+    height: 360px;
+    border: 1px solid rgb(238, 238, 238);
+         
+}
+.dsnFwu::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.dsnFwu > h1 {
+    float: left;
+    margin-left: 2px;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    line-height: 24px;
+}
+.hTjTzB {
+    float: left;
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 18px;
+    background-color: rgb(160, 94, 237);
+    border-radius: 50%;
+}
+.hTjTzB + span {
+    margin-left: 3px;
+}
+.cokPTc + span {
+    margin-left: 3px;
+}
+.lfdtIC {
+    float: left;
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 18px;
+    background-color: rgb(84, 166, 213);
+    padding: 0px 8px;
+    border-radius: 18px;
+}
+
+.cokPTc {
+    float: left;
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 18px;
+    background-color: rgb(213, 163, 15);
+    border-radius: 50%;
+}
+.cdZmjD {
+    width: 100%;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px 0px;
+    list-style: none;
+}
+.dnFDTx > p > span.Blue {
+    color: rgb(0, 108, 255);
+}
+.iqLabM {
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.dnFDTx > p {
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    line-height: 34px;
+}
+.dnFDTx {
+    display: block;
+    width: 100%;
+    min-height: 34px;
+    padding-left: 25px;
+    padding-right: 20px;
+    line-height: 34px;
+    position: relative;
+}
+.icqmaF {
+    width: 266px;
+    height: 360px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 12px 0px, rgba(0, 0, 0, 0.12) 0px 20px 15px -12px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 59px;
+    left: 15px;
+    z-index: 101;
+    user-select: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
  .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
     .wrap * {padding: 0;margin: 0;}
     .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
@@ -1031,6 +1168,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 							<path d="M12 12l5 5"></path>
 						</g>
 					</svg>
+												
 			</div>
 			<div class="styled__FilterWrap-sfs8fz-1 fvkqQK">
 				<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
@@ -1385,13 +1523,13 @@ section.mapView .eUbtsI > .Radio--circle::after {
 									});						
 									clusterer.addMarker(marker); //DB 주소값 받아와서 저장하는 구문									
 									kakao.maps.event.addListener(marker, 'click', function() {							
-										map.setCenter(marker.getPosition()); 
+										map.setCenter(marker.getPosition());
+										
 										
 									});									
 									var content = '<div class="wrap">' + 
 							        '    <div class="info">' + 
-							        '        <div class="title">'+ 
-							        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+							        '        <div class="title">'+							         
 							        '        </div>' + 
 							        '        <div class="body">' + 
 							        '            <div class="img">' +
@@ -1399,7 +1537,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 							        '           </div>' + 
 							        '            <div class="desc">' + 
 							        '                <div class="ellipsis">'+result[0].address_name+'</div>' + 
-							        '                <div class="jibun ellipsis">(우) '+result[0].address.zip_code+' (지번)'+result[0].address.region_3depth_name+" "+result[0].address.main_address_no +'</div>' +
+							        '                <div class="jibun ellipsis">(우) '+result[0].address.zip_code+' (지번) '+result[0].address.region_3depth_name+" "+result[0].address.main_address_no +'</div>' +
 							        '            </div>' + 
 							        '        </div>' + 
 							        '    </div>' +    

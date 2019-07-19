@@ -79,9 +79,9 @@
 				<tbody>
 					<c:choose>
 						<c:when test="${not empty list }">
-							<c:forEach var="u" items="${list}">
+							<c:forEach var="u" items="${list}" varStatus="i">
 								<tr>
-									<td>${u.userIdx }</td>
+									<td>${i.count }</td>
 									<td>${u.userId }</td>
 									<td>${u.userName }</td>
 									<td>${u.userAddr }</td>
@@ -107,24 +107,7 @@
 		</div>
 		<div class="page_group clearFix">
 			<ul class="page_box">
-				<li class="first arrow">
-					<a href="#none"></a>
-				</li>
-				<li class="prev arrow">
-					<a href="#none"></a>
-				</li>
-				<li class="on">
-					<a href="#none">1</a>
-				</li>
-				<li class="">
-					<a href="#none">2</a>
-				</li>
-				<li class="next arrow">
-					<a href="#none "></a>
-				</li>
-				<li class="end arrow">
-					<a href="#none"></a>
-				</li>
+				${pageNavi}
 			</ul>
 		</div>
 	</div>

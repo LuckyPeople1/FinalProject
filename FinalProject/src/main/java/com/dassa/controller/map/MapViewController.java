@@ -53,7 +53,7 @@ public class MapViewController {
 	@ResponseBody
 	@RequestMapping(value="/mapAView")
 	public ArrayList<ShopItemVO> MapAView(String shopItemAddr1, String shopItemAddr2) throws Exception {
-		
+		System.out.println(shopItemAddr1);
 		ArrayList<ShopItemVO> list;				
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("shopItemAddr1", shopItemAddr1);
@@ -69,8 +69,7 @@ public class MapViewController {
 		System.out.println(shopItemAddr1);
 		Map<String, Object> map = new HashMap<String, Object>();		
 		map.put("shopItemAddr1", shopItemAddr1);
-		list = mapService.mapSelectOne(map);
-		System.out.println(list);		
+		list = mapService.mapSelectOne(map);				
 		return list;		
 	}
 	

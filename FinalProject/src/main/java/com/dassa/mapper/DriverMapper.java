@@ -68,4 +68,7 @@ public ArrayList<DriverSaleVO> driverYearAvgList(int driverIdx);
 public ArrayList<DriverSaleVO> driverMonthSumList(int driverIdx);
 public ArrayList<DriverSaleVO> driverMonthAvgList(int driverIdx);
 
+public int driverMoveUpdate(DriverVO driverVO) throws Exception;
+
+
 }

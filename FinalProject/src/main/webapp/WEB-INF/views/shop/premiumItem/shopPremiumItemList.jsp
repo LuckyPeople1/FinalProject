@@ -5,6 +5,7 @@
 <div class="container">
 	<nav>
 		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
+		<%@include file="/WEB-INF/views/shop/page/nav_reserve.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<div class="contents">
 		<div class="page_header">
