@@ -152,7 +152,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/itemInfo")
-	public ModelAndView ShopItemInfo(@RequestParam int shopItemIdx) {
+	public ModelAndView ShopItemInfo(HttpSession httpSession, @RequestParam int shopItemIdx) {
 		ShopItemVO item;
 		List<ShopItemImgVO> siiList;
 		ModelAndView mav = null;
@@ -186,6 +186,11 @@ public class ShopItemController {
 					System.out.println(sio[j]);
 				}
 				mav.addObject("sio",sio); //옵션 항목
+			}
+			UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+			if(userVO != null){
+				List<ShopMemberVO> memberList = shopService.getMember(userVO.getUserIdx());
+				mav.addObject("memberList",memberList);
 			}
 				mav.addObject("item",item); //매물 정보
 				mav.addObject("siiList",siiList);

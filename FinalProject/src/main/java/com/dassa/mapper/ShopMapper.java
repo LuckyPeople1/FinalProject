@@ -90,7 +90,7 @@ public interface ShopMapper {
 	public int reservationDel(int shopReservationIdx) throws Exception;
 	
 	//매물 등록 시 현재 매물개수 확인 수정확인
-	public ArrayList<ShopPremiumItemVO> shopCount() throws Exception;
+	public ArrayList<ShopPremiumItemVO> shopCount(int userIdx) throws Exception;
 	
 	//매물 등록 개수 update
 	public int shopCountUpdate(ShopItemVO sItem) throws Exception;

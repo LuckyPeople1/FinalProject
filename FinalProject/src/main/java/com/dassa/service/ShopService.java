@@ -72,7 +72,7 @@ public class ShopService {
 	 * @throws Exception
 	 */
 	public int shopCount(int userIdx) throws Exception{
-		ArrayList<ShopPremiumItemVO> list = shopMapper.shopCount();
+		ArrayList<ShopPremiumItemVO> list = shopMapper.shopCount(userIdx);
 		int arrSize = list.size();
 		System.out.println("service userIdx : "+userIdx);
 		System.out.println("return count : "+arrSize);
