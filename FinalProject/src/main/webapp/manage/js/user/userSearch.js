@@ -191,7 +191,7 @@ function searchApprobate_btn(status){
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
 					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
-					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+상세보기+"</a></td>";
+					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 				}
 				listV.append(str);
@@ -287,9 +287,9 @@ $(".checkUserType").change(function(){
 			url: "/userManage/userCheckList",
 			data: {type:type},
 			success: function(data){
-				if(data.list != ""){
 				$(".list_table").children().eq(2).html("");
 				var listV = $(".list_table").children().eq(2);
+				if(data.list != ""){
 				console.log(listV);
 				var str="";
 				for(var i=0; i<data.list.length; i++){
@@ -346,11 +346,11 @@ $(".checkUserType").change(function(){
 			success: function(data){
 				$(".list_table").children().eq(2).html("");
 				var listV = $(".list_table").children().eq(2);
-				/*console.log("user1: "+data.list[0].userType);
-				console.log("user2: "+data.list[1].userType);*/
+				if(data.list != ""){
 				var str ="";
 				console.log(data.list);
 				for(var i=0; i<data.list.length; i++){
+				
 					if(data.list[i].userType == "1"){
 						uType = "운송기사";
 					}else if(data.list[i].userType == "2"){
@@ -387,7 +387,15 @@ $(".checkUserType").change(function(){
 					
 				}
 				listV.append(str);
+			}else if(data.list == "") {//if문
+				str = "";
+				str += "<tr>";
+				str += "<td colspan=10>일치하는 정보가 없습니다.</td>";
+				str += "</tr>";
+				listV.append(str);
+				$("#searchWord").val("");
 			}
+		}
 		});
 	}else if(bool==3){
 		$.ajax({
@@ -397,6 +405,7 @@ $(".checkUserType").change(function(){
 			success: function(data){
 				$(".list_table").children().eq(2).html("");
 				var listV = $(".list_table").children().eq(2);
+				if(data.list != ""){
 				var str ="";
 				for(var i=0; i<data.list.length; i++){
 					if(data.list[i].userType == "1"){
@@ -435,7 +444,15 @@ $(".checkUserType").change(function(){
 					
 				}
 				listV.append(str);
+			}else if(data.list == "") {//if문
+				str = "";
+				str += "<tr>";
+				str += "<td colspan=10>일치하는 정보가 없습니다.</td>";
+				str += "</tr>";
+				listV.append(str);
+				$("#searchWord").val("");
 			}
+		}
 		});
 	}else if(bool==0){ 
 		$.ajax({
@@ -444,6 +461,7 @@ $(".checkUserType").change(function(){
 			success: function(data){
 				$(".list_table").children().eq(2).html("");
 				var listV = $(".list_table").children().eq(2);
+				if(data.list != ""){
 				console.log(listV);
 				console.log(data.list);
 				var str = "";
@@ -481,7 +499,15 @@ $(".checkUserType").change(function(){
 					str += "</tr>";
 				}
 				listV.append(str);
+			}else if(data.list == "") {//if문
+				str = "";
+				str += "<tr>";
+				str += "<td colspan=10>일치하는 정보가 없습니다.</td>";
+				str += "</tr>";
+				listV.append(str);
+				$("#searchWord").val("");
 			}
+		}
 		});
 	}
 });
@@ -625,8 +651,11 @@ function searchSuccess(data, listV, userType){
 		}
 		str += "<td>"+uType+"</td>";
 		str += "<td>"+data.list[i].enrollDate+"</td>";
-		str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
-		str += ""+uStatus+"</a></td>";
+		if(uStatus == "탈퇴"){
+			str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_darkGrey f_w'>"+uStatus+"</a></td>";
+		}else{
+			str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+		}
 		console.log(uType);
 		if(typeof userType == "undefined"){
 			str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
