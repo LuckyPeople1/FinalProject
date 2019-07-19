@@ -23,7 +23,7 @@ public interface ManageUserMapper {
 
 	public List<UserVO> getAllApprobateList();
 	
-	public List<UserVO> getTypeCheckApprobateList(SearchUserVO searchUserVO);
+	
 
 	public List<UserVO> getSearchList(SearchUserVO searchUserVO);
 
@@ -49,5 +49,7 @@ public interface ManageUserMapper {
 	//각 탈퇴 회원 관리
 	public int totalUserSecListCount(String userType);
 	public List<UserVO> getUserSecList(SearchUserVO searchUserVO);
-
+	//체크박스
+	public int totalgetTypeCheckApprobateList(SearchUserVO searchUserVO);
+	public List<UserVO> getTypeCheckApprobateList(SearchUserVO searchUserVO);
 }
