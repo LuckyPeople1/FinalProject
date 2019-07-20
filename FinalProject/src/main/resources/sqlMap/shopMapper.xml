@@ -339,7 +339,7 @@
 	</update>
 	<!-- 아이템 해지 시 개수 update -->
 	<update id="shopPowerItemEnd" parameterType="map">
-		update shop_power_item_tbl set shop_item_idx=#{shopItemIdx}, shop_power_item_state=0
+		update shop_power_item_tbl set shop_item_idx=0, shop_power_item_state=0
 			where shop_power_item_idx=(select shop_power_item_idx from
 			(select rownum as rnum, item.* from (select * from shop_power_item_tbl where shop_item_idx=#{shopItemIdx} and user_idx=#{userIdx} order by rownum asc)
 			 item where rownum = 1))
