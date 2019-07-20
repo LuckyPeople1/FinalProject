@@ -57,11 +57,16 @@ public class ShopItemController {
 			reqPage=1;
 		}
 		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+		int userIdx = userVO.getUserIdx();
 		ModelAndView mav = new ModelAndView();
+		int itemCount = shopService.shopCount(userIdx); //매물 등록 가능 개수 확인
+		int powerCount =shopService.powerCount(userIdx); //파워링크 등록 가능 개수 확인
 		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,userVO);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
+			mav.addObject("itemCount",itemCount);
+			mav.addObject("powerCount",powerCount);
 			mav.addObject("list",sItemList);
 			mav.addObject("pageNavi",pageNavi);
 			mav.setViewName("shop/item/shopItemList");

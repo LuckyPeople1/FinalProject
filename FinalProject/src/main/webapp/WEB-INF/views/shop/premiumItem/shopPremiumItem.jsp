@@ -29,14 +29,12 @@
 						<col width="90">
 						<col width="90">
 						<col width="90">
-						<col width="90">
 					</colgroup>
 					<thead>
 					<tr>
 						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>구매 상품</th>
-						<th>등록 가능 개수</th>
 						<th>구매 가격</th>
 						<th>구매 일시</th>
 						<th>종료 일시</th>

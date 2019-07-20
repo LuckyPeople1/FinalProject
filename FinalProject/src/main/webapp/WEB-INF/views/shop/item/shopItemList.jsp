@@ -57,6 +57,11 @@
 				</div>
 			</div>
 			<div class="list_form">
+				<div>
+					<div>매물 등록 가능 개수 : ${itemCount }개</div>
+					<br>
+					<div>VIP 적용 가능 개수 : ${powerCount}개</div>
+				</div>
 				<div class="table_list_btn">
 				</div>
 				<table class="table_list">

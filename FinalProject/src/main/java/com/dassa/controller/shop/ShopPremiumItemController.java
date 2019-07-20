@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.ShopPremiumService;
 import com.dassa.service.ShopService;
@@ -51,13 +52,17 @@ public class ShopPremiumItemController {
 	}
 	
 	@RequestMapping("/premiumItemList")
-	public String ShopPemiumItemList(HttpSession httpSession) throws Exception {
+	public ModelAndView ShopPemiumItemList(HttpSession httpSession) throws Exception {
+		ModelAndView mav = new ModelAndView();
 		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
 		int userIdx = userVO.getUserIdx();
 		int itemCount = shopPremiumService.shopCount(userIdx); //매물 등록 가능 개수 확인
 		int powerCount =shopPremiumService.powerCount(userIdx); //파워링크 등록 가능 개수 확인
 		System.out.println("등록 가능 매물 개수 : "+itemCount);
 		System.out.println("적용 가능 매물 개수 : "+powerCount);
-		return "shop/premiumItem/shopPremiumItem";
+		mav.addObject("itemCount",itemCount);
+		mav.addObject("powerCount",powerCount);
+		mav.setViewName("shop/premiumItem/shopPremiumItem");
+		return mav;
 	}
 }
