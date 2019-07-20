@@ -3,10 +3,12 @@ package com.dassa.controller.guest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.GuestMoveService;
 import com.dassa.vo.DriverMypageReviewVO;
@@ -26,6 +29,8 @@ import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.ShopReservationPageDataVO;
+import com.dassa.vo.ShopReservationVO;
 import com.dassa.vo.UserVO;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
@@ -364,5 +369,33 @@ public class GuestMyController {
 			//서버 연결 실패
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 방문 리스트 뿌리기
+	 * @param request
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/reserve")
+	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession)throws Exception {
+		int reqPage;
+		try {
+			reqPage=Integer.parseInt(request.getParameter("reqPage"));
+		}catch(NumberFormatException e){
+			reqPage=1;
+		}
+		UserVO userVO = (UserVO)httpSession.getAttribute("user");
+		ModelAndView mav = new ModelAndView();
+		ShopReservationPageDataVO sipd = guestMoveService.selectReservationAllList(reqPage,userVO);
+		if(!sipd.isEmpty()) {
+			ArrayList<ShopReservationVO> sItemList = sipd.getList();
+			String pageNavi = sipd.getPageNavi();
+			mav.addObject("list",sItemList);
+			mav.addObject("pageNavi",pageNavi);
+			mav.setViewName("shop/reserve/shopReserveList");
+		}
+		return mav;
 	}
 }

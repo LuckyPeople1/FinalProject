@@ -323,6 +323,7 @@ public class ShopItemController {
 		try {
 			siiList = shopService.shopItemImgList(shopItemIdx);
 			item = shopService.shopItemInfo(shopItemIdx);
+			System.out.println(item.getUserIdx()+"유저아이디엑스");
 			mav = new ModelAndView();
 			if(item.getShopItemManage().equals("있음")) {
 				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
@@ -357,6 +358,7 @@ public class ShopItemController {
 			System.out.println("컨트롤러 멤버"+member);
 				mav.addObject("member",member);
 				mav.addObject("item",item); //매물 정보
+				System.out.println("view페이지 매물올린 부동산 번호: "+item.getUserIdx());
 				mav.addObject("siiList",siiList); //매물 이미지
 				System.out.println("view페이지 이미지 : "+siiList);
 				mav.setViewName("shop/item/shopItemView");

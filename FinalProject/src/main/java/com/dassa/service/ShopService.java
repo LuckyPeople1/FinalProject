@@ -343,7 +343,7 @@ public class ShopService {
 		System.out.println("방문페이지유저번호"+userIdx);
 		map.put("start", start);
 		map.put("end", end);
-		map.put("userIdx", userIdx);
+		map.put("shopIdx", userIdx);
 		ArrayList<ShopReservationVO> list = shopMapper.selectReservationAllList(map);
 		//페이지 네비 작성
 		String pageNavi = "";
