@@ -47,38 +47,22 @@
 								<input type="checkbox">
 								<span>상품종류1</span>
 							</label>
-							<label class="ml10">
-								<input type="checkbox">
-								<span>상품종류1</span>
-							</label>
-						</td>
-					</tr>
-					<tr>
-						<th>상태</th>
-						<td colspan="3">
-							<label>
-								<input type="checkbox">
-								<span>결제 완료</span>
-							</label>
-							<label class="ml10">
-								<input type="checkbox">
-								<span>환불 완료</span>
-							</label>
 						</td>
 					</tr>
 					
 					<tr>
-						<th>가입일</th>
+						<th>결제일</th>
 						<td colspan="3">
 							<input id="dateS" class="tbox"> ~ <input id="dateE" class="tbox">
 							<a href="javascript:setSearchDate('0d')" class="btn smaller higher col_grey ml10">당일</a>
-							<a href="javascript:setSearchDate('1d')" class="btn smaller higher col_grey ml5">어제</a>
+							<a href="javascript:setSearchDate('1d')" class="btn smaller higher col_grey ml5">내일</a>
 							<a href="javascript:setSearchDate('1w')" class="btn smaller higher col_grey ml5">일주일</a>
 							<a href="javascript:setSearchDate('1m')" class="btn smaller higher col_grey ml5">1달</a>
 							<a href="javascript:setSearchDate('3m')" class="btn smaller higher col_grey ml5">3달</a>
 							<a href="javascript:setSearchDate('6m')" class="btn smaller higher col_grey ml5">6달</a>
 						</td>
 					</tr>
+					
 					</tbody>
 				</table>
 				<div class="set_menu">
@@ -89,17 +73,8 @@
 			<div class="list_field">
 				<div class="list_menu">
 					<span class="left_menu">
-						<a href="javascript:all_chk('y')" class="btn col_grey">전체선택</a>
-						<a href="javascript:all_chk('n')" class="btn col_grey">전체해제</a>
-						<!--<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택삭제</a>-->
-					<span class="sbox ml15">
-					<select>
-						<option>상태 선택</option>
-						<option>결제 완료</option>
-						<option>환불 완료</option>
-					</select>
-					</span>
-					<a href="javascript:void(0)" class="btn col_darkGrey f_w">선택변경</a>
+						<a href="javascript:all_chk('y')" class="btn col_grey">매출 합계(년도)</a>
+						<a href="javascript:all_chk('n')" class="btn col_grey">매출 합계(월)</a>
 					</span>
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">엑셀저장</a>
@@ -135,15 +110,11 @@
 						<col width="50">
 						<col width="100">
 						<col width="50">
-						<col width="70">
+						
 					</colgroup>
 					<thead>
 					<tr>
-						<th>
-							<label>
-								<input type="checkbox" name="all_chk">
-							</label>
-						</th>
+						
 						<th>No</th>
 						<th>imp_uid<br>merchant_uid</th>
 						<th>PG사</th>
@@ -156,16 +127,11 @@
 						<th>구매금액</th>
 						<th>결제시각</th>
 						<th>상태</th>
-						<th>관리</th>
+						
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
-						<td>
-							<label>
-								<input type="checkbox" name="">
-							</label>
-						</td>
 						<td>1</td>
 						<td>a</td>
 						<td>b</td>
@@ -180,21 +146,10 @@
 						<td>
 							<span class="tag col_blue f_w">정상</span>
 						</td>
-						<td>
-							<div>
-								<a href="work_info.html" class="btn small col_main f_w">상세정보</a>
-							</div>
-							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">정지</a>
-							</div>
-						</td>
+						
 					</tr>
 					<tr>
-						<td>
-							<label>
-								<input type="checkbox" name="">
-							</label>
-						</td>
+						
 						<td>1</td>
 						<td></td>
 						<td></td>
@@ -209,14 +164,7 @@
 						<td>
 							<span class="tag col_blue f_w">정상</span>
 						</td>
-						<td>
-							<div>
-								<a href="work_info.html" class="btn small col_main f_w">상세정보</a>
-							</div>
-							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">정지</a>
-							</div>
-						</td>
+						
 					</tr>
 					
 					</tbody>

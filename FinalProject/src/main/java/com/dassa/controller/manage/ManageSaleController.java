@@ -1,13 +1,23 @@
 package com.dassa.controller.manage;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.dassa.service.ManageSaleService;
+import com.dassa.vo.ManageSaleMovePageData;
+import com.dassa.vo.ManageSalePageData;
 
 @Controller
 @RequestMapping("/manage/sale")
 public class ManageSaleController {
 	
+	@Resource
+	private ManageSaleService manageSaleService;
 	/**
 	 * 상품&매출 목록(미완성)
 	 *
@@ -19,9 +29,32 @@ public class ManageSaleController {
 
 		return "/manage/sale/salePremiumItemList";
 	}
-	@RequestMapping("/saleMoveList")
-	public String saleMoveList(Model model){
+	@RequestMapping("/saleMoveInfo")
+	public String saleMoveInfo(Model model){
 
+		return "/manage/sale/saleMoveInfo";
+	}
+	@RequestMapping("/saleMoveList")
+	public String saleMoveList(Model model,ManageSalePageData pagination,HttpServletRequest request,
+			 @RequestParam(required = false, defaultValue = "1") int reqPage ) throws Exception {
+		
+		if(pagination.getSearchType()==null) {
+			pagination.setSearchType("");
+		}
+		if(pagination.getSearchWord()==null) {
+			pagination.setSearchWord("");
+		}
+		if(pagination.getMinDate()==null && pagination.getMaxDate()==null) {
+			pagination.setMinDate("");
+			pagination.setMaxDate("");
+		}
+		if(pagination.getMinAmount()==0 && pagination.getMaxAmount()==0) {
+			pagination.setMinAmount(0);
+			pagination.setMaxAmount(0);
+		}
+		
+		ManageSaleMovePageData maDate=manageSaleService.driverMoveList(pagination,reqPage);
+		
 		return "/manage/sale/saleMoveList";
 	}
 }

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.SaleInLotsMapper">
+	<select id="saleInLotsHome" resultType="saleInLotsVO">
+		select	saleinlots_idx as saleInLotsIDX,
+			   	saleinlots_build_type as saleInLotsBuildType,
+			   	saleinlots_supply_type as saleInLotsSupplyType,
+			   	saleinlots_name as saleInLotsName,
+			   	saleinlots_detail_area as saleInLotsDetailArea,
+			   	saleinlots_house_scale as saleInLotsHouseScale,
+			   	saleinlots_sale_household as saleInLotsSaleHousehold,
+			   	saleinlots_price_min_all as saleInLotsPriceMinAll,
+			   	saleinlots_price_max_all as saleInLotsPriceMaxAll,
+			   	saleinLots_min_supply_area as saleInLotsMinSupplyArea,
+			   	saleinLots_max_supply_area as saleInLotsMaxSupplyArea,
+			   	saleinlots_state as saleInLotsState
+			   	from saleinlots_tbl where saleinlots_idx between 20 and 29 
+	</select>
 	<select id="saleInLotsInformation" parameterType="saleInLotsVO" resultType="saleInLotsVO">
 		select a.* from
 			   (select 

@@ -31,46 +31,19 @@
 							</span>
 							<input class="tbox" name="searchWord" value="">
 						</td>
-						<th>구매금액</th>
+						<th>결제금액</th>
 						<td>
 							<input class="tbox small" name="minAmount" value=""> ~ <input class="tbox small" name="maxAmount" value="">
 						</td>
 					</tr>
 					<tr>
-						<th>상품종류</th>
-						<td colspan="3">
-							<label>
-								<input type="checkbox">
-								<span>상품종류1</span>
-							</label>
-							<label class="ml10">
-								<input type="checkbox">
-								<span>상품종류1</span>
-							</label>
-							<label class="ml10">
-								<input type="checkbox">
-								<span>상품종류1</span>
-							</label>
-						</td>
-					</tr>
-					<tr>
-						<th>상태</th>
-						<td colspan="3">
-							<label>
-								<input type="checkbox">
-								<span>결제 완료</span>
-							</label>
-							<label class="ml10">
-								<input type="checkbox">
-								<span>환불 완료</span>
-							</label>
-						</td>
+						
 					</tr>
 					
 					<tr>
-						<th>가입일</th>
+						<th>이사 날짜</th>
 						<td colspan="3">
-							<input id="dateS" class="tbox"> ~ <input id="dateE" class="tbox">
+							<input id="dateS" class="tbox" name="minDate"> ~ <input id="dateE" class="tbox" name="maxDate">
 							<a href="javascript:setSearchDate('0d')" class="btn smaller higher col_grey ml10">당일</a>
 							<a href="javascript:setSearchDate('1d')" class="btn smaller higher col_grey ml5">어제</a>
 							<a href="javascript:setSearchDate('1w')" class="btn smaller higher col_grey ml5">일주일</a>
@@ -182,10 +155,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="work_info.html" class="btn small col_main f_w">상세정보</a>
-							</div>
-							<div>
-								<a href="work_info.html" class="btn small col_darkGrey f_w">정지</a>
+								<a href="/manage/sale/saleMoveInfo" class="btn small col_main f_w">상세정보</a>
 							</div>
 						</td>
 					</tr>
