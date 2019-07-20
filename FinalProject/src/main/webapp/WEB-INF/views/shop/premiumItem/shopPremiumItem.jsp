@@ -15,49 +15,31 @@
 	</nav>
 	<div class="contents">
 		<div class="page_header">
-			<div class="page_title">공지사항</div>
+			<div class="page_title">상품 구매 내역</div>
 			<div class="page_sub_title"></div>
 		</div>
 		<div class="section">
 			<div class="section_title"></div>
-			<div class="set_form search">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<tr>
-						<th>검색어</th>
-						<td colspan="3">
-							<input class="tbox w_6p">
-						</td>
-					</tr>
-				</table>
-				<div class="set_form_search">
-					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
-					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
-				</div>
-			</div>
 			<div class="list_form">
 				<table class="table_list">
 					<colgroup>
 						<col width="60">
 						<col width="90">
-						<col width="*">
-						<col width="130">
-						<col width="100">
-						<col width="80">
+						<col width="90">
+						<col width="90">
+						<col width="90">
+						<col width="90">
+						<col width="90">
 					</colgroup>
 					<thead>
 					<tr>
 						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
-						<th>제목</th>
-						<th>작성일시</th>
-						<th>상태</th>
-						<th>관리</th>
+						<th>구매 상품</th>
+						<th>등록 가능 개수</th>
+						<th>구매 가격</th>
+						<th>구매 일시</th>
+						<th>종료 일시</th>
 					</tr>
 					</thead>
 					<tbody>

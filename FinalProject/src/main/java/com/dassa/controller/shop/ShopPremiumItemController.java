@@ -48,4 +48,9 @@ public class ShopPremiumItemController {
 		}
 		return "shop/premiumItem/shopPremiumItemList";
 	}
+	
+	@RequestMapping("/premiumItemList")
+	public String ShopPemiumItemList(HttpSession httpSession) {
+		return "shop/premiumItem/shopPremiumItem";
+	}
 }
