@@ -1,0 +1,1706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.14" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.dassa.common.Criteria" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/common/Criteria.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="265" x="2385" y="443"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.dassa.common.FileCommon" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/common/FileCommon.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="109" width="226" x="1378" y="434"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.dassa.controller.board.FAQManageController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/board/FAQManageController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="100" width="267" x="49" y="429"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.dassa.controller.board.NoticeController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/board/NoticeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="270" x="44" y="562"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.dassa.controller.board.QuestionManageController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/board/QuestionManageController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="269" x="49" y="819"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.dassa.controller.board.GuestController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/board/GuestController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="264" x="47" y="689"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.dassa.controller.driver.DriverBoardController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverBoardController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="104" width="261" x="1037" y="42"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.dassa.controller.driver.DriverHomeController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverHomeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="102" width="279" x="39" y="1689"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.dassa.controller.driver.DriverSaleListController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverSaleListController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="105" width="267" x="359" y="1690"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.dassa.controller.driver.DriverReviewController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverReviewController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="247" x="688" y="1223"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.dassa.controller.driver.DriverAuctionController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverAuctionController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="100" width="264" x="694" y="1533"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.dassa.controller.driver.DriverMoveManageController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverMoveManageController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="279" x="39" y="1535"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.dassa.controller.driver.DriverMypageController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/driver/DriverMypageController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="261" x="696" y="1691"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.dassa.controller.guest.GuestMoveController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/guest/GuestMoveController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="100" width="267" x="1037" y="306"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.dassa.controller.guest.GuestLoginController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/guest/GuestLoginController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="100" width="251" x="373" y="953"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.dassa.controller.guest.RegCheckController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/guest/RegCheckController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="266" x="46" y="949"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.dassa.controller.guest.GuestInsertController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/guest/GuestInsertController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="98" width="275" x="43" y="1085"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.dassa.controller.guest.GuestMyController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/guest/GuestMyController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="100" width="273" x="39" y="1218"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.dassa.controller.guest.SaleInLotsController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/guest/SaleInLotsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="266" x="48" y="299"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.dassa.controller.manage.ManageShopController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/manage/ManageShopController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="253" x="1367" y="835"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.dassa.controller.manage.ManageMoveController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/manage/ManageMoveController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="259" x="1676" y="437"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.dassa.controller.manage.ManageSaleController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/manage/ManageSaleController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="263" x="693" y="1381"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.dassa.controller.manage.ManageHomeController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/manage/ManageHomeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="102" width="260" x="1686" y="829"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.dassa.controller.manage.ManageUserController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/manage/ManageUserController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="281" x="1029" y="958"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.dassa.controller.map.MapViewController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/map/MapViewController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="96" width="266" x="1036" y="172"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.dassa.controller.shop.ShopHomeController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/shop/ShopHomeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="103" width="256" x="1680" y="566"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.dassa.controller.shop.ShopItemController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/shop/ShopItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="240" x="1374" y="567"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.dassa.controller.shop.ShopPremiumItemController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/shop/ShopPremiumItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="266" x="50" y="47"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.dassa.controller.shop.ShopMemberController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/shop/ShopMemberController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="97" width="276" x="1035" y="437"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.dassa.controller.shop.ShopBoardController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/shop/ShopBoardController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="101" width="265" x="51" y="170"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.dassa.controller.shop.ShopReserveController" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/controller/shop/ShopReserveController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="284" x="1029" y="831"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="32" language="java" name="com.dassa.mapper.MovePackageMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/MovePackageMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="256" x="1676" y="313"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="33" language="java" name="com.dassa.mapper.FaqMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/FaqMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="248" x="693" y="428"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="34" language="java" name="com.dassa.mapper.GuestMoveMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/GuestMoveMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="261" x="368" y="1377"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="35" language="java" name="com.dassa.mapper.ShopBoardMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/ShopBoardMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="102" width="254" x="689" y="173"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="36" language="java" name="com.dassa.mapper.DriverBoardMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/DriverBoardMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="266" x="1665" y="43"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="37" language="java" name="com.dassa.mapper.ShopMemberMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/ShopMemberMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="102" width="282" x="1030" y="700"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="38" language="java" name="com.dassa.mapper.NoticeMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/NoticeMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="252" x="694" y="560"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="39" language="java" name="com.dassa.mapper.EmployeeMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/EmployeeMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="239" x="701" y="1083"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="40" language="java" name="com.dassa.mapper.ManageUserMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/ManageUserMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="102" width="259" x="1693" y="955"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="41" language="java" name="com.dassa.mapper.SaleInLotsMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/SaleInLotsMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="255" x="690" y="302"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="42" language="java" name="com.dassa.mapper.MapMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/MapMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="260" x="1671" y="177"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="43" language="java" name="com.dassa.mapper.UserMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/UserMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="244" x="692" y="957"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="44" language="java" name="com.dassa.mapper.NoticeGuestMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/NoticeGuestMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="246" x="696" y="692"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="45" language="java" name="com.dassa.mapper.ShopMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/ShopMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="256" x="1682" y="692"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="46" language="java" name="com.dassa.mapper.ShopPremiumMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/ShopPremiumMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="103" width="257" x="687" y="45"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="47" language="java" name="com.dassa.mapper.QuestionMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/QuestionMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="250" x="693" y="824"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="48" language="java" name="com.dassa.mapper.DriverMapper" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/mapper/DriverMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="283" x="36" y="1377"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="49" language="java" name="com.dassa.service.QuestionService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/QuestionService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="251" x="373" y="821"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="com.dassa.service.ShopService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/ShopService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="246" x="1370" y="701"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="com.dassa.service.FaqService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/FaqService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="263" x="371" y="428"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="com.dassa.service.MapService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/MapService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="227" x="1377" y="173"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="com.dassa.service.UserService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="254" x="373" y="1084"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="com.dassa.service.NoticeService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/NoticeService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="252" x="372" y="561"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="com.dassa.service.DriverService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/DriverService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="102" width="252" x="366" y="1537"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="com.dassa.service.ShopBoardService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/ShopBoardService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="262" x="366" y="170"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="com.dassa.service.ShopPremiumService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/ShopPremiumService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="262" x="364" y="46"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="com.dassa.service.GuestMoveService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/GuestMoveService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="102" width="252" x="372" y="1216"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="com.dassa.service.SaleInLotsService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/SaleInLotsService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="103" width="257" x="370" y="297"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="com.dassa.service.DriverBoardService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/DriverBoardService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="225" x="1372" y="43"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="com.dassa.service.MovePackageService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/MovePackageService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="226" x="1379" y="307"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="com.dassa.service.ShopMemberService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/ShopMemberService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="274" x="1036" y="571"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="com.dassa.service.NoticeGuestService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/NoticeGuestService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="254" x="367" y="690"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" name="com.dassa.vo.ShopReservationVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopReservationVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="279" x="2047" y="183"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="65" language="java" name="com.dassa.vo.DriverSaleVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverSaleVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="277" x="2734" y="50"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="66" language="java" name="com.dassa.vo.SaleInLotsFaqVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/SaleInLotsFaqVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="262" x="2740" y="825"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="67" language="java" name="com.dassa.vo.ShopItemSearchVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopItemSearchVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="270" x="2392" y="950"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="68" language="java" name="com.dassa.vo.EmployeePageDate" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/EmployeePageDate.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="270" x="2054" y="558"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="69" language="java" name="com.dassa.vo.UserVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/UserVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="273" x="1690" y="1689"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="70" language="java" name="com.dassa.vo.MoveInfoTotalData" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveInfoTotalData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="288" x="1349" y="1219"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="71" language="java" name="com.dassa.vo.SearchUserVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/SearchUserVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="262" x="2061" y="1217"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" name="com.dassa.vo.ShopReservationPageDataVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopReservationPageDataVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="281" x="2050" y="48"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="com.dassa.vo.NoticeVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/NoticeVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="274" x="2731" y="188"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="com.dassa.vo.PackageSelectVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PackageSelectVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="256" x="2062" y="1341"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="75" language="java" name="com.dassa.vo.ShopItemImgVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopItemImgVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="261" x="2395" y="1338"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="76" language="java" name="com.dassa.vo.DriverApplyImgVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverApplyImgVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="283" x="1027" y="1079"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="77" language="java" name="com.dassa.vo.JusoDongVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/JusoDongVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="249" x="2409" y="1695"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="com.dassa.vo.DriverApplyOptionVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverApplyOptionVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="256" x="1366" y="1076"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="79" language="java" name="com.dassa.vo.DriverMypageReviewVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverMypageReviewVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="265" x="2054" y="1459"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="80" language="java" name="com.dassa.vo.JusoGuVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/JusoGuVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="262" x="2737" y="1223"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="81" language="java" name="com.dassa.vo.PackageTempVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PackageTempVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="263" x="2387" y="1461"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="82" language="java" name="com.dassa.vo.DriverVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="269" x="2393" y="1222"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="83" language="java" name="com.dassa.vo.MoveAddrScheduleVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveAddrScheduleVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="92" width="244" x="2737" y="1576"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="com.dassa.vo.MoveApplyVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveApplyVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="276" x="1007" y="1528"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="com.dassa.vo.DriverSaleDataVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverSaleDataVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="278" x="2387" y="54"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="86" language="java" name="com.dassa.vo.SaleInLotsTremsVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/SaleInLotsTremsVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="92" width="264" x="2383" y="1572"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="87" language="java" name="com.dassa.vo.JusoCityVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/JusoCityVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="264" x="2049" y="1571"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="88" language="java" name="com.dassa.vo.NoticePageData" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/NoticePageData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="269" x="2385" y="186"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="89" language="java" name="com.dassa.vo.PackageSearchFilterVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PackageSearchFilterVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="251" x="2740" y="1459"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="90" language="java" name="com.dassa.vo.QuestionPageData" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/QuestionPageData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="270" x="2053" y="310"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="91" language="java" name="com.dassa.vo.MoveApplyPage" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveApplyPage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="102" width="268" x="1014" y="1376"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="92" language="java" name="com.dassa.vo.ShopPremiumItemVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopPremiumItemVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="92" width="262" x="2736" y="1338"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="93" language="java" name="com.dassa.vo.UserPageDataVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/UserPageDataVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="261" x="1693" y="1534"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="94" language="java" name="com.dassa.vo.SaleInLotsPageDataVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/SaleInLotsPageDataVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="276" x="1009" y="1690"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="95" language="java" name="com.dassa.vo.SaleInLotsVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/SaleInLotsVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="269" x="1347" y="1684"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="96" language="java" name="com.dassa.vo.MoveAddrInfoVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveAddrInfoVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="260" x="2063" y="1692"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="97" language="java" name="com.dassa.vo.DriverAuctionDetailVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverAuctionDetailVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="250" x="1710" y="1219"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="98" language="java" name="com.dassa.vo.MoveAuctionReview" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveAuctionReview.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="282" x="1337" y="1376"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="99" language="java" name="com.dassa.vo.MoveAddrSelectVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveAddrSelectVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="263" x="2739" y="316"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="100" language="java" name="com.dassa.vo.ShopPowerItemVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopPowerItemVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="91" width="272" x="2061" y="954"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="101" language="java" name="com.dassa.vo.MoveAuctionListVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveAuctionListVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="273" x="1341" y="1527"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="102" language="java" name="com.dassa.vo.PackageRegVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PackageRegVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="112" width="264" x="2056" y="679"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="103" language="java" name="com.dassa.vo.PagingVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PagingVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="277" x="2055" y="440"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="104" language="java" name="com.dassa.vo.ShopMemberVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopMemberVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="282" x="2737" y="443"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="105" language="java" name="com.dassa.vo.QuestionVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/QuestionVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="269" x="2383" y="314"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="106" language="java" name="com.dassa.vo.FaqVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/FaqVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="262" x="2737" y="677"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="107" language="java" name="com.dassa.vo.FaqPageData" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/FaqPageData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="268" x="2738" y="561"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="108" language="java" name="com.dassa.vo.ShopItemPageDataVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopItemPageDataVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="264" x="2058" y="817"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="109" language="java" name="com.dassa.vo.MoveApplyImgVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveApplyImgVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="261" x="2068" y="1078"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="110" language="java" name="com.dassa.vo.MovePaymentVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MovePaymentVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="248" x="1700" y="1082"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="111" language="java" name="com.dassa.vo.PackageRegOptionVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PackageRegOptionVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="272" x="2386" y="677"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="112" language="java" name="com.dassa.vo.DriverReviewVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverReviewVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="94" width="277" x="1023" y="1222"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="113" language="java" name="com.dassa.vo.PackageOptionSelectVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/PackageOptionSelectVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="266" x="2742" y="1081"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="114" language="java" name="com.dassa.vo.DriverPageData" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/DriverPageData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="90" width="268" x="2400" y="1079"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="115" language="java" name="com.dassa.vo.SearchNoticeVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/SearchNoticeVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="268" x="2741" y="947"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="116" language="java" name="com.dassa.vo.ShopItemVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/ShopItemVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="272" x="2384" y="824"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="117" language="java" name="com.dassa.vo.EmployeeVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/EmployeeVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="98" width="268" x="2385" y="562"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="118" language="java" name="com.dassa.vo.MoveAuctionVO" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/vo/MoveAuctionVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="265" x="1694" y="1379"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="119" language="java" name="com.dassa.service.ManageUserService" project="FinalProject" 
+    file="/FinalProject/src/main/java/com/dassa/service/ManageUserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="100" width="241" x="1370" y="954"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="120">    
+    <end type="SOURCE" refId="101" navigable="false">      
+      <attribute id="121" name="reList"/>      
+      <multiplicity id="122" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="98" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="119" navigable="false">      
+      <attribute id="124" name="manageUserMapper">        
+        <position height="18" width="105" x="1575" y="979"/>      
+      </attribute>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="127" name="userService"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="130" name="mapService"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="85" navigable="false">      
+      <attribute id="133" name="monthSum"/>      
+      <multiplicity id="134" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <end type="SOURCE" refId="93" navigable="false">      
+      <attribute id="136" name="list"/>      
+      <multiplicity id="137" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="69" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="139" name="userService"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="142" name="driverService"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="145" name="shopBoardService"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="148" name="shopMemberMapper"/>      
+      <multiplicity id="149" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="151" name="userMapper"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="154" name="shopMapper"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="156">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="157" name="driverService"/>      
+      <multiplicity id="158" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <end type="SOURCE" refId="85" navigable="false">      
+      <attribute id="160" name="monthAvg"/>      
+      <multiplicity id="161" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="162">    
+    <end type="SOURCE" refId="68" navigable="false">      
+      <attribute id="163" name="list"/>      
+      <multiplicity id="164" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="117" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="165">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="166" name="optionList"/>      
+      <multiplicity id="167" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="78" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="168">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="169" name="manageUserService"/>      
+      <multiplicity id="170" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="119" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="171">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="172" name="reVo"/>      
+      <multiplicity id="173" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="98" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="174">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="175" name="faqMapper"/>      
+      <multiplicity id="176" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="177">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="178" name="noticeGuestMapper"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="180">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="181" name="userService"/>      
+      <multiplicity id="182" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="183">    
+    <end type="SOURCE" refId="103" navigable="false">      
+      <attribute id="184" name="cri"/>      
+      <multiplicity id="185" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="186">    
+    <end type="SOURCE" refId="54" navigable="false">      
+      <attribute id="187" name="noticeMapper"/>      
+      <multiplicity id="188" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="189">    
+    <end type="SOURCE" refId="94" navigable="false">      
+      <attribute id="190" name="list"/>      
+      <multiplicity id="191" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="95" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="192">    
+    <end type="SOURCE" refId="88" navigable="false">      
+      <attribute id="193" name="list"/>      
+      <multiplicity id="194" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="73" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="195">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="196" name="noticeGuestService"/>      
+      <multiplicity id="197" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="63" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="198">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="199" name="driverMapper"/>      
+      <multiplicity id="200" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="201">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="202" name="driverService"/>      
+      <multiplicity id="203" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="204">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="205" name="guestMoveMapper"/>      
+      <multiplicity id="206" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="207">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="208" name="imgList"/>      
+      <multiplicity id="209" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="76" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="210">    
+    <end type="SOURCE" refId="91" navigable="false">      
+      <attribute id="211" name="reList"/>      
+      <multiplicity id="212" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="213">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="214" name="noticeService"/>      
+      <multiplicity id="215" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="216">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="217" name="driverService"/>      
+      <multiplicity id="218" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="219">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="220" name="saleInLotsService"/>      
+      <multiplicity id="221" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="222">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="223" name="guestMoveService"/>      
+      <multiplicity id="224" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="58" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="225">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="226" name="shopMemberService"/>      
+      <multiplicity id="227" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="228">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="229" name="fileCommon"/>      
+      <multiplicity id="230" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="231">    
+    <end type="SOURCE" refId="108" navigable="false">      
+      <attribute id="232" name="list"/>      
+      <multiplicity id="233" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="116" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="234">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="235" name="shopService"/>      
+      <multiplicity id="236" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="237">    
+    <end type="SOURCE" refId="72" navigable="false">      
+      <attribute id="238" name="list"/>      
+      <multiplicity id="239" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="64" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="240">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="241" name="fileCommon"/>      
+      <multiplicity id="242" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="243">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="244" name="guestMoveMapper"/>      
+      <multiplicity id="245" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="246">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="247" name="maVo"/>      
+      <multiplicity id="248" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="118" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="249">    
+    <end type="SOURCE" refId="61" navigable="false">      
+      <attribute id="250" name="movePackageMapper"/>      
+      <multiplicity id="251" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="252">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="253" name="driverService"/>      
+      <multiplicity id="254" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="255">    
+    <end type="SOURCE" refId="85" navigable="false">      
+      <attribute id="256" name="yearAvg"/>      
+      <multiplicity id="257" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="258">    
+    <end type="SOURCE" refId="107" navigable="false">      
+      <attribute id="259" name="list"/>      
+      <multiplicity id="260" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="106" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="261">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="262" name="questionService"/>      
+      <multiplicity id="263" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="264">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="265" name="payVo"/>      
+      <multiplicity id="266" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="110" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="267">    
+    <end type="SOURCE" refId="91" navigable="false">      
+      <attribute id="268" name="list"/>      
+      <multiplicity id="269" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="84" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="270">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="271" name="movePackageService"/>      
+      <multiplicity id="272" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="273">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="274" name="fileCommon"/>      
+      <multiplicity id="275" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="276">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="277" name="shopPremiumService"/>      
+      <multiplicity id="278" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="57" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="279">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="280" name="shopService"/>      
+      <multiplicity id="281" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="282">    
+    <end type="SOURCE" refId="85" navigable="false">      
+      <attribute id="283" name="yearSum"/>      
+      <multiplicity id="284" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="285">    
+    <end type="SOURCE" refId="101" navigable="false">      
+      <attribute id="286" name="auList"/>      
+      <multiplicity id="287" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="118" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="288">    
+    <end type="SOURCE" refId="102" navigable="false">      
+      <attribute id="289" name="packageOptionList"/>      
+      <multiplicity id="290" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="111" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="291">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="292" name="shopService"/>      
+      <multiplicity id="293" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="294">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="295" name="driverMapper"/>      
+      <multiplicity id="296" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="297">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="298" name="mapMapper"/>      
+      <multiplicity id="299" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="300">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="301" name="shopPremiumMapper"/>      
+      <multiplicity id="302" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="303">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="304" name="questionMapper"/>      
+      <multiplicity id="305" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="306">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="307" name="reOneVo"/>      
+      <multiplicity id="308" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="309">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="310" name="shopService"/>      
+      <multiplicity id="311" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="312">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="313" name="fileCommon"/>      
+      <multiplicity id="314" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="315">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="316" name="driverAuctionDetail"/>      
+      <multiplicity id="317" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="97" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="318">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="319" name="saleInLotsMapper"/>      
+      <multiplicity id="320" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="321">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="322" name="movePackageService"/>      
+      <multiplicity id="323" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="324">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="325" name="manageUserService"/>      
+      <multiplicity id="326" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="119" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="327">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="328" name="driverBoardMapper"/>      
+      <multiplicity id="329" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="330">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="331" name="faqService"/>      
+      <multiplicity id="332" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="333">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="334" name="shopBoardMapper"/>      
+      <multiplicity id="335" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="336">    
+    <end type="SOURCE" refId="90" navigable="false">      
+      <attribute id="337" name="list"/>      
+      <multiplicity id="338" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="105" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="339">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="340" name="driverBoardService">        
+        <position height="18" width="102" x="1282" y="68"/>      
+      </attribute>      
+      <multiplicity id="341" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="60" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

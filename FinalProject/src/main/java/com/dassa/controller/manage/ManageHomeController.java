@@ -25,12 +25,12 @@ public class ManageHomeController {
 	}
 	
 	//승인관리 페이지
-	@RequestMapping("/user/userApprobate")
+	/*@RequestMapping("/user/userApprobate")
 	public String UserApprobateList(Model model) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
 		model.addAttribute("list", list);
 		return "manage/user/userApprobateList";
-	}
+	}*/
 	
 	//회원 전체 조회
 	@RequestMapping("/user/userAllList")
