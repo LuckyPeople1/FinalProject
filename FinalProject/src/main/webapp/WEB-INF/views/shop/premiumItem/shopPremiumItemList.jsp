@@ -26,8 +26,19 @@
 							<span>※ 정책 위반 시 상품 이용 제한</span>
 						</span>
 					</div>
+					<div class="itemPrice">
+						<h1>기본 상품 기한</h1>
+						<br>
+						<span>구매일로 부터 30일</span>
+						<br>
+						<br>
+						<br>
+						<h1>기본 상품 가격</h1>
+						<br>
+						<span>₩ 20,000원</span>
+					</div>
 					<div class="btn_box">
-						<a href="/shop/premiumItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">기본 상품 구매</a>
+						<button name="item"><a class="btn col_red">기본 상품 구매</a></button>
 					</div>
 				</div>
 				<div class="item">
@@ -42,8 +53,19 @@
 							<span>※ 정책 위반 시 상품 이용 제한</span>
 						</span>
 					</div>
-					<div class="btn_box" style="margin: 200px 30px 30px 0;">
-						<a href="/shop/powerItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">VIP 상품 구매</a>
+					<div class="itemPrice">
+						<h1>VIP 상품 기한</h1>
+						<br>
+						<span>구매일로 부터 30일</span>
+						<br>
+						<br>
+						<br>
+						<h1>VIP 상품 가격</h1>
+						<br>
+						<span>₩ 30,000원</span>
+					</div>
+					<div class="btn_box">
+						<button name="vip"><a class="btn col_red">VIP 상품 구매</a></button>
 					</div>
 				</div>
 			</section>			
@@ -51,6 +73,19 @@
 	</div>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
 </div>
-
+<script>
+$("button[name='item']").click(function(){
+	if(confirm("기본 상품을 구매하시겠습니까?")){
+		location.href="/shop/premiumItemAdd?userIdx="+${sessionScope.user.userIdx };
+	}
+	return;
+});
+$("button[name='vip']").click(function(){
+	if(confirm("VIP 상품을 구매하시겠습니까?")){
+		location.href="/shop/powerItemAdd?userIdx="+${sessionScope.user.userIdx };
+	}
+	return;
+});
+</script>
 </body>
 </html>

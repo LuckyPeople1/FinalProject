@@ -5,7 +5,7 @@
 		<div class="nav_title">아이템 관리</div>
 		<div class="nav_group">
 			<a href="/shop/premiumItem" class="on">아이템 구매</a>
-			<a href="/shop/reserve">구매 내역</a>
+			<a href="/shop/premiumItemList">구매 내역</a>
 		</div>
 	</div>
 </div>

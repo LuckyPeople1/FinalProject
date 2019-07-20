@@ -2866,3 +2866,19 @@ section.shopPremium .item .btn_box a{
 	font-size: 16px;
 	text-align: center;
 }
+section.shopPremium .item .itemPrice{
+	float: left;
+	margin-top: 30px;
+	margin-left: 120px;
+}
+section.shopPremium .item .itemPrice h1{
+	font-size: 24px;
+	color : #666666;
+	font-weight: bold;
+}
+section.shopPremium .item .itemPrice span{
+	font-size: 16px;
+	line-height:15px;
+	color : #666666;
+	font-weight: bold;
+}
