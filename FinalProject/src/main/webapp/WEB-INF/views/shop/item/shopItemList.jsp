@@ -57,6 +57,11 @@
 				</div>
 			</div>
 			<div class="list_form">
+				<div>
+					<div>매물 등록 가능 개수 : ${itemCount }개</div>
+					<br>
+					<div>VIP 적용 가능 개수 : ${powerCount}개</div>
+				</div>
 				<div class="table_list_btn">
 				</div>
 				<table class="table_list">
@@ -109,17 +114,31 @@
 							<span class="tag col_blue f_w">${item.shopItemSaleState }</span>
 						</c:if>
 						</td>
-						<td><span class="tag col_green f_w">${item.shopItemPremiumState }</span></td>
+						<td>
+							<c:if test="${item.shopItemPremiumState eq '0'}">
+								<span class="tag col_darkGrey f_w">비적용</span>
+							</c:if>
+							<c:if test="${item.shopItemPremiumState eq '1'}">
+								<span class="tag col_green f_w">적용</span>
+							</c:if>
+						</td>
 						<td>${item.shopItemRegDate }</td>
 						<td>
 							<div class="set_menu">
-								<input name="idx" type="hidden" value=${item.shopItemIdx }>
+								<input name="userIdx" type="hidden" value=${sessionScope.user.userIdx }>
+								<input name="shopItemIdx" type="hidden" value=${item.shopItemIdx }>
 								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">상세보기</a>
 								<c:if test="${item.shopItemSaleState eq '판매중단'}">
 									<button type="button" class="btn small col_blue f_w" name="addItem" value=${item.shopItemIdx }>판매진행</button>
 								</c:if>
 								<c:if test="${item.shopItemSaleState eq '판매중'}">
 									<button type="button" class="btn small col_darkGrey f_w" name="stopItem" value=${item.shopItemIdx }>판매중단</button>
+								</c:if>
+								<c:if test="${item.shopItemPremiumState eq '0'}">
+									<button type="button" class="btn small col_green f_w" name="powerIng" value=${item.shopItemIdx }>아이템 적용</button>
+								</c:if>
+								<c:if test="${item.shopItemPremiumState eq '1'}">
+									<button type="button" class="btn small col_darkGrey f_w" name="powerEnd" value=${item.shopItemIdx }>아이템 해제</button>
 								</c:if>
 								<button type="button" class="btn small col_red f_w" name="delItem" value=${item.shopItemIdx }>삭제</button>
 							</div>
@@ -138,24 +157,45 @@
 	<footer role="footer" data-include="footer.html"></footer>
 </div>
 <script>
+	$("button[name=powerIng]").click(function(){
+		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
+		if(confirm("아이템을 적용하시겠습니까?")){
+			location.href="/shop/powerIng?shopItemIdx="+idx+"&userIdx="+userIdx;
+		}
+		return;
+	});
+	
+	$("button[name=powerEnd]").click(function(){
+		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
+		if(confirm("아이템을 해제하시겠습니까?")){
+			location.href="/shop/powerEnd?shopItemIdx="+idx+"&userIdx="+userIdx;
+		}
+		return;
+	});
+	
 	$("button[name='delItem']").click(function(){
 		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
 		if(confirm("정말 삭제하시겠습니까?")){
-			location.href="/shop/shopItemDelete?shopItemIdx="+idx;
+			location.href="/shop/shopItemDelete?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
 	});
 	$("button[name='stopItem']").click(function(){
 		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
 		if(confirm("판매중단으로 변경하시겠습니까?")){
-			location.href="/shop/shopItemStop?shopItemIdx="+idx;
+			location.href="/shop/shopItemStop?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
 	});
 	$("button[name='addItem']").click(function(){
 		var idx = $(this).val();
+		var userIdx = $("input[name='userIdx']").val();
 		if(confirm("판매중으로 변경하시겠습니까?")){
-			location.href="/shop/shopItemIng?shopItemIdx="+idx;
+			location.href="/shop/shopItemIng?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
 	})

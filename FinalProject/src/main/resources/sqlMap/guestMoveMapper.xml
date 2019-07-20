@@ -132,5 +132,37 @@
 	from driver_review_tbl r join driver_tbl d on (r.driver_idx = d.driver_idx) 
 	where r.apply_idx in (select apply_idx from move_apply_tbl where guest_idx=#{guestIdx})
 	</select>
-
+	
+	
+	<!-- 방문 리스트 개수 -->
+	<select id="shopReservationTotalCount" resultType="_int" parameterType="_int">
+		select count(*) cnt from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료') and user_idx = #{userIdx} 
+	</select>
+	<!-- 방문 리스트 뿌리기 -->
+	<select id="selectReservationAllList" resultType="shopReservationVO" parameterType="map">
+			select shop_reservation_idx as shopReservationIdx,
+				user_idx as userIdx,
+				shop_item_idx as shopItemIdx,
+				shop_reservation_name as shopReservationName,
+				shop_reservation_tel as shopReservationTel,
+				shop_reservation_manager as shopReservationManager,
+				shop_reservation_state as shopReservationState,
+				shop_reservation_date as shopReservationDate
+			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료') and user_idx=#{userIdx}
+			order by rownum desc) item)
+			where rnum between #{start} and #{end} 
+	</select>
+	<!-- 예약 진행 -->
+	<update id="reservationhold" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='예약완료' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	<!-- 예약 완료 -->
+	<update id="reservationIng" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='상담완료' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	<!-- 예약 삭제 -->
+	<update id="reservationDel" parameterType="shopReservationVO">
+		update shop_reservation_tbl set shop_reservation_state='삭제' where shop_reservation_idx=#{shopReservationIdx}
+	</update>
+	
 </mapper>

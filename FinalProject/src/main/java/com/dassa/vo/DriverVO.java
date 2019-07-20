@@ -8,7 +8,7 @@ public class DriverVO { //입찰관리 상세보기 부분에서 최종결정을
 	private String driverMessage;	//기사가 작성한 메세지
 	private String ladderState;		//사다리 여부 0이면 사다리 필요하지 않음. 1이면 사다리가 필요함 (radio 버튼)
 	private String estimateAmount;	//기사가 견적낸 최종금액
-	private int auctionState;	//0번 진행중 1번 완료 2번 취소 
+	private int auctionState;		//0번 진행중 1번 완료 2번 취소 
 	public DriverVO(int driverIdx, int applyIdx, String userCar, String driverMessage, String ladderState,
 			String estimateAmount, int auctionState) {
 		super();

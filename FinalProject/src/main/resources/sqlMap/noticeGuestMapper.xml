@@ -12,7 +12,7 @@
   			  where rnum between #{start} and #{end}
   </select>
     <select id="totalCount" resultType="_int">
-  	select count(*) cnt from notice_tbl where notice_type='사용자'
+  	select count(*) cnt from notice_tbl where notice_type='사용자' and notice_state='정상'
   </select>
   <!-- 사용자 상세보기 -->
     <select id="noticeView" parameterType="noticeVO" resultType="noticeVO">
@@ -37,7 +37,7 @@
   		where rnum between #{start} and #{end}
   </select>
    <select id="totalCount1" resultType="_int">
-  	select count(*) cnt from faq_tbl
+  	select count(*) cnt from faq_tbl where faq_state='정상' and faq_user_type='일반문의'
   </select>
   <!-- 사용자 1:1 문의보내기 -->
   <insert id="questionInsert" parameterType="questionVO">

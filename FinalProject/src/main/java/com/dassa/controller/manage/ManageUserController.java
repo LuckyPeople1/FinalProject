@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dassa.service.ManageUserService;
+import com.dassa.vo.NoticeVO;
 import com.dassa.vo.SearchUserVO;
+import com.dassa.vo.UserPageDataVO;
 import com.dassa.vo.UserVO;
 
 @Controller
@@ -28,11 +30,19 @@ public class ManageUserController {
 	
 	//전체 승인관리
 	@RequestMapping("/userApprobateList")
-	public String UserApprobateList(Model model) throws Exception{
-		
-		List<UserVO> list = manageUserService.getAllApprobateList();
-		model.addAttribute("list", list);
-		model.addAttribute("status", "2");
+	public String UserApprobateList(Model model, String userType){
+		int reqPage = 1;
+		try {
+			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
+			model.addAttribute("list", list);
+			model.addAttribute("pageNavi", pageNavi);
+			model.addAttribute("status", "2");
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "manage/user/user/allApprobate";
 	}
 	
@@ -40,41 +50,69 @@ public class ManageUserController {
 	@RequestMapping("/userAllList")
 	public String UserAllList(Model model, String userType) throws Exception {
 		String view = null;
+		int reqPage = 1;
+		System.out.println(userType);
+		try {
+			if(userType.equals("1")) {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/driver/driverAllList";
+			}else if(userType.equals("2")) {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/shop/shopAllList";
+			}else {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/user/userAllList";
+			}
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addAttribute("userType",userType);
 		model.addAttribute("status", "1");
-		if(userType.equals("1")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/driver/driverAllList";
-		}else if(userType.equals("2")) {
-			List<UserVO> list = manageUserService.getUserList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/shop/shopAllList";
-		}else {
-			List<UserVO> list = manageUserService.getUserList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/user/userAllList";
-		}
 		return view;
 	}
 	
 	//userType에 따른 승인관리
 	@RequestMapping("/all/allApprobate")
-	public String AllApprobateList(Model model, String userType) throws Exception {
+	public String AllApprobateList(Model model, String userType, String status) throws Exception {
 		String view = null;
+		int reqPage = 1;
+		try {
+			if(userType.equals("1")) {
+				UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage,userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/driver/driverApprobateList";
+			}else if(userType.equals("2")) {
+				UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage,userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/shop/shopApprobateList";
+			}
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addAttribute("userType", userType);
 		model.addAttribute("status", "2");
-		if(userType.equals("1")) {
-			List<UserVO> list = manageUserService.getTypeApprobateList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/driver/driverApprobateList";
-		}else {
-			List<UserVO> list = manageUserService.getTypeApprobateList(userType);
-			model.addAttribute("list", list);
-			model.addAttribute("status", list.iterator().next().getStatus());
-			view = "manage/user/shop/shopApprobateList";
-		}
-		
 		return view;
 	}
 	
@@ -82,36 +120,54 @@ public class ManageUserController {
 	@RequestMapping("/all/allSecssion")
 	public String UserSecssionList(Model model, String userType) throws Exception {
 		String view = null;
+		int reqPage = 1;
+		try {
+			if(userType.equals("1")) {
+				//기사 탈퇴
+				UserPageDataVO userPageData = manageUserService.getUserSecssionList(reqPage, userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/driver/driverSecssionList";
+			}else if(userType.equals("2")) {
+				//부동산 탈퇴
+				UserPageDataVO userPageData = manageUserService.getUserSecssionList(reqPage, userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/shop/shopSecssionList";
+			}else {
+				UserPageDataVO userPageData = manageUserService.getUserSecssionList(reqPage, userType);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				model.addAttribute("list", list);
+				model.addAttribute("pageNavi", pageNavi);
+				view = "manage/user/user/userSecssionList";
+			}
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		model.addAttribute("userType", userType);
 		model.addAttribute("status", "3");
-		if(userType.equals("1")) {
-			//기사 탈퇴
-			List<UserVO> list = manageUserService.getUserSecssionList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/driver/driverSecssionList";
-		}else if(userType.equals("2")) {
-			//부동산 탈퇴
-			List<UserVO> list = manageUserService.getUserSecssionList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/shop/shopSecssionList";
-		}else {
-			List<UserVO> list = manageUserService.getUserSecssionList(userType);
-			model.addAttribute("list", list);
-			view = "manage/user/user/userSecssionList";
-		}
 		return view;
+		
 	}	
 	
-	//회원 관리
+	/*//회원 관리
 	@RequestMapping("/userList")
 	public Object CommonUserListAll(Map<String,Object> map) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("list", list);
 		return retVal;
-	}
+	}*/
 	
-	//ajax로 유저 리스트 받아오기
+	/*//ajax로 유저 리스트 받아오기
 	@RequestMapping("/userListAll")
 	@ResponseBody
 	public Object UserListAll(Map<String,Object> map) throws Exception {
@@ -119,7 +175,7 @@ public class ManageUserController {
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("list", list);
 		return retVal;
-	}
+	}*/
 	
 	//ajax로 체크한 유저 받아오기 받아오기
 	@RequestMapping("/userCheckList")
@@ -130,6 +186,7 @@ public class ManageUserController {
 		String userType = null;
 		String userType1 = null;
 		String userType2 = null;
+		int reqPage = 1;
 		
 		if(uType.length == 1){
 			//type이 한개 경우
@@ -144,8 +201,11 @@ public class ManageUserController {
 			userType1 = userType;
 			searchUserVO.setUserType1(userType1);
 			Map<String, Object> retVal = new HashMap<String, Object>();
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			UserPageDataVO userPageData = manageUserService.getTypeCheckApprobateList(reqPage, searchUserVO);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
 			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
 			return retVal;
 		}else if(uType.length ==2) {
 			//type이 두개 경우
@@ -170,41 +230,78 @@ public class ManageUserController {
 			}
 			searchUserVO.setUserType2(userType2);
 			Map<String, Object> retVal = new HashMap<String, Object>();
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			UserPageDataVO userPageData = manageUserService.getTypeCheckApprobateList(reqPage, searchUserVO);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
 			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
 			return retVal;
 		}else {
 			//type이 세개 경우
 			Map<String, Object> retVal = new HashMap<String, Object>();
-			List<UserVO> list = manageUserService.getAllApprobateList();
+			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
 			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
 			return retVal;
 		}
-		
-		
+
 	}
 	
 	//Type별 전체회원 리스트 뿌리기 ajax
 	@RequestMapping("/typeUserList")
 	@ResponseBody
 	public Object TypeUserList(Map<String,Object> map, String userType, String status) throws Exception {
+		int reqPage = 1;
+		List<UserVO> list = null;
+		String pageNavi = null;
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setUserType(userType);
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		List<UserVO> list = manageUserService.getSearchUserList(searchUserVO);
+		try {
+			if(userType.equals("1")) {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				list = userPageData.getList();
+				pageNavi = userPageData.getPageNavi();
+			}else if(userType.equals("2")) {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				list = userPageData.getList();
+				pageNavi = userPageData.getPageNavi();
+			}else {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				list = userPageData.getList();
+				pageNavi = userPageData.getPageNavi();
+				
+			}
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		retVal.put("list", list);
+		retVal.put("pageNavi", pageNavi);
 		return retVal;
-		
 	}
 	
 	//전체 승인 페이지 ajax
 	@RequestMapping("/approbate")
 	@ResponseBody
-	public Object Approbate(Map<String,Object> map) throws Exception {	
+	public Object Approbate(Map<String,Object> map, String userType) throws Exception {
+		int reqPage = 1;
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		List<UserVO> list = manageUserService.getAllApprobateList();
-		retVal.put("list", list);
+		try {
+			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
+			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
+			retVal.put("status", "2");
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return retVal;
 	}
 	
@@ -244,19 +341,29 @@ public class ManageUserController {
 		}
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		
-		if(searchType.equals("1") && !searchWord.equals("")) {
-			//아이디 일때
-			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
-			retVal.put("list", list);
-			
-		}else if(searchType.equals("2") && !searchWord.equals("")){
-			//이름 일때
-			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
-			retVal.put("list", list);
-			
-		}else {
-			retVal.put("list", "");
+		int reqPage = 1;
+		try {
+			if(searchType.equals("1") && !searchWord.equals("")) {
+				//아이디 일때
+				UserPageDataVO userPageData = manageUserService.getSearchApproPageData(reqPage,searchUserVO);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				retVal.put("list", list);
+				retVal.put("pageNavi", pageNavi);
+			}else if(searchType.equals("2") && !searchWord.equals("")){
+				//이름 일때
+				UserPageDataVO userPageData = manageUserService.getSearchApproPageData(reqPage,searchUserVO);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				retVal.put("list", list);
+				retVal.put("pageNavi", pageNavi);
+				
+			}else {
+				retVal.put("list", "");
+			}	
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return retVal;
 	}
@@ -271,18 +378,29 @@ public class ManageUserController {
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
-		if(searchType.equals("1") && !searchWord.equals("")) {
-			//아이디 일때
-			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
-			retVal.put("list", list);
-			
-		}else if(searchType.equals("2") && !searchWord.equals("")){
-			//이름 일때
-			List<UserVO> list = manageUserService.getSearchList(searchUserVO);
-			retVal.put("list", list);
-			
-		}else {
-			retVal.put("list", "");
+		int reqPage = 1;
+		try {
+			if(searchType.equals("1") && !searchWord.equals("")) {
+				//아이디 일때
+				UserPageDataVO userPageData = manageUserService.getSearchApproPageData(reqPage,searchUserVO);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				retVal.put("list", list);
+				retVal.put("pageNavi", pageNavi);
+			}else if(searchType.equals("2") && !searchWord.equals("")){
+				//이름 일때
+				UserPageDataVO userPageData = manageUserService.getSearchApproPageData(reqPage,searchUserVO);
+				List<UserVO> list = userPageData.getList();
+				String pageNavi = userPageData.getPageNavi();
+				retVal.put("list", list);
+				retVal.put("pageNavi", pageNavi);
+				
+			}else {
+				retVal.put("list", "");
+			}	
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return retVal;
 	} 
@@ -297,12 +415,22 @@ public class ManageUserController {
 		searchUserVO.setStartDate(startDate);
 		searchUserVO.setUserType(userType);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		List<UserVO> list = manageUserService.getSearchDate(searchUserVO);
-		retVal.put("list", list);
+		
+		int reqPage = 1;
+		try {
+			UserPageDataVO userPageData = manageUserService.getSearchDate(reqPage, searchUserVO);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
+			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return retVal;
 	}
 	
-	//달력으로 찾기
+	//전체 승인대기 달력으로 찾기
 	@RequestMapping("/searchApprobateDate")
 	@ResponseBody
 	public Map<String, Object> SearchApprobateDate(Model model, @RequestParam String status, String endDate, String startDate){
@@ -311,8 +439,17 @@ public class ManageUserController {
 		searchUserVO.setEndDate(endDate);
 		searchUserVO.setStartDate(startDate);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		List<UserVO> list = manageUserService.getSearchDate(searchUserVO);
-		retVal.put("list", list);
+		int reqPage = 1;
+		try {
+			UserPageDataVO userPageData = manageUserService.getSearchDate(reqPage, searchUserVO);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
+			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return retVal;
 	}
 }

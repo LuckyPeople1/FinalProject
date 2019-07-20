@@ -48,30 +48,34 @@ function setSearchDate(start){
     //var year = today.getFullYear();
     //var month = today.getMonth() + 1;
     //var day = today.getDate();
-
-    var endDate = $.datepicker.formatDate('yy-mm-dd', today);
-    $('#dateE').val(endDate);
-
-    if(str == 'd'){
-        today.setDate(today.getDate() - num);
+    var startDate = $.datepicker.formatDate('yy-mm-dd', today);
+    
+    $('#dateE').val(startDate);
+    console.log(today);
+    /*console.log("데이트"+$('#dateE').val(endDate));*/ 
+    console.log("start"+start);
+    console.log("숫자subString"+num);
+    console.log("문자 sub"+str);
+    if(str == 'd'){    	
+        today.setDate(today.getDate() + Number(num));
     }else if (str == 'w'){
-        today.setDate(today.getDate() - (num*7));
+        today.setDate(today.getDate() + Number(num*7));
     }else if (str == 'm'){
-        today.setMonth(today.getMonth() - num);
+        today.setMonth(today.getMonth() + Number(num));
         today.setDate(today.getDate() + 1);
     }else if (str == 'y'){
-        today.setMonth(today.getYear() - num);
+        today.setMonth(today.getYear() + Number(num));
         today.setDate(today.getDate() + 1);
     }
 
-    var startDate = $.datepicker.formatDate('yy-mm-dd', today);
-    $('#dateS').val(startDate);
+    var endDate = $.datepicker.formatDate('yy-mm-dd', today);
+    $('#dateS').val(endDate);
 
-    // // 종료일은 시작일 이전 날짜 선택하지 못하도록 비활성화
-    // $("#dateE").datepicker( "option", "minDate", startDate );
-    //
-    // // 시작일은 종료일 이후 날짜 선택하지 못하도록 비활성화
-    // $("#dateS").datepicker( "option", "maxDate", endDate );
+  /*  // 종료일은 시작일 이전 날짜 선택하지 못하도록 비활성화
+    $("#dateE").datepicker( "option", "minDate", startDate );
+   
+   // 시작일은 종료일 이후 날짜 선택하지 못하도록 비활성화
+    $("#dateS").datepicker( "option", "maxDate", endDate );*/
 
 }
 

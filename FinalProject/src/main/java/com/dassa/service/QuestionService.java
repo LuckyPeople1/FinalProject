@@ -52,13 +52,25 @@ public class QuestionService {
 			if (reqPage == pageNo) {
 				pageNavi += "<span class='selectPage'>" + pageNo + "</span>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
 			} else {
-				pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				if(code==1) {
+					pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "&code=1'>" + pageNo + "</a>";
+				}else if(code==2) {
+					pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "&code=2'>" + pageNo + "</a>";
+				}else {					
+					pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				}
 			}
 			pageNo++;
 		}
 		// 다음 버튼 생성
 		if (pageNo <= totalPage) {
-			pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "'>다음</a>";
+			if(code==1) {
+				pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "&code=1'>다음</a>";
+			}else if(code==2) {
+				pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "&code=2'>다음</a>";
+			}else {				
+				pageNavi += "<a class='btn' href='/manage/board/question/questionManageList?reqPage=" + pageNo + "'>다음</a>";
+			}
 		}
 		QuestionPageData pd = new QuestionPageData(list, pageNavi);
 		return pd;

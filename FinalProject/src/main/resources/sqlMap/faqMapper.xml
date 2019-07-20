@@ -3,20 +3,28 @@
 <mapper namespace="com.dassa.mapper.FaqMapper">
  <!-- 페이징처리후 리스트출력 -->
   <select id="selectAllList" resultType="faqVO" parameterType="_int">
-  	select faq_index as faqIndex,
-  		faq_user_type as faqUserType,
-  		faq_question as faqQuestion,
-  		faq_state as faqState,
-  		faq_reg_date as faqRegDate
-  		from (select rownum as rnum, f.* from (select * from faq_tbl where <!-- faq_state='정상' --> 
+	select rnum as rnum,
+	faq_index as faqIndex,
+	faq_user_type as faqUserType,
+	faq_question as faqQuestion,
+	faq_state as faqState,
+	faq_reg_date as faqRegDate
+	from (select rownum as rn , r.* from (select * from
+	(select rownum as rnum,
+	n.* from
+	(select * from faq_tbl where
+	<if test="code==0">faq_user_type='일반문의'</if>
+	<if test="code==1">faq_user_type='부동산'</if>
+	<if test="code==2">faq_user_type='기사'</if>
+	order by faq_reg_date) n) order by rnum desc)r)
+	where rn between
+	#{start} and #{end}	
+  </select>
+   <select id="totalCount" resultType="_int">
+  	select count(*) cnt from faq_tbl where   		
   		<if test="code==0">faq_user_type='일반문의'</if> 
   		<if test="code==1">faq_user_type='부동산'</if> 
   		<if test="code==2">faq_user_type='기사'</if> 
-  		order by rownum desc) f)
-  		where rnum between #{start} and #{end}
-  </select>
-   <select id="totalCount" resultType="_int">
-  	select count(*) cnt from faq_tbl
   </select>
     <!-- faq뷰페이지 -->
   <select id="faqView" parameterType="faqVO" resultType="faqVO">

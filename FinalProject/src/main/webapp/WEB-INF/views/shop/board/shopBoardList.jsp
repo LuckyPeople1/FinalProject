@@ -66,7 +66,6 @@
 						<col width="90">
 						<col width="*">
 						<col width="130">
-						<col width="130">
 						<col width="100">
 						<col width="80">
 					</colgroup>
@@ -75,7 +74,6 @@
 						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>제목</th>
-						<th>작성자</th>
 						<th>작성일시</th>
 						<th>상태</th>
 						<th>관리</th>
@@ -85,12 +83,9 @@
 					<c:forEach items="${list }" var="s">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${s.noticeIndex }</td>
+						<td>${s.rnum }</td>
 						<td>
 							<div class="text-left">${s.noticeTitle }</div>
-						</td>
-						<td>
-							<div>${s.noticeWriter }</div>
 						</td>
 						<td>
 							<div>${s.noticeRegDate }</div>
@@ -101,8 +96,6 @@
 						<td>
 							<div class="set_menu">
 								<a href="/shop/board/shopNoticeView?noticeIndex=${s.noticeIndex }" class="btn col_navy f_w">상세보기</a>
-								<a href="/shop/board/shopNoticeModify?noticeIndex=${s.noticeIndex }" class="btn col_darkGrey f_w">수정하기</a>
-								<a href="/shop/board/shopNoticeDelete?noticeIndex=${s.noticeIndex }" class="btn col_red f_w">삭제하기</a>
 							</div>
 
 						</td>
@@ -114,15 +107,6 @@
 			<div id="pageNavi" class="page_group clearFix">
 				${pageNavi}
 			</div><br>
-			<ul class="page_wrap">
-				<li><a href="#none">First</a></li>
-				<li><a href="#none">Prev</a></li>
-				<li><a href="#none" class="num active">1</a></li>
-				<li><a href="#none" class="num">2</a></li>
-				<li><a href="#none" class="num">3</a></li>
-				<li><a href="#none">Next</a></li>
-				<li><a href="#none">Last</a></li>
-			</ul>
 		</div>
 	</div>
 	<footer role="footer" data-include="footer.html"></footer>

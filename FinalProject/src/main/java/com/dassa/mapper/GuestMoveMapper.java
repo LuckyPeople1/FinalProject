@@ -14,6 +14,7 @@ import com.dassa.vo.MoveAuctionListVO;
 import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.ShopReservationVO;
 
 @MapperScan("guestMoveMapper")
 public interface GuestMoveMapper {
@@ -55,4 +56,10 @@ public interface GuestMoveMapper {
 	public int driverReviewInsert(DriverReviewVO driverReviewVO) throws Exception;
 	
 	public List<DriverMypageReviewVO> applyIdxSelectList(int guestIdx);
+	
+	
+	//방문리스트 카운트
+	public int shopReservationTotalCount(int userIdx) throws Exception;
+	//방문리스트
+	public ArrayList<ShopReservationVO> selectReservationAllList(Map<String, Object> map) throws Exception;
 }

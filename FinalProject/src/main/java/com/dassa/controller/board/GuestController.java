@@ -89,6 +89,10 @@ public class GuestController {
 		int result;
 		String view = "";
 		try {
+			String ti = q.getQuestionsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsTitle(ti);
+			String con = q.getQuestionsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsContent(con);
 			result = noticeGuestService.questionInsert(q);
 			if(result>0) {
 				view="guest/notice/questionInsert";

@@ -532,14 +532,16 @@
 						</div>
 					</div>
 					<div class="kMFgaL">
-						<div class="gjVGcx"></div>
+						<div class="gjVGcx">
+							<img src="${member.shopMemberImgPath }">
+						</div>
 						<div class="hEBltZ">
-							<p class="fKNqjm">담당: ${item.shopItemManager }</p>
+							<p class="fKNqjm">담당자 : ${item.shopItemManager }</p>
 							<p class="bEkUP">
 								<svg width="18" height="19" viewBox="0 0 18 19">
 									<path fill="#1476FC" fill-rule="evenodd" d="M17.063 13.313c1.015 1.015 1.015 2.132 0 3.351-.407.474-.805.83-1.194 1.066-.39.237-.71.373-.965.407-.254.034-.618.05-1.091.05-1.32 0-2.895-.677-4.723-2.03a29.861 29.861 0 0 1-3.961-3.403A27.204 27.204 0 0 1 1.117 7.32C.102 5.424-.203 3.867.203 2.648.406 2.005.88 1.447 1.625.973l.05-.051c.61-.406 1.152-.61 1.626-.61.643 0 1.219.305 1.726.915l.051.05c.779 1.016 1.32 1.812 1.625 2.387.508 1.05.491 1.947-.05 2.691-.407.542-.61.931-.61 1.168 0 .102.22.407.66.915l.05.05c.813.914 1.254 1.405 1.321 1.473.034 0 .068.017.102.05l.203.204a39.899 39.899 0 0 0 1.473 1.422l.05.05c.305.271.508.407.61.407.169 0 .66-.254 1.472-.762.237-.17.525-.254.864-.254.609 0 1.345.254 2.209.762.863.508 1.532.999 2.005 1.473z"></path>
 								</svg>
-								${item.shopItemManagerPhone }
+								${member.shopMemberPhone }
 							</p>
 							<p class=" jxqoHd">연락 시 다싸에서 보고 연락한다고 말씀하시면</p>
 							<p class=" jxqoHd">더욱 빠르게 상담 받을 수 있습니다.</p>
@@ -548,12 +550,20 @@
 					<h1 class="kLiQkI">방문상담하기</h1>
 					<p class="cKVLgb">연락처를 남겨주시면, 확인 후 연락드립니다.</p>
 					<form class="dhDUnZ" action="/shop/reserveAdd">
-						<input type="hidden" name="userIdx" value="${item.userIdx }">
+						<input type="hidden" name="shopIdx" value="${item.userIdx }">
+						<input type="hidden" name="shopName" value="${item.shopItemTitle }">
 						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
-						<input type="hidden" name="shopReservationName" value="${sessionScope.user.userName }">  <!-- 예약고객 -->
-						<input type="hidden" name="shopReservationManager" value="${item.shopItemManager }">
-						<input type="hidden" name="shopReservationState" value="예약대기">
-						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='shopReservationTel'>
+						<input type="hidden" name="shopItemTitle" value="${item.shopItemTitle }"> 
+						<input type="hidden" name="shopItemManager" value="${item.shopItemManager }">
+						<c:if test="${empty sessionScope.user.userIdx}">
+						<input type="hidden" name="userIdx" value="0">
+						<input type="hidden" name="userName" value="비회원">
+						</c:if>
+						<c:if test="${not empty sessionScope.user.userIdx}">
+						<input type="hidden" name="userIdx" value="${sessionScope.user.userIdx }">
+						<input type="hidden" name="userName" value="${sessionScope.user.userName }">
+						</c:if>
+						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='userTel'>
 						<button class="idBxyN" type="submit" id="reservation">방문예약하기</button>
 					</form>
 				</div>

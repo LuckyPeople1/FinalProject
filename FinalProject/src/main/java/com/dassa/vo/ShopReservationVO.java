@@ -4,27 +4,33 @@ import java.sql.Date;
 
 public class ShopReservationVO {
 	private int shopReservationIdx; 			//예약번호
-	private int userIdx;								//예약한 부동산
-	private int shopItemIdx;						//예약한 매물
-	private String shopReservationName;	//예약한 고객이름
-	private String shopReservationTel;		//예약한 고객번호
-	private String shopReservationManager;//예약담당자
-	private String  shopReservationState;	//예약상태
-	private Date  shopReservationDate;		//예약신청일
+	private int shopIdx;						//예약한 부동산
+	private String shopName;					//예약한 부동산
+	private int shopItemIdx;					//에약한 매물
+	private String shopItemTitle;				//예약한 매물
+	private String shopItemManager;				//담당자
+	private int userIdx;
+	private String userName;
+	private String userTel;
+	private String shopReservationState;
+	private Date shopReservationDate;
 	public ShopReservationVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ShopReservationVO(int shopReservationIdx, int userIdx, int shopItemIdx, String shopReservationName,
-			String shopReservationTel, String shopReservationManager, String shopReservationState,
-			Date shopReservationDate) {
+	public ShopReservationVO(int shopReservationIdx, int shopIdx, String shopName, int shopItemIdx,
+			String shopItemTitle, String shopItemManager, int userIdx, String userName, String userTel,
+			String shopReservationState, Date shopReservationDate) {
 		super();
 		this.shopReservationIdx = shopReservationIdx;
-		this.userIdx = userIdx;
+		this.shopIdx = shopIdx;
+		this.shopName = shopName;
 		this.shopItemIdx = shopItemIdx;
-		this.shopReservationName = shopReservationName;
-		this.shopReservationTel = shopReservationTel;
-		this.shopReservationManager = shopReservationManager;
+		this.shopItemTitle = shopItemTitle;
+		this.shopItemManager = shopItemManager;
+		this.userIdx = userIdx;
+		this.userName = userName;
+		this.userTel = userTel;
 		this.shopReservationState = shopReservationState;
 		this.shopReservationDate = shopReservationDate;
 	}
@@ -34,11 +40,17 @@ public class ShopReservationVO {
 	public void setShopReservationIdx(int shopReservationIdx) {
 		this.shopReservationIdx = shopReservationIdx;
 	}
-	public int getUserIdx() {
-		return userIdx;
+	public int getShopIdx() {
+		return shopIdx;
 	}
-	public void setUserIdx(int userIdx) {
-		this.userIdx = userIdx;
+	public void setShopIdx(int shopIdx) {
+		this.shopIdx = shopIdx;
+	}
+	public String getShopName() {
+		return shopName;
+	}
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
 	}
 	public int getShopItemIdx() {
 		return shopItemIdx;
@@ -46,23 +58,35 @@ public class ShopReservationVO {
 	public void setShopItemIdx(int shopItemIdx) {
 		this.shopItemIdx = shopItemIdx;
 	}
-	public String getShopReservationName() {
-		return shopReservationName;
+	public String getShopItemTitle() {
+		return shopItemTitle;
 	}
-	public void setShopReservationName(String shopReservationName) {
-		this.shopReservationName = shopReservationName;
+	public void setShopItemTitle(String shopItemTitle) {
+		this.shopItemTitle = shopItemTitle;
 	}
-	public String getShopReservationTel() {
-		return shopReservationTel;
+	public String getShopItemManager() {
+		return shopItemManager;
 	}
-	public void setShopReservationTel(String shopReservationTel) {
-		this.shopReservationTel = shopReservationTel;
+	public void setShopItemManager(String shopItemManager) {
+		this.shopItemManager = shopItemManager;
 	}
-	public String getShopReservationManager() {
-		return shopReservationManager;
+	public int getUserIdx() {
+		return userIdx;
 	}
-	public void setShopReservationManager(String shopReservationManager) {
-		this.shopReservationManager = shopReservationManager;
+	public void setUserIdx(int userIdx) {
+		this.userIdx = userIdx;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getUserTel() {
+		return userTel;
+	}
+	public void setUserTel(String userTel) {
+		this.userTel = userTel;
 	}
 	public String getShopReservationState() {
 		return shopReservationState;
@@ -76,4 +100,5 @@ public class ShopReservationVO {
 	public void setShopReservationDate(Date shopReservationDate) {
 		this.shopReservationDate = shopReservationDate;
 	}
+	
 }

@@ -1,14 +1,14 @@
 package com.dassa.controller.shop;
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,7 +25,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.dassa.common.FileCommon;
-import com.dassa.service.ShopMemberService;
 import com.dassa.service.ShopService;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemPageDataVO;
@@ -50,18 +49,24 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
 		}catch(NumberFormatException e){
 			reqPage=1;
 		}
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+		int userIdx = userVO.getUserIdx();
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage);
+		int itemCount = shopService.shopCount(userIdx); //매물 등록 가능 개수 확인
+		int powerCount =shopService.powerCount(userIdx); //파워링크 등록 가능 개수 확인
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,userVO);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
+			mav.addObject("itemCount",itemCount);
+			mav.addObject("powerCount",powerCount);
 			mav.addObject("list",sItemList);
 			mav.addObject("pageNavi",pageNavi);
 			mav.setViewName("shop/item/shopItemList");
@@ -130,7 +135,7 @@ public class ShopItemController {
 			shopService.shopCountUpdate(sItem);
 			return "redirect:/shop/item";
 		}else {
-			return "redirect:/shop/";
+			return "redirect:/shop/premiumItem";
 		}
 	}
 	
@@ -218,12 +223,6 @@ public class ShopItemController {
 	 */
 	@RequestMapping("/shopItemModify")
 	public String ShopItemModify(HttpServletRequest httpServletRequest, List<MultipartFile> fileImg, ShopItemVO sItem, ShopItemImgVO sItemImg)throws Exception {
-		System.out.println(fileImg.size());
-		System.out.println(fileImg.get(0));
-		System.out.println(fileImg.get(1).getName());
-		System.out.println(fileImg.get(2).getOriginalFilename());
-		System.out.println(fileImg.get(3).getOriginalFilename());
-		System.out.println(fileImg.get(4).getOriginalFilename());
 		List<ShopItemImgVO> imgList	=	new ArrayList<ShopItemImgVO>();
 		for(MultipartFile img : fileImg) {
 			System.out.println("파일 오리진 이름 : "+img.getOriginalFilename());
@@ -256,9 +255,17 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemDelete")
-	public String shopItemDelete(@RequestParam int shopItemIdx)throws Exception {
+	public String shopItemDelete(@RequestParam int shopItemIdx, @RequestParam int userIdx)throws Exception {
 		int result = shopService.shopItemDelete(shopItemIdx);
 		if(result>0) {
+			shopService.shopPremiumItemStop(shopItemIdx);
+			result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			}
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -270,9 +277,17 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemStop")
-	public String shopItemStop(@RequestParam int shopItemIdx)throws Exception {
+	public String shopItemStop(@RequestParam int shopItemIdx, @RequestParam int userIdx)throws Exception {
 		int result = shopService.shopItemStop(shopItemIdx);
 		if(result>0) {
+			shopService.shopPremiumItemStop(shopItemIdx);
+			result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			}
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -284,9 +299,13 @@ public class ShopItemController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/shopItemIng")
-	public String shopItemIng(@RequestParam int shopItemIdx)throws Exception {
+	public String shopItemIng(@RequestParam int shopItemIdx, @RequestParam int userIdx, HttpSession httpSession)throws Exception {
 		int result = shopService.shopItemIng(shopItemIdx);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("shopItemIdx", shopItemIdx);
+		map.put("userIdx", userIdx);
 		if(result>0) {
+			shopService.shopPremiumItemIng(map);
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";
@@ -304,6 +323,7 @@ public class ShopItemController {
 		try {
 			siiList = shopService.shopItemImgList(shopItemIdx);
 			item = shopService.shopItemInfo(shopItemIdx);
+			System.out.println(item.getUserIdx()+"유저아이디엑스");
 			mav = new ModelAndView();
 			if(item.getShopItemManage().equals("있음")) {
 				String [] ss = item.getShopItemManagePriceOption().split(","); //관리비 항목 가져와서 배열로 저장
@@ -332,7 +352,13 @@ public class ShopItemController {
 				}
 				mav.addObject("sio",sio); //옵션 항목
 			}
+			String shopMemberName = item.getShopItemManager();
+			System.out.println("넘어온 담당자이름 : "+shopMemberName);
+			ShopMemberVO member = shopService.getMemberView(shopMemberName);
+			System.out.println("컨트롤러 멤버"+member);
+				mav.addObject("member",member);
 				mav.addObject("item",item); //매물 정보
+				System.out.println("view페이지 매물올린 부동산 번호: "+item.getUserIdx());
 				mav.addObject("siiList",siiList); //매물 이미지
 				System.out.println("view페이지 이미지 : "+siiList);
 				mav.setViewName("shop/item/shopItemView");
@@ -431,4 +457,52 @@ public class ShopItemController {
            return "정보없음";
        return nValue.getNodeValue();
    }
+	/**
+	 * 아이템 적용
+	 * @param shopItemIdx
+	 * @param userIdx
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/powerIng")
+	public String powerIng(@RequestParam int shopItemIdx, @RequestParam int userIdx, HttpSession httpSession)throws Exception {
+		
+		int count = shopService.powerCount(userIdx);//아이템 적용 시 버튼 상태변경
+		System.out.println("등록 가능 매물 개수 : "+count);
+		if(count>0) {
+			int result = shopService.powerIng(shopItemIdx);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemIng(map);//아이템 적용 시 아이템 적용 개수 update
+				return "redirect:/shop/item";
+			}
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 아이템 해지
+	 * @param shopItemIdx
+	 * @param userIdx
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/powerEnd")
+	public String powerEnd(@RequestParam int shopItemIdx, @RequestParam int userIdx, HttpSession httpSession)throws Exception {
+
+		int result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("shopItemIdx", shopItemIdx);
+		map.put("userIdx", userIdx);
+		if(result>0) {
+			shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			return "redirect:/shop/item";
+			
+		}
+		return "redirect:/shop/item";
+	}
+	
 }

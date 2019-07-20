@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.ShopPremiumService;
 import com.dassa.service.ShopService;
+import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
+import com.dassa.vo.UserVO;
 
 @Controller
 @RequestMapping("/shop")
@@ -37,5 +40,29 @@ public class ShopPremiumItemController {
 			return "shop/premiumItem/shopPremiumItemList";
 		}
 		return "shop/premiumItem/shopPremiumItemList";
+	}
+	
+	@RequestMapping("/powerItemAdd")
+	public String PowerItemAdd(ShopPowerItemVO powerVo) throws Exception{
+		int result = shopPremiumService.PowerItemAdd(powerVo);
+		if(result>0) {
+			return "shop/premiumItem/shopPremiumItemList";
+		}
+		return "shop/premiumItem/shopPremiumItemList";
+	}
+	
+	@RequestMapping("/premiumItemList")
+	public ModelAndView ShopPemiumItemList(HttpSession httpSession) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
+		int userIdx = userVO.getUserIdx();
+		int itemCount = shopPremiumService.shopCount(userIdx); //매물 등록 가능 개수 확인
+		int powerCount =shopPremiumService.powerCount(userIdx); //파워링크 등록 가능 개수 확인
+		System.out.println("등록 가능 매물 개수 : "+itemCount);
+		System.out.println("적용 가능 매물 개수 : "+powerCount);
+		mav.addObject("itemCount",itemCount);
+		mav.addObject("powerCount",powerCount);
+		mav.setViewName("shop/premiumItem/shopPremiumItem");
+		return mav;
 	}
 }

@@ -29,7 +29,7 @@
 			<i class="ico stats">매출관리</i>
 			<span class="nav_txt">매출관리</span>
 		</a>
-		<a href="notice" class="">
+		<a href="/driver/board/driverBoardList?reqPage=1" class="${subNavi == 6 ? 'on': '' }">
 			<i class="ico board">게시판관리</i>
 			<span class="nav_txt">게시판관리</span>
 
