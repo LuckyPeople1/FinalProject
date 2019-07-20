@@ -31,7 +31,7 @@ var my	= {
 		});
 	}
 
-	/*info : function(){
+	info : function(){
 		var userName = $("#userName").val();
 		var userPw = $("#userPw").val();
 		var userPwChk = $("#userPwChk").val();
@@ -49,5 +49,26 @@ var my	= {
 			alert("비밀번호가 다릅니다.");
 			return false;
 		}
-	}*/
+		
+		$.ajax({
+			type : "post",
+			url	: "/my/pwChkProc",
+			data : {
+				userPw : userPw,
+				userIdx : userIdx
+			},
+			success : function (data) {
+
+				if(data.trim() == "Y"){
+					location.href = '/my/info';
+				}else{
+					alert("비밀번호를 확인해주세요.");
+				}
+			},
+			error : function () {
+				alert("에러")
+			}
+
+		});
+	}
 }
