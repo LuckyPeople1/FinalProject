@@ -69,9 +69,6 @@ public class GuestLoginController {
 	
 	@RequestMapping(value="/commonLogin")
 	public String Login(HttpSession session, Model model,String userId,String userPw, String referer) throws Exception {
-		System.out.println("userId : "+userId);
-		System.out.println("userPw : "+userPw);
-		System.out.println("loc : "+ referer);
 		UserVO userVO =new UserVO();
 		userVO.setUserId(userId);
 		userVO.setUserPw(userPw);

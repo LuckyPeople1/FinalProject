@@ -13,20 +13,12 @@ import com.dassa.vo.UserPageDataVO;
 import com.dassa.vo.UserVO;
 
 @Service("ManageUserService")
-public class ManageUserService<UserPageData> {
+public class ManageUserService {
 	
 	@Resource(name="manageUserMapper")
 	private ManageUserMapper manageUserMapper;
-	
-	
-	
-	
-	
-	public int deleteUser(int userIdx) throws Exception {
-		return manageUserMapper.deleteUser(userIdx);
-	}
 
-	public List<UserVO> getUserListAll() {
+	/*public List<UserVO> getUserListAll() {
 		return manageUserMapper.getUserListAll();
 	}
 
@@ -44,7 +36,7 @@ public class ManageUserService<UserPageData> {
 
 	public List<UserVO> getSearchUserList(SearchUserVO searchUserVO) {
 		return manageUserMapper.getSearchUserList(searchUserVO);
-	}
+	}*/
 	
 	
 	
@@ -88,6 +80,7 @@ public class ManageUserService<UserPageData> {
 		return pd;
 	}
 	
+	//탈퇴 회원 관리
 	public UserPageDataVO getUserSecssionList(int reqPage, String userType) throws Exception {
 		//페이지 당 게시물 수
 		int numPerPage = 5;
@@ -249,8 +242,10 @@ public class ManageUserService<UserPageData> {
 		
 	}
 	
-	
-	
+	//회원 탈퇴
+	public int deleteUser(int userIdx) throws Exception {
+		return manageUserMapper.deleteUser(userIdx);
+	}
 	
 }
 
