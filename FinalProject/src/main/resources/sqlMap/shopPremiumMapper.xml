@@ -21,4 +21,12 @@
 		default
 		)
 	</insert>
+	<!-- 등록 할 수 있는 개수 확인 -->
+ 	<select id="shopCount"  resultType="shopPremiumItemVO" parameterType="_int">
+		select shop_premium_item_idx as shopPremiumItemIdx from shop_premium_item_tbl where shop_item_idx=0 and user_idx=#{userIdx}
+	</select>
+	<!-- 아이템 적용 할 수 있는 개수 확인 -->
+	<select id="powerCount"  resultType="shopPowerItemVO" parameterType="_int">
+		select shop_power_item_idx as shopPowerItemIdx from shop_power_item_tbl where shop_power_item_state=0 and user_idx=#{userIdx}
+	</select>
 </mapper>
