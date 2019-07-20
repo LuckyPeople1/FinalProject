@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dassa.mapper.ManageSaleMapper">
+ 	<select id="manageSaleTotalCount" parameterType="com.dassa.vo.ManageSalePageData" resultType="_int">
+ 		select count(*) as cnt from move_payment_tbl m
+ 		join move_apply_tbl a on (m.apply_idx = a.apply_idx) 
+ 		join user_tbl u on(a.guest_idx = u.user_idx)
+ 		<trim prefix="where" prefixOverrides="AND|OR"> 
+ 		<if test='searchType != ""'>
+ 			<if test='searchType == "1"'>
+ 				u.user_id like '%'|| #{searchWord} || '%'
+ 			</if>
+ 			<if test='searchType == "2"'>
+ 				u.user_Name like '%'|| #{searchWord} || '%'
+ 			</if>
+ 			<if test='searchType == "3"'>
+ 				u.user_phone like '%'|| #{searchWord} || '%'
+ 			</if>
+ 		</if>
+ 		<if test='minDate != "" and maxDate != ""'>
+ 			AND 
+ 				Move_payment_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+ 		</if>
+ 		<if test="minAmount != 0 and maxAmount != 0">
+ 			AND
+ 				Move_payment_price between #{minAmount} and #{maxAmount}
+ 		</if>
+ 		</trim> 
+ 	</select>
+ 	<select id="manageSaleMoveList" parameterType="java.util.Map" resultType="com.dassa.vo.MovePaymentVO">
+ 		select a.* from
+ 			  (select 
+ 				m.move_payment_idx as movePaymentIdx,
+ 				m.move_payment_uid_imp as movePaymentImpUid,
+ 				m.move_payment_merchant_uid as movePaymentMerchantUid,
+ 				m.move_payment_method as movePaymentPayMethod,
+ 				m.move_payment_pg as movePaymentPg,
+ 				m.move_payment_pg_number as movePaymentPgNumber,
+ 				m.move_payment_cardname as movePaymentCardName,
+ 				m.move_payment_amount as movePaymentAmount,
+ 				m.move_payment_date as movePaymentDate,
+ 				m.move_payment_cenceldate as movePaymentCencelDate,
+ 				m.move_payment_status as movePaymentStatus,
+ 				u.user_name as movePaymentUserName,
+ 				u.user_email as movePaymentUserEmail,
+ 				u.user_id as movePaymentUserId,
+ 				ROW_NUMBER() OVER(ORDER BY m.move_payment_idx desc) rNUM
+ 				from move_payment_tbl m 
+ 				join move_apply_tbl ma on (m.apply_idx = ma.apply_idx)
+ 				join user_tbl u on (ma.guest_idx = u.user_idx)
+ 				<trim prefix="where" prefixOverrides="AND|OR"> 
+ 		<if test='searchType != ""'>
+ 			<if test='searchType == "1"'>
+ 				u.user_id like '%'|| #{searchWord} || '%'
+ 			</if>
+ 			<if test='searchType == "2"'>
+ 				u.user_Name like '%'|| #{searchWord} || '%'
+ 			</if>
+ 			<if test='searchType == "3"'>
+ 				u.user_phone like '%'|| #{searchWord} || '%'
+ 			</if>
+ 		</if>
+ 		<if test='minDate != "" and maxDate != ""'>
+ 			AND 
+ 				Move_payment_date between to_date(replace(#{minDate},'-','')||'000000', 'YYYYMMDDhh24miss') 
+              		and to_date(replace(#{maxDate},'-','')||'235959','YYYYMMDDhh24miss')
+ 		</if>
+ 		<if test="minAmount != 0 and maxAmount != 0">
+ 			AND
+ 				Move_payment_price between #{minAmount} and #{maxAmount}
+ 		</if>
+ 		</trim> 
+ 		) a
+ 		where rNUM between #{start} and #{end}
+ 			
+ 			
+ 	</select>
+</mapper>

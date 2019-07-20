@@ -230,6 +230,7 @@
 	<!-- 매물 상세보기 -->
 	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
 		select shop_item_idx as shopItemIdx,
+			user_idx as userIdx,
 			shop_name as shopName, 
 			shop_item_title as shopItemTitle,
 			shop_item_content as shopItemContent,
@@ -339,7 +340,7 @@
 	</update>
 	<!-- 아이템 해지 시 개수 update -->
 	<update id="shopPowerItemEnd" parameterType="map">
-		update shop_power_item_tbl set shop_item_idx=#{shopItemIdx}, shop_power_item_state=0
+		update shop_power_item_tbl set shop_item_idx=0, shop_power_item_state=0
 			where shop_power_item_idx=(select shop_power_item_idx from
 			(select rownum as rnum, item.* from (select * from shop_power_item_tbl where shop_item_idx=#{shopItemIdx} and user_idx=#{userIdx} order by rownum asc)
 			 item where rownum = 1))
@@ -352,11 +353,14 @@
 	<insert id="shopReserveJoin" parameterType="shopReservationVO">
 		insert into shop_reservation_tbl values(
 			shop_reservation_idx_seq.nextval,
-			#{userIdx, jdbcType=VARCHAR},
+			#{shopIdx, jdbcType=VARCHAR},
+			#{shopName, jdbcType=VARCHAR},
 			#{shopItemIdx, jdbcType=VARCHAR},
-			#{shopReservationName, jdbcType=VARCHAR},
-			#{shopReservationTel, jdbcType=VARCHAR},
-			#{shopReservationManager, jdbcType=VARCHAR},
+			#{shopItemTitle, jdbcType=VARCHAR},
+			#{shopItemManager, jdbcType=VARCHAR},
+			#{userIdx, jdbcType=VARCHAR},
+			#{userName, jdbcType=VARCHAR},
+			#{userTel, jdbcType=VARCHAR},
 			default,
 			sysdate
 		)
@@ -368,14 +372,16 @@
 	<!-- 방문 리스트 뿌리기 -->
 	<select id="selectReservationAllList" resultType="shopReservationVO" parameterType="map">
 			select shop_reservation_idx as shopReservationIdx,
-				user_idx as userIdx,
+				shop_idx as shopIdx,
+				shop_name as shopName,
 				shop_item_idx as shopItemIdx,
-				shop_reservation_name as shopReservationName,
-				shop_reservation_tel as shopReservationTel,
-				shop_reservation_manager as shopReservationManager,
+				shop_item_title as shopItemTitle,
+				shop_item_manager as shopItemManager,
+				user_name as userName,
+				user_tel as userTel,
 				shop_reservation_state as shopReservationState,
 				shop_reservation_date as shopReservationDate
-			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료') and user_idx=#{userIdx}
+			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료') and shop_idx=#{shopIdx}
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>

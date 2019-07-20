@@ -52,9 +52,9 @@ public class ShopReserveController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/reserveAdd")
-	public String ShopReserveJoin(ShopReservationVO sReserVO, int shopItemIdx) throws Exception {
+	public String ShopReserveJoin(ShopReservationVO sReserVO) throws Exception {
 		shopService.shopReserveJoin(sReserVO);
-		return "redirect:/shop/itemView?shopItemIdx="+shopItemIdx;
+		return "redirect:/shop/itemView?shopItemIdx="+sReserVO.getShopItemIdx();
 	}
 	//예약 삭제
 	@RequestMapping("/reservationDel")
