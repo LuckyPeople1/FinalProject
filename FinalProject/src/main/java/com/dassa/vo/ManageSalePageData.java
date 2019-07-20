@@ -5,14 +5,14 @@ public class ManageSalePageData {
 	private String searchWord;	//사용자이름
 	private String minDate;		//최소날짜
 	private String maxDate;		//최대날짜
-	private int minAmount;
-	private int maxAmount;
+	private String minAmount;
+	private String maxAmount;
 	public ManageSalePageData() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ManageSalePageData(String searchType, String searchWord, String minDate, String maxDate, int minAmount,
-			int maxAmount) {
+	public ManageSalePageData(String searchType, String searchWord, String minDate, String maxDate, String minAmount,
+			String maxAmount) {
 		super();
 		this.searchType = searchType;
 		this.searchWord = searchWord;
@@ -45,17 +45,18 @@ public class ManageSalePageData {
 	public void setMaxDate(String maxDate) {
 		this.maxDate = maxDate;
 	}
-	public int getMinAmount() {
+	public String getMinAmount() {
 		return minAmount;
 	}
-	public void setMinAmount(int minAmount) {
+	public void setMinAmount(String minAmount) {
 		this.minAmount = minAmount;
 	}
-	public int getMaxAmount() {
+	public String getMaxAmount() {
 		return maxAmount;
 	}
-	public void setMaxAmount(int maxAmount) {
+	public void setMaxAmount(String maxAmount) {
 		this.maxAmount = maxAmount;
-	} 
+	}
+	
 
 }

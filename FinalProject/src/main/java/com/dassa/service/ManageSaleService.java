@@ -34,33 +34,59 @@ public class ManageSaleService {
 		parameters.put("pagination", pagination);
 		parameters.put("start", start);
 		parameters.put("end", end);
-		ArrayList<MovePaymentVO> list = manageSaleMapper.manageSaleMoveList(parameters);
-		System.out.println(list.size());
-		ArrayList<DriverSaleVO> yearSum = manageSaleMapper.manageSaleMoveYearSum(parameters);
-		ArrayList<DriverSaleVO> monthSum = manageSaleMapper.manageSaleMoveMonthSum(parameters);
+		ArrayList<MovePaymentVO> list = null;
+		ArrayList<DriverSaleVO> yearSum = null;
+		ArrayList<DriverSaleVO> monthSum = null;
+		if(totalCount != 0){
+			list = manageSaleMapper.manageSaleMoveList(parameters);
+			yearSum = manageSaleMapper.manageSaleMoveYearSum(parameters);
+			monthSum = manageSaleMapper.manageSaleMoveMonthSum(parameters);
+		}
+		
 		String pageNavi = "";
 		int pageNaviSize = 3;
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		int i = 1;
-		if(pageNo!=1) {
-			pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&reqPage="+(pageNo-1)+"'><</a>";
-			
+		
+		pageNavi += "<li class='first arrow'>";
+		pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage=1'></a>";
+		pageNavi += "</li>";
+		if(pageNo != 1) {
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+(pageNo-1)+"'></a>";
+			pageNavi += "</li>";
+		}else {
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='#none'></a>";
+			pageNavi += "</li>";
 		}
+		
 		while(!(i++>pageNaviSize || pageNo>totalPage)) {
 			
 			if(pageNo == reqPage) {
-				pageNavi += "<a class='on'>"+pageNo+"</a>";
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			else {
-				pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		if(pageNo<=totalPage) {
-			
-			pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&reqPage="+(pageNo)+"'>></a>";
-					
+			pageNavi += "<li class='next arrow'>";
+			pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+(pageNo)+"'></a>";
+			pageNavi += "</li>";		
+		}else {
+			pageNavi += "<li class='next arrow'>";
+			pageNavi += "<a href='#none'></a>";
+			pageNavi += "</li>";
 		}
+		pageNavi += "<li class='end arrow'>";
+		pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+totalPage+"'></a>";
+		pageNavi += "</li>";
 		
 		return new ManageSaleMovePageData(list, pageNavi, yearSum, monthSum);
 	}

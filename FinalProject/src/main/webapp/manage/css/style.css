@@ -1070,3 +1070,21 @@ section .board_Rebtn{
 	background: #353C43;
 	color: white;	
 }
+
+/* manageMoveSale CSS*/
+section.manageMoveSale{
+	width:80%;
+	margin: 0 auto;
+}
+section.manageMoveSale .saleBox{
+	width:45%;
+	margin: 0 20px 20px 0;
+	float: left;
+}
+section.manageMoveSale .saleBox2{
+	width:90%;
+	margin: 0 20px 20px 0;
+}
+section.manageMoveSale .saleTitle{
+	font-size: 20px;
+}

@@ -48,13 +48,15 @@ public class ManageSaleController {
 			pagination.setMinDate("");
 			pagination.setMaxDate("");
 		}
-		if(pagination.getMinAmount()==0 && pagination.getMaxAmount()==0) {
-			pagination.setMinAmount(0);
-			pagination.setMaxAmount(0);
+		if(pagination.getMinAmount()==null && pagination.getMaxAmount()==null) {
+			pagination.setMinAmount("");
+			pagination.setMaxAmount("");
 		}
 		
-		ManageSaleMovePageData maDate=manageSaleService.driverMoveList(pagination,reqPage);
+		ManageSaleMovePageData maData = manageSaleService.driverMoveList(pagination,reqPage);
+		model.addAttribute("maData", maData);
 		
 		return "/manage/sale/saleMoveList";
 	}
+	
 }

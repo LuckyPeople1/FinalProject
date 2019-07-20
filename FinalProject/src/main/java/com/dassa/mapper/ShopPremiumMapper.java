@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.dassa.vo.ShopPaymentVO;
 import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
 
@@ -16,7 +17,7 @@ public interface ShopPremiumMapper {
 	 * @throws Exception
 	 */
 	public int PremiumItemAdd(ShopPremiumItemVO spiVo) throws Exception;
-	
+	public int shopPayment(ShopPaymentVO spVo) throws Exception;
 	/**
 	 * 상품 구매 - 파워링크
 	 * @param 
