@@ -141,14 +141,16 @@
 	<!-- 방문 리스트 뿌리기 -->
 	<select id="selectReservationAllList" resultType="shopReservationVO" parameterType="map">
 			select shop_reservation_idx as shopReservationIdx,
-				user_idx as userIdx,
+				shop_idx as shopIdx,
+				shop_name as shopName,
 				shop_item_idx as shopItemIdx,
-				shop_reservation_name as shopReservationName,
-				shop_reservation_tel as shopReservationTel,
-				shop_reservation_manager as shopReservationManager,
+				shop_item_title as shopItemTitle,
+				shop_item_manager as shopItemManager,
+				user_name as userName,
+				user_tel as userTel,
 				shop_reservation_state as shopReservationState,
 				shop_reservation_date as shopReservationDate
-			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료') and user_idx=#{userIdx}
+			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료' or shop_reservation_state='예약취소') and user_idx=#{userIdx}
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
@@ -162,7 +164,25 @@
 	</update>
 	<!-- 예약 삭제 -->
 	<update id="reservationDel" parameterType="shopReservationVO">
-		update shop_reservation_tbl set shop_reservation_state='삭제' where shop_reservation_idx=#{shopReservationIdx}
+		update shop_reservation_tbl set shop_reservation_state='예약취소' where shop_reservation_idx=#{shopReservationIdx}
 	</update>
 	
+	<!-- 비밀번호 확인 -->
+	<select id="getPwChkProc" resultType="userVO">
+		select user_id as userId, user_name as userName from user_tbl where user_idx=#{userIdx} and user_pw=#{userPw}
+	</select>
+	<!-- 사용자 정보 수정 -->
+	<update id="getModiUser" parameterType="userVO">
+		update user_tbl set user_name=#{userName}, user_pw=#{userPw}
+		<choose>
+			<when test="proFilename == null ">
+				where user_idx=#{userIdx}
+			</when>
+			<when test="proFilename != null">
+				,pro_filename=#{proFilename}, pro_filepath=#{proFilepath}
+				where user_idx=#{userIdx}
+			</when>
+		</choose> 
+		
+	</update>
 </mapper>

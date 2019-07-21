@@ -204,7 +204,7 @@
 				package_type as packageType,
 				package_name as packageName,
 				package_option as packageOption,
-				package_img_path as packageImgOption
+				package_img_path as packageImgPath
 				from move_apply_option_tbl
 				where apply_idx=#{applyIdx}
 	</select>

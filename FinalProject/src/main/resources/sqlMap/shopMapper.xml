@@ -395,6 +395,6 @@
 	</update>
 	<!-- 예약 삭제 -->
 	<update id="reservationDel" parameterType="shopReservationVO">
-		update shop_reservation_tbl set shop_reservation_state='삭제' where shop_reservation_idx=#{shopReservationIdx}
+		update shop_reservation_tbl set shop_reservation_state='예약취소' where shop_reservation_idx=#{shopReservationIdx}
 	</update>
 </mapper>

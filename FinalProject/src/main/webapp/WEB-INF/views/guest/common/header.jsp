@@ -15,9 +15,10 @@
 		<nav class="mainNav">
 			<a href="/mapView">방찾기</a>
 			<a href="/saleInLots/" class="new">분양</a>
-			<a href="#none">관심목록</a>
+			<a href="/guest/notice/noticeList?reqPage=1">공지사항</a>
+			<!-- <a href="#none">관심목록</a>
 			<a href="#none">방내놓기</a>
-			<a href="#none">알림</a>
+			<a href="#none">알림</a> -->
 			<a href="/move/step1">이사하기</a>
 		</nav>
 		<div class="loginMenu">

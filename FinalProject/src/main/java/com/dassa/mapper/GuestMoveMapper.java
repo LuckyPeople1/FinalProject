@@ -15,6 +15,7 @@ import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.ShopReservationVO;
+import com.dassa.vo.UserVO;
 
 @MapperScan("guestMoveMapper")
 public interface GuestMoveMapper {
@@ -62,4 +63,10 @@ public interface GuestMoveMapper {
 	public int shopReservationTotalCount(int userIdx) throws Exception;
 	//방문리스트
 	public ArrayList<ShopReservationVO> selectReservationAllList(Map<String, Object> map) throws Exception;
+	public int reservationDel(int shopReservationIdx) throws Exception;
+	
+	//비밀번호 확인
+	public UserVO getPwChkProc(UserVO userVO);
+	//사용자 정보 수정
+	public int getModiUser(UserVO userVO);
 }
