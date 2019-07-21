@@ -38,11 +38,10 @@
 							<li class="styled__Item-sc-8ux180-0 gvvcgC"><c:forEach
 									items="${list }" var="f">
 									<div class="styled__Header-sc-8ux180-1 gSggcM" id="question">${f.faqQuestion }</div>
-									<div class="styled__Answer-sc-8ux180-2 dHAoav" id="answer"
-										title="off">${f.faqAnswer}</div>
+									<div class="styled__Answer-sc-8ux180-2 dHAoav" id="answer" title="off">${f.faqAnswer}</div>
 								</c:forEach></li>
 						</ul>
-						<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
+						<div style="text-align: center;">${pageNavi}</div>
 					</div>
 					</section>
 				</div>

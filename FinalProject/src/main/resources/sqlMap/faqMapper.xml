@@ -56,4 +56,26 @@
   <update id="faqDelete" parameterType="faqVO">
   	update faq_tbl set faq_state='삭제' where faq_index=#{faqIndex}
   </update>
+  
+    <!-- 검색 -->
+  <select id="searchKeywordTitle" resultType="faqVO" parameterType="com.dassa.vo.SearchNoticeVO">
+	select rnum as rnum,
+	faq_index as faqIndex,
+	faq_user_type as faqUserType,
+	faq_question as faqQuestion,
+	faq_state as faqState,
+	faq_reg_date as faqRegDate
+	from (select rownum as rn , r.* from (select * from (select rownum as rnum,
+	n.* from
+	(select * from faq_tbl where
+	faq_question like '%'||#{keyWord}||'%' and
+	<if test="code==0">faq_user_type='일반문의'</if>
+	<if test="code==1">faq_user_type='부동산'</if>
+	<if test="code==2">faq_user_type='기사'</if>
+	order by faq_reg_date) n) order by rnum desc)r)
+	where rnum between #{start} and #{end}
+  </select>
+   <select id="titleCount" parameterType="com.dassa.vo.SearchNoticeVO" resultType="_int">
+	select count(*) cnt from faq_tbl where faq_question like '%'||#{keyWord}||'%'
+  </select>
 </mapper>

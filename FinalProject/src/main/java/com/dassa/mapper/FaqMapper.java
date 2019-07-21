@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.FaqVO;
+import com.dassa.vo.NoticeVO;
+import com.dassa.vo.SearchNoticeVO;
 @MapperScan("faqMapper")
 public interface FaqMapper {
 	//전체를 페이징해서 조회하기
@@ -23,4 +25,8 @@ public interface FaqMapper {
 	
 	//faq삭제(상태만변경)
 	public int faqDelete(int faqIndex) throws Exception;
+	
+	//검색
+	public int titleCount(SearchNoticeVO s) throws Exception;
+	public ArrayList<FaqVO> searchKeywordTitle(SearchNoticeVO s) throws Exception;
 }

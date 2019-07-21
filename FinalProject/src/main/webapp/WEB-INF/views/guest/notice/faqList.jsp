@@ -31,7 +31,7 @@
 					</div>
 					<div class="styled__Header-hqk9t8-0 ogonX">
 						<p>
-							다싸 사용자의 편의를 위해 <span>자주 묻는 질문과 답변</span>을 모아놓았습니다.
+							다싸 사용자의 편의를 위해 <span id="faqspan">자주 묻는 질문과 답변</span>을 모아놓았습니다.
 						</p>
 						<p>원하시는 질문을 찾아보세요!</p>
 					</div>

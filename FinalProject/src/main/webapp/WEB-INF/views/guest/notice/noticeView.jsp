@@ -49,7 +49,7 @@
 						<tr>
 							<td colspan="2">
 								<div class="board_button">
-									<a href="javascript:history.back()"	class="board_Rebtn">목록으로</a>
+									<a href="javascript:history.back()"	class="board_Rebtn" style="color:white;">목록으로</a>
 								</div>
 							</td>
 						</tr>

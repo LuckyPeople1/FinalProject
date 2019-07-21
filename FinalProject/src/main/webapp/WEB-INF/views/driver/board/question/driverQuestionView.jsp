@@ -55,7 +55,7 @@
 		</div>
 
 			</div>
-	<footer role="footer" data-include="footer.html"></footer>
 </div>
+	<footer role="footer" data-include="footer.html"></footer>
 </body>
 </html>

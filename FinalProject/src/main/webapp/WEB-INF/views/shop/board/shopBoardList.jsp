@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body>
 <div class="container">
@@ -55,11 +57,7 @@
 				</div>
 			</div>
 			<div class="list_form">
-				<div class="table_list_btn">
-					<span class="right_btn">
-						<a href="/shop/board/shopNoticeWriter" class="btn col_darkGrey f_w">글쓰기</a>
-					</span>
-				</div>
+
 				<table class="table_list">
 					<colgroup>
 						<col width="60">
