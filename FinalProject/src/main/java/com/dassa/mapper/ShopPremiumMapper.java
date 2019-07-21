@@ -32,4 +32,5 @@ public interface ShopPremiumMapper {
 		
 	//아이템 적용 가능 개수 확인
 	public ArrayList<ShopPowerItemVO> powerCount(int userIdx) throws Exception;
+	public ArrayList<ShopPaymentVO> ShopPemiumItemList(int userIdx) throws Exception;
 }

@@ -130,7 +130,7 @@ public class GuestMoveService {
 			reVo = guestMoveMapper.driverReviewSelect(maVo.getDriverIdx());
 		}
 		DriverReviewVO reOneVO = guestMoveMapper.driverReviewSelectOne(applyIdx);
-		System.out.println(reOneVO.getApplyIdx());
+		
 		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo,reVo,reOneVO);
 	}
 	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception {
@@ -197,5 +197,15 @@ public class GuestMoveService {
 	}
 	public int reservationDel(int shopReservationIdx) throws Exception{
 		return guestMoveMapper.reservationDel(shopReservationIdx);
+	}
+	
+	
+	//비밀번호 확인
+	public UserVO getPwChkProc(UserVO userVO) {
+		return guestMoveMapper.getPwChkProc(userVO);
+	}
+	//사용자 정보 수정
+	public int getModiUser(UserVO userVO) {
+		return guestMoveMapper.getModiUser(userVO);
 	}
 }

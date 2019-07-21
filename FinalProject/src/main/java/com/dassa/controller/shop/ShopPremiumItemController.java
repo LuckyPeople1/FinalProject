@@ -3,6 +3,7 @@ package com.dassa.controller.shop;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
@@ -11,14 +12,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.ShopPremiumService;
-import com.dassa.service.ShopService;
-import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.ShopPaymentVO;
 import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
@@ -68,6 +67,7 @@ public class ShopPremiumItemController {
 			String movePaymentStatus = payment_response.getResponse().getStatus();
 			ShopPaymentVO spVo = new ShopPaymentVO();
 			spVo.setUserIdx(spiVO.getUserIdx());
+			spVo.setShopPaymentName("상품 등록 아이템");
 			spVo.setShopPaymentImpUid(imp_uid);
 			spVo.setShopPaymentMerchantUid(shopPaymentMerchantUid);
 			spVo.setShopPaymentMethod(shopPaymentPayMethod);
@@ -118,6 +118,7 @@ public class ShopPremiumItemController {
 			String movePaymentStatus = payment_response.getResponse().getStatus();
 			ShopPaymentVO spVo = new ShopPaymentVO();
 			spVo.setUserIdx(powerVo.getUserIdx());
+			spVo.setShopPaymentName("파워 링크 아이템");
 			spVo.setShopPaymentImpUid(imp_uid);
 			spVo.setShopPaymentMerchantUid(shopPaymentMerchantUid);
 			spVo.setShopPaymentMethod(shopPaymentPayMethod);
@@ -153,18 +154,13 @@ public class ShopPremiumItemController {
 	}
 	
 	@RequestMapping("/premiumItemList")
-	public ModelAndView ShopPemiumItemList(HttpSession httpSession) throws Exception {
-		ModelAndView mav = new ModelAndView();
+	public String ShopPemiumItemList(Model model,HttpSession httpSession) throws Exception {
 		UserVO userVO	=	(UserVO)httpSession.getAttribute("user");
 		int userIdx = userVO.getUserIdx();
-		int itemCount = shopPremiumService.shopCount(userIdx); //매물 등록 가능 개수 확인
-		int powerCount =shopPremiumService.powerCount(userIdx); //파워링크 등록 가능 개수 확인
-		System.out.println("등록 가능 매물 개수 : "+itemCount);
-		System.out.println("적용 가능 매물 개수 : "+powerCount);
-		mav.addObject("itemCount",itemCount);
-		mav.addObject("powerCount",powerCount);
-		mav.setViewName("shop/premiumItem/shopPremiumItem");
-		return mav;
+		System.out.println(userIdx);
+		ArrayList<ShopPaymentVO> list = shopPremiumService.ShopPemiumItemList(userIdx);
+		model.addAttribute("list", list);
+		return "shop/premiumItem/shopPremiumItem";
 	}
 	
 	/**

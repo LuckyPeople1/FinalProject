@@ -3646,7 +3646,7 @@ section.saleInLotsDetailInformation .DetailInformation_leftHeader{
 section.saleInLotsDetailInformation .leftHeader_content_01{
 	height: 100%;
     float: left;
-    padding-right: 35px;
+    padding-right: 20px;
     border-right: 1px solid rgb(235, 235, 235);
 }
 section.saleInLotsDetailInformation .leftHeader_content_02{
@@ -5510,4 +5510,9 @@ section.shopItemView .cETKtB {
 }
 section.shopItemView .cETKtB > span {
     line-height: 24px;
+}
+
+section .mypageBtnBox #mypage_btn{
+	margin-left: 20px;
+	height: 50px;
 }

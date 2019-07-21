@@ -63,4 +63,7 @@ public class ShopPremiumService {
 		System.out.println("return count : "+arrSize);
 		return arrSize;
 	}
+	public ArrayList<ShopPaymentVO> ShopPemiumItemList(int userIdx) throws Exception{
+		return shopPremiumMapper.ShopPemiumItemList(userIdx);
+	}
 }

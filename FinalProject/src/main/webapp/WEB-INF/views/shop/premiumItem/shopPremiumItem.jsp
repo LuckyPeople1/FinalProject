@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/shop/common/head.jsp" %>   <!--스타일-->    
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +33,7 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th><label><input type="checkbox"></label></th>
+						
 						<th>NO</th>
 						<th>구매 상품</th>
 						<th>구매 가격</th>
@@ -41,6 +42,18 @@
 					</tr>
 					</thead>
 					<tbody>
+						<c:forEach var="list" items="${list }">
+							<tr>
+								<td>${list.shopPaymentIdx }</td>
+								<td>${list.shopPaymentName }</td>
+								<td>${list.shopPaymentPrice }</td>
+								<td>
+								<fmt:formatDate value="${list.shopPaymentDate }"
+										pattern="yyyy-MM-dd " /></td>
+								<td><fmt:formatDate value="${list.shopPaymentLastDate }"
+										pattern="yyyy-MM-dd " /></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>

@@ -66,21 +66,14 @@
 					</table>
 					<div class="set_menu">
 						<a href="javascript:$('#manageMoveSaleSearch').submit()"
-							class="btn normal col_main f_w">검색</a> <a
-							href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+							class="btn normal col_main f_w">검색</a> 
+						<a href="/manage/sale/saleMoveList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 					</div>
 				</form>
 			</div>
 			<div class="list_field">
 				<div class="list_menu">
-					<span class="left_menu"> <a href="javascript:moveSale.paymentGreph('${maData.yearSum}','${maData.monthSum}')" class="btn col_grey">매출 통계 보기</a> 
-						<span class="sbox ml15"> <select>
-								<option>상태 선택</option>
-								<option>결제 완료</option>
-								<option>환불 완료</option>
-						</select>
-					</span> <a href="javascript:void(0)" class="btn col_darkGrey f_w">선택변경</a>
-					</span> <span class="right_menu"> <a href="javascript:void(0)"
+					 <span class="right_menu"> <a href="javascript:void(0)"
 						class="btn col_darkGrey f_w">엑셀저장</a> <span class="sbox small">
 							<select>
 								<option>번호순 ▲</option>
