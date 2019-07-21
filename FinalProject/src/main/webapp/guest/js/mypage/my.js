@@ -60,7 +60,7 @@ var my	= {
 			success : function (data) {
 
 				if(data.trim() == "Y"){
-					location.href = '/my/info';
+					location.href = '/my/';
 				}else{
 					alert("비밀번호를 확인해주세요.");
 				}

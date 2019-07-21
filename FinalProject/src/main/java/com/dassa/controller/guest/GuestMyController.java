@@ -89,8 +89,9 @@ public class GuestMyController {
 	 */
 	@RequestMapping("/pwChkProc")
 	@ResponseBody
-	public String pwChkProc (){
-
+	public String pwChkProc (Model model, UserVO userVO){
+		userVO = guestMoveService.getPwChkProc(userVO);
+		model.addAttribute("user", userVO);
 		return "Y";
 	}
 
