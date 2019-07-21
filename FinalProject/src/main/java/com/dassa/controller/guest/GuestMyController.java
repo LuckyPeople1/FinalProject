@@ -17,8 +17,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dassa.common.FileCommon;
 import com.dassa.service.GuestMoveService;
 import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverReviewVO;
@@ -92,9 +95,48 @@ public class GuestMyController {
 	public String pwChkProc (Model model, UserVO userVO){
 		userVO = guestMoveService.getPwChkProc(userVO);
 		model.addAttribute("user", userVO);
-		return "Y";
+		if(userVO != null) {
+			return "Y";
+		}else {
+			return "N";
+		}
+		
 	}
-
+	
+	/**
+	 * 정보 수정
+	 * @param userIdx, userName, userPw, proFilename
+	 * @return
+	 */
+	@RequestMapping("/modiUser")
+	@ResponseBody
+	public String modiUser(Model model, HttpServletRequest request, @RequestParam String userIdx, String userName, String userPw, MultipartFile proFilename) {
+		int result = 0;
+		System.out.println("controller : "+ userIdx);
+		System.out.println("controller : "+ userName);
+		System.out.println("controller : "+ userPw);
+		System.out.println("controller : "+ proFilename);
+		UserVO userVO = new UserVO();
+		userVO.setUserId(userIdx);
+		userVO.setUserName(userName);
+		userVO.setUserPw(userPw);
+		if (proFilename == null) {
+			result = guestMoveService.getModiUser(userVO);
+			System.out.println(result);
+		}else {
+			String[] fileInfo = FileCommon.fileUp(proFilename, request, "profile");
+			userVO.setProFilename(fileInfo[0]);
+			userVO.setProFilepath(fileInfo[1]);
+			System.out.println("profilename"+userVO.getProFilename());
+			System.out.println("profilepath"+userVO.getProFilepath());
+			result = guestMoveService.getModiUser(userVO);
+		}
+		if(result > 0 ) {
+			return "Y";
+		}else {
+			return "N";
+		}
+	}
 
 	/**
 	 * 내 정보

@@ -66,5 +66,7 @@ public interface GuestMoveMapper {
 	public int reservationDel(int shopReservationIdx) throws Exception;
 	
 	//비밀번호 확인
-	public UserVO getPwChkProc(UserVO userVO);;
+	public UserVO getPwChkProc(UserVO userVO);
+	//사용자 정보 수정
+	public int getModiUser(UserVO userVO);
 }

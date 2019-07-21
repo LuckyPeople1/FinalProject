@@ -204,4 +204,8 @@ public class GuestMoveService {
 	public UserVO getPwChkProc(UserVO userVO) {
 		return guestMoveMapper.getPwChkProc(userVO);
 	}
+	//사용자 정보 수정
+	public int getModiUser(UserVO userVO) {
+		return guestMoveMapper.getModiUser(userVO);
+	}
 }

@@ -5511,3 +5511,8 @@ section.shopItemView .cETKtB {
 section.shopItemView .cETKtB > span {
     line-height: 24px;
 }
+
+section .mypageBtnBox #mypage_btn{
+	margin-left: 20px;
+	height: 50px;
+}
