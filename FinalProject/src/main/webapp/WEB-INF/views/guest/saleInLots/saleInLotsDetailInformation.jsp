@@ -17,8 +17,8 @@
 							</div>
 							<div class="leftHeader_content_02">
 								<span class="detail_buildType">${saleVO.saleInLotsBuildType }</span>
-								<p class="detail_price minprice">최저 분양가 : ${saleVO.saleInLotsPriceMinAll}</p>
-								<p class="detail_price maxprice">최고 분양가 : ${saleVO.saleInLotsPriceMaxAll}</p>
+								<p class="detail_price minprice">분양가 : ${saleVO.saleInLotsPriceMinAll}</p>
+								<p class="detail_price maxprice">분양가 : ${saleVO.saleInLotsPriceMaxAll}</p>
 							</div>
 						</div>
 						<ul class="DetailInformation_rightHeader">

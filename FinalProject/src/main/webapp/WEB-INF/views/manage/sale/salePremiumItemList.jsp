@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/manage/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="container">
 	<!-- gnb -->
 	<%@include file="/WEB-INF/views/manage/common/header.jsp"%>
@@ -11,6 +12,7 @@
 		<div class="contents">
 			<div class="set_field">
 				<div class="field_title"><span class="title_mark">■ 상품 매출 목록</span></div>
+				<form action="/manage/sale/salePremiumList" id="salePremuimList">
 				<table class="set_table">
 					<colgroup>
 						<col width="200">
@@ -36,19 +38,6 @@
 							<input class="tbox small" name="minAmount" value=""> ~ <input class="tbox small" name="maxAmount" value="">
 						</td>
 					</tr>
-					<tr>
-						<th>상품종류</th>
-						<td colspan="3">
-							<label>
-								<input type="checkbox">
-								<span>상품종류1</span>
-							</label>
-							<label class="ml10">
-								<input type="checkbox">
-								<span>상품종류1</span>
-							</label>
-						</td>
-					</tr>
 					
 					<tr>
 						<th>결제일</th>
@@ -66,16 +55,14 @@
 					</tbody>
 				</table>
 				<div class="set_menu">
-					<a href="javascript:void(0)" class="btn normal col_main f_w">검색</a>
-					<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<a href="javascript:$('#salePremuimList').submit();" class="btn normal col_main f_w">검색</a>
+					<a href="/manage/sale/salePremiumList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
+				</form>
 			</div>
 			<div class="list_field">
 				<div class="list_menu">
-					<span class="left_menu">
-						<a href="javascript:all_chk('y')" class="btn col_grey">매출 합계(년도)</a>
-						<a href="javascript:all_chk('n')" class="btn col_grey">매출 합계(월)</a>
-					</span>
+					
 					<span class="right_menu">
 						<a href="javascript:void(0)" class="btn col_darkGrey f_w">엑셀저장</a>
 						<span class="sbox small">
@@ -99,18 +86,17 @@
 					<colgroup>
 						<col width="40">
 						<col width="45">
+						<col width="100">
+						<col width="100">
+						<col width="100">
+						<col width="120">
+						<col width="120">
 						<col width="150">
 						<col width="100">
-						<col width="200">
-						<col width="80">
-						<col width="120">
-						<col width="65">
-						<col width="85">
 						<col width="100">
-						<col width="50">
 						<col width="100">
-						<col width="50">
-						
+						<col width="100">
+
 					</colgroup>
 					<thead>
 					<tr>
@@ -123,73 +109,41 @@
 						<th>아이디</th>
 						<th>회원명</th>
 						<th>이메일</th>
-						<th>휴대폰번호</th>
 						<th>구매금액</th>
 						<th>결제시각</th>
+						<th>종료시각</th>
 						<th>상태</th>
 						
 					</tr>
 					</thead>
 					<tbody>
+					<c:forEach var="list" items="${msData.list }">
 					<tr>
-						<td>1</td>
-						<td>a</td>
-						<td>b</td>
-						<td>c</td>
-						<td>d</td>
-						<td>ssooya90</td>
-						<td>최희수</td>
-						<td>ssooya90@naver.com</td>
-						<td class="">01084649696</td>
-						<td class="">170,000</td>
-						<td>2018-10-10 17:22:12</td>
+						<td>${list.shopPaymentIdx }</td>
+						<td>${list.shopPaymentIdx }</td>
+						<td>${list.shopPaymentIdx }</td>
+						<td>${list.shopPaymentIdx }</td>
+						<td>${list.shopPaymentCardName }</td>
+						<td>${list.userId}</td>
+						<td>${list.userName }</td>
+						<td>${list.userEmail }</td>
+						<td class="">${list.shopPaymentPrice }</td>
+						<td><fmt:formatDate value="${list.shopPaymentDate }"
+										pattern="yyyy-MM-dd hh:mm:ss" /></td>
+						<td><fmt:formatDate value="${list.shopPaymentLastDate }"
+										pattern="yyyy-MM-dd hh:mm:ss" /></td>
 						<td>
-							<span class="tag col_blue f_w">정상</span>
+							<span class="tag col_blue f_w">결제완료</span>
 						</td>
 						
 					</tr>
-					<tr>
-						
-						<td>1</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>ssooya90</td>
-						<td>최희수</td>
-						<td>ssooya90@naver.com</td>
-						<td class="">01084649696</td>
-						<td class="">170,000</td>
-						<td>2018-10-10 17:22:12</td>
-						<td>
-							<span class="tag col_blue f_w">정상</span>
-						</td>
-						
-					</tr>
-					
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
 			<div class="page_group clearFix">
 				<ul class="page_box">
-					<li class="first arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="prev arrow">
-						<a href="#none"></a>
-					</li>
-					<li class="on">
-						<a href="#none">1</a>
-					</li>
-					<li class="">
-						<a href="#none">2</a>
-					</li>
-					<li class="next arrow">
-						<a href="#none "></a>
-					</li>
-					<li class="end arrow">
-						<a href="#none"></a>
-					</li>
+					${msData.pageNavi }
 				</ul>
 			</div>
 		</div>
