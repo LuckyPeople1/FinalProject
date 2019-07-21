@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.dassa.mapper.ShopPremiumMapper;
+import com.dassa.vo.ShopPaymentVO;
 import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
 
@@ -20,6 +21,9 @@ public class ShopPremiumService {
 	 * @return
 	 * @throws Exception
 	 */
+	public int shopPayment(ShopPaymentVO spVo) throws Exception {
+		return shopPremiumMapper.shopPayment(spVo);
+	}
 	public int PremiumItemAdd(ShopPremiumItemVO spiVo) throws Exception {
 		shopPremiumMapper.PremiumItemAdd(spiVo);
 		return shopPremiumMapper.PremiumItemAdd(spiVo);

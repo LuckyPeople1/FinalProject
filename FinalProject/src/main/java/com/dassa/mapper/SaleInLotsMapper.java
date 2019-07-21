@@ -11,6 +11,8 @@ import com.dassa.vo.SaleInLotsVO;
 
 @MapperScan("SaleInLotsMapper")
 public interface SaleInLotsMapper {
+	//분양 home
+	public ArrayList<SaleInLotsVO> saleInLotsHome();
 	//브랜드관 페이징
 	public int saleInLotsBrandTotalCount(Map<String, Object> str);
 	//분양정보

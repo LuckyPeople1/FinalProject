@@ -28,7 +28,7 @@
 				<div class="mypageBtnBox">
 					<a href="javascript:history.back()" class="btn col_darkGrey f_w big">뒤로가기</a>
 <%--					<a href="javascript:my.pwChk()" class="btn col_main f_w big">다음</a>--%>
-					<a href="/my/info" class="btn col_main f_w big">다음</a>
+					<a href="javascript:my.pwChk(${sessionScope.user.userIdx })" class="btn col_main f_w big">다음</a>
 				</div>
 			</div>
 		</section>

@@ -221,11 +221,6 @@ public class GuestMyController {
 		
 		
 	}
-	
-	
-
-	
-	
 	/**
 	 * 입찰 결제
 	 * @return

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/shop/common/head.jsp" %>   <!--스타일-->    
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <div class="container">
 	<nav>
 		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
@@ -76,13 +76,93 @@
 <script>
 $("button[name='item']").click(function(){
 	if(confirm("기본 상품을 구매하시겠습니까?")){
-		location.href="/shop/premiumItemAdd?userIdx="+${sessionScope.user.userIdx };
+		var userIdx=${sessionScope.user.userIdx};
+		var IMP = window.IMP;
+		IMP.init("imp54534548");
+		IMP.request_pay({
+		    pg : 'inicis',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '프리미엄 상품 결제',
+		    amount : '100',
+		    buyer_email : '${sessionScope.user.userEmail }',
+		    buyer_name : '${sessionScope.user.userName }',
+		    buyer_tel : '${sessionScope.user.userPhone }',
+		    buyer_addr : '${sessionScope.user.userAddr }',
+		    buyer_postcode : '${sessionScope.user.addrCode }'
+		}, function(rsp) {
+			var imp_uid = rsp.imp_uid;
+		    if ( rsp.success ) {
+		    	$.ajax({
+		    	    url: "/shop/premiumItemAdd",
+		    	    type: "POST", // POST method
+		    	    dataType : 'json', // "Content-Type": "application/json"
+		    	    data: {
+		    	    	 impUid : imp_uid,
+		    	    	 userIdx : userIdx
+		    	    }
+		    	  }).done(function(data){
+		    		  if(data == '1'){
+		    			  alert("상품 구매가 완료되었습니다.");
+		    		  }else{
+		    			  alert("상품 구매가 실패했습니다.");
+		    		  }
+		    	  });
+		    
+		    } else {
+		        var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
+
+		        alert(msg);
+		    }
+		}
+		)
 	}
 	return;
 });
 $("button[name='vip']").click(function(){
 	if(confirm("VIP 상품을 구매하시겠습니까?")){
-		location.href="/shop/powerItemAdd?userIdx="+${sessionScope.user.userIdx };
+		var userIdx=${sessionScope.user.userIdx};
+		var IMP = window.IMP;
+		IMP.init("imp54534548");
+		IMP.request_pay({
+		    pg : 'inicis',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '파워링크 상품 결제',
+		    amount : '100',
+		    buyer_email : '${sessionScope.user.userEmail}',
+		    buyer_name : '${sessionScope.user.userName }',
+		    buyer_tel : '${sessionScope.user.userPhone }',
+		    buyer_addr : '${sessionScope.user.userAddr }',
+		    buyer_postcode : '${sessionScope.user.addrCode }'
+		}, function(rsp) {
+			var imp_uid = rsp.imp_uid;
+		    if ( rsp.success ) {
+		    	$.ajax({
+		    	    url: "/shop/powerItemAdd",
+		    	    type: "POST", // POST method
+		    	    dataType : 'json', // "Content-Type": "application/json"
+		    	    data: {
+		    	    	 impUid : imp_uid,
+		    	    	 userIdx : userIdx
+		    	    }
+		    	  }).done(function(data){
+		    		  if(data == '1'){
+		    			  alert("상품 구매가 완료되었습니다.");
+		    		  }else{
+		    			  alert("상품 구매가 실패했습니다.");
+		    		  }
+		    	  });
+		    
+		    } else {
+		        var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
+
+		        alert(msg);
+		    }
+		}
+		)
 	}
 	return;
 });

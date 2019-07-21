@@ -15,9 +15,9 @@ public interface ManageUserMapper {
 	
 	
 
-	public List<UserVO> getUserSecssionList(String userType) throws Exception;
+	/*public List<UserVO> getUserSecssionList(String userType) throws Exception;
 
-	public int deleteUser(int userIdx) throws Exception;
+	
 
 	public List<UserVO> getUserListAll();
 
@@ -29,7 +29,7 @@ public interface ManageUserMapper {
 
 	public List<UserVO> getTypeApprobateList(String userType);
 
-	public List<UserVO> getSearchUserList(SearchUserVO searchUserVO);
+	public List<UserVO> getSearchUserList(SearchUserVO searchUserVO);*/
 
 	
 
@@ -52,4 +52,6 @@ public interface ManageUserMapper {
 	//체크박스
 	public int totalgetTypeCheckApprobateList(SearchUserVO searchUserVO);
 	public List<UserVO> getTypeCheckApprobateList(SearchUserVO searchUserVO);
+	//회원 탈퇴
+	public int deleteUser(int userIdx) throws Exception;
 }

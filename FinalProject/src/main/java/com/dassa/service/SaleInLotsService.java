@@ -19,6 +19,10 @@ public class SaleInLotsService {
 	@Resource(name="saleInLotsMapper")
 	private SaleInLotsMapper saleInLotsMapper;
 	
+	//분양 Home
+	public ArrayList<SaleInLotsVO> saleInLotsHome(){
+		return saleInLotsMapper.saleInLotsHome();
+	}
 	//브랜드관
 	public SaleInLotsPageDataVO saleInLotsBrand(int reqPage, Map<String, Object> str) throws Exception {
 		System.out.println(str.get("brandName"));

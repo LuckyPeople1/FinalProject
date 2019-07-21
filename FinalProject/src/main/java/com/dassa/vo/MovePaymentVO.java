@@ -16,6 +16,51 @@ public class MovePaymentVO {
 	private Date movePaymentDate;     	// 결제 일시
 	private String movePaymentCencelDate;  	// 취소 일시
 	private String movePaymentStatus;   	// 결제상태
+	private String movePaymentUserName;
+	private String movePaymentUserEmail;
+	private String movePaymentUserId;
+	
+	public String getMovePaymentUserName() {
+		return movePaymentUserName;
+	}
+	public void setMovePaymentUserName(String movePaymentUserName) {
+		this.movePaymentUserName = movePaymentUserName;
+	}
+	public String getMovePaymentUserEmail() {
+		return movePaymentUserEmail;
+	}
+	public void setMovePaymentUserEmail(String movePaymentUserEmail) {
+		this.movePaymentUserEmail = movePaymentUserEmail;
+	}
+	public String getMovePaymentUserId() {
+		return movePaymentUserId;
+	}
+	public void setMovePaymentUserId(String movePaymentUserId) {
+		this.movePaymentUserId = movePaymentUserId;
+	}
+	public MovePaymentVO(int movePaymentIdx, int applyIdx, int driverIdx, String movePaymentImpUid,
+			String movePaymentMerchantUid, String movePaymentPayMethod, String movePaymentPg,
+			String movePaymentPgNumber, String movePaymentCardName, int movePaymentAmount, Date movePaymentDate,
+			String movePaymentCencelDate, String movePaymentStatus, String movePaymentUserName,
+			String movePaymentUserEmail, String movePaymentUserId) {
+		super();
+		this.movePaymentIdx = movePaymentIdx;
+		this.applyIdx = applyIdx;
+		this.driverIdx = driverIdx;
+		this.movePaymentImpUid = movePaymentImpUid;
+		this.movePaymentMerchantUid = movePaymentMerchantUid;
+		this.movePaymentPayMethod = movePaymentPayMethod;
+		this.movePaymentPg = movePaymentPg;
+		this.movePaymentPgNumber = movePaymentPgNumber;
+		this.movePaymentCardName = movePaymentCardName;
+		this.movePaymentAmount = movePaymentAmount;
+		this.movePaymentDate = movePaymentDate;
+		this.movePaymentCencelDate = movePaymentCencelDate;
+		this.movePaymentStatus = movePaymentStatus;
+		this.movePaymentUserName = movePaymentUserName;
+		this.movePaymentUserEmail = movePaymentUserEmail;
+		this.movePaymentUserId = movePaymentUserId;
+	}
 	public MovePaymentVO() {
 		super();
 		// TODO Auto-generated constructor stub
