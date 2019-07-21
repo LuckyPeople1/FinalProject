@@ -378,7 +378,7 @@ public class GuestMyController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/reserve")
+	@RequestMapping("/reserList")
 	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession)throws Exception {
 		int reqPage;
 		try {
@@ -394,7 +394,7 @@ public class GuestMyController {
 			String pageNavi = sipd.getPageNavi();
 			mav.addObject("list",sItemList);
 			mav.addObject("pageNavi",pageNavi);
-			mav.setViewName("shop/reserve/shopReserveList");
+			mav.setViewName("guest/mypage/myReserveList");
 		}
 		return mav;
 	}
