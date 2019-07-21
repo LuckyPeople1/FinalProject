@@ -393,4 +393,13 @@ public class GuestMyController {
 		}
 		return mav;
 	}
+	//예약 삭제
+		@RequestMapping("/reservationDel")
+		public String reservationDel(@RequestParam int shopReservationIdx)throws Exception {
+			int result = guestMoveService.reservationDel(shopReservationIdx);
+			if(result>0) {
+				return "redirect:/my/reserList";
+			}
+			return "redirect:/my/reserList";
+		}
 }

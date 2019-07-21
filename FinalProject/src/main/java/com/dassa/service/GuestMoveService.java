@@ -195,4 +195,7 @@ public class GuestMoveService {
 		ShopReservationPageDataVO pd = new ShopReservationPageDataVO(list,pageNavi);
 		return pd;
 	}
+	public int reservationDel(int shopReservationIdx) throws Exception{
+		return guestMoveMapper.reservationDel(shopReservationIdx);
+	}
 }

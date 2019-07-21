@@ -59,7 +59,7 @@
 										<span class="state">상담 완료</span>
 									</div>
 								</c:when>
-								<c:when test="${list.shopReservationState eq '삭제'}">
+								<c:when test="${list.shopReservationState eq '예약취소'}">
 									<div class="stateBox">
 										<span class="state">예약 취소</span>
 									</div>
@@ -81,7 +81,7 @@
 			alert(idx);
 			$(".atag").removeAttr("href");
 			if(confirm("예약취소하시겠습니까?")){
-				location.href="/shop/reservationDel?shopReservationIdx="+idx;
+				location.href="/my/reservationDel?shopReservationIdx="+idx;
 				return;
 			}
 		});

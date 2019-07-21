@@ -62,4 +62,5 @@ public interface GuestMoveMapper {
 	public int shopReservationTotalCount(int userIdx) throws Exception;
 	//방문리스트
 	public ArrayList<ShopReservationVO> selectReservationAllList(Map<String, Object> map) throws Exception;
+	public int reservationDel(int shopReservationIdx) throws Exception;
 }

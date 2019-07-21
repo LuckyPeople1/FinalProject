@@ -150,7 +150,7 @@
 				user_tel as userTel,
 				shop_reservation_state as shopReservationState,
 				shop_reservation_date as shopReservationDate
-			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료' or shop_reservation_state='삭제') and user_idx=#{userIdx}
+			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료' or shop_reservation_state='예약취소') and user_idx=#{userIdx}
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
