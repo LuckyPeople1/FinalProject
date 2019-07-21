@@ -18,18 +18,12 @@
 				</div>
 			</div>
 		</section>
-		<section class="easyFind inner">
+		<!-- <section class="easyFind inner">
 			<div class="easyFindBox">
-				쉬운방찾기@@@
-				쉬운방찾기@@@
-				쉬운방찾기@@@
-				쉬운방찾기@@@
-				쉬운방찾기@@@
-				쉬운방찾기@@@
 				<a href="/shop/itemView?shopItemIdx=95">방찾기</a>
 				<a href="/guest/notice/noticeList?reqPage=1">공지사항</a>
 			</div>
-		</section>
+		</section> -->
 	</div>
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 	
