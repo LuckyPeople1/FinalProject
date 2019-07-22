@@ -93,17 +93,12 @@
 							<div class="mb5">${item.shopItemIdx }</div>
 						</td>
 						<td>
-							<c:if test="${item.shopReservationName == null }">
-								<div>비회원</div>
-							</c:if>
-							<c:if test="${item.shopReservationName != null }">
-								<div>${item.shopReservationName}</div>
-							</c:if>
+							<div>${item.userName}</div>
 						</td>
 						<td>
-							<div>${item.shopReservationTel }</div>
+							<div>${item.userTel }</div>
 						</td>
-						<td>${item.shopReservationManager }</td>
+						<td>${item.shopItemManager }</td>
 						<td>
 						<c:if test="${item.shopReservationState eq '예약대기'}">
 							<span class="tag col_green f_w">${item.shopReservationState }</span>

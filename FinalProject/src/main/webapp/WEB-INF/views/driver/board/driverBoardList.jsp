@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body>
 <div class="container">
@@ -56,17 +58,12 @@
 				</div>
 			</div>
 			<div class="list_form">
-				<div class="table_list_btn">
-					<span class="right_btn">
-						<a href="/driver/board/driverNoticeWriter" class="btn col_darkGrey f_w">글쓰기</a>
-					</span>
-				</div>
+
 				<table class="table_list">
 					<colgroup>
 						<col width="60">
 						<col width="90">
 						<col width="*">
-						<col width="130">
 						<col width="130">
 						<col width="100">
 						<col width="80">
@@ -76,7 +73,6 @@
 						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>제목</th>
-						<th>작성자</th>
 						<th>작성일시</th>
 						<th>상태</th>
 						<th>관리</th>
@@ -91,9 +87,6 @@
 							<div class="text-left">${q.noticeTitle }</div>
 						</td>
 						<td>
-							<div>${q.noticeWriter }</div>
-						</td>
-						<td>
 							<div>${q.noticeRegDate }</div>
 						</td>
 						<td>
@@ -101,9 +94,7 @@
 						</td>
 						<td>
 							<div class="set_menu">
-								<a href="/driver/board/driverNoticeList?noticeIndex=${q.noticeIndex }" class="btn col_navy f_w">상세보기</a>
-								<a href="/driver/board/driverNoticeModify?noticeIndex=${q.noticeIndex }" class="btn col_darkGrey f_w">수정하기</a>
-								<a href="/driver/board/driverNoticeDelete?noticeIndex=${q.noticeIndex }" class="btn col_red f_w">삭제하기</a>
+								<a href="/driver/board/driverNoticeView?noticeIndex=${q.noticeIndex }" class="btn col_navy f_w">상세보기</a>
 							</div>
 
 						</td>
@@ -115,7 +106,7 @@
 					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
 		</div>
 	</div>
-	<footer role="footer" data-include="footer.html"></footer>
 </div>
+	<footer role="footer" data-include="footer.html"></footer>
 </body>
 </html>

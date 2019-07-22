@@ -49,12 +49,6 @@ public class NoticeController {
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
 				ma.setViewName("manage/board/notice/noticeManageList");
-//				if(code==1) {
-//				}else if(code==2) {
-//					ma.setViewName("manage/board/notice/noticeManageList");
-//				}else {
-//					ma.setViewName("manage/board/notice/noticeManageList");
-//				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -65,9 +59,12 @@ public class NoticeController {
 	//공지사항검색
 	@RequestMapping("/searchKeyword")
 	@ResponseBody
-	public ModelAndView searchKeyword(@RequestParam int reqPage,HttpServletRequest request, SearchNoticeVO s) {
+	public ModelAndView searchKeyword(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord) {
 		int code;
-		System.out.println(reqPage);
+		SearchNoticeVO s = new SearchNoticeVO();
+		s.setKeyWord(keyWord);
+		System.out.println(s.getKeyWord());
+		System.out.println("컨트롤러-"+reqPage);
 		try {
 			code = Integer.parseInt(request.getParameter("code"));
 			System.out.println("코드는"+code);
@@ -75,12 +72,9 @@ public class NoticeController {
 			code=0;
 		}
 		ModelAndView ma = new ModelAndView();
-		/*s.setKeyWord(keyWord);
-		s.setSearchType(searchType);
-		Map<String, Object> sn = new HashMap<String, Object>();*/
 		try {
-			/*String keyword = request.getParameter("keyword");*/
 			NoticePageData list = noticeService.searchKeyword(reqPage,s);
+			System.out.println("컨트롤러-"+list);
 			if(!list.isEmpty()) {
 				ArrayList<NoticeVO> arrlist = list.getList();
 				String pageNavi = list.getPageNavi();
@@ -147,6 +141,10 @@ public class NoticeController {
 		n.setNoticeFilename(filePath);
 		if(!noticefilename.isEmpty()) {
 			try {
+				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeTitle(ti);
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeContent(con);
 				byte[] bytes = noticefilename.getBytes();
 				File f = new File(fullPath);	//io File 임포트
 				FileOutputStream fos = new FileOutputStream(f);
@@ -181,6 +179,10 @@ public class NoticeController {
 		}else {
 			String view = "";
 			try {
+				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeTitle(ti);
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeContent(con);
 				int result = noticeService.noticeUpdate(n);
 				System.out.println("result:"+result);
 				System.out.println("타입-"+n.getNoticeType());
@@ -200,16 +202,6 @@ public class NoticeController {
 			return view;
 		}
 	}
-//	            if(status.equals("stay")) {
-//	               c.setCompetitionImg(oldFilename);
-//	            }else {
-//	               File deleteFile = new File(savePath+"/"+oldFilename);
-//	               boolean bool = deleteFile.delete();
-//	               System.out.println(bool?"삭제성공":"삭제실패");
-//	            }
-//	         }
-
-	
 	
 	//관리자 공지사항 작성페이지
 	@RequestMapping("/noticeManageWriter")
@@ -231,6 +223,10 @@ public class NoticeController {
 			n.setNoticeFilename(filePath);
 			if(!noticefilename.isEmpty()) {
 				try {
+					String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+					n.setNoticeTitle(ti);
+					String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+					n.setNoticeContent(con);
 					byte[] bytes = noticefilename.getBytes();
 					File f = new File(fullPath);	//io File 임포트
 					FileOutputStream fos = new FileOutputStream(f);
@@ -269,6 +265,10 @@ public class NoticeController {
 			System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
 			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"히트-"+"/"+"상태-"+n.getNoticeState());
 			try {
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeContent(con);
+				n.setNoticeTitle(ti);
 				result = noticeService.noticeInsert(n);
 				if(result>0) {
 						if(n.getNoticeType().equals("사용자")) {
@@ -287,17 +287,6 @@ public class NoticeController {
 		}
 	}
 	
-/*	//관리자 부동산 공지사항 작성페이지
-	@RequestMapping("/realestate/noticeManageRealestateWriter")
-	public String noticeManageRealestateWriter() {
-		return "manage/board/notice/realestate/noticeManageRealestateWriter";
-	}
-	//관리자 기사 공지사항 작성페이지
-	@RequestMapping("/articles/noticeManageArticlesWriter")
-	public String noticeManageArticlesWriter() {
-		return "manage/board/notice/articles/noticeManageArticlesWriter";
-	}*/
-	
 	//관리자페이지 공지사항 삭제
 	@RequestMapping("/noticeDelete")
 	public String noticeDelete(@RequestParam int noticeIndex) {
@@ -314,36 +303,4 @@ public class NoticeController {
 		}
 		return view;
 	}
-/*	//관리자페이지 부동산공지사항 삭제
-	@RequestMapping("/noticeDelete")
-	public String noticeDelete1(@RequestParam int noticeIndex) {
-		int result;
-		String view="";
-		try {
-			result = noticeService.noticeDelete(noticeIndex);
-			if(result>0) {
-					view = "manage/board/notice/realestate/noticeRealestateDelete";
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return view;
-	}
-	//관리자페이지 기사공지사항 삭제
-	@RequestMapping("/noticeDelete")
-	public String noticeDelete2(@RequestParam int noticeIndex) {
-		int result;
-		String view="";
-		try {
-			result = noticeService.noticeDelete(noticeIndex);
-			if(result>0) {
-					view = "manage/board/notice/articles/noticeArticlesDelete";
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return view;
-	}*/
 }

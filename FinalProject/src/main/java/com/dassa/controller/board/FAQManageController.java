@@ -8,11 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.FaqService;
 import com.dassa.vo.FaqPageData;
 import com.dassa.vo.FaqVO;
+import com.dassa.vo.NoticePageData;
+import com.dassa.vo.NoticeVO;
+import com.dassa.vo.SearchNoticeVO;
 
 
 @Controller
@@ -47,6 +51,40 @@ public class FAQManageController {
 		}
 		return ma;
 	}
+	//faq검색
+	@RequestMapping("/searchKeyword")
+	@ResponseBody
+	public ModelAndView searchKeyword(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord) {
+		int code;
+		SearchNoticeVO s = new SearchNoticeVO();
+		s.setKeyWord(keyWord);
+		System.out.println(s.getKeyWord());
+		System.out.println("컨트롤러-"+reqPage);
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+			System.out.println("코드는"+code);
+		}catch (NumberFormatException e) {
+			code=0;
+		}
+		ModelAndView ma = new ModelAndView();
+		try {
+			FaqPageData list = faqService.searchKeyword(reqPage,s);
+			System.out.println("컨트롤러-"+list);
+			if(!list.isEmpty()) {
+				ArrayList<FaqVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("manage/board/faq/faqManageList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
+	
+	
 	//상세보기
 	@RequestMapping("/faqManageView")
 	public ModelAndView faqManageView(@RequestParam int faqIndex) {
@@ -77,6 +115,10 @@ public class FAQManageController {
 		String view = "";
 		System.out.println("제목-"+f.getFaqQuestion()+"/"+"내용-"+f.getFaqAnswer()+"/"+"타입-"+f.getFaqUserType()+"/"+"상태-"+f.getFaqState());
 		try {
+			String an = f.getFaqAnswer().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			f.setFaqAnswer(an);
+			String qu = f.getFaqQuestion().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			f.setFaqQuestion(qu);
 			result = faqService.faqInsert(f);
 			if(result>0) {
 					if(f.getFaqUserType().equals("회원문의")) {

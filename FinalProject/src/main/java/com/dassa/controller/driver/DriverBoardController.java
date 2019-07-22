@@ -52,64 +52,6 @@ public class DriverBoardController {
 		return ma;
 	}
 
-	 //기사페이지에서 공지사항 글쓰기로 넘어가기
-	 @RequestMapping("/driverNoticeWriter")
-	 public String driverNotieWriter() {
-	 return "driver/board/driverNoticeWriter";
-	 }
-	
-	// 기사페이지에서 공지사항 글쓰기 인서트
-	@RequestMapping("/driverNoticeInsert")
-	public String driverNoticeInsert(NoticeVO n, HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
-		if (!noticefilename.isEmpty()) {
-			String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
-			String originName = noticefilename.getOriginalFilename();
-			String onlyFileName = originName.substring(0, originName.indexOf(".")); // 처음부터 .만날때까지 읽어오는것
-			String extension = originName.substring(originName.indexOf(".")); // .(포함)부터 끝까지 읽어옴
-			String filePath = onlyFileName + "_" + "1" + extension;
-			String fullPath = savePath + "/" + filePath; // 경로 합쳐 놓은것
-			n.setNoticeFilename(filePath);
-			if (!noticefilename.isEmpty()) {
-				try {
-					byte[] bytes = noticefilename.getBytes();
-					File f = new File(fullPath); // io File 임포트
-					FileOutputStream fos = new FileOutputStream(f);
-					BufferedOutputStream bos = new BufferedOutputStream(fos);
-					bos.write(bytes);
-					bos.close();
-					System.out.println("파일업로드성공!");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			int result;
-			String view = "";
-			try {
-				result = driverBoardService.driverNoticeInsert(n);
-				if (result > 0) {
-					view = "driver/board/driverNoticeInsert";
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return view;
-		} else {
-			int result;
-			String view = "";
-			try {
-				result = driverBoardService.driverNoticeInsert(n);
-				if (result > 0) {
-					view = "driver/board/driverNoticeInsert";
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return view;
-		}
-	}
 	
 	//기사 공지사항 상세보기
 	@RequestMapping("/driverNoticeView")
@@ -129,97 +71,7 @@ public class DriverBoardController {
 		}
 		return ma;
 	}
-	
-	//기사페이지에서 공지사항 수정페이지
-	@RequestMapping("/driverNoticeModify")
-	public ModelAndView driverNoticeModify(@RequestParam int noticeIndex) {
-		NoticeVO n;
-		ModelAndView ma = new ModelAndView();
-		try {
-			n = driverBoardService.driverNoticeView(noticeIndex);
-			if(n!=null) {
-				ma.addObject("noticeVO",n);
-				ma.setViewName("driver/board/driverNoticeModify");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ma;
-	}
-	
-	//부동산에서 공지사항 업데이트실행
-	@RequestMapping("/driverNoticeUpdate")
-	public String driverNoticeUpdate(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
-		if(!noticefilename.isEmpty()) {
-			System.out.println("ti:"+n.getNoticeTitle());
-			System.out.println("co:"+n.getNoticeContent());
-			String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
-			String originName = noticefilename.getOriginalFilename();
-			String onlyFileName = originName.substring(0, originName.indexOf(".")); //처음부터 .만날때까지 읽어오는것
-			String extension = originName.substring(originName.indexOf(".")); //.(포함)부터 끝까지 읽어옴
-			String filePath = onlyFileName+"_"+"1"+extension;
-			String fullPath = savePath+"/"+filePath; //경로 합쳐 놓은것
-			n.setNoticeFilename(filePath);
-			if(!noticefilename.isEmpty()) {
-				try {
-					byte[] bytes = noticefilename.getBytes();
-					File f = new File(fullPath);	//io File 임포트
-					FileOutputStream fos = new FileOutputStream(f);
-					BufferedOutputStream bos = new BufferedOutputStream(fos);
-					bos.write(bytes);
-					bos.close();
-					System.out.println("파일업로드성공!");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			String view = "";
-				try {
-					int result = driverBoardService.driverNoticeUpdate(n);
-					System.out.println("result:"+result);
-					System.out.println("타입-"+n.getNoticeType());
-					if(result>0) {
-							view = "driver/board/driverUpdate";
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return view;
-			}else {
-				String view = "";
-				try {
-					int result = driverBoardService.driverNoticeUpdate(n);
-					System.out.println("result:"+result);
-					System.out.println("타입-"+n.getNoticeType());
-					if(result>0) {
-							view = "driver/board/driverUpdate";
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return view;
-			}
-		}
-	//기사페이지에서 공지사항 삭제
-	@RequestMapping("/driverNoticeDelete")
-	public String driverNoticeDelete(@RequestParam int noticeIndex) {
-		int result;
-		String view="";
-		try {
-			result = driverBoardService.driverNoticeDelete(noticeIndex);
-			if(result>0) {
-					view = "driver/board/driverNoticeDelete";
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return view;
-	}
+
 	
 	//기사 faq리스트
 	@RequestMapping("/faq/driverFaqList")
@@ -308,6 +160,10 @@ public class DriverBoardController {
 		int result;
 		String view = "";
 		try {
+			String ti = q.getQuestionsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsTitle(ti);
+			String con = q.getQuestionsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsContent(con);
 			result = driverBoardService.driverQuestionInsert(q);
 			if(result>0) {
 				view="driver/board/question/driverQuestionInsert";

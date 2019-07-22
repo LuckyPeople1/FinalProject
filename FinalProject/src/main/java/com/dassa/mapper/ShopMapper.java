@@ -14,6 +14,7 @@ import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 import com.dassa.vo.ShopMemberVO;
+import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationVO;
 import com.dassa.vo.UserVO;
@@ -95,6 +96,9 @@ public interface ShopMapper {
 	//매물 등록 시 현재 매물개수 확인 수정확인
 	public ArrayList<ShopPremiumItemVO> shopCount(int userIdx) throws Exception;
 	
+	//아이템 적용 가능 개수 확인
+	public ArrayList<ShopPowerItemVO> powerCount(int userIdx) throws Exception;
+	
 	//매물 등록 개수 update
 	public int shopCountUpdate(ShopItemVO sItem) throws Exception;
 	
@@ -104,4 +108,15 @@ public interface ShopMapper {
 	//매물 진행 시 아이템 개수 update
 	public int shopPremiumItemIng(Map<String, Object> map) throws Exception;
 	
+	//파워링크 적용
+	public int powerIng(int shopItemIdx) throws Exception;
+	
+	//파워링크 해지
+	public int powerEnd(int shopItemIdx) throws Exception;
+	
+	//파워링크 적용 시 개수 update
+	public int shopPowerItemIng(Map<String, Object> map) throws Exception;
+	
+	//파워링크 해지 시 개수 update
+	public int shopPowerItemEnd(Map<String, Object> map) throws Exception;
 }

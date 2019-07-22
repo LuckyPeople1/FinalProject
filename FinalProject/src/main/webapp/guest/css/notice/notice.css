@@ -74,7 +74,6 @@ section.noticeList .pbYHJ > p:last-child {
     width: 135px;
 }
 section.noticeList a:-webkit-any-link {
-    color: -webkit-link;
     cursor: pointer;
 }
 section.noticeList a {
@@ -493,7 +492,7 @@ section.noticeList .tab_content img {
 	border: 1px solid #ddd;
 	padding: 5px;
 }
-section.noticeList span{
+section.noticeList #faqspan{
 color: skyblue;
 }
 section.noticeList #ttr{
@@ -1104,4 +1103,30 @@ section.noticeList .board_Rebtn{
 	padding: 15px;
 	background: #353C43;
 	color: white;	
+}
+
+
+
+
+
+
+.pbtn {
+	width: 35px;
+	height: 40px;
+	border: 1px solid #A4A4A4;
+	display: inline-block;
+	border-radius: 10px;
+	line-height: 40px;
+	margin: 0 auto; margin-bottom: 30px; margin-top: 30px;
+}
+.selectPage {
+	width: 35px;
+	height: 40px;
+	display: inline-block;
+    line-height: 40px;
+    color: white;
+    background-color: #2c3c57;
+    font-size: 20px;
+    border-radius: 10px;
+	line-height: 40px;
 }

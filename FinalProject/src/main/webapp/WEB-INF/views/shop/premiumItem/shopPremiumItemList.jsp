@@ -1,115 +1,171 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/views/shop/common/head.jsp" %>   <!--스타일-->    
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <div class="container">
 	<nav>
 		<%@include file="/WEB-INF/views/shop/page/nav_main.jsp" %>   <!--맨왼쪽  네비 메뉴-->
+		<%@include file="/WEB-INF/views/shop/page/nav_item.jsp" %>   <!--맨왼쪽  서브네비 메뉴-->
 	</nav>
 	<div class="contents">
 		<div class="page_header">
-			<div class="page_title">기본환경설정</div>
+			<div class="page_title">아이템 구매</div>
 			<div class="page_sub_title"></div>
 		</div>
 		<div class="section">
-			<div class="section_title">기본 설정</div>
-			<div class="set_form">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
-					<tr>
-						<th>회사명<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
-						<th>대표자명<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>연락처<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
-						<th>사업자등록번호<span class="ess">*</span></th>
-						<td><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>주소<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full"></td>
-
-					</tr>
-					<tr>
-						<th>사이트명</th>
-						<td><input class="tbox full"></td>
-						<th>팩스번호</th>
-						<td><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>업태</th>
-						<td><input class="tbox full"></td>
-						<th>종목</th>
-						<td><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>통신판매신고번호</th>
-						<td><input class="tbox full"></td>
-						<th>고객센터</th>
-						<td colspan="">
-							<input class="tbox full" value="1111-2222 (월-금, 9시-6시, 토-일요일 휴무)">
-						</td>
-					</tr>
-					</tbody>
-				</table>
-				<div class="tip_box">
-					<div class="tip">
-						<span class="f_red">*</span>표시는 필수입력입니다.
+			<section class="shopPremium">
+				<div class="item">
+					<div class="itemImg">
+						<img src="/shop/img/item.PNG">
+					</div>
+					<div class="itemInfo">
+						<h1>기본 이용 상품</h1>
+						<h1>(구매 시 2개 등록 가능)</h1>
+						<br><br>
+						<span>다싸 매물상품을 등록하기 위해<br>필수적으로 구매해야 하는 상품<br><br>
+							<span>※ 정책 위반 시 상품 이용 제한</span>
+						</span>
+					</div>
+					<div class="itemPrice">
+						<h1>기본 상품 기한</h1>
+						<br>
+						<span>구매일로 부터 30일</span>
+						<br>
+						<br>
+						<br>
+						<h1>기본 상품 가격</h1>
+						<br>
+						<span>₩ 20,000원</span>
+					</div>
+					<div class="btn_box">
+						<button name="item"><a class="btn col_red">기본 상품 구매</a></button>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="section">
-			<div class="section_title">추천인 설정</div>
-			<div class="set_form">
-				<table class="table_set">
-					<colgroup>
-						<col width="180">
-						<col width="*">
-						<col width="180">
-						<col width="*">
-					</colgroup>
-					<thead></thead>
-					<tbody>
-					<tr>
-						<th>가입시 적립포인트</th>
-						<td><input class="tbox full"></td>
-						<th>추천1</th>
-						<td><input class="tbox full"></td>
-					</tr>
-					<tr>
-						<th>추천2</th>
-						<td><input class="tbox full"></td>
-						<th>추천3</th>
-						<td><input class="tbox full"></td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="btn_box">
-			<a href="javascript:void(0)" class="btn col_red">확인</a>
-		</div>
-		<div class="list_form">
-
-		</div>
-		테스트 ${sessionScope.user.userIdx }
-		<div class="btn_box">
-			<a href="/shop/premiumItemAdd?userIdx=${sessionScope.user.userIdx }" class="btn col_red">구매 테스트</a>
-		</div>
+				<div class="item">
+					<div class="itemImg">
+						<img src="/shop/img/powerItem.PNG">
+					</div>
+					<div class="itemInfo">
+						<h1>VIP 상품</h1>
+						<h1>(구매 시 1개 등록 가능)</h1>
+						<br><br>
+						<span>다싸 매물상품을 상단에 노출시키기 위해<br>선택적으로 구매할 수 있는 상품<br><br>
+							<span>※ 정책 위반 시 상품 이용 제한</span>
+						</span>
+					</div>
+					<div class="itemPrice">
+						<h1>VIP 상품 기한</h1>
+						<br>
+						<span>구매일로 부터 30일</span>
+						<br>
+						<br>
+						<br>
+						<h1>VIP 상품 가격</h1>
+						<br>
+						<span>₩ 30,000원</span>
+					</div>
+					<div class="btn_box">
+						<button name="vip"><a class="btn col_red">VIP 상품 구매</a></button>
+					</div>
+				</div>
+			</section>			
+		</div>	
 	</div>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>
+</div>
+<script>
+$("button[name='item']").click(function(){
+	if(confirm("기본 상품을 구매하시겠습니까?")){
+		var userIdx=${sessionScope.user.userIdx};
+		var IMP = window.IMP;
+		IMP.init("imp54534548");
+		IMP.request_pay({
+		    pg : 'inicis',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '프리미엄 상품 결제',
+		    amount : '100',
+		    buyer_email : '${sessionScope.user.userEmail }',
+		    buyer_name : '${sessionScope.user.userName }',
+		    buyer_tel : '${sessionScope.user.userPhone }',
+		    buyer_addr : '${sessionScope.user.userAddr }',
+		    buyer_postcode : '${sessionScope.user.addrCode }'
+		}, function(rsp) {
+			var imp_uid = rsp.imp_uid;
+		    if ( rsp.success ) {
+		    	$.ajax({
+		    	    url: "/shop/premiumItemAdd",
+		    	    type: "POST", // POST method
+		    	    dataType : 'json', // "Content-Type": "application/json"
+		    	    data: {
+		    	    	 impUid : imp_uid,
+		    	    	 userIdx : userIdx
+		    	    }
+		    	  }).done(function(data){
+		    		  if(data == '1'){
+		    			  alert("상품 구매가 완료되었습니다.");
+		    		  }else{
+		    			  alert("상품 구매가 실패했습니다.");
+		    		  }
+		    	  });
+		    
+		    } else {
+		        var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
 
+		        alert(msg);
+		    }
+		}
+		)
+	}
+	return;
+});
+$("button[name='vip']").click(function(){
+	if(confirm("VIP 상품을 구매하시겠습니까?")){
+		var userIdx=${sessionScope.user.userIdx};
+		var IMP = window.IMP;
+		IMP.init("imp54534548");
+		IMP.request_pay({
+		    pg : 'inicis',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '파워링크 상품 결제',
+		    amount : '100',
+		    buyer_email : '${sessionScope.user.userEmail}',
+		    buyer_name : '${sessionScope.user.userName }',
+		    buyer_tel : '${sessionScope.user.userPhone }',
+		    buyer_addr : '${sessionScope.user.userAddr }',
+		    buyer_postcode : '${sessionScope.user.addrCode }'
+		}, function(rsp) {
+			var imp_uid = rsp.imp_uid;
+		    if ( rsp.success ) {
+		    	$.ajax({
+		    	    url: "/shop/powerItemAdd",
+		    	    type: "POST", // POST method
+		    	    dataType : 'json', // "Content-Type": "application/json"
+		    	    data: {
+		    	    	 impUid : imp_uid,
+		    	    	 userIdx : userIdx
+		    	    }
+		    	  }).done(function(data){
+		    		  if(data == '1'){
+		    			  alert("상품 구매가 완료되었습니다.");
+		    		  }else{
+		    			  alert("상품 구매가 실패했습니다.");
+		    		  }
+		    	  });
+		    
+		    } else {
+		        var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
 
+		        alert(msg);
+		    }
+		}
+		)
+	}
+	return;
+});
+</script>
 </body>
 </html>

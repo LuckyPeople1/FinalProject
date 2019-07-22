@@ -13,6 +13,8 @@
 	<script src="../js/jquery-ui-1.12.1.js"></script>
 	<script src="../js/ui.js"></script>
 	<script src="../js/include.js"></script>
+	<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+	
 </head>
 <body>
 <div class="container">

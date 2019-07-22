@@ -32,8 +32,9 @@ public class SaleInLotsController {
 	 * @throws 
 	 */
 	@RequestMapping("/")
-	public String saleInLotsHome() {
-		
+	public String saleInLotsHome(Model model) {
+		ArrayList<SaleInLotsVO> list = saleInLotsService.saleInLotsHome();
+		model.addAttribute("list",list);
 		return "guest/saleInLots/saleInLotsHome";
 
 	}

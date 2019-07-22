@@ -17,6 +17,7 @@ import com.dassa.vo.ShopItemPageDataVO;
 import com.dassa.vo.ShopItemSearchVO;
 import com.dassa.vo.ShopItemVO;
 import com.dassa.vo.ShopMemberVO;
+import com.dassa.vo.ShopPowerItemVO;
 import com.dassa.vo.ShopPremiumItemVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
@@ -84,6 +85,19 @@ public class ShopService {
 	 */
 	public int shopCount(int userIdx) throws Exception{
 		ArrayList<ShopPremiumItemVO> list = shopMapper.shopCount(userIdx);
+		int arrSize = list.size();
+		System.out.println("service userIdx : "+userIdx);
+		System.out.println("return count : "+arrSize);
+		return arrSize;
+	}
+	/**
+	 * 아이템 적용 가능 매물 개수
+	 * @param userIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int powerCount(int userIdx) throws Exception{
+		ArrayList<ShopPowerItemVO> list = shopMapper.powerCount(userIdx);
 		int arrSize = list.size();
 		System.out.println("service userIdx : "+userIdx);
 		System.out.println("return count : "+arrSize);
@@ -211,6 +225,27 @@ public class ShopService {
 	public int shopItemStop(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemStop(shopItemIdx);
 	}
+	
+	/**
+	 * 아이템 적용
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int powerIng(int shopItemIdx) throws Exception{
+		return shopMapper.powerIng(shopItemIdx);
+	}
+	
+	/**
+	 * 아이템 해지
+	 * @param shopItemIdx
+	 * @return
+	 * @throws Exception
+	 */
+	public int powerEnd(int shopItemIdx) throws Exception{
+		return shopMapper.powerEnd(shopItemIdx);
+	}
+	
 	/**
 	 * 중개사 페이지 - 매물 판매중단 시 아이템 개수 update
 	 * @param shopItemIdx
@@ -229,6 +264,15 @@ public class ShopService {
 	public int shopPremiumItemIng(Map<String, Object> map) throws Exception{
 		return shopMapper.shopPremiumItemIng(map);
 	}
+	
+	public int shopPowerItemIng(Map<String, Object> map) throws Exception{
+		return shopMapper.shopPowerItemIng(map);
+	}
+	public int shopPowerItemEnd(Map<String, Object> map) throws Exception{
+		return shopMapper.shopPowerItemEnd(map);
+	}
+
+
 	/**
 	 * 중개사 페이지 - 매물 판매진행
 	 * @param shopItemIdx
@@ -299,7 +343,7 @@ public class ShopService {
 		System.out.println("방문페이지유저번호"+userIdx);
 		map.put("start", start);
 		map.put("end", end);
-		map.put("userIdx", userIdx);
+		map.put("shopIdx", userIdx);
 		ArrayList<ShopReservationVO> list = shopMapper.selectReservationAllList(map);
 		//페이지 네비 작성
 		String pageNavi = "";

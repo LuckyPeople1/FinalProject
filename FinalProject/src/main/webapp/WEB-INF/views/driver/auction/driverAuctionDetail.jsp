@@ -143,9 +143,9 @@
 									</li>
 									<li class="package">
 										<div class="row">
-											<div class="subject">제품이미지${DriverAuctionDetail.packageImgPath }</div>
+											<div class="subject"><img src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 											<div class="con">
-												<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
+												<div class="packageName">${DriverAuctionDetail.packageName }</div>
 												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
 											</div>
 										</div>
@@ -161,9 +161,9 @@
 									</li>
 									<li class="package">
 										<div class="row">
-											<div class="subject" >제품이미지 ${DriverAuctionDetail.packageImgPath }</div>
+											<div class="subject" ><img src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 											<div class="con">
-												<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
+												<div class="packageName">${DriverAuctionDetail.packageName }</div>
 												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
 											</div>
 										</div>
@@ -179,9 +179,9 @@
 									</li>
 									<li class="package">
 										<div class="row">
-											<div class="subject">제품이미지</div>
+											<div class="subject"><img src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 											<div class="con">
-												<div class="packageName">상품명 ${DriverAuctionDetail.packageImgPath }</div>
+												<div class="packageName">${DriverAuctionDetail.packageName }</div>
 												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
 											</div>
 										</div>
@@ -197,9 +197,9 @@
 									</li>
 									<li class="">
 										<div class="row">
-											<div class="subject">제품이미지</div>
+											<div class="subject"><img src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 											<div class="con">
-												<div class="packageName">상품명${DriverAuctionDetail.packageImgPath }</div>
+												<div class="packageName">${DriverAuctionDetail.packageName }</div>
 												<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
 											</div>
 										</div>
@@ -226,7 +226,7 @@
 							<tbody>
 							<tr>
 								<th>운반차량<span class="ess">*</span></th>
-								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }"></td>
+								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }" placeholder="1톤"></td>
 								<th>사다리비용여부<span class="ess">*</span></th>
 								<td>
 									<input type="radio" name="ladderState" value="0">사다리 비용 필요하지 않음

@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항 관리</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body> 
 <div class="container">
@@ -21,7 +23,7 @@
 				<div class="field_title">
 					<span class="title_mark">■ 공지사항 관리</span>
 				</div>
-				<form action="/manage/board/notice/searchKeyword?reqPage=1" method="get" id="search">
+				<form action="/manage/board/notice/searchKeyword?reqPage=1" method="post" id="search">
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -49,8 +51,8 @@
 					</tr>
 				</table>
 				<div class="set_menu">
-					<a href="#" onclick="document.getElementById('search').submit();" class="btn normal col_main f_w">검색</a>
-					<a href="/manage/board/notice/noticeManageList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w">검색</a>
+					<a href="/manage/board/notice/noticeManageList?reqPage=1" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
 				</form>
 			</div>
@@ -85,7 +87,7 @@
 					<c:forEach items="${list }" var="n">
 					
 					<tr>
-						<td>${n.noticeIndex }</td>
+						<td>${n.rnum }</td>
 						<td>${n.noticeType }</td>
 						<td class="text-left">${n.noticeTitle }</td>
 						<td>${n.noticeRegDate }</td>
@@ -94,7 +96,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/notice/noticeManageView?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">상세보기</a>
+								<a href="/manage/board/notice/noticeManageView?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w" style="background: gray;">상세보기</a>
 							</div>
 							<div>
 								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
@@ -106,6 +108,10 @@
 					</tr>
 			
 					</c:forEach>
+					<c:if test="${list ==null }">
+						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+					</c:if>
+					
 					</tbody>
 				</table>
 				</div>

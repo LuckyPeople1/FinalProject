@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@include file="/WEB-INF/views/driver/common/head.jsp" %>   <!--스타일-->
+<%@include file="/WEB-INF/views/driver/common/head2.jsp" %>   <!--스타일-->
 <body>
 <div class="container">
 	<nav>
@@ -69,7 +69,7 @@
 						<col width="130">
 						<col width="130">
 						<col width="100">
-						<col width="80">
+						<col width="120">
 						<col width="85">
 						<col width="100">
 					</colgroup>
@@ -103,6 +103,7 @@
 						<c:if test="${moveApply.auctionState eq 1 }">
 						<td>
 							<span class="tag col_green f_w">견적 완료</span>
+							<a href="/driver/driverMoveDetailUpdate?applyIdx=${moveApply.applyIdx }"><span class="tag col_blue f_w">견적 수정</span></a>
 						</td>
 						</c:if>
 						<c:if test="${moveApply.auctionState eq 2 }">
@@ -171,7 +172,7 @@
 
 </div>
 <script>
-/* //이전 버튼 이벤트
+/* 이전 버튼 이벤트
 function fn_prev(page, range, rangeSize) {
 
 		var page = ((range - 2) * rangeSize) + 1;

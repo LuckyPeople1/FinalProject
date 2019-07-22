@@ -158,16 +158,16 @@ public class ManageUserController {
 		
 	}	
 	
-	//회원 관리
+	/*//회원 관리
 	@RequestMapping("/userList")
 	public Object CommonUserListAll(Map<String,Object> map) throws Exception {
 		List<UserVO> list = manageUserService.getUserListAll();
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("list", list);
 		return retVal;
-	}
+	}*/
 	
-	//ajax로 유저 리스트 받아오기
+	/*//ajax로 유저 리스트 받아오기
 	@RequestMapping("/userListAll")
 	@ResponseBody
 	public Object UserListAll(Map<String,Object> map) throws Exception {
@@ -175,7 +175,7 @@ public class ManageUserController {
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		retVal.put("list", list);
 		return retVal;
-	}
+	}*/
 	
 	//ajax로 체크한 유저 받아오기 받아오기
 	@RequestMapping("/userCheckList")
@@ -186,6 +186,7 @@ public class ManageUserController {
 		String userType = null;
 		String userType1 = null;
 		String userType2 = null;
+		int reqPage = 1;
 		
 		if(uType.length == 1){
 			//type이 한개 경우
@@ -200,8 +201,11 @@ public class ManageUserController {
 			userType1 = userType;
 			searchUserVO.setUserType1(userType1);
 			Map<String, Object> retVal = new HashMap<String, Object>();
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			UserPageDataVO userPageData = manageUserService.getTypeCheckApprobateList(reqPage, searchUserVO);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
 			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
 			return retVal;
 		}else if(uType.length ==2) {
 			//type이 두개 경우
@@ -226,32 +230,59 @@ public class ManageUserController {
 			}
 			searchUserVO.setUserType2(userType2);
 			Map<String, Object> retVal = new HashMap<String, Object>();
-			List<UserVO> list = manageUserService.getTypeCheckApprobateList(searchUserVO);
+			UserPageDataVO userPageData = manageUserService.getTypeCheckApprobateList(reqPage, searchUserVO);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
 			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
 			return retVal;
 		}else {
 			//type이 세개 경우
 			Map<String, Object> retVal = new HashMap<String, Object>();
-			List<UserVO> list = manageUserService.getAllApprobateList();
+			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
+			List<UserVO> list = userPageData.getList();
+			String pageNavi = userPageData.getPageNavi();
 			retVal.put("list", list);
+			retVal.put("pageNavi", pageNavi);
 			return retVal;
 		}
-		
-		
+
 	}
 	
 	//Type별 전체회원 리스트 뿌리기 ajax
 	@RequestMapping("/typeUserList")
 	@ResponseBody
 	public Object TypeUserList(Map<String,Object> map, String userType, String status) throws Exception {
+		int reqPage = 1;
+		List<UserVO> list = null;
+		String pageNavi = null;
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setUserType(userType);
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		List<UserVO> list = manageUserService.getSearchUserList(searchUserVO);
+		try {
+			if(userType.equals("1")) {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				list = userPageData.getList();
+				pageNavi = userPageData.getPageNavi();
+			}else if(userType.equals("2")) {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				list = userPageData.getList();
+				pageNavi = userPageData.getPageNavi();
+			}else {
+				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
+				list = userPageData.getList();
+				pageNavi = userPageData.getPageNavi();
+				
+			}
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		retVal.put("list", list);
+		retVal.put("pageNavi", pageNavi);
 		return retVal;
-		
 	}
 	
 	//전체 승인 페이지 ajax

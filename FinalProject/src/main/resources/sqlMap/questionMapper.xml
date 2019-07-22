@@ -2,25 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.QuestionMapper">
 	<!-- 1:1문의 리스트조회 -->
-  <select id="selectAllList" resultType="questionVO" parameterType="_int">		
-  		select questions_index as questionsIndex,
-  			questions_user_type as questionsUserType,
-  			questions_title as questionsTitle,
-  			questions_answer as questionsAnswer,
-  			questions_answer_state as questionsAnswerState,
-  			questions_writer as questionsWriter,
-  			questions_reg_date as questionsRegDate,
-  			questions_state as questionsState	
-  			 from (select rownum as rnum, n.* from (select * from questions_tbl where <!-- questions_state='정상' and --> 
-  			 <if test="code==0">questions_user_type='회원'</if> 
-  			 <if test="code==1">questions_user_type='부동산'</if> 
-  			 <if test="code==2">questions_user_type='기사'</if> 
-  			 order by rownum desc) n)
-  			  where rnum between #{start} and #{end}
+  <select id="selectAllList" resultType="questionVO" parameterType="_int">
+	select rnum as rnum,
+	questions_index as questionsIndex,
+	questions_user_type as questionsUserType,
+	questions_title as questionsTitle,
+	questions_answer as questionsAnswer,
+	questions_answer_state as questionsAnswerState,
+	questions_writer as questionsWriter,
+	questions_reg_date as questionsRegDate,
+	questions_state as questionsState
+	from (select rownum as rn , r.* from (select * from (select rownum as rnum,
+	n.* from
+	(select * from questions_tbl where
+	<if test="code==0">questions_user_type='일반문의'</if>
+	<if test="code==1">questions_user_type='부동산'</if>
+	<if test="code==2">questions_user_type='기사'</if>
+	order by questions_reg_date) n) order by rnum desc)r)
+	where rn between #{start} and #{end}	  
   </select>
   <!-- totalcount -->
   <select id="totalCount" resultType="_int">
-  	select count(*) cnt from questions_tbl
+  	select count(*) cnt from questions_tbl where
+  			<if test="code==0">questions_user_type='일반문의'</if> 
+  			 <if test="code==1">questions_user_type='부동산'</if> 
+  			 <if test="code==2">questions_user_type='기사'</if> 
   </select>
   <!-- 1:1문의 뷰페이지 -->
   <select id="questionView" parameterType="questionVO" resultType="questionVO">

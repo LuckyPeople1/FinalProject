@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body>
 <div class="container">
@@ -111,8 +113,8 @@
 			</div>
 					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
 		</div>
-	<footer role="footer" data-include="footer.html"></footer>
 
 </div>
+	<footer role="footer" data-include="footer.html"></footer>
 </body>
 </html>

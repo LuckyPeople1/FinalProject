@@ -51,64 +51,6 @@ public class ShopBoardController {
 		return ma;
 	}
 	
-	//부동산페이지에서 공지사항 글쓰기
-	@RequestMapping("/shopNoticeWriter")
-	public String shopNotieWriter() {
-		return "shop/board/shopNoticeWriter";
-	}
-	//부동산에서 공지사항 글쓰기 인서트
-	@RequestMapping("/shopNoticeInsert")
-	public String shopNoticeInsert(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
-		if(!noticefilename.isEmpty()) {
-			String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
-			String originName = noticefilename.getOriginalFilename();
-			String onlyFileName = originName.substring(0, originName.indexOf(".")); //처음부터 .만날때까지 읽어오는것
-			String extension = originName.substring(originName.indexOf(".")); //.(포함)부터 끝까지 읽어옴
-			String filePath = onlyFileName+"_"+"1"+extension;
-			String fullPath = savePath+"/"+filePath; //경로 합쳐 놓은것
-			n.setNoticeFilename(filePath);
-			if(!noticefilename.isEmpty()) {
-				try {
-					byte[] bytes = noticefilename.getBytes();
-					File f = new File(fullPath);	//io File 임포트
-					FileOutputStream fos = new FileOutputStream(f);
-					BufferedOutputStream bos = new BufferedOutputStream(fos);
-					bos.write(bytes);
-					bos.close();
-					System.out.println("파일업로드성공!");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			int result;
-			String view = "";
-			try {
-				result = shopBoardService.shopNoticeInsert(n);
-				if(result>0) {
-						view = "shop/board/shopInsert";
-					}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return view;
-		}else {
-			int result;
-			String view = "";
-			try {
-				result = shopBoardService.shopNoticeInsert(n);
-				if(result>0) {
-						view = "shop/board/shopInsert";
-					}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return view;
-		}
-	}
-	
 	//부동산에서 공지사항 뷰보기
 	@RequestMapping("/shopNoticeView")
 	public ModelAndView shopNoticeView(@RequestParam int noticeIndex) {
@@ -127,100 +69,7 @@ public class ShopBoardController {
 		}
 		return ma;
 	}
-	
-	//부동산페이지에서 공지사항 수정페이지
-	@RequestMapping("/shopNoticeModify")
-	public ModelAndView shopNoticeModify(@RequestParam int noticeIndex) {
-		NoticeVO n;
-		ModelAndView ma = new ModelAndView();
-		try {
-			n = shopBoardService.shopNoticeView(noticeIndex);
-			if(n!=null) {
-				ma.addObject("noticeVO",n);
-				ma.setViewName("shop/board/shopNoticeModify");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ma;
-	}
-	
-	//부동산에서 공지사항 업데이트실행
-	@RequestMapping("/shopNoticeUpdate")
-	public String shopNoticeUpdate(NoticeVO n,HttpServletRequest request, @RequestParam MultipartFile noticefilename) {
-		if(!noticefilename.isEmpty()) {
-			System.out.println("ti:"+n.getNoticeTitle());
-			System.out.println("co:"+n.getNoticeContent());
-			String savePath = request.getSession().getServletContext().getRealPath("/upload/board/");
-			String originName = noticefilename.getOriginalFilename();
-			String onlyFileName = originName.substring(0, originName.indexOf(".")); //처음부터 .만날때까지 읽어오는것
-			String extension = originName.substring(originName.indexOf(".")); //.(포함)부터 끝까지 읽어옴
-			String filePath = onlyFileName+"_"+"1"+extension;
-			String fullPath = savePath+"/"+filePath; //경로 합쳐 놓은것
-			n.setNoticeFilename(filePath);
-			if(!noticefilename.isEmpty()) {
-				try {
-					byte[] bytes = noticefilename.getBytes();
-					File f = new File(fullPath);	//io File 임포트
-					FileOutputStream fos = new FileOutputStream(f);
-					BufferedOutputStream bos = new BufferedOutputStream(fos);
-					bos.write(bytes);
-					bos.close();
-					System.out.println("파일업로드성공!");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			String view = "";
-				try {
-					int result = shopBoardService.shopNoticeUpdate(n);
-					System.out.println("result:"+result);
-					System.out.println("타입-"+n.getNoticeType());
-					if(result>0) {
-							view = "shop/board/shopUpdate";
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return view;
-			}else {
-				String view = "";
-				try {
-					int result = shopBoardService.shopNoticeUpdate(n);
-					System.out.println("result:"+result);
-					System.out.println("타입-"+n.getNoticeType());
-					if(result>0) {
-							view = "shop/board/shopUpdate";
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return view;
-			}
-		}
-	
-	//부동산페이지에서 공지사항 삭제
-	@RequestMapping("/shopNoticeDelete")
-	public String shopNoticeDelete(@RequestParam int noticeIndex) {
-		int result;
-		String view="";
-		try {
-			result = shopBoardService.shopNoticeDelete(noticeIndex);
-			if(result>0) {
-					view = "shop/board/shopDelete";
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return view;
-	}
-	
-	
+
 	//faq리스트
 	@RequestMapping("/faq/shopFaqList")
 	public ModelAndView shopFaqList(@RequestParam int reqPage,HttpServletRequest request) {
@@ -289,6 +138,10 @@ public class ShopBoardController {
 		int result;
 		String view = "";
 		try {
+			String ti = q.getQuestionsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsTitle(ti);
+			String con = q.getQuestionsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+			q.setQuestionsContent(con);
 			result = shopBoardService.shopQuestionInsert(q);
 			if(result>0) {
 				view="shop/board/question/shopQuestionInsert";

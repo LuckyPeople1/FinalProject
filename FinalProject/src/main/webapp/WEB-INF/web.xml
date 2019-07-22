@@ -57,7 +57,15 @@
 	</filter-mapping>
 
 	<!-- 한글설정 END -->
-
+	
+	<!--form tag 설정   -->
+	   <jsp-config>
+        <taglib>
+            <taglib-uri>http://www.springframework.org/tags/form</taglib-uri>
+            <taglib-location>/WEB-INF/lib/spring-form.tld</taglib-location>
+        </taglib>
+   		 </jsp-config>
+	<!--form tag 설정  끝 -->
 
 
 

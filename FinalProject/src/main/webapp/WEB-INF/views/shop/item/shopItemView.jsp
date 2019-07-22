@@ -550,12 +550,20 @@
 					<h1 class="kLiQkI">방문상담하기</h1>
 					<p class="cKVLgb">연락처를 남겨주시면, 확인 후 연락드립니다.</p>
 					<form class="dhDUnZ" action="/shop/reserveAdd">
-						<input type="hidden" name="userIdx" value="${item.userIdx }">
+						<input type="hidden" name="shopIdx" value="${item.userIdx }">
+						<input type="hidden" name="shopName" value="${item.shopItemTitle }">
 						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
-						<input type="hidden" name="shopReservationName" value="${sessionScope.user.userName }">  <!-- 예약고객 -->
-						<input type="hidden" name="shopReservationManager" value="${item.shopItemManager }">
-						<input type="hidden" name="shopReservationState" value="예약대기">
-						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='shopReservationTel'>
+						<input type="hidden" name="shopItemTitle" value="${item.shopItemTitle }"> 
+						<input type="hidden" name="shopItemManager" value="${item.shopItemManager }">
+						<c:if test="${empty sessionScope.user.userIdx}">
+						<input type="hidden" name="userIdx" value="0">
+						<input type="hidden" name="userName" value="비회원">
+						</c:if>
+						<c:if test="${not empty sessionScope.user.userIdx}">
+						<input type="hidden" name="userIdx" value="${sessionScope.user.userIdx }">
+						<input type="hidden" name="userName" value="${sessionScope.user.userName }">
+						</c:if>
+						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='userTel'>
 						<button class="idBxyN" type="submit" id="reservation">방문예약하기</button>
 					</form>
 				</div>

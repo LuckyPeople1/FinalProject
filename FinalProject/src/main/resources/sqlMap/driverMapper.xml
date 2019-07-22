@@ -204,7 +204,7 @@
 				package_type as packageType,
 				package_name as packageName,
 				package_option as packageOption,
-				package_img_path as packageImgOption
+				package_img_path as packageImgPath
 				from move_apply_option_tbl
 				where apply_idx=#{applyIdx}
 	</select>
@@ -218,8 +218,13 @@
 	</select>
 	<!-- //입찰관리 견적값 넣기 insert 하기 -->
 	<insert id="driverAuctionInsert" parameterType="com.dassa.vo.DriverVO">
-		insert into driver_tbl values(#{driverIdx},#{applyIdx},#{userCar},#{driverMessage},#{ladderState},#{estimateAmount},0)
+		insert into driver_tbl values(#{driverIdx},#{applyIdx},#{userCar},#{driverMessage},#{ladderState},#{estimateAmount},1)
 	</insert>
+	
+	<update id="driverMoveUpdate" parameterType="com.dassa.vo.DriverVO">
+		update driver_tbl set user_car=#{userCar},driver_message=#{driverMessage},LADDERSTATE=#{ladderState},ESTIMATEAMOUNT=#{estimateAmount} where driver_idx=#{driverIdx}
+		
+	</update>
 	
 	<!-- 입찰관리 입찰상태 update 하기 -->
 	<update id="driverAuctionApplyUpdate" parameterType="_int">

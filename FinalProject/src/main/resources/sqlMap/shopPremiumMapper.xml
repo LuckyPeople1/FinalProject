@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dassa.mapper.ShopPremiumMapper">
+	<insert id="shopPayment" parameterType="com.dassa.vo.ShopPaymentVO">
+		insert into shop_payment_tbl values(
+		shop_payment_seq.nextval,
+		#{userIdx},
+		#{shopPaymentName},
+		#{shopPaymentImpUid},
+		#{shopPaymentMerchantUid},
+		#{shopPaymentMethod},
+		#{shopPaymentPg},
+		#{shopPaymentPgNumber},
+		#{shopPaymentCardName},
+		#{shopPaymentDate},
+		#{shopPaymentDate}+30,
+		#{shopPaymentPrice},
+		#{shopPaymentStatus}
+		)
+	</insert>
 	<insert id="PremiumItemAdd" parameterType="shopPremiumItemVO">
 		insert into shop_premium_item_tbl values(
 		shop_premium_item_idx_seq.nextval,
@@ -8,7 +25,33 @@
 		#{shopItemIdx, jdbcType=VARCHAR},
 		#{userIdx},
 		sysdate,
-		#{shopPremiumItemEndDate, jdbcType=VARCHAR}
+		default
 		)
 	</insert>
+	<insert id="PowerItemAdd" parameterType="com.dassa.vo.ShopPowerItemVO">
+		insert into shop_power_item_tbl values(
+		shop_power_item_idx_seq.nextval,
+		default,
+		#{shopItemIdx, jdbcType=VARCHAR},
+		#{userIdx},
+		sysdate,
+		default
+		)
+	</insert>
+	<!-- 등록 할 수 있는 개수 확인 -->
+ 	<select id="shopCount"  resultType="shopPremiumItemVO" parameterType="_int">
+		select shop_premium_item_idx as shopPremiumItemIdx from shop_premium_item_tbl where shop_item_idx=0 and user_idx=#{userIdx}
+	</select>
+	<!-- 아이템 적용 할 수 있는 개수 확인 -->
+	<select id="powerCount"  resultType="shopPowerItemVO" parameterType="_int">
+		select shop_power_item_idx as shopPowerItemIdx from shop_power_item_tbl where shop_power_item_state=0 and user_idx=#{userIdx}
+	</select>
+	<select id="ShopPemiumItemList" parameterType="_int" resultType="com.dassa.vo.ShopPaymentVO">
+		select shop_payment_idx as shopPaymentIdx,
+			shop_payment_name as shopPaymentName,
+			shop_payment_price as shopPaymentPrice,
+			shop_payment_date as shopPaymentDate,
+			shop_payment_last_date as shopPaymentLastDate
+			from shop_payment_tbl where user_idx = #{userIdx}
+	</select>
 </mapper>

@@ -3,10 +3,12 @@ package com.dassa.controller.guest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,7 +17,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.dassa.common.FileCommon;
 import com.dassa.service.GuestMoveService;
 import com.dassa.vo.DriverMypageReviewVO;
 import com.dassa.vo.DriverReviewVO;
@@ -26,6 +32,8 @@ import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.ShopReservationPageDataVO;
+import com.dassa.vo.ShopReservationVO;
 import com.dassa.vo.UserVO;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
@@ -84,11 +92,51 @@ public class GuestMyController {
 	 */
 	@RequestMapping("/pwChkProc")
 	@ResponseBody
-	public String pwChkProc (){
-
-		return "Y";
+	public String pwChkProc (Model model, UserVO userVO){
+		userVO = guestMoveService.getPwChkProc(userVO);
+		model.addAttribute("user", userVO);
+		if(userVO != null) {
+			return "Y";
+		}else {
+			return "N";
+		}
+		
 	}
-
+	
+	/**
+	 * 정보 수정
+	 * @param userIdx, userName, userPw, proFilename
+	 * @return
+	 */
+	@RequestMapping("/modiUser")
+	@ResponseBody
+	public String modiUser(Model model, HttpServletRequest request, @RequestParam String userIdx, String userName, String userPw, MultipartFile proFilename) {
+		int result = 0;
+		System.out.println("controller : "+ userIdx);
+		System.out.println("controller : "+ userName);
+		System.out.println("controller : "+ userPw);
+		System.out.println("controller : "+ proFilename);
+		UserVO userVO = new UserVO();
+		userVO.setUserId(userIdx);
+		userVO.setUserName(userName);
+		userVO.setUserPw(userPw);
+		if (proFilename == null) {
+			result = guestMoveService.getModiUser(userVO);
+			System.out.println(result);
+		}else {
+			String[] fileInfo = FileCommon.fileUp(proFilename, request, "profile");
+			userVO.setProFilename(fileInfo[0]);
+			userVO.setProFilepath(fileInfo[1]);
+			System.out.println("profilename"+userVO.getProFilename());
+			System.out.println("profilepath"+userVO.getProFilepath());
+			result = guestMoveService.getModiUser(userVO);
+		}
+		if(result > 0 ) {
+			return "Y";
+		}else {
+			return "N";
+		}
+	}
 
 	/**
 	 * 내 정보
@@ -216,11 +264,6 @@ public class GuestMyController {
 		
 		
 	}
-	
-	
-
-	
-	
 	/**
 	 * 입찰 결제
 	 * @return
@@ -365,4 +408,41 @@ public class GuestMyController {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 방문 리스트 뿌리기
+	 * @param request
+	 * @param httpSession
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/reserList")
+	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession)throws Exception {
+		int reqPage;
+		try {
+			reqPage=Integer.parseInt(request.getParameter("reqPage"));
+		}catch(NumberFormatException e){
+			reqPage=1;
+		}
+		UserVO userVO = (UserVO)httpSession.getAttribute("user");
+		ModelAndView mav = new ModelAndView();
+		ShopReservationPageDataVO sipd = guestMoveService.selectReservationAllList(reqPage,userVO);
+		if(!sipd.isEmpty()) {
+			ArrayList<ShopReservationVO> sItemList = sipd.getList();
+			String pageNavi = sipd.getPageNavi();
+			mav.addObject("list",sItemList);
+			mav.addObject("pageNavi",pageNavi);
+			mav.setViewName("guest/mypage/myReserveList");
+		}
+		return mav;
+	}
+	//예약 삭제
+		@RequestMapping("/reservationDel")
+		public String reservationDel(@RequestParam int shopReservationIdx)throws Exception {
+			int result = guestMoveService.reservationDel(shopReservationIdx);
+			if(result>0) {
+				return "redirect:/my/reserList";
+			}
+			return "redirect:/my/reserList";
+		}
 }

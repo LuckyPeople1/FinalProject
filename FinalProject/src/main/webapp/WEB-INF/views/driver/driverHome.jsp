@@ -38,9 +38,9 @@
 						<tr>
 							<th>이사날짜</th>
 							<td colspan="3">
-								<input class="tbox" id="dateS" name="minDate" value="${pagination.minDate }" readonly="readonly">
+								<input class="tbox maxDate" id="dateE" name="minDate" value="${pagination.minDate }" readonly="readonly">
 								<span class="hyphen">~</span>
-								<input class="tbox" id="dateE" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
+								<input class="tbox minDate" id="dateS" name="maxDate" value="${pagination.maxDate }" readonly="readonly">
 								<a href="javascript:setSearchDate('0d')" class="btn col_grey line ml10">당일</a>
 								<a href="javascript:setSearchDate('1d')" class="btn col_grey line">어제</a>
 								<a href="javascript:setSearchDate('1w')" class="btn col_grey line">일주일</a>
@@ -68,7 +68,7 @@
 						<col width="130">
 						<col width="130">
 						<col width="100">
-						<col width="80">
+						<col width="120">
 						<col width="85">
 						<col width="100">
 					</colgroup>
@@ -102,6 +102,7 @@
 						<c:if test="${moveApply.auctionState eq 1 }">
 							<td>
 								<span class="tag col_green f_w">견적 완료</span>
+								<a href="/driver/driverMoveDetailUpdate?applyIdx=${moveApply.applyIdx }"><span class="tag col_blue f_w">견적 수정</span></a>
 							</td>
 						</c:if>
 						<c:if test="${moveApply.auctionState eq 2 }">
@@ -137,7 +138,7 @@
 				</li>
 			</c:if>
 			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
-				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> ">
+				<li <c:out value="${pagination.page == idx ? 'active' : ''}"/> >
 					<a class="num" href="" onclick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a>
 				</li>
 			</c:forEach>
@@ -148,7 +149,6 @@
 			</c:if>
 			</ul>
 		</div>
-
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 
@@ -158,7 +158,7 @@
 	function fn_pagination(page, range, rangeSize) {
 	  	var driverIdx=$('#driverIdx').val();
 		var elem = document.getElementById('driverMoveForm');
-		elem.action = "${pageContext.request.contextPath}/driver/move?driverIdx="driverIdx;
+		elem.action = "${pageContext.request.contextPath}/driver/move?driverIdx="+driverIdx;
 		elem.page.value = page;
 		elem.range.value = range;
 		elem.rangeSize.value = rangeSize;

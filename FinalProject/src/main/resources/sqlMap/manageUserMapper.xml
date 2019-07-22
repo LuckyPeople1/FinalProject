@@ -1,241 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dassa.mapper.ManageUserMapper">
-	<!-- 전체 회원 조회 -->
-	<select id="getUserListAll" resultType="userVO">
-		select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		from   user_tbl
-	</select>
-	
-	<!-- 전체 승인 회원 조회 -->
-	<select id="getAllApprobateList" resultType="userVO">
-		select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		from   user_tbl where (user_type=2 or user_type=1) and status=2
-	</select>
-	
-	<!-- 유저 타입별 승인 회원 조회 -->
-	<select id="getTypeApprobateList" resultType="userVO">
-		select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		from   user_tbl where user_type=#{userType} and status=2
-	</select>
-	
-	<select id="getTypeCheckApprobateList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
-		select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		from   user_tbl where <choose>
-								<when test="userType1 !=null and userType2 != null">
-										(user_type=#{userType1} or user_type = #{userType2})
-								</when>
-								<otherwise>
-									user_type=#{userType1}
-								</otherwise>
-							  </choose>
-							  and status=2
-	</select>
-	
-	
-	
-	
-	<!-- 탈퇴회원 조회 -->
-	<select id="getUserSecssionList" parameterType="userVO" resultType="userVO">
-		 select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		 from  user_tbl where user_type=#{userType} and status=3 order by user_idx
-	</select>
-	
-	<!-- 검색 회원 리스트 검색 -->
-	<select id="getSearchList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
-		select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		from   user_tbl where <choose>
-									<when test="userType!=null">
-										<choose>
-											<when test="searchType == 1 and userType == 3">
-												user_id like #{searchWord} and user_Type=#{userType} and status=#{status}
-											</when>
-											<when test="searchType == 2 and userType == 3">
-												user_name like '%' || #{searchWord} || '%' and user_Type=#{userType} and status=#{status}
-											</when>
-											
-											<when test="searchType == 1 and userType == 2">
-												user_id like #{searchWord} and user_Type=#{userType} and status=#{status}
-											</when>
-											<when test="searchType == 2 and userType == 2">
-												user_name like '%' || #{searchWord} || '%' and user_Type=#{userType} and status=#{status}
-											</when>
-											
-											<when test="searchType == 1 and userType == 1">
-												user_id like '%' || #{searchWord} || '%' and user_Type=#{userType} and status=#{status}
-											</when>
-											<when test="searchType == 2 and userType == 1">
-												user_name like '%' || #{searchWord} || '%' and user_Type=#{userType} and status=#{status}
-											</when>
-										</choose>
-											<choose>
-												<when test="searchType == 1">
-													user_id like #{searchWord} and status=#{status}
-												</when>
-												<when test="searchType == 2">
-													user_name like '%' || #{searchWord} || '%' and (user_type=1 or user_type=2) and status=#{status}
-												</when>
-											</choose>
-									</when>
-							  </choose>
-			
-	</select>
-	
-	<!-- 타입 및 상태별 회원 조회 -->
-	<select id="getSearchUserList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
-		select user_idx as userIdx,
-			   user_id as userId,
-			   user_pw as userPw,
-			   user_name as userName,
-			   addr as userAddr,
-			   addr_code as addrCode,
-			   user_phone as userPhone,
-			   user_email as userEmail,
-			   pro_filename as proFilename,
-			   pro_filepath as proFilepath,
-			   user_introduce as userIntroduce,
-			   registration_number as registrationNumber,
-			   business_number as businessNumber,
-			   user_car as userCar,
-			   comp_filename as compFilename,
-			   comp_filepath as compFilepath,
-			   user_type as userType,
-			   social_id as socialId,
-			   enroll_date as enrollDate,
-			   status,
-			   out_date as outDate
-		from   user_tbl where user_type= #{userType} and status = #{status}
-	</select>
-	
-	<update id="deleteUser" parameterType="userVO">
-		update user_tbl set status=3, out_date=sysdate where user_idx=#{userIdx}
-	</update>
-	
-	
-	
-	
-	
-	
+<mapper namespace="com.dassa.mapper.ManageUserMapper">	
 	<!-- 페이징 -->
 	<select id="totalApprobateCount" parameterType="com.dassa.vo.SearchUserVO" resultType="_int">
 		select count(*) cnt from user_tbl where
@@ -533,8 +298,8 @@
 	<!-- 탈퇴관리 -->
 	<select id="totalUserSecListCount" resultType="_int">
 		select count(*) cnt from user_tbl where user_type=#{userType} and status=3
-		
 	</select>
+	
 	<select id="getUserSecList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
 		select user_idx as userIdx,
 				   user_id as userId,
@@ -561,4 +326,60 @@
 		from (select * from user_tbl where user_type=#{userType} and status=3 order by rownum desc) n)
  		where rnum between #{startPage} and #{endPage}
  	</select>
+ 	
+ 	<!-- 체크박스 -->
+ 	<select id="totalgetTypeCheckApprobateList" resultType="_int">
+		select count(*) cnt from user_tbl where 
+		<choose>
+			<when test="userType1 !=null and userType2 != null">
+					(user_type=#{userType1} or user_type = #{userType2})
+			</when>
+			<otherwise>
+				user_type=#{userType1}
+			</otherwise>
+		</choose>
+		and status=2
+	</select>
+ 	
+ 	
+ 	<select id="getTypeCheckApprobateList" parameterType="com.dassa.vo.SearchUserVO" resultType="userVO">
+		select user_idx as userIdx,
+			   user_id as userId,
+			   user_pw as userPw,
+			   user_name as userName,
+			   addr as userAddr,
+			   addr_code as addrCode,
+			   user_phone as userPhone,
+			   user_email as userEmail,
+			   pro_filename as proFilename,
+			   pro_filepath as proFilepath,
+			   user_introduce as userIntroduce,
+			   registration_number as registrationNumber,
+			   business_number as businessNumber,
+			   user_car as userCar,
+			   comp_filename as compFilename,
+			   comp_filepath as compFilepath,
+			   user_type as userType,
+			   social_id as socialId,
+			   enroll_date as enrollDate,
+			   status,
+			   out_date as outDate
+		from (select rownum as rnum, n.*
+		from (select * from user_tbl where 
+		<choose>
+			<when test="userType1 !=null and userType2 != null">
+					(user_type=#{userType1} or user_type = #{userType2})
+			</when>
+			<otherwise>
+				user_type=#{userType1}
+			</otherwise>
+		</choose>
+		and status=2 order by rownum desc) n)
+ 		where rnum between #{startPage} and #{endPage}
+ 							 
+	</select>
+	
+	<update id="deleteUser" parameterType="userVO">
+		update user_tbl set status=3, out_date=sysdate where user_idx=#{userIdx}
+	</update>
 </mapper>
