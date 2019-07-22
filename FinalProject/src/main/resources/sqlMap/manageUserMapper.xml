@@ -382,4 +382,8 @@
 	<update id="deleteUser" parameterType="userVO">
 		update user_tbl set status=3, out_date=sysdate where user_idx=#{userIdx}
 	</update>
+	
+	<select id="getUserDetail" resultType="userVO">
+		select registration_number as registrationNumber, business_number as businessNumber, comp_filename as compFilename, comp_filepath as compFilepath from user_tbl where user_idx=#{userIdx}
+	</select>
 </mapper>

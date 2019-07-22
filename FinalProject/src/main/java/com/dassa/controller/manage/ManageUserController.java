@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -455,10 +456,23 @@ public class ManageUserController {
 	
 	//상세보기
 	@RequestMapping("/userDetail")
-	public String getUserDetail(int userIdx, HttpServletRequest request) {
+	public String getUserDetail(Model model, int userIdx, HttpServletRequest request) {
 		String referer = request.getHeader("Referer");
-		UserVO userVO= manageUserService.getUserDetail(userIdx);
+		UserVO userVO = new UserVO();
+		userVO.setUserIdx(userIdx);
+		userVO= manageUserService.getUserDetail(userVO);
+		StringTokenizer token1 = new StringTokenizer(userVO.getCompFilename(), ",");
+		StringTokenizer token2 = new StringTokenizer(userVO.getCompFilepath(), ",");
+		String compFilename1 = token1.nextToken();
+		String compFilename2 = token1.nextToken();
+		String compFilepath1 = token2.nextToken();
+		String compFilepath2 = token2.nextToken();
 		if(userVO != null) {
+			model.addAttribute("userVO", userVO);
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilename2", compFilename2);
+			model.addAttribute("compFilepath1", compFilepath1);
+			model.addAttribute("compFilepath2", compFilepath2);
 			return "/manage/user/user/userDetail";
 		}else {
 			return "redirect:"+referer;

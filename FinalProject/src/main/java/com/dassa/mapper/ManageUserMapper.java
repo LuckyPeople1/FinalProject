@@ -55,5 +55,5 @@ public interface ManageUserMapper {
 	//회원 탈퇴
 	public int deleteUser(int userIdx) throws Exception;
 	//상세정보
-	public UserVO getUserDetail(int userIdx);
+	public UserVO getUserDetail(UserVO userVO);
 }
