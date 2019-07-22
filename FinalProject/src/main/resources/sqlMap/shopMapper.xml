@@ -436,5 +436,21 @@
 	<select id="shopSucCount" resultType="_int">
 		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매완료'
 	</select>
-	
+	<select id="selectOne" resultType="userVO" parameterType="_int">
+		 select user_idx as userIdx,
+				user_id as userId,
+				user_name as userName,
+				addr as userAddr,
+				addr_code as addrCode,
+				user_phone as userPhone,
+				user_email as userEmail,
+				user_introduce as userIntroduce,
+				comp_filename as compFilename,
+				registration_number as registrationNumber,
+				business_number as businessNumber,
+				comp_filepath as compFilepath,
+				status,
+				company_name as companyName
+		  from user_tbl where user_idx=#{userId} and status = 1
+	</select>
 </mapper>

@@ -6,8 +6,8 @@
 			<li>
 				<a href="#none" class="menu_name">매출 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/manage/sale/salePremiumList">상품 매출</a></li>
-					<li><a href="/manage/sale/saleMoveList">이사 매출</a></li>
+					<li><a href="/manage/sale/salePremiumList" class=${tag=='1' ? 'on' : ''}>상품 매출</a></li>
+					<li><a href="/manage/sale/saleMoveList" class=${tag=='2' ? 'on' : ''}>이사 매출</a></li>
 				</ul>
 			</li>
 		</ul>

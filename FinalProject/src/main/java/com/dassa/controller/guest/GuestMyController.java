@@ -32,6 +32,8 @@ import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.QuestionPageData;
+import com.dassa.vo.QuestionVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
 import com.dassa.vo.UserVO;
@@ -442,5 +444,26 @@ public class GuestMyController {
 				return "redirect:/my/reserList";
 			}
 			return "redirect:/my/reserList";
+		}
+		
+		
+		//유저 마이페이지에 내가쓴문의
+		@RequestMapping("/myQuestion")
+		public ModelAndView myQuestion(@RequestParam int reqPage,HttpServletRequest request) {
+			ModelAndView ma = new ModelAndView();
+			try {
+				QuestionPageData list = guestMoveService.selectQuestionList(reqPage);
+				if(!list.isEmpty()) {
+					ArrayList<QuestionVO> arrlist = list.getList();
+					String pageNavi = list.getPageNavi();
+					ma.addObject("list", arrlist);
+					ma.addObject("pageNavi", pageNavi);
+					ma.setViewName("guest/mypage/myQuestion");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return ma;
 		}
 }

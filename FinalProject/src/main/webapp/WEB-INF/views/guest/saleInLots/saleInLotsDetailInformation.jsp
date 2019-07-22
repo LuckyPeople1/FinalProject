@@ -11,7 +11,18 @@
 					<div class="DetailInformation_Box">
 						<div class="DetailInformation_leftHeader">
 							<div class="leftHeader_content_01">
+								<c:if test="${saleVO.saleInLotsState == '분양예정'}">
 								<span class="detail_state">${saleVO.saleInLotsState }</span>
+								</c:if>
+								<c:if test="${saleVO.saleInLotsState == '분양중'}">
+								<span class="detail_state red">${saleVO.saleInLotsState }</span>
+								</c:if>
+								<c:if test="${saleVO.saleInLotsState == '입주모집'}">
+								<span class="detail_state green">${saleVO.saleInLotsState }</span>
+								</c:if>
+								<c:if test="${saleVO.saleInLotsState == '준비중'}">
+								<span class="detail_state gray">${saleVO.saleInLotsState }</span>
+								</c:if>
 								<h1 class="detail_name">${saleVO.saleInLotsName }</h1>
 								<p class="detail_area">${saleVO.saleInLotsDetailArea }</p>
 							</div>

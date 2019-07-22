@@ -62,7 +62,18 @@
 									<c:forEach var="list" items="${sp.list}" >
 									<tr>
 										<td>
+											<c:if test="${list.saleInLotsState == '분양예정'}">
 											<p class="saleInLotsState">${list.saleInLotsState}</p>
+											</c:if>
+											<c:if test="${list.saleInLotsState == '분양중'}">
+											<p class="saleInLotsState red">${list.saleInLotsState}</p>
+											</c:if>
+											<c:if test="${list.saleInLotsState == '입주모집'}">
+											<p class="saleInLotsState green">${list.saleInLotsState}</p>
+											</c:if>
+											<c:if test="${list.saleInLotsState == '준비중'}">
+											<p class="saleInLotsState gray">${list.saleInLotsState}</p>
+											</c:if>
 										</td>
 										<td>
 											<p class="saleInLotsType">${list.saleInLotsBuildType}</p>

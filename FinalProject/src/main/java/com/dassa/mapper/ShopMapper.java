@@ -130,4 +130,7 @@ public interface ShopMapper {
 	//판매완료 매물 가져오기
 	public int shopSucCount() throws Exception;
 	public ArrayList<ShopItemVO> shopSuc(Map<String, Object> map) throws Exception;
+	
+	//부동산마이페이지
+	public UserVO selectOne(int userIdx)throws Exception;
 }
