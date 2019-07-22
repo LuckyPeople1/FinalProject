@@ -247,8 +247,8 @@ public class ManageUserService {
 		return manageUserMapper.deleteUser(userIdx);
 	}
 	//상세정보
-	public UserVO getUserDetail(int userIdx) {
-		return manageUserMapper.getUserDetail(userIdx);
+	public UserVO getUserDetail(UserVO userVO) {
+		return manageUserMapper.getUserDetail(userVO);
 	}
 	
 }

@@ -139,11 +139,21 @@ public class GuestInsertController {
 	
 	//부동산 회원가입 로직
 	@RequestMapping(value="/shopInsert")
-	public String ShopInsert(HttpServletRequest request, @RequestParam UserVO userVO, String userAddr, String userdetailAddr,  String userIntro,
-			String regisNum, String busNum, MultipartFile compFilename, MultipartFile compFilename1)
+	public String ShopInsert(HttpServletRequest request, @RequestParam String userId, String userPw, String userName, String userPhone,
+							String companyName, String userEmail, String addrCode, String userType, String userAddr, String userdetailAddr,  String userIntro,
+							String regisNum, String busNum, MultipartFile compFilename, MultipartFile compFilename1)
 	throws Exception {
 		String[] fileInfo = FileCommon.fileUp(compFilename, request, "shop");
 		String[] fileInfo1 = FileCommon.fileUp(compFilename1, request, "shop");
+		UserVO userVO = new UserVO();
+		userVO.setUserId(userId);
+		userVO.setUserPw(userPw);
+		userVO.setUserName(userName);
+		userVO.setUserPhone(userPhone);
+		userVO.setUserEmail(userEmail);
+		userVO.setCompanyName(companyName);
+		userVO.setAddrCode(addrCode);
+		userVO.setUserType(userType);
 		String addr = userAddr+userdetailAddr;	
 		userVO.setUserAddr(addr);
 		userVO.setUserIntroduce(userIntro);

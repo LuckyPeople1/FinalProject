@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -455,14 +456,37 @@ public class ManageUserController {
 	
 	//상세보기
 	@RequestMapping("/userDetail")
-	public String getUserDetail(int userIdx, HttpServletRequest request) {
+	public String getUserDetail(Model model, int userIdx, HttpServletRequest request) {
 		String referer = request.getHeader("Referer");
-		UserVO userVO= manageUserService.getUserDetail(userIdx);
-		if(userVO != null) {
-			return "/manage/user/user/userDetail";
+		UserVO userVO = new UserVO();
+		userVO.setUserIdx(userIdx);
+		userVO= manageUserService.getUserDetail(userVO);
+		StringTokenizer token1 = new StringTokenizer(userVO.getCompFilename(), ",");
+		StringTokenizer token2 = new StringTokenizer(userVO.getCompFilepath(), ",");
+		String compFilename1=null;
+		String compFilename2=null;
+		String compFilepath1=null;
+		String compFilepath2=null;
+		if(userVO.getUserType().equals("1")) {
+			compFilename1 = token1.nextToken();
+			compFilepath1 = token2.nextToken();
 		}else {
-			return "redirect:"+referer;
+			compFilename1 = token1.nextToken();
+			compFilepath1 = token2.nextToken();
+			compFilename2 = token1.nextToken();
+			compFilepath2 = token2.nextToken();
 		}
 		
+		model.addAttribute("userVO", userVO);
+		if(userVO.getUserType().equals("1")) {
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilepath1", compFilepath1);
+		}else{
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilepath1", compFilepath1);
+			model.addAttribute("compFilename2", compFilename2);
+			model.addAttribute("compFilepath2", compFilepath2);
+		}
+		return "/manage/user/user/userDetail";
 	}
 }

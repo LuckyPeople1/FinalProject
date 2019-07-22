@@ -74,18 +74,23 @@ public class GuestLoginController {
 		userVO.setUserPw(userPw);
 		UserVO user =userService.selectOneUser(userVO);
 		if(user!=null) {
-			session.setAttribute("user", user);
-			if(referer == "") {
+			if(user.getStatus().equals("1")) {
 				session.setAttribute("user", user);
-				model.addAttribute("msg", "로그인 되었습니다.");
-				model.addAttribute("loc", "/login/index");
-				return "guest/common/msg";
+				if(referer == "") {
+					session.setAttribute("user", user);
+					model.addAttribute("msg", "로그인 되었습니다.");
+					model.addAttribute("loc", "/login/index");
+					return "guest/common/msg";
+				}else {
+					model.addAttribute("msg", "로그인 되었습니다.");
+					model.addAttribute("loc", referer);
+					return "guest/common/msg";
+				}
 			}else {
-				model.addAttribute("msg", "로그인 되었습니다.");
-				model.addAttribute("loc", referer);
+				model.addAttribute("msg", "승인 대기중입니다.");
+				model.addAttribute("loc", "/index");
 				return "guest/common/msg";
-			}
-				
+			}	
 		}else {
 			model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요");
 			model.addAttribute("loc", "/login/");

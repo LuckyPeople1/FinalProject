@@ -95,7 +95,7 @@
 					<c:forEach items="${list}" var="item">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${item.shopItemIdx }</td>
+						<td><a href="/shop/itemView?shopItemIdx=${item.shopItemIdx }">${item.shopItemIdx }</a></td>
 						<td>
 							<div class="mb5">${item.shopItemManager }</div>
 						</td>

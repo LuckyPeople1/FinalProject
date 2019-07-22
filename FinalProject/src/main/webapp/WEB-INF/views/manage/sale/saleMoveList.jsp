@@ -102,7 +102,8 @@
 						<col width="85">
 						<col width="100">
 						<col width="100">
-						<col width="100">
+						<col width="70">
+						<col width="70">
 					</colgroup>
 					<thead>
 						<tr>
@@ -116,7 +117,8 @@
 							<th>회원명</th>
 							<th>이메일</th>
 							<th>구매금액</th>
-							<th>결제시각</th>
+							<th>결제일자</th>
+							<th>취소일자</th>
 							<th>상태</th>
 							<th>관리</th>
 						</tr>
@@ -135,16 +137,29 @@
 								<td class="">${list.movePaymentAmount }</td>
 								<td><fmt:formatDate value="${list.movePaymentDate }"
 										pattern="yyyy-MM-dd hh:mm:ss" /></td>
+								<c:if test="${list.movePaymentCencelDate != null}">
+									<td>${list.movePaymentCencelDate }
+										</td>
+								</c:if>
+								<c:if test="${list.movePaymentCencelDate == null}">
+									<td>-</td>
+								</c:if>
+								
 								<td><c:if test="${list.movePaymentStatus == 'paid' }">
 										<span class="tag col_blue f_w">결제 완료</span>
 									</c:if> <c:if test="${list.movePaymentStatus != 'paid' }">
-										<span class="tag col_blue f_w">결제 취소</span>
+										<span class="tag col_red f_w">결제 취소</span>
 									</c:if></td>
 								<td>
 									<div>
-										<a
-											href="/manage/sale/saleMoveInfo?movePaymentIdx=${list.movePaymentIdx }"
+										<c:if test="${list.movePaymentStatus == 'paid' }">
+										<a href="/manage/sale/saleMoveInfo?movePaymentIdx=${list.movePaymentIdx }"
 											class="btn small col_main f_w">상세정보</a>
+										</c:if>
+										<c:if test="${list.movePaymentStatus != 'paid' }">
+										<button type="button" disabled="disabled"
+											class="btn small col_grey f_darkGrey">상세정보</button>
+										</c:if>
 									</div>
 								</td>
 							</tr>
