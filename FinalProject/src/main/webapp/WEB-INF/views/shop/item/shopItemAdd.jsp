@@ -950,6 +950,23 @@
             		+"<input type='hidden' name='shopItemAddr1' value='"+newarr1[1]+"'>"
 					+"<input type='hidden' name='shopItemAddr2' value='"+newarr1[2]+"'>"
             );
+            geocoder.addressSearch(newarr1[1], function(results, status) {
+                // 정상적으로 검색이 완료됐으면
+                $("#map1").css("display","none");
+                $("#map").css("display",'block');
+                if (status === daum.maps.services.Status.OK) {
+                    var result = results[0]; //첫번째 결과의 값을 활용
+                    // 해당 주소에 대한 좌표를 받아서
+                    var coords = new daum.maps.LatLng(result.y, result.x);
+                    // 지도를 보여준다.
+                    mapContainer.style.display = "block";
+                    map.relayout();
+                    // 지도 중심을 변경한다.
+                    map.setCenter(coords);
+                    // 마커를 결과값으로 받은 위치로 옮긴다.
+                    marker.setPosition(coords)
+                }
+            });
             $("input[name='shopItemBulidDate']").val(newarr1[3]);
             $("input[name='shopItemBulidCompany']").val(newarr1[8]);
             $("input[name='shopItemHeating2']").val(newarr1[9]);

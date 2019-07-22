@@ -203,7 +203,7 @@
 											<input autocomplete="off" class="fbxLHj kTQnUD" name="keyword" placeholder="예)번동 10-1, 강북구 번동" value="">
 											<button type="button" class="kTyFCo" onclick="jusoSearch()">주소검색</button>
 										</form>
-										<div class="fUXvpI" id="addr">${item.shopItemAddr1 }<br>${item.shopItemAddr2 }</div>
+										<div class="fUXvpI" id="addr"><span id="data">${item.shopItemAddr1 }</span><br>${item.shopItemAddr2 }</div>
 										<div class="kXKUhT">
 											<div class="jlsyRm gnEBbX">
 												<input autocomplete="off" class="bVCGUR kTQnUD" name="shopItemAddrDong1"	placeholder="예)101동" value="${item.shopItemAddrDong1 }">
@@ -933,6 +933,28 @@
 	<script src="/shop/js/shop_setting.js"></script>
 	<script>
 		$(document).ready(function(){
+			var addr=$("#data").text();
+			 // 주소로 상세 정보를 검색
+            geocoder.addressSearch(addr, function(results, status) {
+                // 정상적으로 검색이 완료됐으면
+                $("#map1").css("display","none");
+                $("#map").css("display",'block');
+                if (status === daum.maps.services.Status.OK) {
+                    var result = results[0]; //첫번째 결과의 값을 활용
+                    // 해당 주소에 대한 좌표를 받아서
+                    var coords = new daum.maps.LatLng(result.y, result.x);
+                    // 지도를 보여준다.
+                    mapContainer.style.display = "block";
+                    map.relayout();
+                    // 지도 중심을 변경한다.
+                    map.setCenter(coords);
+                    // 마커를 결과값으로 받은 위치로 옮긴다.
+                    marker.setPosition(coords)
+                }
+            });
+			
+			
+			
 			if('${item.shopItemDealType}'=='월세'){
 				$("#monthly").attr("disabled",true);
 				$("#charter").attr("disabled",true);
@@ -1107,6 +1129,24 @@
             		+"<input type='hidden' name='shopItemAddr1' value='"+newarr1[1]+"'>"
 					+"<input type='hidden' name='shopItemAddr2' value='"+newarr1[2]+"'>"
             );
+            // 주소로 상세 정보를 검색
+            geocoder.addressSearch(data.address, function(results, status) {
+                // 정상적으로 검색이 완료됐으면
+                $("#map1").css("display","none");
+                $("#map").css("display",'block');
+                if (status === daum.maps.services.Status.OK) {
+                    var result = results[0]; //첫번째 결과의 값을 활용
+                    // 해당 주소에 대한 좌표를 받아서
+                    var coords = new daum.maps.LatLng(result.y, result.x);
+                    // 지도를 보여준다.
+                    mapContainer.style.display = "block";
+                    map.relayout();
+                    // 지도 중심을 변경한다.
+                    map.setCenter(coords);
+                    // 마커를 결과값으로 받은 위치로 옮긴다.
+                    marker.setPosition(coords)
+                }
+            });
             $("input[name='shopItemBulidDate']").val(newarr1[3]);
             $("input[name='shopItemBulidCompany']").val(newarr1[8]);
             $("input[name='shopItemHeating2']").val(newarr1[9]);

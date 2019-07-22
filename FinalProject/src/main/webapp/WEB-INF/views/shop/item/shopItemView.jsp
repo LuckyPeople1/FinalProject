@@ -497,8 +497,8 @@
 								</svg>
 						</div>
 					</h1>
-					<p class="hwnvlX">${item.shopItemAddr2 }</p>
-					<div class="jdAEqt" id="nearMap" style="overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);"></div>
+					<p class="hwnvlX"><span id="data">${item.shopItemAddr2 }</span></p>
+					<div class="jdAEqt" id="map" style="overflow: hidden;"></div>
 				</div>
 			</div>
 		</section>
@@ -577,8 +577,43 @@
 	</div>
 	</section>
 </div>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=172ed9cf73c3423204ded79275b828ba&libraries=services"></script>
 <script>
+
 	$(document).ready(function() {
+		var geocoder = new daum.maps.services.Geocoder();
+		var addr=$("#data").text();
+		var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+		
+	     mapOption = {
+	         center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+	         level: 3 // 지도의 확대 레벨
+	     };
+	 //지도를 미리 생성
+	 var map = new daum.maps.Map(mapContainer, mapOption);
+		 // 주소로 상세 정보를 검색
+       geocoder.addressSearch(addr, function(results, status) {
+           // 정상적으로 검색이 완료됐으면
+           $("#map").css("display",'block');
+           if (status === daum.maps.services.Status.OK) {
+               var result = results[0]; //첫번째 결과의 값을 활용
+               // 해당 주소에 대한 좌표를 받아서
+               var coords = new daum.maps.LatLng(result.y, result.x);
+               // 지도를 보여준다.
+                var marker = new daum.maps.Marker({
+		    		map: map
+				});
+               mapContainer.style.display = "block";
+               map.relayout();
+               // 지도 중심을 변경한다.
+               map.setCenter(coords);
+               // 마커를 결과값으로 받은 위치로 옮긴다.
+               marker.setPosition(coords)
+           }
+       });
+		
+		
 		if(${item.shopItemManagePrice==null}){
 			managePrice = 0;
 		}
@@ -781,7 +816,6 @@
             $('#pagination-wrap ul li').removeClass('active');
             $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
         }
-
 	});
 </script>
 </body>

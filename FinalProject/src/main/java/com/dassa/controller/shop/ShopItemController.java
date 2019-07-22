@@ -411,7 +411,7 @@ public class ShopItemController {
 	public ArrayList<String> getKaptList(String jusoDongCode) throws Exception {
 		System.out.println(jusoDongCode);
 		System.out.println(jusoDongCode+"00");
-		String url="http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?ServiceKey=brTzoE9eYACabonPMXJ6xy97%2B62zS3JJUNrB79VC%2FwX71vtBj6xUJF38C9qZKoZDsL1ouKC%2BqZJLxcAx3eLsHQ%3D%3D&loadCode="+jusoDongCode+"00";
+		String url="http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?ServiceKey=RChM8isPp%2BidbKi7ca3JX7mnj%2By0ob1x7ifg6D4W1eIQsMDPy5Ge2b9VXCnBKDyeDG%2FvJsWX6FvoQAEMVSmIyA%3D%3D&loadCode="+jusoDongCode+"00";
 		int count=0;
 		int count2=0;
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
