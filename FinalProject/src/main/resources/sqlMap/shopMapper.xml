@@ -219,13 +219,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from (select rownum as rnum, item.* from (select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단') and user_idx=#{userIdx}
+			from (select rownum as rnum, item.* from (select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료') and user_idx=#{userIdx}
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
 	<!-- 매물 총 게시물 수 -->
 	<select id="shopItemTotalCount" resultType="_int">
-		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' 
+		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료' 
 	</select>
 	<!-- 매물 상세보기 -->
 	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
@@ -318,6 +318,10 @@
 			where shop_premium_item_idx=(select shop_premium_item_idx from
 			(select rownum as rnum, item.* from (select * from shop_premium_item_tbl where shop_item_idx=#{shopItemIdx} order by rownum asc)
 			 item where rownum = 1))
+	</update>
+	<!-- 매물 판매 완료 -->
+	<update id="shopItemSuc" parameterType="shopItemVO">
+		update shop_item_tbl set shop_item_sale_state='판매완료' where shop_item_idx=#{shopItemIdx}
 	</update>
 	<!-- 매물 판매 진행 -->
 	<update id="shopItemIng" parameterType="shopItemVO">

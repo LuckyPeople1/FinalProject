@@ -311,6 +311,29 @@ public class ShopItemController {
 		return "redirect:/shop/item";
 	}
 	/**
+	 * 중개사 페이지 - 매물 판매 완료 로직(itemSuc)
+	 * @param shopItemIdx
+	 * @param userIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemSuc")
+	public String shopItemSuc(@RequestParam int shopItemIdx, @RequestParam int userIdx)throws Exception {
+		int result = shopService.shopItemSuc(shopItemIdx);
+		if(result>0) {
+			shopService.shopPremiumItemStop(shopItemIdx);
+			result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			}
+			return "redirect:/shop/item";
+		}
+		return "redirect:/shop/item";
+	}
+	/**
 	 * 사용자 페이지 - 매물 상세정보(itemVIew) 
 	 * @param shopItemIdx
 	 * @return
