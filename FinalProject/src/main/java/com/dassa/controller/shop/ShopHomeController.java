@@ -26,14 +26,32 @@ public class ShopHomeController {
 	private ShopService shopService;
 	//부동산 홈 페이지 (main page)
 	@RequestMapping("/home")
-	public String ShopHome(@RequestParam(required = false, defaultValue = "1") int range,int userIdx) {
-		return "shop/shopHome";
+	public String ShopHome(HttpSession session) {
+		String str = "";
+		System.out.println(session);
+		if(session.getAttribute("user")==null) {
+			return  "guest/login/loginHome";
+		}
+		else{
+			UserVO userVO = (UserVO) session.getAttribute("user");
+			System.out.println("들어옴 "+userVO.getUserType());
+			if(userVO.getUserType() == "2") {
+				return "redirect:/shop/mypage";
+			}else {
+				str =  "redirect:/";
+			}
+			 	
+		}
+		return str;
 	}
 	//부동산 설정 페이지(myPage)
 	@RequestMapping("/mypage")
 	public String ShopSetting(HttpSession session, Model model) throws Exception{
 		UserVO userVO=(UserVO)session.getAttribute("user");
-		UserVO user=shopService.selectOne(userVO);
+
+		model.addAttribute("headerNav",1);
+		model.addAttribute("subNav",1);
+		
 		return "shop/setting/shopMypage";
 	}
 	//주소 구 리스트 Ajax

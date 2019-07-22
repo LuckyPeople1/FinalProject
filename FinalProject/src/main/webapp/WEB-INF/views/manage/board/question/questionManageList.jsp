@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>1:1 문의관리</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body> 
 <div class="container">
@@ -111,7 +113,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/question/questionManageView?questionsIndex=${q.questionsIndex }" class="btn small col_main f_w">보기</a>
+								<a href="/manage/board/question/questionManageView?questionsIndex=${q.questionsIndex }" class="btn small col_main f_w"  style="background: gray;">상세보기</a>
 							</div>
 							<div>
 								<a href="/manage/board/question/questionManageDelete?questionsIndex=${q.questionsIndex }" class="btn small col_darkGrey f_w">삭제</a>
@@ -119,6 +121,9 @@
 						</td>
 					</tr>
 					</c:forEach>
+					<c:if test="${empty list }">
+						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+					</c:if>
 					</tbody>
 				</table>
 			</div>

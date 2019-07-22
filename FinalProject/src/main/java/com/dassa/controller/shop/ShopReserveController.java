@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +26,7 @@ public class ShopReserveController {
 	private ShopService shopService;
 	//부동산 방문관리 페이지(reserve)
 	@RequestMapping("/reserve")
-	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession)throws Exception {
+	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession, Model model)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -42,6 +43,8 @@ public class ShopReserveController {
 			mav.addObject("pageNavi",pageNavi);
 			mav.setViewName("shop/reserve/shopReserveList");
 		}
+		model.addAttribute("headerNav",4);
+		model.addAttribute("subNav",1);
 		return mav;
 	}
 	/**

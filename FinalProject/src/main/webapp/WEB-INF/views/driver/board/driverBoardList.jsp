@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body>
 <div class="container">
@@ -51,16 +53,12 @@
 					</tr>
 				</table>
 				<div class="set_form_search">
-					<a href="javascript:void(0)" class="btn col_red f_w">검색</a>
+					<a href="javascript:void(0)" class="btn col_blue f_w">검색</a>
 					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>
 			<div class="list_form">
-				<div class="table_list_btn">
-					<span class="right_btn">
-						<a href="/driver/board/driverNoticeWriter" class="btn col_darkGrey f_w">글쓰기</a>
-					</span>
-				</div>
+
 				<table class="table_list">
 					<colgroup>
 						<col width="60">
@@ -96,7 +94,7 @@
 						</td>
 						<td>
 							<div class="set_menu">
-								<a href="/driver/board/driverNoticeList?noticeIndex=${q.noticeIndex }" class="btn col_navy f_w">상세보기</a>
+								<a href="/driver/board/driverNoticeView?noticeIndex=${q.noticeIndex }" class="btn col_navy f_w">상세보기</a>
 							</div>
 
 						</td>

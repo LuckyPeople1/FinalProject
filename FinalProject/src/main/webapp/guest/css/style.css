@@ -1417,7 +1417,7 @@ section.mypage .navTabBox{
 section.mypage .navTabBox .tab{
 	position:relative;
 	display:inline-block;
-	width: 25%;
+	width: 20%;
 	text-align: center;
 	line-height: 40px;
 	color: rgb(136, 136, 136);;
@@ -5513,6 +5513,11 @@ section.shopItemView .cETKtB > span {
 }
 
 section .mypageBtnBox #mypage_btn{
+	cursor: pointer;
 	margin-left: 20px;
 	height: 50px;
+}
+
+section .img_upload #my_img{
+	height: 85px;
 }

@@ -52,7 +52,7 @@
 				</table>
 				</form>
 				<div class="set_form_search">
-					<a href="javascript:$('#shopItemSearch').submit()" class="btn col_red f_w">검색</a>
+					<a href="javascript:$('#shopItemSearch').submit()" class="btn col_blue f_w">검색</a>
 					<a href="/shop/item" class="btn col_grey line ml5">전체 목록</a>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 					<c:forEach items="${list}" var="item">
 					<tr>
 						<td><label><input type="checkbox"></label></td>
-						<td>${item.shopItemIdx }</td>
+						<td><a href="/shop/itemView?shopItemIdx=${item.shopItemIdx }">${item.shopItemIdx }</a></td>
 						<td>
 							<div class="mb5">${item.shopItemManager }</div>
 						</td>
@@ -112,6 +112,9 @@
 						</c:if>
 						<c:if test="${item.shopItemSaleState eq '판매중'}">
 							<span class="tag col_blue f_w">${item.shopItemSaleState }</span>
+						</c:if>
+						<c:if test="${item.shopItemSaleState eq '판매완료'}">
+							<span class="tag col_darkGrey f_w">${item.shopItemSaleState }</span>
 						</c:if>
 						</td>
 						<td>
@@ -132,12 +135,13 @@
 									<button type="button" class="btn small col_blue f_w" name="addItem" value=${item.shopItemIdx }>판매진행</button>
 								</c:if>
 								<c:if test="${item.shopItemSaleState eq '판매중'}">
+									<button type="button" class="btn small col_blue f_w" name="itemSuc" value=${item.shopItemIdx }>판매완료</button>
 									<button type="button" class="btn small col_darkGrey f_w" name="stopItem" value=${item.shopItemIdx }>판매중단</button>
 								</c:if>
-								<c:if test="${item.shopItemPremiumState eq '0'}">
+								<c:if test="${item.shopItemPremiumState eq '0' && item.shopItemSaleState eq '판매중'}">
 									<button type="button" class="btn small col_green f_w" name="powerIng" value=${item.shopItemIdx }>아이템 적용</button>
 								</c:if>
-								<c:if test="${item.shopItemPremiumState eq '1'}">
+								<c:if test="${item.shopItemPremiumState eq '1' && item.shopItemSaleState eq '판매중'}">
 									<button type="button" class="btn small col_darkGrey f_w" name="powerEnd" value=${item.shopItemIdx }>아이템 해제</button>
 								</c:if>
 								<button type="button" class="btn small col_red f_w" name="delItem" value=${item.shopItemIdx }>삭제</button>
@@ -157,6 +161,7 @@
 	<footer role="footer" data-include="footer.html"></footer>
 </div>
 <script>
+	
 	$("button[name=powerIng]").click(function(){
 		var idx = $(this).val();
 		var userIdx = $("input[name='userIdx']").val();
@@ -199,6 +204,14 @@
 		}
 		return;
 	})
+	$("button[name='itemSuc']").click(function(){
+		var idx=$(this).val();
+		var userIdx = $("input[name='userIdx']").val();
+		if(confirm("판매완료로 변경하시겠습니까?")){
+			location.href="/shop/shopItemSuc?shopItemIdx="+idx+"&userIdx="+userIdx;
+		}
+		return;
+	});
 </script>
 </body>
 </html>

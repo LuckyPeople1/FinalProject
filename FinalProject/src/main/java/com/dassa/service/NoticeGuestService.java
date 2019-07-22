@@ -35,7 +35,7 @@ public class NoticeGuestService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//이전 버튼 생성
 		if(pageNo !=1) {
-			pageNavi += "<a class='btn' href='/guest/notice/noticeList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<a class='pbtn' href='/guest/notice/noticeList?reqPage="+(pageNo-1)+"'>이전</a>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
@@ -43,13 +43,13 @@ public class NoticeGuestService {
 			if(reqPage == pageNo) {
 				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
 			}else {
-				pageNavi += "<a class='btn' href='/guest/notice/noticeList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<a class='pbtn' href='/guest/notice/noticeList?reqPage="+pageNo+"'>"+pageNo+"</a>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-			pageNavi +="<a class='btn' href='/guest/notice/noticeList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi +="<a class='pbtn' href='/guest/notice/noticeList?reqPage="+pageNo+"'>다음</a>";
 		}
 		NoticePageData pd = new NoticePageData(list,pageNavi);
 		return pd;
@@ -81,7 +81,7 @@ public class NoticeGuestService {
 		int pageNo = ((reqPage - 1) / pageNaviSize) * pageNaviSize + 1;
 		// 이전 버튼 생성
 		if (pageNo != 1) {
-			pageNavi += "<a class='btn' href='/guest/notice/faqList?reqPage=" + (pageNo - 1) + "'>이전</a>";
+			pageNavi += "<a class='pbtn' href='/guest/notice/faqList?reqPage=" + (pageNo - 1) + "'>이전</a>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
@@ -89,13 +89,13 @@ public class NoticeGuestService {
 			if (reqPage == pageNo) {
 				pageNavi += "<span class='selectPage'>" + pageNo + "</span>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
 			} else {
-				pageNavi += "<a class='btn' href='/guest/notice/faqList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				pageNavi += "<a class='pbtn' href='/guest/notice/faqList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
 			}
 			pageNo++;
 		}
 		// 다음 버튼 생성
 		if (pageNo <= totalPage) {
-			pageNavi += "<a class='btn' href='/guest/notice/faqList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "<a class='pbtn' href='/guest/notice/faqList?reqPage=" + pageNo + "'>다음</a>";
 		}
 		FaqPageData fpd = new FaqPageData(list, pageNavi);
 		return fpd;

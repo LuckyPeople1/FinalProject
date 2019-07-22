@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항 관리</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body> 
 <div class="container">
@@ -49,7 +51,6 @@
 					</tr>
 				</table>
 				<div class="set_menu">
-					<!-- <button type="submit" class="btn normal col">ㄲㄲㄲㄱ</button> -->
 					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w">검색</a>
 					<a href="/manage/board/notice/noticeManageList?reqPage=1" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
@@ -95,7 +96,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/notice/noticeManageView?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">상세보기</a>
+								<a href="/manage/board/notice/noticeManageView?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w" style="background: gray;">상세보기</a>
 							</div>
 							<div>
 								<a href="/manage/board/notice/noticeManageModify?noticeIndex=${n.noticeIndex }" class="btn small col_main f_w">수정</a>
@@ -107,6 +108,9 @@
 					</tr>
 			
 					</c:forEach>
+					<c:if test="${empty list }">
+						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+					</c:if>
 					
 					</tbody>
 				</table>

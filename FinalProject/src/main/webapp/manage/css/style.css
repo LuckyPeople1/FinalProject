@@ -1304,3 +1304,9 @@ section.saleMoveInfo .section .infoBox .row .subject {
     transform: translateY(-50%);
     font-size: 12px;
 }
+
+section .container .detail_img{
+	width:200px;
+	height:200px;
+}
+
