@@ -12,26 +12,20 @@
 			
 			<!-- 컨텐츠 시작 -->
 			<div class="mypageCon myInfo">
+				<form action="/my/modiUser?userIdx=${user.userIdx }" method="post" enctype="multipart/form-data">
 				<div class="profileBox">
 					<div class="imgBox">
-						 <c:choose>
-							<c:when test="${user.proFilename } == null && ${user.proFilename } == ''">
-								<input type="file" id="profileImg" name="profileImg" style="display:none;"/>
-								<input type="file" class="hide" accept="image/*" name="proFilename" id="fileImg"
-									   onchange="package.imgSel(this, event)" value="${user.proFilename }">
-							</c:when>
-							<c:otherwise>
-								<img src="/guest/img/img_profile_default.png" alt="프로필">
-								<input type="file" class="hide" accept="image/*" name="proFilename" id="fileImg"
-									   onchange="package.imgSel(this, event)" value="${user.proFilename }">
-							</c:otherwise>
-						</c:choose> 
+						<div class="img_upload">
+							<input type="file" name="proFilename" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
+							<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
+								<img id="my_img"  src="${user.proFilepath }"> 
+							</a>
+						</div>
 					</div>
 					<div class="profileBtn">
 						<div class="img_up_list">
 							<div class="img_box">
-								<a href="#none" onclick="package.imgUpload(this)">프로필 사진 변경</a>
-								<input type="hidden" name="proFilepath" value="${user.proFilename }">
+								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)">프로필 사진 변경</a>
 							</div>
 						</div>
 					</div>
@@ -54,8 +48,10 @@
 				</div>
 				<div class="mypageBtnBox">
 					<a href="/my/" class="btn col_darkGrey f_w big">취소</a>
-					<a href="javascript:my.modiInfo(${user.userIdx })" class="btn col_main f_w big">수정</a>
+					<button type="submit" id="mypage_btn" class="btn col_main f_w big">수정</button>
+					<%-- <a href="javascript:my.modiInfo(${user.userIdx })" class="btn col_main f_w big">수정</a> --%>
 				</div>
+				</form>
 			</div>
 		</section>
 	</div>

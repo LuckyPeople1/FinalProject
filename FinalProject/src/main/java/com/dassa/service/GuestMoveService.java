@@ -208,4 +208,8 @@ public class GuestMoveService {
 	public int getModiUser(UserVO userVO) {
 		return guestMoveMapper.getModiUser(userVO);
 	}
+	//이미지 수정
+	public int getImgModiUser(UserVO userVO) {
+		return guestMoveMapper.getImgModiUser(userVO);
+	}
 }
