@@ -14,5 +14,6 @@ public interface MapMapper {
 	public ArrayList<ShopItemVO> mapSelectList(Map<String, Object> map) throws Exception;
 	public ArrayList<ShopItemVO> mapSelectOne(Map<String, Object> map) throws Exception;
 	public ArrayList<ShopItemVO> selectAll() throws Exception;
+	public ArrayList<ShopItemVO> selectOne(String shopItemAddr1) throws Exception;
 	public ArrayList<ShopItemVO> mapAll() throws Exception;
 }

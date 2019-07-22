@@ -100,7 +100,12 @@ g[Attributes Style] {
     list-style: none;
 }
 .dnFDTx > p > span.Blue {
+    display: block;
+    overflow: hidden;
     color: rgb(0, 108, 255);
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .iqLabM {
     min-width: 18px;
@@ -219,7 +224,7 @@ g[Attributes Style] {
     top: 0px;
     right: 0px;
     left: 0px;
-    background: url(https://d1774jszgerdmk.cloudfront.net/512/6ade309b-6b76-4fae-bce8-0912373b43b3) center center / cover no-repeat;
+    
 }
 .bnManG::after {
     content: "";
@@ -1247,24 +1252,27 @@ section.mapView .eUbtsI > .Radio--circle::after {
 								<p class="styled__Desc-sc-1a98puu-5 dUdesp">중복선택이 가능합니다.</p>
 							</h1>
 							<ul class="styled__Ul-sc-7qrnpy-0 eLjSYd">
-								<li><label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"
-									size="22"><input type="checkbox"
-										class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
-										name="selling_type" value="" checked=""><span
-										class="CheckBox"></span><span
-										class="styled__Text-sc-7qrnpy-1 nmQzi">월세</span></label></li>
-								<li><label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"
-									size="22"><input type="checkbox"
-										class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
-										name="selling_type" value="" checked=""><span
-										class="CheckBox"></span><span
-										class="styled__Text-sc-7qrnpy-1 nmQzi">전세</span></label></li>
-								<li><label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"
-									size="22"><input type="checkbox"
-										class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"
-										name="selling_type" value="" checked=""><span
-										class="CheckBox"></span><span
-										class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span></label></li>
+								<li>
+									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="" checked="">
+										<span class="CheckBox"></span>
+										<span class="styled__Text-sc-7qrnpy-1 nmQzi">월세</span>
+									</label>
+								</li>
+								<li>
+									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="selling_type" value="" checked="">
+										<span class="CheckBox"></span>
+										<span class="styled__Text-sc-7qrnpy-1 nmQzi">전세</span>
+									</label>
+								</li>
+								<li>
+									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="" checked="">
+										<span class="CheckBox"></span>
+										<span class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span>
+									</label>
+								</li>
 							</ul>
 						</div>			
 			
@@ -1274,8 +1282,8 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div class="styled__ListWrap-zfi8ji-1 gkpTsu">
 			<div class="styled__Wrap-ityzo6-0 eXwtu">
 				<div class="styled__Tabs-sc-1sk8lv8-0 jLBlsX">
-					<a class="hXdylP">조건에 맞는 방 ${fn:length(list)}개</a>						
-				</div>
+					<a class="hXdylP">조건에 맞는 방 ${fn:length(mid.list)}개</a>						
+				</div> 
 				
 				
 				<!-- <div class="styled__NoRoom-ityzo6-2 kkLYaw">
@@ -1300,13 +1308,17 @@ section.mapView .eUbtsI > .Radio--circle::after {
 					</div>
 				</div> -->
 					<ul class="styled__Ul-ityzo6-5 fxRDHg">							
-					<c:forEach items="${list }" var="v">
+					<c:forEach var="v" items="${mid.list}" varStatus="i">
 						
 						 <li class="Mmhsh">
 							<div class="styled__Card-fi3k4t-0 OUJOU">
 								<div class="styled__BtnWrap-sc-3yrk4m-0 gYMri">								</div>
 								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/shop/itemView?shopItemIdx=${v.shopItemIdx }">								
-								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG"></div>
+								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG">
+									
+										<img src="${mid.imgList[i.count -1]}">
+								
+								</div>
 								<div class="styled__BadgeWrap-fi3k4t-3 gAdXIp">
 									<svg class="styled__Svg-sc-1t9oqsb-0 hhLAzQ" viewBox="0 0 46 18" fill="none">
 										<rect width="46" height="18" rx="2" fill="#CDAF84"></rect>
@@ -1351,7 +1363,13 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	</div>			
 		<div id="coordXY"></div>
 			<p>
-				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a><c:forEach items="${list }" var="v"><span class="test2">${v.shopItemTitle }</span><span class="test1">${v.shopItemIdx}</span><span class="test">${v.shopItemAddr1 }</span></c:forEach>
+				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a>
+				<span class="test3">${shopItemAddr1 }</span>
+				<c:forEach var="v" items="${mid.list}" varStatus="i">					
+					<span class="test2">${v.shopItemTitle }</span>
+					<span class="test1">${v.shopItemIdx}</span>
+					<span class="test">${v.shopItemAddr1 }</span>
+				</c:forEach>
 			</p>			
 		</div>
 		<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
@@ -1490,8 +1508,40 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	    });    
 	    	}	
 	
-	 $(document).ready(function(){					 
-		 
+	 $(document).ready(function(){
+		console.log($(".test3").html());
+		var geocoder = new daum.maps.services.Geocoder();
+		geocoder.addressSearch($(".test3").html(), function(result, status) {	
+			// 정상적으로 검색이 완료됐으면,
+			if (status == daum.maps.services.Status.OK) {			
+				var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+				y = result[0].x;
+				x = result[0].y;
+				var moveLatLon = new kakao.maps.LatLng(x, y);
+				map.setCenter(moveLatLon);
+				map.panTo(moveLatLon);							   
+			}
+		});
+		if($(".test").html()!=""){
+			console.log("하이");
+			var geocoder = new daum.maps.services.Geocoder();
+			console.log($(".test").length);
+			for(var i=0;i<$(".test").length;i++){				
+				geocoder.addressSearch($(".test").eq(i).html(), function(result, status) {	
+					// 정상적으로 검색이 완료됐으면,
+					if (status == daum.maps.services.Status.OK) {			
+						var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+						y = result[0].x;
+						x = result[0].y;
+						var moveLatLon = new kakao.maps.LatLng(x, y);
+						map.setCenter(moveLatLon);
+						map.panTo(moveLatLon);							   
+					}
+				});
+			}
+		}
+			
+		
 		$(".customoverlay").click(function(){					
 			var strArray=$(this).children().val().split(',');
 			var string = strArray[0];

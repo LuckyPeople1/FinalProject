@@ -35,14 +35,14 @@ $("#mapName").keyup(function(){
 							str1+="<circle cx='13.07' cy='7.957' r='2.783'></circle>";
 							str1+="</g></svg><h1>지역</h1></header>";
 							str1+="<ul class='styled__Ul-sc-1wgcq7h-2 cdZmjD'>";
-							if(data.length=='0'){
+							if(data.list.length=='0'){
 								str1+="<p>조건에 맞는 방이 없습니다.</p>";							
 								str1+="</ul></li></ul>";
 								var byjidO=$(".byjidO");
 								byjidO.append(str1);
 							}else{
-								for(var i=0;i<data.length;i++){								
-									str1+="<li class='styled__Item-l0z4xp-0 dnFDTx' onclick='test(\""+data[i].shopItemAddr1+"\")'><p><span class='Blue'>"+data[i].shopItemAddr1+"</span></p>";
+								for(var i=0;i<data.list.length;i++){								
+									str1+="<li class='styled__Item-l0z4xp-0 dnFDTx' onclick='test(\""+data.list[i].shopItemAddr1+"\")'><p><span class='Blue'>"+data.list[i].shopItemAddr1+"</span></p>";
 									str1+="</li>";
 									/*str1+="<div class='styled__TypeWrap-sc-1wgcq7h-3 iqLabM'>";
 									str1+="<span class='styled__Type-sc-1wgcq7h-4 hTjTzB' type='5'>5</span>";
@@ -175,7 +175,7 @@ $("#mapSelect").click(function(){
 			success : function(data){
 				console.log("성공");
 				$(".hXdylP").text("조건에 맞는 방 "+data.length+"개");	
-			if(data!=""){
+			if(data.list!=""){
 				var msg="";									
 				for(var i=0;i<data.length;i++){
 					console.log(data[i].shopItemDealType);
@@ -210,7 +210,7 @@ $("#mapSelect").click(function(){
 						str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemContent+"</p></a></div></li>";
 					}
 				mapView.append(str);
-				}else if(data==""){
+				}else if(data.list==""){
 					str = "";
 					str+="<div class='styled__NoRoom-ityzo6-2 kkLYaw'>";
 					str+="<div><svg width='46' height='43' viewBox='0 0 46 43'>";
@@ -282,24 +282,25 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 					url:"/mapAll",							
 					success : function(data){
 						console.log("성공");				
-					if(data!=""){
+					if(data.list!=""){
 						var msg="";
-						$(".hXdylP").text("조건에 맞는 방 "+data.length+"개");	
-						for(var i=0;i<data.length;i++){
-							console.log(data[i].shopItemDealType);
-							var hi=data[i].shopItemDealType;
+						$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
+						for(var i=0;i<data.list.length;i++){
+							console.log(data.list);
+							var hi=data.list[i].shopItemDealType;
+							console.log(hi);
 							if(hi=="월세"){
-								msg=data[i].shopItemDeposit+"/"+data[i].shopItemDealPrice;
+								msg=data.list[i].shopItemDeposit+"/"+data.list[i].shopItemDealPrice;
 							}else{
-								msg=data[i].shopItemDealPrice;
+								msg=data.list[i].shopItemDealPrice;
 							}							
 							
 								str+="<li class='Mmhsh'>";
 								str+="<div class='styled__Card-fi3k4t-0 OUJOU'>";
 								str+="<div class='styled__BtnWrap-sc-3yrk4m-0 gYMri'>";
 								str+="</div>";
-								str+="<a target='_blank' rel='noopener noreferrer' class='styled__A-fi3k4t-1 kpKjGs' href='/shop/itemView?shopItemIdx="+data[i].shopItemIdx+"'>";								
-								str+="<div class='styled__RoomImg-fi3k4t-2 RoomImg bnManG'></div>";
+								str+="<a target='_blank' rel='noopener noreferrer' class='styled__A-fi3k4t-1 kpKjGs' href='/shop/itemView?shopItemIdx="+data.list[i].shopItemIdx+"'>";								
+								str+="<div class='styled__RoomImg-fi3k4t-2 RoomImg bnManG'><img src='"+data.imgList[i]+"'></div>";
 								str+="<div class='styled__BadgeWrap-fi3k4t-3 gAdXIp'>";
 								str+="<svg class='styled__Svg-sc-1t9oqsb-0 hhLAzQ' viewBox='0 0 46 18' fill='none'>";
 								str+="<rect width='46' height='18' rx='2' fill='#CDAF84'></rect>";
@@ -310,15 +311,15 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 								str+="</svg>";
 								str+="<div class='styled__ConfirmBadge-fi3k4t-4 gekGFB' type='confirm'>";
 								str+="<span>확인매물</span>";
-								str+="<font>"+data[i].shopItemRegDate+"</font></div></div>";
-								str+="<p class='styled__RoomType-fi3k4t-8 kCTBqT styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemType1+"</p>";
+								str+="<font>"+data.list[i].shopItemRegDate+"</font></div></div>";
+								str+="<p class='styled__RoomType-fi3k4t-8 kCTBqT styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemType1+"</p>";
 								str+="<p class='styled__Price-fi3k4t-9 glovZ styled__Text-fi3k4t-7 jBkVAv'>";
-								str+="<span>"+data[i].shopItemDealType+" "+msg+"</span>";
-								str+="</p><p class='styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemFloor1+","+data[i].shopItemSize2+", 관리비 "+data[i].shopItemManagePrice+" </p>";
-								str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemContent+"</p></a></div></li>";
+								str+="<span>"+data.list[i].shopItemDealType+" "+msg+"</span>";
+								str+="</p><p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+","+data.list[i].shopItemSize2+", 관리비 "+data.list[i].shopItemManagePrice+" </p>";
+								str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 							}
 						mapView.append(str);
-						}else if(data==""){
+						}else if(data.list==""){
 							$(".hXdylP").text("조건에 맞는 방 0 개");
 							str = "";
 							str+="<div class='styled__NoRoom-ityzo6-2 kkLYaw'>";
@@ -350,6 +351,7 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 			mapView.html("");
 			var str="";
 			var shopItemAddr2 = infoDiv1[1].substring(0,2);
+			console.log(shopItemAddr2);
 			 $.ajax({		
 					url:"/mapAView",			
 					data:{
@@ -358,24 +360,23 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 					},			
 					success : function(data){
 						console.log("성공");				
-					if(data!=""){
+					if(data.list!=""){
 						var msg="";
-						$(".hXdylP").text("조건에 맞는 방 "+data.length+"개");	
-						for(var i=0;i<data.length;i++){
-							console.log(data[i].shopItemDealType);
-							var hi=data[i].shopItemDealType;
+						$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
+						for(var i=0;i<data.list.length;i++){							
+							var hi=data.list[i].shopItemDealType;
 							if(hi=="월세"){
-								msg=data[i].shopItemDeposit+"/"+data[i].shopItemDealPrice;
+								msg=data.list[i].shopItemDeposit+"/"+data.list[i].shopItemDealPrice;
 							}else{
-								msg=data[i].shopItemDealPrice;
+								msg=data.list[i].shopItemDealPrice;
 							}							
 							
 								str+="<li class='Mmhsh'>";
 								str+="<div class='styled__Card-fi3k4t-0 OUJOU'>";
 								str+="<div class='styled__BtnWrap-sc-3yrk4m-0 gYMri'>";
 								str+="</div>";
-								str+="<a target='_blank' rel='noopener noreferrer' class='styled__A-fi3k4t-1 kpKjGs' href='/shop/itemView?shopItemIdx="+data[i].shopItemIdx+"'>";								
-								str+="<div class='styled__RoomImg-fi3k4t-2 RoomImg bnManG'></div>";
+								str+="<a target='_blank' rel='noopener noreferrer' class='styled__A-fi3k4t-1 kpKjGs' href='/shop/itemView?shopItemIdx="+data.list[i].shopItemIdx+"'>";								
+								str+="<div class='styled__RoomImg-fi3k4t-2 RoomImg bnManG'><img src='"+data.imgList[i]+"'></div>";
 								str+="<div class='styled__BadgeWrap-fi3k4t-3 gAdXIp'>";
 								str+="<svg class='styled__Svg-sc-1t9oqsb-0 hhLAzQ' viewBox='0 0 46 18' fill='none'>";
 								str+="<rect width='46' height='18' rx='2' fill='#CDAF84'></rect>";
@@ -386,15 +387,16 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 								str+="</svg>";
 								str+="<div class='styled__ConfirmBadge-fi3k4t-4 gekGFB' type='confirm'>";
 								str+="<span>확인매물</span>";
-								str+="<font>"+data[i].shopItemRegDate+"</font></div></div>";
-								str+="<p class='styled__RoomType-fi3k4t-8 kCTBqT styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemType1+"</p>";
+								str+="<font>"+data.list[i].shopItemRegDate+"</font></div></div>";
+								str+="<p class='styled__RoomType-fi3k4t-8 kCTBqT styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemType1+"</p>";
 								str+="<p class='styled__Price-fi3k4t-9 glovZ styled__Text-fi3k4t-7 jBkVAv'>";
-								str+="<span>"+data[i].shopItemDealType+" "+msg+"</span>";
-								str+="</p><p class='styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemFloor1+","+data[i].shopItemSize2+", 관리비 "+data[i].shopItemManagePrice+" </p>";
-								str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data[i].shopItemContent+"</p></a></div></li>";
+								str+="<span>"+data.list[i].shopItemDealType+" "+msg+"</span>";
+								str+="</p><p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+","+data.list[i].shopItemSize2+", 관리비 "+data.list[i].shopItemManagePrice+" </p>";
+								str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 							}
 						mapView.append(str);
-						}else if(data==""){
+						}else if(data.list==""){
+							console.log("ㅎㅎㅎ");
 							$(".hXdylP").text("조건에 맞는 방 0 개");
 							str = "";
 							str+="<div class='styled__NoRoom-ityzo6-2 kkLYaw'>";

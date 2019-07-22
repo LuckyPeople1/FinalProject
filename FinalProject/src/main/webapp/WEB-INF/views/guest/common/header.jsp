@@ -13,7 +13,7 @@
 	</div>
 	<div class="rightMenu">
 		<nav class="mainNav">
-			<a href="/mapView">방찾기</a>
+			<a href="/mapView?shopItemAddr1=">방찾기</a>
 			<a href="/saleInLots/" class="new">분양</a>
 			<a href="/guest/notice/noticeList?reqPage=1">공지사항</a>
 			<!-- <a href="#none">관심목록</a>
