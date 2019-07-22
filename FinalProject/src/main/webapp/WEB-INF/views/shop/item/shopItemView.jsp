@@ -533,7 +533,12 @@
 					</div>
 					<div class="kMFgaL">
 						<div class="gjVGcx">
-							<img src="${member.shopMemberImgPath }">
+							<c:if test="${member.shopMemberImgPath == null}">
+								<img src="/upload/profile/user.png" style="width:76px; height: 76px;">
+							</c:if>
+							<c:if test="${member.shopMemberImgPath != null}">
+								<img src="${member.shopMemberImgPath}" style="width:76px; height: 76px;">
+							</c:if>
 						</div>
 						<div class="hEBltZ">
 							<p class="fKNqjm">담당자 : ${item.shopItemManager }</p>
