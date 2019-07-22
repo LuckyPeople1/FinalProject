@@ -35,7 +35,7 @@
 			</table>
 			<div class="set_menu">
 				<button type="submit" id="search_btn"  class="btn normal col_main f_w">검색</button>
-				<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+				<a href="/shopManage/shopAllList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 			</div>
 		</div>
 		<div class="list_field">
@@ -69,12 +69,15 @@
 					<c:forEach var="list" items="${list}" varStatus="i">
 						<tr>
 							<td>${i.count }</td>
-							<td>${list.shopItemIdx }</td>
+							<td><a href="/shop/itemView?shopItemIdx=${list.shopItemIdx }">${list.shopItemIdx }</a></td>
 							<td>${list.shopName }</td>
 							<td>${list.shopItemManager }</td>
 							<td>${list.shopItemType1 }</td>
 							<td>${list.shopItemDealType }</td>
 							<td>
+								<c:if test="${list.shopItemSaleState eq '판매완료'}">
+									<span class="tag col_darkGrey f_w">${list.shopItemSaleState }</span>
+								</c:if>
 								<c:if test="${list.shopItemSaleState eq '판매중단'}">
 									<span class="tag col_darkGrey f_w">${list.shopItemSaleState }</span>
 								</c:if>
@@ -101,10 +104,10 @@
 								<c:if test="${list.shopItemSaleState eq '판매중'}">
 									<button type="button" class="btn normal col_darkGrey f_w" name="stopItem" value=${list.shopItemIdx }>판매중단</button>
 								</c:if>
-								<c:if test="${list.shopItemPremiumState eq '0'}">
+								<c:if test="${list.shopItemPremiumState eq '0' && list.shopItemSaleState eq '판매중'}">
 									<button type="button" class="btn normal col_blue f_w" name="powerIng" value=${list.shopItemIdx }>아이템 적용</button>
 								</c:if>
-								<c:if test="${list.shopItemPremiumState eq '1'}">
+								<c:if test="${list.shopItemPremiumState eq '1' && list.shopItemSaleState eq '판매중'}">
 									<button type="button" class="btn normal col_darkGrey f_w" name="powerEnd" value=${list.shopItemIdx }>아이템 해제</button>
 								</c:if>
 								<button type="button" class="btn normal col_darkGrey f_w" name="delItem" value=${list.shopItemIdx }>삭제</button>

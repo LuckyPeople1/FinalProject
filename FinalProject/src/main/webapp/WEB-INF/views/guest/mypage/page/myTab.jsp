@@ -4,4 +4,5 @@
 	<a href="/my/reserList?guestIdx=${sessionScope.user.userIdx }" class="tab ${tab == 1 ? 'on' : ''}">방문 내역</a>
 	<a href="/my/moveList?guestIdx=${sessionScope.user.userIdx}" class="tab ${tab == 2 ? 'on' : ''}">이사 관리</a>
 	<a href="/my/review?guestIdx=${sessionScope.user.userIdx}" class="tab ${tab == 3 ? 'on' : ''}">내가 쓴 리뷰</a>
+	<a href="/my/myQuestion?reqPage=1" class="tab ${tab == 4 ? 'on' : ''}">내가 쓴 문의</a>
 </div>

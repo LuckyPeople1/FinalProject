@@ -6,7 +6,7 @@
 			<i class="ico home">홈</i>
 			<span class="nav_txt">홈</span>
 		</a>
-		<a href="/shop/mypage"  class="">
+		<a href="/shop/mypage"  class="${headerNav == 1 ? 'on' :''}">
 			<i class="ico set">부동산 설정</i>
 			<span class="nav_txt">부동산 설정</span>
 		</a>
@@ -14,23 +14,23 @@
 			<i class="ico member">직원관리</i>
 			<span class="nav_txt">직원관리</span>
 		</a>
-		<a href="/shop/item">
+		<a href="/shop/item" class="${headerNav == 2 ? 'on' :''}">
 			<i class="ico shop">매물관리</i>
 			<span class="nav_txt">매물관리</span>
 		</a>
-		<a href="/shop/reserve" class="">
+		<a href="/shop/reserve" class="${headerNav == 4 ? 'on' :''}">
 			<i class="ico reserve">방문관리</i>
 			<span class="nav_txt">방문관리</span>
 		</a>
-		<a href="/shop/board/shopBoardList?reqPage=1">
+		<a href="/shop/board/shopBoardList?reqPage=1" class="${headerNav == 5 ? 'on' :''}">
 			<i class="ico board">게시판관리</i>
 			<span class="nav_txt">게시판관리</span>
 		</a>
-		<a href="/shop/premiumItem">
+		<a href="/shop/premiumItem" class="${headerNav == 6 ? 'on' : ' '}">
 			<i class="ico marketing">상품관리</i>
 			<span class="nav_txt">상품관리</span>
 		</a>
-		<a href="/" class="logout">
+		<a href="/login/logout" class="logout">
 			<i class="ico logout">로그아웃</i>
 			<span class="nav_txt">로그아웃</span>
 		</a>

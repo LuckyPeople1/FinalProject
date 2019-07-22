@@ -1417,7 +1417,7 @@ section.mypage .navTabBox{
 section.mypage .navTabBox .tab{
 	position:relative;
 	display:inline-block;
-	width: 25%;
+	width: 20%;
 	text-align: center;
 	line-height: 40px;
 	color: rgb(136, 136, 136);;
@@ -3265,6 +3265,15 @@ section.saleInLotsInformation .saleInLotsState {
     margin: 0px auto;
     border-radius: 2px;
 }
+section.saleInLotsInformation .saleInLotsState.red{
+    background-color: rgb(194, 36, 36);
+}
+section.saleInLotsInformation .saleInLotsState.green{
+    background-color: rgb(56, 185, 167);
+}
+section.saleInLotsInformation .saleInLotsState.gray{
+    background-color: gray;
+}
 section.saleInLotsInformation .saleInLotsType {
     font-size: 14px;
     color: rgb(136, 136, 136);
@@ -3663,8 +3672,17 @@ section.saleInLotsDetailInformation .detail_state{
     font-size: 13px;
     text-align: center;
     line-height: 24px;
-    background-color: rgb(194, 36, 36);
+    background-color: rgb(18, 58, 123);
     border-radius: 2px;
+}
+section.saleInLotsDetailInformation .detail_state.red{
+	background-color: rgb(194, 36, 36);
+}
+section.saleInLotsDetailInformation .detail_state.green{
+	background-color: rgb(56, 185, 167);
+}
+section.saleInLotsDetailInformation .detail_state.gray{
+	background-color: gray;
 }
 section.saleInLotsDetailInformation .detail_name{
 	margin-top: 10px;
@@ -4634,6 +4652,15 @@ section.saleInLotsBrand .saleInLotsState{
     margin: 0px auto;
     border-radius: 2px;
 }
+section.saleInLotsBrand .saleInLotsState.red{
+    background-color: rgb(194, 36, 36);
+}
+section.saleInLotsBrand .saleInLotsState.green{
+    background-color: rgb(56, 185, 167);
+}
+section.saleInLotsBrand .saleInLotsState.gray{
+    background-color: gray;
+}
 section.saleInLotsBrand .saleInLotsType{
 	font-size: 14px;
     color: rgb(136, 136, 136);
@@ -5513,6 +5540,11 @@ section.shopItemView .cETKtB > span {
 }
 
 section .mypageBtnBox #mypage_btn{
+	cursor: pointer;
 	margin-left: 20px;
 	height: 50px;
+}
+
+section .img_upload #my_img{
+	height: 85px;
 }

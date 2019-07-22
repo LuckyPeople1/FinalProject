@@ -54,7 +54,7 @@ function search_btn(userType, status){
 					if(uStatus == "탈퇴"){
 						str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_darkGrey f_w'>"+uStatus+"</a></td>";
 					}else{
-						str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+						str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
 					}
 					str += "</tr>";
 					
@@ -123,7 +123,7 @@ function searchAll_btn(userType, status){
 					if(uStatus == "탈퇴"){
 						str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_darkGrey f_w'>"+uStatus+"</a></td>";
 					}else{
-						str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+						str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
 					}
 					str += "</tr>";
 				}
@@ -190,7 +190,7 @@ function searchApprobate_btn(status){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+					str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
 					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 				}
@@ -249,7 +249,7 @@ function searchApprobateAll_btn(){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+					str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
 					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 				}
@@ -322,7 +322,7 @@ $(".checkUserType").change(function(){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+					str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
 					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 					
@@ -380,9 +380,9 @@ $(".checkUserType").change(function(){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
+					str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
 					str += ""+uStatus+"</a></td>";
-					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
+					str += "<td><a href='/userManage/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 					
 				}
@@ -437,9 +437,9 @@ $(".checkUserType").change(function(){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
+					str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
 					str += ""+uStatus+"</a></td>";
-					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
+					str += "<td><a href='/userManage/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 					
 				}
@@ -493,9 +493,9 @@ $(".checkUserType").change(function(){
 					str += "<td>"+data.list[i].userEmail+"</td>";
 					str += "<td>"+uType+"</td>";
 					str += "<td>"+data.list[i].enrollDate+"</td>";
-					str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
+					str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>";
 					str += ""+uStatus+"</a></td>";
-					str += "<td><a href='/manage/user/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
+					str += "<td><a href='/userManage/userDetail?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>상세보기</a></td>";
 					str += "</tr>";
 				}
 				listV.append(str);
@@ -654,7 +654,7 @@ function searchSuccess(data, listV, userType){
 		if(uStatus == "탈퇴"){
 			str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_darkGrey f_w'>"+uStatus+"</a></td>";
 		}else{
-			str += "<td><a href='/userManage/deleteUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
+			str += "<td><a href='/userManage/reloadApproUser?userIdx='"+data.list[i].userIdx+" "+"class='tag col_blue f_w'>"+uStatus+"</a></td>";
 		}
 		console.log(uType);
 		if(typeof userType == "undefined"){

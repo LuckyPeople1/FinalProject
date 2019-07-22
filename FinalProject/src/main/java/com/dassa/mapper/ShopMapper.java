@@ -72,6 +72,9 @@ public interface ShopMapper {
 	//매물 진행
 	public int shopItemIng(int shopItemIdx)throws Exception;
 	
+	//매물 완료
+	public int shopItemSuc(int shopItemIdx)throws Exception;
+	
 	//매물 삭제
 	public int shopItemDelete(int shopItemIdx) throws Exception;
 	
@@ -119,4 +122,15 @@ public interface ShopMapper {
 	
 	//파워링크 해지 시 개수 update
 	public int shopPowerItemEnd(Map<String, Object> map) throws Exception;
+	
+	//삭제 매물 가져오기
+	public int shopDelCount() throws Exception;
+	public ArrayList<ShopItemVO> shopDel(Map<String, Object> map) throws Exception;
+	
+	//판매완료 매물 가져오기
+	public int shopSucCount() throws Exception;
+	public ArrayList<ShopItemVO> shopSuc(Map<String, Object> map) throws Exception;
+	
+	//부동산마이페이지
+	public UserVO selectOne(int userIdx)throws Exception;
 }

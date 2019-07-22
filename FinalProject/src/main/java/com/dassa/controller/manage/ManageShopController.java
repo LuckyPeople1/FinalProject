@@ -47,6 +47,46 @@ public class ManageShopController {
 		}
 		return mav;
 	}
+	//부동산 삭제 뿌리기
+		@RequestMapping("/shopDel")
+		public ModelAndView shopDel(HttpServletRequest request) throws Exception{
+			int reqPage;
+			try {
+				reqPage=Integer.parseInt(request.getParameter("reqPage"));
+			}catch(NumberFormatException e){
+				reqPage=1;
+			}
+			ModelAndView mav = new ModelAndView();
+			ShopItemPageDataVO sipd = manageShopService.shopDel(reqPage);
+			if(!sipd.isEmpty()) {
+				ArrayList<ShopItemVO> sItemList = sipd.getList();
+				String pageNavi = sipd.getPageNavi();
+				mav.addObject("list",sItemList);
+				mav.addObject("pageNavi",pageNavi);
+				mav.setViewName("manage/shop/shopItemDel");
+			}
+			return mav;
+		}
+		//부동산 완료 뿌리기
+				@RequestMapping("/shopSuc")
+				public ModelAndView shopSuc(HttpServletRequest request) throws Exception{
+					int reqPage;
+					try {
+						reqPage=Integer.parseInt(request.getParameter("reqPage"));
+					}catch(NumberFormatException e){
+						reqPage=1;
+					}
+					ModelAndView mav = new ModelAndView();
+					ShopItemPageDataVO sipd = manageShopService.shopSuc(reqPage);
+					if(!sipd.isEmpty()) {
+						ArrayList<ShopItemVO> sItemList = sipd.getList();
+						String pageNavi = sipd.getPageNavi();
+						mav.addObject("list",sItemList);
+						mav.addObject("pageNavi",pageNavi);
+						mav.setViewName("manage/shop/shopItemSuc");
+					}
+					return mav;
+				}
 	/**
 	 * 중개사 페이지 - 매물 삭제 로직(itemDelete)
 	 * @param shopItemIdx

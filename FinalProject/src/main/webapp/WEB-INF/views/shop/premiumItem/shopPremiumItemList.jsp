@@ -38,7 +38,7 @@
 						<span>₩ 20,000원</span>
 					</div>
 					<div class="btn_box">
-						<button name="item"><a class="btn col_red">기본 상품 구매</a></button>
+						<button name="item"><a class="btn col_blue">기본 상품 구매</a></button>
 					</div>
 				</div>
 				<div class="item">
@@ -65,7 +65,7 @@
 						<span>₩ 30,000원</span>
 					</div>
 					<div class="btn_box">
-						<button name="vip"><a class="btn col_red">VIP 상품 구매</a></button>
+						<button name="vip"><a class="btn col_blue">VIP 상품 구매</a></button>
 					</div>
 				</div>
 			</section>			

@@ -13,7 +13,7 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from (select rownum as rnum, item.* from (select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='삭제')
+			from (select rownum as rnum, item.* from (select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료' or shop_item_sale_state='삭제')
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>

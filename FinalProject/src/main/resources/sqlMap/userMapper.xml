@@ -29,7 +29,7 @@
 				status,
 				out_date as outDate,
 				company_name as companyName
-		  from user_tbl where user_id=#{userId} and user_pw=#{userPw} and status = 1
+		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
 		<select id="socialLogin" parameterType="userVO" resultType="userVO">
@@ -118,7 +118,7 @@
 			                #{userType},
 			                 null,
 			                  default,
-			                   null,
+			                   2,
 			                    null,
 			                     null)
 		</insert>
@@ -144,7 +144,7 @@
 			                #{userType},
 			                 null,
 			                  default,
-			       			   null,
+			       			   2,
 			       			    null,
 			       			     #{companyName})
 		</insert>
@@ -152,4 +152,6 @@
 		<select id="idCheck" parameterType="userVO" resultType="userVO">
 			select user_id as userId from user_tbl where user_id=#{userId}
 		</select>
+		
+		
 </mapper>

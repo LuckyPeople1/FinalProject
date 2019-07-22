@@ -169,20 +169,37 @@
 	
 	<!-- 비밀번호 확인 -->
 	<select id="getPwChkProc" resultType="userVO">
-		select user_id as userId, user_name as userName from user_tbl where user_idx=#{userIdx} and user_pw=#{userPw}
+		select user_id as userId, user_name as userName, pro_filename as proFilename, pro_filepath as proFilepath from user_tbl where user_idx=#{userIdx} and user_pw=#{userPw}
 	</select>
 	<!-- 사용자 정보 수정 -->
 	<update id="getModiUser" parameterType="userVO">
-		update user_tbl set user_name=#{userName}, user_pw=#{userPw}
-		<choose>
-			<when test="proFilename == null ">
-				where user_idx=#{userIdx}
-			</when>
-			<when test="proFilename != null">
-				,pro_filename=#{proFilename}, pro_filepath=#{proFilepath}
-				where user_idx=#{userIdx}
-			</when>
-		</choose> 
-		
+		update user_tbl set user_name=#{userName}, user_pw=#{userPw} where user_idx=#{userIdx}
 	</update>
+	<!-- img수정 -->
+	<update id="getImgModiUser" parameterType="userVO">
+		update user_tbl set pro_filename=#{proFilename}, pro_filepath=#{proFilepath} where user_idx=#{userIdx}
+	</update>
+	
+	<!-- 마이페이지 문의내역리스트 -->
+	 <select id="selectQuestionList" resultType="questionVO" parameterType="_int">
+	select rnum as rnum,
+	questions_index as questionsIndex,
+	questions_user_type as questionsUserType,
+	questions_title as questionsTitle,
+	questions_answer as questionsAnswer,
+	questions_answer_state as questionsAnswerState,
+	questions_writer as questionsWriter,
+	questions_reg_date as questionsRegDate,
+	questions_state as questionsState
+	from (select rownum as rn , r.* from (select * from (select rownum as rnum,
+	n.* from
+	(select * from questions_tbl where
+	questions_user_type='일반문의'
+	order by questions_reg_date) n) order by rnum desc)r)
+	where rn between #{start} and #{end}	  
+  </select>
+  <!-- totalcount -->
+  <select id="totalCount" resultType="_int">
+  	select count(*) cnt from questions_tbl where questions_user_type='일반문의'
+  </select>
 </mapper>

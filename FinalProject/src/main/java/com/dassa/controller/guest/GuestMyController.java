@@ -32,6 +32,8 @@ import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MoveInfoTotalData;
 import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.QuestionPageData;
+import com.dassa.vo.QuestionVO;
 import com.dassa.vo.ShopReservationPageDataVO;
 import com.dassa.vo.ShopReservationVO;
 import com.dassa.vo.UserVO;
@@ -109,32 +111,30 @@ public class GuestMyController {
 	 * @return
 	 */
 	@RequestMapping("/modiUser")
-	@ResponseBody
-	public String modiUser(Model model, HttpServletRequest request, @RequestParam String userIdx, String userName, String userPw, MultipartFile proFilename) {
-		int result = 0;
-		System.out.println("controller : "+ userIdx);
-		System.out.println("controller : "+ userName);
-		System.out.println("controller : "+ userPw);
-		System.out.println("controller : "+ proFilename);
+	public String modiUser(Model model, HttpServletRequest request, @RequestParam int userIdx, String userName, String userPw, MultipartFile proFilename) {
+		String referer = request.getHeader("Referer");
 		UserVO userVO = new UserVO();
-		userVO.setUserId(userIdx);
+		int result=0;
+		userVO.setUserIdx(userIdx);
 		userVO.setUserName(userName);
 		userVO.setUserPw(userPw);
-		if (proFilename == null) {
-			result = guestMoveService.getModiUser(userVO);
-			System.out.println(result);
-		}else {
-			String[] fileInfo = FileCommon.fileUp(proFilename, request, "profile");
+		result=guestMoveService.getModiUser(userVO);
+		System.out.println(proFilename);
+		if(!proFilename.getOriginalFilename().equals("")){
+			System.out.println("이거 타니?");
+			String[] fileInfo	=	FileCommon.fileUp(proFilename,request, "driver");
 			userVO.setProFilename(fileInfo[0]);
 			userVO.setProFilepath(fileInfo[1]);
-			System.out.println("profilename"+userVO.getProFilename());
-			System.out.println("profilepath"+userVO.getProFilepath());
-			result = guestMoveService.getModiUser(userVO);
+			result=guestMoveService.getImgModiUser(userVO);
 		}
-		if(result > 0 ) {
-			return "Y";
+		if(result > 0) {
+			model.addAttribute("msg", "정보 수정이 완료 되었습니다.");
+			model.addAttribute("loc", "/");
+			return "guest/common/msg";
 		}else {
-			return "N";
+			model.addAttribute("msg", "정보수정을 실패 하였습니다.");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
 		}
 	}
 
@@ -444,5 +444,26 @@ public class GuestMyController {
 				return "redirect:/my/reserList";
 			}
 			return "redirect:/my/reserList";
+		}
+		
+		
+		//유저 마이페이지에 내가쓴문의
+		@RequestMapping("/myQuestion")
+		public ModelAndView myQuestion(@RequestParam int reqPage,HttpServletRequest request) {
+			ModelAndView ma = new ModelAndView();
+			try {
+				QuestionPageData list = guestMoveService.selectQuestionList(reqPage);
+				if(!list.isEmpty()) {
+					ArrayList<QuestionVO> arrlist = list.getList();
+					String pageNavi = list.getPageNavi();
+					ma.addObject("list", arrlist);
+					ma.addObject("pageNavi", pageNavi);
+					ma.setViewName("guest/mypage/myQuestion");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return ma;
 		}
 }

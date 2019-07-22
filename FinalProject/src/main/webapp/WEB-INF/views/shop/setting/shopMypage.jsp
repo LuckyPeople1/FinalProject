@@ -26,49 +26,49 @@
 					<tbody>
 					<tr>
 						<th>회사명<span class="ess">*</span></th>
-						<td><input class="tbox full" name="" value=""></td>
+						<td><input class="tbox full" name="" value="${item.companyName }"></td>
 						<th>대표자명<span class="ess">*</span></th>
-						<td><input class="tbox full" name="userName" value="${user.userName }"></td>
+						<td><input class="tbox full" name="userName" value="${item.userName }"></td>
 					</tr>
 					<tr>
 						<th>연락처<span class="ess">*</span></th>
-						<td><input class="tbox full" name="userPhone" value="${user.userPhone }"></td>
+						<td><input class="tbox full" name="userPhone" value="${item.userPhone }"></td>
 						<th>이메일</th>
-						<td><input class="tbox full" name="userEmail" value="${uesr.userEmail }"></td>
+						<td><input class="tbox full" name="userEmail" value="${item.userEmail }"></td>
 					</tr>
 					<tr>
 						<th>주소<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full" name="userAddr" value="${user.userAddr } ${addrCode}"></td>
+						<td colspan="3"><input class="tbox full" name="userAddr" value="${item.userAddr } ${item.addrCode}"></td>
 					</tr>
 					<tr>
 						<th>사업자등록번호<span class="ess">*</span></th>
-						<td><input class="tbox full" name="businessNumber" value="${user.businessNumber }"></td>
+						<td><input class="tbox full" name="businessNumber" value="${item.businessNumber }"></td>
 						<th>사업자 등록증<span class="ess">*</span></th>
 						<td>
 							<div class="img_upload">
-								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
+								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${compFilepath1}">
 								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
-									<img id="mypage"  src="${user.proFilepath }"> 
+									<img id="mypage"  src="${compFilepath1 }"> 
 								</a>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<th>중개사번호<span class="ess">*</span></th>
-						<td><input class="tbox full" name="registrationNumber" value="${user.registrationNumber }"></td>
+						<td><input class="tbox full" name="registrationNumber" value="${item.registrationNumber }"></td>
 						<th>중개사 등록증<span class="ess">*</span></th>
 						<td>
 							<div class="img_upload">
-								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
+								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${compFilepath2 }">
 								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
-									<img id="mypage"  src="${user.proFilepath }"> 
+									<img id="mypage"  src="${compFilepath2 }"> 
 								</a>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<th>자기소개<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full" id="userIntroduce" name="userIntroduce" value="${user.userIntroduce }"></td>
+						<td colspan="3"><input class="tbox full" id="userIntroduce" name="userIntroduce" value="${item.userIntroduce }"></td>
 					</tr>
 					</tbody>
 				</table>
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="btn_box">
-			<a href="javascript:void(0)" class="btn col_red">확인</a>
+			<a href="javascript:void(0)" class="btn col_blue">확인</a>
 		</div>
 		<div class="list_form">
 		</div>

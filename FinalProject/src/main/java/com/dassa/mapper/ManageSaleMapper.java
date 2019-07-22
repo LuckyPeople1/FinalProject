@@ -9,9 +9,11 @@ import com.dassa.vo.DriverSaleVO;
 import com.dassa.vo.ManageSalePageData;
 import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.ShopPaymentVO;
+import com.dassa.vo.SaleMoveInfoVO;
 
 @MapperScan("manageSaleMapper")
 public interface ManageSaleMapper {
+	public SaleMoveInfoVO saleMoveInfo(int movePaymentIdx);
 	public ArrayList<ShopPaymentVO> salePremiumList(Map<String, Object> parameters);
 	public int manageSaleShopTotalCount(ManageSalePageData pagination);
 	public int manageSaleTotalCount(ManageSalePageData pagination);

@@ -49,7 +49,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession, Model model)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -71,6 +71,9 @@ public class ShopItemController {
 			mav.addObject("pageNavi",pageNavi);
 			mav.setViewName("shop/item/shopItemList");
 		}
+		model.addAttribute("headerNav",2);
+		model.addAttribute("subNav",1);
+		
 		return mav;
 	}
 	/**
@@ -88,6 +91,8 @@ public class ShopItemController {
 			mav.addObject("memberList",memberList);
 			mav.setViewName("shop/item/shopItemAdd");
 		}
+		model.addAttribute("headerNav",2);
+		model.addAttribute("subNav",2);
 		return mav;
 	}
 	/**
@@ -306,6 +311,29 @@ public class ShopItemController {
 		map.put("userIdx", userIdx);
 		if(result>0) {
 			shopService.shopPremiumItemIng(map);
+			return "redirect:/shop/item";
+		}
+		return "redirect:/shop/item";
+	}
+	/**
+	 * 중개사 페이지 - 매물 판매 완료 로직(itemSuc)
+	 * @param shopItemIdx
+	 * @param userIdx
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/shopItemSuc")
+	public String shopItemSuc(@RequestParam int shopItemIdx, @RequestParam int userIdx)throws Exception {
+		int result = shopService.shopItemSuc(shopItemIdx);
+		if(result>0) {
+			shopService.shopPremiumItemStop(shopItemIdx);
+			result = shopService.powerEnd(shopItemIdx); //아이템 적용 시 버튼 상태변경
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("shopItemIdx", shopItemIdx);
+			map.put("userIdx", userIdx);
+			if(result>0) {
+				shopService.shopPowerItemEnd(map); //아이템 해지 시 아이템 적용 개수 update
+			}
 			return "redirect:/shop/item";
 		}
 		return "redirect:/shop/item";

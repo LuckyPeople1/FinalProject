@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -329,6 +330,32 @@ public class ManageUserController {
 		}
 	}
 	
+	//이전 페이지 url 저장
+	@RequestMapping("/reloadApproUser")
+	public String reloadApproUser(Model model, HttpServletRequest request, int userIdx ) {
+		String referer = request.getHeader("Referer");
+		model.addAttribute("referer", referer);
+		model.addAttribute("userIdx", userIdx);
+		return "redirect:/userManage/approbateUser";
+	}
+	
+	//회원 승인
+	@RequestMapping("/approbateUser")
+	public String ApprobateUser(Model model, String referer, int userIdx) throws Exception{
+		UserVO userVO = new UserVO();
+		userVO.setUserIdx(userIdx);
+		int result = manageUserService.getApprobateUser(userVO);
+		if(result > 0) {
+			model.addAttribute("msg", "승인 되었습니다.");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
+		}else {
+			model.addAttribute("msg", "승인 실패");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
+		}
+	}
+	
 	//검색
 	@RequestMapping("/search")
 	@ResponseBody
@@ -451,5 +478,41 @@ public class ManageUserController {
 			e.printStackTrace();
 		}
 		return retVal;
+	}
+	
+	//상세보기
+	@RequestMapping("/userDetail")
+	public String getUserDetail(Model model, int userIdx, HttpServletRequest request) {
+		String referer = request.getHeader("Referer");
+		UserVO userVO = new UserVO();
+		userVO.setUserIdx(userIdx);
+		userVO= manageUserService.getUserDetail(userVO);
+		StringTokenizer token1 = new StringTokenizer(userVO.getCompFilename(), ",");
+		StringTokenizer token2 = new StringTokenizer(userVO.getCompFilepath(), ",");
+		String compFilename1=null;
+		String compFilename2=null;
+		String compFilepath1=null;
+		String compFilepath2=null;
+		if(userVO.getUserType().equals("1")) {
+			compFilename1 = token1.nextToken();
+			compFilepath1 = token2.nextToken();
+		}else {
+			compFilename1 = token1.nextToken();
+			compFilepath1 = token2.nextToken();
+			compFilename2 = token1.nextToken();
+			compFilepath2 = token2.nextToken();
+		}
+		
+		model.addAttribute("userVO", userVO);
+		if(userVO.getUserType().equals("1")) {
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilepath1", compFilepath1);
+		}else{
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilepath1", compFilepath1);
+			model.addAttribute("compFilename2", compFilename2);
+			model.addAttribute("compFilepath2", compFilepath2);
+		}
+		return "/manage/user/user/userDetail";
 	}
 }

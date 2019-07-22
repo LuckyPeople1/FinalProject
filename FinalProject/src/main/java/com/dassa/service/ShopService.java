@@ -282,6 +282,9 @@ public class ShopService {
 	public int shopItemIng(int shopItemIdx) throws Exception{
 		return shopMapper.shopItemIng(shopItemIdx);
 	}
+	public int shopItemSuc(int shopItemIdx) throws Exception{
+		return shopMapper.shopItemSuc(shopItemIdx);
+	}
 	/**
 	 * 부동산 방문예약 등록
 	 * @param sReserVO
@@ -371,5 +374,8 @@ public class ShopService {
 		}
 		ShopReservationPageDataVO pd = new ShopReservationPageDataVO(list,pageNavi);
 		return pd;
+	}
+	public UserVO selectOne(int userIdx)throws Exception{
+		return shopMapper.selectOne(userIdx);
 	}
 }

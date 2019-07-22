@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.DriverMypageReviewVO;
@@ -14,6 +15,7 @@ import com.dassa.vo.MoveAuctionListVO;
 import com.dassa.vo.MoveAuctionReview;
 import com.dassa.vo.MoveAuctionVO;
 import com.dassa.vo.MovePaymentVO;
+import com.dassa.vo.QuestionVO;
 import com.dassa.vo.ShopReservationVO;
 import com.dassa.vo.UserVO;
 
@@ -69,4 +71,10 @@ public interface GuestMoveMapper {
 	public UserVO getPwChkProc(UserVO userVO);
 	//사용자 정보 수정
 	public int getModiUser(UserVO userVO);
+	//이미지만 수정
+	public int getImgModiUser(UserVO userVO);
+	
+	//마이페이지 문의내역
+	public ArrayList<QuestionVO> selectQuestionList(@Param("start") int start,@Param("end") int end) throws Exception;
+	public int totalCount() throws Exception;
 }
