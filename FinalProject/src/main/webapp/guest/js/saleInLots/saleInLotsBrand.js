@@ -38,7 +38,18 @@ $(".brandCard").click(function(){
 		success:function(res){
 		var html = "";
 			for(var i =0;i<res.list.length;i++){
-				html+= '<tr><td><p class="saleInLotsState">'+res.list[i].saleInLotsState+'</p></td>';
+				if(res.list[i].saleInLotsState == '분양예정'){
+					html+= '<tr><td><p class="saleInLotsState">'+res.list[i].saleInLotsState+'</p></td>';
+				}
+				if(res.list[i].saleInLotsState == '분양중'){
+					html+= '<tr><td><p class="saleInLotsState red">'+res.list[i].saleInLotsState+'</p></td>';
+				}
+				if(res.list[i].saleInLotsState == '입주모집'){
+					html+= '<tr><td><p class="saleInLotsState green">'+res.list[i].saleInLotsState+'</p></td>';
+				}
+				if(res.list[i].saleInLotsState == '준비중'){
+					html+= '<tr><td><p class="saleInLotsState gray">'+res.list[i].saleInLotsState+'</p></td>';
+				}
 				html+= '<td><p class="saleInLotsType">'+res.list[i].saleInLotsBuildType+'</p></td>';
 				html+= '<td><p class="saleInLotsType">'+res.list[i].saleInLotsSupplyType+'</p></td>';
 				html+= '<td><a href="/saleInLots/saleInLotsDetailInformation?saleInLotsIDX='+res.list[i].saleInLotsIDX+'">';

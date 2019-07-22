@@ -47,6 +47,7 @@ public class ManageSaleController {
 		
 		ManageSaleShopPageData msData = manageSaleService.salePremiumList(pagination,reqPage);
 		model.addAttribute("msData",msData);
+		model.addAttribute("tag","1");
 		return "/manage/sale/salePremiumItemList";
 	}
 	@RequestMapping("/saleMoveInfo")
@@ -54,6 +55,7 @@ public class ManageSaleController {
 		
 		SaleMoveInfoData smData = manageSaleService.saleMoveInfo(movePaymentIdx); 
 		model.addAttribute("smData",smData);
+		model.addAttribute("tag","2");
 		return "/manage/sale/saleMoveInfo";
 	}
 	@RequestMapping("/saleMoveList")
@@ -77,7 +79,7 @@ public class ManageSaleController {
 		
 		ManageSaleMovePageData maData = manageSaleService.driverMoveList(pagination,reqPage);
 		model.addAttribute("maData", maData);
-		
+		model.addAttribute("tag","2");
 		return "/manage/sale/saleMoveList";
 	}
 	
