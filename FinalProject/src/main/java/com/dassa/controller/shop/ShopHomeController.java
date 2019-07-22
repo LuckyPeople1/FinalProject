@@ -35,12 +35,11 @@ public class ShopHomeController {
 		else{
 			UserVO userVO = (UserVO) session.getAttribute("user");
 			System.out.println("들어옴 "+userVO.getUserType());
-			if(userVO.getUserType() == "2") {
-				return "redirect:/shop/mypage";
+			if(userVO.getUserType().equals("2")) {
+				str = "redirect:/shop/mypage";
 			}else {
 				str =  "redirect:/";
-			}
-			 	
+			} 	
 		}
 		return str;
 	}

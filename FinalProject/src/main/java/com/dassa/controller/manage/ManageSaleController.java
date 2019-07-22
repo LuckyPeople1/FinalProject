@@ -12,6 +12,8 @@ import com.dassa.service.ManageSaleService;
 import com.dassa.vo.ManageSaleMovePageData;
 import com.dassa.vo.ManageSalePageData;
 import com.dassa.vo.ManageSaleShopPageData;
+import com.dassa.vo.SaleMoveInfoData;
+import com.dassa.vo.SaleMoveInfoVO;
 
 @Controller
 @RequestMapping("/manage/sale")
@@ -48,8 +50,10 @@ public class ManageSaleController {
 		return "/manage/sale/salePremiumItemList";
 	}
 	@RequestMapping("/saleMoveInfo")
-	public String saleMoveInfo(Model model){
-
+	public String saleMoveInfo(Model model,int movePaymentIdx) throws Exception{
+		
+		SaleMoveInfoData smData = manageSaleService.saleMoveInfo(movePaymentIdx); 
+		model.addAttribute("smData",smData);
 		return "/manage/sale/saleMoveInfo";
 	}
 	@RequestMapping("/saleMoveList")

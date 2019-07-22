@@ -33,7 +33,9 @@ label {
 .col_blue {
     background-color: #337ab7;
 }
-
+.col_red {
+    background-color: red;
+}
 .col_darkGrey {
     background-color: #353c43;
 }

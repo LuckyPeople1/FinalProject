@@ -6,15 +6,9 @@
 			<li>
 				<a href="#none" class="menu_name">매물 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/manage/shop/moveAllList" class="">매물 목록</a></li>
-					<li><a href="/manage/shop/moveAllList" class="">판매 된 매물 목록</a></li>
-					<li><a href="/manage/shop/moveAllList" class="">삭제 된 매물 목록</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#none" class="menu_name">부동산 아이템 관리</a>
-				<ul class="lnb_sub_menu">
-					<li><a href="/shop/member/">아이템 관리</a></li>
+					<li><a href="/shopManage/shopAllList" class="">매물 목록</a></li>
+					<li><a href="/shopManage/shopSuc" class="">판매 된 매물 목록</a></li>
+					<li><a href="/shopManage/shopDel" class="">삭제 된 매물 목록</a></li>
 				</ul>
 			</li>
 		</ul>

@@ -1088,8 +1088,225 @@ section.manageMoveSale .saleBox2{
 section.manageMoveSale .saleTitle{
 	font-size: 20px;
 }
+/* saleMoveInfo CSS */
+section.saleMoveInfo .page_header {
+    position: relative;
+    border-bottom: 1px solid #ced3d8;
+    margin-bottom: 15px;
+}
+section.saleMoveInfo .page_header .page_title {
+    font-size: 24px;
+    color: #516378;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+section.saleMoveInfo .tabs_group {
+    margin-bottom: 30px;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid #bbb;
+}
+section.saleMoveInfo .tabs_group li {
+    float: left;
+}
+section.saleMoveInfo .tabs_group li a.on {
+    border: 1px solid #bbb;
+    border-bottom: 1px solid #fff;
+    color: #d03838;
+    font-weight: 500;
+}
+section.saleMoveInfo .clearfix:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+section.saleMoveInfo .section {
+    padding: 8px;
+    /* background-color: #EEEEEE; */
+}
+section.saleMoveInfo .section_title {
+    font-size: 17px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+section.saleMoveInfo .section {
+    padding: 8px;
+    /* background-color: #EEEEEE; */
+}
+section.saleMoveInfo .section + .section {
+    padding-top: 30px;
+}
+section.saleMoveInfo .table_set {
+    border: 1px solid #d9dee3;
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+}
+section.saleMoveInfo .table_set tr {
+    border-top: 1px solid #d9dee3;
+}
+section.saleMoveInfo .table_set th, .table_set td {
+    padding: 7px 20px;
+}
+section.saleMoveInfo table.table_set .ess {
+    font-weight: 700;
+    color: red;
+    font-size: 16px; 
+}
+section.saleMoveInfo .table_set td {
+    padding: 10px 20px 10px 20px;
+    vertical-align: middle;
+}
+section.saleMoveInfo .table_set th {
+    background: #f6f6f7;
+    color: #333;
+    border-left: 1px solid #d9dee3;
+    text-align: left;
+    padding: 7px 20px;
+    box-sizing: border-box;
+    font-weight: 600;
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+section.saleMoveInfo table th, table td {
+    font-size: 12px;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+    letter-spacing: 0;
+    font-weight: 400;
+    line-height: 18px;
+}
+section.saleMoveInfo .tip_box {
+    margin-top: 20px;
+}
+
+section.saleMoveInfo .tip_box .tip {
+    background: url(../img/icon_tip.png) no-repeat left center / 16px 16px;
+    padding-left: 25px;
+    line-height: 18px;
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+section.saleMoveInfo .f_red {
+    color: red;
+}
+section.saleMoveInfo .infoBox {
+    margin-top: 8px;
+    padding: 16px;
+    background-color: #fff;
+}
+section.saleMoveInfo .driverPont p3 {
+    font-size: 17px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+section.saleMoveInfo .img_upload:first-child {
+    border-color: #3A5889;
+    margin-left: 0;
+}
+section.saleMoveInfo .img_upload {
+    width: 125px;
+    display: inline-block;
+    height: 120px;
+    position: relative;
+    border: 1px solid #d9dee3;
+    margin-left: 5px;
+    vertical-align: top;
+}
+section.saleMoveInfo .hide {
+    display: none;
+}
+section.saleMoveInfo .img_upload:first-child .imgUp {
+    background: url(/driver/img/icon_imgUp.png) no-repeat center;
+}
+section.saleMoveInfo .img_upload .imgUp {
+    background: url(/driver/img/no-images.png) no-repeat center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+section.saleMoveInfo .section .infoTitle {
+    font-size: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.87);
+}
+section.saleMoveInfo .section .infoListBox {
+    font-size: 0;
+}
+section.saleMoveInfo .infoListBox li.bg {
+    background-color: #EEEEEE;
+}
+section.saleMoveInfo .infoListBox li {
+    padding: 16px 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+section.saleMoveInfo .infoListBox li.package {
+    width: 50%;
+    display: inline-block;
+}
+section.saleMoveInfo .infoBox .row.static {
+    padding-left: 0;
+}
+section.saleMoveInfo .infoBox .row {
+    position: relative;
+    padding-left: 150px;
+}
+section.saleMoveInfo .infoBox .row.static .subject {
+    display: inline-block;
+    position: static;
+    transform: none;
+}
+section.saleMoveInfo .infoBox .packageName {
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+section.saleMoveInfo .infoBox .packageOption {
+    font-size: 12px;
+    color: #666;
+}
+section.saleMoveInfo .col_darkGrey {
+    background-color: #979797;
+}
+section.saleMoveInfo .btn_box a {
+    width: 90px;
+    color: #fff;
+    line-height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 16px;
+    text-align: center;
+}
+section.saleMoveInfo .btn {
+    padding: 8px 12px;
+    /* width: 80px; */
+    /* height: 25px; */
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+}
+section.saleMoveInfo .btn_box {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0;
+}
+section.saleMoveInfo .section .infoBox .row .subject {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+}
 
 section .container .detail_img{
 	width:200px;
 	height:200px;
 }
+

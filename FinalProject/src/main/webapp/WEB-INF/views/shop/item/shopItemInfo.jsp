@@ -924,6 +924,8 @@
 				</div>
 			</div>
 	</div>
+	<input type="hidden" name="shopItemLatitude" value="${item.shopItemLatitude}">
+	<input type="hidden" name="shopItemLongitude" value="${item.shopItemLongitude }">
 	</form>
 	</section>
 	<%@include file="/WEB-INF/views/shop/common/footer.jsp"%>

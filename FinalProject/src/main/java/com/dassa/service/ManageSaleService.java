@@ -2,22 +2,25 @@ package com.dassa.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.dassa.mapper.DriverMapper;
 import com.dassa.mapper.ManageSaleMapper;
-import com.dassa.vo.DriverReviewVO;
+import com.dassa.vo.DriverApplyImgVO;
+import com.dassa.vo.DriverApplyOptionVO;
 import com.dassa.vo.DriverSaleVO;
 import com.dassa.vo.ManageSaleMovePageData;
 import com.dassa.vo.ManageSalePageData;
 import com.dassa.vo.ManageSaleShopPageData;
-import com.dassa.vo.MoveApplyPage;
-import com.dassa.vo.MoveApplyVO;
 import com.dassa.vo.MovePaymentVO;
 import com.dassa.vo.ShopPaymentVO;
+import com.dassa.vo.SaleMoveInfoData;
+import com.dassa.vo.SaleMoveInfoVO;
 
 @Service("manageSaleService")
 public class ManageSaleService {
@@ -25,6 +28,17 @@ public class ManageSaleService {
 	@Resource
 	private ManageSaleMapper manageSaleMapper;
 	
+	@Resource
+	private DriverMapper driverMapper;
+	
+	public SaleMoveInfoData saleMoveInfo(int movePaymentIdx) throws Exception {
+		SaleMoveInfoVO smVO = manageSaleMapper.saleMoveInfo(movePaymentIdx);
+		System.out.println(smVO.getApplyIdx());
+		List<DriverApplyOptionVO> optionList =driverMapper.driverOptionList(smVO.getApplyIdx());
+		List<DriverApplyImgVO> imgList =driverMapper.driverImgList(smVO.getApplyIdx());
+		SaleMoveInfoData smData = new SaleMoveInfoData(smVO, optionList, imgList);
+		return smData;
+	}
 	public ManageSaleShopPageData salePremiumList(ManageSalePageData pagination, int reqPage) {
 		int numPerPage = 5;
 		int totalCount = manageSaleMapper.manageSaleShopTotalCount(pagination);
