@@ -122,4 +122,12 @@ public interface ShopMapper {
 	
 	//파워링크 해지 시 개수 update
 	public int shopPowerItemEnd(Map<String, Object> map) throws Exception;
+	
+	//삭제 매물 가져오기
+	public int shopDelCount() throws Exception;
+	public ArrayList<ShopItemVO> shopDel(Map<String, Object> map) throws Exception;
+	
+	//판매완료 매물 가져오기
+	public int shopSucCount() throws Exception;
+	public ArrayList<ShopItemVO> shopSuc(Map<String, Object> map) throws Exception;
 }

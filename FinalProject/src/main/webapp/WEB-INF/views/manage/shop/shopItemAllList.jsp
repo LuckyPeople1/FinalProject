@@ -35,7 +35,7 @@
 			</table>
 			<div class="set_menu">
 				<button type="submit" id="search_btn"  class="btn normal col_main f_w">검색</button>
-				<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+				<a href="/shopManage/shopAllList" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 			</div>
 		</div>
 		<div class="list_field">
@@ -69,7 +69,7 @@
 					<c:forEach var="list" items="${list}" varStatus="i">
 						<tr>
 							<td>${i.count }</td>
-							<td>${list.shopItemIdx }</td>
+							<td><a href="/shop/itemView?shopItemIdx=${list.shopItemIdx }">${list.shopItemIdx }</a></td>
 							<td>${list.shopName }</td>
 							<td>${list.shopItemManager }</td>
 							<td>${list.shopItemType1 }</td>
