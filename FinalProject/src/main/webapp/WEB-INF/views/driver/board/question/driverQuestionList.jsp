@@ -60,7 +60,7 @@
 						</tr>
 					</table>
 					<div class="set_form_search">
-						<a href="javascript:void(0)" class="btn col_red f_w">검색</a> <a
+						<a href="javascript:void(0)" class="btn col_blue f_w">검색</a> <a
 							href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
 					</div>
 				</div>
