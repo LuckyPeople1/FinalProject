@@ -375,4 +375,7 @@ public class ShopService {
 		ShopReservationPageDataVO pd = new ShopReservationPageDataVO(list,pageNavi);
 		return pd;
 	}
+	public UserVO selectOne(int userIdx)throws Exception{
+		return shopMapper.selectOne(userIdx);
+	}
 }

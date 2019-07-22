@@ -11,11 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.ShopService;
 import com.dassa.vo.JusoDongVO;
 import com.dassa.vo.JusoGuVO;
+import com.dassa.vo.NoticePageData;
 import com.dassa.vo.UserVO;
 
 @Controller
@@ -45,13 +46,16 @@ public class ShopHomeController {
 	}
 	//부동산 설정 페이지(myPage)
 	@RequestMapping("/mypage")
-	public String ShopSetting(HttpSession session, Model model) throws Exception{
+	public ModelAndView ShopSetting(HttpSession session, Model model) throws Exception{
 		UserVO userVO=(UserVO)session.getAttribute("user");
-
+		int userIdx = userVO.getUserIdx();
+		UserVO item = shopService.selectOne(userIdx);
+		ModelAndView mav = new ModelAndView();
 		model.addAttribute("headerNav",1);
 		model.addAttribute("subNav",1);
-		
-		return "shop/setting/shopMypage";
+		mav.addObject("item",item);
+		mav.setViewName("shop/setting/shopMypage");
+		return mav;
 	}
 	//주소 구 리스트 Ajax
 	@ResponseBody
