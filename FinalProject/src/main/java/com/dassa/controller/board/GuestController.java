@@ -103,10 +103,5 @@ public class GuestController {
 		}
 		return view;
 	}
-	
-	//유저 마이페이지에 내가쓴문의
-	@RequestMapping("/mypage/myQuestion")
-	public String myQuestion() {
-		return "guest/mypage/myQuestion";
-	}
+
 }

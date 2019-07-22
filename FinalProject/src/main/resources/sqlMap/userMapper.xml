@@ -29,7 +29,7 @@
 				status,
 				out_date as outDate,
 				company_name as companyName
-		  from user_tbl where user_id=#{userId} and user_pw=#{userPw} and status = 1
+		  from user_tbl where user_id=#{userId} and user_pw=#{userPw}
 		</select>
 	
 		<select id="socialLogin" parameterType="userVO" resultType="userVO">

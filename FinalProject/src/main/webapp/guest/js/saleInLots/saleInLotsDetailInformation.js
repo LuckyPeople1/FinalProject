@@ -6,14 +6,14 @@ $(document).ready(function(){
 	var priceOne = $(".priceOne").html();
 
 	if($(".minprice").html().length < 19){
-		$(".minprice").html("분양가 : "+minstr.substring(9,10)+"억 "+minstr.substring(10,14)+"만원");
+		$(".minprice").html("최저분양가 : "+minstr.substring(9,10)+"억 "+minstr.substring(10,14)+"만원");
 	}else{
-		$(".minprice").html("분양가 : "+minstr.substring(9,10)+"억 "+minstr.substring(10,14)+"만원");
+		$(".minprice").html("최저분양가 : "+minstr.substring(9,10)+"억 "+minstr.substring(10,14)+"만원");
 	}
 	if($(".maxprice").html().length < 19){
-		$(".maxprice").html("분양가 : "+maxstr.substring(9,10)+"억 "+maxstr.substring(10,14)+"만원");
+		$(".maxprice").html("최고분양가 : "+maxstr.substring(9,10)+"억 "+maxstr.substring(10,14)+"만원");
 	}else{
-		$(".maxprice").html("분양가 : "+maxstr.substring(9,11)+"억 "+maxstr.substring(11,15)+"만원");
+		$(".maxprice").html("최고분양가 : "+maxstr.substring(9,11)+"억 "+maxstr.substring(11,15)+"만원");
 	}
 	if(minstr2.length < 10){
 		$(".minprice2").html(minstr2.substring(0,1)+"억 "+minstr2.substring(1,5)+"만원");
