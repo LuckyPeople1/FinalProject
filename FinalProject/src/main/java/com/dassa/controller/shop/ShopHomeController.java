@@ -33,7 +33,10 @@ public class ShopHomeController {
 	@RequestMapping("/mypage")
 	public String ShopSetting(HttpSession session, Model model) throws Exception{
 		UserVO userVO=(UserVO)session.getAttribute("user");
-		UserVO user=shopService.selectOne(userVO);
+
+		model.addAttribute("headerNav",1);
+		model.addAttribute("subNav",1);
+		
 		return "shop/setting/shopMypage";
 	}
 	//주소 구 리스트 Ajax
