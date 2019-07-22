@@ -106,7 +106,7 @@
 										<a href="/manage/user/reLoad?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
 									</td>
 									<td>
-										<a href="/manage/user/userDetail" class="tag col_blue f_w">상세보기</a>
+										<a href="/manage/user/userDetail?userIdx=${u.userIdx }" class="tag col_blue f_w">상세보기</a>
 									</td>
 								</tr>
 							</c:forEach>

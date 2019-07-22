@@ -246,6 +246,10 @@ public class ManageUserService {
 	public int deleteUser(int userIdx) throws Exception {
 		return manageUserMapper.deleteUser(userIdx);
 	}
+	//상세정보
+	public UserVO getUserDetail(int userIdx) {
+		return manageUserMapper.getUserDetail(userIdx);
+	}
 	
 }
 

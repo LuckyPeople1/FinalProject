@@ -42,6 +42,7 @@ public class DriverBoardController {
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
 				ma.addObject("subNavi", 6);
+				ma.addObject("subNav", 1);
 				ma.setViewName("driver/board/driverBoardList");
 
 			}
@@ -84,6 +85,8 @@ public class DriverBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("subNavi", 6);
+				ma.addObject("subNav", 3);
 				ma.setViewName("driver/board/faq/driverFaqList");
 			}
 		} catch (Exception e) {
@@ -103,6 +106,8 @@ public class DriverBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("subNavi", 6);
+				ma.addObject("subNav", 2);
 				ma.setViewName("driver/board/question/driverQuestionList");
 			}
 		} catch (Exception e) {
