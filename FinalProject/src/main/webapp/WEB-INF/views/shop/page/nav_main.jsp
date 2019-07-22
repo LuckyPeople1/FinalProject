@@ -30,7 +30,7 @@
 			<i class="ico marketing">상품관리</i>
 			<span class="nav_txt">상품관리</span>
 		</a>
-		<a href="/" class="logout">
+		<a href="/login/logout" class="logout">
 			<i class="ico logout">로그아웃</i>
 			<span class="nav_txt">로그아웃</span>
 		</a>
