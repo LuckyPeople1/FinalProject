@@ -153,5 +153,7 @@
 			select user_id as userId from user_tbl where user_id=#{userId}
 		</select>
 		
-		
+		<update id="getApprobateUser">
+			update user_tbl set status=1 where user_idx=${userIdx}
+		</update>
 </mapper>

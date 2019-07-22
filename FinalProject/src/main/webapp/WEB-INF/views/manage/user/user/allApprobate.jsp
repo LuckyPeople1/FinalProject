@@ -103,7 +103,7 @@
 									<td>${u.type }</td>
 									<td>${u.enrollDate }</td>
 									<td>
-										<a href="/manage/user/reLoad?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
+										<a href="/userManage/reloadApproUser?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
 									</td>
 									<td>
 										<a href="/userManage/userDetail?userIdx=${u.userIdx }" class="tag col_blue f_w">상세보기</a>

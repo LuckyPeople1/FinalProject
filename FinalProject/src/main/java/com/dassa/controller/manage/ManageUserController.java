@@ -330,6 +330,30 @@ public class ManageUserController {
 		}
 	}
 	
+	//이전 페이지 url 저장
+	@RequestMapping("/reloadApproUser")
+	public String reloadApproUser(Model model, HttpServletRequest request, int userIdx ) {
+		String referer = request.getHeader("Referer");
+		model.addAttribute("referer", referer);
+		model.addAttribute("userIdx", userIdx);
+		return "redirect:/userManage/approbateUser";
+	}
+	
+	//회원 승인
+	@RequestMapping("/approbateUser")
+	public String ApprobateUser(Model model, String referer, int userIdx) throws Exception{
+		int result = manageUserService.getApprobateUser(userIdx);
+		if(result > 0) {
+			model.addAttribute("msg", "승인 되었습니다.");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
+		}else {
+			model.addAttribute("msg", "승인 실패");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
+		}
+	}
+	
 	//검색
 	@RequestMapping("/search")
 	@ResponseBody

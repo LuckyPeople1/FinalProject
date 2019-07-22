@@ -250,6 +250,10 @@ public class ManageUserService {
 	public UserVO getUserDetail(UserVO userVO) {
 		return manageUserMapper.getUserDetail(userVO);
 	}
+	//가입승인
+	public int getApprobateUser(int userIdx) {
+		return manageUserMapper.getApprobateUser(userIdx);
+	}
 	
 }
 
