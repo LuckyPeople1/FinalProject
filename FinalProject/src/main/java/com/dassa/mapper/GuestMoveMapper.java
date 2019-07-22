@@ -69,4 +69,6 @@ public interface GuestMoveMapper {
 	public UserVO getPwChkProc(UserVO userVO);
 	//사용자 정보 수정
 	public int getModiUser(UserVO userVO);
+	//이미지만 수정
+	public int getImgModiUser(UserVO userVO);
 }

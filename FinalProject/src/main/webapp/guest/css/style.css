@@ -5513,6 +5513,11 @@ section.shopItemView .cETKtB > span {
 }
 
 section .mypageBtnBox #mypage_btn{
+	cursor: pointer;
 	margin-left: 20px;
 	height: 50px;
+}
+
+section .img_upload #my_img{
+	height: 85px;
 }

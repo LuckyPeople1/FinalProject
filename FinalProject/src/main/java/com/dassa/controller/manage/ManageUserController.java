@@ -452,4 +452,17 @@ public class ManageUserController {
 		}
 		return retVal;
 	}
+	
+	//상세보기
+	@RequestMapping("/userDetail")
+	public String getUserDetail(int userIdx, HttpServletRequest request) {
+		String referer = request.getHeader("Referer");
+		UserVO userVO= manageUserService.getUserDetail(userIdx);
+		if(userVO != null) {
+			return "/manage/user/user/userDetail";
+		}else {
+			return "redirect:"+referer;
+		}
+		
+	}
 }
