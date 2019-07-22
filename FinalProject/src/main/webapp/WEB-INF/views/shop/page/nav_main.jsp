@@ -22,7 +22,7 @@
 			<i class="ico reserve">방문관리</i>
 			<span class="nav_txt">방문관리</span>
 		</a>
-		<a href="/shop/board/shopBoardList?reqPage=1">
+		<a href="/shop/board/shopBoardList?reqPage=1" class="${headerNav == 5 ? 'on' : ''}">
 			<i class="ico board">게시판관리</i>
 			<span class="nav_txt">게시판관리</span>
 		</a>

@@ -4,9 +4,9 @@
 	<div class="sub_nav">
 		<div class="nav_title">게시판관리</div>
 		<div class="nav_group">
-			<a href="/shop/board/shopBoardList?reqPage=1" class="on">공지사항</a>
-			<a href="/shop/board/question/shopQuestion?reqPage=1" class="">1:1문의</a>
-			<a href="/shop/board/faq/shopFaqList?reqPage=1" class="">자주 묻는 질문</a>
+			<a href="/shop/board/shopBoardList?reqPage=1" class="${subNav == 1 ? 'on' : ''}">공지사항</a>
+			<a href="/shop/board/question/shopQuestion?reqPage=1" class="${subNav == 2 ? 'on' : ''}">1:1문의</a>
+			<a href="/shop/board/faq/shopFaqList?reqPage=1" class="${subNav == 3 ? 'on' : ''}">자주 묻는 질문</a>
 		</div>
 	</div>
 </div>

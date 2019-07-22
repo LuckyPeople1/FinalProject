@@ -42,6 +42,8 @@ public class ShopBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 1);
 				ma.setViewName("shop/board/shopBoardList");
 			}
 		} catch (Exception e) {
@@ -81,6 +83,8 @@ public class ShopBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 3);
 				ma.setViewName("shop/board/faq/shopFaqList");
 			}
 		} catch (Exception e) {
@@ -101,6 +105,8 @@ public class ShopBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 2);
 				ma.setViewName("shop/board/question/shopQuestion");
 			}
 		} catch (Exception e) {
