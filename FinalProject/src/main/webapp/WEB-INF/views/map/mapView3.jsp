@@ -548,19 +548,19 @@ section.mapView .fJNXpX > svg {
     transform: translateY(-50%) rotate(0deg);
 }
 section.mapView .cRtqxV {
-    max-width: 150px;
+       max-width: 150px;
     height: 100%;
     font-size: 14px;
-    color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
     font-weight: 500;
     line-height: 34px;
-    background-color: rgb(0, 108, 255);
+    background-color: rgb(255, 255, 255);
     user-select: none;
     position: relative;
     padding: 0px 30px 0px 12px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(0, 108, 255);
+    border-color: rgb(224, 224, 224);
     border-image: initial;
     border-radius: 3px;
 }
@@ -575,8 +575,9 @@ section.mapView .cRtqxV > svg {
     position: absolute;
     top: 50%;
     right: 11px;
-    stroke: rgb(255, 255, 255);
-    transform: translateY(-50%) rotate(180deg);
+    stroke: rgb(34, 34, 34);
+    transform: translateY(-50%) rotate(0deg);
+
 }
 section.mapView path[Attributes Style] {
     fill: none;
@@ -1366,7 +1367,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	var container = document.getElementById('map');
 	var options = {
 		center : new kakao.maps.LatLng(37.566826005485716, 126.9786567859313),
-		level : 9
+		level : 20
 	};
 	var map = new kakao.maps.Map(container, options);	
 	function zoomIn() {
@@ -1490,7 +1491,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 	    	}	
 	
 	 $(document).ready(function(){					 
-		 map.setLevel(20);		
+		 
 		$(".customoverlay").click(function(){					
 			var strArray=$(this).children().val().split(',');
 			var string = strArray[0];
@@ -1500,7 +1501,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			map.panTo(new kakao.maps.LatLng(strArray2[1], strArray3[0]));
 			map.setCenter(new kakao.maps.LatLng(strArray2[1], strArray3[0]));							
 			map.setLevel(8);
-		});					
+		});
 		map.setLevel(9);
 	});	
 	 var geocoder = new daum.maps.services.Geocoder();	 
@@ -1560,6 +1561,86 @@ section.mapView .eUbtsI > .Radio--circle::after {
 			anchor : cluster.getCenter()
 		});
 	});
+	$(document).ready(function(){				
+		$(document).click(function(e){
+			$(".hWgOZv").eq('0').click(function(e){
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+				if($(".fhfjff").is(":visible")){
+					$(".fhfjff").css("display","none");
+				}else{
+					$(".fhfjff").css("display","block");
+				}				
+			})
+			for(var i=1;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff").css("display","none");
+				})
+			}
+			$(".hWgOZv").eq('1').click(function(e){
+				if($(".fhfjff2").is(":visible")){
+					$(".fhfjff2").css("display","none");
+				}else{
+					$(".fhfjff2").css("display","block");
+				}
+			})
+			$(".hWgOZv").eq('5').click(function(e){
+				if($(".fhfjff3").is(":visible")){
+					$(".fhfjff3").css("display","none");
+				}else{
+					$(".fhfjff3").css("display","block");
+				}				
+			})
+			$(".dgiYtt").click(function(){
+				$(".fhfjff1").css("display","none");
+				$(".fhfjff2").css("display","none");
+				$(".fhfjff3").css("display","none");
+			})
+			for(var i=2;i<$('.hWgOZv').length;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff2").css("display","none");
+				})
+			}
+			for(var i=0;i<$('.hWgOZv').length-1;i++){
+				$(".hWgOZv").eq(i).click(function(e){
+					$(".fhfjff3").css("display","none");
+				})
+			}			
+			$(".hWgOZv").click(function(e){		
+				if($(this).children().hasClass('fJNXpX')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					
+					$(this).children().removeClass('fJNXpX');
+					$(this).children().addClass('cRtqxV'); 
+					
+				}else if($(this).children().hasClass('fUMVvC')){
+				
+				 	$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".dgiYtt ").children().removeClass('kdfXro');
+					$(".dgiYtt ").children().addClass('bAZEbe');
+					$(this).children().removeClass('fUMVvC');
+					$(this).children().addClass('hKGAZL');
+				} 
+			})
+			$(".dgiYtt").click(function(e){
+				if($(this).children().hasClass('bAZEbe')){
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV');
+					$(this).children().removeClass('bAZEbe');
+					$(this).children().addClass('kdfXro');
+				}else{
+					$(".hWgOZv").children().addClass('fUMVvC');
+					$(".hWgOZv").children().removeClass('hKGAZL ');
+					$(".hWgOZv").children().addClass('fJNXpX');
+					$(".hWgOZv").children().removeClass('cRtqxV'); 
+				} 
+			})
+		})		
+	})	
 	
 			
 	

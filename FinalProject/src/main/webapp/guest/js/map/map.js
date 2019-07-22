@@ -69,6 +69,7 @@ $("div").not(".icqmaF").click(function(){
 	icqmaF.remove();
 	});
 
+
 /*$("#mapName").focus(function(){
 	var str1="";
 	var shopItemAddr1=$("#mapName").val();
