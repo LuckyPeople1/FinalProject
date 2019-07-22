@@ -38,7 +38,9 @@ public class ShopPremiumItemController {
 	private IamportClient client; // 결제 라이브 러리
 	//부동산 상품관리 페이지(premiumItem)
 	@RequestMapping("/premiumItem")
-	public String ShopItem(HttpSession httpSession) {
+	public String ShopItem(Model model,HttpSession httpSession) {
+		model.addAttribute("headerNav",6);
+		model.addAttribute("subNav",1);
 		return "shop/premiumItem/shopPremiumItemList";
 	}
 	/**
@@ -160,6 +162,8 @@ public class ShopPremiumItemController {
 		System.out.println(userIdx);
 		ArrayList<ShopPaymentVO> list = shopPremiumService.ShopPemiumItemList(userIdx);
 		model.addAttribute("list", list);
+		model.addAttribute("headerNav",6);
+		model.addAttribute("subNav",2);
 		return "shop/premiumItem/shopPremiumItem";
 	}
 	

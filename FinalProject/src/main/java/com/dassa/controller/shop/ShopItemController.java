@@ -49,7 +49,7 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession, Model model)throws Exception {
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -71,6 +71,9 @@ public class ShopItemController {
 			mav.addObject("pageNavi",pageNavi);
 			mav.setViewName("shop/item/shopItemList");
 		}
+		model.addAttribute("headerNav",2);
+		model.addAttribute("subNav",1);
+		
 		return mav;
 	}
 	/**
@@ -88,6 +91,8 @@ public class ShopItemController {
 			mav.addObject("memberList",memberList);
 			mav.setViewName("shop/item/shopItemAdd");
 		}
+		model.addAttribute("headerNav",2);
+		model.addAttribute("subNav",2);
 		return mav;
 	}
 	/**
