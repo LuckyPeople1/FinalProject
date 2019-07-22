@@ -11,12 +11,6 @@
 					<li><a href="/manage/shop/moveAllList" class="">삭제 된 매물 목록</a></li>
 				</ul>
 			</li>
-			<li>
-				<a href="#none" class="menu_name">부동산 아이템 관리</a>
-				<ul class="lnb_sub_menu">
-					<li><a href="/shop/member/">아이템 관리</a></li>
-				</ul>
-			</li>
 		</ul>
 	</div>
 </nav>
