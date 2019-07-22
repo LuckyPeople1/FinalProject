@@ -251,8 +251,8 @@ public class ManageUserService {
 		return manageUserMapper.getUserDetail(userVO);
 	}
 	//가입승인
-	public int getApprobateUser(int userIdx) {
-		return manageUserMapper.getApprobateUser(userIdx);
+	public int getApprobateUser(UserVO userVO) {
+		return manageUserMapper.getApprobateUser(userVO);
 	}
 	
 }

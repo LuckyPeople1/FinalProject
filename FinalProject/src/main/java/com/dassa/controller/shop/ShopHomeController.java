@@ -1,6 +1,7 @@
 package com.dassa.controller.shop;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
@@ -53,6 +54,16 @@ public class ShopHomeController {
 		ModelAndView mav = new ModelAndView();
 		model.addAttribute("headerNav",1);
 		model.addAttribute("subNav",1);
+		
+		StringTokenizer token2 = new StringTokenizer(userVO.getCompFilepath(), ",");
+		
+		String compFilepath1 = token2.nextToken();
+		
+		String compFilepath2 = token2.nextToken();
+		System.out.println("파일1보자"+compFilepath1);
+		System.out.println("파일2"+compFilepath2);
+		mav.addObject("compFilepath1",compFilepath1);
+		mav.addObject("compFilepath2",compFilepath2);
 		mav.addObject("item",item);
 		mav.setViewName("shop/setting/shopMypage");
 		return mav;

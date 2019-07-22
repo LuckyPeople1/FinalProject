@@ -342,7 +342,9 @@ public class ManageUserController {
 	//회원 승인
 	@RequestMapping("/approbateUser")
 	public String ApprobateUser(Model model, String referer, int userIdx) throws Exception{
-		int result = manageUserService.getApprobateUser(userIdx);
+		UserVO userVO = new UserVO();
+		userVO.setUserIdx(userIdx);
+		int result = manageUserService.getApprobateUser(userVO);
 		if(result > 0) {
 			model.addAttribute("msg", "승인 되었습니다.");
 			model.addAttribute("loc", referer);

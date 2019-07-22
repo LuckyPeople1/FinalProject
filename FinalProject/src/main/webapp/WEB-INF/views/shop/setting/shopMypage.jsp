@@ -26,7 +26,7 @@
 					<tbody>
 					<tr>
 						<th>회사명<span class="ess">*</span></th>
-						<td><input class="tbox full" name="" value=""></td>
+						<td><input class="tbox full" name="" value="${item.companyName }"></td>
 						<th>대표자명<span class="ess">*</span></th>
 						<td><input class="tbox full" name="userName" value="${item.userName }"></td>
 					</tr>
@@ -46,9 +46,9 @@
 						<th>사업자 등록증<span class="ess">*</span></th>
 						<td>
 							<div class="img_upload">
-								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${item.proFilepath }">
+								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${compFilepath1}">
 								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
-									<img id="mypage"  src="${item.proFilepath }"> 
+									<img id="mypage"  src="${compFilepath1 }"> 
 								</a>
 							</div>
 						</td>
@@ -59,9 +59,9 @@
 						<th>중개사 등록증<span class="ess">*</span></th>
 						<td>
 							<div class="img_upload">
-								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${item.proFilepath }">
+								<input type="file" name="fileImg" id="img_0" class="hide" onchange="img_change(this)" value="${compFilepath2 }">
 								<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
-									<img id="mypage"  src="${item.proFilepath }"> 
+									<img id="mypage"  src="${compFilepath2 }"> 
 								</a>
 							</div>
 						</td>
