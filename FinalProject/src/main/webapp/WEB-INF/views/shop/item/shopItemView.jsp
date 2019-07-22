@@ -574,10 +574,10 @@
 </div>
 <script>
 	$(document).ready(function() {
-/* 		var dealPrice = "${item.shopItemDealPrice}"*1;
 		if(${item.shopItemDealPrice==''}){
 			managePrice = 0;
 		}else{
+			var dealPrice = "${item.shopItemDealPrice}"*1;
 			managePrice = "${item.shopItemManagePrice}"*1;
 		}
 		if(${item.shopItemParkingPrice==''}){
@@ -621,7 +621,7 @@
 		//무료
 		if(managePrice==0 && parkingPrice==0){
 			$("#price").html("0만 원 + α<span></span>");
-		} */
+		} 
 		
 		
 		//사이즈 변경

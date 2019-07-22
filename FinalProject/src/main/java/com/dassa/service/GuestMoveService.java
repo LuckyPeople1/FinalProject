@@ -130,7 +130,7 @@ public class GuestMoveService {
 			reVo = guestMoveMapper.driverReviewSelect(maVo.getDriverIdx());
 		}
 		DriverReviewVO reOneVO = guestMoveMapper.driverReviewSelectOne(applyIdx);
-		System.out.println(reOneVO.getApplyIdx());
+		
 		return new MoveInfoTotalData(driverAuctionDetail, optionList, imgList, payVo, maVo,reVo,reOneVO);
 	}
 	public DriverVO driverReviewWrite(DriverVO driverVO) throws Exception {

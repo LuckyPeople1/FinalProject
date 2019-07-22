@@ -12,12 +12,6 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#none" class="menu_name">부동산 스태프 관리</a>
-				<ul class="lnb_sub_menu">
-					<li><a href="/shop/member/">스태프 관리</a></li>
-				</ul>
-			</li>
-			<li>
 				<a href="#none" class="menu_name">부동산 아이템 관리</a>
 				<ul class="lnb_sub_menu">
 					<li><a href="/shop/member/">아이템 관리</a></li>

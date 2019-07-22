@@ -72,6 +72,9 @@ public interface ShopMapper {
 	//매물 진행
 	public int shopItemIng(int shopItemIdx)throws Exception;
 	
+	//매물 완료
+	public int shopItemSuc(int shopItemIdx)throws Exception;
+	
 	//매물 삭제
 	public int shopItemDelete(int shopItemIdx) throws Exception;
 	

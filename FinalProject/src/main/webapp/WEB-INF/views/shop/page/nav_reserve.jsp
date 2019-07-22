@@ -4,7 +4,7 @@
 	<div class="sub_nav">
 		<div class="nav_title">방문 관리</div>
 		<div class="nav_group">
-			<a href="/shop/reserve" class="on">방문예약현황</a>
+			<a href="/shop/reserve" class="${subNav == 1 ? 'on' : ''}">방문예약현황</a>
 		</div>
 	</div>
 </div>

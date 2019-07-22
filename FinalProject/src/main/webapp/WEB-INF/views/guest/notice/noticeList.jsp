@@ -10,6 +10,7 @@
 <meta name="description"
 	content="Mind freaker stuff (Mindfreakerstuff.com) is a blog for Design inspiration, tutorials and latest mobile/Gadgets review . Learn Design Theory, Typography, Website Design, MS office Tips and latest android mobiles/apps more.">
 <link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 
 <body>
@@ -34,16 +35,16 @@
 							<p>제목</p>
 							<p>날짜</p>
 						</li>
-						<table class="styled__Item-sc-5kwp9x-2 bryRNw">
 							<c:forEach items="${list }" var="n">
+						<table class="styled__Item-sc-5kwp9x-2 bryRNw">
 								<tr>
 									<td class="styled__Title-sc-5kwp9x-3 jDHSEw"><a href="/guest/notice/noticeView?noticeIndex=${n.noticeIndex }" style="color:black;">[공지사항] ${n.noticeTitle }</a></td>
 									<td class="styled__Time-sc-5kwp9x-4 dJQhTV">${n.noticeRegDate }<input type="hidden" name="${n.noticeIndex }"></td>
 								</tr>
-							</c:forEach>
 						</table>
+							</c:forEach>
 					</ul>
-					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
+					<div id="pageNavi" style="text-align: center;  margin: 0 auto; margin-bottom: 30px; margin-top: 30px;">${pageNavi}</div>
 
 				</div>
 				</section>

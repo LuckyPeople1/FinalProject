@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="btn_box">
-			<a href="javascript:void(0)" class="btn col_red">확인</a>
+			<a href="javascript:void(0)" class="btn col_blue">확인</a>
 		</div>
 		<div class="list_form">
 		</div>

@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>FAQ 이용관리</title>
+<link rel="stylesheet" type="text/css"	href="/guest/css/notice/notice.css">
+
 </head>
 <body> 
 <div class="container">
@@ -21,6 +23,7 @@
 				<div class="field_title">
 					<span class="title_mark">■ FAQ 이용관리</span>
 				</div>
+				<form action="/manage/board/faq/searchKeyword?reqPage=1" method="post" id="search">
 
 				<table class="set_table">
 					<colgroup>
@@ -32,17 +35,9 @@
 					<tr>
 						<th>제목</th>
 						<td colspan="3">
-							<input class="tbox w_6p"  style="width:39%;">
+							<input class="tbox w_6p"  style="width:39%;" name="keyWord">
 						</td>
 					</tr>
-<!-- 					<tr>
-						<th>분류</th>
-						<td>
-							<label><input type="checkbox" name="kind"><span>이용문의</span></label>
-							<label class="ml10"><input type="checkbox" name="kind"><span>부동산문의</span></label>
-							<label class="ml10"><input type="checkbox" name="kind"><span>이사문의</span></label>
-						</td>
-					</tr> -->
 					<tr>
 						<th>작성일</th>
 						<td colspan="3">
@@ -57,9 +52,10 @@
 					</tr>
 				</table>
 				<div class="set_menu">
-					<a href="#" class="btn normal col_main f_w">검색</a>
+					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w">검색</a>
 					<a href="#" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
+				</form>
 			</div>
 			<div class="list_field">
 			<div class="list_menu">
@@ -100,7 +96,7 @@
 						</td>
 						<td>
 							<div>
-								<a href="/manage/board/faq/faqManageView?faqIndex=${f.faqIndex }"" class="btn small col_main f_w">상세보기</a>
+								<a href="/manage/board/faq/faqManageView?faqIndex=${f.faqIndex }"" class="btn small col_main f_w" style="background: gray;">상세보기</a>
 							</div>
 							<div>
 								<a href="/manage/board/faq/faqManageModify?faqIndex=${f.faqIndex }" class="btn small col_main f_w">수정</a>

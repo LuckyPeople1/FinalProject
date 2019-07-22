@@ -4,7 +4,7 @@
 	<div class="sub_nav">
 		<div class="nav_title">부동산 관리</div>
 		<div class="nav_group">
-			<a href="/shop/mypage" class="on">부동산 설정</a>
+			<a href="/shop/mypage" class="${subNav == 1 ? 'on' : ''}">부동산 설정</a>
 		</div>
 	</div>
 </div>

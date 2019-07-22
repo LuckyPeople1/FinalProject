@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,7 +34,7 @@ public class ShopBoardController {
 
 	//부동산 게시판관리 페이지(board)
 	@RequestMapping("/shopBoardList")
-	public ModelAndView ShopBoard(@RequestParam int reqPage,HttpServletRequest request) {
+	public ModelAndView ShopBoard(@RequestParam int reqPage,HttpServletRequest request, Model model) {
 		ModelAndView ma = new ModelAndView();
 		try {
 			NoticePageData list = shopBoardService.selectNoticeList(reqPage);
@@ -42,12 +43,16 @@ public class ShopBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 1);
 				ma.setViewName("shop/board/shopBoardList");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		model.addAttribute("headerNav",5);
+		model.addAttribute("subNav",1);
 		return ma;
 	}
 	
@@ -81,6 +86,8 @@ public class ShopBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 3);
 				ma.setViewName("shop/board/faq/shopFaqList");
 			}
 		} catch (Exception e) {
@@ -101,6 +108,8 @@ public class ShopBoardController {
 				String pageNavi = list.getPageNavi();
 				ma.addObject("list", arrlist);
 				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 2);
 				ma.setViewName("shop/board/question/shopQuestion");
 			}
 		} catch (Exception e) {

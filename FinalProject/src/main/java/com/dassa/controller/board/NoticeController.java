@@ -141,6 +141,10 @@ public class NoticeController {
 		n.setNoticeFilename(filePath);
 		if(!noticefilename.isEmpty()) {
 			try {
+				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeTitle(ti);
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeContent(con);
 				byte[] bytes = noticefilename.getBytes();
 				File f = new File(fullPath);	//io File 임포트
 				FileOutputStream fos = new FileOutputStream(f);
@@ -175,6 +179,10 @@ public class NoticeController {
 		}else {
 			String view = "";
 			try {
+				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeTitle(ti);
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeContent(con);
 				int result = noticeService.noticeUpdate(n);
 				System.out.println("result:"+result);
 				System.out.println("타입-"+n.getNoticeType());
@@ -215,6 +223,10 @@ public class NoticeController {
 			n.setNoticeFilename(filePath);
 			if(!noticefilename.isEmpty()) {
 				try {
+					String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+					n.setNoticeTitle(ti);
+					String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+					n.setNoticeContent(con);
 					byte[] bytes = noticefilename.getBytes();
 					File f = new File(fullPath);	//io File 임포트
 					FileOutputStream fos = new FileOutputStream(f);
