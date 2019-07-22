@@ -1088,3 +1088,8 @@ section.manageMoveSale .saleBox2{
 section.manageMoveSale .saleTitle{
 	font-size: 20px;
 }
+
+section .container .detail_img{
+	width:200px;
+	height:200px;
+}

@@ -463,20 +463,30 @@ public class ManageUserController {
 		userVO= manageUserService.getUserDetail(userVO);
 		StringTokenizer token1 = new StringTokenizer(userVO.getCompFilename(), ",");
 		StringTokenizer token2 = new StringTokenizer(userVO.getCompFilepath(), ",");
-		String compFilename1 = token1.nextToken();
-		String compFilename2 = token1.nextToken();
-		String compFilepath1 = token2.nextToken();
-		String compFilepath2 = token2.nextToken();
-		if(userVO != null) {
-			model.addAttribute("userVO", userVO);
-			model.addAttribute("compFilename1", compFilename1);
-			model.addAttribute("compFilename2", compFilename2);
-			model.addAttribute("compFilepath1", compFilepath1);
-			model.addAttribute("compFilepath2", compFilepath2);
-			return "/manage/user/user/userDetail";
+		String compFilename1=null;
+		String compFilename2=null;
+		String compFilepath1=null;
+		String compFilepath2=null;
+		if(userVO.getUserType().equals("1")) {
+			compFilename1 = token1.nextToken();
+			compFilepath1 = token2.nextToken();
 		}else {
-			return "redirect:"+referer;
+			compFilename1 = token1.nextToken();
+			compFilepath1 = token2.nextToken();
+			compFilename2 = token1.nextToken();
+			compFilepath2 = token2.nextToken();
 		}
 		
+		model.addAttribute("userVO", userVO);
+		if(userVO.getUserType().equals("1")) {
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilepath1", compFilepath1);
+		}else{
+			model.addAttribute("compFilename1", compFilename1);
+			model.addAttribute("compFilepath1", compFilepath1);
+			model.addAttribute("compFilename2", compFilename2);
+			model.addAttribute("compFilepath2", compFilepath2);
+		}
+		return "/manage/user/user/userDetail";
 	}
 }
