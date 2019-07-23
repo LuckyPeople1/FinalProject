@@ -458,6 +458,7 @@ public class GuestMyController {
 					String pageNavi = list.getPageNavi();
 					ma.addObject("list", arrlist);
 					ma.addObject("pageNavi", pageNavi);
+					ma.addObject("tab","4");
 					ma.setViewName("guest/mypage/myQuestion");
 				}
 			} catch (Exception e) {
@@ -465,5 +466,11 @@ public class GuestMyController {
 				e.printStackTrace();
 			}
 			return ma;
+		}
+		
+		//유저 마이페이지 내가쓴문의 뷰
+		@RequestMapping("/myQuestionView")
+		public String myQuestionView() {
+			return "guest/mypage/myQuestionView";
 		}
 }

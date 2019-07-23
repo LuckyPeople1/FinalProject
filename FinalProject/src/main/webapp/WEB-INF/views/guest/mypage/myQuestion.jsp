@@ -15,16 +15,16 @@
 			<!-- 컨텐츠 시작 -->
 			<div class="mypageCon move">
 				<div class="moveTitle">
-					<span class="tit">방문 관리</span>
+					<span class="tit">문의 내역</span>
 				</div>
 				<div class="moveListBox">
-					<c:forEach var="list" items="${list}" varStatus="i">
+					<c:forEach var="list" items="${list}">
 						<c:choose>
 							<c:when test="${list.questionsAnswerState eq '답변완료'}">
-								<a href="#" class="moveBox on atag"></a>
+								<a href="/guest/mypage/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox on atag">
 							</c:when>
 							<c:otherwise>
-								<a href="#" class="moveBox off"></a>
+								<a href="/guest/mypage/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox off">
 							</c:otherwise>
 						</c:choose>
 							<div class="moveInfo">
