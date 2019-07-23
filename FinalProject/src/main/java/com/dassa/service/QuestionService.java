@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.dassa.mapper.QuestionMapper;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @Service("questionService")
 public class QuestionService {
@@ -90,6 +91,60 @@ public class QuestionService {
 	//1:1삭제
 	public int questionManageDelete(int questionsIndex) throws Exception{
 		return questionMapper.questionManageDelete(questionsIndex);
+	}
+
+	public QuestionPageData searchKeyword(int reqPage, SearchQuestionVO s) throws Exception{
+		int numPerPage = 5;
+		int totalCount = questionMapper.titleCount(s);
+		System.out.println("서비스 토탈 : "+totalCount);
+		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;;
+		int start = (reqPage-1)*numPerPage+1;;
+		int end = reqPage*numPerPage;
+		int code=s.getCode();
+		s.setStart(start);
+		s.setEnd(end);
+		ArrayList<QuestionVO> list = questionMapper.searchKeywordTitle(s);
+		System.out.println("서비스-"+list.size());
+		String pageNavi = "";
+		int pageNaviSize = 5;
+		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		if(pageNo !=1) {
+			if(code==1) {	//부동산이면			
+				pageNavi += "<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+(pageNo-1)+"&code=1&keyWord="+s.getKeyWord()+"'>이전</a>";
+			}else if(code==2) {	//기사면
+				pageNavi += "<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+(pageNo-1)+"&code=2&keyWord="+s.getKeyWord()+"'>이전</a>";
+			}else {	//사용자면
+				pageNavi += "<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+(pageNo-1)+"&keyword="+s.getKeyWord()+"'>이전</a>";
+			}
+		}
+		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
+		int i = 1;
+		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
+			if(reqPage == pageNo) {
+				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+			}else {
+				if(code==1) {	//부동산이면				
+					pageNavi += "<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+pageNo+"&code=1&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				}else if(code==2) {	//기사면
+					pageNavi += "<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+pageNo+"&code=2&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				}else {	//사용자면
+					pageNavi += "<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				}
+			}
+			pageNo++;
+		}
+		//다음 버튼 생성
+		if(pageNo <= totalPage) {
+			if(code==1) {//부동산이면
+				pageNavi +="<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+pageNo+"&code=1&keyword="+s.getKeyWord()+"'>다음</a>";
+			}else if(code==2) {//기사면
+				pageNavi +="<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+pageNo+"&code=2&keyword="+s.getKeyWord()+"'>다음</a>";
+			}else {//사용자면
+				pageNavi +="<a class='pbtn' href='/manage/board/question/searchKeyword?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>다음</a>";
+			}
+		}
+		QuestionPageData pd = new QuestionPageData(list,pageNavi);
+		return pd;
 	}
 	
 }

@@ -21,6 +21,7 @@
 		<div class="contents">
 			<div class="set_field">
 				<div class="field_title"><span class="title_mark">■ 1:1 문의관리</span></div>
+				<form action="/manage/board/question/searchKeyword?reqPage=1" method="post" id="search">
 				<table class="set_table">
 					<colgroup>
 						<col width="180">
@@ -33,12 +34,12 @@
 						<th>제목</th>
 						<td colspan="">
 							<span class="sbox small">
-								<select name="searchType">
+								<select name="type">
 									<option value="1">제목</option>
 									<option value="2">작성자명</option>
 								</select>
 							</span>
-							<input class="tbox" name="searchWord" value="">
+							<input class="tbox" name="keyWord">
 						</td>
 						<th>답변상태</th>
 						<td>
@@ -67,9 +68,10 @@
 					</tr>
 					</tbody>
 				</table>
+				</form>
 				<div class="set_menu">
-					<a href="javascript:void(0)" class="btn normal col_main f_w">검색</a>
-					<a href="javascript:void(0)" class="btn normal col_darkGrey f_w ml5">전체목록</a>
+					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w">검색</a>
+					<a href="/manage/board/question/questionManageList?reqPage=1" class="btn normal col_darkGrey f_w ml5">전체목록</a>
 				</div>
 			</div>
 			<div class="list_field">

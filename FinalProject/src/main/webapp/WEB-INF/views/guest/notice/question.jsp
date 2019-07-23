@@ -34,7 +34,7 @@
 						<p class="styled__OpenTime-sc-1v9ngdo-3 csQndh">평일 10:00 ~ 18:30 (토, 일요일, 공휴일 휴무)</p>
 						<form action="/guest/notice/questionInsert" method="post">
 						<ul class="styled__Ul-sc-1v9ngdo-4 hIJwlj">
-							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">제목<input type="hidden" name="questionsWriter" value="test1"></p>
+							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">제목<input type="hidden" name="questionsWriter" value="${sessionScope.user.userId }"></p>
 								<input autocomplete="off" class="styled__TitleInput-sc-1v9ngdo-6 ilgADB Input-sfsekm-0 kTQnUD" name="questionsTitle"  required>
 								<input type="hidden" style="float:left;" class="" name="questionsUserType" value="일반문의"></li>
 								

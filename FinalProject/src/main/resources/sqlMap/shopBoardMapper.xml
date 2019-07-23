@@ -17,7 +17,7 @@
    <select id="totalCount" resultType="_int">
   	select count(*) cnt from notice_tbl where notice_type='부동산' and notice_state='정상'
   </select>
-   <!-- 공지사항 부동산 작성 인서트 -->
+<!--    공지사항 부동산 작성 인서트
   <insert id="shopNoticeInsert" parameterType="noticeVO">
   	<if test="noticeFilename==null">
   	  	insert into notice_tbl values
@@ -43,7 +43,7 @@
   			sysdate,
   			#{noticeState})
 	</if>
-  </insert>
+  </insert> -->
     <!-- 공지사항뷰페이지 -->
   <select id="shopNoticeView" parameterType="noticeVO" resultType="noticeVO">
   	select notice_index as noticeIndex,

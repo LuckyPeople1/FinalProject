@@ -261,4 +261,8 @@ public class GuestMoveService {
 	public QuestionVO questionView(int questionsIndex) throws Exception{
 		return guestMoveMapper.questionView(questionsIndex);
 	}
+	//마이페이지에서삭제
+	public int myQuestionDelete(int questionsIndex) throws Exception {
+		return guestMoveMapper.myQuestionDelete(questionsIndex);
+	}
 }

@@ -47,6 +47,7 @@
 								<tr>
 									<td colspan="2">
 										<div class="board_button">
+											<a href="/my/myQuestionDelete?questionsIndex=${questionVO.questionsIndex }" class="board_Rebtn" style="background-color: gray;">삭제</a>
 											<a href="javascript:history.back()" class="board_Rebtn">취소</a>
 										</div>
 									</td>

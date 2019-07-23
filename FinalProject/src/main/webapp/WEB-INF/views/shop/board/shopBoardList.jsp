@@ -54,7 +54,7 @@
 					</tr>
 					
 				</table>
-				<div class="set_form_search">
+				<div class="set_form_search" style="height: 36px; overflow: hidden;">
 					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w" style="line-height: 41px;">검색</a>
 					<a href="/shop/board/shopBoardList?reqPage=1" class="btn normal col_darkGrey f_w ml5" style="line-height: 41px;">전체목록</a>
 				</div>
