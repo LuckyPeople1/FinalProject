@@ -15,5 +15,5 @@ public interface ManageShopMapper {
 	public ArrayList<ShopItemVO> selectAllList(Map<String, Object> map) throws Exception;
 	
 	//전체 매물 개수
-	public int shopItemTotalCount() throws Exception;
+	public int shopItemTotalCount(Map<String, Object> map) throws Exception;
 }

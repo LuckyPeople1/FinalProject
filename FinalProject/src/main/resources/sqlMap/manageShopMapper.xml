@@ -13,12 +13,20 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
-			from (select rownum as rnum, item.* from (select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료' or shop_item_sale_state='삭제')
+			from (select rownum as rnum, item.* from 
+			(select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료' or shop_item_sale_state='삭제')
+			<if test="shopName!=null">
+				AND shop_name like '%'|| #{shopName}||'%'
+			</if>
 			order by rownum desc) item)
+			
 			where rnum between #{start} and #{end} 
 	</select>
 	<!-- 매물 총 게시물 수 -->
-	<select id="shopItemTotalCount" resultType="_int">
-		select count(*) cnt from shop_item_tbl
+	<select id="shopItemTotalCount" resultType="_int" parameterType="map">
+		select count(*) cnt from shop_item_tbl 
+		<if test="shopName!=null">
+				where shop_name like '%'|| #{shopName}||'%'
+			</if>
 	</select>
 </mapper>
