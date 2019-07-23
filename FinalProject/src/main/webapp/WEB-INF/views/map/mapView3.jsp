@@ -1553,7 +1553,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 				var moveLatLon = new kakao.maps.LatLng(x, y);
 				map.setCenter(moveLatLon);
 				map.panTo(moveLatLon);
-				map.setLevel(5);
+				map.setLevel(3);
 			}
 		});
 		$.ajax({		
