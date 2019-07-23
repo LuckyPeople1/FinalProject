@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.dassa.vo.SearchMapVO;
 import com.dassa.vo.ShopItemVO;
 
 @MapperScan("mapMapper")
@@ -16,4 +17,5 @@ public interface MapMapper {
 	public ArrayList<ShopItemVO> selectAll() throws Exception;
 	public ArrayList<ShopItemVO> selectOne(String shopItemAddr1) throws Exception;
 	public ArrayList<ShopItemVO> mapAll() throws Exception;
+	public ArrayList<ShopItemVO> mapType(SearchMapVO searchMapVO) throws Exception;
 }
