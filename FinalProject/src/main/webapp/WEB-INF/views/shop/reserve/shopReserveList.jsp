@@ -15,7 +15,7 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
-			<form action="/shop/reservationSearch" id="shopReservationSearch" method="get">
+			<form action="/shop/reserve" id="shopReservationSearch" method="get">
 				<table class="table_set">
 					<colgroup>
 						<col width="180">
@@ -24,29 +24,9 @@
 						<col width="*">
 					</colgroup>
 					<tr>
-						<th>카테고리</th>
+						<th>담당자</th>
 						<td colspan="3">
-							<span class="sbox small">
-								<select name="shopItemManager">
-									<option selected="selected" value="">담당자선택</option>
-								</select>
-							</span>
-							<span class="sbox small">
-								<select name="type">
-									<option selected="selected" value="all">매물선택</option>
-									<option value="one">원룸</option>
-									<option value="two">투룸</option>
-									<option value="three">쓰리룸</option>
-									<option value="offi">오피스텔</option>
-									<option value="kapt">아파트</option>
-								</select>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<th>검색어</th>
-						<td colspan="3">
-							<input class="tbox w_6p">
+							<input class="tbox w_6p" name="shopItemManager">
 						</td>
 					</tr>
 				</table>
@@ -128,8 +108,9 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="pageNavi" class="page_group clearFix">
-				${pageNavi}
+			<div class="page_group clearFix">
+				<ul class="page_box">${pageNavi}
+				</ul>
 			</div>
 		</div>
 		</section>

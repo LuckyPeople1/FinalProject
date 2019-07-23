@@ -54,7 +54,7 @@ public class ManageShopService {
 		//이전 버튼 생성
 		if(pageNo !=1) {
 			pageNavi += "<li class='prev arrow'>";
-			pageNavi += "<a class='btn' href='/shopManage/shopAllList?shopName="+shopName+"&reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<a class='btn' href='/shopManage/shopAllList?shopName="+shopName+"&reqPage="+(pageNo-1)+"'></a>";
 			pageNavi += "</li>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
@@ -75,7 +75,7 @@ public class ManageShopService {
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
 			pageNavi += "<li class='next arrow'>";
-			pageNavi +="<a class='btn' href='/shopManage/shopAllList?shopName=\"+shopName+\"&reqPage="+pageNo+"'>다음</a>";
+			pageNavi +="<a class='btn' href='/shopManage/shopAllList?shopName=\"+shopName+\"&reqPage="+pageNo+"'></a>";
 			pageNavi += "</li>";
 		}
 		ShopItemPageDataVO pd = new ShopItemPageDataVO(list,pageNavi);

@@ -220,12 +220,18 @@
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate
 			from (select rownum as rnum, item.* from (select * from shop_item_tbl where (shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료') and user_idx=#{userIdx}
+			<if test="shopItemManager != '' ">
+				AND shop_item_manager like '%'|| #{shopItemManager}||'%'
+			</if>
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>
 	<!-- 매물 총 게시물 수 -->
-	<select id="shopItemTotalCount" resultType="_int">
+	<select id="shopItemTotalCount" resultType="_int" parameterType="map">
 		select count(*) cnt from shop_item_tbl where shop_item_sale_state='판매중' or shop_item_sale_state='판매중단' or shop_item_sale_state='판매완료' 
+		<if test="shopItemManager != '' ">
+				AND shop_item_manager like '%'|| #{shopItemManager}||'%'
+			</if> 
 	</select>
 	<!-- 매물 상세보기 -->
 	<select id="shopItemInfo" parameterType="shopItemVO" resultType="shopItemVO">
@@ -370,8 +376,11 @@
 		)
 	</insert>
 	<!-- 방문 리스트 개수 -->
-	<select id="shopReservationTotalCount" resultType="_int">
+	<select id="shopReservationTotalCount" resultType="_int" parameterType="map">
 		select count(*) cnt from shop_reservation_tbl where shop_reservation_state='예약대기' or shop_reservation_state='예약완료'
+		<if test="shopItemManager != '' ">
+				and shop_item_manager like '%'|| #{shopItemManager}||'%'
+		</if>
 	</select>
 	<!-- 방문 리스트 뿌리기 -->
 	<select id="selectReservationAllList" resultType="shopReservationVO" parameterType="map">
@@ -386,6 +395,9 @@
 				shop_reservation_state as shopReservationState,
 				shop_reservation_date as shopReservationDate
 			from (select rownum as rnum, item.* from (select * from shop_reservation_tbl where (shop_reservation_state='예약대기' or shop_reservation_state='예약완료' or shop_reservation_state='상담완료') and shop_idx=#{shopIdx}
+			<if test="shopItemManager != '' ">
+				AND shop_item_manager like '%'|| #{shopItemManager}||'%'
+			</if>
 			order by rownum desc) item)
 			where rnum between #{start} and #{end} 
 	</select>

@@ -26,7 +26,10 @@ public class ShopReserveController {
 	private ShopService shopService;
 	//부동산 방문관리 페이지(reserve)
 	@RequestMapping("/reserve")
-	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession, Model model)throws Exception {
+	public ModelAndView ShopReserve(HttpServletRequest request, HttpSession httpSession, Model model,String shopItemManager)throws Exception {
+		if(shopItemManager==null) {
+			shopItemManager="";
+		}
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -35,7 +38,7 @@ public class ShopReserveController {
 		}
 		UserVO userVO = (UserVO)httpSession.getAttribute("user");
 		ModelAndView mav = new ModelAndView();
-		ShopReservationPageDataVO sipd = shopService.selectReservationAllList(reqPage,userVO);
+		ShopReservationPageDataVO sipd = shopService.selectReservationAllList(reqPage,userVO,shopItemManager);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopReservationVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();

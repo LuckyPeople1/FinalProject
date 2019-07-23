@@ -49,7 +49,10 @@ public class ShopItemController {
 	 * @return
 	 */
 	@RequestMapping("/item")
-	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession, Model model)throws Exception {
+	public ModelAndView ShopItem(HttpServletRequest request, HttpSession httpSession, Model model, String shopItemManager )throws Exception {
+		if(shopItemManager==null) {
+			shopItemManager="";
+		}
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -61,7 +64,7 @@ public class ShopItemController {
 		ModelAndView mav = new ModelAndView();
 		int itemCount = shopService.shopCount(userIdx); //매물 등록 가능 개수 확인
 		int powerCount =shopService.powerCount(userIdx); //파워링크 등록 가능 개수 확인
-		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,userVO);
+		ShopItemPageDataVO sipd = shopService.selectAllList(reqPage,userVO, shopItemManager);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
