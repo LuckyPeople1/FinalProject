@@ -34,18 +34,18 @@
 						</colgroup>
 						<tr>
 							<th>제목</th>
-							<td colspan=""><span class="sbox small">
+							<td colspan="3"><span class="sbox small">
 								<select name="type">
 										<option value="1">제목</option>
 										<option value="2">작성자명</option>
 								</select>
-							</span> <input class="tbox w_6p" name="keyWord"></td>
-							<th>답변상태</th>
+							</span> <input class="tbox w_6p" name="keyWord" style="width:50%;"></td>
+						<%--	<th>답변상태</th>
 							<td><label><input type="checkbox"><span>미답변</span></label>
 								<label class="ml10"><input type="checkbox"><span>답변완료</span></label>
-							</td>
+							</td> --%>
 						</tr>
-						<tr>
+					<%--	<tr>
 							<th>작성일</th>
 							<td colspan="3"><input class="tbox" id="dateS"> <span
 								class="hyphen">~</span> <input class="tbox" id="dateE">
@@ -59,7 +59,7 @@
 								class="btn col_grey line ">3개월</a> <a
 								href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
 							</td>
-						</tr>
+						</tr> --%>
 					</table>
 					<div class="set_form_search" style="height: 36px; overflow: hidden;">
 						<a href="javascript:$('#search').submit()" class="btn normal col_main f_w" style="line-height: 40px;">검색</a>
