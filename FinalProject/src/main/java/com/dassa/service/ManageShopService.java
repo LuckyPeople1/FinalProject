@@ -24,11 +24,13 @@ public class ManageShopService {
 	@Resource(name="shopMapper")
 	private ShopMapper shopMapper;
 	
-	public ShopItemPageDataVO selectAllList(int reqPage) throws Exception{
+	public ShopItemPageDataVO selectAllList(int reqPage, String shopName) throws Exception{
 		//페이지 당 게시물 수
+		 Map<String, Object> map = new HashMap<String, Object>();
+		 map.put("shopName",shopName);
 		int numPerPage = 5;
 		//총 게시물 수 구하기
-		int totalCount = manageShopMapper.shopItemTotalCount();
+		int totalCount = manageShopMapper.shopItemTotalCount(map);
 		//총 페이지 수 구하기
 		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;
 		//요청 페이지의 시작 게시물 번호와 끝 게시물 번호 구하기
@@ -37,10 +39,10 @@ public class ManageShopService {
 		System.out.println("시작번호"+start);
 		int end = reqPage*numPerPage;
 		System.out.println(start+"/"+end);
-		   Map<String, Object> map = new HashMap<String, Object>();
+		  
 		   map.put("start",start);
 		   map.put("end",end);
-
+		   
 			ArrayList<ShopItemVO> list= manageShopMapper.selectAllList(map);
 	
 		//페이지 네비 작성
@@ -51,21 +53,30 @@ public class ManageShopService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//이전 버튼 생성
 		if(pageNo !=1) {
-			pageNavi += "<a class='btn' href='/shopManage/shopAllList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a class='btn' href='/shopManage/shopAllList?shopName="+shopName+"&reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "</li>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>";
+				pageNavi += "</li>";
+				//4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
 			}else {
-				pageNavi += "<a class='btn' href='/shopManage/shopAllList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a class='btn' href='/shopManage/shopAllList?shopName="+shopName+"&reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-			pageNavi +="<a class='btn' href='/shopManage/shopAllList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi +="<a class='btn' href='/shopManage/shopAllList?shopName=\"+shopName+\"&reqPage="+pageNo+"'>다음</a>";
+			pageNavi += "</li>";
 		}
 		ShopItemPageDataVO pd = new ShopItemPageDataVO(list,pageNavi);
 		return pd;
