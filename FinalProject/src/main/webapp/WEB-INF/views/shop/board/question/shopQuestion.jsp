@@ -79,7 +79,6 @@
 					</div>
 					<table class="table_list">
 						<colgroup>
-							<col width="40">
 							<col width="70">
 							<col width="120">
 							<col width="*">
@@ -89,7 +88,6 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<th><label><input type="checkbox"></label></th>
 								<th>NO</th>
 								<th>아이디</th>
 								<th>제목</th>
@@ -102,7 +100,6 @@
 							<c:forEach items="${list }" var="q">
 							<c:if test="${sessionScope.user.userId eq q.questionsWriter }">
 								<tr>
-									<td><label><input type="checkbox"></label></td>
 									<td>${q.rnum }</td>
 									<td>${q.questionsWriter }</td>
 									<td class="text-left">${q.questionsTitle}</td>
@@ -119,7 +116,11 @@
 					</table>
 				</div>
 			</div>
-				<div id="pageNavi" class="page_group clearFix">${pageNavi}</div>
+				<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
+			</div>
 		</div>
 	<footer role="footer" data-include="footer.html"></footer>
 

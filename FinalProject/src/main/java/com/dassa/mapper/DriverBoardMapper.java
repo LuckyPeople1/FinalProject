@@ -9,6 +9,7 @@ import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionVO;
 import com.dassa.vo.SearchNoticeVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @MapperScan("driverBoardMapper")
 public interface DriverBoardMapper {
@@ -39,4 +40,8 @@ public interface DriverBoardMapper {
 	//기사 공지사항 검색
 	public ArrayList<NoticeVO> searchKeywordTitle(SearchNoticeVO s) throws Exception;
 	public int titleCount(SearchNoticeVO s) throws Exception;
+	
+	//기사 문의타입검색
+	public ArrayList<QuestionVO> searchQuestionTitle(SearchQuestionVO s) throws Exception;
+	public int questionCount(SearchQuestionVO s) throws Exception;
 }

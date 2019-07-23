@@ -64,7 +64,6 @@
 
 				<table class="table_list">
 					<colgroup>
-						<col width="60">
 						<col width="90">
 						<col width="*">
 						<col width="130">
@@ -73,7 +72,6 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>제목</th>
 						<th>작성일시</th>
@@ -84,7 +82,6 @@
 					<tbody>
 					<c:forEach items="${list }" var="s">
 					<tr>
-						<td><label><input type="checkbox"></label></td>
 						<td>${s.rnum }</td>
 						<td>
 							<div class="text-left">${s.noticeTitle }</div>
@@ -108,8 +105,10 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="pageNavi" class="page_group clearFix">
-				${pageNavi}
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
 			</div><br>
 		</div>
 	</div>

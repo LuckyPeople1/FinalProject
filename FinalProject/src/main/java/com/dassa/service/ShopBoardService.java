@@ -43,21 +43,29 @@ public class ShopBoardService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize + 1;
 		// 이전 버튼 생성
 		if (pageNo != 1) {
-			pageNavi += "<a class='pbtn' href='/shop/board/shopBoardList?reqPage=" + (pageNo-1) + "'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/shop/board/shopBoardList?reqPage=" + (pageNo-1) + "'>이전</a>";
+			pageNavi += "</li>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while (!(i++ > pageNaviSize || pageNo > totalPage)) { // 둘 중 하나라도 만족하면 수행하지 않겠다
 			if (reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>" + pageNo + "</span>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>" + pageNo + "</a>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "</li>";
 			} else {
-				pageNavi += "<a class='pbtn' href='/shop/board/shopBoardList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/shop/board/shopBoardList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		// 다음 버튼 생성
 		if (pageNo <= totalPage) {
-			pageNavi += "<a class='pbtn' href='/shop/board/shopBoardList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi += "<a href='/shop/board/shopBoardList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "</li>";
 		}
 		NoticePageData pd = new NoticePageData(list, pageNavi);
 		return pd;
@@ -100,21 +108,29 @@ public class ShopBoardService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//이전 버튼 생성
 		if(pageNo !=1) {
-				pageNavi += "<a class='pbtn' href='/shop/board/faq/shopFaqList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/shop/board/faq/shopFaqList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "</li>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
 			}else {
-				pageNavi += "<a class='pbtn' href='/shop/board/faq/shopFaqList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/shop/board/faq/shopFaqList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-				pageNavi +="<a class='pbtn' href='/shop/board/faq/shopFaqList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi +="<a href='/shop/board/faq/shopFaqList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi += "</li>";	
 		}
 		FaqPageData pd = new FaqPageData(list,pageNavi);
 		return pd;
@@ -142,22 +158,30 @@ public class ShopBoardService {
 		int pageNo = ((reqPage - 1) / pageNaviSize) * pageNaviSize + 1;
 		// 이전 버튼 생성
 		if (pageNo != 1) {
-			pageNavi += "<a class='pbtn' href='/shop/board/question/shopQuestion?reqPage=" + (pageNo - 1) + "'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/shop/board/question/shopQuestion?reqPage=" + (pageNo - 1) + "'>이전</a>";
+			pageNavi += "</li>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while (!(i++ > pageNaviSize || pageNo > totalPage)) { // 둘 중 하나라도 만족하면 수행하지 않겠다
 			if (reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>" + pageNo + "</span>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>" + pageNo + "</a>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "</li>";
 			} else {
-				pageNavi += "<a class='pbtn' href='/shop/board/question/shopQuestion?reqPage=" + pageNo + "'>" + pageNo
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/shop/board/question/shopQuestion?reqPage=" + pageNo + "'>" + pageNo
 						+ "</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		// 다음 버튼 생성
 		if (pageNo <= totalPage) {
-			pageNavi += "<a class='pbtn' href='/shop/board/question/shopQuestion?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi += "<a href='/shop/board/question/shopQuestion?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "</li>";
 		}
 		QuestionPageData pd = new QuestionPageData(list, pageNavi);
 		return pd;
@@ -191,21 +215,29 @@ public class ShopBoardService {
 		int pageNaviSize = 5;
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		if(pageNo !=1) {
-			pageNavi += "<a class='pbtn' href='/shop/board/shopBoardList?reqPage="+(pageNo-1)+"&keyword="+s.getKeyWord()+"'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/shop/board/shopBoardList?reqPage="+(pageNo-1)+"&keyword="+s.getKeyWord()+"'>이전</a>";
+			pageNavi += "</li>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
 			}else {
-				pageNavi += "<a class='pbtn' href='/shop/board/shopBoardList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/shop/board/shopBoardList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-			pageNavi +="<a class='pbtn' href='/shop/board/shopBoardList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi +="<a href='/shop/board/shopBoardList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>다음</a>";
+			pageNavi += "</li>";
 		}
 		NoticePageData pd = new NoticePageData(list,pageNavi);
 		return pd;
