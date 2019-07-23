@@ -30,7 +30,9 @@
 
 	<!-- AOP -->
 	<aop:aspectj-autoproxy/>
+	<bean class="com.dassa.common.UserPass" />
 
+	
 
 	<!-- tx manager -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
