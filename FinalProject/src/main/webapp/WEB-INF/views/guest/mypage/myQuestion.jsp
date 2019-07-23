@@ -21,10 +21,10 @@
 					<c:forEach var="list" items="${list}">
 						<c:choose>
 							<c:when test="${list.questionsAnswerState eq '답변완료'}">
-								<a href="/guest/mypage/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox on atag">
+								<a href="/my/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox on atag">
 							</c:when>
 							<c:otherwise>
-								<a href="/guest/mypage/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox off">
+								<a href="/my/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox off">
 							</c:otherwise>
 						</c:choose>
 							<div class="moveInfo">
