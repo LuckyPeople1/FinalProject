@@ -19,7 +19,6 @@ public class SHA256Util {
 			String tmpEncTxt = Integer.toString((tmpStrByte & 0xff)+0x100,16).substring(1);
 			sbuf.append(tmpEncTxt);
 		}
-		System.out.println(sbuf.toString());
 		return sbuf.toString();
 	}
 }

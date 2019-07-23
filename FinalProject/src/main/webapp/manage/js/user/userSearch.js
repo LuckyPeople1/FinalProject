@@ -276,6 +276,7 @@ $(".checkUserType").change(function(){
 	for(var i = 0; i<bool; i++){
 		val += $("input[name='user']:checked").eq(i).val()+",";
 	}
+	
 	var type = val.substring(0,val.length-1);
 	console.log("val : "+val);
 	console.log("type : "+type);
@@ -665,12 +666,26 @@ function searchSuccess(data, listV, userType){
 	listV.append(str);	
 };
 
+function del(userIdx){
+	var bool = confirm("탈퇴 됩니다.");
+	if(bool){
+		location.href = "/userManage/reLoad?userIdx="+userIdx;
+	}else{
+		return false;
+	}
+}
+
+function realDel(userIdx){
+	var bool = confirm("정말 탈퇴 됩니다.");
+	if(bool){
+		location.href = "/userManage/realDel?userIdx="+userIdx;
+	}else{
+		return false;
+	}
+}
 
 
-
-
-
-
+///
 
 /*//탈퇴 타입별 아이디, 이름으로 검색
 function searchSec_btn(userType, status){

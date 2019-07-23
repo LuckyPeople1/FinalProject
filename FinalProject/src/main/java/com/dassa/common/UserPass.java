@@ -30,4 +30,34 @@ public class UserPass {
 			userVO.setUserPw(encPw);
 		}
 	}
+	
+	@Pointcut("execution(* com.dassa.service..GuestMoveService.getModiUser(..))")
+	public void mypagePointcut() {}
+
+	@Before("mypagePointcut()")
+	public void mypagePass(JoinPoint jp) throws Exception {
+		System.out.println("들어오냐?");
+		Object[] args = jp.getArgs();
+		UserVO userVO = (UserVO)args[0];
+		String password = userVO.getUserPw();
+		if(password != null && !password.isEmpty() ) {
+			String encPw = sha256Util.encData(password);
+			userVO.setUserPw(encPw);
+		}
+	}
+	
+	@Pointcut("execution(* com.dassa.service..GuestMoveService.getPwChkProc(..))")
+	public void pwChkPointcut() {}
+
+	@Before("pwChkPointcut()")
+	public void pwChkPass(JoinPoint jp) throws Exception {
+		System.out.println("들어오냐?");
+		Object[] args = jp.getArgs();
+		UserVO userVO = (UserVO)args[0];
+		String password = userVO.getUserPw();
+		if(password != null && !password.isEmpty() ) {
+			String encPw = sha256Util.encData(password);
+			userVO.setUserPw(encPw);
+		}
+	}
 }

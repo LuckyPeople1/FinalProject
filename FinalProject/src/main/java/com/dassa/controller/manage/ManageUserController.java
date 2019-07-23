@@ -515,4 +515,28 @@ public class ManageUserController {
 		}
 		return "/manage/user/user/userDetail";
 	}
+	
+	//진짜 탈퇴
+	@RequestMapping(value="/realDel")
+	public String RealDeleteReload(Model model, HttpServletRequest request, int userIdx ) {
+		String referer = request.getHeader("Referer");
+		model.addAttribute("referer", referer);
+		model.addAttribute("userIdx", userIdx);
+		return "redirect:/userManage/realDeleteUser";
+	}
+	
+	//진짜 탈퇴
+	@RequestMapping("/realDeleteUser")
+	public String DeleteUser(Model model, String referer , int userIdx) throws Exception {
+		int result = manageUserService.delUser(userIdx);
+		if(result > 0) {
+			model.addAttribute("msg", "회원 탈퇴가 되었습니다.");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
+		}else {
+			model.addAttribute("msg", "회원 탈퇴 실패하였습니다.");
+			model.addAttribute("loc", referer);
+			return "guest/common/msg";
+		}
+	}
 }
