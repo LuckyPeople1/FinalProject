@@ -559,7 +559,7 @@
 					<p class="cKVLgb">연락처를 남겨주시면, 확인 후 연락드립니다.</p>
 					<form class="dhDUnZ" action="/shop/reserveAdd">
 						<input type="hidden" name="shopIdx" value="${item.userIdx }">
-						<input type="hidden" name="shopName" value="${item.shopItemTitle }">
+						<input type="hidden" name="shopName" value="${item.shopName }">
 						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
 						<input type="hidden" name="shopItemTitle" value="${item.shopItemTitle }"> 
 						<input type="hidden" name="shopItemManager" value="${item.shopItemManager }">
