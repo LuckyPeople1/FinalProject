@@ -1192,21 +1192,21 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						</h1><ul class="styled__Ul-sc-1eqdfqp-0 hpBewf">
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="원룸" checked="">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">원룸</span>
 							</label>
 						</li>
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="투쓰리룸" checked="">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">투·쓰리룸</span>
 							</label>
 						</li>
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="오피스텔" checked="">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">오피스텔</span>
 							</label>
@@ -1215,7 +1215,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 					<ul class="styled__Ul-sc-1eqdfqp-0 hpBewf">
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="아파트">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">아파트</span>
 							</label>
@@ -1235,7 +1235,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						</li>
 					</ul>
 				</div>
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
+			<!-- <div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
 				<div class="styled__Btn-sc-1a98puu-1 fJNXpX">
 					<span>월세, 전세, 매매</span>
 					<svg width="11" height="7" viewBox="0 0 11 7">
@@ -1254,27 +1254,27 @@ section.mapView .eUbtsI > .Radio--circle::after {
 							<ul class="styled__Ul-sc-7qrnpy-0 eLjSYd">
 								<li>
 									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
-										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="" checked="">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="월세" checked="">
 										<span class="CheckBox"></span>
 										<span class="styled__Text-sc-7qrnpy-1 nmQzi">월세</span>
 									</label>
 								</li>
 								<li>
 									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
-										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="selling_type" value="" checked="">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="selling_type" value="전세" checked="">
 										<span class="CheckBox"></span>
 										<span class="styled__Text-sc-7qrnpy-1 nmQzi">전세</span>
 									</label>
 								</li>
 								<li>
 									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
-										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="" checked="">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="매물" checked="">
 										<span class="CheckBox"></span>
 										<span class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span>
 									</label>
 								</li>
 							</ul>
-						</div>			
+						</div> -->			
 			
 		</div>
 	</div>
@@ -1364,11 +1364,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div id="coordXY"></div>
 			<p>
 				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a>
-				<span class="test3">${shopItemAddr1 }</span>
+				<span class="test3" style="display:none">${shopItemAddr1 }</span>
 				<c:forEach var="v" items="${mid.list}" varStatus="i">					
-					<span class="test2">${v.shopItemTitle }</span>
-					<span class="test1">${v.shopItemIdx}</span>
-					<span class="test">${v.shopItemAddr1 }</span>
+					<span class="test2" style="display:none">${v.shopItemTitle }</span>
+					<span class="test1" style="display:none">${v.shopItemIdx}</span>
+					<span class="test" style="display:none">${v.shopItemAddr1 }</span>
 				</c:forEach>
 			</p>			
 		</div>

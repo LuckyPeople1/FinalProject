@@ -122,7 +122,7 @@
 					</tr>
 					</c:forEach>
 					<c:if test="${empty list }">
-						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+						<td colspan="8"><p>검색결과가 없습니다.</p></td>
 					</c:if>
 					</tbody>
 				</table>

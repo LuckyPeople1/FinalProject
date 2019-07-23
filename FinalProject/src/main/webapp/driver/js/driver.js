@@ -39,11 +39,11 @@ function DriverupdateClick(){
       contentType: false,
       success : function(data){
         alert("수정 성공");
-        location.href="/driver/";
+        location.href="/driver/auction";
       },
       error : function(){
           alert("수정 실패");
-          location.href="/driver/";
+          location.href="/driver/auction";
       }
   });
 }

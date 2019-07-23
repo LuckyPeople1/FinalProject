@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,6 +25,7 @@ import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchNoticeVO;
 
 @Controller
 @RequestMapping("/shop/board")
@@ -53,6 +55,41 @@ public class ShopBoardController {
 		}
 		model.addAttribute("headerNav",5);
 		model.addAttribute("subNav",1);
+		return ma;
+	}
+	
+	//공지사항검색
+	@RequestMapping("/searchKeyword")
+	@ResponseBody
+	public ModelAndView searchKeyword(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord) {
+		int code;
+		SearchNoticeVO s = new SearchNoticeVO();
+		s.setKeyWord(keyWord);
+		System.out.println(s.getKeyWord());
+		System.out.println("컨트롤러-"+reqPage);
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+			System.out.println("코드는"+code);
+		}catch (NumberFormatException e) {
+			code=0;
+		}
+		ModelAndView ma = new ModelAndView();
+		try {
+			NoticePageData list = shopBoardService.searchKeyword(reqPage,s);
+			System.out.println("컨트롤러-"+list);
+			if(!list.isEmpty()) {
+				ArrayList<NoticeVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.addObject("headerNav", 5);
+				ma.addObject("subNav", 1);
+				ma.setViewName("shop/board/shopBoardList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return ma;
 	}
 	

@@ -24,6 +24,8 @@
 		<div class="section">
 			<div class="section_title"></div>
 			<div class="set_form search">
+			<form action="/driver/board/searchKeyword?reqPage=1" method="post" id="search">
+			
 				<table class="table_set">
 					<colgroup>
 						<col width="180">
@@ -34,7 +36,7 @@
 					<tr>
 						<th>검색어</th>
 						<td colspan="3">
-							<input class="tbox w_6p">
+							<input class="tbox w_6p" name="keyWord">
 						</td>
 					</tr>
 					<tr>
@@ -53,9 +55,10 @@
 					</tr>
 				</table>
 				<div class="set_form_search">
-					<a href="javascript:void(0)" class="btn col_blue f_w">검색</a>
-					<a href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w" style="line-height: 41px;">검색</a>
+					<a href="/driver/board/driverBoardList?reqPage=1" class="btn normal col_darkGrey f_w ml5" style="line-height: 41px;">전체목록</a>
 				</div>
+				</form>
 			</div>
 			<div class="list_form">
 
@@ -100,6 +103,9 @@
 						</td>
 					</tr>
 					</c:forEach>
+					<c:if test="${empty list }">
+						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+					</c:if>
 					</tbody>
 				</table>
 			</div>
