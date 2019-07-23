@@ -186,6 +186,7 @@
 	<script src="/driver/js/driver.js"></script>
 </div>
 <script>
+
 //이전 버튼 이벤트
 /* function fn_prev(page, range, rangeSize) {
 		var page = ((range - 2) * rangeSize) + 1;

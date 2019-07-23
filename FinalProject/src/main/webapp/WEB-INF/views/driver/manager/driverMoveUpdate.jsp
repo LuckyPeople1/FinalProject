@@ -141,7 +141,8 @@
 								</li>
 								<li class="package">
 									<div class="row">
-										<div class="subject">제품이미지${DriverAuctionDetail.packageImgPath }</div>
+									
+										<div class="subject"><img  src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 										<div class="con">
 											<div class="packageName">상품명${DriverAuctionDetail.packageName }</div>
 											<div class="packageOption">옵션${DriverAuctionDetail.packageOption }</div>
@@ -161,7 +162,7 @@
 								</li>
 								<li class="package">
 									<div class="row">
-										<div class="subject" >제품이미지 ${optionList[0].packageImgPath }</div>
+										<div class="subject" ><img  src="${DriverAuctionDetail.packageImgPath }"width="70px"></div>
 										<div class="con">
 											<div class="packageName">상품명${optionList[0].packageName }</div>
 											<div class="packageOption">옵션${optionList[0].packageOption }</div>
@@ -181,9 +182,9 @@
 								</li>
 								<li class="package">
 									<div class="row">
-										<div class="subject">제품이미지</div>
+										<div class="subject"><img  src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 										<div class="con">
-											<div class="packageName">상품명 ${optionList[0].packageImgPath }</div>
+											<div class="packageName">상품명 ${optionList[0].packageName }</div>
 											<div class="packageOption">옵션${optionList[0].packageOption }</div>
 										</div>
 									</div>
@@ -201,9 +202,9 @@
 								</li>
 								<li class="">
 									<div class="row">
-										<div class="subject">제품이미지</div>
+										<div class="subject"><img  src="${DriverAuctionDetail.packageImgPath }" width="70px"></div>
 										<div class="con">
-											<div class="packageName">상품명${optionList[0].packageImgPath }</div>
+											<div class="packageName">상품명${optionList[0].packageName }</div>
 											<div class="packageOption">옵션${optionList[0].packageOption }</div>
 										</div>
 									</div>
