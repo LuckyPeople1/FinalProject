@@ -114,7 +114,9 @@
 				</table>
 			</div>
 			<div class="page_group clearFix">
-				${pageNavi}
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
 			</div>
 		</div>
 

@@ -116,8 +116,13 @@
 				</table>
 				</div>
 				
-			<div id="pageNavi" class="page_group clearFix">
+		<%-- 	<div id="pageNavi" class="page_group clearFix">
 				${pageNavi}
+			</div>--%>
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
 			</div>
 		</div>
 		<!-- 푸터 -->

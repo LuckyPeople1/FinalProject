@@ -43,8 +43,11 @@
 							</c:forEach></li>
 
 					</ul>
-					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
-
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
+			</div>
 				</div>
 				</section>
 			</div>

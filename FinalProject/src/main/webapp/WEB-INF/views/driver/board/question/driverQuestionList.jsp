@@ -24,6 +24,7 @@
 			<div class="section">
 				<div class="section_title"></div>
 				<div class="set_form search">
+				<form action="/driver/board/question/searchQuestion?reqPage=1" method="post" id="search">
 					<table class="table_set">
 						<colgroup>
 							<col width="180">
@@ -33,7 +34,8 @@
 						</colgroup>
 						<tr>
 							<th>제목</th>
-							<td colspan=""><span class="sbox small"> <select>
+							<td colspan=""><span class="sbox small">
+								<select name="type">
 										<option>제목</option>
 										<option>작성자명</option>
 								</select>
@@ -59,21 +61,20 @@
 							</td>
 						</tr>
 					</table>
-					<div class="set_form_search">
-						<a href="javascript:void(0)" class="btn col_blue f_w">검색</a> <a
-							href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+					<div class="set_form_search" style="height: 36px; overflow: hidden;">
+						<a href="javascript:$('#search').submit()" class="btn normal col_main f_w" style="line-height: 40px;">검색</a>
+						<a href="/driver/board/question/driverQuestionList?reqPage=1" class="btn normal col_darkGrey f_w ml5" style="line-height: 40px;">전체목록</a>
 					</div>
+					</form>
 				</div>
 				<div class="list_form">
 					<div class="table_list_btn">
 						<span class="right_btn">
-							<a href="board_notice_write.html" class="btn col_darkGrey f_w">선택 삭제</a>
 							<a href="/driver/board/question/driverQuestionWriter" class="btn col_blue f_w">1:1문의하기</a>
 						</span>
 					</div>
 					<table class="table_list">
 						<colgroup>
-							<col width="40">
 							<col width="70">
 							<col width="120">
 							<col width="*">
@@ -83,7 +84,6 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<th><label><input type="checkbox"></label></th>
 								<th>NO</th>
 								<th>아이디</th>
 								<th>제목</th>
@@ -96,7 +96,6 @@
 							<c:forEach items="${list }" var="q">
 							<c:if test="${sessionScope.user.userId eq q.questionsWriter }">
 								<tr>
-									<td><label><input type="checkbox"></label></td>
 									<td>${q.rnum }</td>
 									<td>${q.questionsWriter }</td>
 									<td class="text-left">${q.questionsTitle}</td>
@@ -109,11 +108,18 @@
 								</tr>
 								</c:if>
 							</c:forEach>
+					<c:if test="${empty list }">
+						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+					</c:if>
 						</tbody>
 					</table>
 				</div>
 			</div>
-					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
+			</div>
 		</div>
 
 </div>
