@@ -158,7 +158,7 @@
 		</div>
 		</section>
 	</div>
-	<footer role="footer" data-include="footer.html"></footer>
+	
 </div>
 <script>
 	

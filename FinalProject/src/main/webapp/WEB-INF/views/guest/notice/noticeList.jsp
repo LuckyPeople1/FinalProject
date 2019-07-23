@@ -49,9 +49,9 @@
 				</div>
 				</section>
 			</div>
-			<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+			
 		</div>
-
+<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 		<script type="text/javascript">
 			/* <![CDATA[ */
 			var google_conversion_id = 967706247;

@@ -53,7 +53,7 @@ public class DriverMypageController {
 			System.out.println("수정실패");
 		}
 		
-		return "redirect:/driver/";
+		return "redirect:/driver/home";
 	}
 	//이사 최종완료
 	@RequestMapping("/driverMoveFinalCompletion")

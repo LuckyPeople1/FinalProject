@@ -182,9 +182,10 @@
 		</div>
 
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 	<script src="/driver/js/driver.js"></script>
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <script>
 
 //이전 버튼 이벤트

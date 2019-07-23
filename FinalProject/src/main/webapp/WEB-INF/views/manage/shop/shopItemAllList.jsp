@@ -118,16 +118,15 @@
 			</table>
 		</div>
 		<div class="page_group clearFix">
-			<div id="pageNavi" class="page_group clearFix">
+			<ul class="page_box">
 				${pageNavi}
-			</div>
+			</ul>
 		</div>
 </div>
 <script>
 	$("button[name=powerIng]").click(function(){
 		var idx = $(this).val();
 		var userIdx = $("input[name='userIdx']").val();
-		alert(idx+":"+userIdx);
 		if(confirm("아이템을 적용하시겠습니까?")){
 			location.href="/shopManage/powerIng?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}

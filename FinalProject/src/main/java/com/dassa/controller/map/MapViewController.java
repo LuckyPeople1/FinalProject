@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dassa.service.MapService;
 import com.dassa.service.ShopService;
 import com.dassa.vo.MapImageData;
+import com.dassa.vo.SearchMapVO;
 import com.dassa.vo.ShopItemImgVO;
 import com.dassa.vo.ShopItemVO;
 
@@ -63,8 +64,7 @@ public class MapViewController {
 	
 	@ResponseBody
 	@RequestMapping(value="/mapAll")
-	public MapImageData MapAll() throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
+	public MapImageData MapAll() throws Exception {		
 		List<ShopItemImgVO> siiList; // shop_item_tbl
 		ArrayList<ShopItemVO> list;
 		ArrayList<String> imgList = new ArrayList<String>(); 
@@ -76,6 +76,105 @@ public class MapViewController {
 			}
 		MapImageData mid = new MapImageData(imgList, list);		
 		return mid;
+	}
+	//ajax로 체크한 타입 확인
+	@RequestMapping("/mapType")
+	@ResponseBody
+	public MapImageData MapType(String shopItemType1) throws Exception{
+		SearchMapVO searchMapVO =null;
+		shopItemType1=shopItemType1.replace("투쓰리룸", "투룸,쓰리룸");
+		String[] iType = shopItemType1.split(",");		
+		String siType1 =null;
+		String siType2 =null;
+		String siType3 =null;
+		String siType4 =null;		
+		
+		if(iType.length==1) {
+			searchMapVO = new SearchMapVO();
+			siType1 = shopItemType1;
+			searchMapVO.setSiType1(siType1);			
+			List<ShopItemImgVO> siiList; // shop_item_tbl
+			ArrayList<ShopItemVO> list;						
+			list = mapService.mapType(searchMapVO);
+			ArrayList<String> imgList = new ArrayList<String>();
+			for(int i=0;i<list.size();i++) {			
+				siiList = shopService.shopItemImgList(list.get(i).getShopItemIdx());
+				String img_path = siiList.get(0).getShopImgPath();		
+				imgList.add(img_path);		
+				}
+			MapImageData mid = new MapImageData(imgList, list);			
+			return mid;
+		}else if(iType.length==2){
+			searchMapVO = new SearchMapVO();
+			siType1=iType[0];
+			siType2=iType[1];
+			searchMapVO.setSiType1(siType1);
+			searchMapVO.setSiType2(siType2);	
+			List<ShopItemImgVO> siiList; // shop_item_tbl
+			ArrayList<ShopItemVO> list;						
+			list = mapService.mapType(searchMapVO);
+			ArrayList<String> imgList = new ArrayList<String>();
+			for(int i=0;i<list.size();i++) {			
+				siiList = shopService.shopItemImgList(list.get(i).getShopItemIdx());
+				String img_path = siiList.get(0).getShopImgPath();		
+				imgList.add(img_path);		
+				}
+			MapImageData mid = new MapImageData(imgList, list);
+			return mid;
+		}else if(iType.length==3){
+			searchMapVO = new SearchMapVO();
+			siType1=iType[0];
+			siType2=iType[1];
+			siType3=iType[2];			
+			searchMapVO.setSiType1(siType1);
+			searchMapVO.setSiType2(siType2);
+			searchMapVO.setSiType3(siType3);
+			List<ShopItemImgVO> siiList; // shop_item_tbl
+			ArrayList<ShopItemVO> list;			
+			list = mapService.mapType(searchMapVO);			
+			ArrayList<String> imgList = new ArrayList<String>();
+			for(int i=0;i<list.size();i++) {			
+				siiList = shopService.shopItemImgList(list.get(i).getShopItemIdx());
+				String img_path = siiList.get(0).getShopImgPath();		
+				imgList.add(img_path);		
+				}
+			MapImageData mid = new MapImageData(imgList, list);
+			return mid;		
+		}else if(iType.length==4){
+			searchMapVO = new SearchMapVO();
+			siType1=iType[0];
+			siType2=iType[1];
+			siType3=iType[2];
+			siType4=iType[3];
+			searchMapVO.setSiType1(siType1);
+			searchMapVO.setSiType2(siType2);
+			searchMapVO.setSiType3(siType3);
+			searchMapVO.setSiType4(siType4);
+			List<ShopItemImgVO> siiList; // shop_item_tbl
+			ArrayList<ShopItemVO> list;						
+			list = mapService.mapType(searchMapVO);
+			ArrayList<String> imgList = new ArrayList<String>();
+			for(int i=0;i<list.size();i++) {			
+				siiList = shopService.shopItemImgList(list.get(i).getShopItemIdx());
+				String img_path = siiList.get(0).getShopImgPath();		
+				imgList.add(img_path);		
+				}
+			MapImageData mid = new MapImageData(imgList, list);
+			return mid;		
+		}else{			
+			ArrayList<ShopItemVO> list;					
+			list = mapService.selectAll();
+			ArrayList<String> imgList = new ArrayList<String>();
+			List<ShopItemImgVO> siiList; // shop_item_tbl
+			for(int i=0;i<list.size();i++) {			
+				siiList = shopService.shopItemImgList(list.get(i).getShopItemIdx());
+				String img_path = siiList.get(0).getShopImgPath();		
+				imgList.add(img_path);		
+				}
+			MapImageData mid = new MapImageData(imgList, list);
+			return mid;
+		}
+		
 	}
 	
 	@ResponseBody

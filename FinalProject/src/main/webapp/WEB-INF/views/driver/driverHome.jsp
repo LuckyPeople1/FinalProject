@@ -124,7 +124,11 @@
 						<td>
 							<div class="set_menu">
 								<a href="/driver/Detail?applyIdx=${moveApply.applyIdx }" class="btn col_navy f_w">상세보기</a>
+								<c:if test="${moveApply.auctionState eq 2 }">
+								<a href="/driver/driverMoveFinalCompletion?applyIdx=${moveApply.applyIdx }" class="btn col_navy f_w">최종완료</a>
+								</c:if>
 							</div>
+							
 						</td>
 					</tr>
 					</c:forEach>
@@ -150,9 +154,10 @@
 			</ul>
 		</div>
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <script>
 
 	function fn_pagination(page, range, rangeSize) {

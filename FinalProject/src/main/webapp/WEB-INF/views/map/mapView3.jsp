@@ -3,6 +3,11 @@
 <%@include file="/WEB-INF/views/guest/common/head.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+.itemImage {
+    width: 105%;
+    display: block;
+    position: absolute;
+}
 .cdZmjD > p {
     display: table-cell;
    	padding-left: 45px;
@@ -1192,21 +1197,21 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						</h1><ul class="styled__Ul-sc-1eqdfqp-0 hpBewf">
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="원룸" checked="">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">원룸</span>
 							</label>
 						</li>
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="투쓰리룸" checked="">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">투·쓰리룸</span>
 							</label>
 						</li>
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="" checked="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="오피스텔" checked="">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">오피스텔</span>
 							</label>
@@ -1215,7 +1220,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 					<ul class="styled__Ul-sc-1eqdfqp-0 hpBewf">
 						<li>
 							<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi" size="22">
-								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="">
+								<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="multi_room_type" value="아파트">
 								<span class="CheckBox"></span>
 								<span class="styled__Text-sc-1eqdfqp-2 kMvalg">아파트</span>
 							</label>
@@ -1235,7 +1240,7 @@ section.mapView .eUbtsI > .Radio--circle::after {
 						</li>
 					</ul>
 				</div>
-			<div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
+			<!-- <div class="styled__Wrap-sc-1a98puu-0 hWgOZv" tabindex="0">
 				<div class="styled__Btn-sc-1a98puu-1 fJNXpX">
 					<span>월세, 전세, 매매</span>
 					<svg width="11" height="7" viewBox="0 0 11 7">
@@ -1254,27 +1259,27 @@ section.mapView .eUbtsI > .Radio--circle::after {
 							<ul class="styled__Ul-sc-7qrnpy-0 eLjSYd">
 								<li>
 									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
-										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="" checked="">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="월세" checked="">
 										<span class="CheckBox"></span>
 										<span class="styled__Text-sc-7qrnpy-1 nmQzi">월세</span>
 									</label>
 								</li>
 								<li>
 									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
-										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="selling_type" value="" checked="">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW" name="selling_type" value="전세" checked="">
 										<span class="CheckBox"></span>
 										<span class="styled__Text-sc-7qrnpy-1 nmQzi">전세</span>
 									</label>
 								</li>
 								<li>
 									<label class="clearfix Checkbox__Label-ifp1yz-0 kAqGVi"	size="22">
-										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="" checked="">
+										<input type="checkbox" class="Checkbox__CheckboxStd-ifp1yz-1 PcMeW"	name="selling_type" value="매물" checked="">
 										<span class="CheckBox"></span>
 										<span class="styled__Text-sc-7qrnpy-1 nmQzi">매매</span>
 									</label>
 								</li>
 							</ul>
-						</div>			
+						</div> -->			
 			
 		</div>
 	</div>
@@ -1316,17 +1321,19 @@ section.mapView .eUbtsI > .Radio--circle::after {
 								<a target="_blank" rel="noopener noreferrer" class="styled__A-fi3k4t-1 kpKjGs" href="/shop/itemView?shopItemIdx=${v.shopItemIdx }">								
 								<div class="styled__RoomImg-fi3k4t-2 RoomImg bnManG">
 									
-										<img src="${mid.imgList[i.count -1]}">
+										<img class ="itemImage" src="${mid.imgList[i.count -1]}">
 								
 								</div>
 								<div class="styled__BadgeWrap-fi3k4t-3 gAdXIp">
-									<svg class="styled__Svg-sc-1t9oqsb-0 hhLAzQ" viewBox="0 0 46 18" fill="none">
-										<rect width="46" height="18" rx="2" fill="#CDAF84"></rect>
-										<path d="M14.1586 9.39199V8.35799H5.30362V9.39199H14.1586ZM13.3336 13.825V12.769H7.67962V12.318H13.0366V9.94199H6.37062V10.954H11.7606V11.416H6.39262V13.825H13.3336ZM13.2456 7.89599V6.88399H11.8816L12.1346 5.75099L10.8916 5.57499L10.6826 6.88399H8.75762L8.60362 5.57499L7.34962 5.75099L7.54762 6.88399H6.18362V7.89599H13.2456ZM13.2676 5.29999V4.28799H6.15062V5.29999H13.2676Z" fill="white"></path>
-										<path d="M19.8212 11.361L19.6892 10.327C18.4132 10.569 16.8732 10.613 15.9602 10.613V8.57799H19.0072V4.90399H14.6622V5.92699H17.6982V7.55499H14.6732V11.669H15.7072C17.3682 11.669 18.7872 11.559 19.8212 11.361ZM22.4172 13.869V4.06799H21.1412V7.69799H19.6562V8.77599H21.1412V13.869H22.4172Z" fill="white"></path>
-										<path d="M32.1938 12.593V11.57H23.3388V12.593H32.1938ZM32.0068 8.57799C30.5108 8.32499 28.4428 7.03799 28.4428 5.31099V4.66199H27.1008V5.31099C27.1008 7.04899 25.1538 8.34699 23.5478 8.57799L24.1528 9.62299C25.5058 9.32599 27.2548 8.28099 27.7608 6.96099C28.3218 8.24799 30.0158 9.27099 31.3578 9.57899L32.0068 8.57799Z" fill="white"></path>
-										<path d="M38.5 5.5V12.5M35 9H42" stroke="white" stroke-width="1.2"></path>
-									</svg>
+									<c:if test="${v.shopItemPremiumState eq 1 }">
+										<svg class="styled__Svg-sc-1t9oqsb-0 hhLAzQ" viewBox="0 0 46 18" fill="none">
+											<rect width="46" height="18" rx="2" fill="#CDAF84"></rect>
+											<path d="M14.1586 9.39199V8.35799H5.30362V9.39199H14.1586ZM13.3336 13.825V12.769H7.67962V12.318H13.0366V9.94199H6.37062V10.954H11.7606V11.416H6.39262V13.825H13.3336ZM13.2456 7.89599V6.88399H11.8816L12.1346 5.75099L10.8916 5.57499L10.6826 6.88399H8.75762L8.60362 5.57499L7.34962 5.75099L7.54762 6.88399H6.18362V7.89599H13.2456ZM13.2676 5.29999V4.28799H6.15062V5.29999H13.2676Z" fill="white"></path>
+											<path d="M19.8212 11.361L19.6892 10.327C18.4132 10.569 16.8732 10.613 15.9602 10.613V8.57799H19.0072V4.90399H14.6622V5.92699H17.6982V7.55499H14.6732V11.669H15.7072C17.3682 11.669 18.7872 11.559 19.8212 11.361ZM22.4172 13.869V4.06799H21.1412V7.69799H19.6562V8.77599H21.1412V13.869H22.4172Z" fill="white"></path>
+											<path d="M32.1938 12.593V11.57H23.3388V12.593H32.1938ZM32.0068 8.57799C30.5108 8.32499 28.4428 7.03799 28.4428 5.31099V4.66199H27.1008V5.31099C27.1008 7.04899 25.1538 8.34699 23.5478 8.57799L24.1528 9.62299C25.5058 9.32599 27.2548 8.28099 27.7608 6.96099C28.3218 8.24799 30.0158 9.27099 31.3578 9.57899L32.0068 8.57799Z" fill="white"></path>
+											<path d="M38.5 5.5V12.5M35 9H42" stroke="white" stroke-width="1.2"></path>
+										</svg>
+									</c:if>
 									<div class="styled__ConfirmBadge-fi3k4t-4 gekGFB" type="confirm">
 										<span>확인매물</span>
 										<font>${v.shopItemRegDate }</font>
@@ -1336,7 +1343,13 @@ section.mapView .eUbtsI > .Radio--circle::after {
 								<p class="styled__Price-fi3k4t-9 glovZ styled__Text-fi3k4t-7 jBkVAv">
 									<span>${v.shopItemDealType} ${v.shopItemDeposit}/${v.shopItemDealPrice }</span>
 								</p>
-								<p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor1 }, ${v.shopItemSize2 }, 관리비 ${v.shopItemManagePrice }</p>
+								<c:choose>
+									<c:when test="${v.shopItemType1 eq '원룸'}"><p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor1 }층, ${v.shopItemSize2 }m², 관리비 ${v.shopItemManagePrice }만</p></c:when>
+									<c:when test="${v.shopItemType1 eq '투룸'}"><p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor1 }층, ${v.shopItemSize2 }m², 관리비 ${v.shopItemManagePrice }만</p></c:when>
+									<c:when test="${v.shopItemType1 eq '쓰리룸'}"><p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor1 }층, ${v.shopItemSize2 }m², 관리비 ${v.shopItemManagePrice }만</p></c:when>
+									<c:when test="${v.shopItemType1 eq '오피스텔'}"><p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor2 }층, ${v.shopItemSize4 }m², 관리비 ${v.shopItemManagePrice }만</p></c:when>
+									<c:when test="${v.shopItemType1 eq '아파트'}"><p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemFloor2 }층, ${v.shopItemSize4 }m²</p></c:when>
+								</c:choose>								
 								<p class="styled__Text-fi3k4t-7 jBkVAv">${v.shopItemContent }</p>
 							</a>
 						</div>
@@ -1364,11 +1377,11 @@ section.mapView .eUbtsI > .Radio--circle::after {
 		<div id="coordXY"></div>
 			<p>
 				<a href="https://map.kakao.com/link/search/kh 정보교육원">kh 정보교육원 바로	이동</a>
-				<span class="test3">${shopItemAddr1 }</span>
+				<span class="test3" style="display:none">${shopItemAddr1 }</span>
 				<c:forEach var="v" items="${mid.list}" varStatus="i">					
-					<span class="test2">${v.shopItemTitle }</span>
-					<span class="test1">${v.shopItemIdx}</span>
-					<span class="test">${v.shopItemAddr1 }</span>
+					<span class="test2" style="display:none">${v.shopItemTitle }</span>
+					<span class="test1" style="display:none">${v.shopItemIdx}</span>
+					<span class="test" style="display:none">${v.shopItemAddr1 }</span>
 				</c:forEach>
 			</p>			
 		</div>

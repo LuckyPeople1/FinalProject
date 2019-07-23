@@ -16,7 +16,7 @@
 				<div class="auctionInfoBg">입찰 상세정보</div>
 				<div class="auctionDetailInfo">
 					<div class="profileBox">
-						<div class="profile">
+						<div class="profile" style="width: 130px; height: 130px">
 							<c:if test="${not empty item.proFilepath }">
 								<img src="${item.proFilepath }" alt="프로필">
 							</c:if>

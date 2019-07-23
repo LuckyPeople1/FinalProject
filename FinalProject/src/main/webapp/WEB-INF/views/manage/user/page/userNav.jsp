@@ -6,8 +6,8 @@
 			<li>
 				<a href="/userManage/userAllList?userType=3" class="menu_name">일반회원 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/userManage/userAllList?userType=3" class="on">회원 관리</a></li>
-					<li><a href="/userManage/all/allSecssion?userType=3" class="">탈퇴회원 관리</a></li>
+					<li><a href="/userManage/userAllList?userType=3" class="${subNav == 0 ? 'on' : ''}">회원 관리</a></li>
+					<li><a href="/userManage/all/allSecssion?userType=3" class="${subNav == 1 ? 'on' : ''}">탈퇴회원 관리</a></li>
 				</ul>
 			</li>
 			<li>

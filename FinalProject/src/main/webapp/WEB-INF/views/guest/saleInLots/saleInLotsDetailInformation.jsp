@@ -82,7 +82,7 @@
 							</g>
 						</svg>
 					</p>
-					<a class="noticeBtn" href="#none" target="_blank"> <svg
+					<a class="noticeBtn" href="#none"> <svg
 							width="32" height="14" viewBox="0 0 32 14">
 							<g fill="none" fill-rule="evenodd">
 								<rect width="32" height="14" fill="#444" rx="1"></rect>
@@ -183,6 +183,7 @@
 			</div>
 		</section>
 	</div>
+	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
 </div>
 
 <script src="/guest/js/saleInLots/saleInLotsDetailInformation.js"></script>

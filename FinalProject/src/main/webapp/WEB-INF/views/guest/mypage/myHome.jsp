@@ -10,7 +10,8 @@
 			<jsp:include page="/WEB-INF/views/guest/mypage/page/myTab.jsp"/>
 		</section>
 	</div>
-	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+	
 </div>
+<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 </body>
 </html>
