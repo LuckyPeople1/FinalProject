@@ -41,25 +41,39 @@ public class FaqService {
 		//이전 버튼 생성
 		if(pageNo !=1) {
 			if(code==1) {	//부동산이면
-				pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=1'>이전</a>";
+				pageNavi += "<li class='prev arrow'>";
+				pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=1'>이전</a>";
+				pageNavi += "</li>";
 			}else if(code==2) {		//기사면
-				pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=2'>이전</a>";
+				pageNavi += "<li class='prev arrow'>";
+				pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=2'>이전</a>";
+				pageNavi += "</li>";
 			}else {				//회원문의면
-				pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"'>이전</a>";
+				pageNavi += "<li class='prev arrow'>";
+				pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"'>이전</a>";
+				pageNavi += "</li>";
 			}
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
 			}else {
 				if(code==1) {	//부동산이면
-					pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1'>"+pageNo+"</a>";
+					pageNavi += "<li class=''>";
+					pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1'>"+pageNo+"</a>";
+					pageNavi += "</li>";
 				}else if(code==2) {		//기사면
-					pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2'>"+pageNo+"</a>";
+					pageNavi += "<li class=''>";
+					pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2'>"+pageNo+"</a>";
+					pageNavi += "</li>";
 				}else {			//회원문의면
-					pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+					pageNavi += "<li class=''>";
+					pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+					pageNavi += "</li>";
 				}
 			}
 			pageNo++;
@@ -67,11 +81,17 @@ public class FaqService {
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
 			if(code==1) {	//부동산이면
-				pageNavi +="<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1'>다음</a>";
+				pageNavi += "<li class='next arrow'>";
+				pageNavi +="<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1'>다음</a>";
+				pageNavi += "</li>";
 			}else if(code==2) {	//기사면
-				pageNavi +="<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2'>다음</a>";
+				pageNavi += "<li class='next arrow'>";
+				pageNavi +="<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2'>다음</a>";
+				pageNavi += "</li>";
 			}else {			//회원문의면
-				pageNavi +="<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"'>다음</a>";
+				pageNavi += "<li class='next arrow'>";
+				pageNavi +="<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"'>다음</a>";
+				pageNavi += "</li>";
 			}
 		}
 		FaqPageData pd = new FaqPageData(list,pageNavi);
@@ -113,25 +133,39 @@ public class FaqService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		if(pageNo !=1) {
 			if(code==1) {	//부동산이면			
-				pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=1&keyword="+s.getKeyWord()+"'>이전</a>";
+				pageNavi += "<li class='prev arrow'>";
+				pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=1&keyword="+s.getKeyWord()+"'>이전</a>";
+				pageNavi += "</li>";
 			}else if(code==2) {	//기사면
-				pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=2&keyword="+s.getKeyWord()+"'>이전</a>";
+				pageNavi += "<li class='prev arrow'>";
+				pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&code=2&keyword="+s.getKeyWord()+"'>이전</a>";
+				pageNavi += "</li>";
 			}else {	//사용자면
-				pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&keyword="+s.getKeyWord()+"'>이전</a>";
+				pageNavi += "<li class='prev arrow'>";
+				pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+(pageNo-1)+"&keyword="+s.getKeyWord()+"'>이전</a>";
+				pageNavi += "</li>";
 			}
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
 			}else {
-				if(code==1) {	//부동산이면				
-					pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				if(code==1) {	//부동산이면	
+					pageNavi += "<li class=''>";
+					pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+					pageNavi += "</li>";
 				}else if(code==2) {	//기사면
-					pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+					pageNavi += "<li class=''>";
+					pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+					pageNavi += "</li>";
 				}else {	//사용자면
-					pageNavi += "<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+					pageNavi += "<li class=''>";
+					pageNavi += "<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>"+pageNo+"</a>";
+					pageNavi += "</li>";
 				}
 			}
 			pageNo++;
@@ -139,11 +173,17 @@ public class FaqService {
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
 			if(code==1) {//부동산이면
-				pageNavi +="<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1&keyword="+s.getKeyWord()+"'>다음</a>";
+				pageNavi += "<li class='next arrow'>";
+				pageNavi +="<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=1&keyword="+s.getKeyWord()+"'>다음</a>";
+				pageNavi += "</li>";
 			}else if(code==2) {//기사면
-				pageNavi +="<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2&keyword="+s.getKeyWord()+"'>다음</a>";
+				pageNavi += "<li class='next arrow'>";
+				pageNavi +="<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&code=2&keyword="+s.getKeyWord()+"'>다음</a>";
+				pageNavi += "</li>";
 			}else {//사용자면
-				pageNavi +="<a class='pbtn' href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>다음</a>";
+				pageNavi += "<li class='next arrow'>";
+				pageNavi +="<a href='/manage/board/faq/faqManageList?reqPage="+pageNo+"&keyword="+s.getKeyWord()+"'>다음</a>";
+				pageNavi += "</li>";
 			}
 		}
 		FaqPageData pd = new FaqPageData(list,pageNavi);

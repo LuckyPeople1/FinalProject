@@ -103,7 +103,7 @@
   			#{questionsState})
   </insert> 
   
-  <!-- 검색 -->
+  <!-- 공지사항검색 -->
   <select id="searchKeywordTitle" resultType="noticeVO" parameterType="com.dassa.vo.SearchNoticeVO">
 	select rnum as rnum,
 	notice_index as noticeIndex,
@@ -122,5 +122,36 @@
   </select>
    <select id="titleCount" parameterType="com.dassa.vo.SearchNoticeVO" resultType="_int">
 	select count(*) cnt from notice_tbl where notice_type='기사' and notice_title like '%'||#{keyWord}||'%'
+  </select>
+  
+    <!-- 문의검색 -->
+  <select id="searchQuestionTitle" resultType="questionVO" parameterType="com.dassa.vo.SearchQuestionVO">
+	select rnum as rnum,
+	questions_index as questionsIndex,
+	questions_user_type as questionsUserType,
+	questions_title as questionsTitle,
+	questions_answer as questionsAnswer,
+	questions_answer_state as questionsAnswerState,
+	questions_writer as questionsWriter,
+	questions_reg_date as questionsRegDate,
+	questions_state as questionsState
+	from (select rownum as rn , r.* from (select * from (select rownum as rnum,
+	n.* from
+	(select * from questions_tbl where
+	<if test="type==1">questions_title</if>
+	<if test="type==2">questions_writer</if>
+	 like '%'||#{keyWord}||'%' and
+	questions_user_type='기사'
+	order by questions_reg_date) n) order by rnum desc)r)
+	where rnum between #{start} and #{end}
+	
+  </select>
+   <select id="questionCount" parameterType="com.dassa.vo.SearchQuestionVO" resultType="_int">
+	select count(*) cnt from questions_tbl where 
+	questions_user_type='기사'
+	and
+	<if test="type==1">questions_title</if> 
+	<if test="type==2">questions_writer</if> 
+		like '%'||#{keyWord}||'%'
   </select>
 </mapper>

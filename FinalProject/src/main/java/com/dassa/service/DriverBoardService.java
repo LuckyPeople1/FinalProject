@@ -14,6 +14,7 @@ import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
 import com.dassa.vo.SearchNoticeVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @Service("driverBoardService")
 public class DriverBoardService {
@@ -40,21 +41,29 @@ public class DriverBoardService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize + 1;
 		// 이전 버튼 생성
 		if (pageNo != 1) {
-			pageNavi += "<a class='pbtn' href='/driver/board/driverBoardList?reqPage=" + (pageNo-1) + "'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/driver/board/driverBoardList?reqPage=" + (pageNo-1) + "'>이전</a>";
+			pageNavi += "</li>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while (!(i++ > pageNaviSize || pageNo > totalPage)) { // 둘 중 하나라도 만족하면 수행하지 않겠다
 			if (reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>" + pageNo + "</span>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>" + pageNo + "</a>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "</li>";
 			} else {
-				pageNavi += "<a class='pbtn' href='/driver/board/driverBoardList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/driver/board/driverBoardList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		// 다음 버튼 생성
 		if (pageNo <= totalPage) {
-			pageNavi += "<a class='pbtn' href='/driver/board/driverBoardList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi += "<a href='/driver/board/driverBoardList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "</li>";
 		}
 		NoticePageData pd = new NoticePageData(list, pageNavi);
 		return pd;
@@ -87,21 +96,29 @@ public class DriverBoardService {
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//이전 버튼 생성
 		if(pageNo !=1) {
-				pageNavi += "<a class='pbtn' href='/driver/board/faq/driverFaqList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/driver/board/faq/driverFaqList?reqPage="+(pageNo-1)+"'>이전</a>";
+			pageNavi += "</li>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
 			}else {
-					pageNavi += "<a class='pbtn' href='/driver/board/faq/driverFaqList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/driver/board/faq/driverFaqList?reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-				pageNavi +="<a class='pbtn' href='/driver/board/faq/driverFaqList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi +="<a href='/driver/board/faq/driverFaqList?reqPage="+pageNo+"'>다음</a>";
+			pageNavi += "</li>";
 		}
 		FaqPageData pd = new FaqPageData(list,pageNavi);
 		return pd;
@@ -128,22 +145,29 @@ public class DriverBoardService {
 		int pageNo = ((reqPage - 1) / pageNaviSize) * pageNaviSize + 1;
 		// 이전 버튼 생성
 		if (pageNo != 1) {
-			pageNavi += "<a class='pbtn' href='/driver/board/question/driverQuestionList?reqPage=" + (pageNo - 1) + "'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/driver/board/question/driverQuestionList?reqPage=" + (pageNo - 1) + "'>이전</a>";
+			pageNavi += "</li>";
 		}
 		// 페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while (!(i++ > pageNaviSize || pageNo > totalPage)) { // 둘 중 하나라도 만족하면 수행하지 않겠다
 			if (reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>" + pageNo + "</span>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>" + pageNo + "</a>"; // 4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌
+				pageNavi += "</li>";
 			} else {
-				pageNavi += "<a class='pbtn' href='/driver/board/question/driverQuestionList?reqPage=" + pageNo + "'>" + pageNo
-						+ "</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/driver/board/question/driverQuestionList?reqPage=" + pageNo + "'>" + pageNo + "</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		// 다음 버튼 생성
 		if (pageNo <= totalPage) {
-			pageNavi += "<a class='pbtn' href='/driver/board/question/driverQuestionList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi += "<a href='/driver/board/question/driverQuestionList?reqPage=" + pageNo + "'>다음</a>";
+			pageNavi += "</li>";
 		}
 		QuestionPageData pd = new QuestionPageData(list, pageNavi);
 		return pd;
@@ -174,7 +198,6 @@ public class DriverBoardService {
 		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;;
 		int start = (reqPage-1)*numPerPage+1;;
 		int end = reqPage*numPerPage;
-		int code=s.getCode();
 		s.setStart(start);
 		s.setEnd(end);
 		ArrayList<NoticeVO> list = driverBoardMapper.searchKeywordTitle(s);
@@ -183,23 +206,76 @@ public class DriverBoardService {
 		int pageNaviSize = 5;
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		if(pageNo !=1) {
-			pageNavi += "<a class='pbtn' href='/driver/board/searchKeyword?reqPage="+(pageNo-1)+"&keyWord="+s.getKeyWord()+"'>이전</a>";
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/driver/board/searchKeyword?reqPage="+(pageNo-1)+"&keyWord="+s.getKeyWord()+"'>이전</a>";
+			pageNavi += "</li>";
 		}
 		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
 		int i = 1;
 		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
 			if(reqPage == pageNo) {
-				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
 			}else {
-				pageNavi += "<a class='pbtn' href='/driver/board/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/driver/board/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		//다음 버튼 생성
 		if(pageNo <= totalPage) {
-			pageNavi +="<a class='pbtn' href='/driver/board/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>다음</a>";
+			pageNavi += "<li class='next arrow'>";
+			pageNavi +="<a href='/driver/board/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>다음</a>";
+			pageNavi += "</li>";
+			pageNavi += "</li>";	
 		}
 		NoticePageData pd = new NoticePageData(list,pageNavi);
+		return pd;
+	}
+
+	//문의 타입 검색
+	public QuestionPageData searchQuestionTitle(int reqPage, SearchQuestionVO s) throws Exception {
+		int numPerPage = 5;
+		int totalCount = driverBoardMapper.questionCount(s);
+		System.out.println("서비스 토탈 : "+totalCount);
+		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;;
+		int start = (reqPage-1)*numPerPage+1;;
+		int end = reqPage*numPerPage;
+		s.setStart(start);
+		s.setEnd(end);
+		ArrayList<QuestionVO> list = driverBoardMapper.searchQuestionTitle(s);
+		System.out.println("서비스-"+list.size());
+		String pageNavi = "";
+		int pageNaviSize = 5;
+		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		if(pageNo !=1) {
+			pageNavi += "<li class='prev arrow'>";
+			pageNavi += "<a href='/driver/board/question/searchQuestion?reqPage="+(pageNo-1)+"&keyWord="+s.getKeyWord()+"'>이전</a>";
+			pageNavi += "</li>";
+		}
+		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
+		int i = 1;
+		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
+			if(reqPage == pageNo) {
+				pageNavi += "<li class='on'>";
+				pageNavi += "<a>"+pageNo+"</a>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+				pageNavi += "</li>";
+			}else {
+				pageNavi += "<li class=''>";
+				pageNavi += "<a href='/driver/board/question/searchQuestion?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+				pageNavi += "</li>";
+			}
+			pageNo++;
+		}
+		//다음 버튼 생성
+		if(pageNo <= totalPage) {
+			pageNavi += "<li class='next arrow'>";
+			pageNavi +="<a href='/driver/board/question/searchQuestion?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>다음</a>";
+			pageNavi += "</li>";
+		}
+		QuestionPageData pd = new QuestionPageData(list,pageNavi);
 		return pd;
 	}
 

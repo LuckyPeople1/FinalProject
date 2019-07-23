@@ -1,9 +1,5 @@
 package com.dassa.controller.driver;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
@@ -13,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.DriverBoardService;
@@ -24,6 +19,7 @@ import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
 import com.dassa.vo.SearchNoticeVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @Controller
 @RequestMapping("/driver/board")
@@ -152,7 +148,40 @@ public class DriverBoardController {
 		}
 		return ma;
 	}
-	
+	//1:1문의 타입으로 검색
+	@RequestMapping("/searchQuestion")
+	@ResponseBody
+	public ModelAndView searchQuestionTitle(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord, String type) {
+		int code;
+		SearchQuestionVO s = new SearchQuestionVO();
+		s.setKeyWord(keyWord);
+		s.setType(type);
+		System.out.println(s.getKeyWord());
+		System.out.println("타입-"+type);
+		System.out.println("컨트롤러-"+reqPage);
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+			System.out.println("코드는"+code);
+		}catch (NumberFormatException e) {
+			code=0;
+		}
+		ModelAndView ma = new ModelAndView();
+		try {
+			QuestionPageData list = driverBoardService.searchQuestionTitle(reqPage,s);
+			System.out.println("컨트롤러-"+list);
+			if(!list.isEmpty()) {
+				ArrayList<QuestionVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("driver/board/question/driverQuestionList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
 	
 	//1:1문의뷰
 	@RequestMapping("/question/driverQuestionView")

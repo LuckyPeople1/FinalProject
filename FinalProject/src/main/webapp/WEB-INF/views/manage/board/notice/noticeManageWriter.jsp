@@ -35,7 +35,7 @@
 						</tr>
 						<tr>
 							<th>작성자</th>
-							<td><input type="hidden" name="noticeWriter">${sessionScope.user.userName }</td>
+							<td><input type="hidden" name="noticeWriter" value="${sessionScope.user.userName }">${sessionScope.user.userName }</td>
 						</tr>
 						<tr>
 							<th>분류</th>

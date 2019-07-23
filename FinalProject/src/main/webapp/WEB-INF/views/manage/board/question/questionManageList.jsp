@@ -129,11 +129,11 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="pageNavi" class="page_group clearFix">
-				${pageNavi}
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
 			</div>
-		
-		
 		
 		<!-- 푸터 -->
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>

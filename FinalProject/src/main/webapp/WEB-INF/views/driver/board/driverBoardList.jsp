@@ -64,7 +64,6 @@
 
 				<table class="table_list">
 					<colgroup>
-						<col width="60">
 						<col width="90">
 						<col width="*">
 						<col width="130">
@@ -73,7 +72,6 @@
 					</colgroup>
 					<thead>
 					<tr>
-						<th><label><input type="checkbox"></label></th>
 						<th>NO</th>
 						<th>제목</th>
 						<th>작성일시</th>
@@ -84,7 +82,6 @@
 					<tbody>
 					<c:forEach items="${list }" var="q">
 					<tr>
-						<td><label><input type="checkbox"></label></td>
 						<td>${q.rnum }</td>
 						<td>
 							<div class="text-left">${q.noticeTitle }</div>
@@ -104,12 +101,16 @@
 					</tr>
 					</c:forEach>
 					<c:if test="${empty list }">
-						<td colspan="6"><p>검색결과가 없습니다.</p></td>
+						<td colspan="5"><p>검색결과가 없습니다.</p></td>
 					</c:if>
 					</tbody>
 				</table>
 			</div>
-					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

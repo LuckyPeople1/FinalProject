@@ -41,7 +41,11 @@
 									<div class="styled__Answer-sc-8ux180-2 dHAoav" id="answer" title="off">${f.faqAnswer}</div>
 								</c:forEach></li>
 						</ul>
-						<div style="text-align: center;">${pageNavi}</div>
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
+			</div>
 					</div>
 					</section>
 				</div>
