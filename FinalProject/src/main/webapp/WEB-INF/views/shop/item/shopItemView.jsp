@@ -335,9 +335,8 @@
 					<div class="kVQrqD">
 						<h1 class="eRkCVv">${item.shopItemTitle }</h1>
 						<div class="cDEjhR">
-							<div>
-								${item.shopItemContent }
-							</div>
+							<p style="margin-bottom: 20px; font-size: 28px">☉ 방구조 ☉</p>
+							<pre style="font-size: 20px; line-height: 35px;" >${item.shopItemContent }</pre>
 						</div>
 					</div>
 				</div>
@@ -370,10 +369,10 @@
 								</td>
 								<td>
 									<p>${item.shopItemParking }
-									<c:if test="${item.shopItemParking eq '가능'}">
-										<c:if test="${item.shopItemParkingPrice==null} ">
+									<c:if test="${item.shopItemParking eq '가능' && item.shopItemParkingPrice eq null }">
 										(무료)
-										</c:if>
+									</c:if>
+									<c:if test="${item.shopItemParking eq '가능' && item.shopItemParkingPrice ne null }">
 										(${item.shopItemParkingPrice }만원)
 									</c:if>
 									</p>
@@ -386,6 +385,9 @@
 			</div>
 			<%-- 매물 옵션 --%>
 			<div class="kZTRnS" name="option">
+				<c:if test="${sio == null}">
+				</c:if>
+				<c:if test="${sio != null}">
 				<div	class="jFMhNO kBQneM">
 					<h1 class="lnMkbZ">옵션</h1>
 					<div class="dDctva">
@@ -480,6 +482,7 @@
 					</c:forEach>
 					</div>
 				</div>
+				</c:if>
 			</div>
 			<%-- 매물 위치 --%>
 			<div class="kZTRnS" name="location">
@@ -556,7 +559,7 @@
 					<p class="cKVLgb">연락처를 남겨주시면, 확인 후 연락드립니다.</p>
 					<form class="dhDUnZ" action="/shop/reserveAdd">
 						<input type="hidden" name="shopIdx" value="${item.userIdx }">
-						<input type="hidden" name="shopName" value="${item.shopItemTitle }">
+						<input type="hidden" name="shopName" value="${item.shopName }">
 						<input type="hidden" name="shopItemIdx" value="${item.shopItemIdx }">
 						<input type="hidden" name="shopItemTitle" value="${item.shopItemTitle }"> 
 						<input type="hidden" name="shopItemManager" value="${item.shopItemManager }">
@@ -568,7 +571,7 @@
 						<input type="hidden" name="userIdx" value="${sessionScope.user.userIdx }">
 						<input type="hidden" name="userName" value="${sessionScope.user.userName }">
 						</c:if>
-						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='userTel'>
+						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='userTel' required="required">
 						<button class="idBxyN" type="submit" id="reservation">방문예약하기</button>
 					</form>
 				</div>
@@ -622,45 +625,45 @@
 		}
 		if(${item.shopItemDealType=='월세'}){
 			if(${item.shopItemManagePrice==null} && ${item.shopItemParking=='가능'} && ${item.shopItemParkingPrice==null}){
-				dealPrice = ${item.shopItemDealPrice}
+				dealPrice = '${item.shopItemDealPrice}'
 				//월세이면서 관리비가 없고 주차가 가능하며 주차비가 무료일때
 				  $("#price").html(dealPrice+"만 원 + α<span>(월세 + 주차비(무료))</span>");
 			}
 			if(${item.shopItemManagePrice!=null} && ${item.shopItemParking=='가능'} && ${item.shopItemParkingPrice==null}){
-				dealPrice = ${item.shopItemDealPrice}
+				dealPrice = '${item.shopItemDealPrice}'
 				managePrice = ${item.shopItemManagePrice}
 				//월세이면서 관리비가 있고 주차가 가능하며 주차비가 무료일때
-				  $("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세 + 관리비 + 주차비(무료))</span>");
+				  $("#price").html(dealPrice*1+managePrice+"만 원 + α<span>(월세 + 관리비 + 주차비(무료))</span>");
 			}
 			if(${item.shopItemManagePrice!=null} && ${item.shopItemParking=='가능'} && ${item.shopItemParkingPrice!=null}){
-				dealPrice = ${item.shopItemDealPrice}
+				dealPrice = '${item.shopItemDealPrice}'
 				managePrice = ${item.shopItemManagePrice}
 				parkingPrice = ${item.shopItemParkingPrice}
 				//월세이면서 관리비가 있고 주차가 가능하며 주차비가 유료일때
-				  $("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세 + 관리비 + 주차비)</span>");
+				  $("#price").html(dealPrice*1+managePrice+"만 원 + α<span>(월세 + 관리비 + 주차비)</span>");
 			}
 			if(${item.shopItemManagePrice!=null} && ${item.shopItemParking=='불가능'}){
-				dealPrice = ${item.shopItemDealPrice}
+				dealPrice = '${item.shopItemDealPrice}'
 				managePrice = ${item.shopItemManagePrice}
 				parkingPrice = ${item.shopItemParkingPrice}
 				//월세이면서 관리비가 있고 주차가 불가능할 경우
-				$("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세 + 관리비)</span>");
+				$("#price").html(dealPrice*1+managePrice+"만 원 + α<span>(월세 + 관리비)</span>");
 			}
 			if(${item.shopItemManagePrice==null} && ${item.shopItemParkingPrice!=null}){
-				dealPrice = ${item.shopItemDealPrice}
+				dealPrice = '${item.shopItemDealPrice}'
 				parkingPrice = ${item.shopItemParkingPrice}
 				//월세이면서 관리비없고 주차비가 있을경우
-				$("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세 + 주차비)</span>");
+				$("#price").html(dealPrice*1+managePrice+"만 원 + α<span>(월세 + 주차비)</span>");
 			}
 			if(${item.shopItemManagePrice==null} && ${item.shopItemParkingPrice==null}){
-				dealPrice = ${item.shopItemDealPrice}
+				dealPrice = '${item.shopItemDealPrice}'
 				//월세이면서 관리비없고 주차비가 없을경우
-				$("#price").html(dealPrice+managePrice+"만 원 + α<span>(월세)</span>");
+				$("#price").html(dealPrice*1+managePrice+"만 원 + α<span>(월세)</span>");
 			}
 		} else{
 				if(${item.shopItemManagePrice==null} && ${item.shopItemParking=='가능'} && ${item.shopItemParkingPrice==null}){
 					//관리비가 없고 주차가 가능하며 주차비가 무료일때
-					  $("#price").html("0만 원 + α<span>(주차비(무료))</span>");
+					  $("#price").html("만 원 + α<span>(주차비(무료))</span>");
 				}
 				if(${item.shopItemManagePrice!=null} && ${item.shopItemParking=='가능'} && ${item.shopItemParkingPrice==null}){
 					managePrice = ${item.shopItemManagePrice}
@@ -671,7 +674,7 @@
 					managePrice = ${item.shopItemManagePrice}
 					parkingPrice = ${item.shopItemParkingPrice}
 					//관리비가 있고 주차가 가능하며 주차비가 유료일때
-					  $("#price").html(managePrice+"만 원 + α<span>(관리비 + 주차비)</span>");
+					  $("#price").html(managePrice+parkingPrice+"만 원 + α<span>(관리비 + 주차비)</span>");
 				}
 				if(${item.shopItemManagePrice!=null} && ${item.shopItemParking=='불가능'}){
 					managePrice = ${item.shopItemManagePrice}

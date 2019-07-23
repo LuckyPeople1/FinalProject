@@ -119,7 +119,6 @@ public class ManageUserService {
 		//페이지 당 게시물 수
 		int numPerPage = 5;
 		//총 게시물 수 구하기
-		System.out.println("service : "+userType);
 		int totalCount = manageUserMapper.totalApprobateCount(searchUserVO);
 		//총 페이지 수 구하기
 		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;
@@ -253,6 +252,10 @@ public class ManageUserService {
 	//가입승인
 	public int getApprobateUser(UserVO userVO) {
 		return manageUserMapper.getApprobateUser(userVO);
+	}
+
+	public int delUser(int userIdx) {
+		return manageUserMapper.delUser(userIdx);
 	}
 	
 }

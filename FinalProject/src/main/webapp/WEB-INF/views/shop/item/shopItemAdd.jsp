@@ -689,7 +689,7 @@
 										<option value="${item.shopMemberName}">${item.shopMemberName}</option>
 									</c:forEach>
 									</select>
-									<input type="hidden" name="shopItemManagerPhone" value="${sessionScope.user.userPhone }"> 
+									<input type="hidden" name="shopItemManagerPhone" value="${item.shopMemberPhone}"> 
 								</td>
 							</tr>
 							

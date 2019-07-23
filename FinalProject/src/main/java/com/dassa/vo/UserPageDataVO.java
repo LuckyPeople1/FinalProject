@@ -64,9 +64,6 @@ public class UserPageDataVO {
 		return pageNavi;
 	}
 	public static String Paging(int reqPage, int pageNo, String pageNavi, int pageNaviSize, int totalPage, String status, String userType) {
-		
-		System.out.println("Paging status: "+status);
-		System.out.println("Paging userType: "+userType);
 		if(userType == null && status.equals("2")) {
 			//전체 승인
 			if(pageNo !=1) {		

@@ -14,7 +14,7 @@
 			<i class="ico shop"></i>
 			<div class="menu_text">부동산관리</div>
 		</a>
-		<a href="/manage/move/moveAllList" class="menu_btn ${headerNum == 3 ? "on" : ""}">
+		<a href="/manage/move/packageList" class="menu_btn ${headerNum == 3 ? "on" : ""}">
 			<i class="ico move"></i>
 			<div class="menu_text">이사관리</div>
 		</a>
@@ -28,7 +28,7 @@
 		</a>
 		<a href="/" class="menu_btn logout">
 			<i class="ico logout"></i>
-			<div class="menu_text">로그아웃</div>
+			<div class="menu_text">메인 페이지로</div>
 		</a>
 	</div>
 </header>
