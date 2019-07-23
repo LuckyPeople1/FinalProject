@@ -408,21 +408,21 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<input type="text" value="" placeholder="중앙난방, 개별 난방, 지역 난방" name="shopItemHeating2">
+									<input type="text" value="" name="shopItemHeating2" readonly="readonly" style="border: none">
 								</td>
 								<th>시공사</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="(주)컴퍼니" name="shopItemBulidCompany">
+									<input type="text" value=""  name="shopItemBulidCompany" readonly="readonly" style="border: none">
 								</td>
 							</tr>
 							<tr>
 								<th>복도유형</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="정보없음" name="shopItemBulidHallway"">
+									<input type="text" value="" name="shopItemBulidHallway" readonly="readonly" style="border: none">
 								</td>
 								<th>준공년도</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="20171214" name="shopItemBulidDate"">
+									<input type="text" value="" name="shopItemBulidDate" readonly="readonly" style="border: none">
 								</td>
 							</tr>
 							<tr>
@@ -441,7 +441,7 @@
 								</td>
 								<th>총 세대수</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="234" name="shopItemHouseNumber">
+									<input type="text" value="" name="shopItemHouseNumber" readonly="readonly" style="border: none">
 								</td>
 							</tr>
 						</tbody>
