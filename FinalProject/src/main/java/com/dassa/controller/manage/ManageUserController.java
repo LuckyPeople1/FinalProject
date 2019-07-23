@@ -60,6 +60,7 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 1);
 				view = "manage/user/driver/driverAllList";
 			}else if(userType.equals("2")) {
 				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
@@ -67,6 +68,7 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 2);
 				view = "manage/user/shop/shopAllList";
 			}else {
 				UserPageDataVO userPageData = manageUserService.getUserList(reqPage,userType);
@@ -74,6 +76,7 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 0);
 				view = "manage/user/user/userAllList";
 			}
 			
@@ -98,12 +101,14 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 3);
 				view = "manage/user/driver/driverApprobateList";
 			}else if(userType.equals("2")) {
 				UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage,userType);
 				List<UserVO> list = userPageData.getList();
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
+				model.addAttribute("subNav", 4);
 				model.addAttribute("pageNavi", pageNavi);
 				view = "manage/user/shop/shopApprobateList";
 			}
@@ -130,6 +135,7 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 5);
 				view = "manage/user/driver/driverSecssionList";
 			}else if(userType.equals("2")) {
 				//부동산 탈퇴
@@ -138,6 +144,7 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 6);
 				view = "manage/user/shop/shopSecssionList";
 			}else {
 				UserPageDataVO userPageData = manageUserService.getUserSecssionList(reqPage, userType);
@@ -145,6 +152,7 @@ public class ManageUserController {
 				String pageNavi = userPageData.getPageNavi();
 				model.addAttribute("list", list);
 				model.addAttribute("pageNavi", pageNavi);
+				model.addAttribute("subNav", 7);
 				view = "manage/user/user/userSecssionList";
 			}
 			

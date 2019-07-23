@@ -6,9 +6,9 @@
 			<li>
 				<a href="#none" class="menu_name">매물 관리</a>
 				<ul class="lnb_sub_menu">
-					<li><a href="/shopManage/shopAllList" class="">매물 목록</a></li>
-					<li><a href="/shopManage/shopSuc" class="">판매 된 매물 목록</a></li>
-					<li><a href="/shopManage/shopDel" class="">삭제 된 매물 목록</a></li>
+					<li><a href="/shopManage/shopAllList" class="${subNav == 1 ? 'on' : ''}">매물 목록</a></li>
+					<li><a href="/shopManage/shopSuc" class="${subNav == 2 ? 'on' : ''}">판매 된 매물 목록</a></li>
+					<li><a href="/shopManage/shopDel" class="${subNav == 3 ? 'on' : ''}">삭제 된 매물 목록</a></li>
 				</ul>
 			</li>
 		</ul>

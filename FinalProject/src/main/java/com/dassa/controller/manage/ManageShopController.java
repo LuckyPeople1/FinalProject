@@ -43,6 +43,7 @@ public class ManageShopController {
 			String pageNavi = sipd.getPageNavi();
 			mav.addObject("list",sItemList);
 			mav.addObject("pageNavi",pageNavi);
+			mav.addObject("subNav", 1);
 			mav.setViewName("manage/shop/shopItemAllList");
 		}
 		return mav;
@@ -63,6 +64,7 @@ public class ManageShopController {
 				String pageNavi = sipd.getPageNavi();
 				mav.addObject("list",sItemList);
 				mav.addObject("pageNavi",pageNavi);
+				mav.addObject("subNav", 3);
 				mav.setViewName("manage/shop/shopItemDel");
 			}
 			return mav;
@@ -83,6 +85,7 @@ public class ManageShopController {
 						String pageNavi = sipd.getPageNavi();
 						mav.addObject("list",sItemList);
 						mav.addObject("pageNavi",pageNavi);
+						mav.addObject("subNav", 2);
 						mav.setViewName("manage/shop/shopItemSuc");
 					}
 					return mav;
