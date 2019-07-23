@@ -77,4 +77,6 @@ public interface GuestMoveMapper {
 	//마이페이지 문의내역
 	public ArrayList<QuestionVO> selectQuestionList(@Param("start") int start,@Param("end") int end) throws Exception;
 	public int totalCount() throws Exception;
+	//문의내역뷰
+	public QuestionVO questionView(int questionsIndex) throws Exception;
 }

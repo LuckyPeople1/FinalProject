@@ -58,7 +58,7 @@
 		
 		<insert id="commonInsert" parameterType="userVO">
 			insert into user_tbl values (
-			user_no_seq.nextval,
+			user_idx_seq.nextval,
 			<choose>
 				<when test="socialId != null">
 					null,
@@ -99,7 +99,7 @@
 		
 		<insert id="driverInsert" parameterType="userVO">
 			insert into user_tbl values (
-			user_no_seq.nextval,
+			user_idx_seq.nextval,
 			 #{userId},
 			  #{userPw},
 			   #{userName},
@@ -125,7 +125,7 @@
 		
 		<insert id="shopInsert" parameterType="userVO">
 			insert into user_tbl values (
-			user_no_seq.nextval,
+			user_idx_seq.nextval,
 			 #{userId},
 			  #{userPw},
 			   #{userName},

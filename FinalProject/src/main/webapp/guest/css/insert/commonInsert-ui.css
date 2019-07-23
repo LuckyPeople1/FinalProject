@@ -222,3 +222,7 @@
     top: 0;
     z-index: 5;
 }
+
+.commonInsert_btn_group button{
+	cursor:pointer;
+}

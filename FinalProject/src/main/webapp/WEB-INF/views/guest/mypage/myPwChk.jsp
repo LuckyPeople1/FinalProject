@@ -19,7 +19,8 @@
 			<div class="mypageCon pwChk">
 				<div class="pwChkTitleBox">
 					<div class="tit">비밀번호 재확인</div>
-					<div class="sub">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 입력해주세요.</div>
+					<div class="sub">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 입력해주세요.<br>
+					(카카오, 네이버 로그인은 이용하실 수 없습니다.)</div>
 				</div>
 				<div class="pwChkBox">
 					<span class="pwTxt">비밀번호</span>

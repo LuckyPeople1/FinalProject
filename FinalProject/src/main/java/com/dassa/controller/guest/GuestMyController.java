@@ -449,7 +449,8 @@ public class GuestMyController {
 		
 		//유저 마이페이지에 내가쓴문의
 		@RequestMapping("/myQuestion")
-		public ModelAndView myQuestion(@RequestParam int reqPage,HttpServletRequest request) {
+		public ModelAndView myQuestion(@RequestParam int reqPage,HttpServletRequest request, HttpSession session) {
+			
 			ModelAndView ma = new ModelAndView();
 			try {
 				QuestionPageData list = guestMoveService.selectQuestionList(reqPage);
@@ -470,7 +471,20 @@ public class GuestMyController {
 		
 		//유저 마이페이지 내가쓴문의 뷰
 		@RequestMapping("/myQuestionView")
-		public String myQuestionView() {
-			return "guest/mypage/myQuestionView";
+		public ModelAndView myQuestionView(@RequestParam int questionsIndex) {
+			QuestionVO q;
+			ModelAndView ma = new ModelAndView();
+			try {
+				q = guestMoveService.questionView(questionsIndex);
+				if(q!=null) {
+					ma.addObject("questionVO", q);
+					ma.addObject("tab","4");
+					ma.setViewName("guest/mypage/myQuestionView");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return ma;
 		}
 }

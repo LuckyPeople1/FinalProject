@@ -113,7 +113,7 @@
 						</c:when>
 						<c:otherwise>
 							<tr>
-								<td colspan="9">승인대기 회원 목록이 없습니다.</td>
+								<td colspan="10">승인대기 회원 목록이 없습니다.</td>
 							</tr>
 						</c:otherwise>
 					</c:choose>

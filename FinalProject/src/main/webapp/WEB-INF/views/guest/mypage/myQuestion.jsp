@@ -19,12 +19,13 @@
 				</div>
 				<div class="moveListBox">
 					<c:forEach var="list" items="${list}">
+				<c:if test="${sessionScope.user.userId eq list.questionsWriter }">
 						<c:choose>
 							<c:when test="${list.questionsAnswerState eq '답변완료'}">
-								<a href="/guest/mypage/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox on atag">
+								<a href="/my/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox on atag">
 							</c:when>
 							<c:otherwise>
-								<a href="/guest/mypage/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox off">
+								<a href="/my/myQuestionView?questionsIndex=${list.questionsIndex }" class="moveBox off">
 							</c:otherwise>
 						</c:choose>
 							<div class="moveInfo">
@@ -57,6 +58,7 @@
 								</c:when>
 							</c:choose>
 						</a>
+					</c:if>
 					</c:forEach>
 				</div><br><br>
 					<div id="pageNavi" style="text-align: center;">${pageNavi}</div>

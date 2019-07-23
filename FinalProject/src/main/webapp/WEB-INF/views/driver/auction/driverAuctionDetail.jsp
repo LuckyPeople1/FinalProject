@@ -229,8 +229,8 @@
 								<td><input class="tbox full" id="userCar" name="userCar" value="${user.userCar }" placeholder="1톤"></td>
 								<th>사다리비용여부<span class="ess">*</span></th>
 								<td>
-									<input type="radio" name="ladderState" value="0">사다리 비용 필요하지 않음
-									<input type="radio" name="ladderState" value="1">사다리 비용 필요
+									<input type="radio" name="ladderState" value="0" id="ladderState1">사다리 비용 필요하지 않음
+									<input type="radio" name="ladderState" value="1" id="ladderState2">사다리 비용 필요
 								</td>
 							</tr>
 							<tr>
@@ -246,14 +246,14 @@
 								<span class="f_red">*</span>표시는 필수 입력 입니다.
 							</div>
 						</div><br><br><br>
-						<div class="section_title">최종 견적</div><hr>
+						<div class="section_title">최종 견적<span class="f_red">*</span></div><hr> 
 						<div class="infoBox">
 							<ul class="infoListBox">
 								<li class="bg">
 									<div class="row static">
 										<div class="subject">견적금액결정</div><br>
 										<input type="hidden" name="applyIdx" value="${driverAuctionDetail.applyIdx}"> <!--applyIdx 숨기기  -->
-										<div><input class="tbox full" name="estimateAmount" placeholder="견적 금액은 숫자만 입력하세요 예)10,000"></div>
+										<div><input class="tbox full" name="estimateAmount" id="estimateAmount" placeholder="견적 금액은 숫자만 입력하세요 예)10,000"></div>
 									</div>
 								</li>
 							</ul>
@@ -262,13 +262,41 @@
 				</div>
 			</form>	
 			<div class="btn_box">
-				<a href="javascript:$('#auctionInsertForm').submit()" class="btn col_navy f_w">최종결정</a>
+				<a href="javascript:$('#auctionInsertForm').submit()" class="btn col_navy f_w" id="insertClick">최종결정</a>
 				<a href="javascript:history.back()" class="btn col_darkGrey">취소</a>
 			</div>
 		</section>
 	</div>
 	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 </div>
+<script>
+
+$('#insertClick').click(function(){
+	
+	if($('#userCar').val()==""){
+		alert("운방차량은 필수입니다. 반드시 입력해 주세요");
+		return false;
+	}
+	
+	if(!$('#ladderState1').is(":checked") && !$('#ladderState2').is(":checked")){
+		alert("사다리 비용여부는 필수 항목입니다. 반드시 입력해 주세요");
+		return false;
+		
+	}
+
+	if($('#estimateAmount').val()==""){
+		alert("견적금액은 필수입니다. 반드시 입력해 주세요");
+		return false;
+	}
+	
+	$('#auctionInsertForm').submit();
+	
+});
+
+
+</script>
+
+
 <style>
 .request {
     display: table-cell;

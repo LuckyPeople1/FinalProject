@@ -73,8 +73,6 @@ var package = {
 	 * @param e
 	 */
 	imgUpload : function (e) {
-		$("#fileImg").trigger('click');
 		$(e).siblings().trigger('click');
-
 	}
 };

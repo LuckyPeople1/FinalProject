@@ -110,9 +110,8 @@ public class NoticeController {
 	
 	//관리자 공지사항 수정페이지로 넘어가기
 	@RequestMapping("/noticeManageModify")
-	public ModelAndView noticeManageModify(@RequestParam int noticeIndex) {
+	public ModelAndView noticeManageModify(@RequestParam int noticeIndex, NoticeVO n) {
 		System.out.println(noticeIndex);
-		NoticeVO n;
 		ModelAndView ma = new ModelAndView();
 		try {
 			n = noticeService.noticeView(noticeIndex);
@@ -181,7 +180,7 @@ public class NoticeController {
 			try {
 				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
 				n.setNoticeTitle(ti);
-				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("<br/>", "\n\r");
 				n.setNoticeContent(con);
 				int result = noticeService.noticeUpdate(n);
 				System.out.println("result:"+result);

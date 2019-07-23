@@ -13,6 +13,7 @@ import com.dassa.vo.NoticePageData;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchNoticeVO;
 
 @Service("driverBoardService")
 public class DriverBoardService {
@@ -163,6 +164,43 @@ public class DriverBoardService {
 	public int driverQuestionInsert(QuestionVO q) throws Exception {
 		// TODO Auto-generated method stub
 		return driverBoardMapper.driverQuestionInsert(q);
+	}
+
+	//기사 공지사항 제목 검색
+	public NoticePageData searchKeyword(int reqPage, SearchNoticeVO s) throws Exception{
+		int numPerPage = 5;
+		int totalCount = driverBoardMapper.titleCount(s);
+		System.out.println("서비스 토탈 : "+totalCount);
+		int totalPage = (totalCount%numPerPage==0)?(totalCount/numPerPage):(totalCount/numPerPage)+1;;
+		int start = (reqPage-1)*numPerPage+1;;
+		int end = reqPage*numPerPage;
+		int code=s.getCode();
+		s.setStart(start);
+		s.setEnd(end);
+		ArrayList<NoticeVO> list = driverBoardMapper.searchKeywordTitle(s);
+		System.out.println("서비스-"+list.size());
+		String pageNavi = "";
+		int pageNaviSize = 5;
+		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		if(pageNo !=1) {
+			pageNavi += "<a class='pbtn' href='/driver/board/searchKeyword?reqPage="+(pageNo-1)+"&keyWord="+s.getKeyWord()+"'>이전</a>";
+		}
+		//페이지 번호 버튼 생성 ( 1 2 3 4 5 )
+		int i = 1;
+		while( !(i++>pageNaviSize || pageNo>totalPage) ) { //둘 중 하나라도 만족하면 수행하지 않겠다
+			if(reqPage == pageNo) {
+				pageNavi += "<span class='selectPage'>"+pageNo+"</span>"; //4페이지 상태에서 4페이지를 누를수가 없도록 하기 위해서 a태그 없애줌 
+			}else {
+				pageNavi += "<a class='pbtn' href='/driver/board/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>"+pageNo+"</a>";
+			}
+			pageNo++;
+		}
+		//다음 버튼 생성
+		if(pageNo <= totalPage) {
+			pageNavi +="<a class='pbtn' href='/driver/board/searchKeyword?reqPage="+pageNo+"&keyWord="+s.getKeyWord()+"'>다음</a>";
+		}
+		NoticePageData pd = new NoticePageData(list,pageNavi);
+		return pd;
 	}
 
 }

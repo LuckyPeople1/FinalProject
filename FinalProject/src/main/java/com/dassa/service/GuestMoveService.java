@@ -257,4 +257,8 @@ public class GuestMoveService {
 	QuestionPageData pd = new QuestionPageData(list, pageNavi);
 	return pd;
 	}
+	//문의내역뷰
+	public QuestionVO questionView(int questionsIndex) throws Exception{
+		return guestMoveMapper.questionView(questionsIndex);
+	}
 }
