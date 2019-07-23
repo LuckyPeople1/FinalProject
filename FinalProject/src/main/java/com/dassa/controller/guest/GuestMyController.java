@@ -449,7 +449,8 @@ public class GuestMyController {
 		
 		//유저 마이페이지에 내가쓴문의
 		@RequestMapping("/myQuestion")
-		public ModelAndView myQuestion(@RequestParam int reqPage,HttpServletRequest request) {
+		public ModelAndView myQuestion(@RequestParam int reqPage,HttpServletRequest request, HttpSession session) {
+			
 			ModelAndView ma = new ModelAndView();
 			try {
 				QuestionPageData list = guestMoveService.selectQuestionList(reqPage);

@@ -144,4 +144,24 @@
   			#{questionsState})
   </insert> 
   
+    <!-- 검색 -->
+  <select id="searchKeywordTitle" resultType="noticeVO" parameterType="com.dassa.vo.SearchNoticeVO">
+	select rnum as rnum,
+	notice_index as noticeIndex,
+	notice_type as noticeType,
+	notice_title as noticeTitle,
+	notice_writer as noticeWriter,
+	notice_reg_date as noticeRegDate,
+	notice_state as noticeState
+	from (select rownum as rn , r.* from (select * from (select rownum as rnum,
+	n.* from
+	(select * from notice_tbl where
+	notice_title like '%'||#{keyWord}||'%' and
+	notice_type='부동산'
+	order by notice_reg_date) n) order by rnum desc)r)
+	where rnum between #{start} and #{end}
+  </select>
+   <select id="titleCount" parameterType="com.dassa.vo.SearchNoticeVO" resultType="_int">
+	select count(*) cnt from notice_tbl where notice_type='부동산' and notice_title like '%'||#{keyWord}||'%'
+  </select>
 </mapper>

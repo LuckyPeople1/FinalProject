@@ -8,6 +8,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchNoticeVO;
 
 @MapperScan("shopBoardMapper")
 public interface ShopBoardMapper {
@@ -44,5 +45,9 @@ public interface ShopBoardMapper {
 	
 	//1:1문의인서트
 	public int shopQuestionInsert(QuestionVO q) throws Exception;
+	
+	//부동산 공지사항 검색
+	public ArrayList<NoticeVO> searchKeywordTitle(SearchNoticeVO s) throws Exception;
+	public int titleCount(SearchNoticeVO s) throws Exception;
 
 }
