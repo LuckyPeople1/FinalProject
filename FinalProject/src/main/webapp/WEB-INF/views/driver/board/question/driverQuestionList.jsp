@@ -36,10 +36,10 @@
 							<th>제목</th>
 							<td colspan=""><span class="sbox small">
 								<select name="type">
-										<option>제목</option>
-										<option>작성자명</option>
+										<option value="1">제목</option>
+										<option value="2">작성자명</option>
 								</select>
-							</span> <input class="tbox w_6p"></td>
+							</span> <input class="tbox w_6p" name="keyWord"></td>
 							<th>답변상태</th>
 							<td><label><input type="checkbox"><span>미답변</span></label>
 								<label class="ml10"><input type="checkbox"><span>답변완료</span></label>

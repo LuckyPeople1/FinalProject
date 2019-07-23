@@ -26,6 +26,7 @@ import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
 import com.dassa.vo.SearchNoticeVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @Controller
 @RequestMapping("/shop/board")
@@ -155,6 +156,42 @@ public class ShopBoardController {
 		}
 		return ma;
 	}
+	
+	//1:1문의 타입으로 검색
+	@RequestMapping("/question/searchShop")
+	@ResponseBody
+	public ModelAndView searchQuestionTitle(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord, String type) {
+		int code;
+		SearchQuestionVO s = new SearchQuestionVO();
+		s.setKeyWord(keyWord);
+		s.setType(type);
+		System.out.println(s.getKeyWord());
+		System.out.println("타입-"+type);
+		System.out.println("컨트롤러-"+reqPage);
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+			System.out.println("코드는"+code);
+		}catch (NumberFormatException e) {
+			code=0;
+		}
+		ModelAndView ma = new ModelAndView();
+		try {
+			QuestionPageData list = shopBoardService.searchShopTitle(reqPage,s);
+			System.out.println("컨트롤러-"+list);
+			if(!list.isEmpty()) {
+				ArrayList<QuestionVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("shop/board/question/shopQuestion");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
+	
 	//1:1문의뷰
 	@RequestMapping("/question/shopQuestionView")
 	public ModelAndView shopQuestionView(@RequestParam int questionsIndex) {

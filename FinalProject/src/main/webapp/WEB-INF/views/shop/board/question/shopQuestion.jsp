@@ -30,6 +30,8 @@
 			<div class="section">
 				<div class="section_title"></div>
 				<div class="set_form search">
+				<form action="/shop/board/question/searchShop?reqPage=1" method="post" id="search">
+				
 					<table class="table_set">
 						<colgroup>
 							<col width="180">
@@ -40,10 +42,10 @@
 						<tr>
 							<th>제목</th>
 							<td colspan=""><span class="sbox small"> <select>
-										<option>제목</option>
-										<option>작성자명</option>
+										<option value="1">제목</option>
+										<option value="2">작성자명</option>
 								</select>
-							</span> <input class="tbox w_6p"></td>
+							</span> <input class="tbox w_6p" name="keyWord"></td>
 							<th>답변상태</th>
 							<td><label><input type="checkbox"><span>미답변</span></label>
 								<label class="ml10"><input type="checkbox"><span>답변완료</span></label>
@@ -66,14 +68,14 @@
 						</tr>
 					</table>
 					<div class="set_form_search">
-						<a href="javascript:void(0)" class="btn col_blue f_w">검색</a> <a
-							href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
+						<a href="javascript:$('#search').submit()" class="btn normal col_main f_w" style="line-height: 40px;">검색</a>
+						<a href="/shop/board/question/shopQuestion?reqPage=1" class="btn normal col_darkGrey f_w ml5" style="line-height: 40px;">전체목록</a>
 					</div>
+					</form>
 				</div>
 				<div class="list_form">
 					<div class="table_list_btn">
 						<span class="right_btn">
-							<a href="board_notice_write.html" class="btn col_darkGrey f_w">선택 삭제</a>
 							<a href="/shop/board/question/shopQuestionWriter" class="btn col_blue f_w">1:1문의하기</a>
 						</span>
 					</div>
