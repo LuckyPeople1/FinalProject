@@ -122,7 +122,7 @@ public class GuestMyController {
 		System.out.println(proFilename);
 		if(!proFilename.getOriginalFilename().equals("")){
 			System.out.println("이거 타니?");
-			String[] fileInfo	=	FileCommon.fileUp(proFilename,request, "driver");
+			String[] fileInfo	=	FileCommon.fileUp(proFilename,request, "profile");
 			userVO.setProFilename(fileInfo[0]);
 			userVO.setProFilepath(fileInfo[1]);
 			result=guestMoveService.getImgModiUser(userVO);

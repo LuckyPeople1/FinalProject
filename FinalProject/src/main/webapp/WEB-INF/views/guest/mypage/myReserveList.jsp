@@ -78,7 +78,6 @@
 	<script>
 		$("button[name='reserDel']").click(function(){
 			var idx = $(this).val();
-			alert(idx);
 			$(".atag").removeAttr("href");
 			if(confirm("예약취소하시겠습니까?")){
 				location.href="/my/reservationDel?shopReservationIdx="+idx;

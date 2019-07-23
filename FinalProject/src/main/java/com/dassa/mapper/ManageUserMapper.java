@@ -58,4 +58,6 @@ public interface ManageUserMapper {
 	public UserVO getUserDetail(UserVO userVO);
 	//가입 승인
 	public int getApprobateUser(UserVO userVO);
+	//진짜 탈퇴
+	public int delUser(int userIdx);
 }

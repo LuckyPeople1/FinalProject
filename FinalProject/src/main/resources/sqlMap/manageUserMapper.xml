@@ -365,7 +365,7 @@
 			   status,
 			   out_date as outDate
 		from (select rownum as rnum, n.*
-		from (select * from user_tbl where 
+		from  (select * from user_tbl where 
 		<choose>
 			<when test="userType1 !=null and userType2 != null">
 					(user_type=#{userType1} or user_type = #{userType2})
@@ -389,4 +389,8 @@
 	<update id="getApprobateUser" parameterType="userVO">
 		update user_tbl set status=1 where user_idx=#{userIdx}
 	</update>
+	
+	<delete id="delUser" parameterType="userVO">
+		delete from user_tbl user_idx=#{userIdx}
+	</delete>
 </mapper>
