@@ -8,6 +8,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchNoticeVO;
 
 @MapperScan("driverBoardMapper")
 public interface DriverBoardMapper {
@@ -34,4 +35,8 @@ public interface DriverBoardMapper {
 	
 	//기사 1:1문의 작성하기
 	public int driverQuestionInsert(QuestionVO q) throws Exception;
+	
+	//기사 공지사항 검색
+	public ArrayList<NoticeVO> searchKeywordTitle(SearchNoticeVO s) throws Exception;
+	public int titleCount(SearchNoticeVO s) throws Exception;
 }

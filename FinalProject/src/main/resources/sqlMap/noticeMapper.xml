@@ -105,6 +105,10 @@
 	where rnum between #{start} and #{end}
   </select>
    <select id="titleCount" parameterType="com.dassa.vo.SearchNoticeVO" resultType="_int">
-	select count(*) cnt from notice_tbl where notice_title like '%'||#{keyWord}||'%'
+	select count(*) cnt from notice_tbl where 
+	<if test="code==0">notice_type='사용자'</if>
+	<if test="code==1">notice_type='부동산'</if>
+	<if test="code==2">notice_type='기사'</if>
+	and notice_title like '%'||#{keyWord}||'%'
   </select>
 </mapper>

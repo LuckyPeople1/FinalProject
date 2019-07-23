@@ -36,7 +36,7 @@
 						<ul class="styled__Ul-sc-1v9ngdo-4 hIJwlj">
 							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">제목<input type="hidden" name="questionsWriter" value="test1"></p>
 								<input autocomplete="off" class="styled__TitleInput-sc-1v9ngdo-6 ilgADB Input-sfsekm-0 kTQnUD" name="questionsTitle"  required>
-								<input type="hidden" style="float:left;" class="" name="questionsUserType" value="일반"></li>
+								<input type="hidden" style="float:left;" class="" name="questionsUserType" value="일반문의"></li>
 								
 							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">문의내용</p><input type="hidden" name="questionsAnswerState" value="미답변"><input type="hidden" name="questionsState" value="정상">
 								<textarea class="styled__InquiryArea-sc-1v9ngdo-7 bqTGEL Textarea-sc-6jro6l-0 hunnDM" name="questionsContent" placeholder="내용을 입력하세요."required></textarea></li>
