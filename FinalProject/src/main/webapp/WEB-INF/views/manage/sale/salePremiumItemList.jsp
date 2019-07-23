@@ -85,8 +85,8 @@
 				<table class="list_table">
 					<colgroup>
 						<col width="40">
-						<col width="45">
-						<col width="100">
+						<col width="130">
+						<col width="70">
 						<col width="100">
 						<col width="100">
 						<col width="120">
@@ -120,9 +120,9 @@
 					<c:forEach var="list" items="${msData.list }">
 					<tr>
 						<td>${list.shopPaymentIdx }</td>
-						<td>${list.shopPaymentIdx }</td>
-						<td>${list.shopPaymentIdx }</td>
-						<td>${list.shopPaymentIdx }</td>
+						<td>${list.shopPaymentImpUid }<br>${list.shopPaymentMerchantUid}</td>
+						<td>${list.shopPaymentPg }</td>
+						<td>${list.shopPaymentPgNumber }</td>
 						<td>${list.shopPaymentCardName }</td>
 						<td>${list.userId}</td>
 						<td>${list.userName }</td>

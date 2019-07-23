@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
 	<h1 class="logo">
-		<a href="/manage/" class="logo_btn">
+		<a href="/userManage/userApprobateList" class="logo_btn">
 			<img src="/manage/img/icon_logo.png" alt="로고">
 		</a>
 	</h1>
