@@ -434,7 +434,7 @@
 						<a href="javascript:move.paymentCencel('${moveInfo.payVo.movePaymentImpUid}','${moveInfo.payVo.applyIdx }')" class="btn col_blue f_w big">결제취소</a>
 					</c:if>
 					
-					<c:if test="${moveInfo.driverAuctionDetail.applyStatus == '3' and moveInfo.reOneVo.applyIdx == 0}">
+					<c:if test="${moveInfo.driverAuctionDetail.applyStatus == '3' and moveInfo.reOneVo == null}">
 						<a href="/my/driverReview?applyIdx=${moveInfo.maVo.applyIdx}&&driverIdx=${moveInfo.maVo.driverIdx}" class="btn col_darkGrey f_w big">후기 작성</a>
 					</c:if>
 				</div>
