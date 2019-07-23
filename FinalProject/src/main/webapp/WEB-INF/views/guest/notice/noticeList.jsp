@@ -44,14 +44,17 @@
 						</table>
 							</c:forEach>
 					</ul>
-					<div id="pageNavi" style="text-align: center;  margin: 0 auto; margin-bottom: 30px; margin-top: 30px;">${pageNavi}</div>
-
+			<div class="page_group clearFix">
+				<ul class="page_box">
+					${pageNavi }
+				</ul>
+			</div>
+			<br><br><br>
 				</div>
 				</section>
 			</div>
 			
 		</div>
-<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 		<script type="text/javascript">
 			/* <![CDATA[ */
 			var google_conversion_id = 967706247;
@@ -62,12 +65,6 @@
 		</script>
 		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
 
-<!-- 		<noscript>
-			<div style="display: inline;">
-				<img height="1" width="1" style="border-style: none;" alt=""
-					src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/967706247/?value=1.00&amp;currency_code=KRW&amp;label=-DVwCMLN3FoQh424zQM&amp;guid=ON&amp;script=0" />
-			</div>
-		</noscript> -->
 		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 
 		<script type="text/javascript">
@@ -105,11 +102,6 @@
 			fbq("track", "PageView");
 		</script>
 
-<!-- 		<noscript>
-			<img height="1" width="1" style="display: none"
-				src="https://www.facebook.com/tr?id=961200640589716&ev=PageView&noscript=1" />
-		</noscript> -->
-
 		<script type="text/javascript">
 			(function(w, d, a) {
 				w.__beusablerumclient__ = {
@@ -128,25 +120,10 @@
 		<script type="text/javascript"
 			src="/static/js/web.service.f95c9864.js"></script>
 
-<!-- 		<div id="fb-root" class=" fb_reset">
-			<div
-				style="position: absolute; top: -10000px; width: 0px; height: 0px;">
-				<div>
-					<iframe name="fb_xdm_frame_https" id="fb_xdm_frame_https"
-						aria-hidden="true"
-						title="Facebook Cross Domain Communication Frame" tabindex="-1"
-						frameborder="0" allowtransparency="true" allowfullscreen="true"
-						scrolling="no" allow="encrypted-media"
-						src="https://staticxx.facebook.com/connect/xd_arbiter.php?version=44#channel=f363825eb908ea8&amp;origin=https%3A%2F%2Fwww.dabangapp.com"
-						style="border: none;"></iframe>
-				</div>
-				<div></div>
-			</div>
-		</div>
- -->
-
 		<div id="toast">
 			<div class="styled__Wrap-sc-1run8ov-0 ekZaGw" id="react-toast"></div>
 		</div>
+		<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+		
 </body>
 </html>
