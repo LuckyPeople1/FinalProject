@@ -67,7 +67,7 @@
 									</div>
 								</c:when>
 								<c:when test="${list.applyStatus eq 3}">	<!--최종완료  -->
-									<c:if test="${movePage.reList[i.count-1].reviewIdx == 0}">
+									<c:if test="${movePage.reList[i.count-1] == null}">
 										<div class="reviewBox">
 											<span class="review">후기작성</span>
 										</div>

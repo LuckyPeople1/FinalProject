@@ -76,9 +76,10 @@
 			</div>
 		</div>
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <script type="text/javascript">
 	$('.starRev span').click(function(){
 		  $(this).parent().children('span').removeClass('on');

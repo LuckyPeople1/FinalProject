@@ -90,10 +90,8 @@
 			</div>
 		</section> -->
 	</div>
-	<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
-	
-	
 </div>
+<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 </body>
 <script>
 
