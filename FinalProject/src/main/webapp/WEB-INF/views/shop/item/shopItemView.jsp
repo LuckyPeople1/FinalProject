@@ -385,6 +385,9 @@
 			</div>
 			<%-- 매물 옵션 --%>
 			<div class="kZTRnS" name="option">
+				<c:if test="${sio == null}">
+				</c:if>
+				<c:if test="${sio != null}">
 				<div	class="jFMhNO kBQneM">
 					<h1 class="lnMkbZ">옵션</h1>
 					<div class="dDctva">
@@ -479,6 +482,7 @@
 					</c:forEach>
 					</div>
 				</div>
+				</c:if>
 			</div>
 			<%-- 매물 위치 --%>
 			<div class="kZTRnS" name="location">
@@ -567,7 +571,7 @@
 						<input type="hidden" name="userIdx" value="${sessionScope.user.userIdx }">
 						<input type="hidden" name="userName" value="${sessionScope.user.userName }">
 						</c:if>
-						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='userTel'>
+						<input autocomplete="off" placeholder="010-0000-0000"	class="kmcUrF" value="" name='userTel' required="required">
 						<button class="idBxyN" type="submit" id="reservation">방문예약하기</button>
 					</form>
 				</div>
@@ -670,7 +674,7 @@
 					managePrice = ${item.shopItemManagePrice}
 					parkingPrice = ${item.shopItemParkingPrice}
 					//관리비가 있고 주차가 가능하며 주차비가 유료일때
-					  $("#price").html(managePrice+"만 원 + α<span>(관리비 + 주차비)</span>");
+					  $("#price").html(managePrice+parkingPrice+"만 원 + α<span>(관리비 + 주차비)</span>");
 				}
 				if(${item.shopItemManagePrice!=null} && ${item.shopItemParking=='불가능'}){
 					managePrice = ${item.shopItemManagePrice}
