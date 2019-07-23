@@ -87,6 +87,7 @@ public class GuestController {
 	@RequestMapping("/notice/questionInsert")
 	public String questionInsert(QuestionVO q) {
 		int result;
+		System.out.println(q.getQuestionsWriter());
 		String view = "";
 		try {
 			String ti = q.getQuestionsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");

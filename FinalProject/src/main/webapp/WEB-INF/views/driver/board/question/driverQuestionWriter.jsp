@@ -31,14 +31,14 @@
 						<p class="styled__OpenTime-sc-1v9ngdo-3 csQndh">평일 10:00 ~ 18:30 (토, 일요일, 공휴일 휴무)</p>
 						<form action="/driver/board/question/driverQuestionInsert" method="post">
 						<ul class="styled__Ul-sc-1v9ngdo-4 hIJwlj">
-							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">제목<input type="hidden" name="questionsWriter" value="test22"></p>
+							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">제목<input type="hidden" name="questionsWriter" value="${sessionScope.user.userId }"></p>
 								<input autocomplete="off" class="styled__TitleInput-sc-1v9ngdo-6 ilgADB Input-sfsekm-0 kTQnUD" name="questionsTitle">
 								<input type="hidden" style="float:left;" class="" name="questionsUserType" value="기사"></li>
 							<li><p class="styled__Title-sc-1v9ngdo-5 efvxco">문의내용</p><input type="hidden" name="questionsAnswerState" value="미답변"><input type="hidden" name="questionsState" value="정상">
 								<textarea class="styled__InquiryArea-sc-1v9ngdo-7 bqTGEL Textarea-sc-6jro6l-0 hunnDM" name="questionsContent" placeholder="내용을 입력하세요."></textarea></li>
 						</ul>
 						<div class="styled__BtnWrap-sc-1v9ngdo-8 cxBJwZ">
-							<button type="submit">전송하기</button>
+							<button type="submit" style="background-color: blue; width:25%; height: 50px; color: white; border: none; cursor: :pointer;">전송하기</button>
 						</div>
 						</form>
 					</div>

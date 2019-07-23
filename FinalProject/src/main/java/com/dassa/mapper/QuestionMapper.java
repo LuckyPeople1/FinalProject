@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchQuestionVO;
 
 
 @MapperScan("questionMapper")
@@ -20,5 +21,9 @@ public interface QuestionMapper {
 	public int questionUpdate(QuestionVO q) throws Exception;
 
 	public int questionManageDelete(int questionsIndex) throws Exception;
+
+	//1:1문의 검색
+	public ArrayList<QuestionVO> searchKeywordTitle(SearchQuestionVO s) throws Exception;
+	public int titleCount(SearchQuestionVO s) throws Exception;
 
 }

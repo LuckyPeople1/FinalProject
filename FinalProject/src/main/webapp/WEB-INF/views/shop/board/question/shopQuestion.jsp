@@ -66,7 +66,7 @@
 						</tr>
 					</table>
 					<div class="set_form_search">
-						<a href="javascript:void(0)" class="btn col_red f_w">검색</a> <a
+						<a href="javascript:void(0)" class="btn col_blue f_w">검색</a> <a
 							href="javascript:void(0)" class="btn col_grey line ml5">전체 목록</a>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 					<div class="table_list_btn">
 						<span class="right_btn">
 							<a href="board_notice_write.html" class="btn col_darkGrey f_w">선택 삭제</a>
-							<a href="/shop/board/question/shopQuestionWriter" class="btn col_red f_w">1:1문의하기</a>
+							<a href="/shop/board/question/shopQuestionWriter" class="btn col_blue f_w">1:1문의하기</a>
 						</span>
 					</div>
 					<table class="table_list">
@@ -100,6 +100,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${list }" var="q">
+							<c:if test="${sessionScope.user.userId eq q.questionsWriter }">
 								<tr>
 									<td><label><input type="checkbox"></label></td>
 									<td>${q.rnum }</td>
@@ -112,6 +113,7 @@
 										<a href="/shop/board/question/shopQuestionView?questionsIndex=${q.questionsIndex }" class="btn col_navy f_w">보기</a>
 										<a href="/shop/board/question/shopQuestionDelete?questionsIndex=${q.questionsIndex }" class="btn col_grey line">삭제</a></td>
 								</tr>
+								</c:if>
 							</c:forEach>
 						</tbody>
 					</table>

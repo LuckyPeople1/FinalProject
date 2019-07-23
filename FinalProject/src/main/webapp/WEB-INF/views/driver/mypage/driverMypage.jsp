@@ -79,9 +79,10 @@
 		</div>
 
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 	<script src="/driver/js/shop_setting.js"></script>
 	<script src="/driver/js/driver.js"></script>
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 </body>
 </html>

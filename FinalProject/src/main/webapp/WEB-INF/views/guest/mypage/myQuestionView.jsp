@@ -47,6 +47,7 @@
 								<tr>
 									<td colspan="2">
 										<div class="board_button">
+											<a href="/my/myQuestionDelete?questionsIndex=${questionVO.questionsIndex }" class="board_Rebtn" style="background-color: gray;">삭제</a>
 											<a href="javascript:history.back()" class="board_Rebtn">취소</a>
 										</div>
 									</td>
@@ -57,8 +58,9 @@
 		</div>
 		</section>
 	</div>
-	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
+	
 	<script src="<c:url value="/guest/js/mypage/move.js"/>"></script>
 </div>
+<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
 </body>
 </html>

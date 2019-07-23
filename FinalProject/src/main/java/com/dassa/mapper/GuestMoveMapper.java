@@ -79,4 +79,6 @@ public interface GuestMoveMapper {
 	public int totalCount() throws Exception;
 	//문의내역뷰
 	public QuestionVO questionView(int questionsIndex) throws Exception;
+	//문의내역삭제
+	public int myQuestionDelete(int questionsIndex) throws Exception;
 }

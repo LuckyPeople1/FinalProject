@@ -154,9 +154,10 @@
 			</ul>
 		</div>
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <script>
 
 	function fn_pagination(page, range, rangeSize) {

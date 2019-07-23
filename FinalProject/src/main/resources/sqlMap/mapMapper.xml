@@ -14,11 +14,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate,
-				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_floor1 as shopItemFloor1,
+				shop_item_floor2 as shopItemFloor2, <!--층수 -->
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_size4 as shopItemSize4,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
-	  from shop_item_tbl where shop_item_addr1 like #{shopItemAddr1}||'%' AND shop_item_addr1 LIKE '%'||#{shopItemAddr2}||'%' and shop_item_sale_state = '판매중'
+	  from shop_item_tbl where shop_item_addr1 like #{shopItemAddr1}||'%' AND shop_item_addr1 LIKE '%'||#{shopItemAddr2}||'%' and shop_item_sale_state = '판매중'  order by shop_item_premium_state desc
 	</select>
 	<select id="mapType" parameterType="com.dassa.vo.SearchMapVO" resultType="shopItemVO">
 		select shop_item_idx as shopItemIdx,
@@ -32,9 +34,11 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate,
-				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_floor1 as shopItemFloor1,
+				shop_item_floor2 as shopItemFloor2, <!--층수 -->
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_size4 as shopItemSize4,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
 	  from shop_item_tbl where 
 	  <choose>
@@ -52,7 +56,7 @@
 			</when>
 		</choose>
 	  
-	   and shop_item_sale_state = '판매중' 
+	   and shop_item_sale_state = '판매중'  order by shop_item_premium_state desc
 	</select>
 	<select id="mapSelectOne" parameterType="map" resultType="shopItemVO">
 		select shop_item_idx as shopItemIdx,
@@ -66,11 +70,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate,
-				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_floor1 as shopItemFloor1,
+				shop_item_floor2 as shopItemFloor2, <!--층수 -->
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_size4 as shopItemSize4,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
-	  from shop_item_tbl where shop_item_addr1 like '%'||#{shopItemAddr1}||'%' and shop_item_sale_state = '판매중' 
+	  from shop_item_tbl where shop_item_addr1 like '%'||#{shopItemAddr1}||'%' and shop_item_sale_state = '판매중'  order by shop_item_premium_state desc
 	</select>
 	<!-- 매물리스트 -->
 	<select id="selectAll" resultType="shopItemVO" parameterType="_int">
@@ -85,11 +91,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate,
-				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_floor1 as shopItemFloor1,
+				shop_item_floor2 as shopItemFloor2, <!--층수 -->
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_size4 as shopItemSize4,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
-			from shop_item_tbl where shop_item_sale_state = '판매중' 
+			from shop_item_tbl where shop_item_sale_state = '판매중' order by shop_item_premium_state desc
 	</select>
 	<select id="selectOne" resultType="shopItemVO" parameterType="string">
 			select shop_item_idx as shopItemIdx,
@@ -103,11 +111,13 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate,
-				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_floor1 as shopItemFloor1,
+				shop_item_floor2 as shopItemFloor2, <!--층수 -->
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_size4 as shopItemSize4,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
-			from shop_item_tbl where shop_item_addr1 like #{shopItemAddr1}||'%' and shop_item_sale_state = '판매중' 
+			from shop_item_tbl where shop_item_addr1 like #{shopItemAddr1}||'%' and shop_item_sale_state = '판매중' order by shop_item_premium_state desc 
 	</select>
 	<select id="mapAll" resultType="shopItemVO" parameterType="_int">
 			select shop_item_idx as shopItemIdx,
@@ -121,10 +131,12 @@
 				shop_item_sale_state as shopItemSaleState,
 				shop_item_premium_state as shopItemPremiumState,
 				shop_item_reg_date as shopItemRegDate,
-				shop_item_floor1 as shopItemFloor1, <!--층수 -->
+				shop_item_floor1 as shopItemFloor1,
+				shop_item_floor2 as shopItemFloor2, <!--층수 -->
 				shop_item_deal_price as shopItemDealPrice, <!-- 월세 -->
 				shop_item_size2 as shopItemSize2,<!-- 면적 -->
+				shop_item_size4 as shopItemSize4,<!-- 면적 -->
 				shop_item_deposit as shopItemDeposit<!-- 보증금 -->
-			from shop_item_tbl where shop_item_sale_state = '판매중' 
+			from shop_item_tbl where shop_item_sale_state = '판매중'  order by shop_item_premium_state desc
 	</select>
 </mapper>

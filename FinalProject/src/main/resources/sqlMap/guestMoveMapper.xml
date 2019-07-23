@@ -130,7 +130,7 @@
 				r.review_date as reviewDate 
 				,d.estimateamount as estimateAmount
 	from driver_review_tbl r join driver_tbl d on (r.driver_idx = d.driver_idx) 
-	where r.apply_idx in (select apply_idx from move_apply_tbl where guest_idx=#{guestIdx})
+    join move_apply_tbl a on (r.apply_idx = a.apply_idx) where a.guest_idx=#{guestIdx} and d.auction_state ='3'
 	</select>
 	
 	
@@ -194,7 +194,7 @@
 	from (select rownum as rn , r.* from (select * from (select rownum as rnum,
 	n.* from
 	(select * from questions_tbl where
-	questions_user_type='일반문의'
+	questions_user_type='일반문의' and  questions_state='정상'
 	order by questions_reg_date) n) order by rnum desc)r)
 	where rn between #{start} and #{end}	  
   </select>
@@ -212,4 +212,9 @@
   			from questions_tbl
   			where questions_index=#{questionsIndex}
   </select>
+  
+     <!-- 1:1 문의 삭제 -->
+   <update id="myQuestionDelete" parameterType="questionVO">
+  	update questions_tbl set questions_state='삭제' where questions_index=#{questionsIndex}
+  </update> 
 </mapper>
