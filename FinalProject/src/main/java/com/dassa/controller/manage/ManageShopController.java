@@ -29,7 +29,10 @@ public class ManageShopController {
 	
 	//부동산 매물 뿌리기
 	@RequestMapping("/shopAllList")
-	public ModelAndView shopAllList(HttpServletRequest request) throws Exception{
+	public ModelAndView shopAllList(HttpServletRequest request, String shopName) throws Exception{
+		if(shopName == null) {
+			shopName="";
+		}
 		int reqPage;
 		try {
 			reqPage=Integer.parseInt(request.getParameter("reqPage"));
@@ -37,12 +40,13 @@ public class ManageShopController {
 			reqPage=1;
 		}
 		ModelAndView mav = new ModelAndView();
-		ShopItemPageDataVO sipd = manageShopService.selectAllList(reqPage);
+		ShopItemPageDataVO sipd = manageShopService.selectAllList(reqPage, shopName);
 		if(!sipd.isEmpty()) {
 			ArrayList<ShopItemVO> sItemList = sipd.getList();
 			String pageNavi = sipd.getPageNavi();
 			mav.addObject("list",sItemList);
 			mav.addObject("pageNavi",pageNavi);
+			mav.addObject("subNav", 1);
 			mav.setViewName("manage/shop/shopItemAllList");
 		}
 		return mav;
@@ -63,6 +67,7 @@ public class ManageShopController {
 				String pageNavi = sipd.getPageNavi();
 				mav.addObject("list",sItemList);
 				mav.addObject("pageNavi",pageNavi);
+				mav.addObject("subNav", 3);
 				mav.setViewName("manage/shop/shopItemDel");
 			}
 			return mav;
@@ -83,6 +88,7 @@ public class ManageShopController {
 						String pageNavi = sipd.getPageNavi();
 						mav.addObject("list",sItemList);
 						mav.addObject("pageNavi",pageNavi);
+						mav.addObject("subNav", 2);
 						mav.setViewName("manage/shop/shopItemSuc");
 					}
 					return mav;

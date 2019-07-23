@@ -43,7 +43,7 @@ public interface ShopMapper {
 	public int shopItemImgAdd(List<ShopItemImgVO> sItemImgList) throws Exception;
 	
 	//매물 관리 총 게시물 수
-	public int shopItemTotalCount() throws Exception;
+	public int shopItemTotalCount(Map<String, Object> map) throws Exception;
 	
 	//매물 총 리스트
 	public ArrayList<ShopItemVO> selectAllList(Map<String, Object> map) throws Exception;
@@ -82,7 +82,7 @@ public interface ShopMapper {
 	public int shopReserveJoin(ShopReservationVO sReserVO) throws Exception;
 	
 	//방문 리스트 개수
-	public int shopReservationTotalCount() throws Exception;
+	public int shopReservationTotalCount(Map<String, Object> map) throws Exception;
 	
 	//방문 리스트 뿌리기
 	public ArrayList<ShopReservationVO> selectReservationAllList(Map<String, Object> map) throws Exception;
