@@ -31,16 +31,16 @@
 							</tr>
 							<tr>
 								<th>등록파일</th>
-								<td><img class="detail_img" src="${compFilepath1 }"></td>
+								<td><img class="detail_comp_img" src="${compFilepath1 }"></td>
 							</tr>
-							<c:if test="userVO.userType == 2">
+							<c:if test="${userVO.userType eq 2 }">
 								<tr>
 									<th>등록 번호</th>
 									<td>${userVO.businessNumber }</td>
 								</tr>
 								<tr>
 									<th>등록파일</th>
-									<td><img class="detail_img" src="${compFilepath2 }"></td>
+									<td><img class="detail_comp_img" src="${compFilepath2 }"></td>
 								</tr>
 							</c:if>
 							<tr>

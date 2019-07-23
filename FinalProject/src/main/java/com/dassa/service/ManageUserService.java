@@ -72,7 +72,6 @@ public class ManageUserService {
 		int pageNaviSize = 5;
 		//페이지 번호
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
-		
 		//버튼 생성
 		pageNavi = UserPageDataVO.Paging(reqPage, pageNo, pageNavi, pageNaviSize, totalPage, status, userType);
 		
@@ -126,7 +125,6 @@ public class ManageUserService {
 		//시작 게시물 번호
 		int startPage = (reqPage-1)*numPerPage +1;
 		int endPage = reqPage*numPerPage;
-		
 		searchUserVO.setStartPage(startPage);
 		searchUserVO.setEndPage(endPage);
 		
@@ -162,6 +160,8 @@ public class ManageUserService {
 		searchUserVO.setStartPage(startPage);
 		searchUserVO.setEndPage(endPage);
 		List<UserVO> list = manageUserMapper.getSearchListCountList(searchUserVO);
+		String userId = searchUserVO.getUserType1();
+		String userName = searchUserVO.getUserType2();
 		String status = searchUserVO.getStatus();
 		String userType = searchUserVO.getUserType();
 		//페이지 네비 작성

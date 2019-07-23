@@ -24,7 +24,7 @@
 					<td colspan="4">
 						<span class="sbox small">
 							<select name="searchType" id="searchType">
-								<option value="1">아이디</option>
+								<option value="1">담당자명</option>
 								<option value="2">중개사명</option>
 							</select>
 						</span>
@@ -165,7 +165,7 @@
 			location.href="/shopManage/shopItemIng?shopItemIdx="+idx+"&userIdx="+userIdx;
 		}
 		return;
-	})
+	});
 </script>
 </body>
 </html>

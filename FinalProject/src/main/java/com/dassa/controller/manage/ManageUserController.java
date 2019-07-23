@@ -31,8 +31,7 @@ public class ManageUserController {
 	
 	//전체 승인관리
 	@RequestMapping("/userApprobateList")
-	public String UserApprobateList(Model model, String userType){
-		int reqPage = 1;
+	public String UserApprobateList(Model model, String userType, @RequestParam(required = false, defaultValue = "1") int reqPage){
 		try {
 			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
 			List<UserVO> list = userPageData.getList();
@@ -49,9 +48,8 @@ public class ManageUserController {
 	
 	// userType에 따른 회원 리스트 뿌려주기
 	@RequestMapping("/userAllList")
-	public String UserAllList(Model model, String userType) throws Exception {
+	public String UserAllList(Model model, String userType, @RequestParam(required = false, defaultValue = "1") int reqPage) throws Exception {
 		String view = null;
-		int reqPage = 1;
 		System.out.println(userType);
 		try {
 			if(userType.equals("1")) {
@@ -91,9 +89,8 @@ public class ManageUserController {
 	
 	//userType에 따른 승인관리
 	@RequestMapping("/all/allApprobate")
-	public String AllApprobateList(Model model, String userType, String status) throws Exception {
+	public String AllApprobateList(Model model, String userType, String status, @RequestParam(required = false, defaultValue = "1") int reqPage) throws Exception {
 		String view = null;
-		int reqPage = 1;
 		try {
 			if(userType.equals("1")) {
 				UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage,userType);
@@ -124,9 +121,8 @@ public class ManageUserController {
 	
 	//탈퇴회원 관리
 	@RequestMapping("/all/allSecssion")
-	public String UserSecssionList(Model model, String userType) throws Exception {
+	public String UserSecssionList(Model model, String userType, @RequestParam(required = false, defaultValue = "1") int reqPage) throws Exception {
 		String view = null;
-		int reqPage = 1;
 		try {
 			if(userType.equals("1")) {
 				//기사 탈퇴
@@ -189,13 +185,12 @@ public class ManageUserController {
 	//ajax로 체크한 유저 받아오기 받아오기
 	@RequestMapping("/userCheckList")
 	@ResponseBody
-	public Object UserCheckList(Map<String,Object> map, String type) throws Exception {
+	public Object UserCheckList(Map<String,Object> map, String type, @RequestParam(required = false, defaultValue = "1") int reqPage) throws Exception {
 		SearchUserVO searchUserVO = null;
 		String[] uType = type.split(",");
 		String userType = null;
 		String userType1 = null;
 		String userType2 = null;
-		int reqPage = 1;
 		
 		if(uType.length == 1){
 			//type이 한개 경우
@@ -261,8 +256,7 @@ public class ManageUserController {
 	//Type별 전체회원 리스트 뿌리기 ajax
 	@RequestMapping("/typeUserList")
 	@ResponseBody
-	public Object TypeUserList(Map<String,Object> map, String userType, String status) throws Exception {
-		int reqPage = 1;
+	public Object TypeUserList(Map<String,Object> map, String userType, String status, @RequestParam(required = false, defaultValue = "1") int reqPage) throws Exception {
 		List<UserVO> list = null;
 		String pageNavi = null;
 		SearchUserVO searchUserVO = new SearchUserVO();
@@ -297,8 +291,7 @@ public class ManageUserController {
 	//전체 승인 페이지 ajax
 	@RequestMapping("/approbate")
 	@ResponseBody
-	public Object Approbate(Map<String,Object> map, String userType) throws Exception {
-		int reqPage = 1;
+	public Object Approbate(Map<String,Object> map, String userType, @RequestParam(required = false, defaultValue = "1") int reqPage) throws Exception {
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		try {
 			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
@@ -367,7 +360,7 @@ public class ManageUserController {
 	//검색
 	@RequestMapping("/search")
 	@ResponseBody
-	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String searchWord, String userType,String status) {
+	public Map<String, Object> SearchUser(Model model, @RequestParam String searchType, String searchWord, String userType,String status, @RequestParam(required = false, defaultValue = "1") int reqPage) {
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
 		searchUserVO.setSearchWord(searchWord);
@@ -376,7 +369,6 @@ public class ManageUserController {
 		}
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		int reqPage = 1;
 		try {
 			if(searchType.equals("1") && !searchWord.equals("")) {
 				//아이디 일때
@@ -406,14 +398,13 @@ public class ManageUserController {
 	//승인검색
 	@RequestMapping("/searchApprobate")
 	@ResponseBody
-	public Map<String, Object> SearchApprobateUser(Model model, @RequestParam String searchType, String searchWord, String status) {
+	public Map<String, Object> SearchApprobateUser(@RequestParam(required = false, defaultValue = "1") int reqPage, Model model, @RequestParam String searchType, String searchWord, String status) {
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setSearchType(searchType);
 		searchUserVO.setSearchWord(searchWord);
 		searchUserVO.setStatus(status);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
-		int reqPage = 1;
 		try {
 			if(searchType.equals("1") && !searchWord.equals("")) {
 				//아이디 일때
@@ -443,7 +434,7 @@ public class ManageUserController {
 	//달력으로 찾기
 	@RequestMapping("/searchDate")
 	@ResponseBody
-	public Map<String, Object> SearchDate(Model model, @RequestParam String status, String endDate, String startDate, String userType){
+	public Map<String, Object> SearchDate(@RequestParam(required = false, defaultValue = "1") int reqPage, Model model, @RequestParam String status, String endDate, String startDate, String userType){
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setStatus(status);
 		searchUserVO.setEndDate(endDate);
@@ -451,7 +442,6 @@ public class ManageUserController {
 		searchUserVO.setUserType(userType);
 		Map<String, Object> retVal = new HashMap<String, Object>();
 		
-		int reqPage = 1;
 		try {
 			UserPageDataVO userPageData = manageUserService.getSearchDate(reqPage, searchUserVO);
 			List<UserVO> list = userPageData.getList();
@@ -468,13 +458,12 @@ public class ManageUserController {
 	//전체 승인대기 달력으로 찾기
 	@RequestMapping("/searchApprobateDate")
 	@ResponseBody
-	public Map<String, Object> SearchApprobateDate(Model model, @RequestParam String status, String endDate, String startDate){
+	public Map<String, Object> SearchApprobateDate(@RequestParam(required = false, defaultValue = "1") int reqPage, Model model, @RequestParam String status, String endDate, String startDate){
 		SearchUserVO searchUserVO = new SearchUserVO();
 		searchUserVO.setStatus(status);
 		searchUserVO.setEndDate(endDate);
 		searchUserVO.setStartDate(startDate);
 		Map<String, Object> retVal = new HashMap<String, Object>();
-		int reqPage = 1;
 		try {
 			UserPageDataVO userPageData = manageUserService.getSearchDate(reqPage, searchUserVO);
 			List<UserVO> list = userPageData.getList();
