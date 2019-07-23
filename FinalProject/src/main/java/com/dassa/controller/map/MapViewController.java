@@ -42,13 +42,15 @@ public class MapViewController {
 		ModelAndView mav = new ModelAndView();
 		List<ShopItemImgVO> siiList; // shop_item_tbl
 		ArrayList<ShopItemVO> list; //shop_item_img_tbl	
+		ArrayList<ShopItemVO> list1; //shop_item_img_tbl	
 		ArrayList<String> imgList = new ArrayList<String>(); 
 		if(shopItemAddr1=="") {
 			System.out.println("널");
 			list = mapService.selectAll();	
 		}else {
-			System.out.println("낫널");			
-			list = mapService.selectOne(shopItemAddr1);
+			System.out.println("낫널");
+			list = mapService.selectAll();
+			list1 = mapService.selectOne(shopItemAddr1);
 		}		
 		for(int i=0;i<list.size();i++) {			
 		siiList = shopService.shopItemImgList(list.get(i).getShopItemIdx());
