@@ -91,7 +91,7 @@
 									<td>${u.type }</td>
 									<td>${u.outDate }</td>
 									<td>
-										<a href="/userManage/reLoad?userIdx=${u.userIdx }" class="tag col_darkGrey f_w">${u.userStatus}</a>
+										<a href="javascript:realDel(${u.userIdx })" id="del_btn" class="tag col_blue f_w">${u.userStatus}</a>
 									</td>
 								</tr>
 							</c:forEach>

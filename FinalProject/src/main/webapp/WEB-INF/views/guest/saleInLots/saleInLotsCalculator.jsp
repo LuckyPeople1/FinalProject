@@ -207,6 +207,7 @@
     </div>
     </section>
 	</div>
+	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
 </div>
 <script src="/guest/js/saleInLots/saleInLotsCalculator.js"></script>
 </body>

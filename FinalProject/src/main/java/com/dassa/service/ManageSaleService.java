@@ -63,11 +63,11 @@ public class ManageSaleService {
 		int i = 1;
 		
 		pageNavi += "<li class='first arrow'>";
-		pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage=1'></a>";
+		pageNavi += "<a href='/manage/sale/salePremiumList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage=1'></a>";
 		pageNavi += "</li>";
 		if(pageNo != 1) {
 			pageNavi += "<li class='prev arrow'>";
-			pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+(pageNo-1)+"'></a>";
+			pageNavi += "<a href='/manage/sale/salePremiumList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+(pageNo-1)+"'></a>";
 			pageNavi += "</li>";
 		}else {
 			pageNavi += "<li class='prev arrow'>";
@@ -84,14 +84,14 @@ public class ManageSaleService {
 			}
 			else {
 				pageNavi += "<li class=''>";
-				pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+pageNo+"'>"+pageNo+"</a>";
+				pageNavi += "<a href='/manage/sale/salePremiumList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+pageNo+"'>"+pageNo+"</a>";
 				pageNavi += "</li>";
 			}
 			pageNo++;
 		}
 		if(pageNo<=totalPage) {
 			pageNavi += "<li class='next arrow'>";
-			pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+(pageNo)+"'></a>";
+			pageNavi += "<a href='/manage/sale/salePremiumList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+(pageNo)+"'></a>";
 			pageNavi += "</li>";		
 		}else {
 			pageNavi += "<li class='next arrow'>";
@@ -99,7 +99,7 @@ public class ManageSaleService {
 			pageNavi += "</li>";
 		}
 		pageNavi += "<li class='end arrow'>";
-		pageNavi += "<a href='/manage/sale/saleMoveList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+totalPage+"'></a>";
+		pageNavi += "<a href='/manage/sale/salePremiumList?searchType="+pagination.getSearchType()+"&searchWord="+pagination.getSearchWord()+"&minDate="+pagination.getMaxDate()+"&maxDate="+pagination.getMaxDate()+"&itemAdd="+pagination.getItemAdd()+"&powerLink="+pagination.getPowerLink()+"&minAmount="+pagination.getMinAmount()+"&maxAmount="+pagination.getMaxAmount()+"&reqPage="+totalPage+"'></a>";
 		pageNavi += "</li>";
 		
 		return new ManageSaleShopPageData(list, pageNavi);

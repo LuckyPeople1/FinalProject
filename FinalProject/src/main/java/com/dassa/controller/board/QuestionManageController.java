@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dassa.service.QuestionService;
 import com.dassa.vo.QuestionPageData;
 import com.dassa.vo.QuestionVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @Controller
 @RequestMapping("/manage/board/question")
@@ -46,6 +48,41 @@ public class QuestionManageController {
 		}
 		return ma;
 	}
+	//1:1문의 타입으로 검색
+	@RequestMapping("/searchKeyword")
+	@ResponseBody
+	public ModelAndView searchKeyword(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord, String type) {
+		int code;
+		SearchQuestionVO s = new SearchQuestionVO();
+		s.setKeyWord(keyWord);
+		s.setType(type);
+		System.out.println(s.getKeyWord());
+		System.out.println("타입-"+type);
+		System.out.println("컨트롤러-"+reqPage);
+		try {
+			code = Integer.parseInt(request.getParameter("code"));
+			System.out.println("코드는"+code);
+		}catch (NumberFormatException e) {
+			code=0;
+		}
+		ModelAndView ma = new ModelAndView();
+		try {
+			QuestionPageData list = questionService.searchKeyword(reqPage,s);
+			System.out.println("컨트롤러-"+list);
+			if(!list.isEmpty()) {
+				ArrayList<QuestionVO> arrlist = list.getList();
+				String pageNavi = list.getPageNavi();
+				ma.addObject("list", arrlist);
+				ma.addObject("pageNavi", pageNavi);
+				ma.setViewName("manage/board/question/questionManageList");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ma;
+	}
+	
 	//1:1문의관리뷰
 	@RequestMapping("/questionManageView")
 	public ModelAndView questionManageView(@RequestParam int questionsIndex) {

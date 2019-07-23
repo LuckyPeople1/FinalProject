@@ -154,7 +154,7 @@
 		</div>
 
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 	<!-- <div class="popup memo">
 		<div class="popupCon">
 			<div class="head">
@@ -171,6 +171,7 @@
 	</div> -->
 
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <script>
 /* 이전 버튼 이벤트
 function fn_prev(page, range, rangeSize) {

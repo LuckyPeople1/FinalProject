@@ -122,7 +122,7 @@ public class GuestMyController {
 		System.out.println(proFilename);
 		if(!proFilename.getOriginalFilename().equals("")){
 			System.out.println("이거 타니?");
-			String[] fileInfo	=	FileCommon.fileUp(proFilename,request, "driver");
+			String[] fileInfo	=	FileCommon.fileUp(proFilename,request, "profile");
 			userVO.setProFilename(fileInfo[0]);
 			userVO.setProFilepath(fileInfo[1]);
 			result=guestMoveService.getImgModiUser(userVO);
@@ -486,5 +486,23 @@ public class GuestMyController {
 				e.printStackTrace();
 			}
 			return ma;
+		}
+		
+		//유저 마이페이지에서 내가쓴문의 삭제
+		@RequestMapping("/myQuestionDelete")
+		public String myQuestionDelete(@RequestParam int questionsIndex) {
+			int result;
+			String view="";
+			try {
+				result = guestMoveService.myQuestionDelete(questionsIndex);
+				System.out.println(result);
+				if(result>0) {
+					view="guest/mypage/myQuestionDelete";
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return view;
 		}
 }

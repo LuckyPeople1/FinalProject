@@ -267,8 +267,9 @@
 			</div>
 		</section>
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <script>
 
 $('#insertClick').click(function(){

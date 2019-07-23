@@ -68,7 +68,7 @@
 					<div class="table_list_btn">
 						<span class="right_btn">
 							<a href="board_notice_write.html" class="btn col_darkGrey f_w">선택 삭제</a>
-							<a href="/driver/board/question/driverQuestionWriter" class="btn col_red f_w">1:1문의하기</a>
+							<a href="/driver/board/question/driverQuestionWriter" class="btn col_blue f_w">1:1문의하기</a>
 						</span>
 					</div>
 					<table class="table_list">
@@ -94,6 +94,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${list }" var="q">
+							<c:if test="${sessionScope.user.userId eq q.questionsWriter }">
 								<tr>
 									<td><label><input type="checkbox"></label></td>
 									<td>${q.rnum }</td>
@@ -106,6 +107,7 @@
 										<a href="/driver/board/question/driverQuestionView?questionsIndex=${q.questionsIndex }" class="btn col_navy f_w">보기</a>
 										<a href="/driver/board/question/driverQuestionDelete?questionsIndex=${q.questionsIndex }" class="btn col_grey line">삭제</a></td>
 								</tr>
+								</c:if>
 							</c:forEach>
 						</tbody>
 					</table>

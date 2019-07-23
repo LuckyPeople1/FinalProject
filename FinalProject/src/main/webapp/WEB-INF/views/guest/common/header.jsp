@@ -8,9 +8,11 @@
 		<c:if test="${not empty sessionScope.user && sessionScope.user.userType eq '2'}">
 			<a href="/shop/home">프로중개사 사이트</a>
 		</c:if>
+		<c:if test="${sessionScope.user.userType eq '1' }">
 		<a href="/driver/home?driverIdx=${sessionScope.user.userIdx}">운송기사 사이트</a>
+		</c:if>
 		<c:if test="${sessionScope.user.userType eq '0' }">
-			<a href="/manage/">관리자 사이트</a>
+			<a href="/userManage/userApprobateList">관리자 사이트</a>
 		</c:if>
 	</div>
 	<div class="rightMenu">
