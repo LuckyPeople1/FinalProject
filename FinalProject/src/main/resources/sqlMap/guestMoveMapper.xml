@@ -202,4 +202,14 @@
   <select id="totalCount" resultType="_int">
   	select count(*) cnt from questions_tbl where questions_user_type='일반문의'
   </select>
+    <!-- 1:1문의 뷰페이지 -->
+  <select id="questionView" parameterType="questionVO" resultType="questionVO">
+  	select questions_index as questionsIndex,
+  			questions_title as questionsTitle,
+  			questions_writer as questionsWriter,
+  			questions_content as questionsContent,
+  			questions_answer as questionsAnswer
+  			from questions_tbl
+  			where questions_index=#{questionsIndex}
+  </select>
 </mapper>
