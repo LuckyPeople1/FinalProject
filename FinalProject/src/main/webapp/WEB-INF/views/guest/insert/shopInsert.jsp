@@ -96,7 +96,7 @@
 						</table>
 						<div class="commonInsert_btn_group">
 							<button type="submit" class="btn insert_user" id="insertUser">회원가입</button>
-							<button type="reset" class="btn insert_reset">취소</button>
+							<button type="reset" class="btn insert_reset">초기화</button>
 						</div>
 					</form>
 				</div>
