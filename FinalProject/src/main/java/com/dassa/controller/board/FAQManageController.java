@@ -143,6 +143,10 @@ public class FAQManageController {
 		ModelAndView ma = new ModelAndView();
 		try {
 			f = faqService.faqView(faqIndex);
+			String an = f.getFaqAnswer().replaceAll("&nbsp;"," ").replaceAll("&lt;","<").replaceAll("&gt;",">").replaceAll("<br/>","\n\r");
+			f.setFaqAnswer(an);
+			String qu = f.getFaqQuestion().replaceAll("&nbsp;"," ").replaceAll("&lt;","<").replaceAll("&gt;",">").replaceAll("<br/>","\n\r");
+			f.setFaqQuestion(qu);
 			if(f!=null) {
 				ma.addObject("faqVO",f);
 				ma.setViewName("manage/board/faq/faqManageModify");

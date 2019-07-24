@@ -30,7 +30,7 @@
 						</colgroup>
 						<tr>
 							<th>제목</th>
-							<td><input class="board_input" name="noticeTitle">
+							<td><input class="board_input" name="noticeTitle" required>
 							<input type="hidden" name="noticeState" value="정상"></td>
 						</tr>
 						<tr>
@@ -64,7 +64,7 @@
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td><textarea class="board_textarea" name="noticeContent"></textarea></td>
+							<td><textarea class="board_textarea" name="noticeContent" required></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2">

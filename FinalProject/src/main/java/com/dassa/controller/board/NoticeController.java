@@ -96,6 +96,11 @@ public class NoticeController {
 		ModelAndView ma = null;
 		try {
 			n = noticeService.noticeView(noticeIndex);
+			String ti = n.getNoticeTitle().replaceAll("&nbsp;"," ").replaceAll("&lt;","<").replaceAll("&gt;",">").replaceAll("<br/>","\n\r");
+			n.setNoticeTitle(ti);
+			System.out.println(ti);
+			String con = n.getNoticeContent().replaceAll("&nbsp;"," ").replaceAll("&lt;","<").replaceAll("&gt;",">").replaceAll("<br/>","\n\r");
+			n.setNoticeContent(con);
 			ma = new ModelAndView();
 			if(n!=null) {
 				ma.addObject("noticeVO",n);

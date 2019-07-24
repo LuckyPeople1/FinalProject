@@ -37,12 +37,12 @@
 						</tr>
 						<tr>
 							<th>제목</th>
-							<td><input class="board_input" name="faqQuestion">
+							<td><input class="board_input" name="faqQuestion" required>
 							<input type="hidden" name="faqState" value="정상"></td>
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td><textarea class="board_textarea" name="faqAnswer"></textarea></td>
+							<td><textarea class="board_textarea" name="faqAnswer" required></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2">
