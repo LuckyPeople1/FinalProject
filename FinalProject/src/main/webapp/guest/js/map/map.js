@@ -580,7 +580,7 @@ $("#mapSelect").click(function(){
 	geocoder.addressSearch(shopItemAddr1, function(result, status) {
 		// 정상적으로 검색이 완료됐으면,
 		if (status == daum.maps.services.Status.OK) {
-			map.setLevel(3);
+			map.setLevel(6);
 			var coords = new daum.maps.LatLng(result[0].y, result[0].x);
 			y = result[0].x;
 			x = result[0].y;
@@ -692,10 +692,10 @@ kakao.maps.event.addListener(map, 'center_changed', function() {
 
 kakao.maps.event.addListener(map,'mouseup',function(){
 		
-	if (map.getLevel() >10) {
+	if (map.getLevel() >8) {
 		
 		console.log(map.getLevel);
-		$(".customoverlay").css("display","block");
+		
 	
 			var infoDiv = document.getElementById('centerAddr');
 		    var infoDiv1 = infoDiv.innerHTML.split(' ');

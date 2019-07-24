@@ -38,7 +38,7 @@
 							<input class="tbox w_6p" name="keyWord">
 						</td>
 					</tr>
-					<tr>
+				<%--	<tr>
 						<th>작성일</th>
 						<td colspan="3">
 							<input class="tbox" id="dateS">
@@ -52,7 +52,7 @@
 							<a href="javascript:setSearchDate('6m')" class="btn col_grey line ">6개월</a>
 						</td>
 					</tr>
-					
+					 --%>
 				</table>
 				<div class="set_form_search" style="height: 36px; overflow: hidden;">
 					<a href="javascript:$('#search').submit()" class="btn normal col_main f_w" style="line-height: 41px;">검색</a>

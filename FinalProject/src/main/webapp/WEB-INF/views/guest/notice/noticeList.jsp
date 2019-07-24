@@ -49,11 +49,11 @@
 					${pageNavi }
 				</ul>
 			</div>
-			<br><br><br>
+			<br>
 				</div>
 				</section>
 			</div>
-			
+			<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 		</div>
 		<script type="text/javascript">
 			/* <![CDATA[ */
@@ -123,7 +123,7 @@
 		<div id="toast">
 			<div class="styled__Wrap-sc-1run8ov-0 ekZaGw" id="react-toast"></div>
 		</div>
-		<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
+		
 		
 </body>
 </html>
