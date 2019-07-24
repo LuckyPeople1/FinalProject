@@ -14,8 +14,8 @@
 	n.* from
 	(select * from faq_tbl where
 	<if test="code==0">faq_user_type='일반문의'</if>
-	<if test="code==1">faq_user_type='부동산'</if>
-	<if test="code==2">faq_user_type='기사'</if>
+	<if test="code==1">faq_user_type='부동산문의'</if>
+	<if test="code==2">faq_user_type='이사문의'</if>
 	order by faq_reg_date) n) order by rnum desc)r)
 	where rn between
 	#{start} and #{end}	
@@ -23,8 +23,8 @@
    <select id="totalCount" resultType="_int">
   	select count(*) cnt from faq_tbl where   		
   		<if test="code==0">faq_user_type='일반문의'</if> 
-  		<if test="code==1">faq_user_type='부동산'</if> 
-  		<if test="code==2">faq_user_type='기사'</if> 
+  		<if test="code==1">faq_user_type='부동산문의'</if> 
+  		<if test="code==2">faq_user_type='이사문의'</if> 
   </select>
     <!-- faq뷰페이지 -->
   <select id="faqView" parameterType="faqVO" resultType="faqVO">
@@ -70,8 +70,8 @@
 	(select * from faq_tbl where
 	faq_question like '%'||#{keyWord}||'%' and
 	<if test="code==0">faq_user_type='일반문의'</if>
-	<if test="code==1">faq_user_type='부동산'</if>
-	<if test="code==2">faq_user_type='기사'</if>
+	<if test="code==1">faq_user_type='부동산문의'</if>
+	<if test="code==2">faq_user_type='기사문의'</if>
 	order by faq_reg_date) n) order by rnum desc)r)
 	where rnum between #{start} and #{end}
   </select>
