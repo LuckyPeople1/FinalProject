@@ -18,6 +18,7 @@
 				</div>
 				<div class="moveListBox">
 					<c:forEach var="list" items="${movePage.list}" varStatus="i">
+						<c:if test="${list.applyIdx != 3 }">
 						<c:choose>
 							<c:when test="${list.applyStatus eq 0 or list.applyStatus eq 1}">
 								<a href="/my/auctionList?applyIdx=${list.applyIdx }" class="moveBox on">
@@ -83,6 +84,7 @@
 								</c:otherwise>
 							</c:choose>
 						</a>
+						</c:if>
 					</c:forEach>
 				</div>
 				<div class="movePaging">

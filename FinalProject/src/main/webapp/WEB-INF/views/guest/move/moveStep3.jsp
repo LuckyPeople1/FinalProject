@@ -74,8 +74,7 @@
 														<span class="icon-parking ${endInfo.parking == "Y" ? 'on' : ''}"></span>
 													</div>
 												</div>
-											</div>
-										
+											</div>										
 										</div>
 										<div class="caption">상세 정보 입력</div>
 									</div>
@@ -144,8 +143,6 @@
 		</section>
 	</div>
 	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
-
-
 </div>
 <script src="/guest/js/move/package.js"></script>
 </body>
