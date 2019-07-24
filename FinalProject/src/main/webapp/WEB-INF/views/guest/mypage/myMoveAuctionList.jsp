@@ -41,9 +41,11 @@
 				</div>
 			</div>
 		</section>
+		
 	</div>
-	<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
+	
 	<script src="<c:url value="/guest/js/mypage/move.js"/>"></script>
 </div>
+<%@include file="/WEB-INF/views/guest/common/footer.jsp" %>
 </body>
 </html>

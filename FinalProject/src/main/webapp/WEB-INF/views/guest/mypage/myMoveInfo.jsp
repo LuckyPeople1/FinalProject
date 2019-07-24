@@ -24,7 +24,7 @@
 							</div>
 						</c:if>
 						<c:if test="${not empty moveInfo.maVo.proFilepath}">
-							<div class="profile">
+							<div class="profile" style="width: 130px; height: 130px">
 								<img src="${moveInfo.maVo.proFilepath}" alt="프로필">
 							</div>
 						</c:if>

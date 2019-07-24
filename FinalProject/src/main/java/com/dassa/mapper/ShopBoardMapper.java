@@ -9,6 +9,7 @@ import com.dassa.vo.FaqVO;
 import com.dassa.vo.NoticeVO;
 import com.dassa.vo.QuestionVO;
 import com.dassa.vo.SearchNoticeVO;
+import com.dassa.vo.SearchQuestionVO;
 
 @MapperScan("shopBoardMapper")
 public interface ShopBoardMapper {
@@ -49,5 +50,9 @@ public interface ShopBoardMapper {
 	//부동산 공지사항 검색
 	public ArrayList<NoticeVO> searchKeywordTitle(SearchNoticeVO s) throws Exception;
 	public int titleCount(SearchNoticeVO s) throws Exception;
+	
+	//1:1문의 타입검색
+	public ArrayList<QuestionVO> searchShopTitle(SearchQuestionVO s) throws Exception;
+	public int ShopCount(SearchQuestionVO s) throws Exception;
 
 }

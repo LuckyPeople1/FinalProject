@@ -148,8 +148,6 @@
 			</div>
 		</div>
 		
-		
-		
 		<!-- 푸터 -->
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/manager/common/page/footer.php'; ?>
 	</div>

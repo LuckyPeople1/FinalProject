@@ -26,23 +26,23 @@
 					<tbody>
 					<tr>
 						<th>회사명<span class="ess">*</span></th>
-						<td><input class="tbox full" name="" value="${item.companyName }"></td>
+						<td><input class="tbox full" name="" value="${item.companyName }" readonly="readonly"></td>
 						<th>대표자명<span class="ess">*</span></th>
-						<td><input class="tbox full" name="userName" value="${item.userName }"></td>
+						<td><input class="tbox full" name="userName" value="${item.userName }" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>연락처<span class="ess">*</span></th>
-						<td><input class="tbox full" name="userPhone" value="${item.userPhone }"></td>
+						<td><input class="tbox full" name="userPhone" value="${item.userPhone }" readonly="readonly"></td>
 						<th>이메일</th>
-						<td><input class="tbox full" name="userEmail" value="${item.userEmail }"></td>
+						<td><input class="tbox full" name="userEmail" value="${item.userEmail }" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>주소<span class="ess">*</span></th>
-						<td colspan="3"><input class="tbox full" name="userAddr" value="${item.userAddr } ${item.addrCode}"></td>
+						<td colspan="3"><input class="tbox full" name="userAddr" value="${item.userAddr } ${item.addrCode}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>사업자등록번호<span class="ess">*</span></th>
-						<td><input class="tbox full" name="businessNumber" value="${item.businessNumber }"></td>
+						<td><input class="tbox full" name="businessNumber" value="${item.businessNumber }" readonly="readonly"></td>
 						<th>사업자 등록증<span class="ess">*</span></th>
 						<td>
 							<div class="img_upload">
@@ -55,7 +55,7 @@
 					</tr>
 					<tr>
 						<th>중개사번호<span class="ess">*</span></th>
-						<td><input class="tbox full" name="registrationNumber" value="${item.registrationNumber }"></td>
+						<td><input class="tbox full" name="registrationNumber" value="${item.registrationNumber }" readonly="readonly"></td>
 						<th>중개사 등록증<span class="ess">*</span></th>
 						<td>
 							<div class="img_upload">

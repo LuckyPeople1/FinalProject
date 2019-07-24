@@ -69,12 +69,12 @@
 				</if>
 				 <if test="startAddr1 !=null">			<!--츌발지 검색  -->
 					<foreach collection="startAddr1" item="Addr1"  separator=" ">
-						and start_addr1 like '%'||#{Addr1}||'%'
+						or start_addr1 like '%'||#{Addr1}||'%'
 					</foreach>
 				</if>
 				<if test="endAddr1 !=null">				<!--도착지 검색  -->
 					<foreach collection="endAddr1" item="end1"  separator=" ">
-						and end_addr1 like '%'||#{end1}||'%'
+						or end_addr1 like '%'||#{end1}||'%'
 					</foreach>
 				</if>
 				

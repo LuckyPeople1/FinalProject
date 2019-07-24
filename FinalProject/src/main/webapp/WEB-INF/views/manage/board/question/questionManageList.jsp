@@ -32,29 +32,29 @@
 					<tbody>
 					<tr>
 						<th>제목</th>
-						<td colspan="">
+						<td colspan="3">
 							<span class="sbox small">
 								<select name="type">
 									<option value="1">제목</option>
 									<option value="2">작성자명</option>
 								</select>
 							</span>
-							<input class="tbox" name="keyWord">
+							<input class="tbox" name="keyWord" style="width: 70%;">
 						</td>
-						<th>답변상태</th>
+					<%--	<th>답변상태</th>
 						<td>
 							<label>
-								<input type="checkbox">
+								<input type="checkbox" class="checktype" name="question" value="답변완료">
 								<span>답변완료</span>
 							</label>
 							<label class="ml10">
-								<input type="checkbox">
+								<input type="checkbox" class="checktype" name="question" value="미답변">
 								<span>미답변</span>
 							</label>
-						</td>
+						</td> --%>
 					</tr>
 					
-					<tr>
+				<%--<tr>
 						<th>작성일</th>
 						<td colspan="3">
 							<input id="dateS" class="tbox"> ~ <input id="dateE" class="tbox">
@@ -65,7 +65,7 @@
 							<a href="javascript:setSearchDate('3m')" class="btn smaller higher col_grey ml5">3달</a>
 							<a href="javascript:setSearchDate('6m')" class="btn smaller higher col_grey ml5">6달</a>
 						</td>
-					</tr>
+					</tr> --%>
 					</tbody>
 				</table>
 				</form>

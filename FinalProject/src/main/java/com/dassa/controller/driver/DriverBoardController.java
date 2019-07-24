@@ -149,7 +149,7 @@ public class DriverBoardController {
 		return ma;
 	}
 	//1:1문의 타입으로 검색
-	@RequestMapping("/searchQuestion")
+	@RequestMapping("/question/searchQuestion")
 	@ResponseBody
 	public ModelAndView searchQuestionTitle(@RequestParam int reqPage,HttpServletRequest request,@RequestParam String keyWord, String type) {
 		int code;

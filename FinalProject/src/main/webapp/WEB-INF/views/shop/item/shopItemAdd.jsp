@@ -408,21 +408,21 @@
 							<tr>
 								<th>난방 종류</th>
 								<td class="ggZjqG">
-									<input type="text" value="" placeholder="중앙난방, 개별 난방, 지역 난방" name="shopItemHeating2">
+									<input type="text" value="" name="shopItemHeating2" readonly="readonly" style="border: none">
 								</td>
 								<th>시공사</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="(주)컴퍼니" name="shopItemBulidCompany">
+									<input type="text" value=""  name="shopItemBulidCompany" readonly="readonly" style="border: none">
 								</td>
 							</tr>
 							<tr>
 								<th>복도유형</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="정보없음" name="shopItemBulidHallway"">
+									<input type="text" value="" name="shopItemBulidHallway" readonly="readonly" style="border: none">
 								</td>
 								<th>준공년도</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="20171214" name="shopItemBulidDate"">
+									<input type="text" value="" name="shopItemBulidDate" readonly="readonly" style="border: none">
 								</td>
 							</tr>
 							<tr>
@@ -441,7 +441,7 @@
 								</td>
 								<th>총 세대수</th>
 								<td class="ggZjqG">
-									<input type="text" value=""  placeholder="234" name="shopItemHouseNumber">
+									<input type="text" value="" name="shopItemHouseNumber" readonly="readonly" style="border: none">
 								</td>
 							</tr>
 						</tbody>
@@ -1244,6 +1244,10 @@
 				$("select[name=shopItemFloor2]").focus();
 				return false;
 			}
+			if($("#fileImg").val()==""){
+				alert("사진 한장은 최소로 등록해주세요");
+				return false;
+			}
 		});
 		$("input[name=img_0]").change(function(){
 			$(this).css("display","none");
@@ -1262,7 +1266,7 @@
 //			$(this).css("display","none");
 //			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
 //		});
-		
+	
 	</script>
 	<!-- 다음 지도 api -->
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
