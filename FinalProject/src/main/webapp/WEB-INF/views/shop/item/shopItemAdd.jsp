@@ -1244,6 +1244,10 @@
 				$("select[name=shopItemFloor2]").focus();
 				return false;
 			}
+			if($("#fileImg").val()==""){
+				alert("사진 한장은 최소로 등록해주세요");
+				return false;
+			}
 		});
 		$("input[name=img_0]").change(function(){
 			$(this).css("display","none");
@@ -1262,7 +1266,7 @@
 //			$(this).css("display","none");
 //			$(".heKOml").append('<div class="img_upload"><input type="file" name="img_0" id="img_0" class="hide" onchange="img_change(this)"><a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)"></a></div>');
 //		});
-		
+	
 	</script>
 	<!-- 다음 지도 api -->
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
