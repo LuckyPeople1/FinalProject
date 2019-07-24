@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +32,7 @@ public class ManageUserController {
 	
 	//전체 승인관리
 	@RequestMapping("/userApprobateList")
-	public String UserApprobateList(Model model, String userType, @RequestParam(required = false, defaultValue = "1") int reqPage){
+	public String UserApprobateList(HttpSession session, Model model, String userType, @RequestParam(required = false, defaultValue = "1") int reqPage){
 		try {
 			UserPageDataVO userPageData = manageUserService.searchAllApproPageData(reqPage, userType);
 			List<UserVO> list = userPageData.getList();
