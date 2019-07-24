@@ -37,6 +37,7 @@ public interface GuestMoveMapper {
 	public ArrayList<MoveAuctionVO> moveAuction(int applyIdx);
 	//마이페이지 입찰 상세정보
 	public MoveAuctionVO moveAuctionInfo(int applyIdx);
+	public MoveAuctionVO moveAuctionInfo2(int applyIdx);
 	//결제시 스테이터스 변경
 	public int moveApplyStateUpdate(int applyIdx);
 	//결제시 드라이버 테이블 스테이트 변경

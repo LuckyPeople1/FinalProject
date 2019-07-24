@@ -124,11 +124,11 @@ public class DriverAuctionController {
 			if(result>0) {
 				driverService.driverAuctionApplyUpdate(applyIdx);
 				driverService.driverAuctionUpdate(applyIdx);
-					return "driver/manager/driverMove";
+					return "driver/home";
 				
 			}else {
 				
-				return "driver/auction/driverAuctionDetail";
+				return "driver/home";
 			}
 										
 		}
