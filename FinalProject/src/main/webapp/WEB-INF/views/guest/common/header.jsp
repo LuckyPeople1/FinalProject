@@ -27,7 +27,7 @@
 		</nav>
 		<div class="loginMenu">
 			<c:if test="${not empty sessionScope.user}">
-				<a href="/my/">마이페이지</a>
+				<a href="/my/pwChk">마이페이지</a>
 				<a href="/login/logout">로그아웃</a>
 			</c:if>
 			<c:if test="${empty sessionScope.user}">
