@@ -5,6 +5,7 @@
 <style>
 .itemImage {
     width: 105%;
+    height:100%;
     display: block;
     position: absolute;
 }
