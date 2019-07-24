@@ -42,7 +42,7 @@
 								<textarea class="styled__InquiryArea-sc-1v9ngdo-7 bqTGEL Textarea-sc-6jro6l-0 hunnDM" name="questionsContent" placeholder="내용을 입력하세요."required></textarea></li>
 						</ul>
 						<div class="styled__BtnWrap-sc-1v9ngdo-8 cxBJwZ">
-							<button type="submit" style="background-color: blue; width: 25%; height: 50px; color: white; border: none; cursor:pointer;">전송하기</button>
+							<button type="submit" style="background-color: blue; width: 25%; height: 50px; color: white; border: none; cursor:pointer;" id="Qbtn">전송하기</button>
 						</div>
 						</form>
 					</div>
@@ -53,5 +53,14 @@
 			<%@include file="/WEB-INF/views/guest/common/footer.jsp"%>
 		</div>
 </div>
+<script type="text/javascript">
+	$("#Qbtn").click(function() {
+		if(${sessionScope.user.userId==null}){
+			alert("로그인이 필요합니다.");
+			location.href = "/login/";
+			return false;
+		}
+	});
+</script>
 </body>
 </html>
