@@ -14,7 +14,7 @@
 			<!-- 컨텐츠 시작 -->
 			<div class="mypageCon move ">
 				<div class="auctionInfoBg">이사 상세정보</div>
-				<c:if test="${not empty moveInfo.maVo}">
+				<c:if test="${not empty moveInfo.maVo }">
 				<!-- 기사 정보 -->
 				<div class="auctionDetailInfo">
 					<div class="profileBox">
