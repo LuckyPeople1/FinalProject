@@ -35,7 +35,8 @@
 				   social_id as socialId,
 				   enroll_date as enrollDate,
 				   status,
-				   out_date as outDate
+				   out_date as outDate,
+				   company_name as companyName
  		from (select rownum as rnum, n.* from (select * from user_tbl where 
 		<choose>
 			<when test="userType != null and userType != ''">
@@ -112,7 +113,8 @@
 				   social_id as socialId,
 				   enroll_date as enrollDate,
 				   status,
-				   out_date as outDate	 
+				   out_date as outDate,
+				   company_name as companyName	 
 		from (select rownum as rnum, n.* 
 		from (select * from user_tbl 
 		where 
@@ -218,7 +220,8 @@
 				   social_id as socialId,
 				   enroll_date as enrollDate,
 				   status,
-				   out_date as outDate
+				   out_date as outDate,
+				   company_name as companyName
 		from (select rownum as rnum, n.* 
 		from (select * from user_tbl 
 		where  
@@ -289,7 +292,8 @@
 			   social_id as socialId,
 			   enroll_date as enrollDate,
 			   status,
-			   out_date as outDate
+			   out_date as outDate,
+			   company_name as companyName
 		from (select rownum as rnum, n.*
 		from (select * from user_tbl where user_type = #{userType} and status=1 order by rownum desc) n)
  		where rnum between #{startPage} and #{endPage}
@@ -321,7 +325,8 @@
 				   social_id as socialId,
 				   enroll_date as enrollDate,
 				   status,
-				   out_date as outDate
+				   out_date as outDate,
+				   company_name as companyName
  		from (select rownum as rnum, n.*
 		from (select * from user_tbl where user_type=#{userType} and status=3 order by rownum desc) n)
  		where rnum between #{startPage} and #{endPage}
@@ -363,7 +368,8 @@
 			   social_id as socialId,
 			   enroll_date as enrollDate,
 			   status,
-			   out_date as outDate
+			   out_date as outDate,
+			   company_name as companyName
 		from (select rownum as rnum, n.*
 		from  (select * from user_tbl where 
 		<choose>
