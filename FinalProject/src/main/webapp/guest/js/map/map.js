@@ -25,7 +25,7 @@ $(".PcMeW").change(function(){
 					$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
 					for(var i=0;i<data.list.length;i++){						
 						var hi=data.list[i].shopItemDealType;
-						console.log(hi);
+						
 						if(hi=="월세"){
 							msg=data.list[i].shopItemDeposit+"/"+data.list[i].shopItemDealPrice;
 						}else{
@@ -95,8 +95,7 @@ $(".PcMeW").change(function(){
 				shopItemType1:shopItemType1				
 			},
 			success:function(data){
-				console.log("2");
-				console.log(data.list.length);
+				
 				if(data.list!=""){
 					var msg="";
 					$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
@@ -169,8 +168,7 @@ $(".PcMeW").change(function(){
 				shopItemType1:shopItemType1				
 			},
 			success:function(data){
-				console.log("3");
-				console.log(data.list.length);
+				
 				if(data.list!=""){
 					var msg="";
 					$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
@@ -245,7 +243,7 @@ $(".PcMeW").change(function(){
 				shopItemType1:shopItemType1				
 			},
 			success:function(data){
-				console.log("4");
+				
 				if(data.list!=""){
 					var msg="";
 					$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
@@ -320,7 +318,7 @@ $(".PcMeW").change(function(){
 				shopItemType1:shopItemType1				
 			},
 			success:function(data){
-				console.log("0");
+				
 				$(".hXdylP").text("조건에 맞는 방 0 개");
 				str = "";
 				str+="<div class='styled__NoRoom-ityzo6-2 kkLYaw'>";
@@ -370,7 +368,7 @@ $("#mapName").keyup(function(){
 			url:"/mapSelectOne",			
 				data:{shopItemAddr1:shopItemAddr1},			
 				success : function(data){
-					console.log("성공");				
+						
 							str1+="<ul class='styled__Box-sc-1pc2wuh-2 icqmaF' width='600'>";
 							str1+="<li class='styled__Wrap-sc-1wgcq7h-0 dhDZXc'>";
 							str1+="<header class='styled__Header-sc-1wgcq7h-1 dsnFwu'>";
@@ -498,12 +496,12 @@ function test(shopItemAddr1){
 		url:"/mapSelectOne",			
 		data:{shopItemAddr1:shopItemAddr1},			
 		success : function(data){
-			console.log("성공");
+			
 			$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
 		if(data.list!=""){
 			var msg="";									
 			for(var i=0;i<data.list.length;i++){
-				console.log(data.list[i].shopItemDealType);
+				
 				var hi=data.list[i].shopItemDealType;
 				if(hi=="월세"){
 					msg=data.list[i].shopItemDeposit+"/"+data.list[i].shopItemDealPrice;
@@ -571,8 +569,7 @@ function test(shopItemAddr1){
 
 $("#mapSelect").click(function(){		
 	var shopItemAddr1=$("#mapName").val();
-	console.log("누름");
-	console.log(shopItemAddr1);
+	
 	var mapView=$(".fxRDHg");
 	mapView.html("");
 	var str="";
@@ -592,12 +589,12 @@ $("#mapSelect").click(function(){
 			url:"/mapSelectOne",			
 			data:{shopItemAddr1:shopItemAddr1},			
 			success : function(data){
-				console.log("성공");
+				
 				$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
 			if(data.list!=""){
 				var msg="";									
 				for(var i=0;i<data.list.length;i++){
-					console.log(data.list[i].shopItemDealType);
+					
 					var hi=data.list[i].shopItemDealType;
 					if(hi=="월세"){
 						msg=data.list[i].shopItemDeposit+"/"+data.list[i].shopItemDealPrice;
@@ -707,14 +704,12 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 			 $.ajax({		
 					url:"/mapAll",							
 					success : function(data){
-						console.log("성공");				
+								
 					if(data.list!=""){
 						var msg="";
 						$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
-						for(var i=0;i<data.list.length;i++){
-							console.log(data.list);
-							var hi=data.list[i].shopItemDealType;
-							console.log(hi);
+						for(var i=0;i<data.list.length;i++){							
+							var hi=data.list[i].shopItemDealType;							
 							if(hi=="월세"){
 								msg=data.list[i].shopItemDeposit+"/"+data.list[i].shopItemDealPrice;
 							}else{
@@ -785,7 +780,7 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 			mapView.html("");
 			var str="";
 			var shopItemAddr2 = infoDiv1[1].substring(0,2);
-			console.log(shopItemAddr2);
+			
 			 $.ajax({		
 					url:"/mapAView",			
 					data:{
@@ -793,7 +788,7 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 						shopItemAddr2:shopItemAddr2
 					},			
 					success : function(data){
-						console.log("성공");				
+									
 					if(data.list!=""){
 						var msg="";
 						$(".hXdylP").text("조건에 맞는 방 "+data.list.length+"개");	
@@ -838,7 +833,7 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 							}
 						mapView.append(str);
 						}else if(data.list==""){
-							console.log("ㅎㅎㅎ");
+							
 							$(".hXdylP").text("조건에 맞는 방 0 개");
 							str = "";
 							str+="<div class='styled__NoRoom-ityzo6-2 kkLYaw'>";

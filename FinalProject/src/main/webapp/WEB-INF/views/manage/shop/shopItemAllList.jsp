@@ -83,9 +83,8 @@
 										<span class="tag col_darkGrey f_w">${list.shopItemSaleState }</span>
 									</c:if> <c:if test="${list.shopItemSaleState eq '판매중'}">
 										<span class="tag col_blue f_w">${list.shopItemSaleState }</span>
-									</c:if> <c:if test="${list.shopItemSaleState eq '삭제'}">
-										<span class="tag col_darkGrey f_w">${list.shopItemSaleState }</span>
-									</c:if></td>
+									</c:if>
+									</td>
 								<c:if test="${list.shopItemPremiumState eq '0'}">
 									<td><span class="tag col_darkGrey f_w">비적용</span></td>
 								</c:if>

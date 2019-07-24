@@ -40,13 +40,13 @@
 	faq_answer as faqAnswer,
 	faq_reg_date as faqRegDate
 	from (select rownum as rnum, f.* from (select * from faq_tbl where
-	faq_user_type='기사' and faq_state='정상'
+	faq_user_type='이사문의' and faq_state='정상'
 	order by rownum desc) f)
 	where rnum between #{start} and #{end}
  
   </select>
    <select id="faqTotalCount" resultType="_int">
-  	select count(*) cnt from faq_tbl where faq_user_type='기사' and faq_state='정상'
+  	select count(*) cnt from faq_tbl where faq_user_type='이사문의' and faq_state='정상'
   </select>
   
     

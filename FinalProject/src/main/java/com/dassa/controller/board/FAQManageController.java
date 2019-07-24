@@ -125,7 +125,7 @@ public class FAQManageController {
 						view = "manage/board/faq/insertSuccess";
 					}else if(f.getFaqUserType().equals("부동산문의")) {
 						view = "manage/board/faq/realestate/RinsertSuccess";
-					}else if(f.getFaqUserType().equals("기사문의")) {
+					}else if(f.getFaqUserType().equals("이사문의")) {
 						view = "manage/board/faq/articles/AinsertSuccess";					
 					}
 				}

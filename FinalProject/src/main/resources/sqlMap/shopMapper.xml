@@ -431,6 +431,7 @@
 	<select id="shopSuc" resultType="shopItemVO" parameterType="map">
 			select shop_item_idx as shopItemIdx,
 				shop_item_manager as shopItemManager,
+				shop_name as shopName,
 				shop_item_type1 as shopItemType1,
 				shop_item_deal_type as shopItemDealType,
 				shop_item_title as shopItemTitle,
