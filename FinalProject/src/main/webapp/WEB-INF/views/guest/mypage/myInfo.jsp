@@ -18,12 +18,7 @@
 						<div class="img_upload">
 							<input type="file" name="proFilename" id="img_0" class="hide" onchange="img_change(this)" value="${user.proFilepath }">
 							<a href="#none" class="imgUp" id="imgUp_0" onclick="img_up(this)" name="fileName">
-								<c:if test="${user.proFilePath != null }">
-									<img id="my_img"  src="${user.proFilepath }"> 
-								</c:if>
-								<c:if test="${user.proFilePath == null }">
-									<img id="my_img"  src="guest/img/img_profile_default.png"> 
-								</c:if>
+								<img id="my_img"  src="${user.proFilepath }"> 
 							</a>
 						</div>
 					</div>
