@@ -161,6 +161,23 @@
 	<select id="totalSearchUserListCount" parameterType="com.dassa.vo.SearchUserVO" resultType="_int">
 		select count(*) cnt from user_tbl where 
 		<choose>
+			<when test="userType==null">
+		  		(user_type=1 or user_type=2) and status = #{status}and 
+		  		<choose>
+					<when test="status != 3 ">
+						(enroll_date between #{startDate} and #{endDate})
+					</when>
+					<when test="status != 3 ">
+						(enroll_date between #{startDate} and #{endDate})
+					</when>
+					<when test="status == 3 ">
+						(out_date between #{startDate} and #{endDate})
+					</when>
+					<when test="status == 3 ">
+						(out_date between #{startDate} and #{endDate})
+					</when>
+				</choose> 
+		  	</when>
 		  	<when test="userType!=null">
 		  		user_type = #{userType} and status = #{status} and 
 				<choose>
@@ -178,23 +195,7 @@
 					</when>
 				</choose> 
 		  	</when>
-		  	<otherwise>
-		  		(user_type=1 or user_type=2) and status = #{status}and 
-		  		<choose>
-					<when test="status != 3 ">
-						(enroll_date between #{startDate} and #{endDate})
-					</when>
-					<when test="status != 3 ">
-						(enroll_date between #{startDate} and #{endDate})
-					</when>
-					<when test="status == 3 ">
-						(out_date between #{startDate} and #{endDate})
-					</when>
-					<when test="status == 3 ">
-						(out_date between #{startDate} and #{endDate})
-					</when>
-				</choose> 
-		  	</otherwise>
+		  	
 		</choose>
 	</select>
 	
