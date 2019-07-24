@@ -259,8 +259,9 @@
 				</div>	
 		</section>
 	</div>
-	<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
+	
 </div>
+<%@include file="/WEB-INF/views/driver/common/footer.jsp"%>
 <style>
 .request {
     display: table-cell;
