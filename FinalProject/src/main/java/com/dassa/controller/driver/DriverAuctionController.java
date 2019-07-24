@@ -108,7 +108,7 @@ public class DriverAuctionController {
 		}
 		@RequestMapping("/auctioninsert")
 		public String DriverAuctionInsert(DriverVO driverVO,int applyIdx,HttpSession session,HttpServletRequest request) throws Exception {
-			
+			System.out.println("옥션 인설트 호출");
 			session=request.getSession();
 			UserVO userVO =(UserVO)session.getAttribute("user");
 			driverVO.setDriverIdx(userVO.getUserIdx());	//세션값 userIdx driver_idx로  driverVO에 저장하기
