@@ -59,6 +59,19 @@
   			u.user_name as userName,
   			u.pro_filepath as proFilepath,
   			u.user_introduce as userIntroduce
+  			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where d.auction_state in (2,3) and d.apply_idx = #{applyIdx}
+  	</select>
+  	<select id="moveAuctionInfo2" parameterType="_int" resultType="com.dassa.vo.MoveAuctionVO">
+  		select d.driver_idx as driverIdx,
+  			d.apply_idx as applyIdx,
+  			d.user_car as userCar,
+  			d.driver_message as driverMessage,
+  			d.ladderstate as ladderState,
+  			d.estimateAmount as estimateAmount,
+  			d.auction_state as auctionState,
+  			u.user_name as userName,
+  			u.pro_filepath as proFilepath,
+  			u.user_introduce as userIntroduce
   			from driver_tbl d join user_tbl u on (d.driver_idx = u.user_idx) where d.apply_idx = #{applyIdx}
   	</select>
   	<select id="driverReviewSelect" parameterType="_int" resultType="com.dassa.vo.MoveAuctionReview">

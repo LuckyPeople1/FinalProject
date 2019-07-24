@@ -115,6 +115,7 @@ public class NoticeController {
 		ModelAndView ma = new ModelAndView();
 		try {
 			n = noticeService.noticeView(noticeIndex);
+			n.setNoticeContent(n.getNoticeContent().replace("<br/>", "\r\n"));
 			if(n!=null) {
 				ma.addObject("noticeVO",n);
 				ma.setViewName("manage/board/notice/noticeManageModify");
@@ -142,8 +143,10 @@ public class NoticeController {
 			try {
 				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
 				n.setNoticeTitle(ti);
+				System.out.println(ti);
 				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
 				n.setNoticeContent(con);
+				System.out.println(con);
 				byte[] bytes = noticefilename.getBytes();
 				File f = new File(fullPath);	//io File 임포트
 				FileOutputStream fos = new FileOutputStream(f);
@@ -222,10 +225,6 @@ public class NoticeController {
 			n.setNoticeFilename(filePath);
 			if(!noticefilename.isEmpty()) {
 				try {
-					String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
-					n.setNoticeTitle(ti);
-					String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
-					n.setNoticeContent(con);
 					byte[] bytes = noticefilename.getBytes();
 					File f = new File(fullPath);	//io File 임포트
 					FileOutputStream fos = new FileOutputStream(f);
@@ -243,6 +242,12 @@ public class NoticeController {
 			System.out.println("제목-"+n.getNoticeTitle()+"/"+"내용-"+n.getNoticeContent()+"/"+"타입-"+n.getNoticeType()+"/"+"작성자-"+n.getNoticeWriter());
 			System.out.println("파일이름-"+n.getNoticeFilename()+"/"+"파일경로-"+n.getNoticeFilepath()+"/"+"/"+"상태-"+n.getNoticeState());
 			try {
+				String ti = n.getNoticeTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeTitle(ti);
+				System.out.println(ti);
+				String con = n.getNoticeContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n\r", "<br/>");
+				n.setNoticeContent(con);
+				System.out.println(con);
 				result = noticeService.noticeInsert(n);
 				if(result>0) {
 						if(n.getNoticeType().equals("사용자")) {

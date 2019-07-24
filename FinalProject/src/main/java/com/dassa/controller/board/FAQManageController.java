@@ -163,11 +163,11 @@ public class FAQManageController {
 			System.out.println("result:"+result);
 			System.out.println("타입-"+f.getFaqUserType());
 			if(result>0) {
-				if(f.getFaqUserType().equals("회원문의")) {
+				if(f.getFaqUserType().equals("일반문의")) {
 					view = "manage/board/faq/updateSuccess";
 				}else if(f.getFaqUserType().equals("부동산문의")) {
 					view = "manage/board/faq/realestate/RupdateSuccess";
-				}else if(f.getFaqUserType().equals("기사문의")) {
+				}else if(f.getFaqUserType().equals("이사문의")) {
 					view = "manage/board/faq/articles/AupdateSuccess";
 				}
 			}

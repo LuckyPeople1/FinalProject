@@ -52,7 +52,7 @@ public class GuestMoveService {
 		return result;
 	}
 	public MoveAuctionVO moveAuctionInfo(int applyIdx) {
-		return guestMoveMapper.moveAuctionInfo(applyIdx);
+		return guestMoveMapper.moveAuctionInfo2(applyIdx);
 	}
 	public MoveAuctionListVO moveAuction(int applyIdx){
 		ArrayList<MoveAuctionVO> auList = guestMoveMapper.moveAuction(applyIdx);
