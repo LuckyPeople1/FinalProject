@@ -59,7 +59,7 @@ $(".PcMeW").change(function(){
 								case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 								case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 								case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-								case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+								case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>,";break;
 							};							
 							str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";	
 					
@@ -134,7 +134,7 @@ $(".PcMeW").change(function(){
 							case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-							case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+							case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 						};							
 						str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 						}
@@ -209,7 +209,7 @@ $(".PcMeW").change(function(){
 							case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-							case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+							case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 						};							
 						str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 						}
@@ -284,7 +284,7 @@ $(".PcMeW").change(function(){
 							case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-							case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+							case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 						};							
 						str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 						}
@@ -535,7 +535,7 @@ function test(shopItemAddr1){
 					case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 					case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 					case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-					case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+					case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 				};							
 				str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 				}
@@ -628,7 +628,7 @@ $("#mapSelect").click(function(){
 						case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 						case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 						case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-						case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+						case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 					};							
 					str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 					}
@@ -743,7 +743,7 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 								case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 								case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 								case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-								case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+								case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							};							
 							str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 							}
@@ -827,7 +827,7 @@ kakao.maps.event.addListener(map,'mouseup',function(){
 								case '투룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 								case '쓰리룸':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor1+"층,"+data.list[i].shopItemSize2+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 								case '오피스텔':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
-								case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m²</p>";break;
+								case '아파트':str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemFloor2+"층,"+data.list[i].shopItemSize4+"m², 관리비 "+data.list[i].shopItemManagePrice+"만 </p>";break;
 							};							
 							str+="<p class='styled__Text-fi3k4t-7 jBkVAv'>"+data.list[i].shopItemContent+"</p></a></div></li>";
 							}
