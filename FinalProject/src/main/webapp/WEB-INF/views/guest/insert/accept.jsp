@@ -29,14 +29,14 @@
 						</svg>
 					</label>
 				</div><!-- acceptAgreeTop -->
-				<div class="accept_agreeBox">동의하세요!!</div>
+				<div class="accept_agreeBox">거부 할 수 없습니다. 동의하세요!!</div>
 			</div><!-- acceptAgreeWrap -->
 			
 			<div class="accept_agreeWrap">
 				<div class="accept_agreeTop">
 					<label class="accept_agreeLabel">
 						<h1>
-							다싸 서비스 이용약관 동의
+							개인정보 수집 및 이용에 대한 동의
 							<span>(필수)</span>
 						</h1>
 						<input type="checkbox" class="accept_checkBox" name="agree_required">
@@ -51,14 +51,14 @@
 						</svg>
 					</label>
 				</div><!-- acceptAgreeTop -->
-				<div class="accept_agreeBox">동의하세요!!</div>
+				<div class="accept_agreeBox">당신의 개인정보 잘 보관하겠습니다.^^</div>
 			</div><!-- acceptAgreeWrap -->
 			
 			<div class="accept_agreeWrap">
 				<div class="accept_agreeTop">
 					<label class="accept_agreeLabel">
 						<h1>
-							다싸 서비스 이용약관 동의
+							마케팅 정보 수신에 대한 동의
 							<span>(선택)</span>
 						</h1>
 						<input type="checkbox" class="accept_checkBox" name="agree_option">
@@ -73,7 +73,7 @@
 						</svg>
 					</label>
 				</div><!-- acceptAgreeTop -->
-				<div class="accept_agreeBox">선택 이지만 동의하세요!!</div>
+				<div class="accept_agreeBox">광고문자 받고싶으면 동의하세요.</div>
 			</div><!-- acceptAgreeWrap -->
 			
 			

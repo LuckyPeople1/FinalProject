@@ -80,7 +80,7 @@
 						<c:when test="${not empty list }">
 							<c:forEach var="u" items="${list}" varStatus="i">
 								<tr>
-									<td>${u.userIdx }</td>
+									<td>${i.count }</td>
 									<td>${u.userId }</td>
 									<td>${u.userName }</td>
 									<td>${u.userAddr }</td>
