@@ -110,7 +110,10 @@
 							<div class="set_menu">
 								<input name="userIdx" type="hidden" value=${sessionScope.user.userIdx }>
 								<input name="shopItemIdx" type="hidden" value=${item.shopItemIdx }>
-								<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">수정하기</a>
+								<c:if test="${item.shopItemSaleState != '판매완료'}">
+									<a href="/shop/itemInfo?shopItemIdx=${item.shopItemIdx }" class="btn col_navy f_w">수정하기</a>
+								</c:if>
+								
 								<c:if test="${item.shopItemSaleState eq '판매중단'}">
 									<button type="button" class="btn small col_blue f_w" name="addItem" value=${item.shopItemIdx }>판매진행</button>
 								</c:if>
