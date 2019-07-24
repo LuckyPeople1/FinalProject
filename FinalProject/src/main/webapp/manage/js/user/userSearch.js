@@ -672,6 +672,7 @@ function del(userIdx){
 		location.href = "/userManage/reLoad?userIdx="+userIdx;
 	}else{
 		return false;
+		location.href = "/login/";
 	}
 }
 
@@ -681,6 +682,7 @@ function realDel(userIdx){
 		location.href = "/userManage/realDel?userIdx="+userIdx;
 	}else{
 		return false;
+		location.href = "/login/";
 	}
 }
 
@@ -690,6 +692,7 @@ function approUser(userIdx){
 		location.href = "/userManage/reloadApproUser?userIdx="+userIdx;
 	}else{
 		return false;
+		location.href = "/login/";
 	}
 }
 

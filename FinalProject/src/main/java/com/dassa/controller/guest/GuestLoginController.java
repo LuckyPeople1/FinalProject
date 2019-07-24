@@ -88,7 +88,7 @@ public class GuestLoginController {
 				}
 			}else {
 				model.addAttribute("msg", "승인 대기중입니다.");
-				model.addAttribute("loc", "/index");
+				model.addAttribute("loc", "/login/index");
 				return "guest/common/msg";
 			}	
 		}else {
