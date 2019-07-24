@@ -684,6 +684,14 @@ function realDel(userIdx){
 	}
 }
 
+function approUser(userIdx){
+	var bool = confirm("승인 합니다.");
+	if(bool){
+		location.href = "/userManage/reloadApproUser?userIdx="+userIdx;
+	}else{
+		return false;
+	}
+}
 
 ///
 

@@ -91,7 +91,7 @@
 									<td>${u.type }</td>
 									<td>${u.enrollDate }</td>
 									<td>
-										<a href="/userManage/reloadApproUser?userIdx=${u.userIdx }" class="tag col_blue f_w">${u.userStatus}</a>
+										<a href="javascript:approUser(${u.userIdx})" class="tag col_blue f_w">${u.userStatus}</a>
 									</td>
 								</tr>
 							</c:forEach>
