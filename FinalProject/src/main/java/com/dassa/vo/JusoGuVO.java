@@ -24,4 +24,6 @@ public class JusoGuVO {
 	public void setJusoGuName(String jusoGuName) {
 		this.jusoGuName = jusoGuName;
 	}
+	
+	
 }
